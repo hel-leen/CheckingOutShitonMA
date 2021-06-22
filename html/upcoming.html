@@ -59,7 +59,7 @@ margin-bottom: 12px;
   transition: 0.2s;
 }
 
-a {
+a, #about {
     color: #FFEDDB;
 }
 .release_info {
@@ -87,7 +87,15 @@ a {
     background-color: rgba(66, 66, 66, 0.6);
 }
 
+#about {
+   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgba(230, 194, 184, 0.0001), 0 0 40px rgba(230, 194, 184, 0.0001), 0 0 50px rgba(230, 194, 184, 0.0001), 0 0 60px rgba(230, 194, 184, 0.0001);
+  padding:4px;
+  width:fit-content;
+}
 
+#about:hover {
+   text-shadow: 0 0 10px #fff;
+}
 .showItem {
 	display: "";
 }
@@ -101,10 +109,10 @@ a {
 }
 @-webkit-keyframes glow {
   from {
-    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgba(230, 194, 184, 0.0001), 0 0 40px rgba(230, 194, 184, 0.0001), 0 0 50px rgba(230, 194, 184, 0.0001), 0 0 60px rgba(230, 194, 184, 0.0001);
+    text-shadow: 0 0 10px rgba(230, 194, 184, 0.4), 0 0 20px rgba(230, 194, 184, 0.1) 0 0 30px rgba(230, 194, 184, 0.01), 0 0 40px rgba(230, 194, 184, 0.01), 0 0 50px rgba(230, 194, 184, 0.01), 0 0 60px rgba(230, 194, 184, 0.01);
   }
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px rgba(192, 162, 153, 0.001), 0 0 40px rgba(192, 162, 153, 0.001), 0 0 50px rgba(192, 162, 153, 0.001), 0 0 60px rgba(192, 162, 153, 0.001), 0 0 70px rgba(192, 162, 153, 0.001);
+    text-shadow: 0 0 20px #fff, 0 0 30px rgba(192, 162, 153, 0.01), 0 0 40px rgba(192, 162, 153, 0.01), 0 0 50px rgba(192, 162, 153, 0.01), 0 0 60px rgba(192, 162, 153, 0.01), 0 0 70px rgba(192, 162, 153, 0.01);
   }
 }
 </style>
@@ -113,8 +121,10 @@ a {
   <h1 class="glow" id="header">Upcoming albums on MA &nbsp;</h3>
   <h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicate records filtered out. </h3>
   <p>Webpage genereated with <a href="https://www.r-project.org/">R</a></p>
-  <p>About CheckingOutShitonMA project</p>
-    <p>CheckingOutShitonMA is a project by hel_leen, who is known to have the most frostbitten music taste among social scientist wannabes. <p></p>She created the project mainly for herself after spending years rummaging through every deepest corner of the frostbitten genres searching for some promising bands and albums, despite an increasing frustration resulted from hearing too much cheesy stuff. </p><p>She's glad to share if this also helps you slightly. </p><p></p>
+  <div  id ='about'>About <i>CheckingOutShitonMA</i> project</div>
+  <div id ='project' class='hideItem'>
+    <p>CheckingOutShitonMA is a project by hel_leen, who is known to have the most frostbitten music taste among social scientist wannabes. <p></p>She created the project mainly for herself, after spending years rummaging through every deepest corner of these frostbitten genres searching for some promising bands and albums, despite an increasing frustration resulted from hearing too much cheesy stuff. </p><p>She's glad to share if this helps in any way. </p></div>
+	<p><b>NOTE:</b> The last column "EarliestDate" stands for (literally) the earliest released date of other version(s) of the album in question, if it has any. The value "NA" means the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-released albums.</p> 
   <input type="text" id="SearchInput" onkeyup="searchFunction()" placeholder="Search for albums or bands.." title="Type in some words">
   
   
@@ -124,7 +134,7 @@ a {
   <input type="checkbox" value="Fulllength" id="fulllength" name="check"/>
   <label>Full-length only</label>
   <input type="checkbox" value="Reissue" id="reissue" name="check"/>
-  <label>No re-release</label>
+  <label>No re-released</label>
    <input type="checkbox" value="Unreleased" id="date" name="check"/>
   <label>Unreleased only</label>
   <input type="checkbox" value="Blackdeath" id="genre" name="check"/>
@@ -138,6 +148,10 @@ a {
   
   
  <script>
+ $("#about").click(function(){
+  $("#project").toggleClass("hideItem");
+});
+ 
  window.onscroll = function() {scrollFunction()};
 function scrollFunction() {
   if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
@@ -162,11 +176,7 @@ $(function(){
   $("body").css("color", "#EEDDCC");
   $("table").css("background-color", "white");
   $("a").css("color", "white");
-
-
-
 });
-
 
 function searchFunction() {
   filter = input.value.toUpperCase();
