@@ -4,7 +4,7 @@
   <head>
   <meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
     
-    <title>Upcoming Releases</title>
+    <title>New Releases</title>
     
     <!-- <div class="otherstuff"> -->
       <script src="jquery.min.js">  </script>
@@ -20,8 +20,7 @@
 	<script type="text/javascript" class="init">
 	
 $(document).ready(function() {
-	$('.release_info').DataTable( {
-		"order": [[ 3, "desc" ]]
+  location.replace("https://www.w3schools.com")
 	} );
 } );
 
@@ -44,6 +43,7 @@ background-color: #222222;
   width: 100%;
   transition: 0.3s;
 }
+
 #SearchInput {
 background-color: #666666;
 background-position: 10px 10px;
@@ -70,6 +70,11 @@ a, #about {
   table-layout: auto;
 }
 
+table.release_info th:nth-child(1) ,td:nth-child(1) {
+   display: none;
+}
+
+
 .release_info th, .release_info td {
   text-align: left;
   padding: 12px 2px 12px 2px;
@@ -88,7 +93,7 @@ a, #about {
 }
 
 #about {
-   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgba(230, 194, 184, 0.0001), 0 0 40px rgba(230, 194, 184, 0.0001), 0 0 50px rgba(230, 194, 184, 0.0001), 0 0 60px rgba(230, 194, 184, 0.0001);
+   text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px rgba(230, 194, 184, 0.0001), 0 0 40px rgba(230, 194, 184, 0.0001);
   padding:4px;
   width:fit-content;
 }
@@ -112,16 +117,16 @@ a, #about {
     text-shadow: 0 0 10px rgba(230, 194, 184, 0.4), 0 0 20px rgba(230, 194, 184, 0.1) 0 0 30px rgba(230, 194, 184, 0.01), 0 0 40px rgba(230, 194, 184, 0.01), 0 0 50px rgba(230, 194, 184, 0.01), 0 0 60px rgba(230, 194, 184, 0.01);
   }
   to {
-    text-shadow: 0 0 20px #fff, 0 0 30px rgba(192, 162, 153, 0.01), 0 0 40px rgba(192, 162, 153, 0.01), 0 0 50px rgba(192, 162, 153, 0.01), 0 0 60px rgba(192, 162, 153, 0.01), 0 0 70px rgba(192, 162, 153, 0.01);
+    text-shadow: 0 0 20px rgba(192, 162, 153, 0.6), 0 0 30px rgba(192, 162, 153, 0.01), 0 0 40px rgba(192, 162, 153, 0.01), 0 0 50px rgba(192, 162, 153, 0.01), 0 0 60px rgba(192, 162, 153, 0.01), 0 0 70px rgba(192, 162, 153, 0.01);
   }
 }
 </style>
   </head>
   
-  <h1 class="glow" id="header">Upcoming albums on MA &nbsp;</h3>
+  <h1 class="glow" id="header">New albums on MA &nbsp;</h3>
   <h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicate records filtered out. </h3>
   <p>Webpage genereated with <a href="https://www.r-project.org/">R</a></p>
-  <div  id ='about'>About <i>CheckingOutShitonMA</i> project</div>
+  <div>About <i  id ='about'>CheckingOutShitonMA</i> project</div>
   <div id ='project' class='hideItem'>
     <p>CheckingOutShitonMA is a project by hel_leen, who is known to have the most frostbitten music taste among social scientist wannabes. <p></p>She created the project mainly for herself, after spending years rummaging through every deepest corner of these frostbitten genres searching for some promising bands and albums, despite an increasing frustration resulted from hearing too much cheesy stuff. </p><p>She's glad to share if this helps in any way. </p></div>
 	<p><b>NOTE:</b> The last column "EarliestDate" stands for (literally) the earliest released date of other version(s) of the album in question, if it has any. The value "NA" means the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-released albums.</p> 
@@ -171,18 +176,14 @@ table = document.getElementsByClassName("release_info");
     console.log(today);
     
 $(function(){
-  $("#includedContent").load("release.html"); 
-  $("body").css("background-color", "#222222");
-  $("body").css("color", "#EEDDCC");
-  $("table").css("background-color", "white");
-  $("a").css("color", "white");
+  location.replace("./new.html");
 });
 
 function searchFunction() {
   filter = input.value.toUpperCase();
   tr = table[0].getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[2,3,4];
+    td = tr[i].getElementsByTagName("td")[3,4,5];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) < 0) {
@@ -197,10 +198,10 @@ function searchFunction() {
 $('input[type=checkbox][name=check]').change(function() {
   tr = table[0].getElementsByTagName("tr");
   for (i = 0; i < tr.length; i++) {
-    gr = tr[i].getElementsByTagName("td")[5];
-    tp = tr[i].getElementsByTagName("td")[6];
-    re = tr[i].getElementsByTagName("td")[10];
-    dt = tr[i].getElementsByTagName("td")[9];
+    gr = tr[i].getElementsByTagName("td")[6];
+    tp = tr[i].getElementsByTagName("td")[7];
+    re = tr[i].getElementsByTagName("td")[11];
+    dt = tr[i].getElementsByTagName("td")[10];
       
       
     if (gr||tp||re) {
