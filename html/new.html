@@ -10,21 +10,6 @@
 <script>
 
  let today = new Date(); 
- $(window).resize(function() {
-  $('.release_info').css('width', $('body' ).width());
-})
- window.onscroll = (function() {
-   if ($('body').scrollTop() > 50 || $("*").scrollTop() > 50) {
-  $("#header").css("font-size", "32px");
-  $(".dataTables_filter label input").css("position", "fixed");
-  $(".dataTables_filter label input").css("width", $(".release_info").width());
-
-  } else {
-    $("#header").css("fontSize", "40px");
-    $(".dataTables_filter label input").css("position", "");
-  }
- });
-
 $(function(){
   $("#includedContent").load("release.html" , function(){
 	$('.release_info').DataTable( {
@@ -48,16 +33,28 @@ $(function(){
 });
 $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
-        var genre =  data[6].toLowerCase(); 
-        var type =  data[7]; 
-        var date =  new Date(data[10].replace(/-/g,'/')); 
-        var version =  data[11]; 
+        let genre =  data[6].toLowerCase(); 
+        let type =  data[7]; 
+        let date =  new Date(data[10].replace(/-/g,'/')); 
+        let version =  data[11]; 
         if (($('#Blackdeath').is(':checked') && (genre.indexOf('death') < 0 && genre.indexOf('black') < 0 )) || ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Unreleased').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ))
         {return false;}
         return true;
     }
 );
-
+$(window).resize(function() {
+  $('.release_info').css('width', $('body' ).width());
+})
+window.onscroll = (function() {
+   if ($('body').scrollTop() > 50 || $("*").scrollTop() > 50) {
+  $("#header").css("font-size", "32px");
+  $(".dataTables_filter label input").css("position", "fixed");
+  $(".dataTables_filter label input").css("width", $(".release_info").width());
+} else {
+    $("#header").css("fontSize", "40px");
+    $(".dataTables_filter label input").css("position", "");
+  }
+ });
 </script> 
  </head>
 <body> 
@@ -66,7 +63,7 @@ $.fn.dataTable.ext.search.push(
 <p>Web page genereated with <a href="https://www.r-project.org/">R</a></p>
 <div>About <b id ='about'>CheckingOutShitonMA</b> project</div>
 <div id ='project' class='hideItem'>
-<p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known to have the most frostbitten music taste among social scientist wannabes. <p></p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by the contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div>
+<p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. <p></p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div>
 <p><b>NOTE:</b></br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
 </br>The column "BandPage" only shows links of the first band in case of a split or compilation.
 </br>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> 
