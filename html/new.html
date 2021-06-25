@@ -3,31 +3,40 @@
   
 <html>
 <head>
-<meta name="viewport" charset="UTF-8" content="width=device-width, initial-scale=1.0">
+<meta  charset="UTF-8"  content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
 <title>New Albums on MA</title>
 <script src="jquery.min.js">  </script>
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
 <script>
 
  let today = new Date(); 
+ let yesterday = new Date();
+yesterday. setDate(today. getDate() - 2);
 $(function(){
   $("#includedContent").load("release.html" , function(){
+
 	$('.release_info').DataTable( {
 	"order": [[ 10, "asc" ]],
 	"lengthMenu": [50,100, 200, 500, "All"],
 	"columnDefs": [
         { "targets": [ 2 ], "searchable": false, "sorting": false }
 	],
+	"search": { "regex": true},
+	"autoWidth": false
+
 });
   $('.release_info').css('width', $('body' ).width());
   $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
   let table = $('.release_info').DataTable();
-  $('#Blackdeath, #Fulllength, #Unreleased, #Reissue').change( function() {table.draw(); });
+  if (($( window ).width() )< 640 ) {
+	table.columns( [5,9,11] ).visible( false );
+	}
+  $('#Blackdeath, #Fulllength, #Upcoming, #Reissue').change( function() {table.draw(); });
 });
   $("#about").click(function(){
   $("#project").toggleClass("hideItem");
 });
-  $('#Unreleased').attr("checked", true)
+  $('#Upcoming').attr("checked", true)
   $("body").css("background-color", "#333");
   $("body").css("color", "#fcfaf1");
 });
@@ -35,9 +44,9 @@ $.fn.dataTable.ext.search.push(
     function( settings, data, dataIndex ) {
         let genre =  data[6].toLowerCase(); 
         let type =  data[7]; 
-        let date =  new Date(data[10].replace(/-/g,'/')); 
+        let date =  new Date(data[10].replace(/-/g,'/'));
         let version =  data[11]; 
-        if (($('#Blackdeath').is(':checked') && (genre.indexOf('death') < 0 && genre.indexOf('black') < 0 )) || ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Unreleased').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ))
+        if ( ($('#Blackdeath').is(':checked') && genre.indexOf('black') < 0  && genre.indexOf('death') < 0 ) || ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < yesterday ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ))
         {return false;}
         return true;
     }
@@ -46,7 +55,7 @@ $(window).resize(function() {
   $('.release_info').css('width', $('body' ).width());
 })
 window.onscroll = (function() {
-   if ($('body').scrollTop() > 50 || $("*").scrollTop() > 50) {
+   if ($('body').scrollTop() > 200 || $(window).scrollTop() > 200) {
   $("#header").css("font-size", "32px");
   $(".dataTables_filter label input").css("position", "fixed");
   $(".dataTables_filter label input").css("width", $(".release_info").width());
@@ -66,34 +75,32 @@ window.onscroll = (function() {
 <p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. <p></p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div>
 <p><b>NOTE:</b></br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
 </br>The column "BandPage" only shows links of the first band in case of a split or compilation.
+</br><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> will be shown if the album doesn't have any cover(!?).
 </br>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> 
-<ul class="filterSection">
+<ul class="filterSection" style="margin-top:24px;">
 <li>
 <strong style="font-size:18px;">Filters:&nbsp;</strong>
+<label class="checkcontainer">Today onwards
+<input id="Upcoming" type="checkbox"> 
+<span class="checkmark"></span></label>
 <label class="checkcontainer">No Reissue
 <input id="Reissue" type="checkbox"> 
 <span class="checkmark"></span></label>
-</label>
-<label class="checkcontainer">Unreleased only
-<input id="Unreleased" type="checkbox"> 
-<span class="checkmark"></span></label>
-</label>
 <label class="checkcontainer">Full-length only
 <input id="Fulllength" type="checkbox"> 
 <span class="checkmark"></span></label>
-</label>
 <label class="checkcontainer">Black/death metal only
 <input id="Blackdeath" type="checkbox"> 
 <span class="checkmark"></span></label>
-</label>
 </li>
 </ul>
+
 <p></p>
 
 <div id="includedContent"></div>
   
 <style>
-:root{font-family:Helvetica, Arial, sans-serif;line-height: 1.5;background-color: #333;width:100%}
+:root{font-family:Helvetica, Arial, sans-serif;line-height: 1.5;background-color: #333;color:#fcfaf1;width:100%}
 #header{background-color: #333;padding: 16px 40px 16px 40px;text-align: center;font-size: 40px;font-weight: bold;position: fixed;position: sticky;top: 0; transition: 0.3s;z-index: 999}
 .paginate_button{box-sizing: border-box;display: inline-block;min-width: 1.5em;padding: .5em 1em;margin-left: 2px;text-align: center;text-decoration: none !important;cursor: pointer;border: 1px rgba(111,111,111,0.3) solid;border-radius: 2px;color: #999;background-color: 666}
 .paginate_button.current{background-color: #666;color: #edc;border: 1px solid #999}
@@ -120,6 +127,7 @@ a{color: #fcfaf1}
 #about{color: #fcfaf1}
 table.dataTable thead .sorting{background-image: url(../images/sort_both.png)}
 table{width: 100%;border: 2px solid #666;background-color: #333;font-size: 13px;table-layout: auto}
+#tableHTML_column_2 { justify-items: center;display: grid;}
 .release_info th:nth-child(1) ,td:nth-child(1){display: none}
 .release_info th:nth-child(2){color: rgba(0,0,0,0)}
 .release_info th, .release_info td{text-align: left;padding: 12px 2px 12px 2px;border-left: 1px solid #666}
