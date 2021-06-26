@@ -16,7 +16,7 @@ function laytouFunction() {
   if (($( window ).width() )< 800 ) {
     $( "td img" ).css( "width", ($('body' ).width())*.6 );
     $( "th,td" ).css( "display","grid" );
-    $( "th,td:not(:nth-child(1))" ).css( "justify-items":"center","text-align":"center" );
+    $( "th,td:not(:nth-child(1))" ).css({ "justify-items":"center","text-align":"center"} );
     $( "th:not(:nth-of-type(3))" ).css( "display", "none" );
     $( "th:nth-of-type(3)" ).css( "color", "white" );
     $( "th,td" ).wrap( "<div class='new'></div>");
