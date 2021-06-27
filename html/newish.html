@@ -21,6 +21,8 @@ function laytouFunction() {
     $( ".new>td" ).css( "padding",'8px');
     $( "tr" ).css( "border-bottom",'2px solid #666');
     $( "td" ).css( "border-top",'2px solid rgba(66,66,66,0.4)');
+    $(.dataTables_length).css( "display", "none" );
+    $('.release_info').DataTable("lengthMenu", [20, 50, 100, 200]);
   } else {
   }
 }
@@ -109,9 +111,6 @@ window.onscroll = (function() {
 <span class="checkmark"></span></label>
 <label class="checkcontainer">Full-length only
 <input class="filter" id="Fulllength" type="checkbox"> 
-<span class="checkmark"></span></label>
-<label class="checkcontainer">Black/death metal only
-<input  class="filter" id="Blackdeath" type="checkbox"> 
 <span class="checkmark"></span></label>
 </li>
 </ul>
