@@ -7,16 +7,18 @@
 <title>New Albums on MA</title>
 <script src="jquery.min.js">  </script>
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
+<link rel="shortcut icon" type="image/png" href="cat.png"/>
 <script>
 
- let today = new Date(); 
-today. setHours(new Date().getUTCHours()- 25);
+let today = new Date(); 
+today. setHours(new Date().getUTCHours()- 36);
+console.log(today);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
     $( "td img" ).css( "width", ($('body' ).width())*.6 );
-	$( "th,td" ).css( "display","grid" );
+    $( "th,td" ).css( "display","grid" );
     $( "th,td:not(:nth-child(1))" ).css({ "justify-items":"center","text-align":"center"} );
-    $( "th:not(#tableHTML_header_1)" ).css( "display", "none" );
+    $( "th:not(#tableHTML_header_1),.dataTables_length" ).css( "display", "none" );
     $( "tr>td,#tableHTML_header_1" ).wrap( "<div class='new'></div>");
     $( ".new>td" ).css( "padding",'.5em');
     $( "tr" ).css( "border-bottom",'2px solid #666');
@@ -26,47 +28,47 @@ function layoutFunction() {
 }
 $(function(){
   $("#includedContent").load("release.html table" , function(){
-	$('.release_info').DataTable( {
-	"order": [[ 9, "asc" ]],
-	"lengthMenu": [50, 100, 200, 400, "All"],
-	"columnDefs": [
+    $('.release_info').DataTable( {
+      "order": [[ 9, "asc" ]],
+      "lengthMenu": [50, 100, 200, 400, "All"],
+      "columnDefs": [
         { "targets": [ 0,1 ], "searchable": false, "sorting": false },
-	],
-	"search": { "regex": true},
-	"autoWidth": false
-});
-  $('.release_info').css('width', $('body' ).width());
-  $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
-  let table = $('.release_info').DataTable();
-  $('.filter,.genrefilter,.paginate_button').change( function() {
-  table.draw(); 
-  layoutFunction();
+      ],
+      "search": { "regex": true},
+      "autoWidth": false
+    });
+    $('.release_info').css('width', $('body' ).width());
+    $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
+    let table = $('.release_info').DataTable();
+    $('.filter,.genrefilter,.paginate_button').change( function() {
+      table.draw(); 
+      layoutFunction();
+    });
+    layoutFunction();
   });
-  layoutFunction();
-});
   $("#about").click(function(){
     $("#project").toggleClass("hideItem");
-});
+  });
   $('#Upcoming, #black, #death, #other').attr("checked", true);
   $('.genrefilter').first().change(function() {
     if($(this).is(':not(:checked)') && $('.genrefilter').length > 0) {
-    	alert('I hope you improve your taste');
-    	$("#black").attr("class", "filter");
+      alert('I hope you improve your taste');
+      $("#black").attr("class", "filter");
     }
-});
+  });
   $("body").css("background-color", "#333");
   $("body").css("color", "#fcfaf1");
 });
 $.fn.dataTable.ext.search.push(
-    function( settings, data, dataIndex ) {
-        let genre =  data[5].toLowerCase(); 
-        let type =  data[6]; 
-        let date =  new Date(data[9].replace(/-/g,'/'));
-        let version =  data[10]; 
-        if ( ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  && genre.indexOf('death') < 0 )) )
-        {return false;}
-        return true;
-    }
+  function( settings, data, dataIndex ) {
+    let genre =  data[5].toLowerCase(); 
+    let type =  data[6]; 
+    let date =  new Date(data[9].replace(/-/g,'/'));
+    let version =  data[10]; 
+    if ( ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  && genre.indexOf('death') < 0 )) )
+    {return false;}
+    return true;
+  }
 );
 $(window).resize(function() {
   $('.release_info').css('width', $('body' ).width());
@@ -74,17 +76,17 @@ $(window).resize(function() {
   layoutFunction();
 })
 window.onscroll = (function() {
-   let scrollY= $(window).scrollTop();
-   if (scrollY) {layoutFunction();}
-   else if ( scrollY > $(window).height()*.5 && $('tr:hover').length > 0 ) {
-  $("#header").css("font-size", "2em");
-  $(".dataTables_filter label input").css({"position":"fixed", "width": $('body' ).width()});
-  
-} else {
+  let scrollY= $(window).scrollTop();
+  if (scrollY) {layoutFunction();}
+  if ( scrollY > $(window).height()*.5 && $('tr:hover').length > 0 ) {
+    $("#header").css("font-size", "2em");
+    $(".dataTables_filter label input").css({"position":"fixed", "width": $('body' ).width()});
+    
+  } else {
     $("#header").css("fontSize", "2.5em");
     $(".dataTables_filter label input").css("position", "");
   }
- });
+});
 </script> 
  </head>
 <body> 
@@ -122,8 +124,9 @@ window.onscroll = (function() {
 <input  class="filter" id="other" type="checkbox"> 
 <span class="checkmark"></span></label>
 </li>
-<p></p>
-
+<div>
+<p> </p>
+</div>
 <div id="includedContent"></div>
   
 <style>
