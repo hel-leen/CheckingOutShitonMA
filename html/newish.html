@@ -22,7 +22,6 @@ function layoutFunction() {
     $( "tr" ).css( "border-bottom",'2px solid #666');
     $( "td" ).css( "border-top",'2px solid rgba(66,66,66,0.4)');
     $('.dataTables_length').css( "display", "none" );
-    $('.release_info').DataTable("lengthMenu", [20, 50, 100, 200]);
   } else {
   }
 }
@@ -53,8 +52,8 @@ $(function(){
   $('.genrefilter').click(function() {
     if($(this).is(':not(:checked)') ) {
     	alert('I hope you improve your taste');
-    	$(this).addClass('filter');
-        $(this).removeClass('genrefilter');
+    	$('#black').addClass('filter');
+        $('#black').removeClass('genrefilter');
     }
 });
   $("body").css("background-color", "#333");
