@@ -10,7 +10,7 @@
 
  let today = new Date(); 
 today. setHours(new Date().getUTCHours()- 25);
-function laytouFunction() {
+function layoutFunction() {
   if (($( window ).width() )< 800 ) {
     $( "td img" ).css( "width", ($('body' ).width())*.6 );
     $( "th,td" ).css( "display","grid" );
@@ -22,6 +22,7 @@ function laytouFunction() {
     $( "tr" ).css( "border-bottom",'2px solid #666');
     $( "td" ).css( "border-top",'2px solid rgba(66,66,66,0.4)');
     $(.dataTables_length).css( "display", "none" );
+    $('.release_info').DataTable("lengthMenu", [20, 50, 100, 200]);
   } else {
   }
 }
@@ -41,16 +42,16 @@ $(function(){
   let table = $('.release_info').DataTable();
   $('.filter,.genrefilter').change( function() {
   table.draw(); 
-  laytouFunction();
+  layoutFunction();
   });
-  laytouFunction();
+  layoutFunction();
 });
   $("#about").click(function(){
     $("#project").toggleClass("hideItem");
 });
   $('#Upcoming, #black, #death, #other').attr("checked", true);
   $('.genrefilter').click(function() {
-    if($(this).not(':checked')) {
+    if($(this).is(':not(:checked)') ) {
     	alert('I hope you improve your taste');
     	$(this).addClass('filter');
         $(this).removeClass('genrefilter');
@@ -65,7 +66,7 @@ $.fn.dataTable.ext.search.push(
         let type =  data[6]; 
         let date =  new Date(data[9].replace(/-/g,'/'));
         let version =  data[10]; 
-        if ( ($('#Blackdeath').is(':checked') && genre.indexOf('black') < 0  && genre.indexOf('death') < 0 ) || ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').not(':checked') && genre.indexOf('black') > -1 ) || ($('#death').not(':checked') && genre.indexOf('death') > -1 ) || ($('#other').not(':checked') && (genre.indexOf('black') < 0  || genre.indexOf('death') < 0 )) )
+        if ( ($('#Blackdeath').is(':checked') && genre.indexOf('black') < 0  && genre.indexOf('death') < 0 ) || ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  || genre.indexOf('death') < 0 )) )
         {return false;}
         return true;
     }
@@ -73,7 +74,7 @@ $.fn.dataTable.ext.search.push(
 $(window).resize(function() {
   $('.release_info').css('width', $('body' ).width());
   $(".dataTables_filter label input").css("width", $('body' ).width());
-  laytouFunction();
+  layoutFunction();
 })
 window.onscroll = (function() {
    if ($('body').scrollTop() > 300 || $(window).scrollTop() > 300) {
