@@ -75,16 +75,16 @@ $(window).resize(function() {
   layoutFunction();
 })
 window.onscroll = (function() {
+	if ($(window).width() > 800 ) {
   let scrollY= $(window).scrollTop();
   if (scrollY<0) {layoutFunction();}
-  if ( scrollY > $(window).height()*.5 && $('tr:hover').length > 0 && $(window).width() > 800 ) {
+  if ( scrollY > $(window).height()*.5 && $('tr:hover').length > 0) {
     $("#header").css("font-size", "2em");
     $(".dataTables_filter label input").css({"position":"fixed", "width": $('body' ).width()});
-    
   } else {
     $("#header").css("fontSize", "2.5em");
     $(".dataTables_filter label input").css("position", "");
-  }
+  }}
 });
 </script> 
  </head>
