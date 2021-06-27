@@ -65,7 +65,7 @@ $.fn.dataTable.ext.search.push(
         let type =  data[6]; 
         let date =  new Date(data[9].replace(/-/g,'/'));
         let version =  data[10]; 
-        if ( ($('#Blackdeath').is(':checked') && genre.indexOf('black') < 0  && genre.indexOf('death') < 0 ) || ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  || genre.indexOf('death') < 0 )) )
+        if ( ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  || genre.indexOf('death') < 0 )) )
         {return false;}
         return true;
     }
