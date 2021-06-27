@@ -77,7 +77,7 @@ $(window).resize(function() {
 })
 window.onscroll = (function() {
   let scrollY= $(window).scrollTop();
-  if (scrollY) {layoutFunction();}
+  if (scrollY<0) {layoutFunction();}
   else if ( scrollY > $(window).height()*.5 && $('tr:hover').length > 0 ) {
     $("#header").css("font-size", "2em");
     $(".dataTables_filter label input").css({"position":"fixed", "width": $('body' ).width()});
