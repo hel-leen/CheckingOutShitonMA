@@ -49,7 +49,6 @@ $(function(){
 });
   $('#Upcoming, #black, #death, #other').attr("checked", true);
   $('.genrefilter').first().change(function() {
-  console.log($(this).is(':not(:checked)'), $('.genrefilter').length );
     if($(this).is(':not(:checked)') && $('.genrefilter').length > 0) {
     	alert('I hope you improve your taste');
     	$("#black").attr("class", "filter");
