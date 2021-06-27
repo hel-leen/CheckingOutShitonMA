@@ -14,7 +14,7 @@ let today = new Date();
 today. setHours(new Date().getUTCHours()- 36);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
-    $( "td img" ).css( "width", ($('body' ).width())*.6 );
+   // $( "td img" ).css( "width", ($('body' ).width())*.6 );
  //   $( "th,td" ).css( "display","grid" );
 //    $( "th,td:not(:nth-child(1))" ).css({ "justify-items":"center","text-align":"center"} );
  //   $( "th:not(#tableHTML_header_1),.dataTables_length" ).css( "display", "none" );
@@ -185,9 +185,9 @@ table{width: 100%;border: 2px solid #666;background-color: #333;font-size: .875e
 #tableHTML_column_10:before { content: "Release date:"; font-weight: bold;}
 #tableHTML_column_11:before { content: "Earliest date:"; font-weight: bold;}
 }
+td img {width: 250px;}
 th,.dataTables_length {display: none;}
 td, #tableHTML_header_1 {display: grid;justify-items: center, text-align:center;}
-td:nth-child(1) {justify-items:left;}
 .new>td {padding: .5em;border-top:2px solid rgba(66,66,66,.4);}
 tr {border-bottom:2px solid #666;}
 </style>
