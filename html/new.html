@@ -10,7 +10,7 @@
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
 <script>
 let today = new Date(); 
-today. setHours(new Date().getUTCHours()- 40);
+today. setHours(new Date().getUTCHours()- 36);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
     $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>");
@@ -22,6 +22,9 @@ function layoutFunction() {
 }
 $(function(){
   $("#includedContent").load("release.html table" , function(){
+  $('#date').text($('#footer').text());
+  $('#footer').detach();
+  console.log($('#footer').detach().text());
     $('.release_info').DataTable( {
       "order": [[ 9, "asc" ]],
       "lengthMenu": [50, 100, 200, 400, "All"],
@@ -44,7 +47,7 @@ $(function(){
     layoutFunction();
   });
   $("#about").click(function(){
-    $("#project").toggleClass("hideItem");
+    $("#project").fadeToggle();
   });
   $('#Upcoming, #Reissue, #black, #death, #other').attr("checked", true);
   $('.genrefilter').first().change(function() {
@@ -62,7 +65,7 @@ $.fn.dataTable.ext.search.push(
     let type =  data[6]; 
     let date =  new Date(data[9].replace(/-/g,'/'));
     let version =  data[10]; 
-    if ( ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  && genre.indexOf('death') < 0 )) )
+    if ( ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1  && genre.indexOf('death') < 0 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1  && genre.indexOf('black') < 0 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  && genre.indexOf('death') < 0 )) )
     {return false;}
     return true;
   }
@@ -93,10 +96,12 @@ window.onscroll = (function() {
 <div>About <b id ='about'>CheckingOutShitonMA</b> project</div>
 <div id ='project' class='hideItem'>
 <p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. <p></p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div>
-<div><p id='note'><b>NOTE:</b></br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
+<div><p class='note'><b>NOTE:</b></br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
 </br>The column "BandPage" only shows links of the first band in case of a split or compilation.
 </br><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> will be shown if the album doesn't have any cover(!?).
-</br>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </div>
+</br>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> 
+<p class='note' id='date'></p>
+</div>
 <li class="filterSection">
 <strong>Filters:&nbsp;</strong>
 <label class="checkcontainer">Today onwards
@@ -134,7 +139,8 @@ a{color: #fcfaf1}
 #about{color: #fcfaf1}
 #about{text-shadow: 0 0 30px rgba(230, 194, 184, .01), 0 0 2.5em rgba(230, 194, 184, .01);padding:4px;width:fit-content}
 #about:hover{text-shadow: 0 0 10px rgba(222, 222, 222, .8)}
-#note{margin: 1em;line-height: 1.8;}
+#date {margin-top: -1em;}
+.note{margin: 1em;line-height: 1.8;}
 .showItem{display: "";}
 .filterSection{font-size:1.125em;margin: .5em 0 0 .2em;}
 .hideItem{display: none;}
