@@ -20,8 +20,8 @@ function layoutFunction() {
 }
 $(function(){
   $("#includedContent").load("release.html table" , function(){
-  $('#date').text($('#footer').text());
-  $('#footer').detach();
+  $('#date').text($('table caption').text());
+  $('table caption').detach();
   console.log($('#footer').detach().text());
     $('.release_info').DataTable( {
       "order": [[ 9, "asc" ]],
