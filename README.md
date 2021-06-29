@@ -1,4 +1,4 @@
 # CheckingOutShitonMA
 
 
-testing from rstudio
+Checking Out Shit on Metal Archives, obviously.
