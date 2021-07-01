@@ -103,6 +103,7 @@ a{color: #fcfaf1}
 @-webkit-keyframes glow{from{text-shadow: 0 0 10px rgba(230, 194, 184, .2), 0 0 20px rgba(230, 194, 184, .1) 0 0 30px rgba(230, 194, 184, .01), 0 0 2.5em rgba(230, 194, 184, .01), 0 0 50px rgba(230, 194, 184, .01), 0 0 60px rgba(230, 194, 184, .01)}
 to{text-shadow: 0 0 20px rgba(192, 162, 153, .5), 0 0 30px rgba(192, 162, 153, .1), 0 0 2.5em rgba(192, 162, 153, .05), 0 0 50px rgba(192, 162, 153, .02), 0 0 60px rgba(192, 162, 153, .01), 0 0 70px rgba(192, 162, 153, .01)}
 }
+hr {border-top: 1px dashed #666;}
 .checkcontainer{position: relative;padding-left: 1.5em;cursor: pointer;font-size: .9375em;-webkit-user-select: none;-moz-user-select: none;-ms-user-select: none;user-select: none}
 .checkcontainer input{position: absolute;opacity: 0;cursor: pointer;height: 0;width: 0}
 .checkcontainer input:checked~.checkmark:after{display: block}
@@ -123,10 +124,7 @@ table.dataTable thead .sorting,table.dataTable thead .sorting_asc,table.dataTabl
 table{width: 100%;border: 2px solid #666;background-color: #333;font-size: .875em;table-layout: auto}
 .release_info {justify-items: left;text-align: left;}
 #tableHTML_column_2 { justify-items: center;display: grid;}
-#tableHTML_column_5 {
-    white-space: pre;
-    word-break: break-all;    text-overflow: ellipsis;
-}
+#tableHTML_column_5 { white-space: pre;  word-break: break-all; text-overflow: ellipsis;}
 .release_info th {padding:1em}
 .release_info th:nth-child(1){color: rgba(0,0,0,0)} 
 .release_info td {padding: .75em .15em .75em .15em;border-top: 1px solid #666}
