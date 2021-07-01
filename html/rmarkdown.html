@@ -351,90 +351,126 @@ pre code {
 </div>
 
 
-<div id="all-data-from-the-metal-archives-with-more-album-info-included-and-duplicates-filtered-out." class="section level3">
-<h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out.</h3>
+<div id="section" class="section level2">
+<h2><br></h2>
+<div id="all-data-from-the-metal-archives.-web-page-genereated-with-r" class="section level3">
+<h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/">R</a></h3>
+<p>This page is about the so called top rated or highest reviewed albums by the MA users. They are really way too famous (and mainstream) for me to make them a list. But anyway.</p>
+<hr />
 </div>
-<div id="web-page-genereated-with-r" class="section level3">
-<h3>Web page genereated with <a href="https://www.r-project.org/">R</a></h3>
-<p>The so called top rated or highest reviewed albums by the MA users. They are really way too famous (and mainstream) for me to make them a list. But anyway.</p>
-</div>
-<div id="starting-with-a-glance" class="section level2">
-<h2>Starting with a glance</h2>
+<div id="start-with-a-glance" class="section level3">
+<h3>Start with a glance</h3>
+<p><br></p>
 <div class="iframewrapper">
 <iframe src="ReviewBubblechart.html" height="500" width="800" style="border:none;background-color: #333;">
 </iframe>
 </div>
+<p><br></p>
+<p>The bubble chart shows how a random sample of reviewers (sample size = 2000) rate the albums through time. The plot sizes indicate the number of words in an individual review, while the colors differentiate the bands’ country of origin.</p>
+<p>So it seems the users tend to heap their reviews on the top and even i tried so hard to adjust the parameters the plots still overlap heavily. Understandable though. We might get more motivated to write a review about the albums we like than about stuff that we find generic after all.</p>
+<p><br></p>
 </div>
-<div id="looking-into-the-reviews" class="section level2">
-<h2>Looking into the reviews</h2>
-<div id="whats-the-earliest-date-in-the-data" class="section level3">
-<h3>What’s the earliest date in the data?</h3>
-<pre><code>## [1] &quot;2002-07-14&quot;</code></pre>
-</div>
-<div id="and-whats-the-lateset" class="section level3">
-<h3>And what’s the lateset?</h3>
-<pre><code>## [1] &quot;2021-06-27&quot;</code></pre>
-</div>
-<div id="how-many-words-did-they-write-in-general" class="section level3">
-<h3>How many words did they write in general?</h3>
-<pre><code>## [1] 3735.419</code></pre>
-</div>
-<div id="what-are-the-shortest-and-longest-review-respectively" class="section level3">
-<h3>What are the shortest and longest review respectively?</h3>
-<pre><code>## [1]   735 31195</code></pre>
-</div>
-<div id="wanna-know-what-they-say-exactly-do-some-simple-word-mining-then" class="section level3">
-<h3><b>Wanna know what they say exactly? Do some simple word mining then…</b></h3>
-</div>
-<div id="how-many-words-are-there-in-the-sample" class="section level3">
-<h3>How many words are there in the sample?</h3>
+<div id="look-into-the-reviews" class="section level3">
+<h3>Look into the reviews</h3>
+<p>Wanna know what they say exactly? Do some simple word mining..</p>
+<p><br></p>
+<div id="how-many-words-are-there-in-the-dataset" class="section level4">
+<h4>How many words are there in the dataset?</h4>
 <pre><code>## [1] 1103297</code></pre>
+<p>That’s quite a bunch.</p>
+<p><br></p>
 </div>
-<div id="but-how-many-unique-words" class="section level3">
-<h3>But how many unique words?</h3>
+<div id="but-how-many-unique-words" class="section level4">
+<h4>But how many unique words?</h4>
 <pre><code>## [1] 20599</code></pre>
+<p>0.9998133% of all words are repeated..</p>
 <!-- Different approach, same result though. -->
 <!-- ```{r echo=FALSE} -->
 <!-- ``` -->
+<p><br></p>
 </div>
-<div id="how-many-if-you-exclude-stuff-like-a-the-and-blabla" class="section level3">
-<h3>How many if you exclude stuff like “a”, “the”, “and”, blabla?</h3>
-<p>That means to filter out preposition, conjunction, pronoun and article.</p>
-<pre><code>## # A tibble: 10,161 x 2
+<div id="how-many-if-you-exclude-stuff-like-a-the-and-blabla" class="section level4">
+<h4>How many if you exclude stuff like “a”, “the”, “and”, blabla?</h4>
+<p>That means to filter out prepositions, conjunctions, pronouns and articles.</p>
+<pre><code>## [1] 10161</code></pre>
+<p><br></p>
+</div>
+<div id="what-are-the-words-they-used-frequently" class="section level4">
+<h4>What are the words they used frequently?</h4>
+<pre><code>## # A tibble: 10,159 x 2
 ##    .         n
 ##    &lt;chr&gt; &lt;int&gt;
 ##  1 metal  6796
 ##  2 like   6534
 ##  3 album  5342
 ##  4 more   4522
-##  5 so     4329
-##  6 all    4126
-##  7 sound  3765
-##  8 well   3549
-##  9 even   3219
-## 10 first  3048
-## # ... with 10,151 more rows</code></pre>
-<p><br><br> Or even filter harder?</p>
+##  5 all    4126
+##  6 sound  3765
+##  7 well   3549
+##  8 first  3048
+##  9 best   2853
+## 10 very   2830
+## # ... with 10,149 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="or-even-try-filtering-harder" class="section level4">
+<h4>Or even try filtering harder?</h4>
 <pre><code>## # A tibble: 3,000 x 2
 ##    .          n
 ##    &lt;chr&gt;  &lt;int&gt;
 ##  1 metal   6796
-##  2 sound   3765
-##  3 band    1633
-##  4 heavy   1498
-##  5 fast    1254
-##  6 really  1230
-##  7 guitar  1175
-##  8 solo    1152
-##  9 time    1133
-## 10 part     792
+##  2 well    3549
+##  3 new     1563
+##  4 pretty  1413
+##  5 music   1249
+##  6 track   1194
+##  7 solo    1152
+##  8 time    1133
+##  9 long    1110
+## 10 bass     771
 ## # ... with 2,990 more rows</code></pre>
+<p><br></p>
 </div>
-<div id="show-them-in-a-picture." class="section level3">
-<h3>Show them in a picture.</h3>
-Frequency will be shown when hovering the word.
+<div id="read-some-random-words" class="section level4">
+<h4>Read some random words?</h4>
+<pre><code>##   [1] &quot;gem&quot;           &quot;pocket&quot;        &quot;fantasy&quot;       &quot;cryptic&quot;      
+##   [5] &quot;defiantly&quot;     &quot;deliberate&quot;    &quot;violin&quot;        &quot;advised&quot;      
+##   [9] &quot;infancy&quot;       &quot;compassion&quot;    &quot;observant&quot;     &quot;anthony&quot;      
+##  [13] &quot;suspect&quot;       &quot;eccentricity&quot;  &quot;pusillanimous&quot; &quot;usurpation&quot;   
+##  [17] &quot;dialogue&quot;      &quot;scene&quot;         &quot;commonly&quot;      &quot;delicacy&quot;     
+##  [21] &quot;shortcoming&quot;   &quot;dogs&quot;          &quot;replay&quot;        &quot;som&quot;          
+##  [25] &quot;female&quot;        &quot;scary&quot;         &quot;debut&quot;         &quot;liege&quot;        
+##  [29] &quot;palisade&quot;      &quot;fittingly&quot;     &quot;clean&quot;         &quot;isolation&quot;    
+##  [33] &quot;frigging&quot;      &quot;friday&quot;        &quot;light&quot;         &quot;queue&quot;        
+##  [37] &quot;ira&quot;           &quot;elvis&quot;         &quot;headless&quot;      &quot;rapidly&quot;      
+##  [41] &quot;maiden&quot;        &quot;inflated&quot;      &quot;bloodline&quot;     &quot;trusting&quot;     
+##  [45] &quot;integration&quot;   &quot;nevermore&quot;     &quot;craft&quot;         &quot;headed&quot;       
+##  [49] &quot;vulnerable&quot;    &quot;inheritance&quot;   &quot;catholicism&quot;   &quot;tony&quot;         
+##  [53] &quot;analog&quot;        &quot;anguish&quot;       &quot;painted&quot;       &quot;outlier&quot;      
+##  [57] &quot;funk&quot;          &quot;immaculate&quot;    &quot;stray&quot;         &quot;dennis&quot;       
+##  [61] &quot;bloodshed&quot;     &quot;computer&quot;      &quot;exceedingly&quot;   &quot;rocky&quot;        
+##  [65] &quot;averse&quot;        &quot;overabundance&quot; &quot;hyperactive&quot;   &quot;climax&quot;       
+##  [69] &quot;continually&quot;   &quot;orbit&quot;         &quot;closer&quot;        &quot;unsurprising&quot; 
+##  [73] &quot;celebrated&quot;    &quot;microphone&quot;    &quot;wrest&quot;         &quot;unorthodox&quot;   
+##  [77] &quot;willing&quot;       &quot;iced&quot;          &quot;mandarin&quot;      &quot;clip&quot;         
+##  [81] &quot;battlefield&quot;   &quot;reward&quot;        &quot;rome&quot;          &quot;amon&quot;         
+##  [85] &quot;global&quot;        &quot;eloquent&quot;      &quot;frankly&quot;       &quot;analogy&quot;      
+##  [89] &quot;rex&quot;           &quot;chillingly&quot;    &quot;inescapably&quot;   &quot;mouth&quot;        
+##  [93] &quot;contained&quot;     &quot;reason&quot;        &quot;symposium&quot;     &quot;scrap&quot;        
+##  [97] &quot;el&quot;            &quot;drone&quot;         &quot;propulsion&quot;    &quot;tolerance&quot;    
+## [101] &quot;florida&quot;       &quot;curvature&quot;     &quot;blindly&quot;       &quot;hungry&quot;       
+## [105] &quot;denis&quot;         &quot;oldest&quot;        &quot;accidentally&quot;  &quot;gone&quot;         
+## [109] &quot;wed&quot;           &quot;con&quot;           &quot;bizarre&quot;       &quot;antiquity&quot;    
+## [113] &quot;genuine&quot;       &quot;math&quot;          &quot;memory&quot;        &quot;highlight&quot;    
+## [117] &quot;hooky&quot;         &quot;favored&quot;       &quot;successive&quot;    &quot;door&quot;</code></pre>
+<p>Good words my fellow devil worshipers.</p>
+<p><br></p>
+</div>
+<div id="show-them-in-a-picture." class="section level4">
+<h4>Show them in a picture.</h4>
+<p>Frequency will be shown when hovering the word.</p>
 <div class="iframewrapper">
-<iframe src="ReviewWordcloud.html" height="480" width="600" style="border:none;background-color: #333;">
+<iframe src="ReviewWordcloud.html" height="400" width="600" style="border:none;background-color: #333;">
 </iframe>
 </div>
 <!-- ```{r include=FALSE} -->
@@ -461,15 +497,48 @@ Frequency will be shown when hovering the word.
 <!--           overwrite = TRUE) -->
 <!-- ``` -->
 <p>hmmm… not rather surprising though.</p>
+<p><br></p>
+<hr />
 </div>
 </div>
-<div id="some-other-computing.." class="section level2">
-<h2>Some other computing..</h2>
-<div id="which-are-the-most-beloved-bands" class="section level3">
-<h3>Which are the most beloved bands?</h3>
+<div id="and-about-other-unsampled-reviews" class="section level3">
+<h3>And about other (unsampled) reviews</h3>
+<p><br></p>
+<div id="whats-the-earliest-date-in-the-data" class="section level4">
+<h4>What’s the earliest date in the data?</h4>
+<pre><code>## [1] &quot;2002-07-14&quot;</code></pre>
+<p><br></p>
+</div>
+<div id="and-whats-the-lateset" class="section level4">
+<h4>And what’s the lateset?</h4>
+<pre><code>## [1] &quot;2021-06-27&quot;</code></pre>
+<p><br></p>
+</div>
+<div id="how-many-words-did-they-write-in-general" class="section level4">
+<h4>How many words did they write in general?</h4>
+<pre><code>## [1] 3735.419</code></pre>
+<p><br></p>
+</div>
+<div id="how-many-words-did-the-shortest-and-longest-review-have-respectively" class="section level4">
+<h4>How many words did the shortest and longest review have respectively?</h4>
+<pre><code>## [[1]]
+## [1] 735
+## 
+## [[2]]
+## [1] 31195</code></pre>
+<p>I think I’d check out that 31195-worded review later.</p>
+<p><br></p>
+<hr />
+</div>
+</div>
+<div id="some-other-computing.." class="section level3">
+<h3>Some other computing..</h3>
+<p><br></p>
+<div id="which-are-the-most-beloved-bands" class="section level4">
+<h4>Which are the most beloved bands?</h4>
 <p>That’s easy. Let’s see who have the most albums on the list.</p>
 <pre><code>## # A tibble: 486 x 2
-##    album.band         n
+##    Band               n
 ##    &lt;chr&gt;          &lt;int&gt;
 ##  1 Black Sabbath     10
 ##  2 Bathory            9
@@ -482,11 +551,13 @@ Frequency will be shown when hovering the word.
 ##  9 Moonsorrow         7
 ## 10 Neurosis           7
 ## # ... with 476 more rows</code></pre>
+<p>So Black Sabbath have 10 albums in the top list. And Bathory, and Blind Guardian…</p>
+<p><br></p>
 </div>
-<div id="what-are-these-most-beloved-genres-then" class="section level3">
-<h3>What are these most beloved genres then?</h3>
+<div id="what-are-the-most-beloved-genres-then" class="section level4">
+<h4>What are the most beloved genres then?</h4>
 <pre><code>## # A tibble: 291 x 2
-##    band.genre              n
+##    Genre                   n
 ##    &lt;chr&gt;               &lt;int&gt;
 ##  1 Death Metal            52
 ##  2 Black Metal            37
@@ -499,11 +570,13 @@ Frequency will be shown when hovering the word.
 ##  9 Progressive Metal      11
 ## 10 Power Metal            10
 ## # ... with 281 more rows</code></pre>
+<p>Death metal and black metal turn out to be our favorite. And this is even before I combine the “Brutal”, “Post-”, “Atmospheric” and this and that or whatever to those of them!</p>
+<p><br></p>
 </div>
-<div id="which-countries-are-they-from" class="section level3">
-<h3>Which countries are they from?</h3>
+<div id="which-countries-are-these-beloved-bands-from" class="section level4">
+<h4>Which countries are these beloved bands from?</h4>
 <pre><code>## # A tibble: 37 x 2
-##    band.country       n
+##    Country            n
 ##    &lt;chr&gt;          &lt;int&gt;
 ##  1 United States    314
 ##  2 United Kingdom   101
@@ -516,43 +589,53 @@ Frequency will be shown when hovering the word.
 ##  9 Poland            16
 ## 10 Brazil            14
 ## # ... with 27 more rows</code></pre>
-<p>???!!</p>
+<p>??? Who would have thought!</p>
+<p><br></p>
 </div>
-<div id="which-are-the-most-controversial-albums" class="section level3">
-<h3>Which are the most controversial albums?</h3>
-<pre><code>## # A tibble: 263 x 5
-##    album.band   album.name     review.score.le~ review.score.me~ review.score.sd
-##    &lt;chr&gt;        &lt;chr&gt;                     &lt;int&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-##  1 Velvet Caco~ Genevieve                    17             81.9            29.7
-##  2 Death        The Sound of ~               29             77.2            29.4
-##  3 Agalloch     Marrow of the~               17             80              29.2
-##  4 Gorguts      Obscura                      24             81              27.8
-##  5 Ihsahn       The Adversary                15             83.3            27.4
-##  6 Electric Wi~ Dopethrone                   17             81              27.2
-##  7 Metallica    Master of Pup~               38             80.3            27.0
-##  8 Wormed       Planisphærium                16             81.3            26.8
-##  9 Celtic Frost Monotheist                   23             85.6            26.0
-## 10 Opeth        Damnation                    17             83.5            25.7
+<div id="which-are-the-most-controversial-albums" class="section level4">
+<h4>Which are the most “controversial” albums?</h4>
+<p>To examnie how the opinions diverge on a certain album, you should look at the the sd value (standard deviantion) of the ratings. “In statistics, the standard deviation is a measure of the amount of variation or dispersion of a set of values,” as <a href="https://en.wikipedia.org/wiki/Standard_deviation">Wikipedia</a> puts it. “A low sd indicates that the values tend to be close to the the expected value of the set, while a high sd indicates that the values are spread out over a wider range” bla bla… Based on this concept, a high sd can probably be a sign of dissension within the reviewers, although the album they reviewed may have relatively high rating on average.</p>
+<pre><code>## # A tibble: 263 x 6
+##    Band          Album               Reviewer Rating.mean Rating.sd Rating.range
+##    &lt;chr&gt;         &lt;chr&gt;                  &lt;int&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       
+##  1 Velvet Cacoon Genevieve                 17        81.9      29.7 0~100       
+##  2 Death         The Sound of Perse~       29        77.2      29.4 3~100       
+##  3 Agalloch      Marrow of the Spir~       17        80        29.2 17~100      
+##  4 Gorguts       Obscura                   24        81        27.8 0~100       
+##  5 Ihsahn        The Adversary             15        83.3      27.4 0~100       
+##  6 Electric Wiz~ Dopethrone                17        81        27.2 0~100       
+##  7 Metallica     Master of Puppets         38        80.3      27.0 0~100       
+##  8 Wormed        Planisphærium             16        81.3      26.8 6~100       
+##  9 Celtic Frost  Monotheist                23        85.6      26.0 5~100       
+## 10 Opeth         Damnation                 17        83.5      25.7 19~100      
 ## # ... with 253 more rows</code></pre>
-<pre><code>## # A tibble: 263 x 5
-##    album.band  album.name      review.score.le~ review.score.me~ review.score.sd
-##    &lt;chr&gt;       &lt;chr&gt;                      &lt;int&gt;            &lt;dbl&gt;           &lt;dbl&gt;
-##  1 Entombed    Left Hand Path                23             98.7            2.05
-##  2 King Diamo~ Abigail                       18             97.2            4.22
-##  3 Symphony X  The Divine Win~               17             96.5            4.68
-##  4 W.A.S.P.    The Crimson Id~               16             96.4            6.23
-##  5 Terrorizer  World Downfall                15             96.3            7.22
-##  6 Rush        Moving Pictures               15             96.2            3.90
-##  7 Bathory     Under the Sign~               18             95.7            5.65
-##  8 Katatonia   Dance of Decem~               22             95.5            7.15
-##  9 Type O Neg~ October Rust                  15             95.3            7.23
-## 10 Atheist     Unquestionable~               20             95.2            6.06
-## # ... with 253 more rows</code></pre>
+<p>Rather surprising that Death’s The Sound of Perseverance pops up here. With 29.695 being the sd, the album has 29 reviewers whose rating ranged from 3 to 100. Opinion really seems divided here.</p>
+<p><br></p>
 </div>
-<div id="where-are-my-personal-favourite-bands" class="section level3">
-<h3>WHere are my personal favourite bands?</h3>
+<div id="what-are-the-most-universially-acclaimed-albums" class="section level4">
+<h4>What are the most “universially acclaimed” albums?</h4>
+<p>The same concept but measured on the contrary.</p>
+<pre><code>## # A tibble: 263 x 6
+##    Band        Album                 Reviewer Rating.mean Rating.sd Rating.range
+##    &lt;chr&gt;       &lt;chr&gt;                    &lt;int&gt;       &lt;dbl&gt;     &lt;dbl&gt; &lt;chr&gt;       
+##  1 Entombed    Left Hand Path              23        98.7      2.05 94~100      
+##  2 King Diamo~ Abigail                     18        97.2      4.22 84~100      
+##  3 Symphony X  The Divine Wings of ~       17        96.5      4.68 83~100      
+##  4 W.A.S.P.    The Crimson Idol            16        96.4      6.23 75~100      
+##  5 Terrorizer  World Downfall              15        96.3      7.22 73~100      
+##  6 Rush        Moving Pictures             15        96.2      3.90 87~100      
+##  7 Bathory     Under the Sign of th~       18        95.7      5.65 80~100      
+##  8 Katatonia   Dance of December So~       22        95.5      7.15 72~100      
+##  9 Type O Neg~ October Rust                15        95.3      7.23 78~100      
+## 10 Atheist     Unquestionable Prese~       20        95.2      6.06 80~100      
+## # ... with 253 more rows</code></pre>
+<p><br></p>
+</div>
+<div id="where-are-my-personal-favourite-bands" class="section level4">
+<h4>WHere are my personal favourite bands?</h4>
 <pre><code>## [1] They are too obscure to be shown here.</code></pre>
-<p>Fine.</p>
+<p><br><br></p>
+</div>
 </div>
 </div>
 
