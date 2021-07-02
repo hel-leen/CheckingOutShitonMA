@@ -7,7 +7,9 @@
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
 <script>
-
+$(document).ready(function () {
+  $("body").fadeIn();
+});
 let today = new Date(); 
 today. setHours(new Date().getUTCHours()- 36);
 function layoutFunction() {
@@ -29,6 +31,7 @@ $(function(){
   $("body").css({"font-size": "1em"});
     $(".main-container>#header").detach();
   $(".fluid main-container>#header").detach();
+
   });
     $("#includedContent").load("albums.html table" , function(){
     $('.release_info').DataTable( {
@@ -47,8 +50,11 @@ $(function(){
     let table = $('.release_info').DataTable();
     $('.filter,.genrefilter,.paginate_button').change( function() {
       table.draw(); 
-      layoutFunction();
+	  
     });
+	$( '*').change(function( ) {
+      layoutFunction();
+});
     <!-- if (($( window ).width() )< 1280)  {table.columns( [0] ).visible( false );table.columns.adjust().draw( true );} -->
     <!-- if (($( window ).width() )< 1024)  {table.columns( [0] ).visible( false );table.columns.adjust().draw( true );} -->
     layoutFunction();
@@ -70,6 +76,14 @@ $(window).resize(function() {
   $(".dataTables_filter label input").css("width", $('.contentWrapper' ).width());
   layoutFunction();
 })
+window.onscroll = (function() {
+    if ($(window).scrollTop()) {layoutFunction();}
+});
+$( document).change(function() {
+  alert( "Handler for .change() called." );
+  layoutFunction();
+});
+
 </script> 
  </head>
 <body> 

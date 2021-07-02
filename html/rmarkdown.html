@@ -362,7 +362,7 @@ pre code {
 <h3>Start with a glance</h3>
 <p><br></p>
 <div class="iframewrapper">
-<iframe src="ReviewBubblechart.html"   style="border:none;background-color: #333;">
+<iframe id="ReviewBubblechart" src="ReviewBubblechart.html"   style="border:none;background-color: #333;">
 </iframe>
 </div>
 <p><br></p>
@@ -629,22 +629,19 @@ function bootstrapStylePandocTables() {
   $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
 }
 $(document).ready(function () {
-  bootstrapStylePandocTables();
 });
-
-
 </script>
 
 <!-- tabsets -->
 
 <script>
 $(document).ready(function () {
-  window.buildTabsets("TOC");
+  <!-- window.buildTabsets("TOC"); -->
 });
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+    <!-- $(this).parent().toggleClass('nav-tabs-open'); -->
   });
 });
 </script>
