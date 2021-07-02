@@ -21,13 +21,9 @@ function layoutFunction() {
 $(function(){
   $("#rmarkdown").load("rmarkdown.html " , function(){
   $("pre").css({"background-color": "#444",'color':"#fcfaf1",'border':'1px solid rgba(0,0,0,0.3)'});
+  $("h4 + pre").css({"margin-top":"1.5em;"});
   <!-- $("h2").css({"font-size": "1.6em"}); -->
   $("body").css({"font-size": "1em"});
-  $(".main-container>#header").detach();
-  $(".fluid main-container>#header").detach();
-  $("#includedContent").contents().find(".html-widget");
-  $('#iframecontent').attr('src', 'ReviewBubblechart.html');
-    
   });
     $("#includedContent").load("albums.html table" , function(){
     $('.release_info').DataTable( {
