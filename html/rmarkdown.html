@@ -385,8 +385,6 @@ pre code {
 <pre><code>## [1] 20599</code></pre>
 <p>0.9998133% of all words are repeated..</p>
 <!-- Different approach, same result though. -->
-<!-- ```{r echo=FALSE} -->
-<!-- ``` -->
 <p><br></p>
 </div>
 <div id="how-many-if-you-exclude-stuff-like-a-the-and-blabla" class="section level4">
@@ -398,7 +396,7 @@ pre code {
 <div id="what-are-the-words-they-used-frequently" class="section level4">
 <h4>What are the words they used frequently?</h4>
 <pre><code>## # A tibble: 10,159 x 2
-##    .         n
+##    .         freq
 ##    &lt;chr&gt; &lt;int&gt;
 ##  1 metal  6796
 ##  2 like   6534
@@ -416,7 +414,7 @@ pre code {
 <div id="or-even-try-filtering-harder" class="section level4">
 <h4>Or even try filtering harder?</h4>
 <pre><code>## # A tibble: 3,000 x 2
-##    .           n
+##    .           freq
 ##    &lt;chr&gt;   &lt;int&gt;
 ##  1 best     2853
 ##  2 some     1702
@@ -463,11 +461,11 @@ pre code {
 ## [109] &quot;clip&quot;           &quot;battlefield&quot;    &quot;reward&quot;         &quot;rome&quot;          
 ## [113] &quot;amon&quot;           &quot;global&quot;         &quot;eloquent&quot;       &quot;frankly&quot;       
 ## [117] &quot;analogy&quot;        &quot;rex&quot;            &quot;chillingly&quot;     &quot;inescapably&quot;</code></pre>
-<p>Good words my fellow devil worshipers.</p>
+<p>Kirk? grass? vodka? Good words my fellow devil worshipers.</p>
 <p><br></p>
 </div>
 <div id="show-them-in-a-picture." class="section level4">
-<h4>Show them in a picture.</h4>
+<h4>Show them in a picture</h4>
 <p>Frequency will be shown when hovering the word.</p>
 <div class="iframewrapper">
 <iframe id="wordcloud" src="ReviewWordcloud.html"  style="border:none;background-color: #333;">
@@ -480,7 +478,7 @@ pre code {
 </div>
 </div>
 <div id="and-about-other-unsampled-reviews" class="section level3">
-<h3>And about other (unsampled) reviews</h3>
+<h3>And about other reviews</h3>
 <p><br></p>
 <div id="whats-the-earliest-date-in-the-data" class="section level4">
 <h4>What’s the earliest date in the data?</h4>
@@ -493,12 +491,12 @@ pre code {
 <p><br></p>
 </div>
 <div id="how-many-words-did-they-write-in-general" class="section level4">
-<h4>How many words did they write in general?</h4>
+<h4>How many words are there in a review in general?</h4>
 <pre><code>## [1] 3735.419</code></pre>
 <p><br></p>
 </div>
-<div id="how-many-words-did-the-shortest-and-longest-review-have-respectively" class="section level4">
-<h4>How many words did the shortest and longest review have respectively?</h4>
+<div id="how-many-words" class="section level4">
+<h4>How many words are there in the shortest and longest review respectively?</h4>
 <pre><code>## [[1]]
 ## [1] 735
 ## 
@@ -529,7 +527,7 @@ pre code {
 ##  9 Moonsorrow         7
 ## 10 Neurosis           7
 ## # ... with 476 more rows</code></pre>
-<p>So Black Sabbath top 10 the list with 10 albums. And Bathory, and Blind Guardian…</p>
+<p>So Black Sabbath top the list with 10 albums. And Bathory, and Blind Guardian…</p>
 <p><br></p>
 </div>
 <div id="what-are-the-most-beloved-genres-then" class="section level4">
@@ -548,7 +546,7 @@ pre code {
 ##  9 Progressive Metal      11
 ## 10 Power Metal            10
 ## # ... with 281 more rows</code></pre>
-<p>Death metal and black metal turn out to be our favorite. And this is even before I combine the “Brutal”, “Post-”, “Atmospheric” and this and that or whatever to those of them!</p>
+<p>Death metal and black metal turn out to be our favorite. And this is even before I combine the “Brutal”, “Post-”, “Atmospheric” and this and that or whatever, let alone those of them whose genre are something like "Trve Black Metal (early); Folk/Dark Basement Anbient (mid); Extreme Experimental Punk/Disco (later)"!</p>
 <p><br></p>
 </div>
 <div id="which-countries-provided-us-the-most-good-bands" class="section level4">
@@ -613,7 +611,8 @@ pre code {
 <div id="where-are-my-personal-favourite-bands" class="section level4">
 <h4>WHere are my personal favourite bands?</h4>
 <pre><code>## [1] They are too obscure to be shown here.</code></pre>
-<p><br><br></p>
+<p><br></p>
+<hr />
 </div>
 </div>
 </div>
