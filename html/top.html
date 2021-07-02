@@ -7,15 +7,18 @@
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
 <script>
+
 let today = new Date(); 
 today. setHours(new Date().getUTCHours()- 36);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
-    <!-- $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>"); -->
-	<!-- $( "<h3>By release date</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" ); -->
+    $(".release_info.dataTables_filter label input").css("width", $('body' ).width());
+    $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>");
+	$( "<h3>By reviewers and ratings</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" );
   } else {
-    <!-- $( ".new>td" ).unwrap(); -->
-	<!-- $("h3").remove(); -->
+    $(".release_info.dataTables_filter label input").css("width", $('body' ).width());
+    $( ".new>td" ).unwrap();
+	$("h3").remove();
   }
 }
 $(function(){
@@ -37,8 +40,9 @@ $(function(){
       "search": { "regex": true},
       "autoWidth": false
     });
-    $('.release_info').css('width', $('body' ).width());
+    $(".release_info.dataTables_filter label input").css("width", $('body' ).width());
     $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
+    $(".release_info>tbody>tr>td").attr({ 'vertical-align': 'center', 'border-top': '0px'});
     let table = $('.release_info').DataTable();
     
     $('.filter,.genrefilter,.paginate_button').change( function() {
@@ -53,7 +57,11 @@ $(function(){
   $("body").css("background-color", "#333");
   $("body").css("color", "#fcfaf1");
 });
-
+$(window).resize(function() {
+  $('.release_info').css('width', $('body' ).width());
+  $(".dataTables_filter label input").css("width", $('body' ).width());
+  layoutFunction();
+})
 </script> 
  </head>
 <body> 
@@ -123,7 +131,7 @@ table.dataTable thead .sorting,table.dataTable thead .sorting_asc,table.dataTabl
 table{width: 100%;border: 2px solid #666;background-color: #333;font-size: .875em;table-layout: auto}
 .release_info {justify-items: left;text-align: left;}
 #tableHTML_column_2 { justify-items: center;display: grid;}
-#tableHTML_column_5 { white-space: pre;  word-break: break-all; text-overflow: ellipsis;}
+#tableHTML_column_5 { white-space: break-spaces;}
 .release_info th {padding:1em}
 .release_info th:nth-child(1){color: rgba(0,0,0,0)} 
 .release_info td {padding: .75em .15em .75em .15em;border-top: 1px solid #666}
@@ -132,7 +140,7 @@ table{width: 100%;border: 2px solid #666;background-color: #333;font-size: .875e
 .dbtn{background-color: rgba(0,0,0,0);background-image: url('searchicon.png');background-position: 0.3125em 0.3125em;background-repeat: no-repeat;color: white;padding: 1em;font-size: 1em;border: none}
 .dd{position: relative;display: inline-block}
 .dd-c{display: none;position: absolute;background-color: #444;min-width: 160px;box-shadow: 0px 8px 1em 0px rgba(222,222,222,.2);z-index: 1}
-td>img {width: 150px;max-width: fit-content;}
+td>img {width: 240px;max-width: fit-content;}
 .dd-c a{color: #ffe;padding: 6px 8px;text-decoration: none;display: block}
 .dd-c a:hover{background-color: #666}
 .dd:hover .dd-c{display: block}
@@ -145,15 +153,15 @@ td>img {width: 150px;max-width: fit-content;}
 .release_info tr {border-bottom:2px solid #666;}
 #tableHTML_header_1 {padding:1em;}
 #tableHTML_column_1 {justify-content: left;}
-#tableHTML_column_3:before { content: "Title:"; font-weight: bold;}
-#tableHTML_column_4:before { content: "Band:"; font-weight: bold;}
-#tableHTML_column_5:before { content: "Band page:"; font-weight: bold;}
-#tableHTML_column_6:before { content: "Genre:"; font-weight: bold;}
-#tableHTML_column_7:before { content: "Type:"; font-weight: bold;}
-#tableHTML_column_8:before { content: "Duration:"; font-weight: bold;}
-#tableHTML_column_9:before { content: "Label:"; font-weight: bold;}
-#tableHTML_column_10:before { content: "Release date:"; font-weight: bold;}
-#tableHTML_column_11:before { content: "Earliest date:"; font-weight: bold;}
+<!-- #tableHTML_column_3:before { content: "Title:"; font-weight: bold;} -->
+<!-- #tableHTML_column_4:before { content: "Band:"; font-weight: bold;} -->
+<!-- #tableHTML_column_5:before { content: "Band page:"; font-weight: bold;} -->
+<!-- #tableHTML_column_6:before { content: "Genre:"; font-weight: bold;} -->
+<!-- #tableHTML_column_7:before { content: "Type:"; font-weight: bold;} -->
+<!-- #tableHTML_column_8:before { content: "Duration:"; font-weight: bold;} -->
+<!-- #tableHTML_column_9:before { content: "Label:"; font-weight: bold;} -->
+<!-- #tableHTML_column_10:before { content: "Release date:"; font-weight: bold;} -->
+<!-- #tableHTML_column_11:before { content: "Earliest date:"; font-weight: bold;} -->
 
 
 }
