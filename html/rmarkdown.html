@@ -372,7 +372,7 @@ pre code {
 </div>
 <div id="look-into-the-reviews" class="section level3">
 <h3>Look into the reviews</h3>
-<p>Wanna know what they say exactly? Do some simple word mining..</p>
+<p>Wanna know what they say exactly? Let’s do some simple word mining.</p>
 <p><br></p>
 <div id="how-many-words-are-there-in-the-dataset" class="section level4">
 <h4>How many words are there in the dataset?</h4>
@@ -473,29 +473,7 @@ pre code {
 <iframe src="ReviewWordcloud.html" height="400" width="600" style="border:none;background-color: #333;">
 </iframe>
 </div>
-<!-- ```{r include=FALSE} -->
-<!-- word.cloud = -->
-<!-- word.table %>%  -->
-<!--   filter(!(. %in% c("of","the","are", "in",'a','is','and','but','this','that',"on","to","out","be","it","up", -->
-<!--                     "just","i","there","for","still","as","at","by","here","back", "off", "after", "then", "over","between","if", -->
-<!--                     "my","he","she","it's","or", "some","what","where", "when","an","also","being", -->
-<!--                     "do","have","though","anything", "through","while","can","me", -->
-<!--                     "will","say","had","don't","said","there's","came",  -->
-<!--                     "even","no", "all", "more", "not", "about", "other", "down","now", -->
-<!--                     "i","you")))  %>% sample_n(5000) %>% arrange(desc(n)) %>% arrange(desc(n)) %>%  -->
-<!--   wordcloud2(., size=.6, gridSize=6, -->
-<!--              fontFamily = "Cloister Black", -->
-<!--              backgroundColor = "#333333", -->
-<!--              # backgroundColor = "rgba(0,0,0,0)", -->
-<!--              color=rep_len( c("#616060","#d9d6d4","#c4b4b3"), nrow(.) ) )  -->
-<!--   htmlwidgets::saveWidget(word.cloud,"ReviewWordcloud.html",selfcontained = F) -->
-<!-- file.copy("./ReviewWordcloud.html", -->
-<!--           "E:/hels/Project/CheckingOutShitonMA/html/", -->
-<!--           overwrite = TRUE) -->
-<!-- file.copy("./ReviewWordcloud_files", -->
-<!--           "E:/hels/Project/CheckingOutShitonMA/html/", -->
-<!--           overwrite = TRUE) -->
-<!-- ``` -->
+
 <p>hmmm… not rather surprising though.</p>
 <p><br></p>
 <hr />
