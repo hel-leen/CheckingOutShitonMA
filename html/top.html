@@ -24,6 +24,8 @@ $(function(){
   $("h4 + pre").css({"margin-top":"1.5em;"});
   <!-- $("h2").css({"font-size": "1.6em"}); -->
   $("body").css({"font-size": "1em"});
+    $(".main-container>#header").detach();
+  $(".fluid main-container>#header").detach();
   });
     $("#includedContent").load("albums.html table" , function(){
     $('.release_info').DataTable( {
