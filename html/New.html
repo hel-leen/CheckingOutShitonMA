@@ -89,9 +89,11 @@ window.onscroll = (function() {
 </script> 
  </head>
 <body> 
+<div class='contentWrapper'>
 <h1 class="glow" id="header">New albums on MA &nbsp;</h1>
 <h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. </h3>
 <p>Web page genereated with <a href="https://www.r-project.org/">R</a></p>
+
 <div>About <b id ='about'>CheckingOutShitonMA</b> project</div>
 <div id ='project' class='hideItem'>
 <p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. </p><p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div>
@@ -131,12 +133,13 @@ window.onscroll = (function() {
 <div id="includedTable">
 
 
-
+</div>
 </div>
 <div id="includedContent"></div>
   
 <style>
 :root{font-family:'Mulish', Arial, sans-serif;line-height: 1.5;background-color: #333;color:#fcfaf1;width:100%;font-size: 100%}
+.contentWrapper { margin:0 2%;}
 .new {border: 1px rgba(0,0,0,0);}
 #header{font-family:'Cinzel','Playfair Display';background-color: #333;padding: 1em;text-align: center;font-size: 2.5em;font-weight: bold;position: fixed;position: sticky;top: 0; transition: .3s;z-index: 999}
 a{color: #fcfaf1}
