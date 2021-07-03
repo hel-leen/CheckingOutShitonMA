@@ -203,7 +203,22 @@ pre code {
 <h2> </h2>
 <div id="all-data-from-the-metal-archives.-web-page-genereated-with-r" class="section level3">
 <h4>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/">R</a></h4>
-<p>This page is about the so called top rated or highest reviewed albums by the MA users. They are really way too famous (and mainstream) for me to make them a list. But anyway.</p>
+<p>This page is about the so called top rated or highest reviewed albums by the MA users. They are really way too famous (and too mainstream for my taste) to make them a list. But anyway.</p>
+
+<p>Trying to find the most favored album, I scraped 50000+ review pages across the site and analyzed them with statistical methods. The result? well that depends on how you evaluate the data. Models with different weight may lead to entirely different conclusions. Also the extremely small sample size of the reviews on an individual album and the heavily skewed distributions of the ratings in general can be limiting factors when applying statistical techniques. But it's not Hades Archer's <a href="https://www.metal-archives.com/albums/Hades_Archer/Penis_Metal/213978">Penis Metal</a> at least. </p>
+
+<p>
+3 parts of work I've done: </p>
+<p>- Fetching the data from the review pages, building a dataset and applying "comparing mean techniques" (pairwise Mann Whitney U Test principally) on the data in order to rank the reviewed albums and make a top list out of them (see the list at the bottom of the page). </p>
+
+<p>- Word mining based on the top list dataset, which can be seen as a subset of all data I get, in order to see how the most popular albums have been reviewed exactly.</p>
+<p>- Sampling the top list dataset further in order to visualize them.</p>
+<p>
+But stuff I write here will not be confined to this order. The analysis details that I used to select and rank the albums will (possibly) be added later, if I can somehow motivate myself to write about that..</p>
+
+
+<p><br></p>
+
 <!-- <hr /> -->
 </div>
 <div id="start-with-a-glance" class="section level3">
@@ -214,7 +229,7 @@ pre code {
 </iframe>
 </div>
 <p><br></p>
-<p>The bubble chart shows how a random sample of reviewers (sample size = 2000) rate the albums through time. The plot sizes indicate the number of words in an individual review, while the colors differentiate the bands’ country of origin.</p>
+<p>The bubble chart shows how a random sample of reviewers (sample size = 2000) rate the albums through time. The plot sizes indicate the number of words in an individual review, while the colors differentiate the bands’ country of origin (black-American, red-European, beige-Oceanian,  violet-Asian, in descending order of the number).</p>
 <p>So it seems the users tend to heap their reviews on the top. Even i tried so hard to adjust the parameters the plots still overlap heavily. Understandable though. We might get more motivated to write a review about the albums we like than about stuff that we find generic after all.</p>
 <p><br></p>
 </div>
@@ -225,7 +240,7 @@ pre code {
 <div id="how-many-words" class="section level4">
 <h5>How many words are there in the dataset?</h5>
 <pre><code>## [1] 1103297</code></pre>
-<p>That’s quite a bunch.</p>
+<p>That’s quite a few.</p>
 <p><br></p>
 </div>
 <div id="unique-words" class="section level4">
@@ -318,16 +333,15 @@ pre code {
 <div class="iframewrapper">
 <iframe id="wordcloud" src="ReviewWordcloud.html"  style="border:none;background-color: #333;">
 </iframe>
+<p>hmmm… not especially surprising..</p>
 </div>
 
-<p>hmmm… not especially surprising.</p>
-<p><br></p>
-<!-- <hr /> -->
-</div>
+<p><br><br></p>
+
 </div>
 <div id="other-reviews" class="section level3">
 <h4>And about other reviews</h4>
-<p><br></p>
+<p> </p>
 <div id="-the-earliest-date" class="section level4">
 <h5>What’s the earliest date in the data?</h5>
 <pre><code>## [1] &quot;2002-07-14&quot;</code></pre>
@@ -453,7 +467,7 @@ pre code {
 ##  9 Type O Neg~ October Rust                15        95.3      7.23 78~100      
 ## 10 Atheist     Unquestionable Prese~       20        95.2      6.06 80~100      
 ## # ... with 253 more rows</code></pre>
-<p>23 reviewers of Entombed’s Left Hand Path were literally unanimous in their approval of the album, stabilizing the ratings at 98 out of 100. I’ve added the album to my to-revisit-list.</p>
+<p>23 reviewers of Entombed’s Left Hand Path were literally unanimous in their approval of the album, settling their ratings at around 98 out of 100. I’ve added the album to my to-revisit-list actually.</p>
 <p><br></p>
 </div>
 <div id="personal-favourite-albums" class="section level4">
@@ -462,13 +476,7 @@ pre code {
 <p><br></p>
 <!-- <hr /> -->
 </div>
-</div>
-</div>
 
-
-
-
-</div>
 
 <script>
 
