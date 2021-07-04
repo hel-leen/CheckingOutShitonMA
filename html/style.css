@@ -1,0 +1,139 @@
+﻿html {
+  background-color: #333;
+  color: #eee;
+}
+body {
+  margin: 1em 2em 0 2em;
+}
+:root {
+  font-family: "Mulish", Arial, sans-serif;
+  line-height: 1.5;
+  background-color: #333;
+  color: #fcfaf1;
+  width: 100%;
+  font-size: 100%;
+}
+.main-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+.container {
+  width: 100%;
+  text-align: center;
+}
+#header {
+  font-family: "Cinzel", "Playfair Display";
+  background-color: #333;
+  padding: 0.89em;
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  position: fixed;
+  position: sticky;
+  top: 0;
+  transition: 0.3s;
+  z-index: 999;
+}
+a {
+  color: #fff;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+pre:not([class]) {
+  background-color: #444;
+  color: #fcfaf1;
+}
+pre {
+  display: block;
+  padding: 10px;
+  margin: 0 0 10px;
+  font-size: 13px;
+  line-height: 1.4;
+  word-break: break-all;
+  word-wrap: break-word;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+}
+.hide {
+  display: none;
+}
+iframe {width:100%;height:100%}
+.iframewrapper {text-align: center;max-width:900px;height:500px}
+.wordcloud2 {background-color: #333;}
+#wordcloud {max-width:100%;}
+.result.well {
+  display: inline-block;
+  min-width: 450px;
+  text-align: center;
+  white-space: break-spaces;
+}
+.searchBox {
+  width: 100%;
+  padding: 1em;
+  position: sticky;
+  top: 0;
+  background-color: #444;
+  border-radius: 0.4em;
+  color: #fff;
+  box-sizing: border-box;
+}
+.footer {
+  display: inline-block;
+  box-sizing: border-box;
+  position: sticky;
+  bottom: 0;
+  background: #333;
+  padding: 1em;
+  width: 100%;
+}
+.well img {
+  width: 350px;
+}
+p {
+  margin-block-start: 0.1em;
+}
+#p2:nth-child(7) {
+  height: 30px;
+}
+#showingInfo {
+  margin: 0 0 0.8em 0;
+}
+.btn {
+  display: inline-block;
+  width: 24px;
+  background-color: #444;
+  color: #a99;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  padding: 11px 12px;
+  font-size: 12px;
+  line-height: 1.4;
+  border-radius: 4px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.btn.disabled {
+  color: #777;
+  background-color: #666;
+  pointer-events: none;
+}
+.btn-primary {
+  color: #fed;
+  background-color: #666;
+  border-color: #aaa;
+}
+.btn-primary:hover {
+  color: #fed;
+  background-color: #555;
+  border-color: #aaa;
+}
+.btn-primary:active {
+  color: #fed;
+  background-color: #444;
+  border-color: #777;
+}
