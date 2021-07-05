@@ -58,6 +58,9 @@ a#home:hover {
   line-height: 3.3;
   border-radius: 50%;
 }
+.home-top, .home-bottom {
+    z-index: 999;
+}
 .home-button {
   margin;0 .5em;
 }
@@ -88,6 +91,20 @@ a#home:hover {
   transition: 0.3s;
   z-index: 666;
 }
+#bgfill {
+  background-color: #000;
+  color: #000;
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  cursor: pointer;
+  z-index: 666;
+}
 .floating{
   font-family: Mulish; 
   position: absolute;
@@ -108,7 +125,167 @@ border-radius: 0.6em;
 display: none;
 max-width: 70%;
 left: 1em;	
- z-index: 999;
+ height: 100%;
+ z-index: 777;
+}
+#disp {
+  padding: 10% 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+.heart-Circle{
+  border:0px solid #000;
+  border-radius:260px;
+  height:140px;
+  overflow:hidden;
+  position:relative;
+  width:140px;
+}
+.heart-Container{
+  left:11%;
+  position:absolute;
+  top:20%;
+  -moz-transition:all 0.35s; 
+  -webkit-transition:all 0.35s;  
+  transition:all 0.35s;
+}
+.heart-Container.broken{
+  left:6%;
+  top:23%;
+}
+.heart{
+    height:90px;
+    position:relative;
+    width:50px; 
+}
+.heart:before, .heart:after{
+    background:#5e5154;
+    border-radius:50px 50px 0 0;
+    content:"";
+    height:80px;
+    left:50px;
+    position:absolute;
+    top:4px;
+    width:50px;
+    -webkit-transform:rotate(-45deg);
+       -moz-transform:rotate(-45deg);
+        -ms-transform:rotate(-45deg);
+            transform:rotate(-45deg);
+    -webkit-transform-origin:0 100%;
+       -moz-transform-origin:0 100%;
+        -ms-transform-origin:0 100%;
+            transform-origin:0 100%;
+}
+.heart:after {
+    left:0;
+    -webkit-transform:rotate(45deg);
+       -moz-transform:rotate(45deg);
+        -ms-transform:rotate(45deg);
+            transform:rotate(45deg);
+    -webkit-transform-origin:100% 100%;
+       -moz-transform-origin:100% 100%;
+        -ms-transform-origin:100% 100%;
+            transform-origin:100% 100%;
+}
+.sides{
+  float:left;
+  position:relative;
+  -moz-transition:all 0.35s; 
+  -webkit-transition:all 0.35s;  
+  transition:all 0.35s;
+}
+.half{
+  overflow:hidden;
+  position:relative;
+  width:50px;
+}
+.right-Side .heart:after,
+.right-Side .heart:before{
+  left:-50px;
+}
+/* create the rip in the center */
+.points{
+  position:absolute;
+  top:20px
+}
+.left-Side .points{left:100%}
+.right-Side .points{right:100%}
+.point{
+  border-bottom: 8px solid transparent;
+  border-left:   16px solid #5e5154;
+  border-top:    8px solid transparent;
+  height:0;
+  width:0;
+}
+.right-Side .point {
+  border-bottom:  8px solid transparent;
+  border-left:    none;
+  border-right:   16px solid #5e5154;
+  border-top:     8px solid transparent;
+  position:relative;
+}
+.left-Side .point{
+  left:-3px;
+  position:relative;
+  top:3px;
+  -moz-transform:rotate(-2deg);
+  -webkit-transform:rotate(-2deg);
+  transform:rotate(-2deg);
+}
+.left-Side .pt1{
+  left:-5px;
+  top:-4px;
+  -moz-transform:rotate(29deg);
+  -webkit-transform:rotate(29deg);
+  transform:rotate(29deg);
+}
+.left-Side .pt2{
+  top:1px;
+}
+.left-Side .pt3{
+  left:-5px;
+  top:4px;
+  -moz-transform:rotate(-29deg);
+  -webkit-transform:rotate(29deg);
+  transform:rotate(29deg);
+}
+.left-Side .pt4{
+  left:-7px;
+  position:absolute;
+  top:5px;
+  -moz-transform:rotate(-9deg);
+  -webkit-transform:rotate(-9deg);
+  transform:rotate(-9deg);
+}
+.right-Side .point{
+  right:-3px;
+  top:-5px;
+  -moz-transform:rotate(-15deg);
+  -webkit-transform:rotate(-15deg);
+  transform:rotate(-15deg);
+}
+.right-Side .pt2{
+  top:-7px;
+}
+.right-Side .pt3{
+  right:-5px;
+  top:-6px;
+  -moz-transform:rotate(-26deg);
+  -webkit-transform:rotate(-26deg);
+  transform:rotate(-26deg);
+}
+.broken .left-Side{
+  margin-right:6px;
+  -moz-transform:rotate(-10deg);
+  -webkit-transform:rotate(-10deg);
+  transform:rotate(-10deg);
+}
+.broken .right-Side{
+  margin-left:6px;
+  -moz-transform:rotate(10deg);
+  -webkit-transform:rotate(10deg);
+  transform:rotate(10deg);
 }
 a {
   color: #fff;
