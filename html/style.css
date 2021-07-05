@@ -739,7 +739,7 @@ p {
 
 
 @media(max-width: 800px)  {
-:root{font-size: 90%}
+:root{font-size: 95%}
 #header {
   font-size: 1.5em;
 }
