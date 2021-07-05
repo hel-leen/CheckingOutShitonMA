@@ -6,7 +6,6 @@
 <link rel="stylesheet" href="style.css">
 <script src="jquery.min.js">  </script>
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
-<link href="https://fonts.googleapis.com/css2?family=Aleo:wght@300&family=Mulish:wght@300&family=Playfair+Display:wght@600&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
 <script>
 let today = new Date(); 

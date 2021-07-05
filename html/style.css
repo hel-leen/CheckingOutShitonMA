@@ -1,10 +1,8 @@
-﻿html {
+﻿@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400&family=Mulish:wght@300&family=Playfair+Display:wght@600&family=Cinzel:wght@800&family=Pirata+One&display=swap');
+html {
   background-color: #333;
   color: #eee;
   scroll-behavior: smooth;
-}
-body {
-  margin: 1em 2em 0 3.2em;
 }
 :root {
   font-family: "Mulish", Arial, sans-serif;
@@ -14,19 +12,22 @@ body {
   width: 100%;
   font-size: 100%;
 }
+body {
+  margin: 1em 2em 0 3.2em;
+}
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #eeeeee;
-  background: rgba(235, 235, 235, 0);
+  background: #222;
+  background: rgba(66, 66, 66, 0);
 }
 ::-webkit-scrollbar-thumb {
-  background: #eeeeee;
-  background: rgba(255, 255, 255, 0);
+  background: #222;
+  background: rgba(66, 66, 66, 0);
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #fafafa;
+  background: #bbb;
 }
 .sidenav a {
   position: absolute;
@@ -739,7 +740,7 @@ p {
 
 
 @media(max-width: 800px)  {
-:root{font-size: 90%}
+:root{font-size: 95%}
 #header {
   font-size: 1.5em;
 }
