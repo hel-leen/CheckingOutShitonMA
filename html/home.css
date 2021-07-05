@@ -1,0 +1,235 @@
+﻿/* W3.CSS 4.15 December 2020 by Jan Egil and Borge Refsnes */
+html{box-sizing:border-box;background-color: black;}*,*:before,*:after{box-sizing:inherit}
+/* Extract from normalize.css by Nicolas Gallagher and Jonathan Neal git.io/normalize */
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
+article,aside,details,figcaption,figure,footer,header,main,menu,nav,section{display:block}summary{display:list-item}
+audio,canvas,progress,video{display:inline-block}progress{vertical-align:baseline}
+audio:not([controls]){display:none;height:0}[hidden],template{display:none}
+a{background-color:transparent}a:active,a:hover{outline-width:0}
+abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
+b,strong{font-weight:bolder}dfn{font-style:italic}mark{background:#ff0;color:#000}
+small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-0.25em}sup{top:-0.5em}figure{margin:1em 40px}img{border-style:none}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}hr{box-sizing:content-box;height:0;overflow:visible}
+button,input,select,textarea,optgroup{font:inherit;margin:0}optgroup{font-weight:bold}
+button,input{overflow:visible}button,select{text-transform:none}
+button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}
+button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}
+button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}
+fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}
+legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}
+[type=checkbox],[type=radio]{padding:0}
+[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}
+[type=search]{-webkit-appearance:textfield;outline-offset:-2px}
+[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+/* End extract */
+html,body{font-family:Verdana,sans-serif;font-size:1.1em;line-height:1.5}html{overflow-x:hidden}
+h1{font-size:36px}h2{font-size:30px}h3{font-size:24px}h4{font-size:20px}h5{font-size:18px}h6{font-size:16px}
+.home-serif{font-family:serif}.home-sans-serif{font-family:sans-serif}.home-cursive{font-family:cursive}.home-monospace{font-family:monospace}
+h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}.home-wide{letter-spacing:4px}
+hr{border:0;border-top:1px solid #eee;margin:20px 0}
+.home-image{max-width:100%;height:auto}img{vertical-align:middle}a{color:inherit}
+.home-table,.home-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table}.home-table-all{border:1px solid #ccc}
+.home-bordered tr,.home-table-all tr{border-bottom:1px solid #ddd}.home-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.home-table-all tr:nth-child(odd){background-color:#fff}.home-table-all tr:nth-child(even){background-color:#f1f1f1}
+.home-hoverable tbody tr:hover,.home-ul.home-hoverable li:hover{background-color:#ccc}.home-centered tr th,.home-centered tr td{text-align:center}
+.home-table td,.home-table th,.home-table-all td,.home-table-all th{padding:8px 8px;display:table-cell;text-align:left;vertical-align:top}
+.home-table th:first-child,.home-table td:first-child,.home-table-all th:first-child,.home-table-all td:first-child{padding-left:16px}
+.home-btn,.home-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;cursor:pointer;white-space:nowrap}
+.home-btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+.home-btn,.home-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+.home-disabled,.home-btn:disabled,.home-button:disabled{cursor:not-allowed;opacity:0.3}.home-disabled *,:disabled *{pointer-events:none}
+.home-btn.home-disabled:hover,.home-btn:disabled:hover{box-shadow:none}
+.home-badge,.home-tag{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center}.home-badge{border-radius:50%}
+.home-ul{list-style-type:none;padding:0;margin:0}.home-ul li{padding:8px 16px;border-bottom:1px solid #ddd}.home-ul li:last-child{border-bottom:none}
+.home-tooltip,.home-display-container{position:relative}.home-tooltip .home-text{display:none}.home-tooltip:hover .home-text{display:inline-block}
+.home-ripple:active{opacity:0.5}.home-ripple{transition:opacity 0s}
+.home-input{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
+.home-select{padding:9px 0;width:100%;border:none;border-bottom:1px solid #ccc}
+.home-dropdown-click,.home-dropdown-hover{position:relative;display:inline-block;cursor:pointer}
+.home-dropdown-hover:hover .home-dropdown-content{display:block}
+.home-dropdown-hover:first-child,.home-dropdown-click:hover{background-color:#ccc;color:#000}
+.home-dropdown-hover:hover > .home-button:first-child,.home-dropdown-click:hover > .home-button:first-child{background-color:#ccc;color:#000}
+.home-dropdown-content{cursor:auto;color:#000;background-color:#fff;display:none;position:absolute;min-width:160px;margin:0;padding:0;z-index:1}
+.home-check,.home-radio{width:24px;height:24px;position:relative;top:6px}
+.home-sidebar{height:100%;width:200px;background-color:#fff;position:fixed!important;z-index:1;overflow:auto}
+.home-bar-block .home-dropdown-hover,.home-bar-block .home-dropdown-click{width:100%}
+.home-bar-block .home-dropdown-hover .home-dropdown-content,.home-bar-block .home-dropdown-click .home-dropdown-content{min-width:100%}
+.home-bar-block .home-dropdown-hover .home-button,.home-bar-block .home-dropdown-click .home-button{width:100%;text-align:left;padding:8px 16px}
+.home-main,#main{transition:margin-left .4s}
+.home-modal{z-index:3;display:none;padding-top:100px;position:fixed;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.4)}
+.home-modal-content{margin:auto;background-color:#000;position:relative;padding:0;outline:0;width:600px}
+.home-bar{width:100%;overflow:hidden;padding:1.1em 0;}.home-center .home-bar{display:inline-block;width:auto}
+.home-bar .home-bar-item{font-family:'Cinzel';padding:8px 16px;float:left;width:auto;border:none;display:block;outline:0}
+.home-bar .home-dropdown-hover,.home-bar .home-dropdown-click{position:static;float:left}
+.home-bar .home-button{white-space:normal}
+.home-bar-block .home-bar-item{width:100%;display:block;padding:8px 16px;font-size:.8em;text-align:left;border:none;white-space:normal;float:none;outline:0}
+.home-bar-block.home-center .home-bar-item{text-align:center}.home-block{display:block;width:100%}
+.home-responsive{display:block;overflow-x:auto}
+.home-container:after,.home-container:before,.home-panel:after,.home-panel:before,.home-row:after,.home-row:before,.home-row-padding:after,.home-row-padding:before,
+.home-cell-row:before,.home-cell-row:after,.home-clear:after,.home-clear:before,.home-bar:before,.home-bar:after{content:"";display:table;clear:both}
+.home-col,.home-half,.home-third,.home-twothird,.home-threequarter,.home-quarter{float:left;width:100%}
+.home-col.s1{width:8.33333%}.home-col.s2{width:16.66666%}.home-col.s3{width:24.99999%}.home-col.s4{width:33.33333%}
+.home-col.s5{width:41.66666%}.home-col.s6{width:49.99999%}.home-col.s7{width:58.33333%}.home-col.s8{width:66.66666%}
+.home-col.s9{width:74.99999%}.home-col.s10{width:83.33333%}.home-col.s11{width:91.66666%}.home-col.s12{width:99.99999%}
+@media (min-width:601px){.home-col.m1{width:8.33333%}.home-col.m2{width:16.66666%}.home-col.m3,.home-quarter{width:24.99999%}.home-col.m4,.home-third{width:33.33333%}
+.home-col.m5{width:41.66666%}.home-col.m6,.home-half{width:49.99999%}.home-col.m7{width:58.33333%}.home-col.m8,.home-twothird{width:66.66666%}
+.home-col.m9,.home-threequarter{width:74.99999%}.home-col.m10{width:83.33333%}.home-col.m11{width:91.66666%}.home-col.m12{width:99.99999%}}
+@media (min-width:993px){.home-col.l1{width:8.33333%}.home-col.l2{width:16.66666%}.home-col.l3{width:24.99999%}.home-col.l4{width:33.33333%}
+.home-col.l5{width:41.66666%}.home-col.l6{width:49.99999%}.home-col.l7{width:58.33333%}.home-col.l8{width:66.66666%}
+.home-col.l9{width:74.99999%}.home-col.l10{width:83.33333%}.home-col.l11{width:91.66666%}.home-col.l12{width:99.99999%}}
+.home-rest{overflow:hidden}.home-stretch{margin-left:-16px;margin-right:-16px}
+.home-content,.home-auto{margin-left:auto;margin-right:auto}.home-content{max-width:980px}.home-auto{max-width:1140px}
+.home-cell-row{display:table;width:100%}.home-cell{display:table-cell}
+.home-cell-top{vertical-align:top}.home-cell-middle{vertical-align:middle}.home-cell-bottom{vertical-align:bottom}
+.home-hide{display:none!important}.home-show-block,.home-show{display:block!important}.home-show-inline-block{display:inline-block!important}
+@media (max-width:1205px){.home-auto{max-width:95%}}
+@media (max-width:600px){:root{font-size: 90%}.home-modal-content{margin:0 10px;width:auto!important}.home-modal{padding-top:30px}
+.home-dropdown-hover.home-mobile .home-dropdown-content,.home-dropdown-click.home-mobile .home-dropdown-content{position:relative}	
+.home-hide-small{display:none!important}.home-mobile{display:block;width:100%!important}.home-bar-item.home-mobile,.home-dropdown-hover.home-mobile,.home-dropdown-click.home-mobile{text-align:center}
+.home-dropdown-hover.home-mobile,.home-dropdown-hover.home-mobile .home-btn,.home-dropdown-hover.home-mobile .home-button,.home-dropdown-click.home-mobile,.home-dropdown-click.home-mobile .home-btn,.home-dropdown-click.home-mobile .home-button{width:100%}}
+@media (max-width:768px){.home-modal-content{width:500px}.home-modal{padding-top:50px}}
+@media (min-width:993px){.home-modal-content{width:900px}.home-hide-large{display:none!important}.home-sidebar.home-collapse{display:block!important}}
+@media (max-width:992px) and (min-width:601px){.home-hide-medium{display:none!important}}
+@media (max-width:992px){.home-sidebar.home-collapse{display:none}.home-main{margin-left:0!important;margin-right:0!important}.home-auto{max-width:100%}}
+.home-top,.home-bottom{position:fixed;width:100%;z-index:1}.home-top{top:0}.home-bottom{bottom:0}
+.home-overlay{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);z-index:2}
+.home-display-topleft{position:absolute;left:0;top:0}.home-display-topright{position:absolute;right:0;top:0}
+.home-display-bottomleft{position:absolute;left:0;bottom:0}.home-display-bottomright{position:absolute;right:0;bottom:0}
+.home-display-middle{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)}
+.home-display-left{position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%)}
+.home-display-right{position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%)}
+.home-display-topmiddle{position:absolute;left:50%;top:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
+.home-display-bottommiddle{position:absolute;left:50%;bottom:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
+.home-display-container:hover .home-display-hover{display:block}.home-display-container:hover span.home-display-hover{display:inline-block}.home-display-hover{display:none}
+.home-display-position{position:absolute}
+.home-circle{border-radius:50%}
+.home-round-small{border-radius:2px}.home-round,.home-round-medium{border-radius:4px}.home-round-large{border-radius:8px}.home-round-xlarge{border-radius:16px}.home-round-xxlarge{border-radius:32px}
+.home-row-padding,.home-row-padding>.home-half,.home-row-padding>.home-third,.home-row-padding>.home-twothird,.home-row-padding>.home-threequarter,.home-row-padding>.home-quarter,.home-row-padding>.home-col{padding:0 8px}
+.home-container,.home-panel{padding:0.01em 16px}.home-panel{margin-top:16px;margin-bottom:16px}
+.home-code,.home-codespan{font-family:Consolas,"courier new";font-size:16px}
+.home-code{width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #4CAF50;word-wrap:break-word}
+.home-codespan{color:crimson;background-color:#f1f1f1;padding-left:4px;padding-right:4px;font-size:110%}
+.home-card,.home-card-2{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+.home-card-4,.home-hover-shadow:hover{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
+.home-spin{animation:home-spin 2s infinite linear}@keyframes home-spin{0%{transform:rotate(0deg)}100%{transform:rotate(359deg)}}
+.home-animate-fading{animation:fading 10s infinite}@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+.home-animate-opacity{animation:opac 0.8s}@keyframes opac{from{opacity:0} to{opacity:1}}
+.home-animate-top{position:relative;animation:animatetop 0.4s}@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
+.home-animate-left{position:relative;animation:animateleft 0.4s}@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+.home-animate-right{position:relative;animation:animateright 0.4s}@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.home-animate-bottom{position:relative;animation:animatebottom 0.4s}@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+.home-animate-zoom {animation:animatezoom 0.6s}@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+.home-animate-input{transition:width 0.4s ease-in-out}.home-animate-input:focus{width:100%!important}
+.home-opacity,.home-hover-opacity:hover{opacity:0.60}.home-opacity-off,.home-hover-opacity-off:hover{opacity:1}
+.home-opacity-max{opacity:0.25}.home-opacity-min{opacity:0.75}
+.home-greyscale-max,.home-grayscale-max,.home-hover-greyscale:hover,.home-hover-grayscale:hover{filter:grayscale(100%)}
+.home-greyscale,.home-grayscale{filter:grayscale(75%)}.home-greyscale-min,.home-grayscale-min{filter:grayscale(50%)}
+.home-sepia{filter:sepia(75%)}.home-sepia-max,.home-hover-sepia:hover{filter:sepia(100%)}.home-sepia-min{filter:sepia(50%)}
+.home-tiny{font-size:10px!important}.home-small{font-size:12px!important}.home-medium{font-size:15px!important}.home-large{font-size:18px!important}
+.home-xlarge{font-size:24px!important}.home-xxlarge{font-size:36px!important}.home-xxxlarge{font-size:48px!important}.home-jumbo{font-size:64px!important}
+.home-left-align{text-align:left!important}.home-right-align{text-align:right!important}.home-justify{text-align:justify!important}.home-center{text-align:center!important}
+.home-border-0{border:0!important}.home-border{border:1px solid #ccc!important}
+.home-border-top{border-top:1px solid #ccc!important}.home-border-bottom{border-bottom:1px solid #ccc!important}
+.home-border-left{border-left:1px solid #ccc!important}.home-border-right{border-right:1px solid #ccc!important}
+.home-topbar{border-top:6px solid #ccc!important}.home-bottombar{border-bottom:6px solid #ccc!important}
+.home-leftbar{border-left:6px solid #ccc!important}.home-rightbar{border-right:6px solid #ccc!important}
+.home-section,.home-code{margin-top:16px!important;margin-bottom:16px!important}
+.home-margin{margin:16px!important}.home-margin-top{margin-top:16px!important}.home-margin-bottom{margin-bottom:16px!important}
+.home-margin-left{margin-left:16px!important}.home-margin-right{margin-right:16px!important}
+.home-padding-small{padding:4px 8px!important}.home-padding{padding:8px 16px!important}.home-padding-large{padding:12px 24px!important}
+.home-padding-16{padding-top:16px!important;padding-bottom:16px!important}.home-padding-24{padding-top:24px!important;padding-bottom:24px!important}
+.home-padding-32{padding-top:32px!important;padding-bottom:32px!important}.home-padding-48{padding-top:48px!important;padding-bottom:48px!important}
+.home-padding-64{padding-top:64px!important;padding-bottom:64px!important}
+.home-padding-top-64{padding-top:64px!important}.home-padding-top-48{padding-top:48px!important}
+.home-padding-top-32{padding-top:32px!important}.home-padding-top-24{padding-top:24px!important}
+.home-left{float:left!important}.home-right{float:right!important}
+.home-button:hover{color:#000!important;background-color:#ccc!important}
+.home-transparent,.home-hover-none:hover{background-color:transparent!important}
+.home-hover-none:hover{box-shadow:none!important}
+/* Colors */
+.home-amber,.home-hover-amber:hover{color:#000!important;background-color:#ffc107!important}
+.home-aqua,.home-hover-aqua:hover{color:#000!important;background-color:#00ffff!important}
+.home-blue,.home-hover-blue:hover{color:#fff!important;background-color:#2196F3!important}
+.home-light-blue,.home-hover-light-blue:hover{color:#000!important;background-color:#87CEEB!important}
+.home-brown,.home-hover-brown:hover{color:#fff!important;background-color:#795548!important}
+.home-cyan,.home-hover-cyan:hover{color:#000!important;background-color:#00bcd4!important}
+.home-blue-grey,.home-hover-blue-grey:hover,.home-blue-gray,.home-hover-blue-gray:hover{color:#fff!important;background-color:#607d8b!important}
+.home-green,.home-hover-green:hover{color:#fff!important;background-color:#4CAF50!important}
+.home-light-green,.home-hover-light-green:hover{color:#000!important;background-color:#8bc34a!important}
+.home-indigo,.home-hover-indigo:hover{color:#fff!important;background-color:#3f51b5!important}
+.home-khaki,.home-hover-khaki:hover{color:#000!important;background-color:#f0e68c!important}
+.home-lime,.home-hover-lime:hover{color:#000!important;background-color:#cddc39!important}
+.home-orange,.home-hover-orange:hover{color:#000!important;background-color:#ff9800!important}
+.home-deep-orange,.home-hover-deep-orange:hover{color:#fff!important;background-color:#ff5722!important}
+.home-pink,.home-hover-pink:hover{color:#fff!important;background-color:#e91e63!important}
+.home-purple,.home-hover-purple:hover{color:#fff!important;background-color:#9c27b0!important}
+.home-deep-purple,.home-hover-deep-purple:hover{color:#fff!important;background-color:#673ab7!important}
+.home-red,.home-hover-red:hover{color:#fff!important;background-color:#f44336!important}
+.home-sand,.home-hover-sand:hover{color:#000!important;background-color:#fdf5e6!important}
+.home-teal,.home-hover-teal:hover{color:#fff!important;background-color:#009688!important}
+.home-yellow,.home-hover-yellow:hover{color:#000!important;background-color:#ffeb3b!important}
+.home-white,.home-hover-white:hover{color:#000!important;background-color:#fff!important}
+.home-black,.home-hover-black:hover{color:#fff!important;background-color:#000!important}
+.home-grey,.home-hover-grey:hover,.home-gray,.home-hover-gray:hover{color:#000!important;background-color:#9e9e9e!important}
+.home-light-grey,.home-hover-light-grey:hover,.home-light-gray,.home-hover-light-gray:hover{color:#000!important;background-color:#f1f1f1!important}
+.home-dark-grey,.home-hover-dark-grey:hover,.home-dark-gray,.home-hover-dark-gray:hover{color:#fff!important;background-color:#616161!important}
+.home-pale-red,.home-hover-pale-red:hover{color:#000!important;background-color:#ffdddd!important}
+.home-pale-green,.home-hover-pale-green:hover{color:#000!important;background-color:#ddffdd!important}
+.home-pale-yellow,.home-hover-pale-yellow:hover{color:#000!important;background-color:#ffffcc!important}
+.home-pale-blue,.home-hover-pale-blue:hover{color:#000!important;background-color:#ddffff!important}
+.home-text-amber,.home-hover-text-amber:hover{color:#ffc107!important}
+.home-text-aqua,.home-hover-text-aqua:hover{color:#00ffff!important}
+.home-text-blue,.home-hover-text-blue:hover{color:#2196F3!important}
+.home-text-light-blue,.home-hover-text-light-blue:hover{color:#87CEEB!important}
+.home-text-brown,.home-hover-text-brown:hover{color:#795548!important}
+.home-text-cyan,.home-hover-text-cyan:hover{color:#00bcd4!important}
+.home-text-blue-grey,.home-hover-text-blue-grey:hover,.home-text-blue-gray,.home-hover-text-blue-gray:hover{color:#607d8b!important}
+.home-text-green,.home-hover-text-green:hover{color:#4CAF50!important}
+.home-text-light-green,.home-hover-text-light-green:hover{color:#8bc34a!important}
+.home-text-indigo,.home-hover-text-indigo:hover{color:#3f51b5!important}
+.home-text-khaki,.home-hover-text-khaki:hover{color:#b4aa50!important}
+.home-text-lime,.home-hover-text-lime:hover{color:#cddc39!important}
+.home-text-orange,.home-hover-text-orange:hover{color:#ff9800!important}
+.home-text-deep-orange,.home-hover-text-deep-orange:hover{color:#ff5722!important}
+.home-text-pink,.home-hover-text-pink:hover{color:#e91e63!important}
+.home-text-purple,.home-hover-text-purple:hover{color:#9c27b0!important}
+.home-text-deep-purple,.home-hover-text-deep-purple:hover{color:#673ab7!important}
+.home-text-red,.home-hover-text-red:hover{color:#f44336!important}
+.home-text-sand,.home-hover-text-sand:hover{color:#fdf5e6!important}
+.home-text-teal,.home-hover-text-teal:hover{color:#009688!important}
+.home-text-yellow,.home-hover-text-yellow:hover{color:#d2be0e!important}
+.home-text-white,.home-hover-text-white:hover{color:#fff!important}
+.home-text-black,.home-hover-text-black:hover{color:#000!important}
+.home-text-grey,.home-hover-text-grey:hover,.home-text-gray,.home-hover-text-gray:hover{color:#757575!important}
+.home-text-light-grey,.home-hover-text-light-grey:hover,.home-text-light-gray,.home-hover-text-light-gray:hover{color:#f1f1f1!important}
+.home-text-dark-grey,.home-hover-text-dark-grey:hover,.home-text-dark-gray,.home-hover-text-dark-gray:hover{color:#3a3a3a!important}
+.home-border-amber,.home-hover-border-amber:hover{border-color:#ffc107!important}
+.home-border-aqua,.home-hover-border-aqua:hover{border-color:#00ffff!important}
+.home-border-blue,.home-hover-border-blue:hover{border-color:#2196F3!important}
+.home-border-light-blue,.home-hover-border-light-blue:hover{border-color:#87CEEB!important}
+.home-border-brown,.home-hover-border-brown:hover{border-color:#795548!important}
+.home-border-cyan,.home-hover-border-cyan:hover{border-color:#00bcd4!important}
+.home-border-blue-grey,.home-hover-border-blue-grey:hover,.home-border-blue-gray,.home-hover-border-blue-gray:hover{border-color:#607d8b!important}
+.home-border-green,.home-hover-border-green:hover{border-color:#4CAF50!important}
+.home-border-light-green,.home-hover-border-light-green:hover{border-color:#8bc34a!important}
+.home-border-indigo,.home-hover-border-indigo:hover{border-color:#3f51b5!important}
+.home-border-khaki,.home-hover-border-khaki:hover{border-color:#f0e68c!important}
+.home-border-lime,.home-hover-border-lime:hover{border-color:#cddc39!important}
+.home-border-orange,.home-hover-border-orange:hover{border-color:#ff9800!important}
+.home-border-deep-orange,.home-hover-border-deep-orange:hover{border-color:#ff5722!important}
+.home-border-pink,.home-hover-border-pink:hover{border-color:#e91e63!important}
+.home-border-purple,.home-hover-border-purple:hover{border-color:#9c27b0!important}
+.home-border-deep-purple,.home-hover-border-deep-purple:hover{border-color:#673ab7!important}
+.home-border-red,.home-hover-border-red:hover{border-color:#f44336!important}
+.home-border-sand,.home-hover-border-sand:hover{border-color:#fdf5e6!important}
+.home-border-teal,.home-hover-border-teal:hover{border-color:#009688!important}
+.home-border-yellow,.home-hover-border-yellow:hover{border-color:#ffeb3b!important}
+.home-border-white,.home-hover-border-white:hover{border-color:#fff!important}
+.home-border-black,.home-hover-border-black:hover{border-color:#000!important}
+.home-border-grey,.home-hover-border-grey:hover,.home-border-gray,.home-hover-border-gray:hover{border-color:#9e9e9e!important}
+.home-border-light-grey,.home-hover-border-light-grey:hover,.home-border-light-gray,.home-hover-border-light-gray:hover{border-color:#f1f1f1!important}
+.home-border-dark-grey,.home-hover-border-dark-grey:hover,.home-border-dark-gray,.home-hover-border-dark-gray:hover{border-color:#616161!important}
+.home-border-pale-red,.home-hover-border-pale-red:hover{border-color:#ffe7e7!important}.home-border-pale-green,.home-hover-border-pale-green:hover{border-color:#e7ffe7!important}
+.home-border-pale-yellow,.home-hover-border-pale-yellow:hover{border-color:#ffffcc!important}.home-border-pale-blue,.home-hover-border-pale-blue:hover{border-color:#e7ffff!important}
