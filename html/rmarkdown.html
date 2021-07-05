@@ -74,23 +74,6 @@ color: #d14;
   ul.task-list{list-style: none;}
     </style>
 
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-<!-- if (window.hljs) { -->
-  <!-- hljs.configure({languages: []}); -->
-  <!-- hljs.initHighlightingOnLoad(); -->
-  <!-- if (document.readyState && document.readyState === "complete") { -->
-    <!-- window.setTimeout(function() { hljs.initHighlighting(); }, 0); -->
-  <!-- } -->
-<!-- } -->
-</script>
-
-
-
-
-
-
-
 
 <style type="text/css">
 .main-container {
@@ -120,63 +103,8 @@ pre code {
 
 
 
-<!-- tabsets -->
 
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
 
 
 
@@ -186,26 +114,13 @@ pre code {
 <body>
 
 
-<div class="container-fluid main-container">
-
-
-
-
-<div id="header">
-
-
-
-
-</div>
-
-
+<div class="main-container">
 <div id="section" class="section level2">
-<h2> </h2>
 <div id="all-data-from-the-metal-archives.-web-page-genereated-with-r" class="section level3">
-<h4>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/">R</a></h4>
+<h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/">R</a></h3>
 <p>This page is about the so called top rated or highest reviewed albums by the MA users. They are really way too famous (and too mainstream for my taste) to make them a list. But anyway.</p>
 
-<p>Trying to find the most favored album, I scraped 50000+ review pages across the site and analyzed them with statistical methods. The result? well that depends on how you evaluate the data. Models with different weight may lead to entirely different conclusions. Also the extremely small sample size of the reviews on an individual album and the heavily skewed distributions of the ratings in general can be limiting factors when applying statistical techniques. But it's not Hades Archer's <a href="https://www.metal-archives.com/albums/Hades_Archer/Penis_Metal/213978">Penis Metal</a> at least. </p>
+<p>Trying to find the most favored album, I scraped 50000+ review pages across the site and analyzed them with statistical methods. The result? well that depends on how you evaluate the data. Models with different weight may lead to entirely different conclusions. Also the extremely small sample size of the reviews on an individual album and the heavily skewed distributions of the ratings in general can be limiting factors when applying statistical techniques. So I tend not to offer ONE definite album name. <s>But it's not Hades Archer's <a href="https://www.metal-archives.com/albums/Hades_Archer/Penis_Metal/213978">Penis Metal</a> at least. </s></p>
 
 <p>
 3 parts of work I've done: </p>
@@ -222,42 +137,42 @@ But stuff I write here will not be confined to this order. The analysis details 
 <!-- <hr /> -->
 </div>
 <div id="start-with-a-glance" class="section level3">
-<h4>Start with a glance</h4>
+<h3>Start with a glance</h3>
 <p><br></p>
 <div class="iframewrapper">
 <iframe id="ReviewBubblechart" src="ReviewBubblechart.html"   style="border:none;background-color: #333;">
 </iframe>
 </div>
 <p><br></p>
-<p>The bubble chart shows how a random sample of reviewers (sample size = 2000) rate the albums through time. The plot sizes indicate the number of words in an individual review, while the colors differentiate the bands’ country of origin (black-American, red-European, beige-Oceanian,  violet-Asian, in descending order of the number).</p>
+<p>The bubble chart shows how a random sample of reviewers (sample size = 2000) rate the albums through time. The plot sizes indicate the number of words in an individual review, while the colors differentiate the bands’ country of origin (American-black, European-red, Oceanian-beige,  Asian-violet, in descending order of the number).</p>
 <p>So it seems the users tend to heap their reviews on the top. Even i tried so hard to adjust the parameters the plots still overlap heavily. Understandable though. We might get more motivated to write a review about the albums we like than about stuff that we find generic after all.</p>
 <p><br></p>
 </div>
 <div id="look-into-the-reviews" class="section level3">
-<h4>Look into the reviews</h4>
+<h3>Look into the reviews</h3>
 <p>Wanna know what they say exactly? Let’s do some simple word mining.</p>
 <p><br></p>
 <div id="how-many-words" class="section level4">
-<h5>How many words are there in the dataset?</h5>
+<h4>How many words are there in the dataset?</h4>
 <pre><code>## [1] 1103297</code></pre>
 <p>That’s quite a few.</p>
 <p><br></p>
 </div>
 <div id="unique-words" class="section level4">
-<h5>But how many unique words?</h5>
+<h4>But how many unique words?</h4>
 <pre><code>## [1] 20599</code></pre>
 <p>0.9998133% of all words are repeated..</p>
 <!-- Different approach, same result though. -->
 <p><br></p>
 </div>
 <div id="exclude-stuff" class="section level4">
-<h5>How many if you exclude stuff like “a”, “the”, “and”, blabla?</h5>
+<h4>How many if you exclude stuff like “a”, “the”, “and”, blabla?</h4>
 <p>That means to filter out prepositions, conjunctions, pronouns and articles.</p>
 <pre><code>## [1] 10161</code></pre>
 <p><br></p>
 </div>
 <div id="what-are-the-words-they-used-frequently" class="section level4">
-<h5>What are the words they used frequently?</h5>
+<h4>What are the words they used frequently?</h4>
 <pre><code>## # A tibble: 10,159 x 2
 ##    .       freq
 ##    &lt;chr&gt; &lt;int&gt;
@@ -275,7 +190,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br></p>
 </div>
 <div id="try-filtering-harder" class="section level4">
-<h5>Or even try filtering harder?</h5>
+<h4>Or even try filtering harder?</h4>
 <pre><code>## # A tibble: 3,000 x 2
 ##    .         freq
 ##    &lt;chr&gt;   &lt;int&gt;
@@ -293,7 +208,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br></p>
 </div>
 <div id="read-some-random-words" class="section level4">
-<h5>Read some random words?</h5>
+<h4>Read some random words?</h4>
 <pre><code>##   [1] &quot;vodka&quot;          &quot;principal&quot;      &quot;clumsy&quot;         &quot;junkie&quot;        
 ##   [5] &quot;grass&quot;          &quot;dramatically&quot;   &quot;vitriolic&quot;      &quot;delivery&quot;      
 ##   [9] &quot;arsenal&quot;        &quot;traffic&quot;        &quot;pantheistic&quot;    &quot;genuine&quot;       
@@ -328,37 +243,38 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br></p>
 </div>
 <div id="show-them-in-a-picture." class="section level4">
-<h5>Show them in a picture</h5>
+<h4>Show them in a picture</h4>
 <p>Frequency will be shown when hovering the word.</p>
 <div class="iframewrapper">
 <iframe id="wordcloud" src="ReviewWordcloud.html"  style="border:none;background-color: #333;">
 </iframe>
-<p>hmmm… not especially surprising..</p>
+<p>hmmm… not especially surprising.
+<br><small>(but if you look carefully into the tiny ones, you might find something interesting...)</small></p>
 </div>
 
 <p><br><br></p>
 
 </div>
 <div id="other-reviews" class="section level3">
-<h4>And about other reviews</h4>
+<h3>And about other reviews</h3>
 <p> </p>
 <div id="-the-earliest-date" class="section level4">
-<h5>What’s the earliest date in the data?</h5>
+<h4>What’s the earliest date in the data?</h4>
 <pre><code>## [1] &quot;2002-07-14&quot;</code></pre>
 <p><br></p>
 </div>
 <div id="the-lateset" class="section level4">
-<h5>And what’s the lateset?</h5>
+<h4>And what’s the lateset?</h4>
 <pre><code>## [1] &quot;2021-06-27&quot;</code></pre>
 <p><br></p>
 </div>
 <div id="how-many-words-in-general" class="section level4">
-<h5>How many words are there in a review in general?</h5>
+<h4>How many words are there in a review in general?</h4>
 <pre><code>## [1] 3735.419</code></pre>
 <p><br></p>
 </div>
 <div id="how-many-words" class="section level4">
-<h5>How many words are there in the shortest and longest review respectively?</h5>
+<h4>How many words are there in the shortest and longest review respectively?</h4>
 <pre><code>## [[1]]
 ## [1] 735
 ## 
@@ -370,13 +286,13 @@ But stuff I write here will not be confined to this order. The analysis details 
 </div>
 </div>
 <div id="some-other-computing.." class="section level3">
-<h4>Some other computing..</h4>
+<h3>Some other computing..</h3>
 <p></p>
 <div id="most-beloved-bands" class="section level4">
-<h5>Who are the scene darling?</h5>
-<p>Let’s see who have the most albums on the list.</p>
+<h4>Who are the scene darlings?</h4>
+<p>Let’s see who have the most albums on the top 500 list.</p>
 <pre><code>## # A tibble: 486 x 2
-##    Band               n
+##    Band           Album
 ##    &lt;chr&gt;          &lt;int&gt;
 ##  1 Black Sabbath     10
 ##  2 Bathory            9
@@ -393,9 +309,9 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br></p>
 </div>
 <div id="most-beloved-genres" class="section level4">
-<h5>What are the most beloved genres then?</h5>
+<h4>What are the most beloved genres then?</h4>
 <pre><code>## # A tibble: 291 x 2
-##    Genre                   n
+##    Genre               Album
 ##    &lt;chr&gt;               &lt;int&gt;
 ##  1 Death Metal            52
 ##  2 Black Metal            37
@@ -408,30 +324,30 @@ But stuff I write here will not be confined to this order. The analysis details 
 ##  9 Progressive Metal      11
 ## 10 Power Metal            10
 ## # ... with 281 more rows</code></pre>
-<p>Death metal and black metal turn out to be our favorite. And this is even before I combine the “Brutal”, “Post-”, “Atmospheric” and this and that or whatever, let alone those of them whose genre are something like "Trve Black Metal (early); Folk/Dark Basement Anbiemt (mid); Extreme Experimental Punk/Disco (later)"!</p>
+<p>Death metal and black metal turn out to be our favorite. And the number will even rise if I merge these “Brutal”, “Post-”, “Atmospheric” and this or that or whatever, let alone there are those of them whose genre are something like "Trve Black Metal (early); Folk/Dark Basement Ambient (mid); Extreme Experimental Punk/Disco (later)".</p>
 <p><br></p>
 </div>
 <div id="which-countries" class="section level4">
-<h5>Which countries provided us most albums we like?</h5>
+<h4>Which countries provided us most albums we like?</h4>
 <pre><code>## # A tibble: 37 x 2
-##    Country            n
-##    &lt;chr&gt;          &lt;int&gt;
-##  1 United States    172
-##  2 Sweden            53
-##  3 United Kingdom    40
-##  4 Norway            37
+##    Country          per(%)
+##    &lt;chr&gt;            &lt;int&gt;
+##  1 United States     34.4
+##  2 Sweden            10.6
+##  3 United Kingdom    8.0
+##  4 Norway            7.4
 ##  5 Germany           32
-##  6 Finland           24
-##  7 Canada            21
-##  8 France            13
-##  9 Australia         10
-## 10 Switzerland        9
+##  6 Finland           6.4
+##  7 Canada            4.8
+##  8 France            4.2
+##  9 Australia         2.0
+## 10 Switzerland       1.8
 ## # ... with 27 more rows</code></pre>
-<p>??? 172! Who would have thought!</p>
+<p>??? 34.4% Who would have thought!</p>
 <p><br></p>
 </div>
 <div id="most-controversial-albums" class="section level4">
-<h5>What are the most “controversial” albums?</h5>
+<h4>What are the most “controversial” albums?</h4>
 <p>To examnie how the opinion diverges on a certain album, you should look at the the sd value (standard deviantion) of the ratings. “In statistics, the standard deviation is a measure of the amount of variation or dispersion of a set of values,” as <a href="https://en.wikipedia.org/wiki/Standard_deviation">Wikipedia</a> puts it. “A low sd indicates that the values tend to be close to the the expected value of the set, while a high sd indicates that the values are spread out over a wider range” bla bla… Based on this concept, a high sd can probably be a sign of dissension within the reviewers, although the album they reviewed may have relatively high rating on average.</p>
 <pre><code>## # A tibble: 263 x 6
 ##    Band          Album               Reviewer Rating.mean Rating.sd Rating.range
@@ -451,7 +367,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br></p>
 </div>
 <div id="most-universially-acclaimed-albums" class="section level4">
-<h5>What are the most “universially acclaimed” albums?</h5>
+<h4>What are the most “universially acclaimed” albums?</h4>
 <p>Same concept, measured contrarily.</p>
 <pre><code>## # A tibble: 263 x 6
 ##    Band        Album                 Reviewer Rating.mean Rating.sd Rating.range
@@ -471,45 +387,13 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br></p>
 </div>
 <div id="personal-favourite-albums" class="section level4">
-<h5>WHere are my personal favourite albums?</h5>
+<h4>Where are my personal favourite albums?</h4>
 <pre><code>## [1] They are too obscure to be shown here.</code></pre>
 <p><br></p>
 <!-- <hr /> -->
 </div>
-
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-});
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-  });
-});
-</script>
-
-
-
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
-
+<div id="list" class="section level4">
+<h4>So, enjoy the top 500 list?</h4>
+</div>
 </body>
 </html>
