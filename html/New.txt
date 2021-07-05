@@ -91,7 +91,7 @@ window.onscroll = (function() {
  </head>
 <body> 
 <h1 class="glow" id="header">New albums on MA &nbsp;</h1>
-<div class="sidenav"><a href="/" id="home">Home</a></div>
+<div class="sidenav"><a href="../" id="home">Home</a></div>
 <div class='contentWrapper'>
 <h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. </h3>
 <p>Web page genereated with <a href="https://www.r-project.org/">R</a></p>
