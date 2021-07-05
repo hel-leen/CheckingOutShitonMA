@@ -119,7 +119,11 @@ a#home:hover {
 text-align: left;
 /* background: rgba(0, 0, 0, 0.6); */
 color: white;
+<<<<<<< HEAD
 font-size: 1.1em;
+=======
+font-size:1.05em;
+>>>>>>> e1ff8672bd211ed2d9098787127cfe557f7d8d77
 padding: 1em;
 line-height: 1.8;
 border-radius: 0.6em;
