@@ -52,13 +52,6 @@ $(function(){
       $("#black").attr("class", "filter");
     }
   });
-  $(".paginate_button").click(function() {
-  $( ".dataTables_filter " ).scrollTop( 300 );
-});
-$(".paginate_button").click(function() {
-      
-  
-  });
 });
 $.fn.dataTable.ext.search.push(
   function( settings, data, dataIndex ) {

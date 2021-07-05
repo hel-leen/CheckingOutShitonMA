@@ -3,8 +3,7 @@
 <meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
 <title>New Albums on MA</title>
 <link rel="stylesheet" href="style.css">
-<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><link href="https://fonts.googleapis.com/css2?family=Aleo:wght@300&amp;family=Mulish:wght@300&amp;family=Playfair+Display:wght@600&amp;family=Cinzel:wght@800&amp;display=swap" rel="stylesheet">
-<link rel="shortcut icon" type="image/png" href="cat.png">
+<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><link rel="shortcut icon" type="image/png" href="cat.png">
 <script>
 let today = new Date(); 
 today. setHours(new Date().getUTCHours()- 36);
@@ -49,13 +48,6 @@ $(function(){
       alert('I hope you improve your taste');
       $("#black").attr("class", "filter");
     }
-  });
-  $(".paginate_button").click(function() {
-  $( ".dataTables_filter " ).scrollTop( 300 );
-});
-$(".paginate_button").click(function() {
-      
-  
   });
 });
 $.fn.dataTable.ext.search.push(

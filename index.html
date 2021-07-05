@@ -19,7 +19,6 @@ body {font-family: "Lato", sans-serif;overflow:scroll;background-color:#000}
 <div class="home-top" style=" z-index: 999;">
   <div class="home-bar home-black home-card">
     <a class="home-bar-item home-button home-padding-large home-hide-medium home-hide-large home-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu">Checking out Shit on MA</a>
-    <!-- <a href="./html/" class="home-bar-item home-button home-padding-large">HOME</a> -->
     <a href="./html/New.html" class="home-bar-item home-button home-padding-large home-hide-small">NEW</a>
     <a href="./html/Top.html" class="home-bar-item home-button home-padding-large home-hide-small">TOP</a>
     <a id ='random' class="home-bar-item home-button home-padding-large home-hide-small">RANDOM</a>
@@ -36,8 +35,6 @@ body {font-family: "Lato", sans-serif;overflow:scroll;background-color:#000}
   <a id ='about-s' class="home-bar-item home-button home-padding-large" onclick="myFunction()">ABOUT</a>
 </div>
 
-<!-- Page content -->
-<!-- <div class="home-content" style="max-width:2000px;margin-top:46px"> </div> -->
 <br>
        <div id="bgfill"  ></div>
         <div id="info" class= "floating">
@@ -47,33 +44,32 @@ body {font-family: "Lato", sans-serif;overflow:scroll;background-color:#000}
 		  <p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. </p><p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div>
       </div>
 	  <div id ='disp' class='hideItem floating'>
-	  <!-- <img src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/facebook/230/loudly-crying-face_1f62d.png" > -->
 	  <div class="heart-Circle" style="margin:0 auto">
   <div class="heart-Container">
       <div class="left-Side sides">
         <div class="half">
           <div class="heart"></div> 
-        </div> <!-- end .half -->
+        </div>  
         <div class="points">
           <div class="point pt1"></div>
           <div class="point pt4"></div>
           <div class="point pt2"></div>
           <div class="point pt3"></div>
-        </div> <!-- end .points -->
-      </div> <!-- end .left-Side -->
+        </div>  
+      </div>  
       <div class="right-Side sides">
         <div class="half">
           <div class="heart"></div> 
-        </div> <!-- end .half -->
+        </div>  
         <div class="points">
           <div class="point pt1"></div>
           <div class="point pt2"></div>
           <div class="point pt3"></div>
-        </div> <!-- end .points -->
-      </div> <!-- end .right-Side -->
-    </div> <!-- end .heart-Container -->
+        </div> 
+      </div>  
+    </div> 
 </div>
-		  <p style=" width: 80%;margin: auto;color:#222">Checking out random black metal bands isn't a good idea. I gave up.</p>
+		  <p>Checking out random black metal bands isn't a good idea. I gave up.</p>
       </div>
   <div class="home-display-container home-center" style="display: block;top:4em;position: absolute;width: 100%">
     <img  id ='bg' src="./html/worldvoid.jpg" style="width:100%">
@@ -116,12 +112,13 @@ window.onclick = function(event) {
     $("#random,#random-s,#disp").click(function () {
     <!-- $("html").toggleClass("nooverflow"); -->
     <!-- $(".home-center").fadeToggle(); -->
+    $("html").toggleClass("nooverflow");
     $("#disp").fadeToggle();
     $("#project").hide();
 	setTimeout(function(){$('.heart-Container').fadeIn(); }, 500);
 	setTimeout(function(){$('.heart-Container').toggleClass('broken'); }, 1200);
-	setTimeout(function(){$('.heart-Container').fadeOut(); }, 3000);
-	setTimeout(function(){$('.heart-Container').detach(); }, 3200);
+	<!-- setTimeout(function(){$('#disp',).fadeOut(); }, 3000); -->
+	<!-- setTimeout(function(){$('.heart-Container').detach(); }, 3200); -->
   });
 </script>
 
