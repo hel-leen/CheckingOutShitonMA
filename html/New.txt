@@ -13,14 +13,14 @@ let today = new Date();
 today. setHours(new Date().getUTCHours()- 36);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
+  $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>");
 	$( "<h3>By release date</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" );
   } else {
     $( ".new>td" ).unwrap();
-	$("h3").remove();
+	$(".new h3").remove();
   }
 }
 $(function(){
-  $('#date').text($('table caption').text());
     $('.release_info').DataTable( {
       "order": [[ 9, "asc" ]],
       "lengthMenu": [50, 100, 200, 400, "All"],
