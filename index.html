@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="./html/home.css">
 <style>
 :root {background-color:#000}
-body {font-family: "Lato", sans-serif;overflow:scroll;background-color:#000}
+body {overflow:scroll;background-color:#000}
 .nooverflow {overflow:hidden}
 .mySlides {display: none}
 .hideItem{display: none;}
@@ -31,17 +31,17 @@ body {font-family: "Lato", sans-serif;overflow:scroll;background-color:#000}
 <div id="navDemo" class="home-bar-block home-black home-hide home-hide-large home-hide-medium home-top" style="margin-top:46px;z-index: 999;">
   <a href="./html/New.html" class="home-bar-item home-button home-padding-large" onclick="myFunction()">NEW</a>
   <a href="./html/Top.html" class="home-bar-item home-button home-padding-large" onclick="myFunction()">TOP</a>
-  <a id ='random-s' class="home-bar-item home-button home-padding-large"  onclick="myFunction()">RANDOM</a>
-  <a id ='about-s' class="home-bar-item home-button home-padding-large" onclick="myFunction()">ABOUT</a>
+  <a id ='random-l' class="home-bar-item home-button home-padding-large"  onclick="myFunction()">RANDOM</a>
+  <a id ='about-l' class="home-bar-item home-button home-padding-large" onclick="myFunction()">ABOUT</a>
 </div>
 
 <br>
-       <div id="bgfill"  ></div>
         <div id="info" class= "floating">
           <p style="color:black">Checking out shit on your most visited website <b><a href="https://www.metal-archives.com/"  style="text-decoration: none;">Metal Archives</a></b>, obviously.</p>
         </div>
 	  <div id ='project' class='hideItem floating'>
-		  <p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. </p><p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div>
+		  <p>CheckingOutShitonMA is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. </br>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </br>She's glad to share if this helps in any way. </p>
+   </div>
       </div>
 	  <div id ='disp' class='hideItem floating'>
 	  <div class="heart-Circle" style="margin:0 auto">
@@ -73,8 +73,8 @@ body {font-family: "Lato", sans-serif;overflow:scroll;background-color:#000}
       </div>
   <div class="home-display-container home-center" style="display: block;top:4em;position: absolute;width: 100%">
     <img  id ='bg' src="./html/worldvoid.jpg" style="width:100%">
-    <div class="home-display-bottommiddle home-container home-text-white home-padding-32 home-hide-small">
-    </div>
+    <!-- <div class="home-display-bottommiddle home-container home-text-white home-padding-32 home-hide-small"> -->
+    <!-- </div> -->
  
 
 
@@ -93,32 +93,29 @@ function myFunction() {
 }
 
 // When the user clicks anywhere outside of the modal, close it
-var modal = document.getElementById('ticketModal');
+var modal = $(".home-padding-large");
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
   }
 }
-  $("#about,#about-s,#project").click(function(){
-    $("#bgfill").fadeToggle();
+  $("#about,#about-l,#project").click(function(){
+    <!-- $("#bgfill").fadeToggle(); -->
     $("#disp").hide();
     $("#project").fadeToggle("slow");
   });
-  $("#bgfill").click(function(){
-    <!-- $(".home-center").fadeToggle(); -->
-	$(this).hide();
-  });
   
-    $("#random,#random-s,#disp").click(function () {
+    $("#random,#random-l").click(function () {
     <!-- $("html").toggleClass("nooverflow"); -->
-    <!-- $(".home-center").fadeToggle(); -->
-    $("html").toggleClass("nooverflow");
     $("#disp").fadeToggle();
     $("#project").hide();
 	setTimeout(function(){$('.heart-Container').fadeIn(); }, 500);
-	setTimeout(function(){$('.heart-Container').toggleClass('broken'); }, 1200);
-	<!-- setTimeout(function(){$('#disp',).fadeOut(); }, 3000); -->
+	<!-- setTimeout(function(){$('.heart-Container').toggleClass('broken'); }, 1200); -->
+	setTimeout(function(){$('.heart-Container').addClass('broken'); }, 1200);
+	setTimeout(function(){$('#disp',).fadeOut(); }, 3800);
+	setTimeout(function(){$('.heart-Container').removeClass('broken'); }, 4000);
 	<!-- setTimeout(function(){$('.heart-Container').detach(); }, 3200); -->
+
   });
 </script>
 

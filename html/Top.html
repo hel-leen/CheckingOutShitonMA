@@ -9,20 +9,16 @@
 <script src="flexible.pagination.js"></script>
 <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
-<link href="https://fonts.googleapis.com/css2?family=Aleo:wght@300&family=Mulish:wght@300&family=Playfair+Display:wght@600&family=Cinzel:wght@800&display=swap" rel="stylesheet">
 <title>Top-rated Albums on MA</title>
 </head>
 <body>
 <h1 class="glow" id="header">Top-rated Albums on MA &nbsp;</h1>
 <div class="sidenav"><a href="../" id="home">Home</a></div>
 <body>
-
-
 <div class="main-container">
 <div id="section" class="section level2">
 <div id="all-data-from-the-metal-archives.-web-page-genereated-with-r" class="section level3">
-<h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/">R</a>
-</h3>
+<h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/">R</a>.</h3>
 <p>This page is about the so called top rated or highest reviewed albums by the MA users. They are really way too famous (and too mainstream for my taste) to make them a list. But anyway.</p>
 
 <p>Trying to find the most favored album, I scraped 50000+ review pages across the site and analyzed them with statistical methods. The result? well that depends on how you evaluate the data. Models with different weight may lead to entirely different conclusions. Also the extremely small sample size of the reviews on an individual album and the heavily skewed distributions of the ratings in general can be limiting factors when applying statistical techniques. So I tend not to offer ONE definite album name. <s>But it's not Hades Archer's <a href="https://www.metal-archives.com/albums/Hades_Archer/Penis_Metal/213978">Penis Metal</a> at least. </s></p>
@@ -49,8 +45,8 @@ But stuff I write here will not be confined to this order. The analysis details 
 </iframe>
 </div>
 <p><br></p>
-<p>The bubble chart shows how a random sample of reviewers (sample size = 2000) rate the albums through time. The plot sizes indicate the number of words in an individual review, while the colors differentiate the bands’ country of origin (American-black, European-red, Oceanian-beige,  Asian-violet, in descending order of the number).</p>
-<p>So it seems the users tend to heap their reviews on the top. Even i tried so hard to adjust the parameters the plots still overlap heavily. Understandable though. We might get more motivated to write a review about the albums we like than about stuff that we find generic after all.</p>
+<p>The bubble chart shows how a random sample of reviewers (sample size = 2000) rate the albums through time. The plot sizes indicate the number of words in an individual review, while the colors differentiate the bands’ country of origin (European-red, American-black, Oceanian-beige,  Asian-lila, in descending order of the number).</p>
+<p>It seems the users really like to heap their reviews on the top. Even i tried so hard to adjust the parameters, the plots still overlap heavily. Understandable though. We might get more motivated to write a review about the albums we like than about stuff that we find generic after all.</p>
 <p><br></p>
 </div>
 <div id="look-into-the-reviews" class="section level3">
@@ -100,12 +96,12 @@ But stuff I write here will not be confined to this order. The analysis details 
 ##    .         freq
 ##    &lt;chr&gt;   &lt;int&gt;
 ##  1 best     2853
-##  2 some     1702
+##  2 heavy    1498
 ##  3 hard      894
 ##  4 perfect   738
 ##  5 thrash    663
 ##  6 dark      652
-##  7 work      635
+##  7 riff      697
 ##  8 vocal     630
 ##  9 classic   616
 ## 10 evil      480
@@ -160,11 +156,11 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br><br></p>
 
 </div>
-<div id="other-reviews" class="section level3">
-<h3>And about other reviews</h3>
+<br><div id="other-reviews" class="section level3">
+<h3>Smth else about reviews</h3>
 <p> </p>
 <div id="-the-earliest-date" class="section level4">
-<h4>What’s the earliest date in the data?</h4>
+<h4>What’s the earliest date in the dataset?</h4>
 <pre><code>## [1] "2002-07-14"</code></pre>
 <p><br></p>
 </div>
@@ -174,7 +170,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p><br></p>
 </div>
 <div id="how-many-words-in-general" class="section level4">
-<h4>How many words are there in a review in general?</h4>
+<h4>How many words are there in one piece of review in general?</h4>
 <pre><code>## [1] 3735.419</code></pre>
 <p><br></p>
 </div>
@@ -185,7 +181,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 ## 
 ## [[2]]
 ## [1] 31195</code></pre>
-<p>I think I’d check out that 31195-worded review later.</p>
+<p>I think I’d check out that 31195-word-long review later.</p>
 <p><br></p>
 <!-- <hr /> -->
 </div>
@@ -195,9 +191,9 @@ But stuff I write here will not be confined to this order. The analysis details 
 <p></p>
 <div id="most-beloved-bands" class="section level4">
 <h4>Who are the scene darlings?</h4>
-<p>Let’s see who have the most albums on the top 500 list.</p>
+<p>Let’s see who have the most albums among, say, top 500.</p>
 <pre><code>## # A tibble: 486 x 2
-##    Band           Album
+##    Band         Album_n
 ##    &lt;chr&gt;          &lt;int&gt;
 ##  1 Black Sabbath     10
 ##  2 Bathory            9
@@ -216,7 +212,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 <div id="most-beloved-genres" class="section level4">
 <h4>What are the most beloved genres then?</h4>
 <pre><code>## # A tibble: 291 x 2
-##    Genre               Album
+##    Genre             Album_n
 ##    &lt;chr&gt;               &lt;int&gt;
 ##  1 Death Metal            52
 ##  2 Black Metal            37
@@ -229,7 +225,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 ##  9 Progressive Metal      11
 ## 10 Power Metal            10
 ## # ... with 281 more rows</code></pre>
-<p>Death metal and black metal turn out to be our favorite. And the number will even rise if I merge these “Brutal”, “Post-”, “Atmospheric” and this or that or whatever, let alone there are those of them whose genre are something like "Trve Black Metal (early); Folk/Dark Basement Ambient (mid); Extreme Experimental Punk/Disco (later)".</p>
+<p>Death metal and black metal turn out to be our favorite. Since I just keep the "genre" as it is, you might notice "Death Metal" and "Melodic Death Metal" are counted as two genres here. It's safe to say the number will rise if I merge these subgenres like “Brutal”, “Post-”, “Atmospheric” and this or that or whatever, let alone there are quite a few bands whose genre are something like "Trve Black Metal (early); Folk/Dark Basement Ambient (mid); Extreme Experimental Punk/Disco (later)".</p>
 <p><br></p>
 </div>
 <div id="which-countries" class="section level4">
@@ -268,7 +264,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 ##  9 Celtic Frost  Monotheist                23        85.6      26.0 5~100       
 ## 10 Opeth         Damnation                 17        83.5      25.7 19~100      
 ## # ... with 253 more rows</code></pre>
-<p>Rather surprising that Death’s The Sound of Perseverance pops up here. With 29.418 being the sd of its rating values, the album has 29 reviewers whose ratings ranged from 3 to 100. Opinion really seems divided here.</p>
+<p>Rather surprising that Death’s The Sound of Perseverance pops up. The album has 29 reviewers whose ratings ranged from 3 to 100, with 29.418 being the sd of the rating values. Opinion really seems divided here.</p>
 <p><br></p>
 </div>
 <div id="most-universially-acclaimed-albums" class="section level4">
@@ -288,7 +284,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 ##  9 Type O Neg~ October Rust                15        95.3      7.23 78~100      
 ## 10 Atheist     Unquestionable Prese~       20        95.2      6.06 80~100      
 ## # ... with 253 more rows</code></pre>
-<p>23 reviewers of Entombed’s Left Hand Path were literally unanimous in their approval of the album, settling their ratings at around 98 out of 100. I’ve added the album to my to-revisit-list actually.</p>
+<p>23 reviewers of Entombed’s Left Hand Path were literally unanimous in their approval of the album, settling their ratings at around 98 out of 100. I’ve added the album to my to-revisit-list actually. <small>(Edited: why they liked it that much? I don't get it.)</small></p>
 <p><br></p>
 </div>
 <div id="personal-favourite-albums" class="section level4">
@@ -298,7 +294,7 @@ But stuff I write here will not be confined to this order. The analysis details 
 <!-- <hr /> -->
 </div>
 <div id="list" class="section level4">
-<h4>So, enjoy the top 500 list?</h4>
+<h4>So following is the top 500 list. Enjoy.</h4>
 </div>
 </div>
 </div>
