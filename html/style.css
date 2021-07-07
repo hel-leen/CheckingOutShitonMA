@@ -467,6 +467,23 @@ a {
   background: #555;
   color: #fed;
 }
+button#delete_button {
+    position: fixed;
+    right: -80px;
+    bottom: 1em;
+    padding: 1em;
+    border: 0;
+    border-radius: 100px;
+    background: #666;
+    color: white;
+	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24), 0 7px 15px 0 rgba(0, 0, 0, 0.19);
+	z-index:999;
+}
+
+button#delete_button:hover {
+    right: 0px;
+}
+
 table.dataTable thead .sorting,
 table.dataTable thead .sorting_asc,
 table.dataTable thead .sorting_desc,
@@ -553,6 +570,10 @@ table {
 .release_info tr:hover {
   background-color: #444;
   background-color: rgba(99, 99, 99, 0.6);
+}
+.release_info tr.selected {
+  background-color: #654;
+  background-color: rgba(109, 100, 99, 0.6);
 }
 .dbtn {
   background-color: rgba(0, 0, 0, 0);
