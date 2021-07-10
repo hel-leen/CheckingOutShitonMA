@@ -206,7 +206,7 @@ Flexible.Pagination = function(options){
      * @returns {*}
      */
     this.getData = function(){
-        var words = pager.searchPhrase.toLowerCase().split(" "), dataSource = pager.itemSelector;
+        var words = pager.searchPhrase.toLowerCase().split(","), dataSource = pager.itemSelector;
         if (pager.dataSource.length > 0){
             /**@Advanced Implementation Using a Custom Json Data Source */
             dataSource = pager.dataSource;

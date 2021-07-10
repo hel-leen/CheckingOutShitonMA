@@ -100,7 +100,7 @@ window.onscroll = (function() {
 <div><p class='note'><b>NOTE:</b><br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
 <br>The column "BandPage" only shows links of the first band in case of a split or compilation.
 <br><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> will be shown if the album doesn't have any cover(!?).
-<br>If you hate an album for some reason, click it to select, then click "Hide selected"at the bottom right. 
+<br>If you don't wanna see an album for some reason, click it to select, then click "Hide selected" at the bottom right. 
 <br>The page is RAM-eating while loading the big bunch of covers. Good luck!<br>&nbsp;</p> 
 
 <p class='note' id='date'></p>

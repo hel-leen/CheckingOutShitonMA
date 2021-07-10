@@ -476,10 +476,15 @@ button#delete_button {
     border-radius: 100px;
     background: #666;
     color: white;
+	outline: none;
 	box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24), 0 7px 15px 0 rgba(0, 0, 0, 0.19);
 	z-index:999;
 }
-
+button#delete_button:active {
+    background: #555;
+	box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
+  transform: translateY(1px);
+}
 button#delete_button:hover {
     right: 0px;
 }
@@ -573,7 +578,7 @@ table {
 }
 .release_info tr.selected {
   background-color: #654;
-  background-color: rgba(109, 100, 99, 0.6);
+  background-color: rgba(109, 100, 98, 0.8);
 }
 .dbtn {
   background-color: rgba(0, 0, 0, 0);
@@ -677,13 +682,15 @@ iframe {width:100%;height:100%}
 #content {
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.44), 0 7px 15px 0 rgba(0, 0, 0, 0.39);
 }
-.result.well {
+.entry {
   display: inline-block;
   max-width: 400px;
   min-width: 450px;
   text-align: center;
   white-space: break-spaces;
-  
+}
+.unresult {
+  display: none;
 }
 input {
   box-sizing: border-box;
@@ -735,15 +742,23 @@ input {
   padding: 1em;
   width: 100%;
 }
-.well img {
+.entry img {
   width: 100%;
   max-width: 350px;
 }
 p {
   margin-block-start: 0.1em;
+  margin-block-end: 0.1em;
 }
-.p1:nth-child(4) {
-  height: 70px;
+/* .p1:nth-child(4) { */
+  /* height: 70px; */
+/* } */
+.Genre {
+  height: 80px;
+}
+.Continent {
+  margin: -30px;
+  visibility: hidden;
 }
 #showingInfo {
   margin: 0 0 0.8em 0;
@@ -799,7 +814,7 @@ body {
 #disp {
   /* padding: 25% 0; */
 }
-.result.well {
+.entry {
   max-width: 400px;
   min-width: 350px;
 }
