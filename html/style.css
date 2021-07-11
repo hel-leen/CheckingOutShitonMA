@@ -351,9 +351,10 @@ a {
   display: "";
 }
 .filterSection {
-  font-size: 1.125em;
+  font-size: 1em;
   margin: 0.8em 0 0 0;
   position: relative;
+  vertical-align: text-top;
 }
 .hideItem {
   display: none;
@@ -544,12 +545,15 @@ table {
   width: 100%;
   border: 2px solid #666;
   background-color: #333;
-  font-size: 0.875em;
+  font-size: 0.9em;
   table-layout: fixed;
+  text-align: center;
 }
 .release_info {
-  justify-items: left;
   text-align: center;
+  justify-items: left;
+}
+#toplist tbody {
 }
 #tableHTML_column_2 {
   justify-items: center;
@@ -689,6 +693,7 @@ iframe {width:100%;height:100%}
 }
 .filterSection strong {
   margin: 0 4px;
+  
 }
 .filter-holder select {
     overflow: hidden;
@@ -697,7 +702,7 @@ iframe {width:100%;height:100%}
   background-color: transparent;
   border: 0;
   position: absolute;
-  left: 100px;
+  left: 6.6em;
 }
 
 .filter-holder select option {
@@ -757,7 +762,7 @@ button#reset:active {
   max-width: 400px;
   min-width: 450px;
   text-align: center;
-  padding: 3em 1em;
+  padding-top: 2em;
   border-top: 1px solid rgba(0, 0, 0, 0.24);
   white-space: break-spaces;
 }
@@ -823,7 +828,8 @@ p {
   /* height: 70px; */
 /* } */
 .Genre {
-  height: 80px;
+    overflow-y: overlay;
+    height: 42px;
 }
 .Continent {
   margin: -30px;
@@ -898,7 +904,7 @@ a#home:hover {
   height: 36px;
 }
 .filterSection {
-  font-size: 1em;
+  font-size: .9em;
 }
 .release_info {justify-items: center;text-align:center;line-height:2.2;}
 .release_info td>img {width: 300px;}

@@ -17,7 +17,7 @@ $(function(){
         // table.rows('.selected').remove().draw( false );
     // } );
     $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change( function() {
-      table.draw(false); 
+      table.draw(); 
     });
     $('#reset').click( function () {
         $('.filter-holder select option').prop( "selected", true );
