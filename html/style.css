@@ -74,7 +74,7 @@ a#home:hover {
   background-color: #ccc;
   border-radius: 100em;
 }
-.main-container {
+#toplist_wrapper,.main-container {
   max-width: 1000px;
   margin: 0 auto;
   text-align: justify;
@@ -353,6 +353,7 @@ a {
 .filterSection {
   font-size: 1.125em;
   margin: 0.8em 0 0 0;
+  position: relative;
 }
 .hideItem {
   display: none;
@@ -459,9 +460,12 @@ a {
 }
 .dataTables_length {
   color: #fed;
-  right: 0.625em;
-  position: absolute;
-  margin-top: -2.625em;
+  position: relative;
+}
+.dataTables_length label {
+    position: absolute;
+    right: 0;
+    bottom: 0;
 }
 .dataTables_length select {
   background: #555;
@@ -679,14 +683,82 @@ iframe {width:100%;height:100%}
 .iframewrapper {text-align: center;max-width:900px;height:500px}
 .wordcloud2 {background-color: #333;}
 #wordcloud {max-width:100%;}
-#content {
+
+*:focus {
+    outline: none;
+}
+.filterSection strong {
+  margin: 0 4px;
+}
+.filter-holder select {
+    overflow: hidden;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: transparent;
+  border: 0;
+  position: absolute;
+  left: 100px;
+}
+
+.filter-holder select option {
+  display:inline-block;
+  padding: 2px 4px;
+  margin: 2px 4px;
+    color: white;
+	font-size:1.1em;
+    border-radius: 1px;
+}
+.selectedText, .filter-holder select option:checked {
+    background-color: rgba(0,0,0,.4);
+}
+.filter-holder select {
+      color: white; 
+      option {
+        background-color: rgba(0,0,0,.4);
+      }
+ }
+.filter-holder {
+    display: inline-block;
+    vertical-align: text-top;
+    overflow: hidden;
+    height: 1.2em;
+}
+
+#toplist {
+  width:100%;
+  border: 0px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.44), 0 7px 15px 0 rgba(0, 0, 0, 0.39);
 }
+#toplist thead th:not(:nth-child(0)) {
+    display: none;
+}
+#toplist td {
+    display: grid;
+    justify-items: center;
+	margin-block-end: 1em;
+}
+#reset {
+    background: rgba(116,116,116,.6);
+    color: white;
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 0.66em;
+    border: .5px;
+    border-radius: 4px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
+}
+button#reset:active {
+    background: #555;
+	box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
+  transform: translateY(1px);
+}
 .entry {
-  display: inline-block;
+  display: inline-grid;
   max-width: 400px;
   min-width: 450px;
   text-align: center;
+  padding: 3em 1em;
+  border-top: 1px solid rgba(0, 0, 0, 0.24);
   white-space: break-spaces;
 }
 .unresult {
@@ -695,7 +767,7 @@ iframe {width:100%;height:100%}
 input {
   box-sizing: border-box;
 }
-.searchBox, #DataTables_Table_0_filter {
+.searchBox, .dataTables_filter {
   width: 100%;
   padding: 1em;
   position: sticky;
@@ -707,17 +779,12 @@ input {
   transition: 0.2s;
   z-index: 666;
 }
- #DataTables_Table_0_filter {
+ .dataTables_filter {
   width: 100%;
   padding: .2em 0;
   background-color: #333;
  }
- .dataTables_length {
-  color: #fed;
-  right: 2.25em;
-  position: absolute;
-  margin-top: -2em;
-}
+
  .dataTables_filter label input {
   display: inline-block;
   width: 100%;
@@ -745,6 +812,8 @@ input {
 .entry img {
   width: 100%;
   max-width: 350px;
+  max-height: 350px;
+  object-fit: cover; object-position: 100% 0;
 }
 p {
   margin-block-start: 0.1em;
@@ -814,6 +883,9 @@ body {
 #disp {
   /* padding: 25% 0; */
 }
+#toplist {
+  width: auto;
+}
 .entry {
   max-width: 400px;
   min-width: 350px;
@@ -831,7 +903,8 @@ a#home:hover {
 .release_info {justify-items: center;text-align:center;line-height:2.2;}
 .release_info td>img {width: 300px;}
 .release_info th,.dataTables_length {display: none;}
-.release_info td {display: grid;padding: .5em;border:1px solid rgba(66,66,66,.4);}
+.release_info tr {display: grid}
+.release_info td {display: grid;padding: 1em;border:1px solid rgba(66,66,66,.4);}
 release_info tr {border-bottom:2px solid #666;}
 #tableHTML_header_1 {padding:1em;}
 #tableHTML_column_1 {justify-content: left;}
@@ -847,4 +920,14 @@ release_info tr {border-bottom:2px solid #666;}
 #content, .release_info {
   border:2px solid rgba(66,66,66,.4);
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.44), 0 7px 15px 0 rgba(0, 0, 0, 0.39);
+}
+.filter-holder select {
+    left: 80px;
+}
+.filter-holder select option {
+    margin: 3px;
+    font-size: .9em;
+}
+.breaker {
+    height: 10px;
 }
