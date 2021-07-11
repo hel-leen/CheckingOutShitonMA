@@ -830,6 +830,7 @@ p {
 .Genre {
     overflow-y: overlay;
     height: 42px;
+	width: 100%;
 }
 .Continent {
   margin: -30px;
@@ -879,7 +880,7 @@ p {
 
 
 @media(max-width: 800px)  {
-:root{font-size: 95%}
+/* :root{font-size: 95%} */
 body {
   margin: 1em;
 }
@@ -928,7 +929,7 @@ release_info tr {border-bottom:2px solid #666;}
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.44), 0 7px 15px 0 rgba(0, 0, 0, 0.39);
 }
 .filter-holder select {
-    left: 80px;
+    left: 110px;
 }
 .filter-holder select option {
     margin: 3px;
