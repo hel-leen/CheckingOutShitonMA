@@ -102,6 +102,7 @@ window.onscroll = (function() {
 </div>
 <li class="filterSection">
 <strong>Filters:&nbsp;</strong>
+<div class="checkholder">
 <label class="checkcontainer">Today onwards
 <input class="filter" id="Upcoming" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
@@ -111,9 +112,11 @@ window.onscroll = (function() {
 <label class="checkcontainer">Full-length only
 <input class="filter" id="Fulllength" type="checkbox"> 
 <span class="checkmark"></span></label>
+</div>
 </li>
 <li class="filterSection">
 <strong>Genre:&nbsp;</strong>
+<div class="checkholder">
 <label class="checkcontainer">Black metal
 <input class="genrefilter" id="black" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
@@ -123,6 +126,7 @@ window.onscroll = (function() {
 <label class="checkcontainer">Other
 <input  class="filter" id="other" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
+</div>
 </li>
 <p class="breaker"><br></p>
 <div>

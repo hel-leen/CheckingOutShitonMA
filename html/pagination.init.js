@@ -30,9 +30,9 @@ $(document).on('click', 'a.paginate_button', function() {
 });
 $.fn.dataTable.ext.search.push(
   function( settings, data, dataIndex ) {
-    let year =  Number(data[7].match(/\d{4}/i).toString()); 
-    let genre =  data[5].toLowerCase(); 
-    let continent =  data[4]; 
+    let year =  Number(data[6].match(/\d{4}/i).toString()); 
+    let genre =  data[4].toLowerCase(); 
+    let continent =  data[12]; 
     let genres = $( "#genres" ).val() || [];
     let regions = $( "#regions" ).val() || [];
     let years = $( "#years" ).val() || [];
@@ -46,10 +46,10 @@ $.fn.dataTable.ext.search.push(
   yearsMax.push(Number( item.match(/\d{4}(?!\D)/gi)) );
 });
 	var yearMax  = yearsMax.some(function  (item) {
-  return item > year;
+  return (item > year || item == year);
 });
 	var yearMin  = yearsMin.some(function  (item) {
-  return item < year;
+  return (item < year || item == year);
 });
 	return (continent.search("(".concat(regions.join( "|" ),")"))  > -1 && genre.search("(".concat(genres.join( "|" ),")"))  > -1  && yearMin &&yearMax );
     // return true;

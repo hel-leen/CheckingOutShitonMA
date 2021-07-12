@@ -354,7 +354,7 @@ a {
   font-size: 1em;
   margin: 0.8em 0 0 0;
   position: relative;
-  vertical-align: text-top;
+  vertical-align: middle;
 }
 .hideItem {
   display: none;
@@ -376,6 +376,11 @@ a {
       0 0 50px rgba(192, 162, 153, 0.02), 0 0 60px rgba(192, 162, 153, 0.01),
       0 0 70px rgba(192, 162, 153, 0.01);
   }
+}
+.checkholder {
+    position: absolute;
+    top: 0.12em;
+    left: 5em;
 }
 .checkcontainer {
   position: relative;
@@ -428,14 +433,23 @@ a {
   position: absolute;
   display: none;
 }
+.dataTables_paginate {
+    background-color: #333;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+    padding: 0 0 10px 0;
+    z-index: 666;
+}
 .paginate_button {
-  box-sizing: border-box;
-  display: inline-block;
-  min-width: 1.5em;
-  padding: 0.5em 1em;
-  margin-left: 2px;
-  text-align: center;
-  text-decoration: none !important;
+    font-size: .9em;
+    box-sizing: border-box;
+    display: inline-block;
+    min-width: 1.5em;
+    padding: 0.4em 1.2em;
+    margin-left: 3px;
+    text-align: center;
+  text-decoration: none;
   cursor: pointer;
   border: 1px rgba(111, 111, 111, 0.3) solid;
   border-radius: 2px;
@@ -447,17 +461,25 @@ a {
   border: 1px solid #999;
 }
 .paginate_button.disabled {
-  color: #666 !important;
+  color: #888;
+  /* background-color: #555; */
   border: 1px solid transparent;
-  background: transparent;
+  /* background: transparent; */
+  pointer-events: none;
   box-shadow: none;
 }
 .dataTables_filter label input::-webkit-input-placeholder {
   color: #fed;
 }
 .dataTables_info {
-  text-align: end;
-  padding: 20px 0;
+  text-align: center;
+  font-size: .88em;
+    background-color: #333;
+    color: #fed;
+    padding: 12px 0;
+    position: sticky;
+    bottom: 40px;
+    z-index: 555;
 }
 .dataTables_length {
   color: #fed;
@@ -693,7 +715,8 @@ iframe {width:100%;height:100%}
 }
 .filterSection strong {
   margin: 0 4px;
-  
+  position: absolute;
+  top: .1em;
 }
 .filter-holder select {
     overflow: hidden;
@@ -703,12 +726,13 @@ iframe {width:100%;height:100%}
   border: 0;
   position: absolute;
   left: 6.6em;
+  top: .44em;
 }
 
 .filter-holder select option {
   display:inline-block;
   padding: 2px 4px;
-  margin: 2px 4px;
+  margin: 0 4px;
     color: white;
 	font-size:1.1em;
     border-radius: 1px;
@@ -716,19 +740,24 @@ iframe {width:100%;height:100%}
 .selectedText, .filter-holder select option:checked {
     background-color: rgba(0,0,0,.4);
 }
-.filter-holder select {
-      color: white; 
-      option {
-        background-color: rgba(0,0,0,.4);
-      }
- }
+
 .filter-holder {
     display: inline-block;
     vertical-align: text-top;
     overflow: hidden;
     height: 1.2em;
 }
-
+.entry {
+  display: inline-grid;
+  max-width: 400px;
+  min-width: 450px;
+  text-align: center;
+  padding-top: 2em;
+  border-top: 1px solid rgba(0, 0, 0, 0.24);
+}
+.unresult {
+  display: none;
+}
 #toplist {
   width:100%;
   border: 0px;
@@ -740,9 +769,34 @@ iframe {width:100%;height:100%}
 #toplist td {
     display: grid;
     justify-items: center;
-	margin-block-end: 1em;
+	margin-block-end: 1.1em;
+}
+#toplist td:not(:nth-child(5)) {
+	line-height: 2.2;
+}
+td {
+	width: 100%;
+}
+.Genre {
+    overflow-y: overlay;
+    height: 56px;
+    line-height: 1.8;
+  white-space: break-spaces;
+}
+.Genre {
+    overflow-y: overlay;
+    height: 56px;
+    line-height: 1.8;
+  white-space: break-spaces;
+}
+.Continent {
+  margin: -30px;
+  visibility: hidden;
 }
 #reset {
+	position: absolute;
+    left: 8em;
+    top: .4em;
     background: rgba(116,116,116,.6);
     color: white;
     padding: 5px 10px;
@@ -757,18 +811,7 @@ button#reset:active {
 	box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
   transform: translateY(1px);
 }
-.entry {
-  display: inline-grid;
-  max-width: 400px;
-  min-width: 450px;
-  text-align: center;
-  padding-top: 2em;
-  border-top: 1px solid rgba(0, 0, 0, 0.24);
-  white-space: break-spaces;
-}
-.unresult {
-  display: none;
-}
+
 input {
   box-sizing: border-box;
 }
@@ -827,17 +870,7 @@ p {
 /* .p1:nth-child(4) { */
   /* height: 70px; */
 /* } */
-td {
-	width: 100%;
-}
-.Genre {
-    overflow-y: overlay;
-    height: 42px;
-}
-.Continent {
-  margin: -30px;
-  visibility: hidden;
-}
+
 #showingInfo {
   margin: 0 0 0.8em 0;
 }
@@ -883,6 +916,9 @@ td {
 
 @media(max-width: 800px)  {
 /* :root{font-size: 95%} */
+::-webkit-scrollbar {
+  width: 4px;
+}
 body {
   margin: 1em;
 }
