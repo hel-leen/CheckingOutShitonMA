@@ -977,3 +977,6 @@ release_info tr {border-bottom:2px solid #666;}
 .breaker {
     height: 10px;
 }
+.dataTables_info {
+  font-size: .8em;
+}
