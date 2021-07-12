@@ -8,8 +8,8 @@ $(function(){
 	$( "toplist_length" ).wrap( "<div class='main-container'></div>");
     $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
     let table = $('#toplist').DataTable();
-	table.draw(); 
-	setTimeout(function(){ table.draw();$('#toplist').fadeIn(); }, 2000);
+	// table.draw(); 
+	setTimeout(function(){ table.draw(false);$('#toplist').fadeIn(); }, 2000);
 	// $('#toplist tbody').on( 'dblclick', 'tr', function () {
 	  // $(this).toggleClass('selected');
     // } );
@@ -23,7 +23,7 @@ $(function(){
         $('.filter-holder select option').prop( "selected", true );
 		 table.draw(); 
     } );
-  $('.filter').attr("checked", true);
+  // $('.filter').attr("checked", true);
 });
 $(document).on('click', 'a.paginate_button', function() {
 	$("body,html").animate({scrollTop: $("table thead").offset().top-60 }, 800); 

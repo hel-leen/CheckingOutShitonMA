@@ -12,10 +12,10 @@ let today = new Date();
 today. setHours(new Date().getUTCHours()- 36);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
-  $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>");
+  <!-- $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>"); -->
 	$( "<h3>By release date</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" );
   } else {
-    $( ".new>td" ).unwrap();
+    <!-- $( ".new>td" ).unwrap(); -->
 	$(".new h3").remove();
   }
 }
@@ -32,8 +32,7 @@ $(function(){
     });
     $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
     let table = $('.release_info').DataTable();
-	table.draw(); 
-	setTimeout(function(){ table.draw();$('.release_info').fadeIn(); }, 1000);
+	setTimeout(function(){ table.draw(false);$('.release_info').fadeIn(); }, 1000);
 	$('.release_info tbody').on( 'dblclick', 'tr', function () {
 	  $(this).toggleClass('selected');
     } );
@@ -41,18 +40,12 @@ $(function(){
         table.rows('.selected').remove().draw( false );
     } );
     $('.filter,.genrefilter,.paginate_button').click( function() {
-	  $("body,html").animate({scrollTop: $("#DataTables_Table_0_wrapper").offset().top }, 800);
-      table.draw(); 
-      <!-- layoutFunction(); -->
+      table.draw(false); 
     });
-    <!-- if (($( window ).width() )< 1280)  {table.columns( [4] ).visible( false );table.columns.adjust().draw( true );} -->
-    layoutFunction();
-  <!-- }); -->
   $("#about").click(function(){
     $("#project").fadeToggle();
   });
-  $('#Upcoming, #Reissue, #black, #death, #other').attr("checked", true);
-    $(window).resize(function() {
+ $(window).resize(function() {
     table.draw(false );
 });
   $('.genrefilter').first().change(function() {
@@ -62,8 +55,8 @@ $(function(){
     }
   });
 });
-$(document).on('click', 'a.paginate_button', function() {
-	$("body,html").animate({scrollTop: $("table thead").offset().top-25 }, 800); 
+$(document).on('click', '.filter,.genrefilter,.paginate_button', function() {
+	$("body,html").animate({scrollTop: $("table thead").offset().top-5 }, 800); 
 });
 $.fn.dataTable.ext.search.push(
   function( settings, data, dataIndex ) {
@@ -99,13 +92,10 @@ window.onscroll = (function() {
 <div class='contentWrapper'>
 <h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/">R</a>.</h3>
 
-<!-- <div>About <b id ='about'>CheckingOutShitonMA</b> project</div> -->
-<!-- <div id ='project' class='hideItem'> -->
-<!-- <p><i>CheckingOutShitonMA</i> is a project by hel_leen, who is known for the most frostbitten music taste among social scientist wannabes. </p><p>She created the project mainly for herself, after spending years rummaging through every deepest corner of frostbitten genres searching for promising bands and albums, despite an increasing frustration since the task of selection is rendered extremely difficult by the superabundance of materials endowed by contemporary basement musicians. </p><p>She's glad to share if this helps in any way. </p></div> -->
 <div><p class='note'><b>NOTE:</b><br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
 <br>The column "BandPage" only shows links of the first band in case of a split or compilation.
 <br><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> will be shown if the album doesn't have any cover(!?).
-<br>If you don't wanna see an album for some reason, click it to select, then click "Hide selected" at the bottom right. 
+<br>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right. 
 <br>The page is RAM-eating while loading the big bunch of covers. Good luck!<br>&nbsp;</p> 
 
 <p class='note' id='date'></p>
@@ -113,10 +103,10 @@ window.onscroll = (function() {
 <li class="filterSection">
 <strong>Filters:&nbsp;</strong>
 <label class="checkcontainer">Today onwards
-<input class="filter" id="Upcoming" type="checkbox"> 
+<input class="filter" id="Upcoming" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
 <label class="checkcontainer">No Reissue
-<input class="filter" id="Reissue" type="checkbox"> 
+<input class="filter" id="Reissue" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
 <label class="checkcontainer">Full-length only
 <input class="filter" id="Fulllength" type="checkbox"> 
@@ -125,13 +115,13 @@ window.onscroll = (function() {
 <li class="filterSection">
 <strong>Genre:&nbsp;</strong>
 <label class="checkcontainer">Black metal
-<input class="genrefilter" id="black" type="checkbox"> 
+<input class="genrefilter" id="black" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
 <label class="checkcontainer">Death metal
-<input class="filter" id="death" type="checkbox"> 
+<input class="filter" id="death" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
 <label class="checkcontainer">Other
-<input  class="filter" id="other" type="checkbox"> 
+<input  class="filter" id="other" type="checkbox" checked="checked"> 
 <span class="checkmark"></span></label>
 </li>
 <p class="breaker"><br></p>

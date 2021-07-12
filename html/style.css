@@ -816,9 +816,9 @@ input {
 }
 .entry img {
   width: 100%;
-  max-width: 350px;
-  max-height: 350px;
-  object-fit: cover; object-position: 100% 0;
+  width: 350px;
+  height: 350px;
+  object-fit: cover; 
 }
 p {
   margin-block-start: 0.1em;
@@ -827,10 +827,12 @@ p {
 /* .p1:nth-child(4) { */
   /* height: 70px; */
 /* } */
+td {
+	width: 100%;
+}
 .Genre {
     overflow-y: overlay;
     height: 42px;
-	width: 100%;
 }
 .Continent {
   margin: -30px;
