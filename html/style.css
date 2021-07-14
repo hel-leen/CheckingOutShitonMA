@@ -713,6 +713,16 @@ iframe {width:100%;height:100%}
 *:focus {
     outline: none;
 }
+
+#glossary strong {
+    cursor: pointer;
+}
+
+#glossary p {
+   font-size: .9em;
+    margin: .4em 0 0 2em;
+}
+
 .filterSection strong {
   margin: 0 4px;
   position: absolute;
@@ -788,11 +798,12 @@ td {
   margin: -30px;
   visibility: hidden;
 }
+
 #reset {
 	position: absolute;
-    left: 8em;
+    left: 9em;
     top: .4em;
-    background: rgba(116,116,116,.6);
+    background: rgba(166,166,166,.6);
     color: white;
     padding: 5px 10px;
     margin: 0 5px;
@@ -961,8 +972,8 @@ release_info tr {border-bottom:2px solid #666;}
   border:2px solid rgba(66,66,66,.4);
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.44), 0 7px 15px 0 rgba(0, 0, 0, 0.39);
 }
-.filter-holder select {
-    left: 110px;
+.filter-holder select, #glossary p {
+    left: 80px;
 }
 .filter-holder select option {
     margin: 3px;
@@ -974,3 +985,6 @@ release_info tr {border-bottom:2px solid #666;}
 .dataTables_info {
   font-size: .77em;
 }
+
+
+

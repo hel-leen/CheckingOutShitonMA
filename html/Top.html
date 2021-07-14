@@ -9,6 +9,8 @@
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
 <script src="pagination.init.js"></script>
 <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
 <title>Top-rated Albums on MA</title>
 </head>
@@ -299,50 +301,59 @@ But stuff I write here will not be confined to this order. The analysis details 
 <div id="list" class="section level4">
 <h4>So top 500. Enjoy.</h4>
 <p><small>
-Updated: someone criticized me because the list doesn't include blabla band's blabla album. i think I've already explained this list is generated based on MA users' reviews? The results are perhaps biased, but they don't represent my own taste. Can't you see my favorite albums ain't on the list either? And can't you see how scarce the reviews are on the site? Instead of blaming it on my "useless statistics" I think it's better to log yourself in on MA and write as many reviews as possible in all your free time. 🤷
+<b>Updated:</b> someone criticized me because the list didn't (and still doesn't) include blabla band's blabla album. i think I've already explained this list was generated based on MA users' reviews? The results are perhaps biased, but they don't represent my own taste. Can't you see my favorite albums ain't on the list either? And can't you see how scarce the reviews are on the site? Instead of blaming it on my "useless statistics" I think it's better to log yourself in on MA and write as many reviews as possible in all your free time. 🤷
 <br>Anyway, you can still use the list to check out old/famous stuff you'd possibly like but somehow missed.
-<br>Other suggestions like to categorize the list based on time and regions are under consideration and might be added later.</small>
+<br>Other suggestions like to categorize the list based on time and regions are under consideration and might be added later.<br><b>Updated[2]:</b> filters added. </small>
 </p>
+<p><br>Click <a href="./Top_BM.html">here</a> for the list dedicated to black metal albums.</p>
+</div>
+<div class="main-container">
+<li class="filterSection" id="glossary">
+<strong>Glossary  <i class="fa fa-caret-right"></i></strong>
+<p style="display: none">
+Rating Range:  the lowest rating ~ the highest rating. <br>
+Rating Mean:  the average of all the ratings.  <br>
+Rating Sd: the standard deviation of the ratings, a measure of how variable the ratings are. <br></p>
+</li>
+<li class="filterSection">
+<strong>Genre:  </strong>
+<div class="filter-holder" id="genre-filter">
+  <select id="genres" multiple size="1"><option selected value="black">Black Metal</option>
+<option selected value="death">Death Metal</option>
+<option selected value="^((?!(black|death)).)*$">Other</option></select>
+</div>
+</li>
+<li class="filterSection">
+<strong>Region: </strong>
+<div class="filter-holder" id="region-filter">
+  <select id="regions" multiple size="1"><option selected value="Europe">European</option>
+<option selected value="Americas">American</option>
+<option selected value="Oceania">Oceanian</option>
+<option selected value="Asia">Asian</option>
+<option selected value="NA">Other</option></select>
+</div>
+</li>
+<li class="filterSection">
+<strong>Year:   </strong>
+<div class="filter-holder" id="year-filter">
+  <select id="years" multiple size="1"><option selected value="1900-1979">1970s</option>
+<option selected value="1980-1989">1980s</option>
+<option selected value="1990-1999">1990s</option>
+<option selected value="2000-2009">2000s</option>
+<option selected value="2010-2099">2010 to present</option></select>
+</div>
+</li>
+<li class="filterSection">
+<strong>Reset:   </strong><button id="reset">Reset filter</button>
+</li>
+<p class="breaker"><br></p>
+
 </div>
 </div>
 </div>
 </div>
 </div>
 </body>
-<div class="main-container">
-<li class="filterSection"><strong>Genre:&nbsp;&nbsp;</strong>
-<div  class="filter-holder" id="genre-filter" >
-  <select id="genres" multiple="multiple" size="1">
-      <option selected value="black">Black Metal</option>
-      <option selected value="death" >Death Metal</option>
-      <option selected value="^((?!(black|death)).)*$" >Other</option>
-  </select>
-  </div>
-</li>
-<li class="filterSection"><strong>Region:&nbsp;</strong>
-<div  class="filter-holder" id="region-filter">
-  <select id="regions" multiple="multiple" size="1">
-      <option selected value="Europe">European</option>
-      <option selected value="Americas" >American</option>
-      <option selected value="Oceania" >Oceanian</option>
-      <option selected value="Asia" >Asian</option>
-      <option selected value="NA" >Other</option>
-  </select>
-  </div>
-</li>
-<li class="filterSection"><strong>Year:&nbsp;&nbsp;&nbsp;</strong>
-<div  class="filter-holder" id="year-filter">
-  <select id="years" multiple="multiple" size="1">
-      <option selected value="1900-1979">1970s</option>
-      <option selected value="1980-1989" >1980s</option>
-      <option selected value="1990-1999" >1990s</option>
-      <option selected value="2000-2009" >2000s</option>
-      <option selected value="2010-2099" >2010 to present</option>
-  </select>
-  </div>
-</li>
-<li class="filterSection"><strong>Reset:&nbsp;&nbsp;&nbsp;</strong><button id="reset">Reset filter</button></li>
-<p class="breaker"><br></p>
 <div>
 <div class="container">
 <table id="toplist" style="width:100%">
@@ -360,7 +371,6 @@ Updated: someone criticized me because the list doesn't include blabla band's bl
   <th id="header_10"> </th>
   <th id="header_11"> </th>
   <th id="header_12"> </th>
-  <th id="header_13"> </th>
 </tr>
 </thead>
 <tbody>
@@ -379,8 +389,6 @@ United States</td>
 1986-10-07</td>
 <td class="p1" ><b>Reviewer: </b>
 44</p>
-<td class="p1" ><b>Avg Length:</b>
-4622.41</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -405,8 +413,6 @@ NWOBHM</td>
 1980-04-14</td>
 <td class="p1" ><b>Reviewer: </b>
 39</p>
-<td class="p1" ><b>Avg Length:</b>
-4299.95</td>
 <td class="p1" ><b>Rating Range: </b>
 53~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -432,8 +438,6 @@ Heavy/Thrash Metal (later)</td>
 1984-07-27</td>
 <td class="p1" ><b>Reviewer: </b>
 34</p>
-<td class="p1" ><b>Avg Length:</b>
-4224.47</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -459,8 +463,6 @@ Heavy/Thrash Metal (later)</td>
 1983-07-25</td>
 <td class="p1" ><b>Reviewer: </b>
 36</p>
-<td class="p1" ><b>Avg Length:</b>
-4363.50</td>
 <td class="p1" ><b>Rating Range: </b>
 58~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -484,8 +486,6 @@ Norway</td>
 1994-05-24</td>
 <td class="p1" ><b>Reviewer: </b>
 38</p>
-<td class="p1" ><b>Avg Length:</b>
-4131.74</td>
 <td class="p1" ><b>Rating Range: </b>
 27~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -510,8 +510,6 @@ Heavy Metal/Rock (mid)</td>
 1990-09-24</td>
 <td class="p1" ><b>Reviewer: </b>
 33</p>
-<td class="p1" ><b>Avg Length:</b>
-4289.45</td>
 <td class="p1" ><b>Rating Range: </b>
 61~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -536,8 +534,6 @@ NWOBHM</td>
 1982-03-22</td>
 <td class="p1" ><b>Reviewer: </b>
 35</p>
-<td class="p1" ><b>Avg Length:</b>
-5545.40</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -561,8 +557,6 @@ United Kingdom</td>
 1970-09-18</td>
 <td class="p1" ><b>Reviewer: </b>
 29</p>
-<td class="p1" ><b>Avg Length:</b>
-4286.10</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -587,8 +581,6 @@ Progressive Death Metal (later)</td>
 1995-03-21</td>
 <td class="p1" ><b>Reviewer: </b>
 31</p>
-<td class="p1" ><b>Avg Length:</b>
-3972.16</td>
 <td class="p1" ><b>Rating Range: </b>
 35~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -612,8 +604,6 @@ United States</td>
 1989-09-19</td>
 <td class="p1" ><b>Reviewer: </b>
 33</p>
-<td class="p1" ><b>Avg Length:</b>
-4495.21</td>
 <td class="p1" ><b>Rating Range: </b>
 22~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -638,8 +628,6 @@ NWOBHM</td>
 1984-09-03</td>
 <td class="p1" ><b>Reviewer: </b>
 29</p>
-<td class="p1" ><b>Avg Length:</b>
-4721.07</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -665,8 +653,6 @@ Groove/Thrash Metal (later)</td>
 1989-04-07</td>
 <td class="p1" ><b>Reviewer: </b>
 28</p>
-<td class="p1" ><b>Avg Length:</b>
-3681.86</td>
 <td class="p1" ><b>Rating Range: </b>
 64~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -691,8 +677,6 @@ Post-Rock/Metal</td>
 2002-08-13</td>
 <td class="p1" ><b>Reviewer: </b>
 33</p>
-<td class="p1" ><b>Avg Length:</b>
-4477.94</td>
 <td class="p1" ><b>Rating Range: </b>
 15~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -717,8 +701,6 @@ Melodic Death Metal</td>
 1995-11-17</td>
 <td class="p1" ><b>Reviewer: </b>
 30</p>
-<td class="p1" ><b>Avg Length:</b>
-3739.17</td>
 <td class="p1" ><b>Rating Range: </b>
 47~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -743,8 +725,6 @@ Ambient</td>
 1994-04-19</td>
 <td class="p1" ><b>Reviewer: </b>
 31</p>
-<td class="p1" ><b>Avg Length:</b>
-4684.65</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -769,8 +749,6 @@ Progressive Death Metal (later)</td>
 1991-10-22</td>
 <td class="p1" ><b>Reviewer: </b>
 28</p>
-<td class="p1" ><b>Avg Length:</b>
-3383.75</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -795,8 +773,6 @@ Ambient</td>
 1996-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 34</p>
-<td class="p1" ><b>Avg Length:</b>
-4164.32</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -820,8 +796,6 @@ Sweden</td>
 1990-06-04</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4613.30</td>
 <td class="p1" ><b>Rating Range: </b>
 94~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -845,8 +819,6 @@ United Kingdom</td>
 1989-10-28</td>
 <td class="p1" ><b>Reviewer: </b>
 25</p>
-<td class="p1" ><b>Avg Length:</b>
-3619.92</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -871,8 +843,6 @@ Groove Metal (later)</td>
 1992-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-3788.96</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -896,8 +866,6 @@ Norway</td>
 1999-02-22</td>
 <td class="p1" ><b>Reviewer: </b>
 28</p>
-<td class="p1" ><b>Avg Length:</b>
-3449.89</td>
 <td class="p1" ><b>Rating Range: </b>
 40~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -921,8 +889,6 @@ United Kingdom</td>
 1970-02-13</td>
 <td class="p1" ><b>Reviewer: </b>
 28</p>
-<td class="p1" ><b>Avg Length:</b>
-4216.96</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -946,8 +912,6 @@ United States</td>
 1983-12-03</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-3554.48</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -972,8 +936,6 @@ Progressive Death Metal (later)</td>
 1987-05-25</td>
 <td class="p1" ><b>Reviewer: </b>
 31</p>
-<td class="p1" ><b>Avg Length:</b>
-3504.68</td>
 <td class="p1" ><b>Rating Range: </b>
 15~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -997,8 +959,6 @@ Finland</td>
 2000-10-30</td>
 <td class="p1" ><b>Reviewer: </b>
 28</p>
-<td class="p1" ><b>Avg Length:</b>
-3713.29</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1022,8 +982,6 @@ United Kingdom</td>
 1990-09-03</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-4702.46</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1049,8 +1007,6 @@ Heavy/Thrash Metal (later)</td>
 1988-09-06</td>
 <td class="p1" ><b>Reviewer: </b>
 32</p>
-<td class="p1" ><b>Avg Length:</b>
-5000.12</td>
 <td class="p1" ><b>Rating Range: </b>
 32~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1074,8 +1030,6 @@ United States</td>
 1986-11-17</td>
 <td class="p1" ><b>Reviewer: </b>
 29</p>
-<td class="p1" ><b>Avg Length:</b>
-4090.00</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1099,8 +1053,6 @@ United States</td>
 1990-09-02</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-3619.70</td>
 <td class="p1" ><b>Rating Range: </b>
 76~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1124,8 +1076,6 @@ United States</td>
 1988-06-27</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-3823.54</td>
 <td class="p1" ><b>Rating Range: </b>
 68~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1150,8 +1100,6 @@ NWOBHM</td>
 1988-04-11</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-4572.11</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1176,8 +1124,6 @@ Post-Rock/Metal</td>
 2006-08-08</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-4458.27</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1202,8 +1148,6 @@ NWOBHM</td>
 1983-05-16</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-4572.04</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1229,14 +1173,36 @@ Heavy/Thrash Metal (later)</td>
 1986-03-03</td>
 <td class="p1" ><b>Reviewer: </b>
 38</p>
-<td class="p1" ><b>Avg Length:</b>
-6986.42</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 80.29</td>
 <td class="p1" ><b>Rating Sd: </b>
 27.04</td>
+<td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/6/6/8/668.jpg?3625" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/668">Countdown to Extinction</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Megadeth/138">Megadeth</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Speed/Thrash Metal (early/later); 
+Heavy Metal/Rock (mid)</td>
+<td class="p1" ><b>Duration: </b>
+00:47:28</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1992-07-14</td>
+<td class="p1" ><b>Reviewer: </b>
+33</p>
+<td class="p1" ><b>Rating Range: </b>
+30~96</td>
+<td class="p1" ><b>Rating Mean: </b>
+77.18</td>
+<td class="p1" ><b>Rating Sd: </b>
+16.24</td>
 <td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
@@ -1254,8 +1220,6 @@ United States</td>
 1992-03-01</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-3144.04</td>
 <td class="p1" ><b>Rating Range: </b>
 59~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1280,8 +1244,6 @@ Thrash Metal</td>
 1988-10-08</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-3852.12</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1306,8 +1268,6 @@ Thrash Metal</td>
 1984-10-02</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4348.48</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1332,8 +1292,6 @@ NWOBHM</td>
 1981-02-02</td>
 <td class="p1" ><b>Reviewer: </b>
 30</p>
-<td class="p1" ><b>Avg Length:</b>
-4170.77</td>
 <td class="p1" ><b>Rating Range: </b>
 35~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1357,8 +1315,6 @@ United States</td>
 1990-09-19</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-3132.27</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1383,8 +1339,6 @@ Heavy Metal/Rock (mid)</td>
 1985-06-12</td>
 <td class="p1" ><b>Reviewer: </b>
 25</p>
-<td class="p1" ><b>Avg Length:</b>
-3692.08</td>
 <td class="p1" ><b>Rating Range: </b>
 60~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1409,8 +1363,6 @@ Gothic/Alternative/Progressive Rock/Metal (later)</td>
 1993-12-15</td>
 <td class="p1" ><b>Reviewer: </b>
 22</p>
-<td class="p1" ><b>Avg Length:</b>
-4052.68</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1434,8 +1386,6 @@ United Kingdom</td>
 1971-07-21</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4507.78</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1460,8 +1410,6 @@ Thrash Metal (later)</td>
 1989-06-01</td>
 <td class="p1" ><b>Reviewer: </b>
 28</p>
-<td class="p1" ><b>Avg Length:</b>
-3213.93</td>
 <td class="p1" ><b>Rating Range: </b>
 7~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1485,8 +1433,6 @@ United States</td>
 1991-10-08</td>
 <td class="p1" ><b>Reviewer: </b>
 22</p>
-<td class="p1" ><b>Avg Length:</b>
-4398.45</td>
 <td class="p1" ><b>Rating Range: </b>
 76~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1511,8 +1457,6 @@ Ambient/Avant-garde/Electronica (later)</td>
 1997-03-03</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-3749.81</td>
 <td class="p1" ><b>Rating Range: </b>
 35~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1520,6 +1464,31 @@ Ambient/Avant-garde/Electronica (later)</td>
 <td class="p1" ><b>Rating Sd: </b>
 16.15</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/0/4/9/204927.jpg?4612" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/204927">Death Magnetic</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Metallica/125">Metallica</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Thrash Metal (early); 
+Hard Rock (mid); 
+Heavy/Thrash Metal (later)</td>
+<td class="p1" ><b>Duration: </b>
+01:14:35</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2008-09-12</td>
+<td class="p1" ><b>Reviewer: </b>
+31</p>
+<td class="p1" ><b>Rating Range: </b>
+49~91</td>
+<td class="p1" ><b>Rating Mean: </b>
+74.06</td>
+<td class="p1" ><b>Rating Sd: </b>
+12.93</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/5/0/4/504.jpg" loading="lazy" alt="..."></td>
@@ -1536,8 +1505,6 @@ United Kingdom</td>
 1980-04-25</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4566.22</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1561,8 +1528,6 @@ United States</td>
 1985-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 22</p>
-<td class="p1" ><b>Avg Length:</b>
-4254.77</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1586,8 +1551,6 @@ United States</td>
 2016-05-06</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-4736.85</td>
 <td class="p1" ><b>Rating Range: </b>
 38~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1611,8 +1574,6 @@ Norway</td>
 1997-10-20</td>
 <td class="p1" ><b>Reviewer: </b>
 25</p>
-<td class="p1" ><b>Avg Length:</b>
-3134.52</td>
 <td class="p1" ><b>Rating Range: </b>
 51~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1636,8 +1597,6 @@ Finland</td>
 1993-02-08</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-3573.87</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1663,8 +1622,6 @@ Progressive Rock (later)</td>
 1993-09-13</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-3407.74</td>
 <td class="p1" ><b>Rating Range: </b>
 17~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1690,8 +1647,6 @@ Progressive Death Metal (later)</td>
 1989-12-25</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-2978.43</td>
 <td class="p1" ><b>Rating Range: </b>
 41~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1715,8 +1670,6 @@ Germany</td>
 1990-11-06</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3658.05</td>
 <td class="p1" ><b>Rating Range: </b>
 63~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1740,8 +1693,6 @@ United States</td>
 1993-07-19</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4534.17</td>
 <td class="p1" ><b>Rating Range: </b>
 48~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1766,8 +1717,6 @@ Ambient/Avant-garde/Electronica (later)</td>
 1995-02-19</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3502.95</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1791,8 +1740,6 @@ Norway</td>
 2002-02-04</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-3381.15</td>
 <td class="p1" ><b>Rating Range: </b>
 9~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1816,8 +1763,6 @@ United States</td>
 1985-10-16</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-4099.46</td>
 <td class="p1" ><b>Rating Range: </b>
 18~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1843,8 +1788,6 @@ Black/Heavy/Speed Metal (later)</td>
 1994-02-17</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-4678.62</td>
 <td class="p1" ><b>Rating Range: </b>
 21~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1869,8 +1812,6 @@ Progressive Death Metal (later)</td>
 1988-11-16</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4207.17</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1894,8 +1835,6 @@ United States</td>
 1991-08-30</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3487.80</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1919,8 +1858,6 @@ Norway</td>
 1994-02-21</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-4255.69</td>
 <td class="p1" ><b>Rating Range: </b>
 10~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1944,8 +1881,6 @@ Brazil</td>
 2004-09-06</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-4186.19</td>
 <td class="p1" ><b>Rating Range: </b>
 63~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1970,8 +1905,6 @@ Power Metal (later)</td>
 1992-06-29</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3839.35</td>
 <td class="p1" ><b>Rating Range: </b>
 81~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -1979,6 +1912,30 @@ Power Metal (later)</td>
 <td class="p1" ><b>Rating Sd: </b>
 5.72</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/5/3/6/8/536834.jpg?2647" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/536834">Dystopia</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Megadeth/138">Megadeth</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Speed/Thrash Metal (early/later); 
+Heavy Metal/Rock (mid)</td>
+<td class="p1" ><b>Duration: </b>
+00:46:46</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2016-01-22</td>
+<td class="p1" ><b>Reviewer: </b>
+31</p>
+<td class="p1" ><b>Rating Range: </b>
+25~96</td>
+<td class="p1" ><b>Rating Mean: </b>
+76.81</td>
+<td class="p1" ><b>Rating Sd: </b>
+19.87</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/6/6/2/662.jpg?0638" loading="lazy" alt="..."></td>
@@ -1996,8 +1953,6 @@ Heavy Metal/Rock (mid)</td>
 1986-09-19</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3984.70</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2021,8 +1976,6 @@ Denmark</td>
 1990-05-29</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3860.60</td>
 <td class="p1" ><b>Rating Range: </b>
 76~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2046,8 +1999,6 @@ Germany</td>
 2006-09-29</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3024.50</td>
 <td class="p1" ><b>Rating Range: </b>
 73~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2072,8 +2023,6 @@ NWOBHM</td>
 1986-09-29</td>
 <td class="p1" ><b>Reviewer: </b>
 22</p>
-<td class="p1" ><b>Avg Length:</b>
-6316.82</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2097,8 +2046,6 @@ United States</td>
 1985-04-25</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-3867.43</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2122,8 +2069,6 @@ United Kingdom</td>
 1978-02-10</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-4316.38</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2147,8 +2092,6 @@ Sweden</td>
 1986-06-10</td>
 <td class="p1" ><b>Reviewer: </b>
 22</p>
-<td class="p1" ><b>Avg Length:</b>
-4013.86</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2172,8 +2115,6 @@ United States</td>
 2007-06-26</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-4416.08</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2197,8 +2138,6 @@ Germany</td>
 1986-04-01</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-3793.81</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2222,8 +2161,6 @@ Sweden</td>
 2006-10-02</td>
 <td class="p1" ><b>Reviewer: </b>
 25</p>
-<td class="p1" ><b>Avg Length:</b>
-3742.56</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2248,8 +2185,6 @@ Progressive Rock</td>
 1998-05-11</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-3362.38</td>
 <td class="p1" ><b>Rating Range: </b>
 16~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2257,6 +2192,31 @@ Progressive Rock</td>
 <td class="p1" ><b>Rating Sd: </b>
 18.68</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/5/9/9/3/599351.jpg?3449" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/599351">Hardwired... to Self-Destruct</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Metallica/125">Metallica</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Thrash Metal (early); 
+Hard Rock (mid); 
+Heavy/Thrash Metal (later)</td>
+<td class="p1" ><b>Duration: </b>
+00:37:10</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2016-11-18</td>
+<td class="p1" ><b>Reviewer: </b>
+31</p>
+<td class="p1" ><b>Rating Range: </b>
+35~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+70.23</td>
+<td class="p1" ><b>Rating Sd: </b>
+16.22</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/1/1/7/6/1176.jpg?0038" loading="lazy" alt="..."></td>
@@ -2273,8 +2233,6 @@ Denmark</td>
 1987-10-21</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3582.61</td>
 <td class="p1" ><b>Rating Range: </b>
 84~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2298,8 +2256,6 @@ United States</td>
 1991-06-11</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-5189.42</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2323,8 +2279,6 @@ United States</td>
 1987-04-21</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3900.47</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2348,8 +2302,6 @@ Czechia</td>
 2000-10-31</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-5638.29</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2375,14 +2327,35 @@ Black/Heavy/Speed Metal (later)</td>
 1992-03-02</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4263.65</td>
 <td class="p1" ><b>Rating Range: </b>
 38~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 87.26</td>
 <td class="p1" ><b>Rating Sd: </b>
 15.07</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/4/5/2/245270.jpg?1415" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/245270">All Shall Fall</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Immortal/75">Immortal</a></td>
+<td class="Country"><b>Country: </b>
+Norway</td>
+<td class="Genre"><b>Genre: </b>Black Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:40:10</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2009-09-25</td>
+<td class="p1" ><b>Reviewer: </b>
+28</p>
+<td class="p1" ><b>Rating Range: </b>
+16~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+77.64</td>
+<td class="p1" ><b>Rating Sd: </b>
+18.70</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -2400,8 +2373,6 @@ United Kingdom</td>
 1976-03-23</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-4024.00</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2425,8 +2396,6 @@ United States</td>
 1995-05-01</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3079.60</td>
 <td class="p1" ><b>Rating Range: </b>
 73~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2450,8 +2419,6 @@ United Kingdom</td>
 1989-04-24</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-4196.71</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2476,8 +2443,6 @@ Deathcore (2008)</td>
 1996-07-03</td>
 <td class="p1" ><b>Reviewer: </b>
 26</p>
-<td class="p1" ><b>Avg Length:</b>
-4598.62</td>
 <td class="p1" ><b>Rating Range: </b>
 5~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2501,8 +2466,6 @@ United Kingdom</td>
 1976-05-17</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3540.74</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2510,6 +2473,31 @@ United Kingdom</td>
 <td class="p1" ><b>Rating Sd: </b>
 7.49</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/8/4/0/840.jpg?2027" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/840">Metallica</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Metallica/125">Metallica</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Thrash Metal (early); 
+Hard Rock (mid); 
+Heavy/Thrash Metal (later)</td>
+<td class="p1" ><b>Duration: </b>
+01:02:39</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1991-08-12</td>
+<td class="p1" ><b>Reviewer: </b>
+29</p>
+<td class="p1" ><b>Rating Range: </b>
+36~95</td>
+<td class="p1" ><b>Rating Mean: </b>
+72.48</td>
+<td class="p1" ><b>Rating Sd: </b>
+16.47</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/6/7/6/676.jpg?0718" loading="lazy" alt="..."></td>
@@ -2526,8 +2514,6 @@ Germany</td>
 1985-11-18</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-4019.37</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2551,8 +2537,6 @@ Norway</td>
 1987-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 30</p>
-<td class="p1" ><b>Avg Length:</b>
-3325.43</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2577,8 +2561,6 @@ Groove Metal (later)</td>
 1996-05-07</td>
 <td class="p1" ><b>Reviewer: </b>
 25</p>
-<td class="p1" ><b>Avg Length:</b>
-4264.80</td>
 <td class="p1" ><b>Rating Range: </b>
 31~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2586,6 +2568,29 @@ Groove Metal (later)</td>
 <td class="p1" ><b>Rating Sd: </b>
 18.58</td>
 <td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/3/7/3/5/373514.jpg?2126" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/373514">13</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Black_Sabbath/99">Black Sabbath</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Heavy/Doom Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:53:32</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2013-06-07</td>
+<td class="p1" ><b>Reviewer: </b>
+36</p>
+<td class="p1" ><b>Rating Range: </b>
+13~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+66.86</td>
+<td class="p1" ><b>Rating Sd: </b>
+21.81</td>
+<td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/7/5/7/757.jpg?5417" loading="lazy" alt="..."></td>
@@ -2603,8 +2608,6 @@ Thrash Metal</td>
 1987-05-11</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3996.39</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2612,6 +2615,29 @@ Thrash Metal</td>
 <td class="p1" ><b>Rating Sd: </b>
 5.65</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/7/9/8/4/798411.jpg?0822" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/798411">Hidden History of the Human Race</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Blood_Incantation/3540368063">Blood Incantation</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Death Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:36:20</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2019-11-22</td>
+<td class="p1" ><b>Reviewer: </b>
+24</p>
+<td class="p1" ><b>Rating Range: </b>
+55~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+81.46</td>
+<td class="p1" ><b>Rating Sd: </b>
+14.48</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/6/1/3/613.jpg?4955" loading="lazy" alt="..."></td>
@@ -2629,8 +2655,6 @@ Progressive Death Metal (later)</td>
 1993-06-22</td>
 <td class="p1" ><b>Reviewer: </b>
 27</p>
-<td class="p1" ><b>Avg Length:</b>
-3526.19</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2654,8 +2678,6 @@ Finland</td>
 2004-09-13</td>
 <td class="p1" ><b>Reviewer: </b>
 29</p>
-<td class="p1" ><b>Avg Length:</b>
-4097.28</td>
 <td class="p1" ><b>Rating Range: </b>
 24~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2679,8 +2701,6 @@ United Kingdom</td>
 2005-11-14</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3807.11</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2704,8 +2724,6 @@ United States</td>
 1990-06-24</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3737.67</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2729,14 +2747,36 @@ Norway</td>
 1997-05-30</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-4081.33</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 84.17</td>
 <td class="p1" ><b>Rating Sd: </b>
 18.12</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/3/8/6/386.jpg" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/386">The X Factor</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Iron_Maiden/25">Iron Maiden</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Heavy Metal, 
+NWOBHM</td>
+<td class="p1" ><b>Duration: </b>
+01:11:07</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1995-10-02</td>
+<td class="p1" ><b>Reviewer: </b>
+27</p>
+<td class="p1" ><b>Rating Range: </b>
+48~99</td>
+<td class="p1" ><b>Rating Mean: </b>
+76.70</td>
+<td class="p1" ><b>Rating Sd: </b>
+17.99</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -2754,8 +2794,6 @@ United States</td>
 2009-09-29</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3744.56</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2780,8 +2818,6 @@ Progressive Rock</td>
 2001-03-12</td>
 <td class="p1" ><b>Reviewer: </b>
 30</p>
-<td class="p1" ><b>Avg Length:</b>
-4451.90</td>
 <td class="p1" ><b>Rating Range: </b>
 3~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2805,8 +2841,6 @@ United States</td>
 1992-09-22</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-3644.21</td>
 <td class="p1" ><b>Rating Range: </b>
 38~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2831,8 +2865,6 @@ Melodic Death Metal/Death 'n' Roll (later)</td>
 1989-11-04</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3872.06</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2857,8 +2889,6 @@ Black/Death Metal (later)</td>
 2014-02-03</td>
 <td class="p1" ><b>Reviewer: </b>
 29</p>
-<td class="p1" ><b>Avg Length:</b>
-3689.00</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2866,6 +2896,29 @@ Black/Death Metal (later)</td>
 <td class="p1" ><b>Rating Sd: </b>
 25.12</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/4/5/245.jpg?5635" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/245">The New Order</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Testament/70">Testament</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Thrash Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:39:19</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1988-05-05</td>
+<td class="p1" ><b>Reviewer: </b>
+27</p>
+<td class="p1" ><b>Rating Range: </b>
+26~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+76.15</td>
+<td class="p1" ><b>Rating Sd: </b>
+18.11</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/3/2/0/5/3205.jpg?1312" loading="lazy" alt="..."></td>
@@ -2882,8 +2935,6 @@ United States</td>
 1996-11-13</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3642.82</td>
 <td class="p1" ><b>Rating Range: </b>
 83~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2907,8 +2958,6 @@ United States</td>
 1991-04-22</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3377.30</td>
 <td class="p1" ><b>Rating Range: </b>
 41~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2933,8 +2982,6 @@ Groove Metal</td>
 1987-03-22</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3322.74</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2959,8 +3006,6 @@ Power Metal (later)</td>
 2002-03-01</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4818.13</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -2984,8 +3029,6 @@ Germany</td>
 1985-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3416.47</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3010,8 +3053,6 @@ Progressive Rock</td>
 1995-05-15</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-3694.48</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3035,8 +3076,6 @@ Netherlands</td>
 2012-05-18</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3390.37</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3060,8 +3099,6 @@ United States</td>
 1989-04-24</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3285.39</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3069,6 +3106,29 @@ United States</td>
 <td class="p1" ><b>Rating Sd: </b>
 6.29</td>
 <td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/8/4/5/284573.jpg?4534" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/284573">Opus Eponymous</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Ghost/3540309157">Ghost</a></td>
+<td class="Country"><b>Country: </b>
+Sweden</td>
+<td class="Genre"><b>Genre: </b>Heavy Metal/Rock</td>
+<td class="p1" ><b>Duration: </b>
+00:34:35</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2010-10-18</td>
+<td class="p1" ><b>Reviewer: </b>
+29</p>
+<td class="p1" ><b>Rating Range: </b>
+20~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+77.24</td>
+<td class="p1" ><b>Rating Sd: </b>
+24.72</td>
+<td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/6/2/8/628.jpg?5917" loading="lazy" alt="..."></td>
@@ -3087,14 +3147,36 @@ Black/Heavy/Speed Metal (later)</td>
 1993-02-15</td>
 <td class="p1" ><b>Reviewer: </b>
 22</p>
-<td class="p1" ><b>Avg Length:</b>
-4310.09</td>
 <td class="p1" ><b>Rating Range: </b>
 28~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 87.91</td>
 <td class="p1" ><b>Rating Sd: </b>
 18.81</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/5/8/4/258422.jpg?4504" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/258422">Belus</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Burzum/88">Burzum</a></td>
+<td class="Country"><b>Country: </b>
+Norway</td>
+<td class="Genre"><b>Genre: </b>Black Metal, 
+Ambient</td>
+<td class="p1" ><b>Duration: </b>
+00:52:16</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2010-03-08</td>
+<td class="p1" ><b>Reviewer: </b>
+25</p>
+<td class="p1" ><b>Rating Range: </b>
+35~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+77.04</td>
+<td class="p1" ><b>Rating Sd: </b>
+16.37</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -3112,8 +3194,6 @@ United Kingdom</td>
 1972-09-25</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-4166.24</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3137,8 +3217,6 @@ United States</td>
 1991-05-02</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-4415.76</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3162,8 +3240,6 @@ United States</td>
 2000-11-06</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3544.11</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3187,8 +3263,6 @@ Sweden</td>
 2008-09-19</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3443.14</td>
 <td class="p1" ><b>Rating Range: </b>
 55~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3212,14 +3286,36 @@ United Kingdom</td>
 1973-12-01</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4130.94</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 91.56</td>
 <td class="p1" ><b>Rating Sd: </b>
 8.66</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/1/2/2/5/122532.jpg" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/122532">A Matter of Life and Death</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Iron_Maiden/25">Iron Maiden</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Heavy Metal, 
+NWOBHM</td>
+<td class="p1" ><b>Duration: </b>
+01:11:52</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2006-08-28</td>
+<td class="p1" ><b>Reviewer: </b>
+30</p>
+<td class="p1" ><b>Rating Range: </b>
+0~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+77.10</td>
+<td class="p1" ><b>Rating Sd: </b>
+27.40</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -3237,8 +3333,6 @@ United States</td>
 1992-07-07</td>
 <td class="p1" ><b>Reviewer: </b>
 22</p>
-<td class="p1" ><b>Avg Length:</b>
-4561.86</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3263,8 +3357,6 @@ Progressive Rock</td>
 1999-10-18</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-3704.46</td>
 <td class="p1" ><b>Rating Range: </b>
 6~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3289,8 +3381,6 @@ Progressive Death Metal (later)</td>
 1990-02-16</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3348.32</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3315,8 +3405,6 @@ Ambient</td>
 1993-08-20</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-4320.42</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3340,8 +3428,6 @@ United Kingdom</td>
 1981-12-19</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3639.33</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3365,8 +3451,6 @@ United Kingdom</td>
 1992-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3628.74</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3390,8 +3474,6 @@ United Kingdom</td>
 1982-07-17</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4247.22</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3415,8 +3497,6 @@ United States</td>
 2001-07-24</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3077.76</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3440,8 +3520,6 @@ United States</td>
 1994-08-08</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3796.00</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3465,8 +3543,6 @@ Germany</td>
 1988-08-01</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3852.60</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3491,8 +3567,6 @@ Hard Rock (mid)</td>
 1988-05-03</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-4992.10</td>
 <td class="p1" ><b>Rating Range: </b>
 53~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3516,8 +3590,6 @@ Norway</td>
 1993-11-01</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3394.14</td>
 <td class="p1" ><b>Rating Range: </b>
 28~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3541,8 +3613,6 @@ United States</td>
 2003-09-29</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3716.71</td>
 <td class="p1" ><b>Rating Range: </b>
 73~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3566,8 +3636,6 @@ Canada</td>
 1976-04-20</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-4078.68</td>
 <td class="p1" ><b>Rating Range: </b>
 63~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3592,8 +3660,6 @@ Thrash/Groove Metal</td>
 1989-10-13</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-5029.40</td>
 <td class="p1" ><b>Rating Range: </b>
 42~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3619,8 +3685,6 @@ Extreme Gothic Metal (later)</td>
 1996-11-18</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4251.39</td>
 <td class="p1" ><b>Rating Range: </b>
 1~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3644,8 +3708,6 @@ United States</td>
 1984-07-19</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-2756.12</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3670,8 +3732,6 @@ Thrash/Groove Metal</td>
 1991-09-03</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4296.22</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3695,8 +3755,6 @@ United States</td>
 1992-08-01</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-5067.31</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3721,8 +3779,6 @@ Melodic Death Metal/Death 'n' Roll (later)</td>
 1991-10-30</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-2894.41</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3748,8 +3804,6 @@ Groove/Thrash Metal (later)</td>
 1991-03-25</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3392.89</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3774,8 +3828,6 @@ Progressive Metal/Rock</td>
 1987-09-28</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-4208.76</td>
 <td class="p1" ><b>Rating Range: </b>
 73~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3799,8 +3851,6 @@ United States</td>
 2004-02-02</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3863.24</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3808,6 +3858,29 @@ United States</td>
 <td class="p1" ><b>Rating Sd: </b>
 14.89</td>
 <td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/5/1/7/517.jpg" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/517">Born Again</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Black_Sabbath/99">Black Sabbath</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Heavy/Doom Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:41:04</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1983-08-07</td>
+<td class="p1" ><b>Reviewer: </b>
+25</p>
+<td class="p1" ><b>Rating Range: </b>
+35~98</td>
+<td class="p1" ><b>Rating Mean: </b>
+76.76</td>
+<td class="p1" ><b>Rating Sd: </b>
+19.65</td>
+<td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/5/2/9/7/529724.jpg?1921" loading="lazy" alt="..."></td>
@@ -3824,8 +3897,6 @@ United States</td>
 2007-09-27</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3657.65</td>
 <td class="p1" ><b>Rating Range: </b>
 34~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3850,8 +3921,6 @@ Ambient</td>
 1992-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3486.57</td>
 <td class="p1" ><b>Rating Range: </b>
 57~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3876,8 +3945,6 @@ Avant-garde Black Metal (later)</td>
 2010-11-08</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-4369.40</td>
 <td class="p1" ><b>Rating Range: </b>
 40~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3902,8 +3969,6 @@ Thrash Metal</td>
 1991-06-29</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3832.67</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3927,8 +3992,6 @@ United States</td>
 1992-09-29</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3555.72</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3952,8 +4015,6 @@ Ukraine</td>
 2004-02-01</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3224.95</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -3977,8 +4038,6 @@ Brazil</td>
 1987-08-19</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3151.94</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4002,8 +4061,6 @@ United States</td>
 2005-07-25</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3390.44</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4027,8 +4084,6 @@ United States</td>
 1984-06-19</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-2738.24</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4052,8 +4107,6 @@ Denmark</td>
 1983-10-30</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-5077.12</td>
 <td class="p1" ><b>Rating Range: </b>
 83~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4078,8 +4131,6 @@ Thrash/Groove Metal</td>
 1985-10-15</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3804.82</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4103,8 +4154,6 @@ United States</td>
 1983-05-23</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3582.61</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4129,8 +4178,6 @@ Gothic/Alternative/Progressive Rock/Metal (later)</td>
 2001-05-08</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-2939.60</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4154,8 +4201,6 @@ Sweden</td>
 1987-11-09</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-4673.19</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4180,8 +4225,6 @@ Progressive Death Metal (later)</td>
 1998-08-31</td>
 <td class="p1" ><b>Reviewer: </b>
 29</p>
-<td class="p1" ><b>Avg Length:</b>
-5029.31</td>
 <td class="p1" ><b>Rating Range: </b>
 3~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4205,8 +4248,6 @@ Canada</td>
 1981-02-12</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3957.33</td>
 <td class="p1" ><b>Rating Range: </b>
 87~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4230,8 +4271,6 @@ United Kingdom</td>
 2007-05-28</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3572.85</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4256,8 +4295,6 @@ Gothic/Doom Metal (later)</td>
 2006-05-29</td>
 <td class="p1" ><b>Reviewer: </b>
 23</p>
-<td class="p1" ><b>Avg Length:</b>
-4197.91</td>
 <td class="p1" ><b>Rating Range: </b>
 5~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4282,8 +4319,6 @@ Power Metal (later)</td>
 1988-05-18</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4300.67</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4307,8 +4342,6 @@ United States</td>
 2006-08-22</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3183.74</td>
 <td class="p1" ><b>Rating Range: </b>
 40~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4332,8 +4365,6 @@ United States</td>
 1988-07-05</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3796.68</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4357,8 +4388,6 @@ United States</td>
 1991-11-11</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4262.11</td>
 <td class="p1" ><b>Rating Range: </b>
 47~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4366,6 +4395,29 @@ United States</td>
 <td class="p1" ><b>Rating Sd: </b>
 12.87</td>
 <td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/3/4/9/4/349413.jpg?2625" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/349413">Time I</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Wintersun/22813">Wintersun</a></td>
+<td class="Country"><b>Country: </b>
+Finland</td>
+<td class="Genre"><b>Genre: </b>Symphonic Melodic Death Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:43:57</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2012-10-19</td>
+<td class="p1" ><b>Reviewer: </b>
+36</p>
+<td class="p1" ><b>Rating Range: </b>
+0~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+68.39</td>
+<td class="p1" ><b>Rating Sd: </b>
+30.48</td>
+<td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/cat.jpg" loading="lazy" alt="..."></td>
@@ -4382,8 +4434,6 @@ United States</td>
 1982-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3317.44</td>
 <td class="p1" ><b>Rating Range: </b>
 78~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4407,8 +4457,6 @@ Germany</td>
 2008-06-27</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3204.37</td>
 <td class="p1" ><b>Rating Range: </b>
 34~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4433,8 +4481,6 @@ Melodic Death Metal/Death 'n' Roll (later)</td>
 1993-10-18</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-4438.75</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4458,8 +4504,6 @@ United States</td>
 1990-10-23</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3579.63</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4484,8 +4528,6 @@ Melodic Groove Metal/Metalcore/Alternative Rock (later)</td>
 1996-02-20</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3437.55</td>
 <td class="p1" ><b>Rating Range: </b>
 35~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4510,8 +4552,6 @@ Gothic/Alternative/Progressive Rock/Metal (later)</td>
 1996-11-19</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3412.29</td>
 <td class="p1" ><b>Rating Range: </b>
 29~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4535,8 +4575,6 @@ United Kingdom</td>
 1992-06-22</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3594.88</td>
 <td class="p1" ><b>Rating Range: </b>
 58~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4560,8 +4598,6 @@ United States</td>
 1989-11-13</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-2777.00</td>
 <td class="p1" ><b>Rating Range: </b>
 73~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4586,8 +4622,6 @@ Black/Death Metal (later)</td>
 2007-07-02</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3689.28</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4611,8 +4645,6 @@ Norway</td>
 1994-10-12</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3163.53</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4636,8 +4668,6 @@ Norway</td>
 1997-05-19</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4901.11</td>
 <td class="p1" ><b>Rating Range: </b>
 31~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4661,8 +4691,6 @@ United States</td>
 2012-06-19</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3196.69</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4686,8 +4714,6 @@ United States</td>
 2005-05-24</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-4154.90</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4711,8 +4737,6 @@ United Kingdom</td>
 1984-01-04</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-5456.12</td>
 <td class="p1" ><b>Rating Range: </b>
 73~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4736,8 +4760,6 @@ United Kingdom</td>
 1982-11-01</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3122.41</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4761,8 +4783,6 @@ United States</td>
 1996-08-20</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3882.93</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4786,8 +4806,6 @@ Finland</td>
 2004-10-11</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3611.53</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4812,8 +4830,6 @@ Power Metal (later)</td>
 2010-07-29</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4978.17</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4837,8 +4853,6 @@ United States</td>
 1988-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3335.86</td>
 <td class="p1" ><b>Rating Range: </b>
 90~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4862,8 +4876,6 @@ United States</td>
 2002-11-04</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3718.53</td>
 <td class="p1" ><b>Rating Range: </b>
 62~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4888,8 +4900,6 @@ Thrash Metal</td>
 1985-05-27</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3327.53</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4913,8 +4923,6 @@ United States</td>
 1995-03-01</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3466.83</td>
 <td class="p1" ><b>Rating Range: </b>
 55~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4938,8 +4946,6 @@ International</td>
 2009-04-28</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-4552.79</td>
 <td class="p1" ><b>Rating Range: </b>
 29~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4964,8 +4970,6 @@ Power Metal (later)</td>
 1998-04-24</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-5342.60</td>
 <td class="p1" ><b>Rating Range: </b>
 42~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -4989,8 +4993,6 @@ United States</td>
 2012-05-07</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4565.33</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5014,8 +5016,6 @@ Poland</td>
 2015-12-04</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3517.22</td>
 <td class="p1" ><b>Rating Range: </b>
 48~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5039,8 +5039,6 @@ France</td>
 2005-09-27</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3378.11</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5065,8 +5063,6 @@ Thrash/Groove Metal</td>
 2010-01-29</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3723.65</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5090,8 +5086,6 @@ United States</td>
 1991-04-12</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-4035.81</td>
 <td class="p1" ><b>Rating Range: </b>
 74~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5115,8 +5109,6 @@ United States</td>
 2008-04-01</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-3438.48</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5140,8 +5132,6 @@ Norway</td>
 2005-10-24</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-2822.45</td>
 <td class="p1" ><b>Rating Range: </b>
 13~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5165,8 +5155,6 @@ United States</td>
 1999-10-26</td>
 <td class="p1" ><b>Reviewer: </b>
 21</p>
-<td class="p1" ><b>Avg Length:</b>
-4473.57</td>
 <td class="p1" ><b>Rating Range: </b>
 21~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5192,8 +5180,6 @@ Groove/Thrash Metal (later)</td>
 1987-10-30</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-2763.40</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5217,8 +5203,6 @@ United States</td>
 1986-07-04</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3946.80</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5243,8 +5227,6 @@ Technical/Avant-garde Death Metal (later)</td>
 1998-06-23</td>
 <td class="p1" ><b>Reviewer: </b>
 24</p>
-<td class="p1" ><b>Avg Length:</b>
-4553.67</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5269,8 +5251,6 @@ Power Metal (later)</td>
 2015-01-30</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-4000.35</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5294,8 +5274,6 @@ United States</td>
 1991-04-24</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3245.25</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5319,8 +5297,6 @@ Canada</td>
 1977-09-07</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3241.27</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5344,8 +5320,6 @@ United States</td>
 2007-09-18</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3922.19</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5369,8 +5343,6 @@ United States</td>
 2004-03-30</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-2706.50</td>
 <td class="p1" ><b>Rating Range: </b>
 52~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5394,8 +5366,6 @@ Germany</td>
 1989-06-19</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-2666.62</td>
 <td class="p1" ><b>Rating Range: </b>
 69~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5420,8 +5390,6 @@ Post-Metal/Shoegaze (later)</td>
 2010-03-26</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-4260.88</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5445,8 +5413,6 @@ Sweden</td>
 1992-11-19</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3516.88</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5470,8 +5436,6 @@ United States</td>
 2003-08-22</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-2977.90</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5479,6 +5443,30 @@ United States</td>
 <td class="p1" ><b>Rating Sd: </b>
 19.61</td>
 <td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/7/6/1/276114.jpg?2350" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/276114">The Final Frontier</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Iron_Maiden/25">Iron Maiden</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Heavy Metal, 
+NWOBHM</td>
+<td class="p1" ><b>Duration: </b>
+01:16:34</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2010-08-16</td>
+<td class="p1" ><b>Reviewer: </b>
+26</p>
+<td class="p1" ><b>Rating Range: </b>
+20~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+70.77</td>
+<td class="p1" ><b>Rating Sd: </b>
+22.76</td>
+<td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/1/1/4/7/1147.jpg?0127" loading="lazy" alt="..."></td>
@@ -5495,8 +5483,6 @@ United States</td>
 1990-05-01</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3162.53</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5521,8 +5507,6 @@ Hard Rock</td>
 1983-09-26</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3718.06</td>
 <td class="p1" ><b>Rating Range: </b>
 42~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5547,8 +5531,6 @@ Thrash Metal (later)</td>
 1987-12-01</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3244.12</td>
 <td class="p1" ><b>Rating Range: </b>
 51~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5572,8 +5554,6 @@ United States</td>
 1987-04-23</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3137.80</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5598,8 +5578,6 @@ Groove Metal</td>
 1990-08-21</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-4587.64</td>
 <td class="p1" ><b>Rating Range: </b>
 86~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5623,8 +5601,6 @@ United States</td>
 1989-06-14</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3177.60</td>
 <td class="p1" ><b>Rating Range: </b>
 75~95</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5648,8 +5624,6 @@ Germany</td>
 1999-09-14</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3346.38</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5673,8 +5647,6 @@ Sweden</td>
 2007-04-24</td>
 <td class="p1" ><b>Reviewer: </b>
 20</p>
-<td class="p1" ><b>Avg Length:</b>
-3596.45</td>
 <td class="p1" ><b>Rating Range: </b>
 0~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5698,8 +5670,6 @@ United States</td>
 2005-03-15</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3990.24</td>
 <td class="p1" ><b>Rating Range: </b>
 39~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5723,8 +5693,6 @@ Australia</td>
 2007-04-21</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3636.12</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5748,8 +5716,6 @@ Germany</td>
 2007-10-24</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3776.14</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5773,8 +5739,6 @@ Norway</td>
 1993-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3410.35</td>
 <td class="p1" ><b>Rating Range: </b>
 48~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5782,6 +5746,52 @@ Norway</td>
 <td class="p1" ><b>Rating Sd: </b>
 13.54</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/5/1/1/4/511443.jpg?2653" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/511443">Rise of the Tyrant</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Arch_Enemy/10">Arch Enemy</a></td>
+<td class="Country"><b>Country: </b>
+Sweden</td>
+<td class="Genre"><b>Genre: </b>Melodic Death Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:52:44</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2007-09-19</td>
+<td class="p1" ><b>Reviewer: </b>
+24</p>
+<td class="p1" ><b>Rating Range: </b>
+20~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+75.08</td>
+<td class="p1" ><b>Rating Sd: </b>
+24.60</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/1/8/7/4/187417.jpg?3740" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/187417">The Formation of Damnation</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Testament/70">Testament</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Thrash Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:49:36</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2008-04-25</td>
+<td class="p1" ><b>Reviewer: </b>
+27</p>
+<td class="p1" ><b>Rating Range: </b>
+15~96</td>
+<td class="p1" ><b>Rating Mean: </b>
+68.15</td>
+<td class="p1" ><b>Rating Sd: </b>
+23.31</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/6/3/5/635.jpg?2957" loading="lazy" alt="..."></td>
@@ -5798,8 +5808,6 @@ Sweden</td>
 1998-01-26</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3295.13</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5823,8 +5831,6 @@ Australia</td>
 1993-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-4290.73</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5848,8 +5854,6 @@ Germany</td>
 1987-04-21</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-4798.37</td>
 <td class="p1" ><b>Rating Range: </b>
 22~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5873,14 +5877,35 @@ Poland</td>
 2000-03-20</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-2829.50</td>
 <td class="p1" ><b>Rating Range: </b>
 83~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 91.07</td>
 <td class="p1" ><b>Rating Sd: </b>
 5.44</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/1/3/1/213162.jpg?1622" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/213162">Hordes of Chaos</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Kreator/157">Kreator</a></td>
+<td class="Country"><b>Country: </b>
+Germany</td>
+<td class="Genre"><b>Genre: </b>Thrash Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:38:29</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2009-01-13</td>
+<td class="p1" ><b>Reviewer: </b>
+25</p>
+<td class="p1" ><b>Rating Range: </b>
+0~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+74.88</td>
+<td class="p1" ><b>Rating Sd: </b>
+27.04</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -5898,8 +5923,6 @@ Norway</td>
 1996-04-22</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4026.15</td>
 <td class="p1" ><b>Rating Range: </b>
 90~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5924,8 +5947,6 @@ Post-Rock/Metal</td>
 1999-06-06</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-4086.39</td>
 <td class="p1" ><b>Rating Range: </b>
 40~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5949,8 +5970,6 @@ United States</td>
 1986-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3275.47</td>
 <td class="p1" ><b>Rating Range: </b>
 10~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5974,8 +5993,6 @@ United States</td>
 1992-06-30</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3340.86</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -5999,8 +6016,6 @@ United Kingdom</td>
 2003-01-27</td>
 <td class="p1" ><b>Reviewer: </b>
 19</p>
-<td class="p1" ><b>Avg Length:</b>
-3712.74</td>
 <td class="p1" ><b>Rating Range: </b>
 10~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6024,8 +6039,6 @@ Austria</td>
 2001-11-05</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3255.25</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6049,8 +6062,6 @@ Finland</td>
 2003-03-17</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3118.38</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6074,8 +6085,6 @@ Norway</td>
 1994-08-04</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-2746.12</td>
 <td class="p1" ><b>Rating Range: </b>
 33~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6099,8 +6108,6 @@ Ukraine</td>
 2003-02-23</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3608.69</td>
 <td class="p1" ><b>Rating Range: </b>
 40~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6125,8 +6132,6 @@ Heavy Metal (later)</td>
 1998-09-15</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-2877.20</td>
 <td class="p1" ><b>Rating Range: </b>
 59~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6150,8 +6155,6 @@ United Kingdom</td>
 1991-12-06</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-4009.87</td>
 <td class="p1" ><b>Rating Range: </b>
 58~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6175,8 +6178,6 @@ United Kingdom</td>
 1975-07-28</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-4721.56</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6184,6 +6185,31 @@ United Kingdom</td>
 <td class="p1" ><b>Rating Sd: </b>
 15.20</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/7/5/275.jpg?3039" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/275">Chaos A.D.</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Sepultura/78">Sepultura</a></td>
+<td class="Country"><b>Country: </b>
+Brazil</td>
+<td class="Genre"><b>Genre: </b>Death/Thrash Metal (early); 
+Nu-Metal, 
+Groove/Thrash Metal (later)</td>
+<td class="p1" ><b>Duration: </b>
+00:46:56</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1993-09-02</td>
+<td class="p1" ><b>Reviewer: </b>
+26</p>
+<td class="p1" ><b>Rating Range: </b>
+21~98</td>
+<td class="p1" ><b>Rating Mean: </b>
+69.35</td>
+<td class="p1" ><b>Rating Sd: </b>
+24.10</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/8/0/6/806.jpg?2629" loading="lazy" alt="..."></td>
@@ -6200,8 +6226,6 @@ United States</td>
 1991-07-16</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4420.46</td>
 <td class="p1" ><b>Rating Range: </b>
 87~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6225,8 +6249,6 @@ Australia</td>
 2003-05-12</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3075.73</td>
 <td class="p1" ><b>Rating Range: </b>
 48~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6250,8 +6272,6 @@ Sweden</td>
 2002-11-18</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3088.61</td>
 <td class="p1" ><b>Rating Range: </b>
 45~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6275,8 +6295,6 @@ Finland</td>
 2007-04-27</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3492.14</td>
 <td class="p1" ><b>Rating Range: </b>
 78~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6301,8 +6319,6 @@ Groove Metal (later)</td>
 1988-05-19</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3264.67</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6326,8 +6342,6 @@ Canada</td>
 1980-01-14</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3662.64</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6352,14 +6366,36 @@ Avant-garde/Black/Industrial Metal/Dark Ambient</td>
 2003-03-17</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3830.22</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 83.39</td>
 <td class="p1" ><b>Rating Sd: </b>
 18.66</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/3/8/2/4/382463.jpg?0810" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/382463">Surgical Steel</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Carcass/14">Carcass</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Goregrind/Grindcore (early); 
+Melodic Death Metal/Death 'n' Roll (later)</td>
+<td class="p1" ><b>Duration: </b>
+00:47:06</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2013-09-13</td>
+<td class="p1" ><b>Reviewer: </b>
+25</p>
+<td class="p1" ><b>Rating Range: </b>
+0~98</td>
+<td class="p1" ><b>Rating Mean: </b>
+74.68</td>
+<td class="p1" ><b>Rating Sd: </b>
+28.20</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -6377,8 +6413,6 @@ United States</td>
 1993-05-18</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-4060.36</td>
 <td class="p1" ><b>Rating Range: </b>
 69~95</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6404,8 +6438,6 @@ Progressive Death Metal (later)</td>
 1988-09-26</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3483.50</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6429,8 +6461,6 @@ United States</td>
 1988-08-30</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-2880.00</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6454,8 +6484,6 @@ United States</td>
 1993-08-17</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-5344.71</td>
 <td class="p1" ><b>Rating Range: </b>
 77~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6479,8 +6507,6 @@ United Kingdom</td>
 1977-04-08</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3946.79</td>
 <td class="p1" ><b>Rating Range: </b>
 73~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6504,8 +6530,6 @@ United Kingdom</td>
 2004-04-19</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-2919.13</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6529,8 +6553,6 @@ Sweden</td>
 1991-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3718.20</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6554,8 +6576,6 @@ United States</td>
 2006-08-08</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3157.18</td>
 <td class="p1" ><b>Rating Range: </b>
 56~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6579,8 +6599,6 @@ Norway</td>
 1995-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3442.29</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6604,14 +6622,82 @@ Sweden</td>
 2005-01-24</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-3228.06</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 82.83</td>
 <td class="p1" ><b>Rating Sd: </b>
 19.53</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/1/4/6/9/146969.jpg?1033" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/146969">United Abominations</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Megadeth/138">Megadeth</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Speed/Thrash Metal (early/later); 
+Heavy Metal/Rock (mid)</td>
+<td class="p1" ><b>Duration: </b>
+00:47:56</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2007-05-15</td>
+<td class="p1" ><b>Reviewer: </b>
+25</p>
+<td class="p1" ><b>Rating Range: </b>
+5~97</td>
+<td class="p1" ><b>Rating Mean: </b>
+71.12</td>
+<td class="p1" ><b>Rating Sd: </b>
+25.58</td>
+<td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/1/8/8/6/18867.jpg?1543" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/18867">Death - Pierce Me</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Silencer/8476">Silencer</a></td>
+<td class="Country"><b>Country: </b>
+Sweden</td>
+<td class="Genre"><b>Genre: </b>Depressive Black Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:49:00</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2001-10-30</td>
+<td class="p1" ><b>Reviewer: </b>
+29</p>
+<td class="p1" ><b>Rating Range: </b>
+0~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+71.62</td>
+<td class="p1" ><b>Rating Sd: </b>
+32.67</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/9/8/298.jpg" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/298">Slaughter of the Soul</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/At_the_Gates/43">At the Gates</a></td>
+<td class="Country"><b>Country: </b>
+Sweden</td>
+<td class="Genre"><b>Genre: </b>Melodic Death Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:34:13</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1995-11-14</td>
+<td class="p1" ><b>Reviewer: </b>
+29</p>
+<td class="p1" ><b>Rating Range: </b>
+0~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+71.31</td>
+<td class="p1" ><b>Rating Sd: </b>
+32.46</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -6630,8 +6716,6 @@ Heavy Metal</td>
 2011-05-13</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-4767.21</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6655,8 +6739,6 @@ United Kingdom</td>
 1991-02-19</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3201.07</td>
 <td class="p1" ><b>Rating Range: </b>
 73~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6680,8 +6762,6 @@ Denmark</td>
 1984-09-07</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4393.54</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6706,8 +6786,6 @@ Heavy Metal</td>
 1980-12-19</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3161.31</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6731,8 +6809,6 @@ Germany</td>
 1985-04-19</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3266.36</td>
 <td class="p1" ><b>Rating Range: </b>
 71~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6757,8 +6833,6 @@ Industrial Black Metal/Grindcore (later)</td>
 2009-06-29</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3415.00</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6783,8 +6857,6 @@ Thrash/Groove Metal</td>
 1987-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3543.54</td>
 <td class="p1" ><b>Rating Range: </b>
 81~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6808,8 +6880,6 @@ United States</td>
 2009-06-23</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-4937.67</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6833,8 +6903,6 @@ Canada</td>
 2005-03-22</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-4064.31</td>
 <td class="p1" ><b>Rating Range: </b>
 35~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6858,14 +6926,36 @@ Ireland</td>
 2007-11-16</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3426.67</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 97.75</td>
 <td class="p1" ><b>Rating Sd: </b>
 5.26</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/8/1/81.jpg?5507" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/81">No Prayer for the Dying</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Iron_Maiden/25">Iron Maiden</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Heavy Metal, 
+NWOBHM</td>
+<td class="p1" ><b>Duration: </b>
+00:44:07</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1990-10-01</td>
+<td class="p1" ><b>Reviewer: </b>
+24</p>
+<td class="p1" ><b>Rating Range: </b>
+20~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+65.58</td>
+<td class="p1" ><b>Rating Sd: </b>
+19.56</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -6883,8 +6973,6 @@ United States</td>
 1995-11-07</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3182.79</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6908,8 +6996,6 @@ United States</td>
 1990-10-01</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3173.36</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6933,8 +7019,6 @@ United States</td>
 1988-08-19</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3451.00</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6959,8 +7043,6 @@ Deathcore (2008)</td>
 1994-11-25</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3887.07</td>
 <td class="p1" ><b>Rating Range: </b>
 65~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -6984,8 +7066,6 @@ United States</td>
 1989-09-05</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-4579.57</td>
 <td class="p1" ><b>Rating Range: </b>
 58~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7009,8 +7089,6 @@ United States</td>
 2000-10-06</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-4030.24</td>
 <td class="p1" ><b>Rating Range: </b>
 36~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7034,8 +7112,6 @@ Ukraine</td>
 2009-12-26</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3604.79</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7060,14 +7136,35 @@ Thrash Metal</td>
 1990-04-16</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-4984.64</td>
 <td class="p1" ><b>Rating Range: </b>
 54~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 90.29</td>
 <td class="p1" ><b>Rating Sd: </b>
 11.80</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/2/2/6/22266.jpg?4234" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/22266">Death Cult Armageddon</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Dimmu_Borgir/69">Dimmu Borgir</a></td>
+<td class="Country"><b>Country: </b>
+Norway</td>
+<td class="Genre"><b>Genre: </b>Symphonic Black Metal</td>
+<td class="p1" ><b>Duration: </b>
+01:03:24</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2003-09-08</td>
+<td class="p1" ><b>Reviewer: </b>
+30</p>
+<td class="p1" ><b>Rating Range: </b>
+10~99</td>
+<td class="p1" ><b>Rating Mean: </b>
+64.23</td>
+<td class="p1" ><b>Rating Sd: </b>
+27.68</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -7086,8 +7183,6 @@ Progressive Metal (later)</td>
 1986-11-10</td>
 <td class="p1" ><b>Reviewer: </b>
 18</p>
-<td class="p1" ><b>Avg Length:</b>
-5300.11</td>
 <td class="p1" ><b>Rating Range: </b>
 3~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7095,6 +7190,30 @@ Progressive Metal (later)</td>
 <td class="p1" ><b>Rating Sd: </b>
 25.51</td>
 <td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/1/5/7/5/157525.jpg?5748" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/595486">Dark Passion Play</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Nightwish/39">Nightwish</a></td>
+<td class="Country"><b>Country: </b>
+Finland</td>
+<td class="Genre"><b>Genre: </b>Symphonic Power Metal (early); 
+Symphonic Metal (later)</td>
+<td class="p1" ><b>Duration: </b>
+01:15:36</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2007-07-28</td>
+<td class="p1" ><b>Reviewer: </b>
+27</p>
+<td class="p1" ><b>Rating Range: </b>
+4~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+67.41</td>
+<td class="p1" ><b>Rating Sd: </b>
+26.86</td>
+<td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/1/3/1/6/131602.jpg" loading="lazy" alt="..."></td>
@@ -7111,8 +7230,6 @@ Norway</td>
 2006-11-03</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3137.92</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7137,8 +7254,6 @@ Avant-garde Progressive Metal (later)</td>
 2002-04-22</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3056.93</td>
 <td class="p1" ><b>Rating Range: </b>
 62~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7162,8 +7277,6 @@ United States</td>
 1989-01-24</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3633.92</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7188,8 +7301,6 @@ Technical Thrash Metal (later)</td>
 1988-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3804.46</td>
 <td class="p1" ><b>Rating Range: </b>
 77~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7213,8 +7324,6 @@ Greece</td>
 2008-01-30</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-2720.57</td>
 <td class="p1" ><b>Rating Range: </b>
 52~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7238,8 +7347,6 @@ Sweden</td>
 1996-05-15</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3484.58</td>
 <td class="p1" ><b>Rating Range: </b>
 86~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7264,8 +7371,6 @@ Progressive/Technical Death Metal (later)</td>
 2008-11-11</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3352.94</td>
 <td class="p1" ><b>Rating Range: </b>
 17~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7290,8 +7395,6 @@ Black Metal (later)</td>
 2013-10-25</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4186.85</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7316,8 +7419,6 @@ Avant-garde Black Metal (later)</td>
 2007-07-16</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-4296.41</td>
 <td class="p1" ><b>Rating Range: </b>
 1~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7342,8 +7443,6 @@ Gothic/Doom Metal (later)</td>
 1985-10-27</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4374.50</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7367,8 +7466,6 @@ United States</td>
 1990-03-30</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3616.67</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7392,14 +7489,35 @@ Sweden</td>
 2007-06-22</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3839.36</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 87.43</td>
 <td class="p1" ><b>Rating Sd: </b>
 10.64</td>
+<td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/3/3/6/336.jpg?3200" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/336">For all tid</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Dimmu_Borgir/69">Dimmu Borgir</a></td>
+<td class="Country"><b>Country: </b>
+Norway</td>
+<td class="Genre"><b>Genre: </b>Symphonic Black Metal</td>
+<td class="p1" ><b>Duration: </b>
+00:43:13</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1995-01-01</td>
+<td class="p1" ><b>Reviewer: </b>
+27</p>
+<td class="p1" ><b>Rating Range: </b>
+5~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+69.19</td>
+<td class="p1" ><b>Rating Sd: </b>
+29.39</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
@@ -7417,8 +7535,6 @@ Switzerland</td>
 2008-05-30</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3438.25</td>
 <td class="p1" ><b>Rating Range: </b>
 86~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7444,8 +7560,6 @@ Extreme Gothic Metal (later)</td>
 1998-05-05</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-5337.60</td>
 <td class="p1" ><b>Rating Range: </b>
 63~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7469,8 +7583,6 @@ Canada</td>
 2004-02-10</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3019.07</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7494,8 +7606,6 @@ Sweden</td>
 2012-03-13</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3978.31</td>
 <td class="p1" ><b>Rating Range: </b>
 67~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7519,8 +7629,6 @@ Norway</td>
 2011-09-19</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3645.23</td>
 <td class="p1" ><b>Rating Range: </b>
 71~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7544,8 +7652,6 @@ United States</td>
 1985-08-30</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3589.29</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7569,8 +7675,6 @@ United States</td>
 2000-10-17</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3415.69</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7595,8 +7699,6 @@ Gothic/Doom Metal (later)</td>
 2012-02-27</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3703.92</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7620,8 +7722,6 @@ Poland</td>
 2012-02-28</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-2992.08</td>
 <td class="p1" ><b>Rating Range: </b>
 70~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7645,8 +7745,6 @@ United Kingdom</td>
 1979-09-17</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3501.00</td>
 <td class="p1" ><b>Rating Range: </b>
 56~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7670,8 +7768,6 @@ Sweden</td>
 2007-06-20</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3588.08</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7696,8 +7792,6 @@ Symphonic Metal (later)</td>
 2000-05-19</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3681.50</td>
 <td class="p1" ><b>Rating Range: </b>
 65~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7721,8 +7815,6 @@ United States</td>
 1990-08-21</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3826.93</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7746,8 +7838,6 @@ United States</td>
 2012-07-27</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-4091.19</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7772,8 +7862,6 @@ Grunge</td>
 1994-03-08</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-4758.60</td>
 <td class="p1" ><b>Rating Range: </b>
 32~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7797,8 +7885,6 @@ United States</td>
 1998-02-24</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-4243.19</td>
 <td class="p1" ><b>Rating Range: </b>
 43~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7822,8 +7908,6 @@ Finland</td>
 1999-09-04</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-4039.65</td>
 <td class="p1" ><b>Rating Range: </b>
 15~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7848,8 +7932,6 @@ Progressive/Technical Death Metal (later)</td>
 2006-11-14</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-2862.50</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7873,8 +7955,6 @@ Sweden</td>
 2003-02-10</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-5124.14</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7898,8 +7978,6 @@ United States</td>
 2006-06-13</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2762.83</td>
 <td class="p1" ><b>Rating Range: </b>
 85~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7924,8 +8002,6 @@ Avant-garde/Black/Industrial Metal/Dark Ambient</td>
 1996-11-19</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2831.08</td>
 <td class="p1" ><b>Rating Range: </b>
 77~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7950,8 +8026,6 @@ Gothic/Doom Metal (later)</td>
 1995-05-22</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-2978.46</td>
 <td class="p1" ><b>Rating Range: </b>
 68~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7975,8 +8049,6 @@ Finland</td>
 2003-03-10</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3254.83</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -7984,6 +8056,30 @@ Finland</td>
 <td class="p1" ><b>Rating Sd: </b>
 8.08</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/2/3/0/230.jpg?4324" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/230">Vulgar Display of Power</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Pantera/77">Pantera</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Glam/Heavy Metal (early); 
+Groove Metal (later)</td>
+<td class="p1" ><b>Duration: </b>
+00:52:45</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1992-02-25</td>
+<td class="p1" ><b>Reviewer: </b>
+34</p>
+<td class="p1" ><b>Rating Range: </b>
+0~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+61.03</td>
+<td class="p1" ><b>Rating Sd: </b>
+30.89</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/1/2/3/9/1239.jpg?3144" loading="lazy" alt="..."></td>
@@ -8000,8 +8096,6 @@ Germany</td>
 1989-11-08</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3787.36</td>
 <td class="p1" ><b>Rating Range: </b>
 91~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8026,8 +8120,6 @@ Experimental Industrial</td>
 1989-11-13</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3152.58</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8052,8 +8144,6 @@ Melodic Death Metal</td>
 1993-12-03</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3606.85</td>
 <td class="p1" ><b>Rating Range: </b>
 70~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8078,8 +8168,6 @@ Avant-garde/Black/Industrial Metal/Dark Ambient</td>
 1995-01-15</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3211.42</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8103,8 +8191,6 @@ United Kingdom</td>
 1994-11-24</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3231.42</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8128,8 +8214,6 @@ Germany</td>
 1982-03-29</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3556.92</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8153,8 +8237,6 @@ Canada</td>
 1978-10-29</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4196.31</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8178,8 +8260,6 @@ Brazil</td>
 2004-11-17</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-2739.14</td>
 <td class="p1" ><b>Rating Range: </b>
 43~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8187,6 +8267,30 @@ Brazil</td>
 <td class="p1" ><b>Rating Sd: </b>
 16.99</td>
 <td class="Continent">Continent: Americas</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/9/6/1/961.jpg?1025" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/961">Scum</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Napalm_Death/219">Napalm Death</a></td>
+<td class="Country"><b>Country: </b>
+United Kingdom</td>
+<td class="Genre"><b>Genre: </b>Hardcore Punk (early); 
+Grindcore/Death Metal (later)</td>
+<td class="p1" ><b>Duration: </b>
+00:33:14</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+1987-07-01</td>
+<td class="p1" ><b>Reviewer: </b>
+25</p>
+<td class="p1" ><b>Rating Range: </b>
+2~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+71.80</td>
+<td class="p1" ><b>Rating Sd: </b>
+31.20</td>
+<td class="Continent">Continent: Europe</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/1/7/9/6/1796.jpg?2314" loading="lazy" alt="..."></td>
@@ -8203,8 +8307,6 @@ United States</td>
 1984-08-17</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3334.58</td>
 <td class="p1" ><b>Rating Range: </b>
 77~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8229,8 +8331,6 @@ Death/Groove Metal (later)</td>
 2000-04-17</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-2782.88</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8255,8 +8355,6 @@ Gothic/Alternative/Progressive Rock/Metal (later)</td>
 1998-04-27</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-2990.76</td>
 <td class="p1" ><b>Rating Range: </b>
 10~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8281,8 +8379,6 @@ Symphonic/Operatic Metal (later)</td>
 2001-10-08</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3460.33</td>
 <td class="p1" ><b>Rating Range: </b>
 78~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8306,8 +8402,6 @@ Finland</td>
 2005-02-23</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-6005.55</td>
 <td class="p1" ><b>Rating Range: </b>
 90~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8332,8 +8426,6 @@ Progressive Metal (later)</td>
 1987-04-03</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3768.33</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8358,8 +8450,6 @@ Melodic Heavy Metal/Rock (later)</td>
 2006-02-15</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3644.42</td>
 <td class="p1" ><b>Rating Range: </b>
 70~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8383,8 +8473,6 @@ United States</td>
 2015-01-27</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3546.08</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8408,8 +8496,6 @@ United States</td>
 2005-08-29</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-2843.57</td>
 <td class="p1" ><b>Rating Range: </b>
 35~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8434,8 +8520,6 @@ Gothic Metal (later)</td>
 1995-04-01</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3153.55</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8462,8 +8546,6 @@ Melodic Black Metal (later)</td>
 2007-01-22</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-2970.31</td>
 <td class="p1" ><b>Rating Range: </b>
 60~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8488,8 +8570,6 @@ Heavy/Power Metal (later)</td>
 2001-10-22</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3187.00</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8513,8 +8593,6 @@ United States</td>
 1999-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3605.54</td>
 <td class="p1" ><b>Rating Range: </b>
 61~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8539,8 +8617,6 @@ Gothic/Doom Metal (later)</td>
 1984-11-19</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-5448.23</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8565,8 +8641,6 @@ Metalcore/Deathcore</td>
 2002-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2120.75</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8590,8 +8664,6 @@ United States</td>
 2011-11-22</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3746.50</td>
 <td class="p1" ><b>Rating Range: </b>
 71~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8615,8 +8687,6 @@ Germany</td>
 1986-07-12</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3348.31</td>
 <td class="p1" ><b>Rating Range: </b>
 59~95</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8640,8 +8710,6 @@ Japan</td>
 2012-03-12</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4098.31</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8665,8 +8733,6 @@ Finland</td>
 2001-07-09</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-4164.67</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8690,8 +8756,6 @@ Sweden</td>
 2000-03-20</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3917.91</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8715,8 +8779,6 @@ Germany</td>
 1995-05-29</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4562.83</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8741,8 +8803,6 @@ Progressive Rock</td>
 2003-04-22</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3577.71</td>
 <td class="p1" ><b>Rating Range: </b>
 19~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8766,8 +8826,6 @@ United States</td>
 1999-05-13</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-4084.43</td>
 <td class="p1" ><b>Rating Range: </b>
 43~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8791,8 +8849,6 @@ United States</td>
 1992-04-01</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2961.75</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8816,8 +8872,6 @@ Norway</td>
 2001-03-05</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4491.09</td>
 <td class="p1" ><b>Rating Range: </b>
 85~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8842,8 +8896,6 @@ Black/Death Metal (later)</td>
 2004-10-25</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3733.80</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8851,6 +8903,30 @@ Black/Death Metal (later)</td>
 <td class="p1" ><b>Rating Sd: </b>
 20.18</td>
 <td class="Continent">Continent: Europe</td>
+</tr>
+<tr class="entry result">
+<td class="cover"><img src="https://www.metal-archives.com/images/1/4/2/1/142131.jpg?0333" loading="lazy" alt="..."></td>
+<td class="Album"><b>Album: </b>
+<a href="https://www.metal-archives.com/release/view/id/142131">The Blackening</a></td>
+<td class="Band"><b>Band: </b>
+<a href="https://www.metal-archives.com/bands/Machine_Head/335">Machine Head</a></td>
+<td class="Country"><b>Country: </b>
+United States</td>
+<td class="Genre"><b>Genre: </b>Groove/Thrash Metal, 
+Nu-Metal</td>
+<td class="p1" ><b>Duration: </b>
+01:01:08</td>
+<td class="ReleaseDate"><b>Release Date: </b>
+2007-03-27</td>
+<td class="p1" ><b>Reviewer: </b>
+28</p>
+<td class="p1" ><b>Rating Range: </b>
+5~100</td>
+<td class="p1" ><b>Rating Mean: </b>
+65.36</td>
+<td class="p1" ><b>Rating Sd: </b>
+30.48</td>
+<td class="Continent">Continent: Americas</td>
 </tr>
 <tr class="entry result">
 <td class="cover"><img src="https://www.metal-archives.com/images/2/0/2/2/2022.jpg?1721" loading="lazy" alt="..."></td>
@@ -8867,8 +8943,6 @@ United States</td>
 1984-08-19</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4273.91</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8893,8 +8967,6 @@ Doom Metal</td>
 1982-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3061.62</td>
 <td class="p1" ><b>Rating Range: </b>
 65~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8918,8 +8990,6 @@ United States</td>
 2007-10-02</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3722.08</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8943,8 +9013,6 @@ United States</td>
 1987-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2510.33</td>
 <td class="p1" ><b>Rating Range: </b>
 74~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8968,8 +9036,6 @@ Sweden</td>
 1988-11-23</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4206.33</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -8994,8 +9060,6 @@ Power Metal (later)</td>
 1995-04-05</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-5026.17</td>
 <td class="p1" ><b>Rating Range: </b>
 70~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9019,8 +9083,6 @@ United States</td>
 1982-08-19</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3360.00</td>
 <td class="p1" ><b>Rating Range: </b>
 76~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9044,8 +9106,6 @@ United States</td>
 1986-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3322.27</td>
 <td class="p1" ><b>Rating Range: </b>
 81~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9070,8 +9130,6 @@ Thrash Metal</td>
 1996-05-27</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4724.46</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9095,8 +9153,6 @@ Sweden</td>
 2001-05-08</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3629.67</td>
 <td class="p1" ><b>Rating Range: </b>
 66~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9120,8 +9176,6 @@ Poland</td>
 2005-11-14</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-2454.00</td>
 <td class="p1" ><b>Rating Range: </b>
 86~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9145,8 +9199,6 @@ United States</td>
 1986-10-06</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-2444.00</td>
 <td class="p1" ><b>Rating Range: </b>
 85~96</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9170,8 +9222,6 @@ United States</td>
 1996-02-12</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3153.36</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9196,8 +9246,6 @@ Melodic Death Metal (later)</td>
 2005-09-05</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2668.00</td>
 <td class="p1" ><b>Rating Range: </b>
 70~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9221,8 +9269,6 @@ United States</td>
 2008-03-03</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3807.64</td>
 <td class="p1" ><b>Rating Range: </b>
 35~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9247,8 +9293,6 @@ Djent (later)</td>
 2005-05-16</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3888.18</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9272,8 +9316,6 @@ Sweden</td>
 1991-05-28</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3378.55</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9297,8 +9339,6 @@ United States</td>
 1999-01-06</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3440.13</td>
 <td class="p1" ><b>Rating Range: </b>
 32~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9322,8 +9362,6 @@ United Kingdom</td>
 1997-01-19</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3286.50</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9347,8 +9385,6 @@ United States</td>
 1986-10-20</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4782.73</td>
 <td class="p1" ><b>Rating Range: </b>
 77~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9372,8 +9408,6 @@ United Kingdom</td>
 1978-04-09</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4121.08</td>
 <td class="p1" ><b>Rating Range: </b>
 71~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9398,8 +9432,6 @@ Technical/Avant-garde Death Metal (later)</td>
 1993-01-19</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3597.17</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9424,8 +9456,6 @@ Black/Thrash Metal (later)</td>
 2001-05-23</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2900.25</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9450,8 +9480,6 @@ Melodic Heavy Metal/Rock (later)</td>
 2007-08-22</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3139.38</td>
 <td class="p1" ><b>Rating Range: </b>
 44~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9476,8 +9504,6 @@ Heavy/Power Metal (later)</td>
 1994-12-19</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4448.27</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9501,8 +9527,6 @@ United Kingdom</td>
 2008-02-11</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-2824.30</td>
 <td class="p1" ><b>Rating Range: </b>
 91~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9526,8 +9550,6 @@ Norway</td>
 1997-08-18</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-4310.80</td>
 <td class="p1" ><b>Rating Range: </b>
 92~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9551,8 +9573,6 @@ Germany</td>
 2004-04-06</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3205.62</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9576,8 +9596,6 @@ Sweden</td>
 2003-11-17</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3045.82</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9601,8 +9619,6 @@ Sweden</td>
 1993-08-02</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3074.55</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9626,8 +9642,6 @@ Denmark</td>
 1990-10-30</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3571.82</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9651,8 +9665,6 @@ Brazil</td>
 2001-11-13</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3217.45</td>
 <td class="p1" ><b>Rating Range: </b>
 72~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9676,8 +9688,6 @@ Sweden</td>
 1998-03-21</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3378.92</td>
 <td class="p1" ><b>Rating Range: </b>
 70~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9703,8 +9713,6 @@ Atmospheric Rock (later)</td>
 1995-08-22</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3735.25</td>
 <td class="p1" ><b>Rating Range: </b>
 53~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9728,8 +9736,6 @@ Denmark</td>
 1982-11-08</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3476.45</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9754,8 +9760,6 @@ Ambient/Avant-garde/Electronica (later)</td>
 1996-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2593.50</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9779,8 +9783,6 @@ Sweden</td>
 1993-10-01</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3351.00</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9804,8 +9806,6 @@ Switzerland</td>
 1988-08-01</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4291.08</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9829,8 +9829,6 @@ United States</td>
 2010-01-25</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3801.00</td>
 <td class="p1" ><b>Rating Range: </b>
 39~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9854,8 +9852,6 @@ Finland</td>
 2019-01-25</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4558.82</td>
 <td class="p1" ><b>Rating Range: </b>
 74~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9879,8 +9875,6 @@ Sweden</td>
 1996-03-04</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3049.82</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9905,8 +9899,6 @@ Gothic/Doom Metal (later)</td>
 1993-10-11</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3745.67</td>
 <td class="p1" ><b>Rating Range: </b>
 54~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9930,8 +9922,6 @@ United States</td>
 2011-07-19</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3161.91</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9956,8 +9946,6 @@ Heavy/Power Metal (later)</td>
 1998-04-15</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4045.27</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -9981,8 +9969,6 @@ United States</td>
 2007-03-13</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3647.92</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10007,8 +9993,6 @@ Death Metal/Grindcore (later)</td>
 2012-01-20</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3395.09</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10033,8 +10017,6 @@ Symphonic/Operatic Metal (later)</td>
 1998-05-04</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3766.27</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10058,8 +10040,6 @@ United States</td>
 1988-07-19</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-4132.70</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10083,8 +10063,6 @@ United States</td>
 1989-04-03</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4294.64</td>
 <td class="p1" ><b>Rating Range: </b>
 70~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10108,8 +10086,6 @@ Norway</td>
 1996-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3370.73</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10133,8 +10109,6 @@ Sweden</td>
 1994-05-15</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3350.50</td>
 <td class="p1" ><b>Rating Range: </b>
 81~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10158,8 +10132,6 @@ United Kingdom</td>
 2000-10-09</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-3752.71</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10183,8 +10155,6 @@ Germany</td>
 1987-09-22</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3077.50</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10208,8 +10178,6 @@ United States</td>
 2004-10-19</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-4222.30</td>
 <td class="p1" ><b>Rating Range: </b>
 90~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10234,8 +10202,6 @@ Gothic Metal/Rock</td>
 1995-06-12</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4083.08</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10259,8 +10225,6 @@ United Kingdom</td>
 1972-03-01</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4015.45</td>
 <td class="p1" ><b>Rating Range: </b>
 78~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10284,8 +10248,6 @@ United States</td>
 1994-06-28</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3407.55</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10309,8 +10271,6 @@ Germany</td>
 1998-01-21</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3044.42</td>
 <td class="p1" ><b>Rating Range: </b>
 69~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10334,8 +10294,6 @@ United States</td>
 2017-06-23</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3472.64</td>
 <td class="p1" ><b>Rating Range: </b>
 75~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10359,8 +10317,6 @@ Finland</td>
 1997-04-28</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-4195.71</td>
 <td class="p1" ><b>Rating Range: </b>
 26~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10385,8 +10341,6 @@ Thrash Metal (later)</td>
 2020-11-27</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4929.75</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10411,8 +10365,6 @@ Grindcore/Death Metal (later)</td>
 1988-09-16</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3042.33</td>
 <td class="p1" ><b>Rating Range: </b>
 9~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10436,8 +10388,6 @@ United States</td>
 1985-11-19</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3462.18</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10462,8 +10412,6 @@ Heavy/Power Metal (later)</td>
 1995-12-19</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-4903.80</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10487,8 +10435,6 @@ Finland</td>
 2004-04-19</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-2727.20</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10512,8 +10458,6 @@ Finland</td>
 2013-02-22</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4577.82</td>
 <td class="p1" ><b>Rating Range: </b>
 65~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10537,8 +10481,6 @@ Canada</td>
 2004-11-04</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3288.58</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10562,8 +10504,6 @@ Canada</td>
 2004-09-14</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-2628.73</td>
 <td class="p1" ><b>Rating Range: </b>
 67~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10587,8 +10527,6 @@ United States</td>
 2005-10-03</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3552.80</td>
 <td class="p1" ><b>Rating Range: </b>
 0~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10612,8 +10550,6 @@ United States</td>
 1999-09-21</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-5022.40</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10638,8 +10574,6 @@ Heavy/Power Metal (later)</td>
 1999-11-16</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3614.60</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10663,8 +10597,6 @@ United States</td>
 1988-11-01</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-5030.40</td>
 <td class="p1" ><b>Rating Range: </b>
 83~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10688,8 +10620,6 @@ Canada</td>
 1988-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-2871.82</td>
 <td class="p1" ><b>Rating Range: </b>
 77~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10713,8 +10643,6 @@ United States</td>
 1994-12-21</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-4097.60</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10739,8 +10667,6 @@ Metalcore/Melodic Groove Metal (later)</td>
 2002-03-25</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-2854.00</td>
 <td class="p1" ><b>Rating Range: </b>
 40~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10764,8 +10690,6 @@ United States</td>
 1999-07-19</td>
 <td class="p1" ><b>Reviewer: </b>
 14</p>
-<td class="p1" ><b>Avg Length:</b>
-3534.29</td>
 <td class="p1" ><b>Rating Range: </b>
 11~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10790,8 +10714,6 @@ Metalcore/Melodic Hard Rock (later)</td>
 2006-07-11</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3270.56</td>
 <td class="p1" ><b>Rating Range: </b>
 30~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10816,8 +10738,6 @@ Thrash Metal (later)</td>
 1992-08-01</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4616.18</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10841,8 +10761,6 @@ Canada</td>
 1997-07-21</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-6541.80</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10866,8 +10784,6 @@ Ireland</td>
 2005-02-07</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3321.92</td>
 <td class="p1" ><b>Rating Range: </b>
 40~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10892,8 +10808,6 @@ Heavy Metal (later)</td>
 2005-05-23</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3763.91</td>
 <td class="p1" ><b>Rating Range: </b>
 70~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10917,8 +10831,6 @@ United States</td>
 2004-03-30</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-4204.59</td>
 <td class="p1" ><b>Rating Range: </b>
 0~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10943,8 +10855,6 @@ Heavy Metal</td>
 2013-04-29</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3692.50</td>
 <td class="p1" ><b>Rating Range: </b>
 85~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10968,8 +10878,6 @@ United States</td>
 2011-10-31</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3488.91</td>
 <td class="p1" ><b>Rating Range: </b>
 70~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -10993,8 +10901,6 @@ United States</td>
 2017-04-01</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3171.00</td>
 <td class="p1" ><b>Rating Range: </b>
 83~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11018,8 +10924,6 @@ Norway</td>
 1999-01-07</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-2980.00</td>
 <td class="p1" ><b>Rating Range: </b>
 63~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11043,8 +10947,6 @@ Canada</td>
 1984-04-12</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3602.40</td>
 <td class="p1" ><b>Rating Range: </b>
 87~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11068,8 +10970,6 @@ United States</td>
 1992-11-01</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3201.42</td>
 <td class="p1" ><b>Rating Range: </b>
 55~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11093,8 +10993,6 @@ United States</td>
 2002-09-17</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2828.83</td>
 <td class="p1" ><b>Rating Range: </b>
 38~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11118,8 +11016,6 @@ Faroe Islands</td>
 2003-06-27</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3228.70</td>
 <td class="p1" ><b>Rating Range: </b>
 82~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11143,8 +11039,6 @@ Norway</td>
 2015-03-10</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3690.55</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11168,8 +11062,6 @@ Ukraine</td>
 1997-07-06</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3715.18</td>
 <td class="p1" ><b>Rating Range: </b>
 63~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11193,8 +11085,6 @@ United States</td>
 1998-07-27</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-2375.42</td>
 <td class="p1" ><b>Rating Range: </b>
 64~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11218,8 +11108,6 @@ Russia</td>
 1993-05-19</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3138.10</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11243,8 +11131,6 @@ United States</td>
 2003-04-22</td>
 <td class="p1" ><b>Reviewer: </b>
 15</p>
-<td class="p1" ><b>Avg Length:</b>
-3305.47</td>
 <td class="p1" ><b>Rating Range: </b>
 25~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11269,8 +11155,6 @@ Ambient</td>
 2007-05-21</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-4851.25</td>
 <td class="p1" ><b>Rating Range: </b>
 60~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11295,8 +11179,6 @@ Deathcore (2008)</td>
 2005-10-18</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-5807.50</td>
 <td class="p1" ><b>Rating Range: </b>
 22~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11320,8 +11202,6 @@ Spain</td>
 2003-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 16</p>
-<td class="p1" ><b>Avg Length:</b>
-3478.56</td>
 <td class="p1" ><b>Rating Range: </b>
 6~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11345,8 +11225,6 @@ Finland</td>
 2004-04-05</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3566.70</td>
 <td class="p1" ><b>Rating Range: </b>
 81~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11370,8 +11248,6 @@ United States</td>
 2005-10-25</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-2401.80</td>
 <td class="p1" ><b>Rating Range: </b>
 86~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11395,8 +11271,6 @@ Sweden</td>
 2005-05-02</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-4048.00</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11420,8 +11294,6 @@ United States</td>
 1996-11-12</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3885.20</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11445,8 +11317,6 @@ United Kingdom</td>
 1989-05-19</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3835.91</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11470,8 +11340,6 @@ Switzerland</td>
 1989-09-18</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3539.90</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11495,8 +11363,6 @@ Sweden</td>
 2004-09-27</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-3342.15</td>
 <td class="p1" ><b>Rating Range: </b>
 20~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11520,8 +11386,6 @@ United States</td>
 1994-01-25</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-2893.20</td>
 <td class="p1" ><b>Rating Range: </b>
 84~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11545,8 +11409,6 @@ United States</td>
 1985-11-30</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3099.64</td>
 <td class="p1" ><b>Rating Range: </b>
 70~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11571,8 +11433,6 @@ Post-Rock/Metal</td>
 2010-11-23</td>
 <td class="p1" ><b>Reviewer: </b>
 17</p>
-<td class="p1" ><b>Avg Length:</b>
-5483.29</td>
 <td class="p1" ><b>Rating Range: </b>
 17~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11597,8 +11457,6 @@ Post-Rock/Metal</td>
 2008-02-29</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-2744.20</td>
 <td class="p1" ><b>Rating Range: </b>
 80~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11622,8 +11480,6 @@ United Kingdom</td>
 2009-01-16</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3325.91</td>
 <td class="p1" ><b>Rating Range: </b>
 60~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11647,8 +11503,6 @@ Denmark</td>
 1989-08-21</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3915.10</td>
 <td class="p1" ><b>Rating Range: </b>
 78~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11672,8 +11526,6 @@ Ukraine</td>
 2009-06-22</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3347.27</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11700,8 +11552,6 @@ Melodic Black Metal (later)</td>
 1996-04-29</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3498.70</td>
 <td class="p1" ><b>Rating Range: </b>
 81~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11725,8 +11575,6 @@ United States</td>
 2009-05-05</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3481.00</td>
 <td class="p1" ><b>Rating Range: </b>
 79~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11750,8 +11598,6 @@ United States</td>
 2005-03-21</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3885.55</td>
 <td class="p1" ><b>Rating Range: </b>
 56~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11775,8 +11621,6 @@ Finland</td>
 2004-04-15</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3426.33</td>
 <td class="p1" ><b>Rating Range: </b>
 52~99</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11800,8 +11644,6 @@ United States</td>
 2009-11-17</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3101.09</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11825,8 +11667,6 @@ United States</td>
 1989-11-06</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3226.10</td>
 <td class="p1" ><b>Rating Range: </b>
 81~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11851,8 +11691,6 @@ Heavy Metal</td>
 1983-01-01</td>
 <td class="p1" ><b>Reviewer: </b>
 9</p>
-<td class="p1" ><b>Avg Length:</b>
-4102.89</td>
 <td class="p1" ><b>Rating Range: </b>
 94~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11876,8 +11714,6 @@ Sweden</td>
 2004-11-22</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-2453.62</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11901,8 +11737,6 @@ United States</td>
 2012-06-12</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3735.58</td>
 <td class="p1" ><b>Rating Range: </b>
 50~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11926,8 +11760,6 @@ Brazil</td>
 2010-08-11</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3905.36</td>
 <td class="p1" ><b>Rating Range: </b>
 65~97</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11952,8 +11784,6 @@ Avant-garde/Black/Industrial Metal/Dark Ambient</td>
 2009-02-23</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3388.00</td>
 <td class="p1" ><b>Rating Range: </b>
 75~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -11977,8 +11807,6 @@ United States</td>
 2019-05-10</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4562.00</td>
 <td class="p1" ><b>Rating Range: </b>
 26~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12002,8 +11830,6 @@ Germany</td>
 2011-03-29</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-3494.09</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12027,8 +11853,6 @@ Germany</td>
 1998-03-04</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3836.70</td>
 <td class="p1" ><b>Rating Range: </b>
 81~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12052,8 +11876,6 @@ United States</td>
 2015-05-26</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4106.73</td>
 <td class="p1" ><b>Rating Range: </b>
 65~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12078,8 +11900,6 @@ Gothic Metal/Rock</td>
 1991-03-19</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3207.80</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12103,8 +11923,6 @@ Finland</td>
 2001-12-03</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-3074.40</td>
 <td class="p1" ><b>Rating Range: </b>
 70~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12128,8 +11946,6 @@ United States</td>
 2015-08-07</td>
 <td class="p1" ><b>Reviewer: </b>
 11</p>
-<td class="p1" ><b>Avg Length:</b>
-4017.00</td>
 <td class="p1" ><b>Rating Range: </b>
 61~98</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12154,8 +11970,6 @@ Doom Metal</td>
 2006-12-18</td>
 <td class="p1" ><b>Reviewer: </b>
 9</p>
-<td class="p1" ><b>Avg Length:</b>
-4454.56</td>
 <td class="p1" ><b>Rating Range: </b>
 89~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12179,8 +11993,6 @@ Brazil</td>
 2006-10-30</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-2895.50</td>
 <td class="p1" ><b>Rating Range: </b>
 80~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12204,8 +12016,6 @@ Sweden</td>
 2010-05-24</td>
 <td class="p1" ><b>Reviewer: </b>
 10</p>
-<td class="p1" ><b>Avg Length:</b>
-4011.10</td>
 <td class="p1" ><b>Rating Range: </b>
 81~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12229,8 +12039,6 @@ Finland</td>
 2014-04-29</td>
 <td class="p1" ><b>Reviewer: </b>
 12</p>
-<td class="p1" ><b>Avg Length:</b>
-3157.00</td>
 <td class="p1" ><b>Rating Range: </b>
 63~100</td>
 <td class="p1" ><b>Rating Mean: </b>
@@ -12254,800 +12062,12 @@ Finland</td>
 2002-11-24</td>
 <td class="p1" ><b>Reviewer: </b>
 13</p>
-<td class="p1" ><b>Avg Length:</b>
-4147.15</td>
 <td class="p1" ><b>Rating Range: </b>
 30~100</td>
 <td class="p1" ><b>Rating Mean: </b>
 86.38</td>
 <td class="p1" ><b>Rating Sd: </b>
 21.66</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/2/9/0/12907.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/12907">Emperor</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Emperor/30">Emperor</a></td>
-<td class="Country"><b>Country: </b>
-Norway</td>
-<td class="Genre"><b>Genre: </b>Symphonic Black Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:20:15</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1993-05-19</td>
-<td class="p1" ><b>Reviewer: </b>
-11</p>
-<td class="p1" ><b>Avg Length:</b>
-2673.00</td>
-<td class="p1" ><b>Rating Range: </b>
-65~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.64</td>
-<td class="p1" ><b>Rating Sd: </b>
-13.16</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/1/1/3/111366.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/111366">The Adversary</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Ihsahn/60496">Ihsahn</a></td>
-<td class="Country"><b>Country: </b>
-Norway</td>
-<td class="Genre"><b>Genre: </b>Experimental/Extreme Progressive Metal/Rock</td>
-<td class="p1" ><b>Duration: </b>
-00:49:31</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2006-04-05</td>
-<td class="p1" ><b>Reviewer: </b>
-15</p>
-<td class="p1" ><b>Avg Length:</b>
-3390.33</td>
-<td class="p1" ><b>Rating Range: </b>
-0~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-83.33</td>
-<td class="p1" ><b>Rating Sd: </b>
-27.35</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/2/6/8/2/268213.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/268213">Eparistera Daimones</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Triptykon/3540303132">Triptykon</a></td>
-<td class="Country"><b>Country: </b>
-Switzerland</td>
-<td class="Genre"><b>Genre: </b>Gothic/Doom/Death/Black Metal</td>
-<td class="p1" ><b>Duration: </b>
-01:12:42</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2010-03-23</td>
-<td class="p1" ><b>Reviewer: </b>
-11</p>
-<td class="p1" ><b>Avg Length:</b>
-5190.09</td>
-<td class="p1" ><b>Rating Range: </b>
-60~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.45</td>
-<td class="p1" ><b>Rating Sd: </b>
-13.16</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/5/0/9/1/509155.jpg?3728" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/509155">The Dark Ride</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Helloween/159">Helloween</a></td>
-<td class="Country"><b>Country: </b>
-Germany</td>
-<td class="Genre"><b>Genre: </b>Power/Speed Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:56:55</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2000-10-21</td>
-<td class="p1" ><b>Reviewer: </b>
-13</p>
-<td class="p1" ><b>Avg Length:</b>
-3659.85</td>
-<td class="p1" ><b>Rating Range: </b>
-23~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-85.08</td>
-<td class="p1" ><b>Rating Sd: </b>
-20.52</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/2/0/4/4/2044.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/2044">Nothingface</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Voivod/115">Voivod</a></td>
-<td class="Country"><b>Country: </b>
-Canada</td>
-<td class="Genre"><b>Genre: </b>Thrash Metal (early); 
-Progressive Metal (later)</td>
-<td class="p1" ><b>Duration: </b>
-00:44:31</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1989-10-13</td>
-<td class="p1" ><b>Reviewer: </b>
-12</p>
-<td class="p1" ><b>Avg Length:</b>
-3684.25</td>
-<td class="p1" ><b>Rating Range: </b>
-30~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.58</td>
-<td class="p1" ><b>Rating Sd: </b>
-19.88</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/1/9/2/119265.jpg?4400" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/119265">Above the Weeping World</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Insomnium/2332">Insomnium</a></td>
-<td class="Country"><b>Country: </b>
-Finland</td>
-<td class="Genre"><b>Genre: </b>Melodic Death Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:53:00</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2006-08-09</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-3953.30</td>
-<td class="p1" ><b>Rating Range: </b>
-80~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-91.30</td>
-<td class="p1" ><b>Rating Sd: </b>
-7.67</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/0/9/0/10903.jpg?5649" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/10903">Zos Kia Cultus (Here and Beyond)</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Behemoth/263">Behemoth</a></td>
-<td class="Country"><b>Country: </b>
-Poland</td>
-<td class="Genre"><b>Genre: </b>Black Metal (early); 
-Black/Death Metal (later)</td>
-<td class="p1" ><b>Duration: </b>
-00:44:19</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2002-10-28</td>
-<td class="p1" ><b>Reviewer: </b>
-13</p>
-<td class="p1" ><b>Avg Length:</b>
-2878.85</td>
-<td class="p1" ><b>Rating Range: </b>
-35~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-84.31</td>
-<td class="p1" ><b>Rating Sd: </b>
-20.08</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/9/3/6/936.jpg?3914" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/936">Overkill</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Mot%C3%B6rhead/203">Motörhead</a></td>
-<td class="Country"><b>Country: </b>
-United Kingdom</td>
-<td class="Genre"><b>Genre: </b>Speed Metal, 
-Heavy Metal/Hard Rock</td>
-<td class="p1" ><b>Duration: </b>
-00:34:56</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1979-03-16</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-3154.80</td>
-<td class="p1" ><b>Rating Range: </b>
-82~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.90</td>
-<td class="p1" ><b>Rating Sd: </b>
-6.44</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/2/0/4/3/2043.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/2043">Dimension Hatröss</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Voivod/115">Voivod</a></td>
-<td class="Country"><b>Country: </b>
-Canada</td>
-<td class="Genre"><b>Genre: </b>Thrash Metal (early); 
-Progressive Metal (later)</td>
-<td class="p1" ><b>Duration: </b>
-00:39:52</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1988-06-29</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-3423.70</td>
-<td class="p1" ><b>Rating Range: </b>
-73~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-92.50</td>
-<td class="p1" ><b>Rating Sd: </b>
-9.10</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/4/0/7/2/407298.jpg?2644" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/407298">III</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Spectral_Lore/68704">Spectral Lore</a></td>
-<td class="Country"><b>Country: </b>
-Greece</td>
-<td class="Genre"><b>Genre: </b>Atmospheric Black Metal, 
-Ambient</td>
-<td class="p1" ><b>Duration: </b>
-00:50:08</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2014-05-02</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-4060.30</td>
-<td class="p1" ><b>Rating Range: </b>
-70~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-92.00</td>
-<td class="p1" ><b>Rating Sd: </b>
-8.89</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/7/0/6/170603.jpg?2338" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/170603">World Extermination</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Insect_Warfare/67329">Insect Warfare</a></td>
-<td class="Country"><b>Country: </b>
-United States</td>
-<td class="Genre"><b>Genre: </b>Grindcore</td>
-<td class="p1" ><b>Duration: </b>
-00:22:29</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2007-10-20</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-2341.60</td>
-<td class="p1" ><b>Rating Range: </b>
-73~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-92.10</td>
-<td class="p1" ><b>Rating Sd: </b>
-9.04</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/3/1/131.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/131">Awake</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Dream_Theater/37">Dream Theater</a></td>
-<td class="Country"><b>Country: </b>
-United States</td>
-<td class="Genre"><b>Genre: </b>Progressive Metal</td>
-<td class="p1" ><b>Duration: </b>
-01:15:01</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1994-10-04</td>
-<td class="p1" ><b>Reviewer: </b>
-12</p>
-<td class="p1" ><b>Avg Length:</b>
-5036.75</td>
-<td class="p1" ><b>Rating Range: </b>
-55~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-85.33</td>
-<td class="p1" ><b>Rating Sd: </b>
-16.27</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/3/9/9/7/3997.jpg?0453" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/3997">A Social Grace</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Psychotic_Waltz/881">Psychotic Waltz</a></td>
-<td class="Country"><b>Country: </b>
-United States</td>
-<td class="Genre"><b>Genre: </b>Progressive Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:51:01</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1990-11-26</td>
-<td class="p1" ><b>Reviewer: </b>
-9</p>
-<td class="p1" ><b>Avg Length:</b>
-6570.11</td>
-<td class="p1" ><b>Rating Range: </b>
-85~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-97.00</td>
-<td class="p1" ><b>Rating Sd: </b>
-4.92</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/4/7/2/2/472292.jpg?3036" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/472292">Failures for Gods</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Immolation/194">Immolation</a></td>
-<td class="Country"><b>Country: </b>
-United States</td>
-<td class="Genre"><b>Genre: </b>Death Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:40:19</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1999-05-31</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-3657.70</td>
-<td class="p1" ><b>Rating Range: </b>
-78~99</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.90</td>
-<td class="p1" ><b>Rating Sd: </b>
-7.08</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/3/2/9/329.jpg?4507" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/329">Marching Out</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Yngwie_Malmsteen/84">Yngwie Malmsteen</a></td>
-<td class="Country"><b>Country: </b>
-Sweden</td>
-<td class="Genre"><b>Genre: </b>Neoclassical Power Metal/Shred</td>
-<td class="p1" ><b>Duration: </b>
-00:45:03</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1985-09-30</td>
-<td class="p1" ><b>Reviewer: </b>
-11</p>
-<td class="p1" ><b>Avg Length:</b>
-2814.00</td>
-<td class="p1" ><b>Rating Range: </b>
-59~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-87.45</td>
-<td class="p1" ><b>Rating Sd: </b>
-12.26</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/2/9/4/4/294425.jpg?1155" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/294425">Varjoina kuljemme kuolleiden maassa</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Moonsorrow/89">Moonsorrow</a></td>
-<td class="Country"><b>Country: </b>
-Finland</td>
-<td class="Genre"><b>Genre: </b>Folk/Pagan/Black Metal</td>
-<td class="p1" ><b>Duration: </b>
-01:01:09</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2011-02-21</td>
-<td class="p1" ><b>Reviewer: </b>
-12</p>
-<td class="p1" ><b>Avg Length:</b>
-4152.33</td>
-<td class="p1" ><b>Rating Range: </b>
-43~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-86.42</td>
-<td class="p1" ><b>Rating Sd: </b>
-17.54</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/4/1/6/9/416934.jpg?1616" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/416934">Tales of Ancient Prophecies</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Twilight_Force/3540382043">Twilight Force</a></td>
-<td class="Country"><b>Country: </b>
-Sweden</td>
-<td class="Genre"><b>Genre: </b>Symphonic Power Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:36:00</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2014-06-04</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-4418.40</td>
-<td class="p1" ><b>Rating Range: </b>
-70~97</td>
-<td class="p1" ><b>Rating Mean: </b>
-90.40</td>
-<td class="p1" ><b>Rating Sd: </b>
-7.90</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/4/3/7/9/43798.JPG" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/43798">Dans la forêt...</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/A%C3%A4kon_K%C3%AB%C3%ABtr%C3%ABh/14415">Aäkon Këëtrëh</a></td>
-<td class="Country"><b>Country: </b>
-France</td>
-<td class="Genre"><b>Genre: </b>Dark Ambient</td>
-<td class="p1" ><b>Duration: </b>
-00:22:00</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1996-01-01</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-2390.70</td>
-<td class="p1" ><b>Rating Range: </b>
-70~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-91.50</td>
-<td class="p1" ><b>Rating Sd: </b>
-9.08</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/2/3/1/7/23171.jpg?3920" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/23171">Lucifer Incestus</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Belphegor/1952">Belphegor</a></td>
-<td class="Country"><b>Country: </b>
-Austria</td>
-<td class="Genre"><b>Genre: </b>Death/Black Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:36:09</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2003-11-24</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-3456.20</td>
-<td class="p1" ><b>Rating Range: </b>
-80~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.70</td>
-<td class="p1" ><b>Rating Sd: </b>
-7.33</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/3/2/7/6/32762.jpg?4917" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/32762">Mabool - The Story of the Three Sons of Seven</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Orphaned_Land/2309">Orphaned Land</a></td>
-<td class="Country"><b>Country: </b>
-Israel</td>
-<td class="Genre"><b>Genre: </b>Doom/Death/Middle Eastern Folk Metal (early); 
-Middle Eastern Folk/Progressive Metal (later)</td>
-<td class="p1" ><b>Duration: </b>
-01:07:58</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2004-02-23</td>
-<td class="p1" ><b>Reviewer: </b>
-11</p>
-<td class="p1" ><b>Avg Length:</b>
-3308.45</td>
-<td class="p1" ><b>Rating Range: </b>
-55~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-90.09</td>
-<td class="p1" ><b>Rating Sd: </b>
-15.64</td>
-<td class="Continent">Continent: Asia</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/3/7/6/137685.jpg?1034" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/137685">V: Hävitetty</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Moonsorrow/89">Moonsorrow</a></td>
-<td class="Country"><b>Country: </b>
-Finland</td>
-<td class="Genre"><b>Genre: </b>Folk/Pagan/Black Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:56:29</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2007-01-15</td>
-<td class="p1" ><b>Reviewer: </b>
-11</p>
-<td class="p1" ><b>Avg Length:</b>
-3995.09</td>
-<td class="p1" ><b>Rating Range: </b>
-60~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-86.91</td>
-<td class="p1" ><b>Rating Sd: </b>
-12.47</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/5/2/9/9/52990.jpg?5820" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/52990">Sanctus Diavolos</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Rotting_Christ/314">Rotting Christ</a></td>
-<td class="Country"><b>Country: </b>
-Greece</td>
-<td class="Genre"><b>Genre: </b>Grindcore, 
-Black Metal (early); 
-Gothic Metal (mid); 
-Melodic Black Metal (later)</td>
-<td class="p1" ><b>Duration: </b>
-00:48:39</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2004-09-20</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-3113.70</td>
-<td class="p1" ><b>Rating Range: </b>
-73~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.70</td>
-<td class="p1" ><b>Rating Sd: </b>
-7.97</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/4/4/9/6/449611.jpg?3244" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/449611">Memoria Vetusta III: Saturnian Poetry</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Blut_aus_Nord/2371">Blut aus Nord</a></td>
-<td class="Country"><b>Country: </b>
-France</td>
-<td class="Genre"><b>Genre: </b>Atmospheric Black Metal, 
-Avant-garde/Black/Industrial Metal/Dark Ambient</td>
-<td class="p1" ><b>Duration: </b>
-00:48:40</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2014-10-10</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-3919.90</td>
-<td class="p1" ><b>Rating Range: </b>
-75~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-90.60</td>
-<td class="p1" ><b>Rating Sd: </b>
-8.93</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/5/2/7/527.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/527">Tyr</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Black_Sabbath/99">Black Sabbath</a></td>
-<td class="Country"><b>Country: </b>
-United Kingdom</td>
-<td class="Genre"><b>Genre: </b>Heavy/Doom Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:39:15</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1990-08-20</td>
-<td class="p1" ><b>Reviewer: </b>
-11</p>
-<td class="p1" ><b>Avg Length:</b>
-4315.64</td>
-<td class="p1" ><b>Rating Range: </b>
-51~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-87.45</td>
-<td class="p1" ><b>Rating Sd: </b>
-13.24</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/3/6/3/3/36338.JPG" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/36338">Songs of Darkness, Words of Light</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/My_Dying_Bride/151">My Dying Bride</a></td>
-<td class="Country"><b>Country: </b>
-United Kingdom</td>
-<td class="Genre"><b>Genre: </b>Doom/Death Metal (early); 
-Gothic/Doom Metal (later)</td>
-<td class="p1" ><b>Duration: </b>
-00:59:14</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2004-02-23</td>
-<td class="p1" ><b>Reviewer: </b>
-12</p>
-<td class="p1" ><b>Avg Length:</b>
-3476.67</td>
-<td class="p1" ><b>Rating Range: </b>
-23~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.08</td>
-<td class="p1" ><b>Rating Sd: </b>
-21.29</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/8/5/9/185956.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/185956">Communion</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Septicflesh/892">Septicflesh</a></td>
-<td class="Country"><b>Country: </b>
-Greece</td>
-<td class="Genre"><b>Genre: </b>Atmospheric/Symphonic Death Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:38:13</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2008-03-17</td>
-<td class="p1" ><b>Reviewer: </b>
-11</p>
-<td class="p1" ><b>Avg Length:</b>
-2838.73</td>
-<td class="p1" ><b>Rating Range: </b>
-60~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-86.73</td>
-<td class="p1" ><b>Rating Sd: </b>
-13.11</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/6/8/0/5/68050.jpg?0145" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/68050">Blessed Black Wings</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/High_on_Fire/2931">High on Fire</a></td>
-<td class="Country"><b>Country: </b>
-United States</td>
-<td class="Genre"><b>Genre: </b>Stoner/Sludge/Doom Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:53:23</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-2005-02-01</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-2905.50</td>
-<td class="p1" ><b>Rating Range: </b>
-76~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.60</td>
-<td class="p1" ><b>Rating Sd: </b>
-8.68</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/6/6/8/1668.jpg?0252" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/1668">Angels Cry</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Angra/538">Angra</a></td>
-<td class="Country"><b>Country: </b>
-Brazil</td>
-<td class="Genre"><b>Genre: </b>Power/Progressive Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:55:49</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1993-11-03</td>
-<td class="p1" ><b>Reviewer: </b>
-9</p>
-<td class="p1" ><b>Avg Length:</b>
-4691.00</td>
-<td class="p1" ><b>Rating Range: </b>
-90~99</td>
-<td class="p1" ><b>Rating Mean: </b>
-92.89</td>
-<td class="p1" ><b>Rating Sd: </b>
-3.10</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/3/5/9/1359.jpg?2249" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/1359">Blessing in Disguise</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Metal_Church/371">Metal Church</a></td>
-<td class="Country"><b>Country: </b>
-United States</td>
-<td class="Genre"><b>Genre: </b>Heavy/Power/Thrash Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:54:21</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1989-02-07</td>
-<td class="p1" ><b>Reviewer: </b>
-10</p>
-<td class="p1" ><b>Avg Length:</b>
-4318.50</td>
-<td class="p1" ><b>Rating Range: </b>
-70~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-89.60</td>
-<td class="p1" ><b>Rating Sd: </b>
-8.86</td>
-<td class="Continent">Continent: Americas</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/7/2/1/1721.jpg?5036" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/1721">Opus Nocturne</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Marduk/386">Marduk</a></td>
-<td class="Country"><b>Country: </b>
-Sweden</td>
-<td class="Genre"><b>Genre: </b>Black Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:43:09</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1994-12-01</td>
-<td class="p1" ><b>Reviewer: </b>
-9</p>
-<td class="p1" ><b>Avg Length:</b>
-3147.33</td>
-<td class="p1" ><b>Rating Range: </b>
-90~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-93.44</td>
-<td class="p1" ><b>Rating Sd: </b>
-3.94</td>
-<td class="Continent">Continent: Europe</td>
-</tr>
-<tr class="entry result">
-<td class="cover"><img src="https://www.metal-archives.com/images/1/0/7/7/1077.jpg" loading="lazy" alt="..."></td>
-<td class="Album"><b>Album: </b>
-<a href="https://www.metal-archives.com/release/view/id/1077">Hypertrace</a></td>
-<td class="Band"><b>Band: </b>
-<a href="https://www.metal-archives.com/bands/Scanner/267">Scanner</a></td>
-<td class="Country"><b>Country: </b>
-Germany</td>
-<td class="Genre"><b>Genre: </b>Heavy/Power Metal</td>
-<td class="p1" ><b>Duration: </b>
-00:38:07</td>
-<td class="ReleaseDate"><b>Release Date: </b>
-1988-01-01</td>
-<td class="p1" ><b>Reviewer: </b>
-9</p>
-<td class="p1" ><b>Avg Length:</b>
-4044.89</td>
-<td class="p1" ><b>Rating Range: </b>
-85~100</td>
-<td class="p1" ><b>Rating Mean: </b>
-94.22</td>
-<td class="p1" ><b>Rating Sd: </b>
-4.92</td>
 <td class="Continent">Continent: Europe</td>
 </tr>
 </tbody></table>

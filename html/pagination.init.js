@@ -23,6 +23,10 @@ $(function(){
         $('.filter-holder select option').prop( "selected", true );
 		 table.draw(); 
     } );
+    $('#glossary strong').click( function () {
+		$('#glossary p').toggle("fast");
+		$("#glossary strong i" ).toggleClass("fa-caret-right fa-caret-down");
+    } );
   // $('.filter').attr("checked", true);
 });
 $(document).on('click', 'a.paginate_button', function() {
@@ -32,7 +36,7 @@ $.fn.dataTable.ext.search.push(
   function( settings, data, dataIndex ) {
     let year =  Number(data[6].match(/\d{4}/i).toString()); 
     let genre =  data[4].toLowerCase(); 
-    let continent =  data[12]; 
+    let continent =  data[11]; 
     let genres = $( "#genres" ).val() || [];
     let regions = $( "#regions" ).val() || [];
     let years = $( "#years" ).val() || [];
