@@ -1,50 +1,122 @@
+<!DOCTYPE html><html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
 <title>New Albums on MA</title>
+<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/searchbuilder/1.1.0/js/dataTables.searchBuilder.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/plug-ins/1.10.21/sorting/datetime-moment.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.1.0/css/searchBuilder.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style.css">
-<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><link rel="shortcut icon" type="image/png" href="cat.png">
+<link rel="shortcut icon" type="image/png" href="cat.png">
 <script>
 let today = new Date(); 
+let thisweek = moment().day("Friday").subtract(8, 'days').format('YYYY-MM-DD');
 today. setHours(new Date().getUTCHours()- 36);
+console.log(thisweek);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
-  <!-- $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>"); -->
-	$( "<h3>By release date</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" );
+    <!-- $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>"); -->
+      $( "<h3>By release date</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" );
   } else {
     <!-- $( ".new>td" ).unwrap(); -->
-	$(".new h3").remove();
+      $(".new h3").remove();
   }
 }
 $(function(){
-    $('.release_info').DataTable( {
-	  stateSave: true,
+  $( "<small>Last updated on "+ moment().subtract(1, 'days').format('YYYY-MM-DD') +" UTC.</small>" ).appendTo( "#date" );
+  $('.release_info').DataTable( {
+    stateSave: true,
       "order": [[ 9, "asc" ]],
-      "lengthMenu": [50, 100, 200, 400, "All"],
-      "columnDefs": [
-        { "targets": [ 0,1 ], "searchable": false, "sorting": false },
-      ],
-      "search": { "regex": true},
-      "autoWidth": false
-    });
-    $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
-    let table = $('.release_info').DataTable();
-	setTimeout(function(){ table.draw(false);$('.release_info').fadeIn(); }, 1000);
-	$('.release_info tbody').on( 'dblclick', 'tr', function () {
-	  $(this).toggleClass('selected');
-    } );
-    $('#delete_button').click( function () {
-        table.rows('.selected').remove().draw( false );
-    } );
-    $('.filter,.genrefilter,.paginate_button').click( function() {
-      table.draw(false); 
-    });
-  $("#about").click(function(){
-    $("#project").fadeToggle();
+    "lengthMenu": [50, 100, 200, 400, "All"],
+    "columnDefs": [
+      { "targets": [ 0,1 ], "searchable": false, "sorting": false },
+      { 
+        render: function(data, type) {
+          if (type === 'display') {
+            switch (data) {
+              case 'NA':
+              data = ' ';
+              break;
+            }
+            return data;
+          }
+          return data;
+        },
+        "targets": [ 10,8 ]
+      },
+      { 
+        render: function(data, type) {
+          if (type === 'display') {
+            switch (data) {
+              case 'NA':
+              data = 'Independent';
+              break;
+            }
+            return data;
+          }
+          return data;
+        },
+        "targets": [ 6]
+      },
+    ],
+    "search": { "regex": true},
+    "autoWidth": false,
+    language: {
+      searchPlaceholder: "Search for albums or bands..",
+      search: "_INPUT_",
+      searchBuilder: {
+        add: '+',
+        deleteTitle: 'Delete',
+        data: 'date',
+        leftTitle: 'Left',
+        rightTitle: 'Right',
+        title: {
+          0: ' Date filter',
+          1: ' Date filter (%d)',
+            _: ' Date filters (%d)'
+        },
+        value: 'Date pickers',
+      }
+    },
+    buttons:[
+      'searchBuilder'
+    ],
+    dom: 'Qlfrtip',
+    searchBuilder: {
+      preDefined: {
+        criteria:[
+          {
+            condition: '>',
+            data: 'ReleaseDate',
+            value: [thisweek]
+          }
+        ],
+        logic: 'AND'
+      },
+      columns: [9]
+    }
   });
- $(window).resize(function() {
-    table.draw(false );
-});
+    setTimeout(function(){ table.draw(false);$('.filterSection').css({opacity: 0.0}).animate({opacity: 1.0,"height":"fit-content"}); }, 1000);
+    setTimeout(function(){ table.draw(false);$('.dataTables_wrapper').css({opacity: 0.0}).animate({opacity: 1.0}); }, 1500);
+    setTimeout(function(){$('.release_info,#date').animate({ height: "toggle", opacity: "toggle" }, "slow"); }, 2500);
+    let table = $('.release_info').DataTable();
+    $('.release_info tbody').on( 'dblclick', 'tr', function () {
+      $(this).toggleClass('selected');
+    } );
+      $('#delete_button').click( function () {
+        table.rows('.selected').remove().draw( false );
+		table.state.save();
+      } );
+    $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change( function() {
+      table.draw(); 
+    });
+    $(".note>b,.note>a").click(function(){
+	  $(".note>b i" ).toggleClass("fa-caret-right fa-caret-down");
+      $(".note>a").animate({height: "toggle",opacity: "toggle"}, "fast");
+      $(".note>div:not(:nth-last-of-type(0))").animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+    $(window).resize(function() {
+      table.draw(false );
+    });
   $('.genrefilter').first().change(function() {
     if($(this).is(':not(:checked)') && $('.genrefilter').length > 0) {
       alert('I hope you improve your taste');
@@ -52,8 +124,24 @@ $(function(){
     }
   });
 });
-$(document).on('click', '.filter,.genrefilter,.paginate_button', function() {
+$(document).on('click', '.paginate_button', function() {
 	$("body,html").animate({scrollTop: $("table thead").offset().top-5 }, 800); 
+});
+$(document).on('click', '#reset', function() {
+	<!-- $('.release_info').DataTable().draw(); -->
+	<!-- $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'}); -->
+	$('#Fulllength').prop('checked',false);
+	$('#Reissue').prop('checked',true);
+	$('#genre-options option[value=black]').prop('selected',true);
+	$('#genre-options option[value=death]').prop('selected',true);
+	$('#genre-options option:eq(2)').prop( "selected", false );
+	$('.release_info').DataTable().searchBuilder.rebuild( { criteria:[ {condition: '>', data: 'ReleaseDate', value: [thisweek]} ],logic: 'AND' });
+	
+});
+$(document).on('click', '#today', function() {
+	<!-- $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'}); -->
+	$('.release_info').DataTable().searchBuilder.rebuild( { criteria:[ {condition: '>', data: 'ReleaseDate', value: [moment().subtract(1, 'days').format('YYYY-MM-DD')]} ],logic: 'AND' });
+	
 });
 $.fn.dataTable.ext.search.push(
   function( settings, data, dataIndex ) {
@@ -61,9 +149,10 @@ $.fn.dataTable.ext.search.push(
     let type =  data[7]; 
     let date =  new Date(data[9].replace(/-/g,'/'));
     let version =  data[10]; 
-    if (  ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1  && genre.indexOf('death') < 0 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1  && genre.indexOf('black') < 0 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  && genre.indexOf('death') < 0 )) )
+    let genres = $( "#genre-options" ).val() || [];
+    if (  ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) )
     {return false;}
-    return true;
+    return (genre.search("(".concat(genres.join( "|" ),")"))  > -1);
   }
 );
 $(window).resize(function() {
@@ -72,8 +161,7 @@ $(window).resize(function() {
 window.onscroll = (function() {
   if ($(window).width() >= 800 ) {
     let scrollY= $(window).scrollTop();
-    if (scrollY<0) {layoutFunction();}
-    if ( scrollY > $(window).height()*.5 && $('tr:hover').length > 0) {
+    if ( scrollY > $(window).height()*.4 && $('tr:hover').length > 0) {
       $("#header").css("font-size", "1.5em");
     } else {
       $("#header").css("fontSize", "2em");
@@ -86,23 +174,29 @@ window.onscroll = (function() {
 <body> 
 <h1 class="glow" id="header">New albums on MA  </h1>
 <div class="sidenav"><a href="../" id="home">Home</a></div>
+<h4 style="margin: .5em 1%;">All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/">R</a>.</h4>
+<p id="date" style="margin: .5em 1%;"></p>
 <div class="contentWrapper">
-<h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/">R</a>.</h3>
 
-<div>
-<p class="note"><b>NOTE:</b><br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
-<br>The column "BandPage" only shows links of the first band in case of a split or compilation.
-<br><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> will be shown if the album doesn't have any cover(!?).
-<br>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right. 
-<br>The page is RAM-eating while loading the big bunch of covers. Good luck!<br> </p> 
-
-<p class="note" id="date"></p>
+<div class="note">
+<b>NOTE <i class="fa fa-caret-right"></i></b>
+<a> Click to read tips.</a>
+<div class="hideItem">
+<p> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while empty value in the column indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</p>
+<p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p>
+<p><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> means the album doesn't have any cover(!?).</p>
+<p>In "Date filter", the default condition is release date after (including) last Friday. You can also click <button id="today">here</button> to filter it from today (in your timezone) onwards. Or use "<b>Reset</b>" to restore default settings.</p>
+<p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right, gone. It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</p>
+<!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
+</div>
+<u class="breaker"> <br></u>
 </div>
 <li class="filterSection">
-<strong>Filters: </strong>
+<strong>Reset:   </strong><button id="reset">Reset filter</button>
+</li>
+<li class="filterSection">
+<strong>Types: </strong>
 <div class="checkholder">
-<label class="checkcontainer">Today onwards
-<input class="filter" id="Upcoming" type="checkbox" checked><span class="checkmark"></span></label>
 <label class="checkcontainer">No Reissue
 <input class="filter" id="Reissue" type="checkbox" checked><span class="checkmark"></span></label>
 <label class="checkcontainer">Full-length only
@@ -110,34 +204,21 @@ window.onscroll = (function() {
 </div>
 </li>
 <li class="filterSection">
-<strong>Genre: </strong>
-<div class="checkholder">
-<label class="checkcontainer">Black metal
-<input class="genrefilter" id="black" type="checkbox" checked><span class="checkmark"></span></label>
-<label class="checkcontainer">Death metal
-<input class="filter" id="death" type="checkbox" checked><span class="checkmark"></span></label>
-<label class="checkcontainer">Other
-<input class="filter" id="other" type="checkbox" checked><span class="checkmark"></span></label>
+<strong>Genre:  </strong>
+<div class="filter-holder" id="genre-filter">
+  <select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
+<option selected value="death">Death Metal</option>
+<option value="^((?!(black|death)).)*$">Other</option></select>
 </div>
 </li>
-<p class="breaker"><br></p>
-<div>
-<p> </p>
-</div>
-<div id="includedTable">
-
-
-</div>
-</div>
-<div id="includedContent"></div>
-  
 
 <!-- </body>  -->
 <!-- </html> -->
+</div>
 </body>
 <table style="border-collapse:collapse;" class="release_info" border="1">
 <caption>
-<button id="delete_button">Hide selected</button> Last updated on 2021-07-14 UTC.</caption>
+<button id="delete_button">Hide selected</button> </caption>
 <thead><tr>
 <th id="tableHTML_header_1">Search</th>
   <th id="tableHTML_header_2">Cover</th>
@@ -20945,6 +21026,868 @@ Gothic/Alternative/Progressive Rock/Metal (later)</td>
   <td id="tableHTML_column_8">EP</td>
   <td id="tableHTML_column_9">00:04:38</td>
   <td id="tableHTML_column_10">2021-10-22</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Ultimatum">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Ultimatum">Youtube</a>
+<a href="https://open.spotify.com/search/Ultimatum">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/4/963409.jpg?3657" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Neant/Ultimatum/963409">Ultimatum</a></td>
+  <td id="tableHTML_column_4">Neant</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Neant/3540459924">Neant</a></td>
+  <td id="tableHTML_column_6">Raw Black Metal/Dark Ambient</td>
+  <td id="tableHTML_column_7">Death Erection Records</td>
+  <td id="tableHTML_column_8">Single</td>
+  <td id="tableHTML_column_9">00:05:20</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Demo%202008">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Demo%202008">Youtube</a>
+<a href="https://open.spotify.com/search/Demo%202008">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/6/963693.jpg?5924" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Swept_in_Black/Demo_2008/963693">Demo 2008</a></td>
+  <td id="tableHTML_column_4">Swept in Black</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Swept_in_Black/3540491818">Swept in Black</a></td>
+  <td id="tableHTML_column_6">Black Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Demo</td>
+  <td id="tableHTML_column_9">00:26:50</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Socioparasite%20Demo%201">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Socioparasite%20Demo%201">Youtube</a>
+<a href="https://open.spotify.com/search/Socioparasite%20Demo%201">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/6/963698.jpg?1841" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Socioparasite/Socioparasite_Demo_1/963698">Socioparasite Demo 1</a></td>
+  <td id="tableHTML_column_4">Socioparasite</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Socioparasite/3540491820">Socioparasite</a></td>
+  <td id="tableHTML_column_6">Sludge Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Demo</td>
+  <td id="tableHTML_column_9">00:07:37</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Repetitions">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Repetitions">Youtube</a>
+<a href="https://open.spotify.com/search/Repetitions">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/7/963703.jpg?4348" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/In_Autumnus/Repetitions/963703">Repetitions</a></td>
+  <td id="tableHTML_column_4">In Autumnus</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/In_Autumnus/3540449485">In Autumnus</a></td>
+  <td id="tableHTML_column_6">Atmospheric Black Metal/Post-Rock</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:56:23</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Sigillum">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Sigillum">Youtube</a>
+<a href="https://open.spotify.com/search/Sigillum">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/7/963708.jpg?5550" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/AstralSide/Sigillum/963708">Sigillum</a></td>
+  <td id="tableHTML_column_4">AstralSide</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/AstralSide/3540468526">AstralSide</a></td>
+  <td id="tableHTML_column_6">Black Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Demo</td>
+  <td id="tableHTML_column_9">00:13:10</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Living%20With%20You%20On%20Top%20of%20the%20Mountain">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Living%20With%20You%20On%20Top%20of%20the%20Mountain">Youtube</a>
+<a href="https://open.spotify.com/search/Living%20With%20You%20On%20Top%20of%20the%20Mountain">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/7/963723.jpg?1950" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Antichrisis/Living_With_You_On_Top_of_the_Mountain/963723">Living With You On Top of the Mountain</a></td>
+  <td id="tableHTML_column_4">Antichrisis</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Antichrisis/47251">Antichrisis</a></td>
+  <td id="tableHTML_column_6">Melodic Gothic/Black/Folk Metal (early); 
+Medieval Gothic Rock/Folk (later)</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Single</td>
+  <td id="tableHTML_column_9">00:05:22</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Pl%C3%A8be%202178">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Pl%C3%A8be%202178">Youtube</a>
+<a href="https://open.spotify.com/search/Pl%C3%A8be%202178">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/7/963728.jpg?4544" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Absynth/Pl%C3%A8be_2178/963728">Plèbe 2178</a></td>
+  <td id="tableHTML_column_4">Absynth</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Absynth/3540431646">Absynth</a></td>
+  <td id="tableHTML_column_6">Stoner/Doom Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:58:16</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Geng%C3%A5ngare">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Geng%C3%A5ngare">Youtube</a>
+<a href="https://open.spotify.com/search/Geng%C3%A5ngare">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/7/963779.jpg?1013" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Myrkvedr/Geng%C3%A5ngare/963779">Gengångare</a></td>
+  <td id="tableHTML_column_4">Myrkvedr</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Myrkvedr/3540371244">Myrkvedr</a></td>
+  <td id="tableHTML_column_6">Viking/Folk Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:52:39</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=L'%C3%A9chapp%C3%A9e%20des%20voix">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=L'%C3%A9chapp%C3%A9e%20des%20voix">Youtube</a>
+<a href="https://open.spotify.com/search/L'%C3%A9chapp%C3%A9e%20des%20voix">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/1/963195.jpg?3448" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Worhs/L%27%C3%A9chapp%C3%A9e_des_voix/963195">L'échappée des voix</a></td>
+  <td id="tableHTML_column_4">Worhs</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Worhs/3540388539">Worhs</a></td>
+  <td id="tableHTML_column_6">Black Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Single</td>
+  <td id="tableHTML_column_9">00:16:08</td>
+  <td id="tableHTML_column_10">2021-07-20</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Into%20the%20Arcane">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Into%20the%20Arcane">Youtube</a>
+<a href="https://open.spotify.com/search/Into%20the%20Arcane">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/3/1/2/931279.jpg?0943" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Eons_Enthroned/Into_the_Arcane/931279">Into the Arcane</a></td>
+  <td id="tableHTML_column_4">Eons Enthroned</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Eons_Enthroned/3540479104">Eons Enthroned</a></td>
+  <td id="tableHTML_column_6">Power Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:41:22</td>
+  <td id="tableHTML_column_10">2021-07-23</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Azok">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Azok">Youtube</a>
+<a href="https://open.spotify.com/search/Azok">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/6/963628.jpg?2620" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Azok/Azok/963628">Azok</a></td>
+  <td id="tableHTML_column_4">Azok</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Azok/3540479678">Azok</a></td>
+  <td id="tableHTML_column_6">Black Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-07-23</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Congregation%20III%20-%20Journey%20into%20the%20Light">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Congregation%20III%20-%20Journey%20into%20the%20Light">Youtube</a>
+<a href="https://open.spotify.com/search/Congregation%20III%20-%20Journey%20into%20the%20Light">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/9/962965.jpg?4844" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Soulers/Congregation_III_-_Journey_into_the_Light/962965">Congregation III - Journey into the Light</a></td>
+  <td id="tableHTML_column_4">Soulers</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Soulers/3540444129">Soulers</a></td>
+  <td id="tableHTML_column_6">Drone/Doom/Stoner Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-07-25</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Akra%20Tapeinosis">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Akra%20Tapeinosis">Youtube</a>
+<a href="https://open.spotify.com/search/Akra%20Tapeinosis">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/7/962780.jpg?3456" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Serpentrance/Akra_Tapeinosis/962780">Akra Tapeinosis</a></td>
+  <td id="tableHTML_column_4">Serpentrance</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Serpentrance/3540393040">Serpentrance</a></td>
+  <td id="tableHTML_column_6">Black/Death/Doom Metal</td>
+  <td id="tableHTML_column_7">Godz ov War Productions</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:07:34</td>
+  <td id="tableHTML_column_10">2021-07-26</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Still%20Alive?">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Still%20Alive?">Youtube</a>
+<a href="https://open.spotify.com/search/Still%20Alive?">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963080.jpg?2536" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Witch/Still_Alive%3F/963080">Still Alive?</a></td>
+  <td id="tableHTML_column_4">Witch</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Witch/6907">Witch</a></td>
+  <td id="tableHTML_column_6">Heavy Metal</td>
+  <td id="tableHTML_column_7">Cult Metal Classics Records</td>
+  <td id="tableHTML_column_8">Compilation</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-07-28</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Mayhem%20Inc.">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Mayhem%20Inc.">Youtube</a>
+<a href="https://open.spotify.com/search/Mayhem%20Inc.">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963083.jpg?3124" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Mayhem_Inc./Mayhem_Inc./963083">Mayhem Inc.</a></td>
+  <td id="tableHTML_column_4">Mayhem Inc.</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Mayhem_Inc./74787">Mayhem Inc.</a></td>
+  <td id="tableHTML_column_6">Thrash Metal</td>
+  <td id="tableHTML_column_7">Cult Metal Classics Records</td>
+  <td id="tableHTML_column_8">Compilation</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-07-28</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Black%20of%20the%20Night:%20The%20Ultimate%20Anthology">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Black%20of%20the%20Night:%20The%20Ultimate%20Anthology">Youtube</a>
+<a href="https://open.spotify.com/search/Black%20of%20the%20Night:%20The%20Ultimate%20Anthology">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963088.jpg?5201" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Wikkyd_Vikker/Black_of_the_Night%3A_The_Ultimate_Anthology/963088">Black of the Night: The Ultimate Anthology</a></td>
+  <td id="tableHTML_column_4">Wikkyd Vikker</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Wikkyd_Vikker/21727">Wikkyd Vikker</a></td>
+  <td id="tableHTML_column_6">NWOBHM</td>
+  <td id="tableHTML_column_7">Cult Metal Classics Records</td>
+  <td id="tableHTML_column_8">Compilation</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-07-28</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Un%20Lamento%20Por%20Esmeralda">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Un%20Lamento%20Por%20Esmeralda">Youtube</a>
+<a href="https://open.spotify.com/search/Un%20Lamento%20Por%20Esmeralda">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/3/963348.png?5539" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Fernando_Colunga_Ultimate_Experience/Un_Lamento_Por_Esmeralda/963348">Un Lamento Por Esmeralda</a></td>
+  <td id="tableHTML_column_4">Fernando Colunga Ultimate Experience</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Fernando_Colunga_Ultimate_Experience/3540357464">Fernando Colunga Ultimate Experience</a></td>
+  <td id="tableHTML_column_6">Death 'n' Roll/Grindcore</td>
+  <td id="tableHTML_column_7">Ciklonizacija</td>
+  <td id="tableHTML_column_8">EP</td>
+  <td id="tableHTML_column_9">00:41:35</td>
+  <td id="tableHTML_column_10">2021-07-30</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Pitch%20Black%20Incursion%20-%20Demo%20MMXXI">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Pitch%20Black%20Incursion%20-%20Demo%20MMXXI">Youtube</a>
+<a href="https://open.spotify.com/search/Pitch%20Black%20Incursion%20-%20Demo%20MMXXI">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/7/962785.jpg?5018" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Alucard/Pitch_Black_Incursion_-_Demo_MMXXI/962785">Pitch Black Incursion - Demo MMXXI</a></td>
+  <td id="tableHTML_column_4">Alucard</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Alucard/3540476911">Alucard</a></td>
+  <td id="tableHTML_column_6">Black Metal/Punk</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Demo</td>
+  <td id="tableHTML_column_9">00:02:59</td>
+  <td id="tableHTML_column_10">2021-08-06</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Metabolic%20Chasm%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Metabolic%20Chasm%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.">Youtube</a>
+<a href="https://open.spotify.com/search/Metabolic%20Chasm%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963069.jpg?4303" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Sophist/Metabolic_Chasm%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B.%E2%80%8B./963069">Metabolic Chasm​.​.​.​.​.​.</a></td>
+  <td id="tableHTML_column_4">Sophist</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Sophist/3540457105">Sophist</a></td>
+  <td id="tableHTML_column_6">Black Metal/Grindcore</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Single</td>
+  <td id="tableHTML_column_9">00:02:10</td>
+  <td id="tableHTML_column_10">2021-08-13</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Train%20of%20Thought%20-%20Instrumental%20Demos%20(2003)">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Train%20of%20Thought%20-%20Instrumental%20Demos%20(2003)">Youtube</a>
+<a href="https://open.spotify.com/search/Train%20of%20Thought%20-%20Instrumental%20Demos%20(2003)">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/5/9/6/959630.jpg?5052" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Dream_Theater/Train_of_Thought_-_Instrumental_Demos_%282003%29/959630">Train of Thought - Instrumental Demos (2003)</a></td>
+  <td id="tableHTML_column_4">Dream Theater</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Dream_Theater/37">Dream Theater</a></td>
+  <td id="tableHTML_column_6">Progressive Metal</td>
+  <td id="tableHTML_column_7">InsideOut Music</td>
+  <td id="tableHTML_column_8">Demo</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-08-20</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Unplugged%20in%20Boston">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Unplugged%20in%20Boston">Youtube</a>
+<a href="https://open.spotify.com/search/Unplugged%20in%20Boston">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/7/962707.jpg?2044" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Megadeth/Unplugged_in_Boston/962707">Unplugged in Boston</a></td>
+  <td id="tableHTML_column_4">Megadeth</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Megadeth/138">Megadeth</a></td>
+  <td id="tableHTML_column_6">Speed/Thrash Metal (early/later); 
+Heavy Metal/Rock (mid)</td>
+  <td id="tableHTML_column_7">Cleopatra Records</td>
+  <td id="tableHTML_column_8">Live album</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-08-20</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Celestial%20Henchwhores%20Aflame">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Celestial%20Henchwhores%20Aflame">Youtube</a>
+<a href="https://open.spotify.com/search/Celestial%20Henchwhores%20Aflame">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/1/963130.jpg?3705" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Beastlurker/Celestial_Henchwhores_Aflame/963130">Celestial Henchwhores Aflame</a></td>
+  <td id="tableHTML_column_4">Beastlurker</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Beastlurker/3540458890">Beastlurker</a></td>
+  <td id="tableHTML_column_6">Black/Death Metal</td>
+  <td id="tableHTML_column_7">Godz ov War Productions</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:04:41</td>
+  <td id="tableHTML_column_10">2021-08-21</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Forest%20of%20Eternal%20Dawn">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Forest%20of%20Eternal%20Dawn">Youtube</a>
+<a href="https://open.spotify.com/search/Forest%20of%20Eternal%20Dawn">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/2/963248.jpg?5238" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Nahtram/Forest_of_Eternal_Dawn/963248">Forest of Eternal Dawn</a></td>
+  <td id="tableHTML_column_4">Nahtram</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Nahtram/3540438559">Nahtram</a></td>
+  <td id="tableHTML_column_6">Symphonic Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:07:59</td>
+  <td id="tableHTML_column_10">2021-08-27</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Follow%20the%20Path">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Follow%20the%20Path">Youtube</a>
+<a href="https://open.spotify.com/search/Follow%20the%20Path">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963029.jpg?0408" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Paymon/Follow_the_Path/963029">Follow the Path</a></td>
+  <td id="tableHTML_column_4">Paymon</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Paymon/3540375105">Paymon</a></td>
+  <td id="tableHTML_column_6">Black Metal</td>
+  <td id="tableHTML_column_7">Schattenkult Produktionen</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:45:45</td>
+  <td id="tableHTML_column_10">2021-08-31</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Eternal%20Rot%20/%20%0ACoffins">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Eternal%20Rot%20/%20%0ACoffins">Youtube</a>
+<a href="https://open.spotify.com/search/Eternal%20Rot%20/%20%0ACoffins">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/5/8/8/958876.jpg?3707" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Coffins_-_Eternal_Rot/Eternal_Rot_-_Coffins/958876">Eternal Rot / 
+Coffins</a></td>
+  <td id="tableHTML_column_4">Coffins / 
+Eternal Rot</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Coffins/18728">Coffins</a></td>
+  <td id="tableHTML_column_6">Doom/Death Metal | 
+Doom/Death Metal</td>
+  <td id="tableHTML_column_7">Behind the Mountain</td>
+  <td id="tableHTML_column_8">Split</td>
+  <td id="tableHTML_column_9">00:16:52</td>
+  <td id="tableHTML_column_10">2021-09-01</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=The%20Broken%20Seal">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=The%20Broken%20Seal">Youtube</a>
+<a href="https://open.spotify.com/search/The%20Broken%20Seal">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/1/963169.jpg?0849" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Lvcifyre/The_Broken_Seal/963169">The Broken Seal</a></td>
+  <td id="tableHTML_column_4">Lvcifyre</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Lvcifyre/3540284596">Lvcifyre</a></td>
+  <td id="tableHTML_column_6">Black/Death Metal</td>
+  <td id="tableHTML_column_7">Dark Descent Records</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:43:33</td>
+  <td id="tableHTML_column_10">2021-09-10</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Define%20The%20Sinner">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Define%20The%20Sinner">Youtube</a>
+<a href="https://open.spotify.com/search/Define%20The%20Sinner">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/1/963197.jpg?4642" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Subfire/Define_The_Sinner/963197">Define The Sinner</a></td>
+  <td id="tableHTML_column_4">Subfire</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Subfire/3540382482">Subfire</a></td>
+  <td id="tableHTML_column_6">Operatic/Symphonic Metal</td>
+  <td id="tableHTML_column_7">Symmetric Records</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-09-10</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=V%C3%A1kuum">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=V%C3%A1kuum">Youtube</a>
+<a href="https://open.spotify.com/search/V%C3%A1kuum">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/8/962864.jpg?3700" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Teitan/V%C3%A1kuum/962864">Vákuum</a></td>
+  <td id="tableHTML_column_4">Teitan</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Teitan/3540281791">Teitan</a></td>
+  <td id="tableHTML_column_6">Black Metal</td>
+  <td id="tableHTML_column_7">Void Wanderer Productions</td>
+  <td id="tableHTML_column_8">EP</td>
+  <td id="tableHTML_column_9">00:03:48</td>
+  <td id="tableHTML_column_10">2021-09-15</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=In%20the%20Presence%20of%20Darkness">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=In%20the%20Presence%20of%20Darkness">Youtube</a>
+<a href="https://open.spotify.com/search/In%20the%20Presence%20of%20Darkness">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/8/962877.jpg?2102" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Abolishment_of_Flesh/In_the_Presence_of_Darkness/962877">In the Presence of Darkness</a></td>
+  <td id="tableHTML_column_4">Abolishment of Flesh</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Abolishment_of_Flesh/3540353437">Abolishment of Flesh</a></td>
+  <td id="tableHTML_column_6">Melodic Death Metal</td>
+  <td id="tableHTML_column_7">Blood Blast Distribution</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:06:08</td>
+  <td id="tableHTML_column_10">2021-09-17</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Argent%20Moon">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Argent%20Moon">Youtube</a>
+<a href="https://open.spotify.com/search/Argent%20Moon">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963068.jpeg?3827" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Insomnium/Argent_Moon/963068">Argent Moon</a></td>
+  <td id="tableHTML_column_4">Insomnium</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Insomnium/2332">Insomnium</a></td>
+  <td id="tableHTML_column_6">Melodic Death Metal</td>
+  <td id="tableHTML_column_7">Century Media Records</td>
+  <td id="tableHTML_column_8">EP</td>
+  <td id="tableHTML_column_9">00:17:00</td>
+  <td id="tableHTML_column_10">2021-09-17</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Le%20berceau%20des%20dieux">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Le%20berceau%20des%20dieux">Youtube</a>
+<a href="https://open.spotify.com/search/Le%20berceau%20des%20dieux">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/5/962570.jpg?0911" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Tentation/Le_berceau_des_dieux/962570">Le berceau des dieux</a></td>
+  <td id="tableHTML_column_4">Tentation</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Tentation/3540398167">Tentation</a></td>
+  <td id="tableHTML_column_6">Heavy Metal</td>
+  <td id="tableHTML_column_7">Gates of Hell Records</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-09-24</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Stilte">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Stilte">Youtube</a>
+<a href="https://open.spotify.com/search/Stilte">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/8/962898.jpg?5658" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/A_Thousand_Sufferings/Stilte/962898">Stilte</a></td>
+  <td id="tableHTML_column_4">A Thousand Sufferings</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/A_Thousand_Sufferings/3540405554">A Thousand Sufferings</a></td>
+  <td id="tableHTML_column_6">Black/Doom Metal</td>
+  <td id="tableHTML_column_7">Immortal Frost Productions</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:41:28</td>
+  <td id="tableHTML_column_10">2021-09-24</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Decayed%20Butchery">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Decayed%20Butchery">Youtube</a>
+<a href="https://open.spotify.com/search/Decayed%20Butchery">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/9/962985.jpg?5735" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Wretched_Inferno/Decayed_Butchery/962985">Decayed Butchery</a></td>
+  <td id="tableHTML_column_4">Wretched Inferno</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Wretched_Inferno/3540472916">Wretched Inferno</a></td>
+  <td id="tableHTML_column_6">Thrash Metal (early); 
+Death Metal (later)</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:03:03</td>
+  <td id="tableHTML_column_10">2021-09-24</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Into%20the%20Deep%20Black">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Into%20the%20Deep%20Black">Youtube</a>
+<a href="https://open.spotify.com/search/Into%20the%20Deep%20Black">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/5/963543.jpg?2245" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Dark_Redeemer/Into_the_Deep_Black/963543">Into the Deep Black</a></td>
+  <td id="tableHTML_column_4">Dark Redeemer</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Dark_Redeemer/3540491777">Dark Redeemer</a></td>
+  <td id="tableHTML_column_6">Death Metal</td>
+  <td id="tableHTML_column_7">Blasphemous Records</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:44:23</td>
+  <td id="tableHTML_column_10">2021-09-24</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Everflowing%20Absence%20of%20Light">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Everflowing%20Absence%20of%20Light">Youtube</a>
+<a href="https://open.spotify.com/search/Everflowing%20Absence%20of%20Light">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/1/963157.jpg?5521" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Ghost_Spawn/Everflowing_Absence_of_Light/963157">Everflowing Absence of Light</a></td>
+  <td id="tableHTML_column_4">Ghost Spawn</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Ghost_Spawn/3540463189">Ghost Spawn</a></td>
+  <td id="tableHTML_column_6">Death/Doom Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-10-01</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Oxymoron">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Oxymoron">Youtube</a>
+<a href="https://open.spotify.com/search/Oxymoron">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/1/963151.jpg?2437" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Spiritual_Deception/Oxymoron/963151">Oxymoron</a></td>
+  <td id="tableHTML_column_4">Spiritual Deception</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Spiritual_Deception/3540436617">Spiritual Deception</a></td>
+  <td id="tableHTML_column_6">Technical/Brutal Death Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">EP</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-10-08</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Nurture">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Nurture">Youtube</a>
+<a href="https://open.spotify.com/search/Nurture">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/2/8/962856.jpg?1638" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Deviant_Process/Nurture/962856">Nurture</a></td>
+  <td id="tableHTML_column_4">Deviant Process</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Deviant_Process/3540364841">Deviant Process</a></td>
+  <td id="tableHTML_column_6">Progressive Death Metal</td>
+  <td id="tableHTML_column_7">Season of Mist</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:46:43</td>
+  <td id="tableHTML_column_10">2021-10-15</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Illusions%20in%20the%20Wake">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Illusions%20in%20the%20Wake">Youtube</a>
+<a href="https://open.spotify.com/search/Illusions%20in%20the%20Wake">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963057.jpg?1907" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Noltem/Illusions_in_the_Wake/963057">Illusions in the Wake</a></td>
+  <td id="tableHTML_column_4">Noltem</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Noltem/31150">Noltem</a></td>
+  <td id="tableHTML_column_6">Atmospheric Black Metal with Folk influences</td>
+  <td id="tableHTML_column_7">Transcending Obscurity Records</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:15:34</td>
+  <td id="tableHTML_column_10">2021-10-15</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Hubris">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Hubris">Youtube</a>
+<a href="https://open.spotify.com/search/Hubris">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/0/963099.jpg?5622" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Ravenous/Hubris/963099">Hubris</a></td>
+  <td id="tableHTML_column_4">Ravenous</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Ravenous/3540421583">Ravenous</a></td>
+  <td id="tableHTML_column_6">Power Metal</td>
+  <td id="tableHTML_column_7">Feast Beast Records</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:53:58</td>
+  <td id="tableHTML_column_10">2021-10-22</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Oto%20jest%20Pustka">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Oto%20jest%20Pustka">Youtube</a>
+<a href="https://open.spotify.com/search/Oto%20jest%20Pustka">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/3/8/7/938713.jpg?1457" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Signs_of_the_Dying_Summer/Oto_jest_Pustka/938713">Oto jest Pustka</a></td>
+  <td id="tableHTML_column_4">Signs of the Dying Summer</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Signs_of_the_Dying_Summer/3540486201">Signs of the Dying Summer</a></td>
+  <td id="tableHTML_column_6">Depressive Black Metal</td>
+  <td id="tableHTML_column_7">Godz ov War Productions</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">00:06:06</td>
+  <td id="tableHTML_column_10">2021-11-21</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=If%20You%20Love%20One,%20Why%20Kill%20the%20Other?">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=If%20You%20Love%20One,%20Why%20Kill%20the%20Other?">Youtube</a>
+<a href="https://open.spotify.com/search/If%20You%20Love%20One,%20Why%20Kill%20the%20Other?">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/7/963799.jpg?2830" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/N%C3%B6ize/If_You_Love_One%2C_Why_Kill_the_Other%3F/963799">If You Love One, Why Kill the Other?</a></td>
+  <td id="tableHTML_column_4">Nöize</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/N%C3%B6ize/3540490940">Nöize</a></td>
+  <td id="tableHTML_column_6">Raw Black Metal/Crust Punk</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Split</td>
+  <td id="tableHTML_column_9">00:09:58</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Deathlike%20Vomit">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Deathlike%20Vomit">Youtube</a>
+<a href="https://open.spotify.com/search/Deathlike%20Vomit">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/8/963809.jpg?1616" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Vomit/Deathlike_Vomit/963809">Deathlike Vomit</a></td>
+  <td id="tableHTML_column_4">Vomit</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Vomit/3540424008">Vomit</a></td>
+  <td id="tableHTML_column_6">Death/Thrash Metal</td>
+  <td id="tableHTML_column_7">Deathrune Records</td>
+  <td id="tableHTML_column_8">EP</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Deathriders">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Deathriders">Youtube</a>
+<a href="https://open.spotify.com/search/Deathriders">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/8/963827.jpg?2730" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Honey_Badger/Deathriders/963827">Deathriders</a></td>
+  <td id="tableHTML_column_4">Honey Badger</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Honey_Badger/3540479630">Honey Badger</a></td>
+  <td id="tableHTML_column_6">Doom Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Single</td>
+  <td id="tableHTML_column_9">00:06:45</td>
+  <td id="tableHTML_column_10">2021-07-18</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Im%20Schatten%20der%20G%C3%B6tter">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Im%20Schatten%20der%20G%C3%B6tter">Youtube</a>
+<a href="https://open.spotify.com/search/Im%20Schatten%20der%20G%C3%B6tter">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/8/963806.jpg?0159" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Wolfstavar/Im_Schatten_der_G%C3%B6tter/963806">Im Schatten der Götter</a></td>
+  <td id="tableHTML_column_4">Wolfstavar</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Wolfstavar/3540434003">Wolfstavar</a></td>
+  <td id="tableHTML_column_6">Folk Metal</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Full-length</td>
+  <td id="tableHTML_column_9">NA</td>
+  <td id="tableHTML_column_10">2021-07-30</td>
+  <td id="tableHTML_column_11">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><div class="dd">
+<button class="dbtn"> </button><div class="dd-c">
+<a href="https://bandcamp.com/search?q=Cameel%20Habib%20Habab">Bandcamp</a>
+<a href="https://www.youtube.com/results?search_query=Cameel%20Habib%20Habab">Youtube</a>
+<a href="https://open.spotify.com/search/Cameel%20Habib%20Habab">Spotify</a>
+</div>
+</div></td>
+  <td id="tableHTML_column_2"><img src="https://www.metal-archives.com/images/9/6/3/8/963835.jpg?1333" loading="lazy" alt="..."></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/albums/Pyny/Cameel_Habib_Habab/963835">Cameel Habib Habab</a></td>
+  <td id="tableHTML_column_4">Pyny</td>
+  <td id="tableHTML_column_5"><a href="https://www.metal-archives.com/bands/Pyny/3540462648">Pyny</a></td>
+  <td id="tableHTML_column_6">Black Metal, 
+Various</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">Single</td>
+  <td id="tableHTML_column_9">00:07:00</td>
+  <td id="tableHTML_column_10">2021-07-30</td>
   <td id="tableHTML_column_11">NA</td>
 </tr>
 </tbody>

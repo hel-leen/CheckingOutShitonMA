@@ -1,53 +1,129 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta  charset="UTF-8"  content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
 <title>New Albums on MA</title>
-<link rel="stylesheet" href="style.css">
 <script src="jquery.min.js">  </script>
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
-<link rel="shortcut icon" type="image/png" href="cat.png"/>
+<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/searchbuilder/1.1.0/js/dataTables.searchBuilder.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/plug-ins/1.10.21/sorting/datetime-moment.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/searchbuilder/1.1.0/css/searchBuilder.dataTables.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" type="image/png" href="cat.png">
 <script>
 let today = new Date(); 
+let thisweek = moment().day("Friday").subtract(8, 'days').format('YYYY-MM-DD');
 today. setHours(new Date().getUTCHours()- 36);
+console.log(thisweek);
 function layoutFunction() {
   if (($( window ).width() )< 800 ) {
-  <!-- $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>"); -->
-	$( "<h3>By release date</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" );
+    <!-- $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>"); -->
+      $( "<h3>By release date</h3>" ).insertBefore( ".new>#tableHTML_header_1:nth-child(1)" );
   } else {
     <!-- $( ".new>td" ).unwrap(); -->
-	$(".new h3").remove();
+      $(".new h3").remove();
   }
 }
 $(function(){
-    $('.release_info').DataTable( {
-	  stateSave: true,
+  $( "<small>Last updated on "+ moment().subtract(1, 'days').format('YYYY-MM-DD') +" UTC.</small>" ).appendTo( "#date" );
+  $('.release_info').DataTable( {
+    stateSave: true,
       "order": [[ 9, "asc" ]],
-      "lengthMenu": [50, 100, 200, 400, "All"],
-      "columnDefs": [
-        { "targets": [ 0,1 ], "searchable": false, "sorting": false },
-      ],
-      "search": { "regex": true},
-      "autoWidth": false
-    });
-    $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
-    let table = $('.release_info').DataTable();
-	setTimeout(function(){ table.draw(false);$('.release_info').fadeIn(); }, 1000);
-	$('.release_info tbody').on( 'dblclick', 'tr', function () {
-	  $(this).toggleClass('selected');
-    } );
-    $('#delete_button').click( function () {
-        table.rows('.selected').remove().draw( false );
-    } );
-    $('.filter,.genrefilter,.paginate_button').click( function() {
-      table.draw(false); 
-    });
-  $("#about").click(function(){
-    $("#project").fadeToggle();
+    "lengthMenu": [50, 100, 200, 400, "All"],
+    "columnDefs": [
+      { "targets": [ 0,1 ], "searchable": false, "sorting": false },
+      { 
+        render: function(data, type) {
+          if (type === 'display') {
+            switch (data) {
+              case 'NA':
+              data = ' ';
+              break;
+            }
+            return data;
+          }
+          return data;
+        },
+        "targets": [ 10,8 ]
+      },
+      { 
+        render: function(data, type) {
+          if (type === 'display') {
+            switch (data) {
+              case 'NA':
+              data = 'Independent';
+              break;
+            }
+            return data;
+          }
+          return data;
+        },
+        "targets": [ 6]
+      },
+    ],
+    "search": { "regex": true},
+    "autoWidth": false,
+    language: {
+      searchPlaceholder: "Search for albums or bands..",
+      search: "_INPUT_",
+      searchBuilder: {
+        add: '+',
+        deleteTitle: 'Delete',
+        data: 'date',
+        leftTitle: 'Left',
+        rightTitle: 'Right',
+        title: {
+          0: ' Date filter',
+          1: ' Date filter (%d)',
+            _: ' Date filters (%d)'
+        },
+        value: 'Date pickers',
+      }
+    },
+    buttons:[
+      'searchBuilder'
+    ],
+    dom: 'Qlfrtip',
+    searchBuilder: {
+      preDefined: {
+        criteria:[
+          {
+            condition: '>',
+            data: 'ReleaseDate',
+            value: [thisweek]
+          }
+        ],
+        logic: 'AND'
+      },
+      columns: [9]
+    }
   });
- $(window).resize(function() {
-    table.draw(false );
-});
+    setTimeout(function(){ table.draw(false);$('.filterSection').css({opacity: 0.0}).animate({opacity: 1.0,"height":"fit-content"}); }, 1000);
+    setTimeout(function(){ table.draw(false);$('.dataTables_wrapper').css({opacity: 0.0}).animate({opacity: 1.0}); }, 1500);
+    setTimeout(function(){$('.release_info,#date').animate({ height: "toggle", opacity: "toggle" }, "slow"); }, 2500);
+    let table = $('.release_info').DataTable();
+    $('.release_info tbody').on( 'dblclick', 'tr', function () {
+      $(this).toggleClass('selected');
+    } );
+      $('#delete_button').click( function () {
+        table.rows('.selected').remove().draw( false );
+		table.state.save();
+      } );
+    $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change( function() {
+      table.draw(); 
+    });
+    $(".note>b,.note>a").click(function(){
+	  $(".note>b i" ).toggleClass("fa-caret-right fa-caret-down");
+      $(".note>a").animate({height: "toggle",opacity: "toggle"}, "fast");
+      $(".note>div:not(:nth-last-of-type(0))").animate({ height: "toggle", opacity: "toggle" }, "slow");
+    });
+    $(window).resize(function() {
+      table.draw(false );
+    });
   $('.genrefilter').first().change(function() {
     if($(this).is(':not(:checked)') && $('.genrefilter').length > 0) {
       alert('I hope you improve your taste');
@@ -55,8 +131,24 @@ $(function(){
     }
   });
 });
-$(document).on('click', '.filter,.genrefilter,.paginate_button', function() {
+$(document).on('click', '.paginate_button', function() {
 	$("body,html").animate({scrollTop: $("table thead").offset().top-5 }, 800); 
+});
+$(document).on('click', '#reset', function() {
+	<!-- $('.release_info').DataTable().draw(); -->
+	<!-- $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'}); -->
+	$('#Fulllength').prop('checked',false);
+	$('#Reissue').prop('checked',true);
+	$('#genre-options option[value=black]').prop('selected',true);
+	$('#genre-options option[value=death]').prop('selected',true);
+	$('#genre-options option:eq(2)').prop( "selected", false );
+	$('.release_info').DataTable().searchBuilder.rebuild( { criteria:[ {condition: '>', data: 'ReleaseDate', value: [thisweek]} ],logic: 'AND' });
+	
+});
+$(document).on('click', '#today', function() {
+	<!-- $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'}); -->
+	$('.release_info').DataTable().searchBuilder.rebuild( { criteria:[ {condition: '>', data: 'ReleaseDate', value: [moment().subtract(1, 'days').format('YYYY-MM-DD')]} ],logic: 'AND' });
+	
 });
 $.fn.dataTable.ext.search.push(
   function( settings, data, dataIndex ) {
@@ -64,9 +156,10 @@ $.fn.dataTable.ext.search.push(
     let type =  data[7]; 
     let date =  new Date(data[9].replace(/-/g,'/'));
     let version =  data[10]; 
-    if (  ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) || ($('#black').is(':not(:checked)') && genre.indexOf('black') > -1  && genre.indexOf('death') < 0 ) || ($('#death').is(':not(:checked)') && genre.indexOf('death') > -1  && genre.indexOf('black') < 0 ) || ($('#other').is(':not(:checked)') && (genre.indexOf('black') < 0  && genre.indexOf('death') < 0 )) )
+    let genres = $( "#genre-options" ).val() || [];
+    if (  ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0 ) || ($('#Upcoming').is(':checked') && date < today ) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 ) )
     {return false;}
-    return true;
+    return (genre.search("(".concat(genres.join( "|" ),")"))  > -1);
   }
 );
 $(window).resize(function() {
@@ -75,70 +168,56 @@ $(window).resize(function() {
 window.onscroll = (function() {
   if ($(window).width() >= 800 ) {
     let scrollY= $(window).scrollTop();
-    if (scrollY<0) {layoutFunction();}
-    if ( scrollY > $(window).height()*.5 && $('tr:hover').length > 0) {
+    if ( scrollY > $(window).height()*.4 && $('tr:hover').length > 0) {
       $("#header").css("font-size", "1.5em");
     } else {
       $("#header").css("fontSize", "2em");
     }}
 });
-</script> 
-<style>
+</script><style>
 </style>
- </head>
+</head>
+
 <body> 
-<h1 class="glow" id="header">New albums on MA &nbsp;</h1>
+<h1 class="glow" id="header">New albums on MA  </h1>
 <div class="sidenav"><a href="../" id="home">Home</a></div>
-<div class='contentWrapper'>
-<h3>All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/">R</a>.</h3>
+<h4 style="margin: .5em 1%;">All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/">R</a>.</h4>
+<p  id="date" style="margin: .5em 1%;"></p>
+<div class="contentWrapper">
 
-<div><p class='note'><b>NOTE:</b><br> The last column "EarliestDate" stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while the value "NA" indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-release albums.
-<br>The column "BandPage" only shows links of the first band in case of a split or compilation.
-<br><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> will be shown if the album doesn't have any cover(!?).
-<br>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right. 
-<br>The page is RAM-eating while loading the big bunch of covers. Good luck!<br>&nbsp;</p> 
-
-<p class='note' id='date'></p>
+<div class="note">
+<b>NOTE <i class="fa fa-caret-right"></i></b>
+<a> Click to read tips.</a>
+<div class="hideItem">
+<p> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while empty value in the column indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</p>
+<p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p>
+<p><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> means the album doesn't have any cover(!?).</p>
+<p>In "Date filter", the default condition is release date after (including) last Friday. You can also click <button id="today">here</button> to filter it from today (in your timezone) onwards. Or use "<b>Reset</b>" to restore default settings.</p>
+<p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right, gone. It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</p>
+<!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
+</div>
+<u class="breaker"> <br></u>
 </div>
 <li class="filterSection">
-<strong>Filters:&nbsp;</strong>
+<strong>Reset:   </strong><button id="reset">Reset filter</button>
+</li>
+<li class="filterSection">
+<strong>Types: </strong>
 <div class="checkholder">
-<label class="checkcontainer">Today onwards
-<input class="filter" id="Upcoming" type="checkbox" checked="checked"> 
-<span class="checkmark"></span></label>
 <label class="checkcontainer">No Reissue
-<input class="filter" id="Reissue" type="checkbox" checked="checked"> 
-<span class="checkmark"></span></label>
+<input class="filter" id="Reissue" type="checkbox" checked><span class="checkmark"></span></label>
 <label class="checkcontainer">Full-length only
-<input class="filter" id="Fulllength" type="checkbox"> 
-<span class="checkmark"></span></label>
+<input class="filter" id="Fulllength" type="checkbox"><span class="checkmark"></span></label>
 </div>
 </li>
 <li class="filterSection">
-<strong>Genre:&nbsp;</strong>
-<div class="checkholder">
-<label class="checkcontainer">Black metal
-<input class="genrefilter" id="black" type="checkbox" checked="checked"> 
-<span class="checkmark"></span></label>
-<label class="checkcontainer">Death metal
-<input class="filter" id="death" type="checkbox" checked="checked"> 
-<span class="checkmark"></span></label>
-<label class="checkcontainer">Other
-<input  class="filter" id="other" type="checkbox" checked="checked"> 
-<span class="checkmark"></span></label>
+<strong>Genre:  </strong>
+<div class="filter-holder" id="genre-filter">
+  <select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
+<option selected value="death">Death Metal</option>
+<option value="^((?!(black|death)).)*$">Other</option></select>
 </div>
 </li>
-<p class="breaker"><br></p>
-<div>
-<p> </p>
-</div>
-<div id="includedTable">
-
-
-</div>
-</div>
-<div id="includedContent"></div>
-  
 
 <!-- </body>  -->
 <!-- </html> -->

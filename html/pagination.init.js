@@ -9,6 +9,7 @@ $(function(){
     $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
     let table = $('#toplist').DataTable();
 	// table.draw(); 
+	setTimeout(function(){ table.draw(false);$('.dataTables_wrapper,.filterSection').css({opacity: 0.0}).animate({opacity: 1.0}); }, 1000); 
 	setTimeout(function(){ table.draw(false);$('#toplist').fadeIn(); }, 2000);
 	// $('#toplist tbody').on( 'dblclick', 'tr', function () {
 	  // $(this).toggleClass('selected');
@@ -37,9 +38,9 @@ $.fn.dataTable.ext.search.push(
     let year =  Number(data[6].match(/\d{4}/i).toString()); 
     let genre =  data[4].toLowerCase(); 
     let continent =  data[11]; 
-    let genres = $( "#genres" ).val() || [];
-    let regions = $( "#regions" ).val() || [];
-    let years = $( "#years" ).val() || [];
+    let genres = $( "#genre-options" ).val() || [];
+    let regions = $( "#region-options" ).val() || [];
+    let years = $( "#year-options" ).val() || [];
 	let yearsMin = [];
 	let yearsMax = [];
 	years.forEach(function (item) {
