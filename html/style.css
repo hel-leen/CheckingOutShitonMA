@@ -408,25 +408,26 @@ a {
 }
 
 .note {
-  margin: 1em 0;
+  /* margin: 1em 0; */
   text-align: justify;
   font-size: .9em;
+    padding-bottom: .4em;
   border-bottom:1px dashed rgba(222,222,222,.4)
 }
 
 .note>b {
-  margin: .5em -1%;
+  margin: .5em 0%;
   cursor: pointer;
 }
 
 .note>a {
-  display:block;
-  padding:1em 0;
-  cursor: pointer;
+    display: inline-flex;
+    margin-left: .5em;
+    cursor: pointer;
 }
 
 .note>div>p {
-  margin: .5em 0;
+  margin: .5em .9em;
   display: list-item;
   list-style: inside lower-greek;
 }
