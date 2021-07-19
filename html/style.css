@@ -411,7 +411,7 @@ a {
   /* margin: 1em 0; */
   text-align: justify;
   font-size: .9em;
-    padding-bottom: .4em;
+  padding-bottom: .4em;
   border-bottom:1px dashed rgba(222,222,222,.4)
 }
 
@@ -1174,6 +1174,7 @@ td {
 }
 
 #today:active {
+  color:#fed;
   background: #555;
   box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
   transform: translateY(1px);
@@ -1202,12 +1203,20 @@ td {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
 }
 
+
 button#reset:active {
+  color:#fed;
   background: #555;
   box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
   transform: translateY(1px);
 }
 
+#Reset {
+  cursor: pointer;
+}
+#Reset:active {
+  color:#fed
+}
 input {
   box-sizing: border-box;
 }
