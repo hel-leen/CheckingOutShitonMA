@@ -1,6 +1,6 @@
 <!DOCTYPE html><html>
 <head>
-<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+<meta lang = "en" charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
 <title>New Albums on MA</title>
 <script src="jquery.min.js">  </script>
 <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" type="image/png" href="cat.png">
-
 </head>
 
 <body> 
@@ -38,7 +37,7 @@
 <li class="filterSection">
 <strong>Date:  </strong>
 <div class="filter-holder" id="date-filter">
- <p><input id="datecondition" type="text" value="After"><input id="datepicker" type="text" ></p>
+ <p><input id="datecondition" type="text" value="After"><input id="datepicker" type="text"></p>
 </div>
 </li>
 <li class="filterSection">
