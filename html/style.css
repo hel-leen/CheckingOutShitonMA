@@ -881,8 +881,10 @@ table ::-webkit-scrollbar {
 .release_info td {
   padding: 0.75em 0.15em 0.75em 0.15em;
   border-top: 1px solid #666;
-  overflow: overlay;
   text-overflow: ellipsis;
+}
+.release_info td:not(:nth-child(1)) {
+  overflow: overlay;
 }
 
 .release_info tr {
@@ -1157,7 +1159,7 @@ iframe {
 }
 
 td {
-  width: 100%;
+  max-width: 100%;
 }
 
 .Genre {
@@ -1188,6 +1190,7 @@ td {
   border-radius: 4px;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 2px 8px 0 rgba(0, 0, 0, 0.19);
 }
+
 
 #reset {
   position: absolute;
@@ -1220,7 +1223,49 @@ button#reset:active {
 input {
   box-sizing: border-box;
 }
-
+#date-filter p {
+    position: absolute;
+    left: 6.9em;
+    /* top: 0.1em; */
+    font-size: 0.8em;
+}
+#datepicker, #datecondition {
+	/* position: absolute; */
+    padding: 2px 6px;
+    /* margin-top: 1px; */
+    height: 100%;
+	width: 7.7em;
+    /* font-size: .8em; */
+    border-radius: 3px;
+    /* border: 1px solid rgba(166,166,166,.6); */
+    /* background: transparent; */
+	background: rgba(66,66,66,.9);
+    color: #fed;
+	margin: 0 2px;
+}
+#datecondition {
+	text-align: center;
+	width: 5em;
+    /* font-size: .9em; */
+	color:transparent;
+	text-shadow: 0px 0px 1px #9b9;
+  cursor: pointer;
+}
+.dt-datetime-table th {
+    font-size: .9em;
+}
+div.dt-datetime table td.selectable button {
+    padding: 8px 10px;
+    width: 100%;
+    border-radius: 2px;
+    background: #333;
+    color: white;
+    border: none;
+    font-size: .8em;
+}
+div.dt-datetime-label span {
+    font-size: .9em;
+}
 .searchBox,
 .dataTables_filter {
   width: 100%;
@@ -1372,6 +1417,7 @@ p {
   }
 
   .release_info {
+	font-size:.85em;
     justify-items: center;
     text-align: center;
     line-height: 2.2;
@@ -1458,7 +1504,9 @@ p {
     border: 2px solid rgba(66, 66, 66, .4);
     box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.44), 0 7px 15px 0 rgba(0, 0, 0, 0.39);
   }
-
+#datepicker, #datecondition {
+    font-size: .9em;
+}
   .filter-holder select,
   #glossary p {
     left: 80px;
