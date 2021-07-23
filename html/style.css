@@ -449,6 +449,7 @@ a {
     margin: 0.8em 0 0 -1.8%;
     position: relative;
     vertical-align: middle;
+    /* overflow-x: hidden; */
 }
 
 ul {
@@ -756,7 +757,7 @@ div.dt-datetime-iconDown button {
     padding: 12px 0;
     position: -webkit-sticky;
     position: sticky;
-    bottom: 40px;
+    bottom: 3em;
     z-index: 555;
 }
 
@@ -776,7 +777,7 @@ div.dt-datetime-iconDown button {
     color: #fed;
 }
 
-button#delete_button {
+#delete_button {
     position: fixed;
     right: -80px;
     bottom: 1em;
@@ -1161,7 +1162,7 @@ iframe {
 
 #toplist td:not(:nth-child(5)) {
     line-height: 2.2;
-    white-space: nowrap;
+    /* white-space: nowrap; */
 }
 
 td {
@@ -1171,7 +1172,7 @@ td {
 .Genre {
     overflow-y: overlay;
     text-overflow: ellipsis;
-    height: 56px;
+    height: 3.3em;
     line-height: 1.8;
     white-space: pre;
 }
@@ -1236,7 +1237,7 @@ input {
     position: absolute;
     left: 6.9em;
     font-size: 0.8em;
-	width: 100%;
+	/* width: 100%; */
 }
 
 #datepicker,
@@ -1406,7 +1407,7 @@ p {
 
 @media(max-width: 800px) {
 
-    /* :root{font-size: 95%} */
+    :root{font-size: 95%}
     ::-webkit-scrollbar {
         width: 4px;
     }
@@ -1432,8 +1433,14 @@ p {
 
     .entry {
         max-width: 400px;
-        min-width: 350px;
+        min-width: 100%;
     }
+	.entry img {
+    width: 90%;
+  height: auto;
+  max-width: 350px;
+  object-fit: contain;
+}
 
     a#home:hover {
         font-size: .7em;
@@ -1442,6 +1449,14 @@ p {
         width: 36px;
         height: 36px;
     }
+	.contentWrapper {
+  /* overflow: hidden; */
+}
+
+ 
+	.content-wrapper {
+  /* overflow: hidden; */
+}
 
     .filterSection,
     div.dtsb-searchBuilder div.dtsb-titleRow {
@@ -1470,7 +1485,8 @@ p {
 
     .release_info td {
         display: grid;
-        padding: 1em;
+        padding: .8em;
+	    line-height: 1.5;
         border: 1px solid rgba(66, 66, 66, .4);
     }
 
@@ -1559,3 +1575,8 @@ p {
     .dataTables_info {
         font-size: .77em;
     }
+	
+	.dataTables_paginate {
+        font-size: .77em;
+	}
+}

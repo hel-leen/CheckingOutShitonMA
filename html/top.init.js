@@ -5,6 +5,13 @@ $(function() {
         "search": {
             "regex": true
         },
+        language: {
+            searchPlaceholder: "Search for albums or bands..",
+            search: "_INPUT_",
+			info: "( _START_ - _END_ ) / _TOTAL_ ",
+			infoEmpty:  "0 entry",
+			infoFiltered:  " [ Total: _MAX_ ]"
+        },
     });
     $("#toplist").attr("placeholder", "Search for albums or bands..");
     $("toplist_length").wrap("<div class='main-container'></div>");
@@ -41,6 +48,7 @@ $(function() {
         $("#glossary strong i").toggleClass("fa-caret-right fa-caret-down");
     });
     // $('.filter').attr("checked", true);
+	$.fn.DataTable.ext.pager.numbers_length = 6;
 });
 $(document).on('click', 'a.paginate_button', function() {
     $("body,html").animate({

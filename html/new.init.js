@@ -32,6 +32,7 @@ $(function() {
             // data.search.search = "";  
         },
         // "order": [[ 9, "asc" ]],  
+		// "pagingType": "simple ",
         "lengthMenu": [50, 100, 200, 400, "All"],
         "columnDefs": [{
                 "targets": [0, 1],
@@ -74,6 +75,9 @@ $(function() {
         language: {
             searchPlaceholder: "Search for albums or bands..",
             search: "_INPUT_",
+			info:           "( _START_ - _END_ ) / _TOTAL_ ",
+			infoEmpty:      "0 entry",
+			infoFiltered:   " [ Total: _MAX_ ]"
             // searchBuilder: {
                 // add: '+',
                 // deleteTitle: 'Delete',
@@ -159,6 +163,7 @@ $(function() {
             $("#black").attr("class", "filter");
         }
     });
+	$.fn.DataTable.ext.pager.numbers_length = 5;
 });
 $(document).on('click', '.paginate_button', function() {
     $("body,html").animate({
@@ -210,7 +215,6 @@ $.fn.dataTable.ext.search.push(
         } else {
             dateset = eval(date < $("#datepicker").val());
         }
-        // console.log(date,dateset);  
         if (($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0)) {
             return false;
         }
@@ -218,6 +222,7 @@ $.fn.dataTable.ext.search.push(
         // return true;  
     }
 );
+
 $(window).resize(function() {
     // layoutFunction();  
 })
