@@ -1,10 +1,10 @@
 // let today = new Date();
 let today = moment().subtract(0, 'days').format('YYYY-MM-DD');
 var thisweek;
-if (moment().day() > 5) {
-  thisweek = moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
-} else {
+if (moment().day() >= 5) {
   thisweek = moment().day(5).subtract(0, 'days').format('YYYY-MM-DD');
+} else {
+  thisweek = moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 }
 // today. setHours(new Date().getUTCHours()- 36);  
 console.log(moment().day());
