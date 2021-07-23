@@ -1,10 +1,9 @@
 <!DOCTYPE html><html lang = "en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta lang="en" charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
 <title>New Albums on MA</title>
-<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script><script type="text/javascript" language="javascript" src="new.init.js"></script><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="style.css">
+<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script><script type="text/javascript" language="javascript" src="new.init.js"></script><link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" type="image/png" href="cat.png">
 </head>
 
@@ -20,7 +19,7 @@
 <p> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while empty value in the column indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</p>
 <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p>
 <p><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> means the album doesn't have any cover(!?).</p>
-<p>In "Date filter", the default condition is release date after (including) last Friday. You can also click <button id="today">here</button> to filter it from today (in your timezone) onwards. Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
+<p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
 <p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right, gone. It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</p>
 <!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
 </div>
@@ -33,7 +32,7 @@
 <li class="filterSection">
 <strong>Date:  </strong>
 <div class="filter-holder" id="date-filter">
- <p><input id="datecondition" type="text" value="After"><input id="datepicker" type="text"></p>
+ <p><input id="datecondition" type="text" value="After"><input id="datepicker" type="text"><i id="dateclear" class="fa fa-times-circle"></i></p>
 </div>
 </li>
 <li class="filterSection">

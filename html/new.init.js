@@ -24,6 +24,7 @@ $(function() {
     $('#datepicker').dtDateTime();
     $('.release_info').DataTable({
         stateSave: true,
+		"stateDuration": 60 * 60 * 6,
         "stateSaveParams": function(settings, data) {
             data.order = [
                 [9, "asc"]
@@ -73,23 +74,23 @@ $(function() {
         language: {
             searchPlaceholder: "Search for albums or bands..",
             search: "_INPUT_",
-            searchBuilder: {
-                add: '+',
-                deleteTitle: 'Delete',
-                data: 'date',
-                leftTitle: 'Left',
-                rightTitle: 'Right',
-                title: {
-                    0: ' Date filter',
-                    1: ' Date filter (%d)',
-                    _: ' Date filters (%d)'
-                },
-                value: 'Date pickers',
-            }
+            // searchBuilder: {
+                // add: '+',
+                // deleteTitle: 'Delete',
+                // data: 'date',
+                // leftTitle: 'Left',
+                // rightTitle: 'Right',
+                // title: {
+                    // 0: ' Date filter',
+                    // 1: ' Date filter (%d)',
+                    // _: ' Date filters (%d)'
+                // },
+                // value: 'Date pickers',
+            // }
         },
-        buttons: [
-            'searchBuilder'
-        ],
+        // buttons: [
+            // 'searchBuilder'
+        // ],
         // dom: 'Qlfrtip',  
         // searchBuilder: {  
         // preDefined: {  
@@ -134,7 +135,6 @@ $(function() {
     });
     $('#delete_button').click(function() {
         table.rows('.selected').remove().draw(false);
-        table.state.save();
     });
     $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function() {
         table.draw();
@@ -148,7 +148,7 @@ $(function() {
         $(".note>div:not(:nth-last-of-type(0))").animate({
             height: "toggle",
             opacity: "toggle"
-        }, "slow");
+        }, "fast");
     });
     $(window).resize(function() {
         table.draw(false);
@@ -165,7 +165,7 @@ $(document).on('click', '.paginate_button', function() {
         scrollTop: $("table thead").offset().top - 5
     }, 800);
 });
-$(document).on('click', '#reset,#Reset', function() {
+$(document).on('click', '#reset, #Reset', function() {
     // $('.release_info').DataTable().draw();  
     // $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'});  
     $('#Fulllength').prop('checked', false);
@@ -176,14 +176,6 @@ $(document).on('click', '#reset,#Reset', function() {
     $("#datecondition").val("After");
     $("#datepicker").val(thisweek);
     $('.release_info').DataTable().column('9:visible').order('asc').draw(true);
-    // $('.release_info').DataTable().searchBuilder.rebuild( { criteria:[ {condition: '>', data: 'ReleaseDate', value: [thisweek]} ],logic: 'AND' });  
-
-});
-$(document).on('click', '#today', function() {
-    // $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'});  
-    // $('.release_info').DataTable().searchBuilder.rebuild( { criteria:[ {condition: '>', data: 'ReleaseDate', value: [moment().subtract(1, 'days').format('YYYY-MM-DD')]} ],logic: 'AND' });  
-    $("#datepicker").val(today);
-    $('.release_info').DataTable().draw();
 });
 $(document).on('click', '#datecondition', function() {
     if ($(this).val() == "After") {
@@ -195,6 +187,15 @@ $(document).on('click', '#datecondition', function() {
         $(this).css("text-shadow", "0px 0px 1px #9b9");
         $('.release_info').DataTable().column('9:visible').order('asc').draw(true);
     }
+});
+$(document).on('click', '#today', function() {
+    // $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'});  
+    $("#datepicker").val(today);
+    $('.release_info').DataTable().draw();
+});
+$(document).on('click', '#dateclear', function() {
+    $("#datepicker").val("");
+    $('.release_info').DataTable().draw();
 });
 $.fn.dataTable.ext.search.push(
     function(settings, data, dataIndex) {

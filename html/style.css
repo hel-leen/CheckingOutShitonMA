@@ -1,5 +1,7 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400&family=Mulish:wght@300&family=Playfair+Display:wght@600&family=Cinzel:wght@800&family=Pirata+One&display=swap');
 
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 html {
     background-color: #333;
     color: #eee;
@@ -1233,35 +1235,45 @@ input {
 #date-filter p {
     position: absolute;
     left: 6.9em;
-    /* top: 0.1em; */
     font-size: 0.8em;
+	width: 100%;
 }
 
 #datepicker,
 #datecondition {
-    /* position: absolute; */
-    padding: 2px 6px;
-    /* margin-top: 1px; */
+    padding: 3px 6px;
     height: 100%;
-    width: 7.7em;
-    /* font-size: .8em; */
+    width: 7em;
     border-radius: 3px;
-    /* border: 1px solid rgba(166,166,166,.6); */
-    /* background: transparent; */
     background: rgba(66, 66, 66, .9);
-    color: #fed;
+    color: transparent;
+    text-align: center;
+    text-shadow: 0px 0px 1px #fed;
     margin: 0 2px;
     cursor: pointer;
 }
 
 #datecondition {
-    text-align: center;
     width: 5em;
-    /* font-size: .9em; */
-    color: transparent;
     text-shadow: 0px 0px 1px #9b9;
 }
 
+#dateclear {
+    color: gray;
+	margin: 0 2px;
+    cursor: pointer;
+	font-size: 1.2em;
+	opacity:.2;
+	/* margin-left: -1.3em; */
+}
+#dateclear:hover,
+#dateclear:focus,
+#dateclear:active {
+	opacity:1;
+}
+#dateclear:active {
+	transform: translateY(1px);
+}
 .dt-datetime-table th {
     font-size: .9em;
 }
