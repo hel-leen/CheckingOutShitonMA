@@ -30,12 +30,11 @@ $(function() {
     table.draw(false);
     $('#toplist').fadeIn();
   }, 2000);
-  // $('#toplist tbody').on( 'dblclick', 'tr', function () {
-  // $(this).toggleClass('selected');
-  // } );
-  // $('#delete_button').click( function () {
-  // table.rows('.selected').remove().draw( false );
-  // } );
+  if (($(window).width()) < 800) {
+    $.fn.DataTable.ext.pager.numbers_length = 5;
+  } else {
+    $.fn.DataTable.ext.pager.numbers_length = 15;
+  }
   $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function() {
     table.draw();
   });
@@ -48,7 +47,6 @@ $(function() {
     $("#glossary strong i").toggleClass("fa-caret-right fa-caret-down");
   });
   // $('.filter').attr("checked", true);
-  $.fn.DataTable.ext.pager.numbers_length = 6;
 });
 $(document).on('click', 'a.paginate_button', function() {
   $("body,html").animate({

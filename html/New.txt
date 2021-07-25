@@ -1,13 +1,9 @@
-<!DOCTYPE html><html>
+<!DOCTYPE html><html lang = "en">
 <head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
 <title>New Albums on MA</title>
-<script src="jquery.min.js">  </script>
-<script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
-<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
-<script type="text/javascript" language="javascript" src="new.init.js"></script>
-<link rel="stylesheet" href="style.css">
+<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script><script type="text/javascript" language="javascript" src="new.init.js"></script><link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" type="image/png" href="cat.png">
 </head>
 
@@ -30,13 +26,18 @@
 <u class="breaker"> <br></u>
 </div>
 <div class="contentWrapper">
+<u class="breaker"> <br></u>
 <li class="filterSection">
-<strong>Reset:   </strong><button id="reset">Reset filter</button>
+<strong>Reset:   </strong> 
+<div class="filter-holder" id="reset-filter">
+ <p>
+<button id="reset">Default</button><button id="all">Show all</button> </p>
+</div>
 </li>
 <li class="filterSection">
 <strong>Date:  </strong>
 <div class="filter-holder" id="date-filter">
- <p><input id="datecondition" type="text" value="After"><input id="datepicker" type="text"><i  id="dateclear" class="fa fa-times-circle"></i></p>
+ <p><input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="fa fa-times-circle"></i></p>
 </div>
 </li>
 <li class="filterSection">
@@ -45,6 +46,12 @@
   <select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
 <option selected value="death">Death Metal</option>
 <option value="^((?!(black|death)).)*$">Other</option></select>
+</div>
+</li>
+<li class="filterSection">
+<strong>Label:  </strong>
+<div class="filter-holder" id="label-filter" placeholder="Select label.."> 
+<p><i id="labelclear" class="fa fa-times-circle"></i> </p>
 </div>
 </li>
 <li class="filterSection">
