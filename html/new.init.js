@@ -67,7 +67,7 @@ $(function() {
           if (type === 'display') {
             switch (data) {
               case 'NA':
-                data = 'Unknown	';
+                data = '<i>Unknown</i>';
                 break;
             }
             return data;
@@ -81,7 +81,7 @@ $(function() {
           if (type === 'display') {
             switch (data) {
               case 'NA':
-                data = '<small>Independent</small>';
+                data = '<i>Independent</i>';
                 break;
               default:
                 data = '<div class="grid_item"><div class="flex_item"> ' +
