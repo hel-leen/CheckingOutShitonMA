@@ -1542,7 +1542,7 @@ p {
 @media(max-width: 767px) {
 
   :root {
-    font-size: 100%;
+    font-size: 110%;
   }
 
   ::-webkit-scrollbar {
