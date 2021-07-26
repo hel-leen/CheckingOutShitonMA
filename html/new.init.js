@@ -9,16 +9,40 @@ if (moment().day() >= 5) {
 // today. setHours(new Date().getUTCHours()- 36);  
 console.log(moment().day());
 
-function layoutFunction() {
-  if (($(window).width()) < 800) {
-    // $( "tr>td, tr>#tableHTML_header_1" ).wrap( "<div class='new'></div>");  
-    // $("<h3>Sorting by release date</h3>").insertBefore("#tableHTML_header_1:nth-child(1)");
-    $.fn.DataTable.ext.pager.numbers_length = 5;
-  } else {
-    // $( ".new>td" ).unwrap();  
-    // $("h3").remove();
+let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
+let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
+const maLink = q => '' + '<a href="' + q.match(hreflink) +
+  '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
+const searchLink = q => (($(window).width()) >= 800) ? '' +
+  '<a href="https://bandcamp.com/search?q=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  '<a href="https://www.youtube.com/results?search_query=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  '<a href="https://open.spotify.com/search/' +
+  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
+  '<a href="https://bandcamp.com/search?q=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  '<a href="https://www.youtube.com/results?search_query=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  '<a href="https://open.spotify.com/search/' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
+
+console.log(searchLink('x'));
+jQuery.fn.extend({
+  check: function() {
+    return this.each(function() {
+      this.checked = true;
+      this.selected = true;
+    });
+  },
+  uncheck: function() {
+    return this.each(function() {
+      this.checked = false;
+      this.selected = false;
+    });
   }
-}
+});
+
 $(function() {
   $("<small>Last updated on " + moment().subtract(1, 'days').format('YYYY-MM-DD') + " UTC.</small>").appendTo("#date");
   $("#datepicker").val(thisweek);
@@ -31,7 +55,9 @@ $(function() {
         [7, "asc"]
       ];
     },
-    "order": [[ 7, "asc" ]],  
+    "order": [
+      [7, "asc"]
+    ],
     "lengthMenu": [50, 100, 200, 400, "All"],
     "columnDefs": [{
         "targets": [0],
@@ -57,13 +83,13 @@ $(function() {
           if (type === 'display') {
             switch (data) {
               case 'NA':
-                data = 'Independent';
+                data = '<small>Independent</small>';
                 break;
-				default:
-				data = '<div class="ddd"><div> ' +
-                data + '<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
-                data + '" target="_blank" rel="noopener noreferrer">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
-                data+ '" target="_blank" rel="noopener noreferrer">Youtube</a></div></div></div>'
+              default:
+                data = '<div class="grid_item"><div class="flex_item"> ' +
+                  data + '<div class="dropdown"><a href="https://bandcamp.com/search?q=' +
+                  data + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a><a href="https://www.youtube.com/results?search_query=' +
+                  data + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a></div></div></div>';
             }
             return data;
           }
@@ -76,28 +102,28 @@ $(function() {
           if (type === 'display') {
             let genre_col = [];
             data.split(" | ").forEach(function(item) {
-              genre_col.push( '<div class="ddd"> ' +
-                item.replace(/(?<=[,;])\s/g," \n") + '</div>');
+              genre_col.push('<div class="grid_item"><div class="flex_item">' +
+                item.replace(/(?<=[,])\s/g, " <wbr>").replace(/\//g, "/<wbr>").replace(/(?<=[;])\s/g, " <br>") + '</div></div>');
             });
-            return  '<div class="grid_wrapper">'.concat(genre_col.join(''),'</div>');
+            return '<div class="grid_wrapper">'.concat(genre_col.join(''), '</div>');
           }
           return data;
         },
         "targets": [3]
       },
       {
-        render: function(data, type) {//rendering band
+        render: function(data, type) { //rendering band
           if (type === 'display') {
             let band_col = [];
             data.split(" / ").forEach(function(item) {
-              band_col.push( '<div class="ddd"><div class="dddd"> ' +
-                item.replace(/\"\>/g,'" target="_blank" rel="noopener noreferrer">')  + 
-'<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g)+ '" target="_blank" rel="noopener noreferrer">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '" target="_blank" rel="noopener noreferrer">Youtube</a><a href="https://open.spotify.com/search/' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '/artists" target="_blank" rel="noopener noreferrer">Spotify</a></div></div></div>');
+              band_col.push('<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
+                item.match(hreftext) + '</a>' +
+                '<div class="dropdown">' +
+                maLink(item) +
+                searchLink(item).replace(/\/spotify\"/g, '/artists"') +
+                '</div></div></div>');
             });
-            return  '<div class="grid_wrapper">'.concat(band_col.join(''),'</div>');
+            return '<div class="grid_wrapper">'.concat(band_col.join(''), '</div>');
           }
           return data;
         },
@@ -108,41 +134,19 @@ $(function() {
           if (type === 'display') {
             let album_col = "";
             data.split(".*").forEach(function(item) {
-              album_col += '<div class="ddd"><div class="dddd"> ' +
-                item.replace(/(?<=[,:\.])\s/g,"<br>").replace(/\s(?=[(])/g," <br>").replace(/\"\>/g,'" target="_blank" rel="noopener noreferrer">') + '<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '" target="_blank" rel="noopener noreferrer">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '" target="_blank" rel="noopener noreferrer">Youtube</a><a href="https://open.spotify.com/search/' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '/albums" target="_blank" rel="noopener noreferrer">Spotify</a></div></div></div>' + "";
+              album_col += '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
+                item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, "<br>").replace(/\s(?=[(])/g, " <br>").replace(/\//g, "/<wbr>") + '</a>' +
+                '<div class="dropdown">' +
+                maLink(item) +
+                searchLink(item).replace(/\/spotify\"/g, '/albums"') +
+                '</div></div></div>' + "";
             });
-            return  '<div class="grid_wrapper">'.concat(album_col,'</div>');
+            return '<div class="grid_wrapper">'.concat(album_col, '</div>');
           }
           return data;
         },
         "targets": [1]
       },
-      // {
-        // "render": function ( data, type, row )  { //rendering albums
-		 // let album_col = [];
-            // data.split(" / ").forEach(function(item) {
-              // album_col.push( '<div class="ddd"><div class="dddd"> ' +
-                // item + '<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
-                // item.match(/(?<=\>).*(?=\<\/a\>)/g)+ '">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
-                // item.match(/(?<=\>).*(?=\<\/a\>)/g) + '">Youtube</a><a href="https://open.spotify.com/search/' +
-                // item.match(/(?<=\>).*(?=\<\/a\>)/g) + '/artists">Spotify</a></div></div></div>');
-            // });
-			// let genre_col = [];
-			// row[3].split(" | ").forEach(function(item) {
-				// genre_col.push( '<div class="genre_col">' +item +'</div>');
-			// });
-			
-			// comb_col = album_col.map((e, i) => e + genre_col[i])
-            // return '<div class="grid_wrapper">'.concat(comb_col.join(''),'</div>');
-          // return data;
-        // },
-        // "targets": [2]
-      // },
-	  // { "visible": false,  "targets": [ 3 ] }
-
     ],
     "search": {
       "regex": true
@@ -155,24 +159,24 @@ $(function() {
       infoEmpty: "0 entry",
       infoFiltered: " [ Total: _MAX_ ]"
     },
-		initComplete: function () {
-			this.api().columns(4).every( function () {
-				var column = this;
-				var select = $('<select><option value=""></option></select>')
-					.insertBefore("#label-filter #labelclear")
-					.on( 'change', function () {
-						var val = $.fn.dataTable.util.escapeRegex(
-							$(this).val()
-						);
-						column
-							.search( val ? '^'+val+'$' : '', true, false )
-							.draw();
-					} );
-				column.data().unique().sort().each( function ( d, j ) {
-					select.append( '<option value="'+d+'">'+d+'</option>' )
-				} );
-			} );
-		}
+    initComplete: function() {
+      this.api().columns(4).every(function() {
+        var column = this;
+        var select = $('<select><option value=""></option></select>')
+          .insertBefore("#label-filter #labelclear")
+          .on('change', function() {
+            var val = $.fn.dataTable.util.escapeRegex(
+              $(this).val()
+            );
+            column
+              .search(val ? '^' + val + '$' : '', true, false)
+              .draw();
+          });
+        column.data().unique().sort().each(function(d, j) {
+          select.append('<option value="' + d + '">' + d + '</option>')
+        });
+      });
+    }
   });
   setTimeout(function() {
     table.draw(false);
@@ -239,26 +243,21 @@ $(document).on('click', '.paginate_button', function() {
   }, 800);
 });
 $(document).on('click', '#reset, #Reset', function() {
-  $('#Fulllength').prop('checked', false);
-  $('#Reissue').prop('checked', true);
-  $('#label-filter option:selected').prop("selected", false);
-  $('.release_info').DataTable().columns( 4).search( '').draw();
-  $('#genre-options option[value=black]').prop('selected', true);
-  $('#genre-options option[value=death]').prop('selected', true);
-  $('#genre-options option:eq(2)').prop("selected", false);
+  $("input[type='checkbox']").uncheck();
+  $('select option').uncheck();
+  $("input[type='text']").val("");
+  $('#Reissue').check();
+  $('#genre-options option[value=black], #genre-options option:eq(1)').check();
   $("#datecondition").val("After");
   $("#datepicker").val(thisweek);
+  $('.release_info').DataTable().columns(4).search('').draw();
   $('.release_info').DataTable().column('7:visible').order('asc').draw(true);
 });
 $(document).on('click', '#all', function() {
-  $('#Fulllength').prop('checked', false);
-  $('#Reissue').prop('checked', false);
-  $('#label-filter option:selected').prop("selected", false);
-  $('.release_info').DataTable().columns( 4).search( '').draw();
-  $('#genre-options option[value=black]').prop('selected', true);
-  $('#genre-options option[value=death]').prop('selected', true);
-  $('#genre-options option:eq(2)').prop("selected", true);
-  $("#datepicker").val("");
+  $("input[type='checkbox']").uncheck();
+  $('select option').uncheck();
+  $("input[type='text']").val("");
+  $('.release_info').DataTable().columns(4).search('').draw();
   $('.release_info').DataTable().column('7:visible').order('desc').draw(true);
 });
 $(document).on('click', '#datecondition', function() {
@@ -273,7 +272,6 @@ $(document).on('click', '#datecondition', function() {
   }
 });
 $(document).on('click', '#today', function() {
-  // $(this).animate({opacity: 'toggle'}).animate({ opacity: 'toggle'});  
   $("#datepicker").val(today);
   $('.release_info').DataTable().draw();
 });
@@ -282,25 +280,10 @@ $(document).on('click', '#dateclear', function() {
   $('.release_info').DataTable().draw();
 });
 $(document).on('click', '#labelclear', function() {
-	$('#label-filter option:selected').prop("selected", false);
-  $('.release_info').DataTable().columns( 4).search( '').draw();
-  // $('.release_info').DataTable().draw();
+  $('#label-filter option').prop("selected", false);
+  $('.release_info').DataTable().columns(4).search('').draw();
 });
 
-
-$(window).resize(function() {
-  layoutFunction();  
-})
-window.onscroll = (function() {
-  if ($(window).width() >= 800) {
-    let scrollY = $(window).scrollTop();
-    if (scrollY > $(window).height() * 0.4 && $('tr:hover').length > 0) {
-      $("#header").css("font-size", "1.5em");
-    } else {
-      $("#header").css("fontSize", "2em");
-    }
-  }
-});
 $.fn.dataTable.ext.search.push(
   function(settings, data, dataIndex) {
     let genre = data[3].toLowerCase();
@@ -309,10 +292,12 @@ $.fn.dataTable.ext.search.push(
     let version = data[8];
     let genres = $("#genre-options").val() || [];
     var dateset;
-    if ($("#datecondition").val() == "After") {
+    if ($("#datecondition").val() == "") {
+      dateset = date;
+    } else if ($("#datecondition").val() == "After") {
       dateset = eval(date >= $("#datepicker").val());
     } else {
-      dateset = eval(date < $("#datepicker").val());
+      dateset = eval(date = $("#datepicker").val());
     }
     if (($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0)) {
       return false;
