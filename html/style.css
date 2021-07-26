@@ -1501,7 +1501,7 @@ p {
   border-color: #777;
 }
 
-@media(min-width: 800px) {
+@media(min-width: 768px) {
 
   #tableHTML_column_3,
   #tableHTML_column_4 {
@@ -1539,10 +1539,10 @@ p {
   }
 }
 
-@media(max-width: 800px) {
+@media(max-width: 767px) {
 
   :root {
-    font-size: 95%
+    font-size: 100%;
   }
 
   ::-webkit-scrollbar {
@@ -1594,9 +1594,7 @@ p {
   }
 
 
-  .content-wrapper {
-    /* overflow: hidden; */
-  }
+ 
 
   .filterSection,
   div.dtsb-searchBuilder div.dtsb-titleRow {
@@ -1604,7 +1602,7 @@ p {
   }
 
   .release_info {
-    font-size: .85em;
+    font-size: .88em;
     justify-items: center;
     text-align: center;
     line-height: 2.2;
