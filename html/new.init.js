@@ -13,19 +13,19 @@ let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
 const maLink = q => '' + '<a href="' + q.match(hreflink) +
   '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
-const searchLink = q => (($(window).width()) >= 800) ? '' +
+const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? '' +
   '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-bandcamp"></i></a>' +
   '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-youtube"></i></a>' +
   '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-spotify"></i></a>' : '' +
   '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-bandcamp"></i></a>' +
   '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-youtube"></i></a>' +
   '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
+  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-spotify"></i></a>';
 
 console.log(searchLink('x'));
 jQuery.fn.extend({
@@ -137,7 +137,7 @@ $(function() {
               album_col += '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
                 item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, "<br>").replace(/\s(?=[(])/g, " <br>").replace(/\//g, "/<wbr>") + '</a>' +
                 '<div class="dropdown">' +
-                maLink(item) +
+                maLink(item) + '<hr>' +
                 searchLink(item).replace(/\/spotify\"/g, '/albums"') +
                 '</div></div></div>' + "";
             });
