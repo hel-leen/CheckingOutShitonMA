@@ -6,8 +6,6 @@ if (moment().day() >= 5) {
 } else {
   thisweek = moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 }
-// today. setHours(new Date().getUTCHours()- 36);  
-console.log(moment().day());
 
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
@@ -15,17 +13,17 @@ const maLink = q => '' + '<a href="' + q.match(hreflink) +
   '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
 const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? '' +
   '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-bandcamp"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
   '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-youtube"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
   '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-spotify"></i></a>' : '' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
   '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-bandcamp"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
   '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-youtube"></i></a>' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
   '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-spotify"></i></a>';
+  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
 
 console.log(searchLink('x'));
 jQuery.fn.extend({
