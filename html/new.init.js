@@ -84,8 +84,8 @@ $(function() {
                 data = '<i>Independent</i>';
                 break;
               default:
-                data = '<div class="grid_item"><div class="flex_item"> ' +
-                  data + '<div class="dropdown"><a href="https://bandcamp.com/search?q=' +
+                data = '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
+                  data + '</a><div class="dropdown"><a href="https://bandcamp.com/search?q=' +
                   data + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a><a href="https://www.youtube.com/results?search_query=' +
                   data + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a></div></div></div>';
             }
