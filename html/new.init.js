@@ -53,7 +53,7 @@ $(function() {
         "targets": [8, 6]
       },
       {
-        render: function(data, type) {
+        render: function(data, type) { //label
           if (type === 'display') {
             switch (data) {
               case 'NA':
@@ -62,8 +62,8 @@ $(function() {
 				default:
 				data = '<div class="ddd"><div> ' +
                 data + '<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
-                data + '">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
-                data+ '">Youtube</a></div></div></div>'
+                data + '" target="_blank" rel="noopener noreferrer">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
+                data+ '" target="_blank" rel="noopener noreferrer">Youtube</a></div></div></div>'
             }
             return data;
           }
@@ -72,7 +72,7 @@ $(function() {
         "targets": [4]
       },
       {
-        render: function(data, type) {
+        render: function(data, type) { //genre
           if (type === 'display') {
             let genre_col = [];
             data.split(" | ").forEach(function(item) {
@@ -91,10 +91,11 @@ $(function() {
             let band_col = [];
             data.split(" / ").forEach(function(item) {
               band_col.push( '<div class="ddd"><div class="dddd"> ' +
-                item + '<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g)+ '">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '">Youtube</a><a href="https://open.spotify.com/search/' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '/artists">Spotify</a></div></div></div>');
+                item.replace(/\"\>/g,'" target="_blank" rel="noopener noreferrer">')  + 
+'<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
+                item.match(/(?<=\>).*(?=\<\/a\>)/g)+ '" target="_blank" rel="noopener noreferrer">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
+                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '" target="_blank" rel="noopener noreferrer">Youtube</a><a href="https://open.spotify.com/search/' +
+                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '/artists" target="_blank" rel="noopener noreferrer">Spotify</a></div></div></div>');
             });
             return  '<div class="grid_wrapper">'.concat(band_col.join(''),'</div>');
           }
@@ -108,10 +109,10 @@ $(function() {
             let album_col = "";
             data.split(".*").forEach(function(item) {
               album_col += '<div class="ddd"><div class="dddd"> ' +
-                item.replace(/(?<=[,:\.])\s/g,"<br>").replace(/\s(?=[(])/g," <br>") + '<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '">Youtube</a><a href="https://open.spotify.com/search/' +
-                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '/albums">Spotify</a></div></div></div>' + "";
+                item.replace(/(?<=[,:\.])\s/g,"<br>").replace(/\s(?=[(])/g," <br>").replace(/\"\>/g,'" target="_blank" rel="noopener noreferrer">') + '<div class="dd-cc"><a href="https://bandcamp.com/search?q=' +
+                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '" target="_blank" rel="noopener noreferrer">Bandcamp</a><a href="https://www.youtube.com/results?search_query=' +
+                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '" target="_blank" rel="noopener noreferrer">Youtube</a><a href="https://open.spotify.com/search/' +
+                item.match(/(?<=\>).*(?=\<\/a\>)/g) + '/albums" target="_blank" rel="noopener noreferrer">Spotify</a></div></div></div>' + "";
             });
             return  '<div class="grid_wrapper">'.concat(album_col,'</div>');
           }
@@ -141,8 +142,6 @@ $(function() {
         // "targets": [2]
       // },
 	  // { "visible": false,  "targets": [ 3 ] }
-
-
 
     ],
     "search": {
@@ -229,7 +228,7 @@ $(function() {
   });
   $('.genrefilter').first().change(function() {
     if ($(this).is(':not(:checked)') && $('.genrefilter').length > 0) {
-      alert('I hope you improve your taste');
+      alert('');
       $("#black").attr("class", "filter");
     }
   });
