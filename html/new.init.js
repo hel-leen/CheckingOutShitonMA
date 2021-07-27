@@ -133,7 +133,7 @@ $(function() {
             let album_col = "";
             data.split(".*").forEach(function(item) {
               album_col += '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
-                item.match(hreftext).toString().replace(/(?<=[,:\.\/])\s/g, "<br>").replace(/\s(?=[(])/g, " <br>").replace(/\//g, "/<wbr>") + '</a>' +
+                item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, "<br>").replace(/\s(?=[(])/g, " <br>").replace(/\//g, "/<br>") + '</a>' +
                 '<div class="dropdown">' +
                 maLink(item) + '<hr>' +
                 searchLink(item).replace(/\/spotify\"/g, '/albums"') +
