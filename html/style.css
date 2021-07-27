@@ -1577,7 +1577,7 @@ p {
   .entry img {
     width: 90%;
     height: auto;
-    max-width: 320px;
+    max-width: 300px;
     object-fit: contain;
   }
 
@@ -1602,7 +1602,7 @@ p {
   }
 
   .release_info {
-    font-size: .88em;
+    font-size: .86em;
     justify-items: center;
     text-align: center;
     line-height: 2.2;
@@ -1610,7 +1610,7 @@ p {
 
   .release_info td>img {
     width: 100%;
-    max-width: 320px;
+    max-width: 300px;
   }
 
   .release_info th,
@@ -1626,7 +1626,7 @@ p {
     display: grid;
     padding: .8em;
     line-height: 1.9;
-    border: 1px solid rgba(66, 66, 66, .4);
+    border: 1px solid #222;
   }
 
   release_info tr {
@@ -1725,12 +1725,12 @@ p {
 
   .grid_item {
     /* width: max-content; */
-    border-top: .5px dashed #333;
+    border-top: .5px dashed #222;
     display: flex;
     align-items: center;
-    width: 70%;
-    left: 15%;
-    right: 15%;
+    width: 80%;
+    left: 10%;
+    right: 10%;
     align-items: center;
     justify-content: center;
     /* transform: translate(50%, -0%); */
