@@ -1729,6 +1729,7 @@ p {
     display: flex;
     align-items: center;
     width: 80%;
+    min-width: 80%;
     left: 10%;
     right: 10%;
     align-items: center;
