@@ -1626,7 +1626,7 @@ p {
     display: grid;
     padding: .8em;
     line-height: 1.9;
-    border: 1px solid #333;
+    border: .5px solid #333;
   }
 
   release_info tr {
