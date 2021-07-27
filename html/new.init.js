@@ -290,13 +290,15 @@ $.fn.dataTable.ext.search.push(
     let version = data[8];
     let genres = $("#genre-options").val() || [];
     var dateset;
-    if ($("#datecondition").val() == "") {
-      dateset = date;
-    } else if ($("#datecondition").val() == "After") {
-      dateset = eval(date >= $("#datepicker").val());
+    if ( $("#datepicker").val() ) {
+      if ($("#datecondition").val() == "After") {
+        dateset = eval(date >= $("#datepicker").val());
+      } else if ($("#datecondition").val() == "Before) {
+        dateset = eval(date < $("#datepicker").val());
+      }
     } else {
-      dateset = eval(date = $("#datepicker").val());
-    }
+      dateset = date;
+    } 
     if (($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0)) {
       return false;
     }
