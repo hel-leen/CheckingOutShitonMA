@@ -293,7 +293,7 @@ $.fn.dataTable.ext.search.push(
     if ( $("#datepicker").val() ) {
       if ($("#datecondition").val() == "After") {
         dateset = eval(date >= $("#datepicker").val());
-      } else if ($("#datecondition").val() == "Before) {
+      } else if ($("#datecondition").val() == "Before") {
         dateset = eval(date < $("#datepicker").val());
       }
     } else {
