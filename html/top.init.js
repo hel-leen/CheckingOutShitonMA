@@ -1,10 +1,87 @@
+let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
+let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
+const maLink = q => '' + '<a href="' + q.match(hreflink) +
+  '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
+const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? '' +
+  '<a href="https://bandcamp.com/search?q=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  '<a href="https://www.youtube.com/results?search_query=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  '<a href="https://open.spotify.com/search/' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
+  '<a href="https://bandcamp.com/search?q=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  '<a href="https://www.youtube.com/results?search_query=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  '<a href="https://open.spotify.com/search/' +
+  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
+
+jQuery.fn.extend({
+  check: function() {
+    return this.each(function() {
+      this.checked = true;
+      this.selected = true;
+    });
+  },
+  uncheck: function() {
+    return this.each(function() {
+      this.checked = false;
+      this.selected = false;
+    });
+  }
+});
+
 $(function() {
-  $('#toplist').DataTable({
+  $('.toplist').DataTable({
     stateSave: true,
     "lengthMenu": [10, 20, 50, "All"],
     "search": {
       "regex": true
     },
+    "columnDefs": [{
+        "targets": [0],
+        "searchable": false,
+        "sorting": false
+      },
+	  {
+        render: function(data, type) { //rendering album
+          if (type === 'display') {
+            let band_col = [];
+            data.split(" / ").forEach(function(item) {
+              band_col.push( '' + 
+			  '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
+                item.match(hreftext) + '</a>' +
+                '<div class="dropdown">' +
+                maLink(item) +
+                searchLink(item).replace(/\/spotify\"/g, '/albums"') +
+                '</div></div></div>');
+            });
+            return '<div class="grid_wrapper">'.concat(band_col.join(''), '</div>');
+          }
+          return data;
+        },
+        "targets": [1]
+      },
+	  {
+        render: function(data, type) { //rendering band
+          if (type === 'display') {
+            let band_col = [];
+            data.split(" / ").forEach(function(item) {
+              band_col.push( '' + 
+			  '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
+                item.match(hreftext) + '</a>' +
+                '<div class="dropdown">' +
+                maLink(item) +
+                searchLink(item).replace(/\/spotify\"/g, '/artists"') +
+                '</div></div></div>');
+            });
+            return '<div class="grid_wrapper">'.concat(band_col.join(''), '</div>');
+          }
+          return data;
+        },
+        "targets": [2]
+      },
+	  ],
     language: {
       searchPlaceholder: "Search for albums or bands..",
       search: "_INPUT_",

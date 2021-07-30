@@ -1,5 +1,5 @@
 // let today = new Date();
-let today = moment().subtract(0, 'days').format('YYYY-MM-DD');
+let thisday = moment().subtract(0, 'days').format('YYYY-MM-DD');
 var thisweek;
 if (moment().day() >= 5) {
   thisweek = moment().day(5).subtract(0, 'days').format('YYYY-MM-DD');
@@ -25,7 +25,6 @@ const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? '' +
   '<a href="https://open.spotify.com/search/' +
   q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
 
-console.log(searchLink('x'));
 jQuery.fn.extend({
   check: function() {
     return this.each(function() {
@@ -44,18 +43,22 @@ jQuery.fn.extend({
 $(function() {
   $("<small>Last updated on " + moment().subtract(1, 'days').format('YYYY-MM-DD') + " UTC.</small>").appendTo("#date");
   $("#datepicker").val(thisweek);
-  $('#datepicker').dtDateTime();
+  $('#datepicker').dtDateTime(
+ {
+        buttons: {
+            // today: true,
+            // clear: true
+        }
+    }
+  );
   $('.release_info').DataTable({
-    stateSave: true,
+    "deferRender": true,
+	"stateSave": true,
     "stateDuration": 60 * 60 * 6,
     "stateSaveParams": function(settings, data) {
-      data.order = [
-        [7, "asc"]
-      ];
+      data.order = [         [7, "asc"]       ];
     },
-    "order": [
-      [7, "asc"]
-    ],
+    "order": [       [7, "asc"]     ],
     "lengthMenu": [50, 100, 200, 400, "All"],
     "columnDefs": [{
         "targets": [0],
@@ -75,6 +78,20 @@ $(function() {
           return data;
         },
         "targets": [8, 6]
+      },
+      {
+        render: function(data, type) {
+          if (type === 'display') {
+            switch (data) {
+              case 'NA':
+                data = '<i>Unknown</i>';
+                break;
+            }
+            return data;
+          }
+          return data;
+        },
+        "targets": [7]
       },
       {
         render: function(data, type) { //label
@@ -133,7 +150,7 @@ $(function() {
             let album_col = "";
             data.split(".*").forEach(function(item) {
               album_col += '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
-                item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, "<br>").replace(/\s(?=[(])/g, " <br>").replace(/\//g, "/<br>") + '</a>' +
+                item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, "<br>").replace(/\s(?=[(])/g, " <br>").replace(/\//g, "/<wbr>") + '</a>' +
                 '<div class="dropdown">' +
                 maLink(item) + '<hr>' +
                 searchLink(item).replace(/\/spotify\"/g, '/albums"') +
@@ -228,24 +245,17 @@ $(function() {
   $(window).resize(function() {
     table.draw(false);
   });
-  $('.genrefilter').first().change(function() {
-    if ($(this).is(':not(:checked)') && $('.genrefilter').length > 0) {
-      alert('');
-      $("#black").attr("class", "filter");
-    }
-  });
 });
 $(document).on('click', '.paginate_button', function() {
   $("body,html").animate({
-    scrollTop: $("table thead").offset().top - 5
-  }, 800);
+    scrollTop: $("table thead").offset().top - 5}, 800);
 });
 $(document).on('click', '#reset, #Reset', function() {
   $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
   $("input[type='text']").val("");
   $('#Reissue').check();
-  $('#genre-options option[value=black], #genre-options option:eq(1)').check();
+  $('#genre-options option:not(:eq(2))').check();
   $("#datecondition").val("After");
   $("#datepicker").val(thisweek);
   $('.release_info').DataTable().columns(4).search('').draw();
@@ -269,8 +279,9 @@ $(document).on('click', '#datecondition', function() {
     $('.release_info').DataTable().column('7:visible').order('asc').draw(true);
   }
 });
-$(document).on('click', '#today', function() {
-  $("#datepicker").val(today);
+$(document).on('click', '#datepicker, #today, #Today, .dt-datetime-today', function() {
+  $("#datepicker").val(thisday);
+  // $('button.dt-datetime-day[data-year="2021" data-month="6" data-day="31"]').css("text-shadow", "0px 0px 1px #9b9");
   $('.release_info').DataTable().draw();
 });
 $(document).on('click', '#dateclear', function() {
@@ -299,7 +310,7 @@ $.fn.dataTable.ext.search.push(
     } else {
       dateset = date;
     } 
-    if (($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0)) {
+    if (($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && (version.indexOf('NA') < 0 && version.indexOf('2021') < 0))) {
       return false;
     }
     return (genre.search("(".concat(genres.join("|"), ")")) > -1 && dateset);

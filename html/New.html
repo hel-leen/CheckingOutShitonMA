@@ -10,16 +10,16 @@
 <body> 
 <h1 class="glow" id="header">New albums on MA  </h1>
 <div class="sidenav"><a href="../" id="home">Home</a></div>
-<h4 style="margin: .5em 0%;">All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/">R</a>.</h4>
+<h4 style="margin: .5em 0%;">All data from <a href="https://www.metal-archives.com/" target="_blank" rel="noopener noreferrer">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a>.</h4>
 <p id="date" style="margin: .5em 0%;"></p>
 <div class="note">
 <b>NOTE <i class="fa fa-caret-right"></i></b>
 <a> Click to read tips.</a>
 <div class="hideItem">
 <p> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while empty value in the column indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</p>
-<p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p>
-<p><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> means the album doesn't have any cover(!?).</p>
-<p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
+<!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
+<p><a href="https://www.metal-archives.com/images/cat.jpg" target="_blank" rel="noopener noreferrer">Cat picture</a> means the album doesn't have any cover(!?).</p>
+<p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="Today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
 <p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right, gone. It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</p>
 <!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
 </div>
@@ -30,42 +30,48 @@
 <li class="filterSection">
 <strong>Reset:   </strong> 
 <div class="filter-holder" id="reset-filter">
- <p>
-<button id="reset">Default</button><button id="all">Show all</button> </p>
+ <!-- <p> -->
+<button id="reset">Default</button><button id="all">Show all</button> 
+<!-- </p> -->
 </div>
 </li>
 <li class="filterSection">
 <strong>Date:  </strong>
 <div class="filter-holder" id="date-filter">
- <p><input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="fa fa-times-circle"></i></p>
+<!-- <div class="filter-item"> -->
+ <input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="solid fa fa-times-circle"></i>
+<!-- <a class="bubble" id="today">Today </a> -->
+<!-- </div> -->
+
 </div>
 </li>
 <li class="filterSection">
 <strong>Genre:  </strong>
 <div class="filter-holder" id="genre-filter">
+<div class="solid filter-item">
   <select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
 <option selected value="death">Death Metal</option>
 <option value="^((?!(black|death)).)*$">Other</option></select>
 </div>
+</div>
 </li>
 <li class="filterSection">
 <strong>Label:  </strong>
-<div class="filter-holder" id="label-filter" placeholder="Select label.."> 
-<p><i id="labelclear" class="fa fa-times-circle"></i> </p>
+<div class="filter-holder" id="label-filter"> 
+<i id="labelclear" class="solid fa fa-times-circle"></i> 
 </div>
 </li>
 <li class="filterSection">
 <strong>Types: </strong>
-<div class="checkholder">
-<label class="checkcontainer">No Reissue
-<input class="filter" id="Reissue" type="checkbox" checked><span class="checkmark"></span></label>
-<label class="checkcontainer">Full-length only
-<input class="filter" id="Fulllength" type="checkbox"><span class="checkmark"></span></label>
+<div class="filter-holder">
+<label class="solid checkcontainer">
+<input class="filter fa" id="Reissue" type="checkbox" checked><span class="checkmark solid fa fa-check-circle"><p>No Reissue</p></span></label>
+<label class="solid checkcontainer">
+<input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle"><p>Full-length only</p></span></label>
 </div>
 </li>
 
 <u class="breaker"> <br></u>
-
 <!-- </body>  -->
 <!-- </html> -->
 </div>
@@ -12485,6 +12491,971 @@
   <td id="tableHTML_column_6">Full-length</td>
   <td id="tableHTML_column_7">00:03:03</td>
   <td id="tableHTML_column_8">2021-11-26</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/5/2/0/952094.jpg?2913" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Blitz/The_Nachtmahr_Sessions/952094">The Nachtmahr Sessions</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Blitz/3540489383">Blitz</a></td>
+  <td id="tableHTML_column_4">Heavy/Speed/Thrash Metal</td>
+  <td id="tableHTML_column_5">Dying Victims Productions</td>
+  <td id="tableHTML_column_6">Demo</td>
+  <td id="tableHTML_column_7">00:13:17</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/5/6/1/956106.jpg?2429" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Phirimerial/Rotten_Exclamation_Schemes/956106">Rotten Exclamation Schemes</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Phirimerial/3540490244">Phirimerial</a></td>
+  <td id="tableHTML_column_4">Brutal Death Metal</td>
+  <td id="tableHTML_column_5">Brutal Local Wisdom</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:28:02</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/5/7/7/957751.jpg?2747" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Shrieking_Demons/Diabolical_Regurgitations/957751">Diabolical Regurgitations</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Shrieking_Demons/3540490480">Shrieking Demons</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Caligari Records</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:16:12</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/3/1/963186.jpg?4913" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Rejecter/The_Vulgar_Wine/963186">The Vulgar Wine</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Rejecter/3540491719">Rejecter</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:33:15</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/3/9/963916.jpg?4808" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Existence%3AVoid/Anatman/963916">Anatman</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Existence%3AVoid/3540491881">Existence:Void</a></td>
+  <td id="tableHTML_column_4">Avant-garde Black Metal</td>
+  <td id="tableHTML_column_5">Nox Liberatio Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:36:37</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966458.jpg?5810" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Comorbidity/Dead%2C_Infected_Everywhere/966458">Dead, Infected Everywhere</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Comorbidity/3540492361">Comorbidity</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Sound of White Noise Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:20:03</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/5/966538.jpg?5007" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Shadow_of_Intent/Intensified_Genocide/966538">Intensified Genocide</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Shadow_of_Intent/3540383526">Shadow of Intent</a></td>
+  <td id="tableHTML_column_4">Symphonic/Melodic Deathcore</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:04:04</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966631.jpg?1901" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Plague_of_Stars/Virtual_Live/966631">Virtual Live</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Plague_of_Stars/3540388529">Plague of Stars</a></td>
+  <td id="tableHTML_column_4">Doom/Gothic Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Live album</td>
+  <td id="tableHTML_column_7">00:30:01</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966680.jpg?1951" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Slab_of_Porphyria/Peremptory_Guidance/966680">Peremptory Guidance</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Slab_of_Porphyria/3540480005">Slab of Porphyria</a></td>
+  <td id="tableHTML_column_4">Deathcore</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:05:56</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966699.jpg?0027" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Bat_Magic/Feast_of_Blood/966699">Feast of Blood</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Bat_Magic/3540492417">Bat Magic</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">Sore Ear Collective</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:21:17</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966708.jpg?0258" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Fate%27s_Hand/Fate%27s_Hand/966708">Fate's Hand</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Fate%27s_Hand/3540492420">Fate's Hand</a></td>
+  <td id="tableHTML_column_4">Epic Heavy Metal</td>
+  <td id="tableHTML_column_5">Dying Victims Productions</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:19:45</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966726.jpg?1735" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Leprous/The_Silent_Revelation/966726">The Silent Revelation</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Leprous/106322">Leprous</a></td>
+  <td id="tableHTML_column_4">Progressive Metal/Rock</td>
+  <td id="tableHTML_column_5">InsideOut Music</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:05:45</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966730.jpg?2614" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Molgah/Tales_of_Supernatural_Misfortunes_Vol%E2%80%8B.%E2%80%8B1/966730">Tales of Supernatural Misfortunes Vol​.​1</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Molgah/3540478605">Molgah</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:19:39</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966740.jpg?0107" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Fjord/Skalder/966740">Skalder</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Fjord/3540456896">Fjord</a></td>
+  <td id="tableHTML_column_4">Melodic Black Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:31:46</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966745.jpg?2856" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Downer_-_Drugpression/Drugpression_-_Downer/966745">Drugpression / Downer</a></td>
+  <td id="tableHTML_column_3">
+<a href="https://www.metal-archives.com/bands/Downer/3540492426">Downer</a> / <a href="https://www.metal-archives.com/bands/Drugpression/3540492428">Drugpression</a>
+</td>
+  <td id="tableHTML_column_4">Depressive Black Metal | Depressive Black Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Split</td>
+  <td id="tableHTML_column_7">00:21:16</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966749.jpg?3555" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Ether_Coven/Language_Is_the_Instrument_of_the_Empire/966749">Language Is the Instrument of the Empire</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Ether_Coven/3540363716">Ether Coven</a></td>
+  <td id="tableHTML_column_4">Sludge Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:24:50</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966774.jpg?3017" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Tormental/Half_Empty/966774">Half Empty</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Tormental/3540405911">Tormental</a></td>
+  <td id="tableHTML_column_4">Death/Thrash Metal (early), Death/Post-Metal (later)</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:54:22</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/8/966857.jpg?2618" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Murge/Murge/966857">Murge</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Murge/3540492445">Murge</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:20:10</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/8/966888.jpg?4530" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Morcrof/Open_The_Road_Fest_V/966888">Open The Road Fest V</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Morcrof/9840">Morcrof</a></td>
+  <td id="tableHTML_column_4">Black/Doom Metal</td>
+  <td id="tableHTML_column_5">Erinnys Productions</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:25:23</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/8/966899.jpg?1709" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/End_Game/Combined_Forces/966899">Combined Forces</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/End_Game/3540484150">End Game</a></td>
+  <td id="tableHTML_column_4">Crossover/Hardcore/Thrash Metal</td>
+  <td id="tableHTML_column_5">K.O.T.P. Recordings</td>
+  <td id="tableHTML_column_6">Split</td>
+  <td id="tableHTML_column_7">00:21:17</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/9/966918.jpg?5806" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Voices_from_the_Past/Punishment/966918">Punishment</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Voices_from_the_Past/3540461154">Voices from the Past</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:03:00</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/9/966922.jpg?0145" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Sun_Descends_Black/EP_II_%28Evolving_From_The_Aftermath%29/966922">EP II (Evolving From The Aftermath)</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Sun_Descends_Black/3540456238">Sun Descends Black</a></td>
+  <td id="tableHTML_column_4">Blackened Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:18:05</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/9/966951.jpg?3838" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Son_of_a_Witch/Reverencing/966951">Reverencing</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Son_of_a_Witch/3540338521">Son of a Witch</a></td>
+  <td id="tableHTML_column_4">Hard Rock, Stoner Rock/Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:21:13</td>
+  <td id="tableHTML_column_8">2021-07-30</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/8/965858.jpg?2905" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Nervous/Checkmate/965858">Checkmate</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Nervous/3540463117">Nervous</a></td>
+  <td id="tableHTML_column_4">Heavy/Power Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-07-31</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/8/966846.jpg?3352" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Helios/Rebeli%C3%B3n/966846">Rebelión</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Helios/3540443365">Helios</a></td>
+  <td id="tableHTML_column_4">Heavy Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-07-31</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966059.jpg?4520" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Scaveng%27ours/Maniac_Attack/966059">Maniac Attack</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Scaveng%27ours/17597">Scaveng'ours</a></td>
+  <td id="tableHTML_column_4">Heavy/Speed/Thrash Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:49:03</td>
+  <td id="tableHTML_column_8">2021-08-01</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/9/966913.png?3535" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Undeath/Diemented_Dissection/966913">Diemented Dissection</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Undeath/3540451166">Undeath</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Decibel</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-08-02</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/1/966140.jpg?5623" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Black_Tears_of_the_Fallen/Back_to_the_Earth%27s_Womb/966140">Back to the Earth's Womb</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Black_Tears_of_the_Fallen/3540435999">Black Tears of the Fallen</a></td>
+  <td id="tableHTML_column_4">Gothic/Doom Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:04:25</td>
+  <td id="tableHTML_column_8">2021-08-03</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966434.jpg?2659" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Apathy_Noir/At_the_Edge_of_the_World/966434">At the Edge of the World</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Apathy_Noir/65967">Apathy Noir</a></td>
+  <td id="tableHTML_column_4">Death/Progressive/Doom Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:46:01</td>
+  <td id="tableHTML_column_8">2021-08-05</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966045.jpg?5707" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/E-Force/Provocation/966045">Provocation</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/E-Force/14549">E-Force</a></td>
+  <td id="tableHTML_column_4">Thrash Metal</td>
+  <td id="tableHTML_column_5">Mighty Music</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:03:42</td>
+  <td id="tableHTML_column_8">2021-08-06</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/9/965982.jpg?0039" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Catal%C3%A1n/Hide_in_Your_Heart/965982">Hide in Your Heart</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Catal%C3%A1n/3540489075">Catalán</a></td>
+  <td id="tableHTML_column_4">Progressive Metal</td>
+  <td id="tableHTML_column_5">Vitalist Records</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:07:54</td>
+  <td id="tableHTML_column_8">2021-08-12</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966006.jpg?4500" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Murdock/Entre_Tigres_e_Lobos/966006">Entre Tigres e Lobos</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Murdock/3540456891">Murdock</a></td>
+  <td id="tableHTML_column_4">Doom Metal/Stoner Rock</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:12:46</td>
+  <td id="tableHTML_column_8">2021-08-13</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966068.jpg?4249" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Incarnated/Choirs_of_the_Dead/966068">Choirs of the Dead</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Incarnated/38109">Incarnated</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Grind to Death Records</td>
+  <td id="tableHTML_column_6">Compilation</td>
+  <td id="tableHTML_column_7">01:14:40</td>
+  <td id="tableHTML_column_8">2021-08-13</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966782.jpg?4551" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Sad_Theory/L%C3%A9xico_Reflexivo_Umbral/966782">Léxico Reflexivo Umbral</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Sad_Theory/13452">Sad Theory</a></td>
+  <td id="tableHTML_column_4">Melodic/Progressive Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-08-13</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/1/966106.jpg?3705" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Fetal_Bleeding/Infatuation_of_Dementia/966106">Infatuation of Dementia</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Fetal_Bleeding/3540372899">Fetal Bleeding</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Brute! Productions</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:02:07</td>
+  <td id="tableHTML_column_8">2021-08-17</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/1/966131.jpg?3549" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Uskonrauha_-_Two_Runes_-_Fatherland_-_Valhalla_Bound/Myrsky_on_tulossa%21/966131">Myrsky on tulossa!</a></td>
+  <td id="tableHTML_column_3">
+<a href="https://www.metal-archives.com/bands/Uskonrauha/3540344674">Uskonrauha</a> / <a href="https://www.metal-archives.com/bands/Two_Runes/3540381677">Two Runes</a> / <a href="https://www.metal-archives.com/bands/Fatherland/3540393773">Fatherland</a> / <a href="https://www.metal-archives.com/bands/Valhalla_Bound/3540458407">Valhalla Bound</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal | Black Metal | Black Metal | Raw Black Metal/Noise</td>
+  <td id="tableHTML_column_5">Bestial Burst</td>
+  <td id="tableHTML_column_6">Split</td>
+  <td id="tableHTML_column_7">00:27:31</td>
+  <td id="tableHTML_column_8">2021-08-18</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/8/965847.jpg?5930" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Ild/Fandens_lykteskj%C3%A6r/965847">Fandens lykteskjær</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Ild/3540478038">Ild</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">Screaming Skull Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:09:18</td>
+  <td id="tableHTML_column_8">2021-08-20</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/3/966303.jpg?4822" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Arkenfire/Trials_Through_Time/966303">Trials Through Time</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Arkenfire/3540426829">Arkenfire</a></td>
+  <td id="tableHTML_column_4">Heavy Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-08-20</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/5/966543.jpg?5654" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Necrophobic/Tsar_Bomba/966543">Tsar Bomba</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Necrophobic/1350">Necrophobic</a></td>
+  <td id="tableHTML_column_4">Death/Black Metal</td>
+  <td id="tableHTML_column_5">Church of Vinyl</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-08-20</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/7/965780.jpg?2524" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Atlas_Pain/All_Star/965780">All Star</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Atlas_Pain/3540396597">Atlas Pain</a></td>
+  <td id="tableHTML_column_4">Epic Folk Metal</td>
+  <td id="tableHTML_column_5">Scarlet Records</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-08-27</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966011.jpg?5612" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Slomatics_-_Yanomam%C3%B6/Yanomam%C3%B6_-_Slomatics/966011">Yanomamö / Slomatics</a></td>
+  <td id="tableHTML_column_3">
+<a href="https://www.metal-archives.com/bands/Slomatics/117515">Slomatics</a> / <a href="https://www.metal-archives.com/bands/Yanomam%C3%B6/3540356539">Yanomamö</a>
+</td>
+  <td id="tableHTML_column_4">Sludge/Doom Metal | Sludge Metal</td>
+  <td id="tableHTML_column_5">Iommium Records</td>
+  <td id="tableHTML_column_6">Split</td>
+  <td id="tableHTML_column_7">00:04:27</td>
+  <td id="tableHTML_column_8">2021-08-27</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/3/966325.jpg?1841" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Besatt/Supreme_and_True_at_Night/966325">Supreme and True at Night</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Besatt/4795">Besatt</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">Witching Hour Productions</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-08-27</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966427.jpg?4018" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Irrlycht/Wolfish_Grandeur/966427">Wolfish Grandeur</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Irrlycht/91004">Irrlycht</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">Folter Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">01:06:04</td>
+  <td id="tableHTML_column_8">2021-08-27</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966676.jpg?0748" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Impetus/The_Fatal_Error_In_I/966676">The Fatal Error In I</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Impetus/3540475819">Impetus</a></td>
+  <td id="tableHTML_column_4">Death/Thrash/Groove Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-08-27</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966734.jpg?5947" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Apocalyptic_Leaders_-_Exaversum/Harmony_in_Decrepity/966734">Harmony in Decrepity</a></td>
+  <td id="tableHTML_column_3">
+<a href="https://www.metal-archives.com/bands/Apocalyptic_Leaders/3540463784">Apocalyptic Leaders</a> / <a href="https://www.metal-archives.com/bands/Exaversum/3540483786">Exaversum</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal | Black Metal</td>
+  <td id="tableHTML_column_5">Marwolaeth Records</td>
+  <td id="tableHTML_column_6">Split</td>
+  <td id="tableHTML_column_7">00:13:26</td>
+  <td id="tableHTML_column_8">2021-09-01</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966009.jpg?5040" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Tommy_Stewart%27s_Dyerwulf/Doomsday_Deferred/966009">Doomsday Deferred</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Tommy_Stewart%27s_Dyerwulf/3540403422">Tommy Stewart's Dyerwulf</a></td>
+  <td id="tableHTML_column_4">Doom Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:05:24</td>
+  <td id="tableHTML_column_8">2021-09-03</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/5/966505.jpg?1136" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Carrasco/Tormento_Eterno/966505">Tormento Eterno</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Carrasco/87793">Carrasco</a></td>
+  <td id="tableHTML_column_4">Thrash/Speed Metal</td>
+  <td id="tableHTML_column_5">Cianeto Discos</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:11:12</td>
+  <td id="tableHTML_column_8">2021-09-03</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966728.jpg?2147" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Apricitas/Tongue_for_a_Tongue/966728">Tongue for a Tongue</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Apricitas/3540460911">Apricitas</a></td>
+  <td id="tableHTML_column_4">Depressive/Post-Black Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-03</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/7/965704.jpg?5120" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Enterr%C3%A9_Vivant/Les_T%C3%A9n%C3%A8bres_ne_sont_pas_form%C3%A9es_d%27ombre/965704">Les Ténèbres ne sont pas formées d'ombre</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Enterr%C3%A9_Vivant/3540480208">Enterré Vivant</a></td>
+  <td id="tableHTML_column_4">Atmospheric Black Metal</td>
+  <td id="tableHTML_column_5">Drakkar Productions</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-10</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/8/965856.jpg?1815" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Erebor/Inherent_Malevolence/965856">Inherent Malevolence</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Erebor/3540405124">Erebor</a></td>
+  <td id="tableHTML_column_4">Technical Progressive Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-10</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/9/965993.jpg?0322" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Chrome_Waves/The_Rain_Will_Cleanse/965993">The Rain Will Cleanse</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Chrome_Waves/3540348507">Chrome Waves</a></td>
+  <td id="tableHTML_column_4">Post-Black Metal</td>
+  <td id="tableHTML_column_5">Disorder Recordings</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-10</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966067.jpg?3907" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Mehenet/Ng%27ambu/966067">Ng'ambu</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Mehenet/3540384369">Mehenet</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">Gilead Media</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:04:42</td>
+  <td id="tableHTML_column_8">2021-09-10</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966441.jpg?5112" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Velo_Misere/Monoman%C3%ADa_del_inexorable_vac%C3%ADo/966441">Monomanía del inexorable vacío</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Velo_Misere/3540426853">Velo Misere</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">Altare Productions</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:38:28</td>
+  <td id="tableHTML_column_8">2021-09-15</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966443.jpg?0210" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Graved%C3%A4ncer/Unholy_Bond/966443">Unholy Bond</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Graved%C3%A4ncer/3540480900">Gravedäncer</a></td>
+  <td id="tableHTML_column_4">Black/Speed Metal</td>
+  <td id="tableHTML_column_5">Helldprod Records</td>
+  <td id="tableHTML_column_6">Demo</td>
+  <td id="tableHTML_column_7">00:16:55</td>
+  <td id="tableHTML_column_8">2021-09-15</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/9/966944.jpg?0901" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/A_Dark_Halo/Afterworld/966944">Afterworld</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/A_Dark_Halo/97269">A Dark Halo</a></td>
+  <td id="tableHTML_column_4">Industrial/Thrash/Groove Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-15</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966035.jpg?2110" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Ichor/The_Black_Raven/966035">The Black Raven</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Ichor/3540442405">Ichor</a></td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">Seance Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:43:17</td>
+  <td id="tableHTML_column_8">2021-09-17</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966093.jpg?0831" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/N%C3%BDr_Gata/Luna_Aeterna/966093">Luna Aeterna</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/N%C3%BDr_Gata/3540400456">Nýr Gata</a></td>
+  <td id="tableHTML_column_4">Melodic Black/Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:06:20</td>
+  <td id="tableHTML_column_8">2021-09-17</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/2/966279.jpg?5132" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Exxperior/Escalating_Conflicts/966279">Escalating Conflicts</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Exxperior/3540315562">Exxperior</a></td>
+  <td id="tableHTML_column_4">Thrash Metal</td>
+  <td id="tableHTML_column_5">Pure Steel Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-17</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966603.jpg?0059" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Occulsed/Crepitation_of_Phlegethon/966603">Crepitation of Phlegethon</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Occulsed/3540451791">Occulsed</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Everlasting Spew Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:02:49</td>
+  <td id="tableHTML_column_8">2021-09-17</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966705.jpg?5350" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Filtheater/Obfuscated/966705">Obfuscated</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Filtheater/3540310157">Filtheater</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Vargheist Records</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-18</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/5/1/0/951016.jpg?3355" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/The_Ossuary/Oltretomba/951016">Oltretomba</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/The_Ossuary/3540422548">The Ossuary</a></td>
+  <td id="tableHTML_column_4">Heavy/Doom Metal</td>
+  <td id="tableHTML_column_5">Supreme Chaos Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:54:11</td>
+  <td id="tableHTML_column_8">2021-09-24</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/8/965817.jpg?4100" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Internal_Bleeding/Haemorrhage_1995-1999/965817">Haemorrhage 1995-1999</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Internal_Bleeding/1117">Internal Bleeding</a></td>
+  <td id="tableHTML_column_4">Slam/Brutal Death Metal</td>
+  <td id="tableHTML_column_5">Back on Black</td>
+  <td id="tableHTML_column_6">Boxed set</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-24</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966082.jpg?5827" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Virial/Transhumanism/966082">Transhumanism</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Virial/3540358981">Virial</a></td>
+  <td id="tableHTML_column_4">Technical Death Metal</td>
+  <td id="tableHTML_column_5">Vicious Instinct Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:54:24</td>
+  <td id="tableHTML_column_8">2021-09-24</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/2/966255.jpg?0313" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Dawn_of_a_Dark_Age/Le_Forche_Caudine_321_a.C_-_2021_d.C./966255">Le Forche Caudine 321 a.C - 2021 d.C.</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Dawn_of_a_Dark_Age/3540382051">Dawn of a Dark Age</a></td>
+  <td id="tableHTML_column_4">Atmospheric/Experimental Black Metal</td>
+  <td id="tableHTML_column_5">Antiq Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-24</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966433.jpg?2205" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Morbid_Messiah/Disgorged_in_the_Coffin/966433">Disgorged in the Coffin</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Morbid_Messiah/3540417764">Morbid Messiah</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Chaos Records</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:21:48</td>
+  <td id="tableHTML_column_8">2021-09-24</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966436.jpg?3632" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Solacide/Fall_from_Eternity/966436">Fall from Eternity</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Solacide/46451">Solacide</a></td>
+  <td id="tableHTML_column_4">Progressive Black Metal</td>
+  <td id="tableHTML_column_5">Saturnal Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:39:12</td>
+  <td id="tableHTML_column_8">2021-09-24</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966646.jpg?5453" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Surturs_Lohe/Wielandstahl/966646">Wielandstahl</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Surturs_Lohe/6836">Surturs Lohe</a></td>
+  <td id="tableHTML_column_4">Viking/Folk Black Metal</td>
+  <td id="tableHTML_column_5">Einheit Produktionen</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-24</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/8/966896.jpg?1227" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Vitrified_Entity/Eternal_Vitreous_Dissolve/966896">Eternal Vitreous Dissolve</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Vitrified_Entity/3540467722">Vitrified Entity</a></td>
+  <td id="tableHTML_column_4">Neoclassical/Technical Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-25</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/1/966107.jpg?3942" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Lovebites/Heavy_Metal_Never_Dies_-_Live_in_Tokyo_2021/966107">Heavy Metal Never Dies - Live in Tokyo 2021</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Lovebites/3540428459">Lovebites</a></td>
+  <td id="tableHTML_column_4">Heavy/Power Metal</td>
+  <td id="tableHTML_column_5">Victor</td>
+  <td id="tableHTML_column_6">Video</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-09-29</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/2/966260.jpg?1602" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Katavasia/Invoking_the_Spirit_of_Doom/966260">Invoking the Spirit of Doom</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Katavasia/3540392214">Katavasia</a></td>
+  <td id="tableHTML_column_4">Melodic Black Metal</td>
+  <td id="tableHTML_column_5">Iron Bonehead Productions</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">00:09:35</td>
+  <td id="tableHTML_column_8">2021-10-01</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966649.jpg?2652" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Last_Days_of_Eden/Butterflies/966649">Butterflies</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Last_Days_of_Eden/3540380871">Last Days of Eden</a></td>
+  <td id="tableHTML_column_4">Symphonic Power Metal</td>
+  <td id="tableHTML_column_5">El Puerto Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-10-15</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966706.jpg?5659" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Sol_Sistere/Sol_Sistere/966706">Sol Sistere</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Sol_Sistere/3540387399">Sol Sistere</a></td>
+  <td id="tableHTML_column_4">Atmospheric Black Metal</td>
+  <td id="tableHTML_column_5">Cult of Parthenope</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:06:55</td>
+  <td id="tableHTML_column_8">2021-10-15</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/1/966138.jpg?4931" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Necrofier/Prophecies_of_Eternal_Darkness/966138">Prophecies of Eternal Darkness</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Necrofier/3540447967">Necrofier</a></td>
+  <td id="tableHTML_column_4">Melodic Black Metal</td>
+  <td id="tableHTML_column_5">Season of Mist Underground Activists</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:35:54</td>
+  <td id="tableHTML_column_8">2021-10-22</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/3/966333.jpg?1451" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Dream_Theater/A_View_from_the_Top_of_the_World/966333">A View from the Top of the World</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Dream_Theater/37">Dream Theater</a></td>
+  <td id="tableHTML_column_4">Progressive Metal</td>
+  <td id="tableHTML_column_5">InsideOut Music</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">01:10:19</td>
+  <td id="tableHTML_column_8">2021-10-22</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966414.jpg?4956" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Evilspell/Padre_Vostro/966414">Padre Vostro</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Evilspell/3540271767">Evilspell</a></td>
+  <td id="tableHTML_column_4">Speed/Thrash Metal (early); Black/Thrash Metal (later)</td>
+  <td id="tableHTML_column_5">Blasphemous Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:42:40</td>
+  <td id="tableHTML_column_8">2021-10-22</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966457.jpg?2058" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Skanners/Greatest_Hits/966457">Greatest Hits</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Skanners/3129">Skanners</a></td>
+  <td id="tableHTML_column_4">Heavy Metal</td>
+  <td id="tableHTML_column_5">Music for the Masses</td>
+  <td id="tableHTML_column_6">Compilation</td>
+  <td id="tableHTML_column_7">01:05:07</td>
+  <td id="tableHTML_column_8">2021-10-22</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966642.jpg?2657" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Thirteen_Bled_Promises/Foundation/966642">Foundation</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Thirteen_Bled_Promises/3540322179">Thirteen Bled Promises</a></td>
+  <td id="tableHTML_column_4">Deathcore</td>
+  <td id="tableHTML_column_5">Lacerated Enemy Records</td>
+  <td id="tableHTML_column_6">EP</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-10-22</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966648.jpg?2520" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Cradle_of_Filth/Existence_Is_Futile/966648">Existence Is Futile</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Cradle_of_Filth/24">Cradle of Filth</a></td>
+  <td id="tableHTML_column_4">Death Metal (early); Symphonic Black Metal (mid); Extreme Gothic Metal (later)</td>
+  <td id="tableHTML_column_5">Nuclear Blast</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">01:10:17</td>
+  <td id="tableHTML_column_8">2021-10-22</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/6/966698.jpg?4508" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Organic/Where_Graves_Abound/966698">Where Graves Abound</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Organic/3540383418">Organic</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Testimony Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:04:09</td>
+  <td id="tableHTML_column_8">2021-10-22</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/5/966599.jpg?3955" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Outre-Tombe/Abysse_Mortif%C3%A8re/966599">Abysse Mortifère</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Outre-Tombe/3540349143">Outre-Tombe</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">Temple of Mystery Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:03:21</td>
+  <td id="tableHTML_column_8">2021-10-26</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/7/965728.jpg?0826" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Bloody_Falls/Burn_the_Witch/965728">Burn the Witch</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Bloody_Falls/3540440201">Bloody Falls</a></td>
+  <td id="tableHTML_column_4">Groove/Melodic Death Metal</td>
+  <td id="tableHTML_column_5">Art Gates Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:11:52</td>
+  <td id="tableHTML_column_8">2021-10-29</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/5/7/965759.jpg?1916" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Elimination/Echoes_of_the_Abyss/965759">Echoes of the Abyss</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Elimination/102222">Elimination</a></td>
+  <td id="tableHTML_column_4">Power/Thrash Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-10-29</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/7/966798.jpg?4251" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Running_Wild/Blood_on_Blood/966798">Blood on Blood</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Running_Wild/306">Running Wild</a></td>
+  <td id="tableHTML_column_4">Heavy/Power/Speed Metal</td>
+  <td id="tableHTML_column_5">Steamhammer</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:55:39</td>
+  <td id="tableHTML_column_8">2021-10-29</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/8/966851.jpg?1331" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Jerry_Cantrell/Brighten/966851">Brighten</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Jerry_Cantrell/4079">Jerry Cantrell</a></td>
+  <td id="tableHTML_column_4">Doom/Alternative Metal/Rock, Grunge</td>
+  <td id="tableHTML_column_5">Warner Bros. Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:04:13</td>
+  <td id="tableHTML_column_8">2021-10-29</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/3/966346.jpg?0642" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Asenheim/Wohin_das_Herz_uns_f%C3%BChrt/966346">Wohin das Herz uns führt</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Asenheim/111112">Asenheim</a></td>
+  <td id="tableHTML_column_4">Black/Pagan Metal (early); Epic Black Metal (later)</td>
+  <td id="tableHTML_column_5">Narbentage Produktionen</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">NA</td>
+  <td id="tableHTML_column_8">2021-10-31</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/4/966442.jpg?5622" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Glemt/Eclipsing_Through_the_Womb_of_Twilight_and_Dementia/966442">Eclipsing Through the Womb of Twilight and Dementia</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Glemt/3540458516">Glemt</a></td>
+  <td id="tableHTML_column_4">Raw Black Metal</td>
+  <td id="tableHTML_column_5">Inferna Profundus Records</td>
+  <td id="tableHTML_column_6">Full-length</td>
+  <td id="tableHTML_column_7">00:44:53</td>
+  <td id="tableHTML_column_8">2021-11-01</td>
+  <td id="tableHTML_column_9">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1"><img src="https://www.metal-archives.com/images/9/6/6/0/966025.jpg?4825" loading="lazy"></td>
+  <td id="tableHTML_column_2"><a href="https://www.metal-archives.com/albums/Worship_the_Sacrifice/Compose_and_Destroy/966025">Compose and Destroy</a></td>
+  <td id="tableHTML_column_3"><a href="https://www.metal-archives.com/bands/Worship_the_Sacrifice/3540492253">Worship the Sacrifice</a></td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">NA</td>
+  <td id="tableHTML_column_6">Single</td>
+  <td id="tableHTML_column_7">00:03:42</td>
+  <td id="tableHTML_column_8">2021-12-04</td>
   <td id="tableHTML_column_9">NA</td>
 </tr>
 </tbody>
