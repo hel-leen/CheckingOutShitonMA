@@ -235,7 +235,7 @@ $(function() {
               .draw();
           });
         column.data().unique().sort().each(function(d, j) {
-          select.append('<option value="' + d + '">' + d + '</option>')
+          select.append('<option value="' + d.match(hreftext)  + '">' + d.match(hreftext)  + '</option>')
         });
       });
     } 

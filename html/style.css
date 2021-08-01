@@ -932,6 +932,7 @@ table:not(.dt-datetime-table) tr:hover {
   position: absolute;
   background-color: #444;
   min-width: 160px;
+  border: 1px solid rgba(111,111,111,.7);
   box-shadow: 0px 4px 1em 0px rgba(222, 222, 222, 0.1);
   z-index: 1;
   left: 50%;
@@ -1816,7 +1817,7 @@ p {
 
   .release_info tr {
     display: grid;
-    border-bottom: 2px solid #666;
+    border-bottom: 1px solid #666;
   }
 
   .release_info td {
@@ -1885,8 +1886,12 @@ p {
  .release_info td:nth-child(9)::before {
     content: "Earliest date:";
   }
-
-
+  .release_info td:nth-child(6),
+  .release_info td:nth-child(7).
+.release_info td:nth-child(8),
+ .release_info td:nth-child(9) {
+	   white-space: nowrap;
+ }
   .release_info td::before {
 	font-weight: bold;
     padding-left: 2px;
