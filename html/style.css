@@ -915,7 +915,9 @@ table:not(.dt-datetime-table) tr:hover {
 .grid_item .flex_item:not(:nth-child(1)) {
   border-top: 1px dashed #333;
 }
-
+.flex_item{
+	/* display: inline-grid; */
+}
 .dd-c {
   display: none;
   position: absolute;
@@ -935,8 +937,39 @@ table:not(.dt-datetime-table) tr:hover {
   left: 50%;
   transform: translate(-50%, -0%);
 }
+.dropup {
+display:none;
+  font-size: 12.2px;
+  transform: translate(50%, 0%);
+  top: 0;
+  box-shadow: 0 0 transparent;
+  max-height: 150%;
+  overflow: overlay;
+  z-index: 2;
+  right: 0;
+  padding-bottom:8px;
+}
+.Info:hover .dropup {
+	display:block;
+}
 
-
+.dropup .country {
+  display: inline-grid;
+  align-items: center;
+  width:100%;
+}
+.dropup .bands {
+  overflow-y: overlay;
+  text-overflow: ellipsis;
+  white-space: pre;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  /* width: 80%; */
+  margin: auto;
+  /* font-size: smaller */
+}
 .dd-c a,
 .dropdown a {
   color: #ffe;
@@ -955,14 +988,21 @@ table:not(.dt-datetime-table) tr:hover {
   font-size: .9em;
   opacity: .6;
 }
-
+.flex_item .fa-caret-right  {
+  position: absolute;
+  right: 0;
+  align-self: center;
+}
 .dd-c a:hover,
 .dropdown a:hover {
   background-color: #666;
 }
 
 .dd:hover .dd-c,
-.flex_item:hover .dropdown {
+.flex_item:hover  .dropdown:not(.dropup) {
+  display: block;
+}
+.flex_item .fa:hover ~ .dropup {
   display: block;
 }
 
@@ -983,6 +1023,7 @@ td>img {
 
 .release_info {
   display: none;
+  font-size:13.8px;
 }
 
 .release_info th {
@@ -1025,6 +1066,15 @@ td>img {
 
 .release_info th:nth-child(9) {
   width: 8%;
+}
+
+.release_info th:nth-last-child(1) {
+  width: 0%;
+}
+
+.release_info tr>td:nth-last-child(1) {
+  width: 0%;
+  display: none;
 }
 
 pre:not([class]) {
@@ -1839,7 +1889,7 @@ p {
 
   .release_info td::before {
 	font-weight: bold;
-    padding-left: 0.1em;
+    padding-left: 2px;
     width: 90%;
     border-bottom: 1px dotted #333;
   }

@@ -6,24 +6,25 @@ if (moment().day() >= 5) {
 } else {
   thisweek = moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 }
-
+const uniq =  (value, index, self)  =>   self.indexOf(value) === index && value !== ' /';
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
+const tabLink = q => '' + q.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maLink = q => '' + '<a href="' + q.match(hreflink) +
-  '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
+  '">MA Page<i class=\'fa fa-medium\'></i></a>';
 const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? '' +
   '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '">Bandcamp<i class=\'fa fa-search\'></i></a>' +
   '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '">Youtube<i class=\'fa fa-search\'></i></a>' +
   '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
+  q.match(hreftext) + '">Spotify<i class=\'fa fa-search\'></i></a>' : '' +
   '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '">Bandcamp<i class=\'fa fa-search\'></i></a>' +
   '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  q.match(hreftext) + '">Youtube<i class=\'fa fa-search\'></i></a>' +
   '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
+  q.match(hreftext) + '/spotify">Spotify<i class=\'fa fa-search\'></i></a>';
 
 jQuery.fn.extend({
   check: function() {
@@ -39,7 +40,7 @@ jQuery.fn.extend({
     });
   }
 });
-
+ 
 $(function() {
   $("<small>Last updated on " + moment().subtract(1, 'days').format('YYYY-MM-DD') + " UTC.</small>").appendTo("#date");
   $("#datepicker").val(thisweek);
@@ -81,86 +82,132 @@ $(function() {
       },
       {
         render: function(data, type) {
-          if (type === 'display') {
+          if (type === "display") {
             switch (data) {
-              case 'NA':
-                data = '<i>Unknown</i>';
+              case "NA":
+                data = "<i>Unknown</i>";
                 break;
             }
             return data;
           }
           return data;
         },
-        "targets": [7]
+        'targets': [7]
       },
       {
         render: function(data, type) { //label
-          if (type === 'display') {
+          if (type === "display") {
             switch (data) {
-              case 'NA':
-                data = '<i>Independent</i>';
+              case "NA":
+                data = "<i>Independent</i>";
                 break;
               default:
-                data = '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
-                  data + '</a><div class="dropdown"><a href="https://bandcamp.com/search?q=' +
-                  data + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a><a href="https://www.youtube.com/results?search_query=' +
-                  data + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a></div></div></div>';
+                data = "<div class='grid_item'><div class='flex_item'><a class='hreftext'>" +
+                  data.match(hreftext) + "</a><div class='dropdown'>"+
+				  maLink(data) +
+				  '<a href="https://bandcamp.com/search?q=' +
+                  data.match(hreftext)  + '">Bandcamp<i class=\'fa fa-search\'></i></a><a href="https://www.youtube.com/results?search_query=' +
+                  data.match(hreftext)  + '">Youtube<i class=\'fa fa-search\'></i></a></div></div></div>';
             }
-            return data;
+            return tabLink(data);
           }
           return data;
         },
-        "targets": [4]
+        'targets': [4]
       },
       {
         render: function(data, type) { //genre
-          if (type === 'display') {
+          if (type === "display") {
             let genre_col = [];
-            data.split(" | ").forEach(function(item) {
-              genre_col.push('<div class="grid_item"><div class="flex_item">' +
-                item.replace(/(?<=[,])\s/g, " <wbr>").replace(/\//g, "/<wbr>").replace(/(?<=[;])\s/g, " <br>") + '</div></div>');
+            data.split(' | ').forEach(function(item) {
+              genre_col.push("<div class=\"grid_item\"><div class='flex_item'>" +
+                item.replace(/(?<=[,])\s/g, ' <wbr>').replace(/\//g, '/<wbr>').replace(/(?<=[;])\s/g, ' <br>') + "</div></div>");
             });
-            return '<div class="grid_wrapper">'.concat(genre_col.join(''), '</div>');
+            return tabLink("<div class='grid_wrapper'>".concat(genre_col.join(""), "</div>"));
           }
           return data;
         },
-        "targets": [3]
+        'targets': [3]
       },
+      // {
+        // render: function(data, type, row) { //rendering band
+          // if (type === "display") {
+            // let band_col = [];
+			// let country = row[9].split('||')[0].split(' / ');
+			// let related = row[9].split('||')[1].split(' / ');
+            // data.split(' / ').forEach(function(item) {
+              // band_col.push("<div class='grid_item'><div class='flex_item'>"+ 
+			  // "<a class='hreftext'>" +
+                // item.match(hreftext) + "</a>" +
+                // "<div class='dropdown'>" +
+                // maLink(item) +
+                // searchLink(item).replace(/\/spotify\'/g, "/artists'") +
+                // "</div></div></div>");
+            // });
+            // return "<div class='grid_wrapper'>".concat(band_col.join(""), "</div>");
+          // }
+          // return data;
+        // },
+        // 'targets': [2]
+      // },
       {
-        render: function(data, type) { //rendering band
-          if (type === 'display') {
-            let band_col = [];
-            data.split(" / ").forEach(function(item) {
-              band_col.push('<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
-                item.match(hreftext) + '</a>' +
-                '<div class="dropdown">' +
+        render: function(data, type,row) { //rendering band
+          if (type === "display") {
+            let band  = data.split(' / ');
+			let country = row[9].split('||')[0].split('| / |');
+			let related = row[9].split('||')[1].split(' / ');
+            var band_col = band.map((item, i) =>(related[i]) ? '' + 
+			"<div class='grid_item'><div class='flex_item'>"+
+			"<a class='hreftext'>" +
+                item.match(hreftext) + "</a>" +
+                "<div class='dropdown'>" +
+			  "<div class='Info'><a class='hreftext'>Band Info<i class='fa fa-plus-circle'></i></a>" +
+			  "<div class='dropdown dropup'>" +
+               "<div class='country'><a><b>Country</b>:</a>" +  country[i]+ "</div>" +
+                "<div class='bands'><a><b>Related Acts</b>:</a>" +  related[i].split('|').filter(uniq).sort().join("")+ "</div>" +
+                "</div>" +
+                "</div>" +
                 maLink(item) +
-                searchLink(item).replace(/\/spotify\"/g, '/artists"') +
-                '</div></div></div>');
-            });
-            return '<div class="grid_wrapper">'.concat(band_col.join(''), '</div>');
+                searchLink(item).replace(/\/spotify\'/g, "/artists'") +
+                "</div></div></div>" :
+				"<div class='grid_item'><div class='flex_item'>"+
+			"<a class='hreftext'>" +
+                item.match(hreftext) + "</a>" +
+                "<div class='dropdown'>" +
+			  "<div class='Info'><a href=''>Band Info<i class='fa fa-plus-circle'></i></a>" +
+			  "<div class='dropdown dropup'>" +
+               "<div class='country'><a><b>Country</b>:</a>" +  country[i]+ "</div>" +
+                "</div>" +
+                "</div>" +
+                maLink(item) +
+                searchLink(item).replace(/\/spotify\'/g, "/artists'") +
+                "</div></div></div>"
+				);
+            return tabLink("<div class='grid_wrapper'>".concat(band_col.join(""), "</div>"));
           }
-          return data;
+          return  data;
         },
-        "targets": [2]
+        'targets': [2]
       },
       {
-        render: function(data, type) { //rendering albums
-          if (type === 'display') {
-            let album_col = "";
-            data.split(".*").forEach(function(item) {
-              album_col += '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
-                item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, "<br>").replace(/\s(?=[(])/g, " <br>").replace(/\//g, "/<wbr>") + '</a>' +
-                '<div class="dropdown">' +
-                maLink(item) + '<hr>' +
-                searchLink(item).replace(/\/spotify\"/g, '/albums"') +
-                '</div></div></div>' + "";
+        render: function(data, type, row ) { //rendering albums
+          if (type === "display") {
+            let album_col = '';
+            data.split('.*').forEach(function(item) {
+              album_col += "<div class='grid_item'>" + 
+			  "<div class='flex_item'>" +
+			  "<a class='hreftext'>" +
+                item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, '<br>').replace(/\s(?=[(])/g, ' <br>').replace(/\//g, '/<wbr>') + "</a>" +
+                "<div class='dropdown'>" +
+                maLink(item) + "<hr>" +
+                searchLink(item).replace(/\/spotify\'/g, "/albums'") +
+                "</div></div></div>" + '';
             });
-            return '<div class="grid_wrapper">'.concat(album_col, '</div>');
+            return tabLink("<div class='grid_wrapper'>".concat(album_col, "</div>"));
           }
           return data;
         },
-        "targets": [1]
+        'targets': [1]
       },
     ],
     "search": {
@@ -191,7 +238,7 @@ $(function() {
           select.append('<option value="' + d + '">' + d + '</option>')
         });
       });
-    }
+    } 
   });
   setTimeout(function() {
     table.draw(false);
@@ -246,6 +293,7 @@ $(function() {
     table.draw(false);
   });
 });
+ 
 $(document).on('click', '.paginate_button', function() {
   $("body,html").animate({
     scrollTop: $("table thead").offset().top - 5}, 800);
