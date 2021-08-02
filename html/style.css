@@ -10,7 +10,7 @@ html {
 
 :root {
   font-family: "Mulish", Arial, sans-serif;
-  line-height: 1.5;
+  line-height: 20px;
   background-color: #333;
   color: #fcfaf1;
   width: 100%;
@@ -1010,7 +1010,63 @@ display:none;
 .hreftext {
   text-decoration: underline;
   cursor: pointer;
+    padding-left: 3px;
+  padding-right: 3px;
 }
+.extra {
+  opacity: .4;
+  margin-left: -1px;
+  margin-right: -1px;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.extra a {
+    text-decoration: none;
+	  cursor: context-menu;
+}
+.extra.ts {
+}
+.ts {
+  font-size: 95%;
+}
+.grid_item.ts {
+  flex: 1 1 0;
+  min-width: 0;
+	/* white-space: nowrap; */
+    padding: 0 10px;
+}
+.flex_item.ts {
+}
+.fixed {
+  overflow-y: overlay;
+  overflow: hidden;
+  flex: 1 1 0;
+  opacity:.7;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  padding: 2px 10px;
+}
+.float {
+	display:none;
+}
+
+ .float:hover,
+.fixed:hover ~ .float {
+display:block;
+  position: absolute;
+  background-color: #444;
+  border: 1px solid rgba(111,111,111,.7);
+  box-shadow: 0px 2px .4em 0px rgba(111, 111, 111, 0.1);
+  max-width: 300px;
+  width: 200%;
+    opacity:1;
+	font-size: 100%;
+   line-height: 2;
+  -webkit-line-clamp: initial;
+  z-index: 9;
+}
+
 
 td hr {
   margin: 0 30%;
@@ -1027,6 +1083,10 @@ td>img {
   font-size:13.8px;
 }
 
+.release_info tr {
+
+}
+
 .release_info th {
   padding: 1em;
   overflow: hidden;
@@ -1034,11 +1094,11 @@ td>img {
 }
 
 .release_info th:nth-child(1) {
-  width: 16%;
+  width: 15%;
 }
 
 .release_info th:nth-child(2) {
-  width: 12%;
+  width: 10%;
 }
 
 .release_info th:nth-child(3) {
@@ -1046,7 +1106,7 @@ td>img {
 }
 
 .release_info th:nth-child(4) {
-  width: 12%;
+  width:10%;
 }
 
 .release_info th:nth-child(5) {
@@ -1054,28 +1114,28 @@ td>img {
 }
 
 .release_info th:nth-child(6) {
-  width: 8%;
+  width: 10%;
 }
 
 .release_info th:nth-child(7) {
-  width: 8%;
+  width: 6%;
 }
 
 .release_info th:nth-child(8) {
-  width: 8%;
+  width: 6%;
 }
 
 .release_info th:nth-child(9) {
-  width: 8%;
+  width: 6%;
 }
 
 .release_info th:nth-last-child(1) {
-  width: 0%;
+  /* width: 0%; */
 }
 
 .release_info tr>td:nth-last-child(1) {
-  width: 0%;
-  display: none;
+  /* width: 0%; */
+  /* display: none; */
 }
 
 pre:not([class]) {
@@ -1200,20 +1260,14 @@ border-color: transparent;
     font-size: 12px;
 }
 #genre-options option {
-  /* padding-top: 0 1.2em; */
-  /* margin:  0 .2em; */
 }
 
 #genre-options {
-  /* padding: 1.2em 0; */
-  /* margin:  .2em ; */
 }
 
 
 
 .filter-item {
-  /* margin: .0em; */
-  /* padding: .0em; */
 	
 }
 .filterSection select {
@@ -1495,7 +1549,7 @@ button:active{
  }
   .toplist td::before  {
 	font-weight: bold;
-    padding-left: 0.1em;
+    padding-left: 1px;
     width: 90%;
     border-bottom: 1px dotted #333;
   }
@@ -1707,6 +1761,7 @@ p {
 @media(min-width: 768px) {
 
   #tableHTML_column_3,
+  #tableHTML_column_5,
   #tableHTML_column_4 {
     height: 1px;
   }
@@ -1719,8 +1774,8 @@ p {
   }
 
   .grid_wrapper>div {
-    /* border: 1px solid green; */
-    padding: .3em 0;
+    padding-top: 4px;
+    padding-bottom: 4px;
   }
 
   .grid_wrapper>div:not(:nth-child(1)) {
@@ -1743,6 +1798,7 @@ p {
 
   :root {
     font-size: 105%;
+	line-height:24px;
   }
 
   ::-webkit-scrollbar {
@@ -1762,7 +1818,6 @@ p {
   }
 
   #disp {
-    /* padding: 25% 0; */
   }
 
   .toplist {
@@ -1795,10 +1850,8 @@ p {
   }
 
   .release_info {
-    font-size: .86em;
     justify-items: center;
     text-align: center;
-    line-height: 2.2;
   }
   .entry img,
   .release_info td img {
@@ -1824,11 +1877,12 @@ p {
     display: grid;
     justify-items: center;
     padding: .8em;
-    line-height: 2.4;
     border: .5px solid;
     border-color: #333 transparent;
   }
-
+ .release_info>* {
+	 
+ }
   #content,
   .release_info {
     border: 2px solid rgba(66, 66, 66, .4);
@@ -1864,23 +1918,24 @@ p {
 
 
  .release_info td:nth-child(4)::before {
+    content: "Related:";
+  }
+  
+
+ .release_info td:nth-child(5)::before {
     content: "Genre:";
   }
 
- .release_info td:nth-child(5)::before {
+ .release_info td:nth-child(6)::before {
     content: "Label:";
   }
 
- .release_info td:nth-child(6)::before {
+ .release_info td:nth-child(7)::before {
     content: "Type:";
   }
 
- .release_info td:nth-child(7)::before {
-    content: "Duration:";
-  }
-
  .release_info td:nth-child(8)::before {
-    content: "Release date:";
+    content: "Date:";
   }
 
  .release_info td:nth-child(9)::before {
@@ -1895,11 +1950,12 @@ p {
   .release_info td::before {
 	font-weight: bold;
     padding-left: 2px;
+    padding-bottom: 2px;
     width: 90%;
     border-bottom: 1px dotted #333;
   }
-
-
+  .release_info td::before ~ * {
+  }
   #datepicker,
   #datecondition {
     /* font-size: .9em; */
@@ -1985,7 +2041,7 @@ p {
   }
 
   .hreftext {
-    line-height: 1.8;
+    /* line-height: 1.8; */
     margin-block-end: .3em;
     margin-block-start: .3em;
   }
@@ -1993,7 +2049,21 @@ p {
   .flex_item:not(:only-of-type) {}
 
   .flex_item:only-of-type {}
-
+  
+.extra {
+  /* line-height: 1; */
+  margin-top: -4px;
+  /* margin-bottom: 8px; */
+}
+.extra.ts {
+  /* margin: -2px; */
+  /* margin-bottom: 8px; */
+}
+.grid_item.ts {
+  width: 60%;
+  margin: auto;
+  /* text-align: justify; */
+}
   .dataTables_info {
     font-size: .77em;
   }
@@ -2001,4 +2071,5 @@ p {
   .dataTables_paginate {
     font-size: .88em;
   }
+  
 }
