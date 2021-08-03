@@ -878,7 +878,7 @@ table ::-webkit-scrollbar {
 }
 
 .release_info tr.header,
-table:not(.dt-datetime-table) tr:hover {
+table:not(.dt-datetime-table) tbody tr:hover {
   background-color: #444;
   background-color: rgba(99, 99, 99, 0.6);
 }
@@ -1010,8 +1010,8 @@ display:none;
 .hreftext {
   text-decoration: underline;
   cursor: pointer;
-    padding-left: 3px;
-  padding-right: 3px;
+    /* padding-left: 4px; */
+  /* padding-right: 4px; */
 }
 .extra {
   opacity: .4;
@@ -1081,6 +1081,7 @@ td>img {
 .release_info {
   display: none;
   font-size:13.8px;
+   table-layout: initial;
 }
 
 .release_info tr {
@@ -1091,49 +1092,82 @@ td>img {
   padding: 1em;
   overflow: hidden;
   text-overflow: ellipsis;
+  background:#444;
 }
+/* .release_info thead tr:nth-child(1) { */
+  /* height: 0px; */
+  /* font-size: 1px; */
+  /* opacity: 0; */
+/* } */
+/* .release_info thead>tr:nth-child(1)>th:nth-child(1) { */
+  /* width: 15%; */
+/* } */
+/* .release_info thead>tr:nth-child(1)>th:nth-child(2) { */
+  /* width: 12%; */
+/* } */
+/* .release_info thead>tr:nth-child(1)>th:nth-child(3) { */
+  /* width: 30%; */
+/* } */
+/* .release_info thead>tr:nth-child(1)>th:nth-child(4) { */
+  /* width: 23%; */
+/* } */
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(1) { */
+  /* width: 15%; */
+/* } */
 
-.release_info th:nth-child(1) {
-  width: 15%;
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(2) { */
+  /* width: 10%; */
+/* } */
+
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(3) { */
+  /* width: 10%; */
+/* } */
+
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(4) { */
+  /* width:10%; */
+/* } */
+
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(5) { */
+  /* width: 10%; */
+/* } */
+
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(6) { */
+  /* width: 10%; */
+/* } */
+
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(7) { */
+  /* width: 7%; */
+/* } */
+
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(8) { */
+  /* width: 7%; */
+/* } */
+
+/* .release_info thead>tr:nth-last-child(1)>th:nth-child(9) { */
+  /* width: 6%; */
+/* } */
+
+.release_info thead>tr:nth-last-child(1) {
+
 }
-
-.release_info th:nth-child(2) {
-  width: 10%;
+.release_info thead>tr:nth-last-child(1) {
+	border-top:1px solid #555;
+  border-bottom: 2px double #666;
+  padding:.1em .8em;
 }
-
-.release_info th:nth-child(3) {
-  width: 10%;
-}
-
-.release_info th:nth-child(4) {
-  width:10%;
-}
-
-.release_info th:nth-child(5) {
-  width: 10%;
-}
-
-.release_info th:nth-child(6) {
-  width: 10%;
-}
-
-.release_info th:nth-child(7) {
-  width: 7%;
-}
-
-.release_info th:nth-child(8) {
-  width: 7%;
-}
-
-.release_info th:nth-child(9) {
-  width: 6%;
-}
-
-.release_info th:nth-last-child(1) {
+.release_info thead>tr:nth-last-child(1)>th {
   /* width: 0%; */
+  font-weight:normal;
 }
 
-.release_info tr>td:nth-last-child(1) {
+.release_info thead>tr:nth-last-child(1)>th:nth-child(1),
+.release_info thead>tr:nth-last-child(1)>th:nth-child(2) {
+  /* width: 0%; */
+  font-weight:bold;
+  /* border-top:1px solid #333; */
+}
+
+.release_info thead>tr:nth-last-child(1)>th:nth-last-child(1) {
   /* width: 0%; */
   /* display: none; */
 }
@@ -1443,7 +1477,7 @@ button:active{
 #label-filter select {
   background: rgba(66, 66, 66, .9);
   padding: .31em .57em;
-  width: 16em;
+  width: 22em;
 }
 
 
@@ -1788,10 +1822,14 @@ p {
 
   .genre_col {}
 
-  .release_info td {
-    padding-left: .2em;
-    padding-right: .2em;
+  .release_info td:not(:nth-child(1)) {
+    padding-left: 1.2em;
+    padding-right: 1.2em;
   }
+  td>img {
+  min-width:100px;
+  max-width:250px;
+}
 }
 
 @media(max-width: 767px) {
@@ -1918,7 +1956,7 @@ p {
 
 
  .release_info td:nth-child(4)::before {
-    content: "Related:";
+    content: "Asso. Acts:";
   }
   
 

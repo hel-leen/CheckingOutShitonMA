@@ -49,8 +49,7 @@ $(function() {
   $('#datepicker').dtDateTime(
  {
         buttons: {
-            // today: true,
-            // clear: true
+            // today: true,  clear: true
         }
     }
   );
@@ -62,11 +61,13 @@ $(function() {
       data.order = [         [8, "asc"]       ];
     },
     "order": [       [8, "asc"]     ],
-    "lengthMenu": [50, 100, 200, 400, "All"],
+    "lengthMenu": [50, 100, 200, 400],
     "columnDefs": [{
         "targets": [0],
         "searchable": false,
-        "sorting": false
+        "sorting": false,
+		"width": "15%",
+		// "max-width": "270px",
       },
       {//rendering albums
         render: (data, type, row ) => { 
@@ -86,12 +87,13 @@ $(function() {
           }
           return data;
         },
+		"width": "12%",
         'targets': [1]
       },
       {//rendering band
         render: (data, type,row)  => { 
            if (type === "display")  {
-            let band  = data.split('|||')[0].split(' / ');
+            let band  = data.split('|||')[0].split(/(?<=\>)\s\/\s(?=\<)/g);
 			let country = data.split('|||')[1].split('| || |');
             var band_col = band.map((item, i) => '' + 
 			"<div class='grid_item'><div class='flex_item'>"+
@@ -107,12 +109,13 @@ $(function() {
           }
           return  data;
         },
+		"width": "12%",
         'targets': [2]
       },
       { // info
         render: (data, type)  =>  { 
           if (type === "display") {
-            let info_row = data.split("||");
+            let info_row = data.split(/\s\|\|\s(?=\|)|(?<=\|)\s\|\|\s/g);
             var info = info_row.map((item) => 
 			  (item.split('|').filter(uniq) != '') ?
                  "<div class='grid_item ts'><div class='flex_item ts fixed'>" +
@@ -127,6 +130,7 @@ $(function() {
           }
           return data;
         },
+		"width": "10%",
         'targets': [3]
       },
       { // genre
@@ -141,6 +145,7 @@ $(function() {
           }
           return data;
         },
+		"width": "10%",
         'targets': [4]
       },
 
@@ -163,7 +168,23 @@ $(function() {
           }
           return data;
         },
+		"width": "10%",
         'targets': [5]
+      },
+     { //duration
+        render: function(data, type,row) {
+          if (type === 'display') {
+            switch (data) {
+              case 'NA':
+                data = "<i class='ts'>no data</i>";
+                break;
+            }
+            return row[6] +" <br><p class='extra'>("+ data + ")</p>";
+          }
+          return data;
+        },
+		"width": "8%",
+        "targets": [7]
       },
       { // date
         render: (data, type, row)  =>  {
@@ -179,25 +200,9 @@ $(function() {
           }
           return data;
         },
+		"width": "8%",
         'targets': [8]
       },
-      {
-        render: function(data, type,row) {
-          if (type === 'display') {
-            switch (data) {
-              case 'NA':
-                data = "<i class='ts'>no data</i>";
-                break;
-            }
-            return row[6] +" <br><p class='extra'>("+ data + ")</p>";
-          }
-          return data;
-        },
-        "targets": [7]
-      },
-
-
-
     ],
     "search": {
       "regex": true
@@ -260,6 +265,12 @@ $(function() {
   let table = $('.release_info').DataTable();
   table.columns([6,-1]).visible( false );
   // table.columns(  ).visible( true );
+  $( table.column( -3 ).header() ).text("Type");
+  $( table.column( 3 ).header() ).text("Asso. Acts");
+    // $("<br><small>(duration)</small>").appendTo( $(table.column( -3 ).header()) );
+    // $("<br><small>(duration)</small>").appendTo( $(table.table().header()) );
+  // $( table.column( -3 ).header() ).attr({'colspan':2,});
+  // console.log($( table.column( -3 ).header() ).text()	);
   $('.release_info tbody').on('dblclick', 'tr', function() {
     $(this).toggleClass('selected');
   });
@@ -268,6 +279,9 @@ $(function() {
   });
   $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function() {
     table.draw();
+  });
+  $('.dataTables_length').change(function() {
+    table.draw(true);
   });
   $(".note>b,.note>a").click(function() {
     $(".note>b i").toggleClass("fa-caret-right fa-caret-down");
@@ -298,24 +312,24 @@ $(document).on('click', '#reset, #Reset', function() {
   $("#datecondition").val("After");
   $("#datepicker").val(thisweek);
   $('.release_info').DataTable().columns(5).search('').draw();
-  $('.release_info').DataTable().column('8:visible').order('asc').draw(true);
+  $('.release_info').DataTable().column(8).order('asc').draw(true);
 });
 $(document).on('click', '#all', function() {
   $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
   $("input[type='text']").val("");
   $('.release_info').DataTable().columns(5).search('').draw();
-  $('.release_info').DataTable().column('8:visible').order('desc').draw(true);
+  $('.release_info').DataTable().column(8).order('desc').draw(true);
 });
 $(document).on('click', '#datecondition', function() {
   if ($(this).val() == "After") {
     $(this).val("Before");
     $(this).css("text-shadow", "0px 0px 1px #d99");
-    $('.release_info').DataTable().column('8:visible').order('desc').draw(true);
+    $('.release_info').DataTable().column(8).order('desc').draw(true);
   } else {
     $(this).val("After");
     $(this).css("text-shadow", "0px 0px 1px #9b9");
-    $('.release_info').DataTable().column('8:visible').order('asc').draw(true);
+    $('.release_info').DataTable().column(8).order('asc').draw(true);
   }
 });
 $(document).on('click', '#datepicker, #today, #Today, .dt-datetime-today', function() {
