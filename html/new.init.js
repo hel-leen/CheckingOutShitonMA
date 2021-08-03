@@ -291,6 +291,10 @@ $(function()
   {
     $(this).toggleClass('selected');
   });
+  $('.release_info tbody').on('click', '.dropdown,.float', function()
+  {
+    $(this).toggleClass('actived');
+  });
   $('#delete_button').click(function()
   {
     table.rows('.selected').remove().draw(false);

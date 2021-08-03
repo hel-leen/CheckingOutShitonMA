@@ -846,7 +846,6 @@ tr.odd {
   justify-items: left;
 }
 
-.toplist tbody {}
 
 #tableHTML_column_2 {
   justify-items: center;
@@ -1031,6 +1030,7 @@ table:not(.dt-datetime-table) tbody tr:hover {
 .extra a {
   text-decoration: none;
   cursor: context-menu;
+  pointer-events: none;
 }
 
 .extra.ts {}
@@ -1523,7 +1523,7 @@ button:active {
 }
 
 .toplist {
-
+  font-size: 12.8px;
   width: 100%;
   border: 0px;
   box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.44), 0 7px 15px 0 rgba(0, 0, 0, 0.39);
@@ -1614,7 +1614,7 @@ button:active {
 
 .Genre::before,
 .toplist td:not(:nth-child(0)) {
-  line-height: 2.5;
+  line-height: 28px;
 }
 
 .entry img {
@@ -1831,8 +1831,6 @@ p {
     .grid_wrapper>div:nth-child(1) {
       /* padding-bottom: 1em ; */
     }
-
-    .genre_col {}
 
     .release_info td:not(:nth-child(1)) {
       padding-left: 1.2em;
@@ -2085,10 +2083,16 @@ p {
 
 
     .grid_item.ts {
-      width: 60%;
+      width: 80%;
       margin: auto;
     }
-
+	
+	.flex_item.ts.fixed {
+      padding: 4px 15%;
+	 }
+.flex_item.ts.fixed.float{
+	padding: 4px 15px;
+}
     .dataTables_info {
       font-size: .77em;
     }
@@ -2096,5 +2100,17 @@ p {
     .dataTables_paginate {
       font-size: .88em;
     }
-
+  a {
+   pointer-events: none;
+   text-decoration: none;
+  }
+/* *:hover>a, */
+/* *:target>a, */
+/* *:active>a, */
+/* *:focus>a, */
+  .actived:hover a{
+   pointer-events: all;
+   text-decoration: dashed;
+   color: #fed;
+	}
   }
