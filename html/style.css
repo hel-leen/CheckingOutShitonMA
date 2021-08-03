@@ -1036,7 +1036,7 @@ table:not(.dt-datetime-table) tbody tr:hover {
 .extra.ts {}
 
 .ts {
-  font-size: 95%;
+  font-size: 93.5%;
 }
 
 .grid_item.ts {
@@ -1269,6 +1269,8 @@ iframe {
 }
 
 
+#label-filter>*:hover,
+#label-filter option:hover,
 .filter-holder option:hover,
 .filter-holder>*:not(.solid):hover {
   background: linear-gradient(#111, #333);
@@ -1801,7 +1803,7 @@ p {
   .release_info {
     table-layout: fixed;
   }
-
+}
   @media(min-width: 768px) {
 
     #tableHTML_column_3,

@@ -62,6 +62,7 @@ $(function()
   $('.release_info').DataTable(
   {
     deferRender: true,
+	autoFill: true,
     stateSave: true,
     stateDuration: 60 * 60 * 6,
     stateSaveParams: function(settings, data)
@@ -226,10 +227,12 @@ $(function()
         width: '8%',
         targets: [8],
       },
+	  { "searchable": false, "targets": [3] }
     ],
     search:
     {
-      regex: true,
+      // regex: true,
+	  "smart": true,
     },
     autoWidth: false,
     language:
@@ -255,6 +258,15 @@ $(function()
           select.append('<option value="' + d.match(hreftext) + '">' + d.match(hreftext) + '</option>');
         });
       });
+      this.api().columns(6).every(function()
+      {
+        var column = this;
+        var click = $('#Fulllength').on('click', function()
+        { 
+          var check = $('#Fulllength').is(':checked');
+          column.search(check ? "Full" : '', true, false).draw();
+        });
+      });
     },
   });
  setTimeout(() =>{ table.draw(false); $('.filterSection').css( { opacity: 0.0, }).animate( { opacity: 1.0, height: 'fit-content', }); }, 1000); 
@@ -274,6 +286,7 @@ $(function()
   $(table.column(-3).header()).text('Type');
   $(table.column(3).header()).text('Asso. Acts');
   // $("<br><small>(duration)</small>").appendTo( $(table.column( -3 ).header()) );
+  
   $('.release_info tbody').on('dblclick', 'tr', function()
   {
     $(this).toggleClass('selected');
@@ -325,7 +338,7 @@ $(document).on('click', '#reset, #Reset', function()
   $('#genre-options option:not(:eq(2))').check();
   $('#datecondition').val('After');
   $('#datepicker').val(thisweek);
-  $('.release_info').DataTable().columns(5).search('').draw();
+  $('.release_info').DataTable().columns().search('').draw();
   $('.release_info').DataTable().column(8).order('asc').draw(true);
 });
 $(document).on('click', '#all', function()
@@ -333,7 +346,7 @@ $(document).on('click', '#all', function()
   $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
   $("input[type='text']").val('');
-  $('.release_info').DataTable().columns(5).search('').draw();
+  $('.release_info').DataTable().columns().search('').draw();
   $('.release_info').DataTable().column(8).order('desc').draw(true);
 });
 $(document).on('click', '#datecondition', function()
@@ -366,6 +379,7 @@ $(document).on('click', '#labelclear', function()
   $('#label-filter option').prop('selected', false);
   $('.release_info').DataTable().columns(5).search('').draw();
 });
+ 
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 {
   let genre = data[4].toLowerCase();

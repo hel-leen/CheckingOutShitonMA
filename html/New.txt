@@ -1,76 +1,96 @@
-<!DOCTYPE html><html lang = "en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
-<title>New Albums on MA</title>
-<script src="jquery.min.js">  </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script><script type="text/javascript" language="javascript" src="new.init.js"></script><link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" type="image/png" href="cat.png">
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+	<title>New Albums on MA</title>
+	<script src="jquery.min.js"> </script>
+	<script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+	<script type="text/javascript" language="javascript"
+		src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+	<script type="text/javascript" language="javascript" src="new.init.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="cat.png">
 </head>
 
-<body> 
-<h1 class="glow" id="header">New albums on MA  </h1>
-<div class="sidenav"><a href="../" id="home">Home</a></div>
-<h4 style="margin: .5em 0%;">All data from <a href="https://www.metal-archives.com/" target="_blank" rel="noopener noreferrer">THE Metal Archives</a>, with more album info included and duplicates filtered out. Web page genereated with <a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a>.</h4>
-<p id="date" style="margin: .5em 0%;"></p>
-<div class="note">
-<b>NOTE <i class="fa fa-caret-right"></i></b>
-<a> Click to read tips.</a>
-<div class="hideItem">
-<p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while empty value in the column indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</s> Merged with "Date" data.</p>
-<!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
-<p><a href="https://www.metal-archives.com/images/cat.jpg" target="_blank" rel="noopener noreferrer">Cat picture</a> means the album doesn't have any cover(!?).</p>
-<p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="Today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
-<p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right, gone. It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</p>
-<!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
-</div>
-<u class="breaker"> <br></u>
-</div>
-<div class="contentWrapper">
-<u class="breaker"> <br></u>
-<li class="filterSection">
-<strong>Reset:   </strong> 
-<div class="filter-holder" id="reset-filter">
- <!-- <p> -->
-<button id="reset">Default</button><button id="all">Show all</button> 
-<!-- </p> -->
-</div>
-</li>
-<li class="filterSection">
-<strong>Date:  </strong>
-<div class="filter-holder" id="date-filter">
-<!-- <div class="filter-item"> -->
- <input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="solid fa fa-times-circle"></i>
-<!-- <a class="bubble" id="today">Today </a> -->
-<!-- </div> -->
+<body>
+	<h1 class="glow" id="header">New albums on MA  </h1>
+	<div class="sidenav"><a href="../" id="home">Home</a></div>
+	<h4 style="margin: .5em 0%;">All data from <a href="https://www.metal-archives.com/" target="_blank"
+			rel="noopener noreferrer">THE Metal Archives</a>, with more album info included and duplicates filtered out.
+		Web page genereated with <a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a>.
+	</h4>
+	<p id="date" style="margin: .5em 0%;"></p>
+	<div class="note">
+		<b>NOTE <i class="fa fa-caret-right"></i></b>
+		<a> Click to read tips.</a>
+		<div class="hideItem">
+			<p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other
+					version(s) of the album in question, if it has any, while empty value in the column indicates the
+					album doesn't have any version earlier than the one shown here. The info is useful when you want to
+					skip re-releases.</s> Merged with "Release Info. - Date" data.</p>
+			<!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
+			<p><a href="https://www.metal-archives.com/images/cat.jpg" target="_blank" rel="noopener noreferrer">Cat
+					picture</a> means the album doesn't have any cover(!?).</p>
+			<p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click
+				<button id="Today">here</button> to filter it based on today (in your timezone). Or use
+				"<b id="Reset">Reset</b>" to restore default settings.</p>
+			<p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at
+				the bottom right, gone. It comes back after refreshing the page you say? Well my little page is just
+				static without a server. What else do you expect from it?</p>
+			<!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
+		</div>
+		<u class="breaker"> <br></u>
+	</div>
+	<div class="contentWrapper">
+		<u class="breaker"> <br></u>
+			<li class="filterSection">
+				<strong>Reset:   </strong>
+				<div class="filter-holder" id="reset-filter">
+					<!-- <p> -->
+					<button id="reset">Default</button><button id="all">Show all</button>
+					<!-- </p> -->
+				</div>
+			</li>
+			<li class="filterSection">
+				<strong>Date:  </strong>
+				<div class="filter-holder" id="date-filter">
+					<!-- <div class="filter-item"> -->
+					<input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="solid fa fa-times-circle"></i>
+					<!-- <a class="bubble" id="today">Today </a> -->
+					<!-- </div> -->
 
-</div>
-</li>
-<li class="filterSection">
-<strong>Genre:  </strong>
-<div class="filter-holder" id="genre-filter">
-<div class="solid filter-item">
-  <select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
+				</div>
+			</li>
+			<li class="filterSection">
+				<strong>Genre:  </strong>
+				<div class="filter-holder" id="genre-filter">
+					<div class="solid filter-item">
+						<select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
 <option selected value="death">Death Metal</option>
 <option value="^((?!(black|death)).)*$">Other</option></select>
-</div>
-</div>
-</li>
-<li class="filterSection">
-<strong>Label:  </strong>
-<div class="filter-holder" id="label-filter"> 
-<i id="labelclear" class="solid fa fa-times-circle"></i> 
-</div>
-</li>
-<li class="filterSection">
-<strong>Types: </strong>
-<div class="filter-holder">
-<label class="solid checkcontainer">
+					</div>
+				</div>
+			</li>
+			<li class="filterSection">
+				<strong>Label:  </strong>
+				<div class="filter-holder" id="label-filter">
+					<i id="labelclear" class="solid fa fa-times-circle"></i>
+				</div>
+			</li>
+			<li class="filterSection">
+				<strong>Types: </strong>
+				<div class="filter-holder">
+					<label class="solid checkcontainer">
 <input class="filter fa" id="Reissue" type="checkbox" checked><span class="checkmark solid fa fa-check-circle"><p>No Reissue</p></span></label>
-<label class="solid checkcontainer">
+					<label class="solid checkcontainer">
 <input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle"><p>Full-length only</p></span></label>
-</div>
-</li>
+				</div>
+			</li>
 
-<u class="breaker"> <br></u>
-<!-- </body>  -->
-<!-- </html> -->
+			<u class="breaker"> <br></u>
+				<!-- </body>  -->
+				<!-- </html> -->
