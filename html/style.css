@@ -1249,7 +1249,7 @@ iframe {
 }
 
 .filterSection {
-  margin: .5em 0;
+  margin: .77em 0;
   display: grid;
   grid-template-columns: 5em 1fr;
   grid-auto-rows: 1fr;
@@ -1308,7 +1308,7 @@ iframe {
 
 .filter-holder>*,
 .filter-holder select option {
-  font-size: 12px;
+  font-size: 13.7px;
 }
 
 #genre-options option {}
@@ -1399,7 +1399,7 @@ iframe {
 .filter-holder {
   display: inline-flex;
   overflow: hidden;
-  font-size: .8em;
+  font-size: 14px;
   align-items: center;
 }
 
@@ -1497,7 +1497,7 @@ button:active {
 #datepicker,
 #datecondition {
   height: 100%;
-  width: 8em;
+  width: 9em;
   background: rgba(66, 66, 66, .9);
   color: transparent;
   text-align: center;
@@ -1505,7 +1505,7 @@ button:active {
 }
 
 #datecondition {
-  width: 6em;
+  width: 7em;
   text-shadow: 0px 0px 1px #9b9;
 }
 
