@@ -52,7 +52,7 @@ $(document).ready(function() {
 	window.matchMedia( '(max-width: 767px)' ).matches &&
 	navigator.userAgent.search(/mobile/gi) < 0 ?
       $( ":root" ).css( "font-size","100%" ) :
-      $( ":root" ).css( "font-size","2.3vh" )
+      $( ":root" ).css( "font-size","2.2vh" )
 });
 $(function()
 {

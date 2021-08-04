@@ -1850,7 +1850,7 @@ p {
   @media(max-width: 767px) {
 
     :root {
-      /* font-size: 105%; */
+      font-size: 2.2vh;
       /* line-height: 24px; */
     }
 
