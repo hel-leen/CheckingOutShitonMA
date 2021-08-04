@@ -118,6 +118,26 @@ $(function()
         targets: [2],
       },
       {
+        // genre
+        render: (data, type) =>
+        {
+          if (type === 'display')
+          {
+            let genre_col = [];
+            data.split(' | ').forEach(item =>
+            {
+              genre_col.push("<div class='grid_item'><div class='flex_item ts'>" + 
+			    item.replace(/(?<=[,])\s/g, ' <wbr>').replace(/\//g, '/<wbr>').replace(/(?<=[;])\s/g, ' <br>') +
+                '</div></div>');
+            });
+            return tabLink("<div class='grid_wrapper'>".concat(genre_col.join(''), '</div>'));
+          }
+          return data;
+        },
+        width: '10%',
+        targets: [3],
+      },
+      {
         // info
         render: (data, type) =>
         {
@@ -139,28 +159,9 @@ $(function()
           return data;
         },
         width: '10%',
-        targets: [3],
-      },
-      {
-        // genre
-        render: (data, type) =>
-        {
-          if (type === 'display')
-          {
-            let genre_col = [];
-            data.split(' | ').forEach(item =>
-            {
-              genre_col.push("<div class='grid_item'><div class='flex_item ts'>" + 
-			    item.replace(/(?<=[,])\s/g, ' <wbr>').replace(/\//g, '/<wbr>').replace(/(?<=[;])\s/g, ' <br>') +
-                '</div></div>');
-            });
-            return tabLink("<div class='grid_wrapper'>".concat(genre_col.join(''), '</div>'));
-          }
-          return data;
-        },
-        width: '10%',
         targets: [4],
       },
+
       {
         // label
         render: (data, type) =>
@@ -227,7 +228,7 @@ $(function()
         width: '8%',
         targets: [8],
       },
-	  { "searchable": false, "targets": [3] }
+	  { "searchable": false, "targets": [4] }
     ],
     search:
     {
@@ -284,7 +285,7 @@ $(function()
   table.columns([6, -1]).visible(false);
   // table.columns(  ).visible( true );
   $(table.column(-3).header()).text('Type');
-  $(table.column(3).header()).text('Asso. Acts');
+  $(table.column(4).header()).text('Asso. Acts');
   // $("<br><small>(duration)</small>").appendTo( $(table.column( -3 ).header()) );
   
   $('.release_info tbody').on('dblclick', 'tr', function()
@@ -386,7 +387,7 @@ $(document).on('click', '#labelclear', function()
  
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 {
-  let genre = data[4].toLowerCase();
+  let genre = data[3].toLowerCase();
   let type = data[6];
   let date = data[8];
   let version = data[9];
