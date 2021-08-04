@@ -47,7 +47,13 @@ const searchLink = q => window.matchMedia( '(max-width: 767px)' ).matches ?
   "\">Youtube<i class='fa fa-search'></i></a>" +
   '<a href="https://open.spotify.com/search/' + q.match( hreftext ) +
   "/spotify\">Spotify<i class='fa fa-search'></i></a>";
-
+  
+$(document).ready(function() {
+	window.matchMedia( '(max-width: 767px)' ).matches &&
+	navigator.userAgent.search(/mobile/gi) < 0 ?
+      $( ":root" ).css( "font-size","100%" ) :
+      $( ":root" ).css( "font-size","2.3vh" )
+});
 $(function()
 {
   $('<small>Last updated on ' + moment().subtract(1, 'days').format('YYYY-MM-DD') + ' UTC.</small>').appendTo('#date');
@@ -89,7 +95,7 @@ $(function()
 			item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, '<br>').replace(/\s(?=[(])/g, ' <br>').replace(/\//g, '/<wbr>') + 
 			'</a>' + "<div class='dropdown'>" + 
 			maLink(item) + '<hr>' + 
-			searchLink(item).replace(/\/spotify\'/g, "/albums'") + '</div></div></div>'));
+			searchLink(item).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>'));
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
           }
           return data;
@@ -109,7 +115,7 @@ $(function()
               (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" + 
 			  item.match(hreftext) + "</a><br><p class='extra ts'>(" + country[i] + ')</p>' +  
 			  "<div class='dropdown'>" + 
-			  maLink(item) + searchLink(item).replace(/\/spotify\'/g, "/artists'") + '</div></div></div>');
+			  maLink(item) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + '</div></div></div>');
             return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
           }
           return data;

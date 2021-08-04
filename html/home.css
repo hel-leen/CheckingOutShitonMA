@@ -64,7 +64,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .home-bar .home-bar-item{font-family:'Cinzel';padding:8px 16px;float:left;width:auto;border:none;display:block;outline:0}
 .home-bar .home-dropdown-hover,.home-bar .home-dropdown-click{position:static;float:left}
 .home-bar .home-button{white-space:normal}
-.home-bar-block .home-bar-item{width:100%;display:block;padding:8px 16px;font-size:.8em;text-align:left;border:none;white-space:normal;float:none;outline:0}
+.home-bar-block .home-bar-item{width:100%;margin: auto;display:block;padding:8px 16px;font-size:.8em;text-align:right;border:none;white-space:normal;float:none;outline:0}
 .home-bar-block.home-center .home-bar-item{text-align:center}.home-block{display:block;width:100%}
 .home-responsive{display:block;overflow-x:auto}
 .home-container:after,.home-container:before,.home-panel:after,.home-panel:before,.home-row:after,.home-row:before,.home-row-padding:after,.home-row-padding:before,
@@ -93,7 +93,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 @media (min-width:993px){.home-modal-content{width:900px}.home-hide-large{display:none!important}.home-sidebar.home-collapse{display:block!important}}
 @media (max-width:992px) and (min-width:601px){.home-hide-medium{display:none!important}}
 @media (max-width:992px){.home-sidebar.home-collapse{display:none}.home-main{margin-left:0!important;margin-right:0!important}.home-auto{max-width:100%}}
-.home-top,.home-bottom{position:fixed;width:100%;z-index:1}.home-top{top:0}.home-bottom{bottom:0}
+.home-top,.home-bottom{position:fixed;width:100%;z-index:1}.home-top{}.home-bottom{bottom:0}
 .home-overlay{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);z-index:2}
 .home-display-topleft{position:absolute;left:0;top:0}.home-display-topright{position:absolute;right:0;top:0}
 .home-display-bottomleft{position:absolute;left:0;bottom:0}.home-display-bottomright{position:absolute;right:0;bottom:0}
@@ -138,7 +138,7 @@ hr{border:0;border-top:1px solid #eee;margin:20px 0}
 .home-section,.home-code{margin-top:16px!important;margin-bottom:16px!important}
 .home-margin{margin:16px!important}.home-margin-top{margin-top:16px!important}.home-margin-bottom{margin-bottom:16px!important}
 .home-margin-left{margin-left:16px!important}.home-margin-right{margin-right:16px!important}
-.home-padding-small{padding:4px 8px!important}.home-padding{padding:8px 16px!important}.home-padding-large{padding:12px 24px!important}
+.home-padding-small{padding:4px 8px!important}.home-padding{padding:8px 16px!important}.home-padding-large{padding:14px 24px!important}
 .home-padding-16{padding-top:16px!important;padding-bottom:16px!important}.home-padding-24{padding-top:24px!important;padding-bottom:24px!important}
 .home-padding-32{padding-top:32px!important;padding-bottom:32px!important}.home-padding-48{padding-top:48px!important;padding-bottom:48px!important}
 .home-padding-64{padding-top:64px!important;padding-bottom:64px!important}
