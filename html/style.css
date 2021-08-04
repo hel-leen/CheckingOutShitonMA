@@ -67,7 +67,7 @@ body {
 }
 #home a{
   font-family: "Cinzel";
-  font-size: 80%;
+  font-size: 12px;
   width: 55px;
   height: 55px;
   line-height: 55px;
@@ -82,7 +82,7 @@ body {
 	color:#000;
 }
 #home:not(:hover) {
-  left: -50px;
+  left: -44px;
 }
 
  
@@ -1085,8 +1085,8 @@ table:not(.dt-datetime-table) tbody tr:hover {
 
 .dropdown i {
   position: absolute;
-  right: 15%;
-  font-size: .9rem;
+  right: 10%;
+  font-size: .9em;
   opacity: .6;
 }
 
@@ -1491,6 +1491,7 @@ button:active {
   background: rgba(66, 66, 66, .9);
   padding: .31em .57rem;
   width: 22rem;
+  max-width: 60vw;
 }
 
 
@@ -1498,7 +1499,7 @@ button:active {
 #datepicker,
 #datecondition {
   height: 100%;
-  width: 9em;
+  width: 8em;
   background: rgba(66, 66, 66, .9);
   color: transparent;
   text-align: center;
@@ -1506,7 +1507,7 @@ button:active {
 }
 
 #datecondition {
-  width: 7em;
+  width: 6em;
   text-shadow: 0px 0px 1px #9b9;
 }
 
