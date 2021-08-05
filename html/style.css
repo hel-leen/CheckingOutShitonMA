@@ -1942,6 +1942,7 @@ p {
 
     :root {
       font-size: 100%;
+      font-size: 4.45vw;
       /* font-size: 2vh; */
       /* line-height: 24px; */
     }
@@ -1992,6 +1993,10 @@ p {
 #datecondition {
   width: 5em;
 }
+
+	#label-filter select {
+      width: 11rem;
+    }
     .release_info {
 	  font-size: .93rem;
       justify-items: center;
@@ -2104,7 +2109,7 @@ p {
     .ts {
       font-size: 96.5%;
     }
-	
+
     .breaker {
       height: 10px;
     }
