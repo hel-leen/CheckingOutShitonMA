@@ -508,7 +508,7 @@ ul li {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  margin: 0 1px .4rem 1px;
+  margin: 0 1.5px .4rem 1.5px;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
