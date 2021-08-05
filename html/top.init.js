@@ -32,10 +32,15 @@ jQuery.fn.extend({
 });
 
 $(document).ready(function() {
-	window.matchMedia( '(max-width: 767px)' ).matches &&
-	navigator.userAgent.search(/mobile/gi) < 0 ?
-      $( ":root" ).css( "font-size","100%" ) :
-      $( ":root" ).css( "font-size","4.45vw" )
+	if (window.matchMedia( '(max-width: 767px)' ).matches) {
+		if (navigator.userAgent.search(/mobile/gi) < 0 ) {
+          $( ":root" ).css( "font-size","100%" ) ;
+		}else {
+          $( ":root" ).css( "font-size","4.45vw" );
+		}
+	} else {
+          $( ":root" ).css( "font-size","2.23vh" );
+	}
 });
 $(function() {
   $('.toplist').DataTable({
