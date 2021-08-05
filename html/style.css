@@ -1942,7 +1942,7 @@ p {
 
     :root {
       font-size: 100%;
-      font-size: 2vh;
+      /* font-size: 2vh; */
       /* line-height: 24px; */
     }
 
