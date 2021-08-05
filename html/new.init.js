@@ -49,12 +49,12 @@ const searchLink = q => window.matchMedia( '(max-width: 767px)' ).matches ?
   '<a href="https://open.spotify.com/search/' + q.match( hreftext ).join().replace(/\//g, '') +
   "/spotify\">Spotify<i class='fa fa-search'></i></a>";
   
-// $(document).ready(function() {
-	// window.matchMedia( '(max-width: 767px)' ).matches &&
-	// navigator.userAgent.search(/mobile/gi) < 0 ?
-      // $( ":root" ).css( "font-size","100%" ) :
-      // $( ":root" ).css( "font-size","2.2vh" )
-// });
+$(document).ready(function() {
+	window.matchMedia( '(max-width: 767px)' ).matches &&
+	navigator.userAgent.search(/mobile/gi) < 0 ?
+      $( ":root" ).css( "font-size","100%" ) :
+      $( ":root" ).css( "font-size","2vh" )
+});
 $(function()
 {
   $('<small>Last updated on ' + moment().subtract(1, 'days').format('YYYY-MM-DD') + ' UTC.</small>').appendTo('#date');
