@@ -40,19 +40,19 @@
 	<div class="contentWrapper">
 		<u class="breaker"> <br></u>
 			<li class="filterSection">
-				<strong>Reset:   </strong>
+				<strong>Reset:</strong>
 				<div class="filter-holder" id="reset-filter">
 					<button id="reset">Default</button><button id="all">Show all</button>
 				</div>
 			</li>
 			<li class="filterSection">
-				<strong>Date:  </strong>
+				<strong>Date:&nbsp;</strong>
 				<div class="filter-holder" id="date-filter">
 					<input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="solid fa fa-times-circle"></i>
 				</div>
 			</li>
 			<li class="filterSection">
-				<strong>Genre:  </strong>
+				<strong>Genre:</strong>
 				<div class="filter-holder" id="genre-filter">
 					<div class="solid filter-item">
 						<select id="genre-options" multiple size="1">
@@ -64,13 +64,13 @@
 				</div>
 			</li>
 			<li class="filterSection">
-				<strong>Label:  </strong>
+				<strong>Label:</strong>
 				<div class="filter-holder" id="label-filter">
 					<i id="labelclear" class="solid fa fa-times-circle"></i>
 				</div>
 			</li>
 			<li class="filterSection">
-				<strong>Types: </strong>
+				<strong>Types:</strong>
 				<div class="filter-holder">
 					<label class="solid checkcontainer">
 					<input class="filter fa" id="Reissue" type="checkbox" checked><span class="checkmark solid fa fa-check-circle"><p>No Reissue</p></span></label>

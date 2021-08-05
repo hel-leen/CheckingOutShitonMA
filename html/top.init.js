@@ -30,6 +30,7 @@ jQuery.fn.extend({
     });
   }
 });
+
 $(document).ready(function() {
 	window.matchMedia( '(max-width: 767px)' ).matches &&
 	navigator.userAgent.search(/mobile/gi) < 0 ?
@@ -112,11 +113,7 @@ $(function() {
     table.draw(false);
     $('#toplist').fadeIn();
   }, 2000);
-  if (($(window).width()) < 800) {
-    $.fn.DataTable.ext.pager.numbers_length = 5;
-  } else {
-    $.fn.DataTable.ext.pager.numbers_length = 15;
-  }
+
   $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function() {
     table.draw();
   });
@@ -135,6 +132,11 @@ $(document).on('click', 'a.paginate_button', function() {
     scrollTop: $("table thead").offset().top - 60
   }, 800);
 });
+if (($(window).width()) < 768) {
+    $.fn.DataTable.ext.pager.numbers_length = 5;
+} else {
+    $.fn.DataTable.ext.pager.numbers_length = 9;
+}
 $.fn.dataTable.ext.search.push(
   function(settings, data, dataIndex) {
     let year = Number(data[6].match(/\d{4}/i).toString());

@@ -30,30 +30,31 @@ else
 }
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
-let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
+let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = q => '' + q.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
-const maLink = q => '<a href="' + q.match(hreflink) + "\">MA Page<i class='fa fa-medium'></i></a>";
+const maTarget = q => 'https://www.metal-archives.com' + q.match(hreflink);
+const maLink = q => '<a href="' + maTarget(q) + "\">MA Page<i class='fa fa-medium'></i></a>";
 const searchLink = q => window.matchMedia( '(max-width: 767px)' ).matches ? 
   '<a href="https://bandcamp.com/search?q=' + q.match( hreftext ) +
   "\">Bandcamp<i class='fa fa-search'></i></a>" +
   '<a href="https://www.youtube.com/results?search_query=' + q.match( hreftext ) +
   "\">Youtube<i class='fa fa-search'></i></a>" +
-  '<a href="https://open.spotify.com/search/' + q.match( hreftext ) +
+  '<a href="https://open.spotify.com/search/' + q.match( hreftext ).join().replace(/\//g, '') +
   "\">Spotify<i class='fa fa-search'></i></a>" 
   :
   '<a href="https://bandcamp.com/search?q=' + q.match( hreftext ) +
   "\">Bandcamp<i class='fa fa-search'></i></a>" +
   '<a href="https://www.youtube.com/results?search_query=' + q.match( hreftext ) +
   "\">Youtube<i class='fa fa-search'></i></a>" +
-  '<a href="https://open.spotify.com/search/' + q.match( hreftext ) +
+  '<a href="https://open.spotify.com/search/' + q.match( hreftext ).join().replace(/\//g, '') +
   "/spotify\">Spotify<i class='fa fa-search'></i></a>";
   
-$(document).ready(function() {
-	window.matchMedia( '(max-width: 767px)' ).matches &&
-	navigator.userAgent.search(/mobile/gi) < 0 ?
-      $( ":root" ).css( "font-size","100%" ) :
-      $( ":root" ).css( "font-size","2.2vh" )
-});
+// $(document).ready(function() {
+	// window.matchMedia( '(max-width: 767px)' ).matches &&
+	// navigator.userAgent.search(/mobile/gi) < 0 ?
+      // $( ":root" ).css( "font-size","100%" ) :
+      // $( ":root" ).css( "font-size","2.2vh" )
+// });
 $(function()
 {
   $('<small>Last updated on ' + moment().subtract(1, 'days').format('YYYY-MM-DD') + ' UTC.</small>').appendTo('#date');
@@ -78,21 +79,34 @@ $(function()
     order: [[8, 'asc']],
     lengthMenu: [50, 100, 200, 400],
     columnDefs: [
-      {
-        targets: [0],
+	  {
+        //rendering cover
+        render: (data, type, row) =>
+        {
+          if (type === 'display')
+          {
+            return ('<img src="https://www.metal-archives.com'.concat(data.toString(), '" loading="lazy">'));
+          }
+          return data;
+        },
         searchable: false,
         sorting: false,
-        width: '15%',
-      },
+        width: '16%',
+        targets: [0],
+      }, 
       {
-        //rendering albums
+        //rendering album
         render: (data, type, row) =>
         {
           if (type === 'display')
           {
             let album_col = '';
             data.split('.*').forEach(item => (album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" + 
-			item.match(hreftext).toString().replace(/(?<=[,:\.])\s/g, '<br>').replace(/\s(?=[(])/g, ' <br>').replace(/\//g, '/<wbr>') + 
+			item.match(hreftext).toString()
+			.replace(/\/(?=.{11,})/g, '/<br>')
+			.replace(/((?<=[,:\.])\s((?=\D{9,})|(?=\w{5,}))|(\s(?=\w\W\w\W)))/g, '<br>')
+			.replace(/\s(?=[(])/g, ' <br>')
+			.replace(/\//g, '/<wbr>') + 
 			'</a>' + "<div class='dropdown'>" + 
 			maLink(item) + '<hr>' + 
 			searchLink(item).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>'));
@@ -133,7 +147,7 @@ $(function()
             data.split(' | ').forEach(item =>
             {
               genre_col.push("<div class='grid_item'><div class='flex_item ts'>" + 
-			    item.replace(/(?<=[,])\s/g, ' <wbr>').replace(/\//g, '/<wbr>').replace(/(?<=[;])\s/g, ' <br>') +
+			    item.replace(/(?<=[,])\s/g, ' <wbr>').replace(/\//g, '/<wbr>').replace(/(?<=[;|\),])\s/g, ' <br>') +
                 '</div></div>');
             });
             return tabLink("<div class='grid_wrapper'>".concat(genre_col.join(''), '</div>'));
@@ -154,9 +168,10 @@ $(function()
             var info = info_row.map(item => 
 			  item.split('|').filter(uniq) != '' ? 
 			    "<div class='grid_item ts'><div class='flex_item ts fixed'>" + 
-				item.split('|').filter(uniq).sort().join(', ') + '</div>' +
+				item.split('|').filter(uniq).sort(() => Math.random() - 0.5).join(', ') + '</div>' +
 				"<div class='flex_item ts fixed float'>" + 
-				item.split('|').filter(uniq).sort().join(', ') + '</div></div>' 
+				item.split('|').filter(uniq).sort().join(', ')
+				.replace(/href\=\"/g, 'href="https://www.metal-archives.com') + '</div></div>' 
 			  :
                 "<div class='grid_item ts'><div class='flex_item'>" + 
 			    "<i class='extra'>(No data)</i></div></div>");
@@ -279,14 +294,7 @@ $(function()
  setTimeout(() =>{ table.draw(false); $('.filterSection').css( { opacity: 0.0, }).animate( { opacity: 1.0, height: 'fit-content', }); }, 1000); 
  setTimeout(() =>{ table.draw(false); $('.dataTables_wrapper').css( { opacity: 0.0, }).animate( { opacity: 1.0, }); }, 1500); 
  setTimeout(() =>{ $('.release_info,#date').animate( { height: 'toggle', opacity: 'toggle', }, 'slow'); }, 2500);
-  if ($(window).width() < 800)
-  {
-    $.fn.DataTable.ext.pager.numbers_length = 5;
-  }
-  else
-  {
-    $.fn.DataTable.ext.pager.numbers_length = 15;
-  }
+
   let table = $('.release_info').DataTable();
   table.columns([6, -1]).visible(false);
   // table.columns(  ).visible( true );
@@ -390,7 +398,10 @@ $(document).on('click', '#labelclear', function()
   $('#label-filter option').prop('selected', false);
   $('.release_info').DataTable().columns(5).search('').draw();
 });
- 
+if ($(window).width() < 768)
+  {     $.fn.DataTable.ext.pager.numbers_length = 5;   }
+else
+  {     $.fn.DataTable.ext.pager.numbers_length = 9;   }
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex)
 {
   let genre = data[3].toLowerCase();
