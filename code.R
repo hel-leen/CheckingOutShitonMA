@@ -181,8 +181,6 @@ extended = function(df) {
     }
     album.cover.i[i] = album.cover
     
-    # if (length(album.cover) != 0) {   album.cover %>%   image_read("./path/image.jpeg") }
-    
     album.label =
       album.page %>%
       .[str_which(.,'float_right')] %>%  
@@ -300,8 +298,8 @@ if (nrow(new) > 0) {
 ## generate a web page 
 export.webpage = 
   function(dataname) { 
-    malink = 'https://www.metal-archives.com'
     target = './CheckingOutShitonMA/html/New.html'
+    malink = 'https://www.metal-archives.com' #reduce page size
     dataname %>%
       filter(Date > Sys.Date() - days(180) & Date < Sys.Date() + days(180)) %>% 
       distinct_at(vars(album.link),.keep_all = TRUE) %>%  
