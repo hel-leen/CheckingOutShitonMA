@@ -55,33 +55,31 @@ const layout = () => {
 $(function() {
   layout();
   $('<small>Last updated on ' + $('#footer').text() + ' UTC. Total records: '+ 
-  $( ".release_info>tbody>tr" ).length+'. </small>').appendTo('#date');
+  $( ".newlist>tbody>tr" ).length+'. </small>').appendTo('#date');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     buttons: {
       // today: true,  clear: true
     },
   });
-  $('.release_info').DataTable({
+  $('.newlist').DataTable({
     deferRender: true,
     autoFill: true,
-    stateSave: true,
+    stateSave: false,
     stateDuration: 60 * 60 * 6,
     stateSaveParams: function(settings, data) {
-      data.order = [
-        [8, 'asc']
-      ];
+      data.order = [[ 7, 'asc' ], [ 0, 'desc' ]]
     },
-    order: [
-      [8, 'asc']
-    ],
+    order:[[ 7, 'asc' ], [ 0, 'desc' ]],
     lengthMenu: [50, 100, 200, 400],
     columnDefs: [
       {
         //rendering cover
         render: (data, type, row) => {
           if (type === 'display') {
-            return ('<img src="https://www.metal-archives.com'.concat(data.toString(), '" loading="lazy">'));
+			let album_id = data.split('|||')[0];
+			let album_cover = data.split('|||')[1];
+            return ('<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">'));
           }
           return data;
         },
@@ -95,12 +93,13 @@ $(function() {
         render: (data, type, row) => {
           if (type === 'display') {
             let album_col = '';
-            data.split('.*').forEach(item => (album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" + 
-			item.match(hreftext).toString().replace(/\/(?=.{11,})/g, '/<br>')
-			.replace(/((?<=[,:\.])\s((?=\D{9,})|(?=\w{5,}))|(\s(?=\w\W\w\W)))/g, '<br>')
+            let album_title = data.split('|||')[0];
+			album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" + 
+			album_title.match(hreftext).toString().replace(/\/(?=.{11,})/g, '/<br>')
+			.replace(/((?<=[,:\.])\s((?=\D{9,})|(?=\w{5,}))|(\s(?=\w[-\.]\w[-\.])))/g, '<br>')
 			.replace(/\s(?=[(])/g, ' <br>').replace(/\//g, '/<wbr>') + '</a>' + 
-			"<div class='dropdown'>" + maLink(item) + '<hr>' + 
-			searchLink(item).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>'));
+			"<div class='dropdown'>" + maLink(album_title) + '<hr>' + 
+			searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
           }
           return data;
@@ -160,6 +159,7 @@ $(function() {
           }
           return data;
         },
+        "searchable": false,
         width: '10%',
         targets: [4],
     },
@@ -189,41 +189,54 @@ $(function() {
         //duration
         render: function(data, type, row) {
           if (type === 'display') {
-            switch (data) {
-              case 'NA':
-                data = "<i class='ts'>no data</i>";
+            let duration = data.split('|||')[0];
+            let type = data.split('|||')[1];
+            switch (duration) {
+              case '00:00:00':
+                duration = "<i class='ts'>no data</i>";
                 break;
             }
-            return row[6] + " <br><p class='extra'>(" + data + ')</p>';
+            return type + " <br><p class='extra'>(" + duration + ')</p>';
           }
           return data;
         },
         width: '8%',
-        targets: [7],
+        targets: [6],
     },
       {
         // date
         render: (data, type, row) => {
           if (type === 'display') {
-            let earlydate = row[9];
+            let date = data.split('|||')[0];
+            let earlydate = data.split('|||')[1];
             switch (earlydate) {
-              case 'NA':
+              case '0000-00-00':
                 earlydate = "<i class='ts'>(unknown)</i>";
                 break;
               default:
                 earlydate = '(' + earlydate + ')';
             }
-            return data + "<br><p class='extra'>" + earlydate + '</p>';
+            return date + "<br><p class='extra'>" + earlydate + '</p>';
           }
           return data;
         },
         width: '8%',
-        targets: [8],
-    },
-      {
-        "searchable": false,
-        "targets": [4]
-    }],
+        targets: [7],
+    }
+	],
+	"drawCallback": function ( settings ) {
+			var groupColumn = 7;
+            var api = this.api();
+            var rows = api.rows( {page:'current'} ).nodes();
+            var last='';
+            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+				var date = moment(group.match(/^\d.{9}/g).toString()).format('MMM Do, YYYY');
+                if ( last !== date ) {
+                      $(rows).eq( i ).before( '<tr class="group ts"><td colspan="3"><td class="ts" colspan="1"> - '+date+' -</td><td colspan="4"></tr>' );
+                    last = date;
+				}
+            } );
+        },
     search: {
       // regex: true,
       "smart": true,
@@ -268,21 +281,32 @@ $(function() {
     });
   }, 1500);
   setTimeout(() => {
-    $('.release_info,#date').animate({
+    $('.newlist,#date').animate({
       height: 'toggle',
       opacity: 'toggle',
     }, 'slow');
   }, 2500);
-  let table = $('.release_info').DataTable();
-  table.columns([6, -1]).visible(false);
-  // table.columns(  ).visible( true );
-  $(table.column(-3).header()).text('Type');
+  let table = $('.newlist').DataTable();
+  // table.columns([6]).visible(false);
+  table.columns(  ).visible( true );
   $(table.column(4).header()).text('Asso. Acts');
-  // $("<br><small>(duration)</small>").appendTo( $(table.column( -3 ).header()) );
-  $('.release_info tbody').on('dblclick', 'tr', function() {
+  $('<div class=\"tip fixed float\">FORMAT:<p>Release type<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
+  .appendTo( $(table.column( -2 ).header()) );
+   $('<div class=\"tip fixed float\">FORMAT:<p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div>')
+  .appendTo( $(table.column( -1 ).header()) );
+  $('.newlist thead').on( 'click', 'th.sorting ', function () {
+        var currentOrder = table.order()[0];
+        if ( currentOrder[0] == 7 ) {
+            $('.newlist .group').css('display', 'table-row');
+        }
+        else {
+            $('.newlist .group').css('display', 'none');
+        }
+    } );
+  $('.newlist tbody').on('dblclick', 'tr', function() {
     $(this).toggleClass('selected');
   });
-  $('.release_info tbody').on('click', '.dropdown,.float', function() {
+  $('.newlist tbody').on('click', '.dropdown,.float', function() {
     $(this).toggleClass('actived');
   });
   $('#delete_button').click(function() {
@@ -322,44 +346,44 @@ $(document).on('click', '#reset, #Reset', function() {
   $('#genre-options option:not(:eq(2))').check();
   $('#datecondition').val('After');
   $('#datepicker').val(thisweek);
-  $('.release_info').DataTable().columns().search('').draw();
-  $('.release_info').DataTable().column(8).order('asc').draw(true);
+  $('.newlist').DataTable().columns().search('').draw();
+  $('.newlist').DataTable().order([[ 7, 'asc' ], [ 0, 'desc' ]]).draw(true);
 });
 $(document).on('click', '#all', function() {
   $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
   $("input[type='text']").val('');
-  $('.release_info').DataTable().columns().search('').draw();
-  $('.release_info').DataTable().column(8).order('desc').draw(true);
+  $('.newlist').DataTable().columns().search('').draw();
+  $('.newlist').DataTable().order([[ 7, 'desc' ], [ 0, 'desc' ]]).draw(true);
 });
 $(document).on('click', '#datecondition', function() {
   if ($(this).val() == 'After') {
     $(this).val('Before');
     $(this).css('text-shadow', '0px 0px 1px #d99');
-    $('.release_info').DataTable().column(8).order('desc').draw(true);
+    $('.newlist').DataTable().order([[ 7, 'desc' ], [ 0, 'desc' ]]).draw(true);
   } else {
     $(this).val('After');
     $(this).css('text-shadow', '0px 0px 1px #9b9');
-    $('.release_info').DataTable().column(8).order('asc').draw(true);
+    $('.newlist').DataTable().order([[ 7, 'asc' ], [ 0, 'desc' ]]).draw(true);
   }
 });
 $(document).on('click', '#datepicker, #today, #Today, .dt-datetime-today', function() {
   $('#datepicker').val(thisday);
-  $('.release_info').DataTable().draw();
+  $('.newlist').DataTable().draw();
 });
 $(document).on('click', '#dateclear', function() {
   $('#datepicker').val('');
-  $('.release_info').DataTable().draw();
+  $('.newlist').DataTable().draw();
 });
 $(document).on('click', '#labelclear', function() {
   $('#label-filter option').prop('selected', false);
-  $('.release_info').DataTable().columns(5).search('').draw();
+  $('.newlist').DataTable().columns(5).search('').draw();
 });
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
   let genre = data[3].toLowerCase();
-  let type = data[6];
-  let date = data[8];
-  let version = data[9];
+  let type = data[6].split('|||')[1];
+  let date = data[7].split('|||')[0];
+  let version = data[7].split('|||')[1];
   let genres = $('#genre-options').val() || [];
   var dateset;
   if ($('#datepicker').val()) {
@@ -372,7 +396,7 @@ $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
     dateset = date;
   }
   if (
-    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('NA') < 0 && version.indexOf('2021') < 0)) {
+    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
     return false;
   }
   return genre.search('('.concat(genres.join('|'), ')')) > -1 && dateset;

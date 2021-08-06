@@ -973,7 +973,7 @@ tr.odd {
   background: rgba(60, 55, 50, .4);
 }
 
-.release_info {
+.newlist {
   display: none;
   text-align: center;
   justify-items: center;
@@ -982,7 +982,7 @@ tr.odd {
 }
 
 .toplist a:hover,
-.release_info a:hover {
+.newlist a:hover {
   text-decoration: underline;
   color: #fed;
 }
@@ -1001,114 +1001,127 @@ table ::-webkit-scrollbar {
   height: .86vh
 }
 
-.release_info th:nth-child(1) {
-  /* color: rgba(0, 0, 0, 0); */
-}
 
-.release_info td {
+.newlist #footer {
+  visibility:hidden;
+}
+.newlist tr th:nth-child(1) {
+  pointer-events: none;
+}
+.newlist tr th:nth-child(1)::after,
+.newlist tr th:nth-child(1)::before {
+  visibility:hidden;
+}
+.newlist .group td {
+  border: transparent;
+  padding: 1rem 0;
+  font-size:.9rem;
+}
+.newlist .group td:nth-last-child(1) {
+  border-right: 1px solid #666;
+}
+.newlist td {
   padding: 0.75em 0.15em 0.75em 0.15rem;
-  /* border-top: 1px solid #666; */
 }
 
-.release_info td:not(:nth-child(1)) {
+.newlist td:not(:nth-child(1)) {
   text-overflow: ellipsis;
 }
 
-.release_info tbody tr {
+.newlist tbody tr {
   border-bottom: 1px solid #666;
 }
 
-.release_info tr.header,
-.release_info tbody tr:hover,
-.toplist tbody tr:hover {
+.newlist tr.header,
+.toplist tbody tr:hover,
+.newlist tbody tr:not(.group):hover {
   background-color: #444;
   background-color: rgba(99, 99, 99, 0.6);
 }
 
-.release_info tr.selected {
+.newlist tr.selected {
   background-color: #654;
   background-color: rgba(109, 100, 98, 0.8);
 }
 
 
-.release_info th {
+.newlist th {
   padding: 1rem;
-  overflow: hidden;
   text-overflow: ellipsis;
   background: #444;
 }
 
-/* .release_info thead tr:nth-child(1) { */
+/* .newlist thead tr:nth-child(1) { */
 /* height: 0px; */
 /* font-size: 1px; */
 /* opacity: 0; */
 /* } */
-/* .release_info thead>tr:nth-child(1)>th:nth-child(1) { */
+/* .newlist thead>tr:nth-child(1)>th:nth-child(1) { */
 /* width: 15%; */
 /* } */
-/* .release_info thead>tr:nth-child(1)>th:nth-child(2) { */
+/* .newlist thead>tr:nth-child(1)>th:nth-child(2) { */
 /* width: 12%; */
 /* } */
-/* .release_info thead>tr:nth-child(1)>th:nth-child(3) { */
+/* .newlist thead>tr:nth-child(1)>th:nth-child(3) { */
 /* width: 30%; */
 /* } */
-/* .release_info thead>tr:nth-child(1)>th:nth-child(4) { */
+/* .newlist thead>tr:nth-child(1)>th:nth-child(4) { */
 /* width: 23%; */
 /* } */
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(1) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(1) { */
 /* width: 15%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(2) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(2) { */
 /* width: 10%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(3) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(3) { */
 /* width: 10%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(4) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(4) { */
 /* width:10%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(5) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(5) { */
 /* width: 10%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(6) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(6) { */
 /* width: 10%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(7) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(7) { */
 /* width: 7%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(8) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(8) { */
 /* width: 7%; */
 /* } */
 
-/* .release_info thead>tr:nth-last-child(1)>th:nth-child(9) { */
+/* .newlist thead>tr:nth-last-child(1)>th:nth-child(9) { */
 /* width: 6%; */
 /* } */
 
-.release_info thead>tr:nth-last-child(1) {}
+.newlist thead>tr:nth-last-child(1) {}
 
-.release_info thead>tr:nth-last-child(1) {
+.newlist thead>tr:nth-last-child(1) {
   border-top: 1px solid #555;
-  border-bottom: .285vh double #666;
+  border-bottom: 2px double #666;
   padding: .1em .8rem;
 }
 
-.release_info thead>tr:nth-last-child(1)>th {
+.newlist thead>tr:nth-last-child(1)>th {
   font-weight: normal;
 }
 
-.release_info thead>tr:nth-last-child(1)>th:nth-child(1),
-.release_info thead>tr:nth-last-child(1)>th:nth-child(2) {
-  font-weight: bold;
+.newlist thead>tr:nth-last-child(1)>th:nth-child(1),
+.newlist thead>tr:nth-last-child(1)>th:nth-child(2) {
+  font-weight: 600;
 }
 
-.release_info thead>tr:nth-last-child(1)>th:nth-last-child(1) {}
+.newlist thead>tr:nth-last-child(1)>th:nth-last-child(1) {}
 
 .dbtn {
   background-color: rgba(0, 0, 0, 0);
@@ -1245,9 +1258,9 @@ table ::-webkit-scrollbar {
 .float {
   display: none;
 }
-
 .float:hover,
-.fixed:hover~.float {
+.fixed:hover~.float,
+.newlist th:hover .float {
   display: block;
   position: absolute;
   background-color: #444;
@@ -1267,6 +1280,31 @@ table ::-webkit-scrollbar {
   animation: scale-in-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+
+.newlist th:hover .float {
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  font-size: .66rem;
+  color:lightgray;
+  padding: 1rem;
+  line-height: 1rem;
+  width: revert;
+  border: 0px solid;
+  border-radius: 1em;
+  z-index: 999;
+  background: rgba(46,46,46,.86);
+}
+.newlist th .float p{
+  margin-block-start: .3rem;
+  margin-block-end: .3rem;
+}
+}
+.newlist th .float::first-line {
+  font-weight: bold;
+  padding-left:3em;
+  font-variant: small-caps;
+}
 
 td hr {
   margin: 0 30%;
@@ -1686,7 +1724,7 @@ button:active {
 }
 
 .toplist td::before {
-  font-weight: bold;
+  font-weight: 600;
   padding-left: 1px;
   width: 90%;
   border-bottom: 1px dotted #333;
@@ -1897,7 +1935,7 @@ p {
 
 @media(max-width: 999px) {
 
-  .release_info {
+  .newlist {
     table-layout: fixed;
   }
 }
@@ -1930,12 +1968,12 @@ p {
     /* padding-bottom: 1em ; */
   }
 
-  .release_info td:not(:nth-child(1)) {
+  .newlist td:not(:nth-child(1)) {
     padding-left: 1.2rem;
     padding-right: 1.2rem;
   }
 
-  .release_info td>img {
+  .newlist td>img {
     min-width: 100px;
     max-width: 250px;
   }
@@ -2001,14 +2039,14 @@ p {
     width: 50vw;
   }
 
-  .release_info {
+  .newlist {
     font-size: 1rem;
     justify-items: center;
     text-align: center;
   }
 
   .entry img,
-  .release_info td img {
+  .newlist td img {
     max-width: 300px;
   }
 
@@ -2018,17 +2056,17 @@ p {
     object-fit: contain;
   }
 
-  .release_info th,
+  .newlist th,
   .dataTables_length {
     display: none;
   }
 
-  .release_info tbody tr {
+  .newlist tbody tr {
     display: grid;
     border-bottom: 1px solid #666;
   }
 
-  .release_info td {
+  .newlist td {
     display: grid;
     justify-items: center;
     padding: .8rem;
@@ -2038,7 +2076,7 @@ p {
 
 
   #content,
-  .release_info {
+  .newlist {
     border: .285vh solid rgba(66, 66, 66, .4);
     box-shadow: 0 .285vh .86vh 0 rgba(0, 0, 0, 0.44), 0 1vh 2vh 0 rgba(0, 0, 0, 0.39);
   }
@@ -2055,53 +2093,55 @@ p {
     padding-top: 2rem;
     justify-content: center;
   }
-
-
+ .newlist .group td:nth-child(1),
+ .newlist .group td:nth-last-child(1) {
+    display:none;
+}
   /* #tableHTML_column_2:before, */
-  .release_info td:nth-child(2)::before {
+  .newlist tr:not(.group) td:nth-child(2)::before {
     content: "Title:";
   }
 
-  .release_info td:nth-child(3)::before {
+  .newlist tr:not(.group) td:nth-child(3)::before {
     content: "Band:";
   }
 
 
-  .release_info td:nth-child(5)::before {
+  .newlist tr:not(.group) td:nth-child(5)::before {
     content: "Asso. Acts:";
   }
 
 
-  .release_info td:nth-child(4)::before {
+  .newlist tr:not(.group) td:nth-child(4)::before {
     content: "Genre:";
   }
 
-  .release_info td:nth-child(6)::before {
+  .newlist tr:not(.group) td:nth-child(6)::before {
     content: "Label:";
   }
 
-  .release_info td:nth-child(7)::before {
+  .newlist tr:not(.group) td:nth-child(7)::before {
     content: "Type:";
   }
 
-  .release_info td:nth-child(8)::before {
+  .newlist tr:not(.group) td:nth-child(8)::before {
     content: "Date:";
   }
 
-  .release_info td:nth-child(9)::before {
+  .newlist tr:not(.group) td:nth-child(9)::before {
     content: "Earliest date:";
   }
 
-  .release_info td:nth-child(7),
-  .release_info td:nth-child(8),
-  .release_info td:nth-child(9) {
+  .newlist tr:not(.group) td:nth-child(7),
+  .newlist tr:not(.group) td:nth-child(8),
+  .newlist tr:not(.group) td:nth-child(9) {
     white-space: nowrap;
   }
 
-  .release_info td::before {
-    font-weight: bold;
-    padding-left: .285vh;
-    padding-bottom: .285vh;
+  .newlist td::before {
+    font-weight: 600;
+    padding-left: 1px;
+    padding-bottom: 1px;
     width: 90%;
     border-bottom: 1px dotted #333;
   }
