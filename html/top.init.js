@@ -1,21 +1,3 @@
-let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
-let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
-const maLink = q => '' + '<a href="' + q.match(hreflink) +
-  '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
-const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? '' +
-  '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
-  '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
-  '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
-  '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
-  '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
-  '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
-
 jQuery.fn.extend({
   check: function() {
     return this.each(function() {
@@ -30,19 +12,39 @@ jQuery.fn.extend({
     });
   }
 });
+let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
+let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
+const maLink = q => '' + '<a href="' + q.match(hreflink) +
+  '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
+const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? 
+  '<a href="https://bandcamp.com/search?q=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  '<a href="https://www.youtube.com/results?search_query=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  '<a href="https://open.spotify.com/search/' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
+  '<a href="https://bandcamp.com/search?q=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
+  '<a href="https://www.youtube.com/results?search_query=' +
+  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
+  '<a href="https://open.spotify.com/search/' +
+  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
 
-$(document).ready(function() {
-	if (window.matchMedia( '(max-width: 767px)' ).matches) {
-		if (navigator.userAgent.search(/mobile/gi) < 0 ) {
-          $( ":root" ).css( "font-size","100%" ) ;
-		}else {
-          $( ":root" ).css( "font-size","4.45vw" );
-		}
-	} else {
-          $( ":root" ).css( "font-size","2.23vh" );
-	}
-});
+const layout = () => {
+  if (window.matchMedia('(max-width: 767px)').matches) {3
+    $.fn.DataTable.ext.pager.numbers_length = 5;
+    if (navigator.userAgent.search(/mobile/gi) < 0) {
+      $(":root").css("font-size", "100%");
+    } else {
+      $(":root").css("font-size", "4.17vw");
+    }
+  } else {
+    $.fn.DataTable.ext.pager.numbers_length = 9;
+    $(":root").css("font-size", "2.23vh");
+  }
+}
 $(function() {
+  layout();
   $('.toplist').DataTable({
     stateSave: true,
     "lengthMenu": [10, 20, 50, "All"],
@@ -101,10 +103,10 @@ $(function() {
       infoFiltered: " [ Total: _MAX_ ]"
     },
   });
-  $("#toplist").attr("placeholder", "Search for albums or bands..");
-  $("toplist_length").wrap("<div class='main-container'></div>");
-  $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
-  let table = $('#toplist').DataTable();
+  // $(".toplist").attr("placeholder", "Search for albums or bands..");
+  // $(".toplist_length").wrap("<div class='main-container'></div>");
+  // $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
+  let table = $('.toplist').DataTable();
   // table.draw(); 
   setTimeout(function() {
     table.draw(false);
@@ -116,9 +118,11 @@ $(function() {
   }, 1000);
   setTimeout(function() {
     table.draw(false);
-    $('#toplist').fadeIn();
+    $('.toplist').fadeIn();
   }, 2000);
-
+  $('.release_info tbody').on('click', '.dropdown,.float', function() {
+    $(this).toggleClass('actived');
+  });
   $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function() {
     table.draw();
   });
@@ -132,16 +136,19 @@ $(function() {
   });
   // $('.filter').attr("checked", true);
 });
+$(window).resize(function() {
+  layout();
+});
 $(document).on('click', 'a.paginate_button', function() {
   $("body,html").animate({
     scrollTop: $("table thead").offset().top - 60
   }, 800);
 });
-if (($(window).width()) < 768) {
-    $.fn.DataTable.ext.pager.numbers_length = 5;
-} else {
-    $.fn.DataTable.ext.pager.numbers_length = 9;
-}
+// if (($(window).width()) < 768) {
+    // $.fn.DataTable.ext.pager.numbers_length = 5;
+// } else {
+    // $.fn.DataTable.ext.pager.numbers_length = 9;
+// }
 $.fn.dataTable.ext.search.push(
   function(settings, data, dataIndex) {
     let year = Number(data[6].match(/\d{4}/i).toString());

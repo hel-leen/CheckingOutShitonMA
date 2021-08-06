@@ -8,70 +8,74 @@
 </head>
 
 <body>
-	<h1 class="glow" id="header">New albums on MA  </h1>
-	<div class="sidenav"><div id="home"><a href="../">Home</a></div></div>
-	<h4 style="margin: .5em 0%;">
-	All data from <a href="https://www.metal-archives.com/" target="_blank" rel="noopener noreferrer">THE Metal Archives</a>, with more album info included and duplicates filtered out.
-	Web page genereated with <a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a>.
-	</h4>
-	<p id="date" style="margin: .5em 0%;"></p>
-	<div class="note">
-		<b>NOTE <i class="fa fa-caret-right"></i></b>
-		<a> Click to read tips.</a>
-		<div class="hideItem">
-			<p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while empty value in the column indicates the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</s> Merged with "Release Info. - Date" data.</p>
-			<!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
-			<p><a href="https://www.metal-archives.com/images/cat.jpg" target="_blank" rel="noopener noreferrer">Cat picture</a> means the album doesn't have any cover(!?).</p>
-			<p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="Today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
-			<p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at	the bottom right, gone. It comes back after efreshing the page you say? Well my little page is just	static without a server. What else do you expect from it?</p>
-			<!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
-		</div>
-		<u class="breaker"> <br></u>
-	</div>
-	<div class="contentWrapper">
-		<u class="breaker"> <br></u>
-			<li class="filterSection">
-				<strong>Reset:</strong>
-				<div class="filter-holder" id="reset-filter">
-					<button id="reset">Default</button><button id="all">Show all</button>
-				</div>
-			</li>
-			<li class="filterSection">
-				<strong>Date: </strong>
-				<div class="filter-holder" id="date-filter">
-					<input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="solid fa fa-times-circle"></i>
-				</div>
-			</li>
-			<li class="filterSection">
-				<strong>Genre:</strong>
-				<div class="filter-holder" id="genre-filter">
-					<div class="solid filter-item">
-						<select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
+  <h1 class="glow" id="header">New albums on MA  </h1>
+  <div class="sidenav">
+    <div id="home"><a href="../">Home</a></div>
+  </div>
+  <h4 style="margin: .5em 0%;">
+    All data from <a href="https://www.metal-archives.com/" target="_blank" rel="noopener noreferrer">THE Metal Archives</a>, with more album info included and duplicates filtered out.
+    Web page genereated with <a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a>.
+  </h4>
+  <p id="date" style="margin: .5em 0%;"></p>
+  <div class="note">
+    <b>NOTE <i class="fa fa-caret-right"></i></b>
+    <a> Click to read tips.</a>
+    <div class="hideItem">
+      <p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while "unknown" means the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</s> Merged with "Release Info. - Date" data.</p>
+      <!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
+      <p><a href="https://www.metal-archives.com/images/cat.jpg" target="_blank" rel="noopener noreferrer">Cat picture</a> means the album doesn't have any cover(!?).</p>
+      <p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="Today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
+      <p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right, gone. It comes back after efreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</p>
+      <!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
+    </div>
+  </div>
+  <div class="contentWrapper">
+    <table class="filterSection">
+<tr class="filterSection">
+<td><strong>Reset:</strong></td>
+        <td class="filter-holder" id="reset-filter">
+            <button id="reset">Default</button><button id="all">Show all</button>
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Date: </strong></td>
+        <td class="filter-holder" id="date-filter">
+          <input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="solid fa fa-times-circle"></i>
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Genre:</strong></td>
+        <td class="filter-holder" id="genre-filter">
+        <div class="solid filter-item">
+          <select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
 <option selected value="death">Death Metal</option>
 <option value="^((?!(black|death)).)*$">Other</option></select>
 </div>
-				</div>
-			</li>
-			<li class="filterSection">
-				<strong>Label:</strong>
-				<div class="filter-holder" id="label-filter">
-					<i id="labelclear" class="solid fa fa-times-circle"></i>
-				</div>
-			</li>
-			<li class="filterSection">
-				<strong>Types:</strong>
-				<div class="filter-holder">
-					<label class="solid checkcontainer">
-					<input class="filter fa" id="Reissue" type="checkbox" checked><span class="checkmark solid fa fa-check-circle"><p>No Reissue</p></span></label>
-					<label class="solid checkcontainer">
-					<input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle"><p>Full-length only</p></span></label>
-				</div>
-			</li>
-
-			<u class="breaker"> <br></u>
-				<!-- </body>  -->
-				<!-- </html> -->
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Label:</strong></td>
+        <td class="filter-holder" id="label-filter">
+          <i id="labelclear" class="solid fa fa-times-circle"></i>
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Types:</strong></td>
+        <td class="filter-holder">
+          <label class="solid checkcontainer">
+            <input class="filter fa" id="Reissue" type="checkbox" checked><span class="checkmark solid fa fa-check-circle">
+              <p>No Reissue</p>
+            </span></label>
+          <label class="solid checkcontainer">
+            <input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle">
+              <p>Full-length only</p>
+            </span></label>
+        </td>
+      </tr>
+</table>
 </div>
+  <!-- </body>  -->
+  <!-- </html> -->
 </body>
 <table style="border-collapse:collapse;" class="release_info" border="1">
 <caption>
@@ -20742,6 +20746,500 @@
   <td id="tableHTML_column_8">NA</td>
   <td id="tableHTML_column_9">2021-10-15</td>
   <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968728.png?3839</td>
+  <td id="tableHTML_column_2"><a href="/albums/Burier/Cremation_of_Lingering_Hope/968728">Cremation of Lingering Hope</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Burier/3540457687">Burier</a>|||<a href="https://www.metal-archives.com/lists/AU">Australia</a>
+</td>
+  <td id="tableHTML_column_4">Raw Black Metal</td>
+  <td id="tableHTML_column_5"><a href="/bands/Flesh_Megalith/3540472254">Flesh Megalith</a></td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:35:41</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968737.jpg?2959</td>
+  <td id="tableHTML_column_2"><a href="/albums/Astaroth/Finsternacht/968737">Finsternacht</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Astaroth/3540478190">Astaroth</a>|||<a href="https://www.metal-archives.com/lists/DE">Germany</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5"><a href="/bands/Kassogtha/3540473278">Kassogtha</a></td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Single</td>
+  <td id="tableHTML_column_8">00:02:16</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968753.jpg?1137</td>
+  <td id="tableHTML_column_2"><a href="/albums/Axeslaughter/Cryptic_Violence/968753">Cryptic Violence</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Axeslaughter/3540284029">Axeslaughter</a>|||<a href="https://www.metal-archives.com/lists/FI">Finland</a>
+</td>
+  <td id="tableHTML_column_4">Death/Thrash Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Altar_Stomper/3540394621">Altar Stomper</a>|<a href="/bands/Infernal_Darkness/3540402259">Infernal Darkness</a>|<a href="/bands/Ripride/3540412209">Ripride</a>|<a href="/bands/White_Death/3540386702">White Death</a>
+</td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">EP</td>
+  <td id="tableHTML_column_8">00:20:28</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968754.jpg?5951</td>
+  <td id="tableHTML_column_2"><a href="/albums/Wolves_in_the_Throne_Room/Primal_Chasm_%28Gift_of_Fire%29/968754">Primal Chasm (Gift of Fire)</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Wolves_in_the_Throne_Room/35741">Wolves in the Throne Room</a>|||<a href="https://www.metal-archives.com/lists/US">United States</a>
+</td>
+  <td id="tableHTML_column_4">Atmospheric Black Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/A_Storm_of_Light/3540255510">A Storm of Light</a>|<a href="/bands/Abigail_Williams/73633">Abigail Williams</a>|<a href="/bands/Aldebaran/45637">Aldebaran</a>|<a href="/bands/And_Then_There_Were_None/3540479680">And Then There Were None</a>|<a href="/bands/Ardour_Loom/3540384133">Ardour Loom</a>|<a href="/bands/Blood_of_Kings/3540347465">Blood of Kings</a>|<a href="/bands/Christian_Mistress/3540277964">Christian Mistress</a>|<a href="/bands/Deafheaven/3540315870">Deafheaven</a>|<a href="/bands/Dispirit/3540307256">Dispirit</a>|<a href="/bands/Ealdath/3540387246">Ealdath</a>|<a href="/bands/Exhumed/143">Exhumed</a>|<a href="/bands/Fall_of_the_Bastards/11628">Fall of the Bastards</a>|<a href="/bands/Fauna/121144">Fauna</a>|<a href="/bands/Ghoul/671">Ghoul</a>|<a href="/bands/Goonbug/3540483885">Goonbug</a>|<a href="/bands/Impaled/1097">Impaled</a>|<a href="/bands/Indian/42639">Indian</a>|<a href="/bands/Infera_Bruo/3540339780">Infera Bruo</a>|<a href="/bands/L%27Ac%C3%A9phale/35182">L'Acéphale</a>|<a href="/bands/Lord_Mantis/3540280208">Lord Mantis</a>|<a href="/bands/Ludicra/5642">Ludicra</a>|<a href="/bands/Lycus/3540332243">Lycus</a>|<a href="/bands/Manias/23044">Manias</a>|<a href="/bands/Mary_Shelley/3540343827">Mary Shelley</a>|<a href="/bands/Megaton_Leviathan/3540295946">Megaton Leviathan</a>|<a href="/bands/Menacer/91861">Menacer</a>|<a href="/bands/Middian/86682">Middian</a>|<a href="/bands/Minenwerfer/3540309791">Minenwerfer</a>|<a href="/bands/Nachtmystium/4866">Nachtmystium</a>|<a href="/bands/Nasty_Bits/3540489511">Nasty Bits</a>|<a href="/bands/Oakhelm/76261">Oakhelm</a>|<a href="/bands/Phobia/3104">Phobia</a>|<a href="/bands/Power_Castle/3540476439">Power Castle</a>|<a href="/bands/Sadhaka/3540363200">Sadhaka</a>|<a href="/bands/Stormcrow/85334">Stormcrow</a>|<a href="/bands/The_Speed_of_Darkness/3540476901">The Speed of Darkness</a>|<a href="/bands/Trap_Them/3540267275">Trap Them</a>|<a href="/bands/Wolvserpent/3540318718">Wolvserpent</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Century_Media_Records/4#label_tabs_albums">Century Media Records</a></td>
+  <td id="tableHTML_column_7">Single</td>
+  <td id="tableHTML_column_8">00:05:01</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968777.jpg?5333</td>
+  <td id="tableHTML_column_2"><a href="/albums/Damnation_Lust/Rehearsal_Demo_2021/968777">Rehearsal Demo 2021</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Damnation_Lust/3540431307">Damnation Lust</a>|||<a href="https://www.metal-archives.com/lists/US">United States</a>
+</td>
+  <td id="tableHTML_column_4">Black/Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Abazagorath/1290">Abazagorath</a>|<a href="/bands/Altar_of_Gore/3540427364">Altar of Gore</a>|<a href="/bands/Angelcide/43154">Angelcide</a>|<a href="/bands/Blasphematory/3540449590">Blasphematory</a>|<a href="/bands/Burial_Stone/3540437802">Burial Stone</a>|<a href="/bands/Death_Fortress/3540352232">Death Fortress</a>|<a href="/bands/Dethroned_Emperor/3540308821">Dethroned Emperor</a>|<a href="/bands/DSS/3540412018">DSS</a>|<a href="/bands/Eternal_Fuzz/3540396547">Eternal Fuzz</a>|<a href="/bands/Grave_Spirit/3540430110">Grave Spirit</a>|<a href="/bands/Jaws_of_Hades/3540412014">Jaws of Hades</a>|<a href="/bands/Lux_Absentia/3540415236">Lux Absentia</a>|<a href="/bands/Malefaction/3540431302">Malefaction</a>|<a href="/bands/Massive_Retaliation/3540404161">Massive Retaliation</a>|<a href="/bands/Misanthropy_Legion/73592">Misanthropy Legion</a>|<a href="/bands/Necrofog/37705">Necrofog</a>|<a href="/bands/Nefarious_Cabal/3540412017">Nefarious Cabal</a>|<a href="/bands/Northern_Myst/86930">Northern Myst</a>|<a href="/bands/Replicant/3540411923">Replicant</a>|<a href="/bands/Senobyte/3540362171">Senobyte</a>|<a href="/bands/Siege_Column/3540407383">Siege Column</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Nihil_Verum_Nisi_Mors/41329#label_tabs_albums">Nihil Verum Nisi Mors</a></td>
+  <td id="tableHTML_column_7">Demo</td>
+  <td id="tableHTML_column_8">00:06:18</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968811.jpg?2745</td>
+  <td id="tableHTML_column_2"><a href="/albums/Indoctrinated/Immolated_Sculptures/968811">Immolated Sculptures</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Indoctrinated/3540485067">Indoctrinated</a>|||<a href="https://www.metal-archives.com/lists/XX">International</a>
+</td>
+  <td id="tableHTML_column_4">Slam/Brutal Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Death_Plague/3540449440">Death Plague</a>|<a href="/bands/Esophagus/3540280600">Esophagus</a>|<a href="/bands/Goredefecate/3540469573">Goredefecate</a>|<a href="/bands/In_Asymmetry/3540449749">In Asymmetry</a>|<a href="/bands/Intestinal_Extirpation/3540414007">Intestinal Extirpation</a>|<a href="/bands/Supreme_Banishment/3540459610">Supreme Banishment</a>|<a href="/bands/The_Macabre/51772">The Macabre</a>|<a href="/bands/Wounds_of_Christ/3540267570">Wounds of Christ</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Inherited_Suffering_Records/2900#label_tabs_albums">Inherited Suffering Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:19:06</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968830.jpg?1718</td>
+  <td id="tableHTML_column_2"><a href="/albums/Ch%C3%A2teau_Noir/Shoax/968830">Shoax</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Ch%C3%A2teau_Noir/3540356913">Château Noir</a>|||<a href="https://www.metal-archives.com/lists/UA">Ukraine</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Granskog/3540343184">Granskog</a>|<a href="/bands/Medieval_Sacrifice/3540422742">Medieval Sacrifice</a>|<a href="/bands/Weinberg/3540416953">Weinberg</a>
+</td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Single</td>
+  <td id="tableHTML_column_8">00:07:26</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968876.jpg?3859</td>
+  <td id="tableHTML_column_2"><a href="/albums/Le%27Vampyric/Radu_III_le_Beau_ou_l%27%C3%89l%C3%A9gant/968876">Radu III le Beau ou l'Élégant</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Le%27Vampyric/3540486395">Le'Vampyric</a>|||<a href="https://www.metal-archives.com/lists/ID">Indonesia</a>
+</td>
+  <td id="tableHTML_column_4">Raw Black Metal</td>
+  <td id="tableHTML_column_5"></td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Demo</td>
+  <td id="tableHTML_column_8">00:22:13</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/9/968913.jpg?4909</td>
+  <td id="tableHTML_column_2"><a href="/albums/15YearsinSolitude/To_Make_the_Abstract%2C_Concrete/968913">To Make the Abstract, Concrete</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/15YearsinSolitude/3540488257">15YearsinSolitude</a>|||<a href="https://www.metal-archives.com/lists/GB">United Kingdom</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5"></td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">EP</td>
+  <td id="tableHTML_column_8">00:20:31</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/9/968917.jpg?5821</td>
+  <td id="tableHTML_column_2"><a href="/albums/Anti_Horsethief_Association/The_Lonesome_Land/968917">The Lonesome Land</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Anti_Horsethief_Association/3540443000">Anti Horsethief Association</a>|||<a href="https://www.metal-archives.com/lists/US">United States</a>
+</td>
+  <td id="tableHTML_column_4">Raw Black Metal</td>
+  <td id="tableHTML_column_5"></td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">EP</td>
+  <td id="tableHTML_column_8">00:30:43</td>
+  <td id="tableHTML_column_9">2021-08-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968748.jpg?4902</td>
+  <td id="tableHTML_column_2"><a href="/albums/Sorceress_of_Sin/Constantine/968748">Constantine</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Sorceress_of_Sin/3540477109">Sorceress of Sin</a>|||<a href="https://www.metal-archives.com/lists/GB">United Kingdom</a>
+</td>
+  <td id="tableHTML_column_4">Melodic Power Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Derade/3540462891">Derade</a>|<a href="/bands/Gehtika/3540400103">Gehtika</a>|<a href="/bands/Haken/3540270852">Haken</a>|<a href="/bands/Psion/3540431026">Psion</a>|<a href="/bands/The_Face_of_Ruin/3540459608">The Face of Ruin</a>|<a href="/bands/To-Mera/46379">To-Mera</a>|<a href="/bands/Untamed/3540376058">Untamed</a>
+</td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">01:01:37</td>
+  <td id="tableHTML_column_9">2021-08-06</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968773.jpg?4812</td>
+  <td id="tableHTML_column_2"><a href="/albums/Gama_Bomb/Thunder_over_London/968773">Thunder over London</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Gama_Bomb/12108">Gama Bomb</a>|||<a href="https://www.metal-archives.com/lists/GB">United Kingdom</a>
+</td>
+  <td id="tableHTML_column_4">Thrash Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Agent_Steel/529">Agent Steel</a>|<a href="/bands/Atomkraft/644">Atomkraft</a>|<a href="/bands/Devilsome/3540489906">Devilsome</a>|<a href="/bands/Grot/3540356836">Grot</a>|<a href="/bands/Slave_Zero/11357">Slave Zero</a>|<a href="/bands/SSS/68884">SSS</a>|<a href="/bands/Waylander/87">Waylander</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Prosthetic_Records/106#label_tabs_albums">Prosthetic Records</a></td>
+  <td id="tableHTML_column_7">EP</td>
+  <td id="tableHTML_column_8">00:11:50</td>
+  <td id="tableHTML_column_9">2021-08-06</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968872.jpg?0427</td>
+  <td id="tableHTML_column_2"><a href="/albums/Trance/Metal_Forces/968872">Metal Forces</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Trance/11318">Trance</a>|||<a href="https://www.metal-archives.com/lists/DE">Germany</a>
+</td>
+  <td id="tableHTML_column_4">Heavy Metal, Hard Rock</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Blackland/68855">Blackland</a>|<a href="/bands/Blind_Petition/20714">Blind Petition</a>|<a href="/bands/Blowin_Free/6442">Blowin Free</a>|<a href="/bands/Deztroyer/10863">Deztroyer</a>|<a href="/bands/Economist/26298">Economist</a>|<a href="/bands/Excess/71473">Excess</a>|<a href="/bands/Falcon_Prey/29448">Falcon Prey</a>|<a href="/bands/Fortress_-_Eliot/3540399382">Fortress / Eliot</a>|<a href="/bands/Griffin/607">Griffin</a>|<a href="/bands/Induction/3540392703">Induction</a>|<a href="/bands/Jameson_Raid/23732">Jameson Raid</a>|<a href="/bands/London/3540283992">London</a>|<a href="/bands/Manilla_Road/379">Manilla Road</a>|<a href="/bands/Masters_of_Disguise/3540373025">Masters of Disguise</a>|<a href="/bands/Methusalem/23166">Methusalem</a>|<a href="/bands/Network/3540342037">Network</a>|<a href="/bands/Powerized/3540378037">Powerized</a>|<a href="/bands/Revelation_Steel/3540444564">Revelation Steel</a>|<a href="/bands/Ripping_Entrails/112746">Ripping Entrails</a>|<a href="/bands/Savage_Grace/1260">Savage Grace</a>|<a href="/bands/Seduction/9084">Seduction</a>|<a href="/bands/Sinbreed/3540278358">Sinbreed</a>|<a href="/bands/Sudden_Darkness/76307">Sudden Darkness</a>|<a href="/bands/Trancemission/24107">Trancemission</a>|<a href="/bands/Vicious_Rumors/678">Vicious Rumors</a>|<a href="/bands/Viron/34745">Viron</a>|<a href="/bands/Yuma/98624">Yuma</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Metalapolis_Records/37098#label_tabs_albums">Metalapolis Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:41:11</td>
+  <td id="tableHTML_column_9">2021-08-06</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968881.jpg?0739</td>
+  <td id="tableHTML_column_2"><a href="/albums/Leecher/Blind_and_Frozen/968881">Blind and Frozen</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Leecher/3540334583">Leecher</a>|||<a href="https://www.metal-archives.com/lists/HU">Hungary</a>
+</td>
+  <td id="tableHTML_column_4">Symphonic/Gothic Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Amadea/69273">Amadea</a>|<a href="/bands/Aphonic_Threnody/3540369395">Aphonic Threnody</a>|<a href="/bands/Armageddon/44040">Armageddon</a>|<a href="/bands/Creatures_of_Dawn/85748">Creatures of Dawn</a>|<a href="/bands/Crossholder/3540328462">Crossholder</a>|<a href="/bands/Dalriada/91866">Dalriada</a>|<a href="/bands/Ego_Project/56882">Ego Project</a>|<a href="/bands/Elanor/3540371279">Elanor</a>|<a href="/bands/Invader/108515">Invader</a>|<a href="/bands/Morpheus/46677">Morpheus</a>|<a href="/bands/Nu_Religion/3540263480">Nu Religion</a>|<a href="/bands/Scerra/3540353977">Scerra</a>|<a href="/bands/Wisdom/20997">Wisdom</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/H-Music_Hungary/56623#label_tabs_albums">H-Music Hungary</a></td>
+  <td id="tableHTML_column_7">Single</td>
+  <td id="tableHTML_column_8">00:04:02</td>
+  <td id="tableHTML_column_9">2021-08-06</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/9/968907.jpg?2709</td>
+  <td id="tableHTML_column_2"><a href="/albums/Pray_U_Prey/The_Omega_Kill/968907">The Omega Kill</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Pray_U_Prey/3540423955">Pray U Prey</a>|||<a href="https://www.metal-archives.com/lists/GB">United Kingdom</a>
+</td>
+  <td id="tableHTML_column_4">Death Metal/Crust</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Alehammer/3540338609">Alehammer</a>|<a href="/bands/Prophecy_of_Doom/8152">Prophecy of Doom</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Selfmadegod_Records/276#label_tabs_albums">Selfmadegod Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:29:25</td>
+  <td id="tableHTML_column_9">2021-08-06</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/9/968915.jpg?5402</td>
+  <td id="tableHTML_column_2"><a href="/albums/Odinsgoat_-_Astral_Slaughter/Abyss_of_Lamentation/968915">Abyss of Lamentation</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Odinsgoat/3540454494">Odinsgoat</a> / <a href="/bands/Astral_Slaughter/3540482681">Astral Slaughter</a>|||<a href="https://www.metal-archives.com/lists/US">United States</a>| || |<a href="https://www.metal-archives.com/lists/CA">Canada</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal/Grindcore | Black/Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Yngve/3540468184">Yngve</a>| || </td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Split</td>
+  <td id="tableHTML_column_8">00:17:21</td>
+  <td id="tableHTML_column_9">2021-08-06</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968802.jpeg?4357</td>
+  <td id="tableHTML_column_2"><a href="/albums/%D0%9F%D1%80%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0/Despicable_Forms_%D0%BEf_Life/968802">Despicable Forms оf Life</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/%D0%9F%D1%80%D0%BE%D0%BA%D0%B0%D0%B7%D0%B0/3540298319">Проказа</a>|||<a href="https://www.metal-archives.com/lists/BG">Bulgaria</a>
+</td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Coprostasis/118379">Coprostasis</a>|<a href="/bands/Depraved/3540466803">Depraved</a>|<a href="/bands/Enthrallment/6874">Enthrallment</a>|<a href="/bands/Eufobia/54835">Eufobia</a>|<a href="/bands/Mizerere/3540404714">Mizerere</a>|<a href="/bands/Past_Redemption/47418">Past Redemption</a>|<a href="/bands/Rampart/3540261426">Rampart</a>
+</td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">EP</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-08-07</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968882.jpg?0834</td>
+  <td id="tableHTML_column_2"><a href="/albums/Exanimatvm/Sollvm_Ipsa_Mor/968882">Sollvm Ipsa Mor</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Exanimatvm/3540363230">Exanimatvm</a>|||<a href="https://www.metal-archives.com/lists/CL">Chile</a>
+</td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Demonflesh/47593">Demonflesh</a>|<a href="/bands/Frozen/56079">Frozen</a>|<a href="/bands/Goblin/3540454459">Goblin</a>|<a href="/bands/Hallux_Valgus/3540420921">Hallux Valgus</a>|<a href="/bands/Hibrido/3540487467">Hibrido</a>|<a href="/bands/Infernal_Doom/87172">Infernal Doom</a>|<a href="/bands/Inner_Dystopia/3540395908">Inner Dystopia</a>|<a href="/bands/Jeks%C3%B3lok/3540459152">Jeksólok</a>|<a href="/bands/Meconio/3540419475">Meconio</a>|<a href="/bands/Perverse_Daemon/3540451203">Perverse Daemon</a>|<a href="/bands/Pusher/3540336044">Pusher</a>|<a href="/bands/Somnvs_Mortis/3540453481">Somnvs Mortis</a>|<a href="/bands/Strigoi/3540444861">Strigoi</a>|<a href="/bands/Vastago/58831">Vastago</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Apocalyptic_Productions/29136#label_tabs_albums">Apocalyptic Productions</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-08-09</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968798.jpg?2335</td>
+  <td id="tableHTML_column_2"><a href="/albums/Sombre_Pr%C3%A9sage/Necrodrone/968798">Necrodrone</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Sombre_Pr%C3%A9sage/43545">Sombre Présage</a>|||<a href="https://www.metal-archives.com/lists/FR">France</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal, Dark Ambient/Drone</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Henoth/29595">Henoth</a>|<a href="/bands/Praeter_Hominem/34460">Praeter Hominem</a>|<a href="/bands/Thanatos/41432">Thanatos</a>|<a href="/bands/Totaler_Krieg/72155">Totaler Krieg</a>|<a href="/bands/Transcendance/57556">Transcendance</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Occultum_Productions/370#label_tabs_albums">Occultum Productions</a></td>
+  <td id="tableHTML_column_7">EP</td>
+  <td id="tableHTML_column_8">00:29:22</td>
+  <td id="tableHTML_column_9">2021-08-15</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968816.jpg?4745</td>
+  <td id="tableHTML_column_2"><a href="/albums/Entrails_Massacre_-_Sanctioned/Entrails_Massacre_-_Sanctioned/968816">Entrails Massacre / Sanctioned</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Entrails_Massacre/51890">Entrails Massacre</a> / <a href="/bands/Sanctioned/3540480770">Sanctioned</a>|||<a href="https://www.metal-archives.com/lists/DE">Germany</a>| || |<a href="https://www.metal-archives.com/lists/AU">Australia</a>
+</td>
+  <td id="tableHTML_column_4">Grindcore/Death Metal | Grindcore/Hardcore</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Ante_Mortem/3540312252">Ante Mortem</a>|<a href="/bands/Bad_Luck_Rides_on_Wheels/3540289591">Bad Luck Rides on Wheels</a>|<a href="/bands/Confusion_Master/3540414955">Confusion Master</a>|<a href="/bands/Cyness/29142">Cyness</a>|<a href="/bands/Painful_Death/13655">Painful Death</a>|<a href="/bands/Persophone/13840">Persophone</a>|<a href="/bands/Who%27s_My_Saviour/3540286613">Who's My Saviour</a>|<a href="/bands/Wojczech/51618">Wojczech</a>| || |<a href="/bands/Abominator/1900">Abominator</a>|<a href="/bands/Cachexia/3540276396">Cachexia</a>|<a href="/bands/Christ_Crusher/3540458493">Christ Crusher</a>|<a href="/bands/Filth/57121">Filth</a>|<a href="/bands/Fuck_I%27m_Dead/2152">Fuck I'm Dead</a>|<a href="/bands/Kutabare/13948">Kutabare</a>|<a href="/bands/Shallow_Grave/26890">Shallow Grave</a>|<a href="/bands/The_Kill/2716">The Kill</a>|<a href="/bands/Undinism/3540427457">Undinism</a>|<a href="/bands/Vaginal_Carnage/2614">Vaginal Carnage</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Grindhead_Records/410#label_tabs_albums">Grindhead Records</a></td>
+  <td id="tableHTML_column_7">Split</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-09-01</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968781.jpg?1911</td>
+  <td id="tableHTML_column_2"><a href="/albums/Putrid_Defecation_-_Monumental_Discharge/Monumental_Putridity/968781">Monumental Putridity</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Putrid_Defecation/3540460060">Putrid Defecation</a> / <a href="/bands/Monumental_Discharge/3540472415">Monumental Discharge</a>|||<a href="https://www.metal-archives.com/lists/FI">Finland</a>| || |<a href="https://www.metal-archives.com/lists/US">United States</a>
+</td>
+  <td id="tableHTML_column_4">Slam/Brutal Death Metal | Slam/Brutal Death Metal</td>
+  <td id="tableHTML_column_5"> || |<a href="/bands/Aetheric/3540417395">Aetheric</a>|<a href="/bands/Apotheon/3540428410">Apotheon</a>|<a href="/bands/Cacaorcass/3540481517">Cacaorcass</a>|<a href="/bands/Dissonance_in_Design/3540346406">Dissonance in Design</a>|<a href="/bands/Ghost_Spawn/3540463189">Ghost Spawn</a>|<a href="/bands/Nythgraph/3540473195">Nythgraph</a>|<a href="/bands/Poisonous_Wind/3540464130">Poisonous Wind</a>|<a href="/bands/Space_Corpse/3540478586">Space Corpse</a>|<a href="/bands/Telluric_Effluvium/3540472366">Telluric Effluvium</a>|<a href="/bands/Vale_of_Pnath/3540304453">Vale of Pnath</a>
+</td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Split</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-09-03</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/9/968918.jpg?0022</td>
+  <td id="tableHTML_column_2"><a href="/albums/Fierce_Deity/Power_Wisdom_Courage/968918">Power Wisdom Courage</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Fierce_Deity/3540487230">Fierce Deity</a>|||<a href="https://www.metal-archives.com/lists/AU">Australia</a>
+</td>
+  <td id="tableHTML_column_4">Power Metal</td>
+  <td id="tableHTML_column_5"><a href="/bands/Taberah/83941">Taberah</a></td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">EP</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-09-03</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968835.jpg?2552</td>
+  <td id="tableHTML_column_2"><a href="/albums/Rupskallex/Black_Wings/968835">Black Wings</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Rupskallex/3540452742">Rupskallex</a>|||<a href="https://www.metal-archives.com/lists/GB">United Kingdom</a>
+</td>
+  <td id="tableHTML_column_4">Melodic Death Metal</td>
+  <td id="tableHTML_column_5"></td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:13:50</td>
+  <td id="tableHTML_column_9">2021-09-10</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968795.jpg?0617</td>
+  <td id="tableHTML_column_2"><a href="/albums/Blazon_Stone/Damnation/968795">Damnation</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Blazon_Stone/3540370011">Blazon Stone</a>|||<a href="https://www.metal-archives.com/lists/SE">Sweden</a>
+</td>
+  <td id="tableHTML_column_4">Heavy/Power/Speed Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Apocalypse_Orchestra/3540391591">Apocalypse Orchestra</a>|<a href="/bands/Assaultery/3540297469">Assaultery</a>|<a href="/bands/AutumnMoon/54787">AutumnMoon</a>|<a href="/bands/B%C3%B6rn_Again/3540310365">Börn Again</a>|<a href="/bands/Bloodbound/54764">Bloodbound</a>|<a href="/bands/Breitenhold/3540388862">Breitenhold</a>|<a href="/bands/Burn_the_Plague/3540414436">Burn the Plague</a>|<a href="/bands/Candle/3540423249">Candle</a>|<a href="/bands/Cloven_Altar/3540383336">Cloven Altar</a>|<a href="/bands/Crystal_Viper/33867">Crystal Viper</a>|<a href="/bands/Domination_Black/24443">Domination Black</a>|<a href="/bands/Ereb_Altor/19273">Ereb Altor</a>|<a href="/bands/Follow_the_Cipher/3540440740">Follow the Cipher</a>|<a href="/bands/Heavy_Metal_Perse/4088">Heavy Metal Perse</a>|<a href="/bands/Isole/33467">Isole</a>|<a href="/bands/Jack_Starr%27s_Burning_Starr/14020">Jack Starr's Burning Starr</a>|<a href="/bands/Kirwes/42566">Kirwes</a>|<a href="/bands/Lector/3540389199">Lector</a>|<a href="/bands/Loch_Vostok/4534">Loch Vostok</a>|<a href="/bands/Mandrake/34940">Mandrake</a>|<a href="/bands/Merging_Flare/15991">Merging Flare</a>|<a href="/bands/Moon_Chamber/3540461419">Moon Chamber</a>|<a href="/bands/Mortyr/3540369117">Mortyr</a>|<a href="/bands/Mosh-Pit_Justice/3540355920">Mosh-Pit Justice</a>|<a href="/bands/Night_Crime/3540436683">Night Crime</a>|<a href="/bands/Palant%C3%ADr/3540430938">Palantír</a>|<a href="/bands/Pirate_Hymn/3540426201">Pirate Hymn</a>|<a href="/bands/Planet_Rain/83487">Planet Rain</a>|<a href="/bands/ReinXeed/28180">ReinXeed</a>|<a href="/bands/Rocka_Rollas/3540337247">Rocka Rollas</a>|<a href="/bands/Runelord/3540439252">Runelord</a>|<a href="/bands/Sabaton/484">Sabaton</a>|<a href="/bands/Starblind/3540380484">Starblind</a>|<a href="/bands/Steelwing/3540306077">Steelwing</a>|<a href="/bands/The_Outer_Limits/3540383333">The Outer Limits</a>|<a href="/bands/The_Storyteller/1187">The Storyteller</a>|<a href="/bands/Tritillion/3540451333">Tritillion</a>|<a href="/bands/Twilight_Force/3540382043">Twilight Force</a>
+</td>
+  <td id="tableHTML_column_6">NA</td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:04:40</td>
+  <td id="tableHTML_column_9">2021-09-15</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968772.jpg?4733</td>
+  <td id="tableHTML_column_2"><a href="/albums/Sceptor/Rise_to_the_Light/968772">Rise to the Light</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Sceptor/3540302732">Sceptor</a>|||<a href="https://www.metal-archives.com/lists/DE">Germany</a>
+</td>
+  <td id="tableHTML_column_4">Heavy Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Abandoned/8060">Abandoned</a>|<a href="/bands/Adorned_Graves/116350">Adorned Graves</a>|<a href="/bands/Alchemy_X/4669">Alchemy X</a>|<a href="/bands/Attacker/645">Attacker</a>|<a href="/bands/B%C3%B6sedeath/20701">Bösedeath</a>|<a href="/bands/Bastard_Nation/57810">Bastard Nation</a>|<a href="/bands/Blackstarr/3540457295">Blackstarr</a>|<a href="/bands/Conjuring/2986">Conjuring</a>|<a href="/bands/Courageous/2161">Courageous</a>|<a href="/bands/Daemon%27s_Gate/3540314889">Daemon's Gate</a>|<a href="/bands/Edge_of_Thorns/2990">Edge of Thorns</a>|<a href="/bands/Elvenpath/2195">Elvenpath</a>|<a href="/bands/Good_Vibrations/126948">Good Vibrations</a>|<a href="/bands/Griffin/607">Griffin</a>|<a href="/bands/Hammer_King/3540395840">Hammer King</a>|<a href="/bands/Hell_Patr%C3%B6l/3540398912">Hell Patröl</a>|<a href="/bands/Ivory_Night/32476">Ivory Night</a>|<a href="/bands/Kal%C3%B6gena/91442">Kalögena</a>|<a href="/bands/Lunatic_Dictator/8468">Lunatic Dictator</a>|<a href="/bands/Meltdown/108912">Meltdown</a>|<a href="/bands/Mind_Assassin/3540406487">Mind Assassin</a>|<a href="/bands/New_Allegiance/3540312857">New Allegiance</a>|<a href="/bands/Obstsalat/89997">Obstsalat</a>|<a href="/bands/Palace/57321">Palace</a>|<a href="/bands/Puky_Spoon/42285">Puky Spoon</a>|<a href="/bands/Ravenblack/3540337151">Ravenblack</a>|<a href="/bands/Rawboned/92072">Rawboned</a>|<a href="/bands/Reckoning/3540256174">Reckoning</a>|<a href="/bands/Ritual_Steel/9790">Ritual Steel</a>|<a href="/bands/Savior_from_Anger/84084">Savior from Anger</a>|<a href="/bands/Sinus/91933">Sinus</a>|<a href="/bands/Skraggy%27s_Tomb/33146">Skraggy's Tomb</a>|<a href="/bands/Sleepy_Hollow/7597">Sleepy Hollow</a>|<a href="/bands/The_Hounds_of_Hasselvander/109959">The Hounds of Hasselvander</a>|<a href="/bands/Titan_Steele/49005">Titan Steele</a>|<a href="/bands/Toxik_Shokk/3540384401">Toxik Shokk</a>|<a href="/bands/Valpurgisnight/13204">Valpurgisnight</a>|<a href="/bands/Vyndykator/3607">Vyndykator</a>|<a href="/bands/Warchild/11128">Warchild</a>|<a href="/bands/Wishing_Nightfall/46289">Wishing Nightfall</a>|<a href="/bands/Wycked_Synn/10279">Wycked Synn</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Pure_Steel_Records/234#label_tabs_albums">Pure Steel Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-09-24</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968831.jpg?1945</td>
+  <td id="tableHTML_column_2"><a href="/albums/Waldgefl%C3%BCster/Dahoam/968831">Dahoam</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Waldgefl%C3%BCster/69144">Waldgeflüster</a>|||<a href="https://www.metal-archives.com/lists/DE">Germany</a>
+</td>
+  <td id="tableHTML_column_4">Black Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Dagnir_en_Gwann/120175">Dagnir en Gwann</a>|<a href="/bands/Hatred_Divine/9033">Hatred Divine</a>|<a href="/bands/Istid/3540265041">Istid</a>|<a href="/bands/Morke/3540269313">Morke</a>|<a href="/bands/Odd_Goo/104939">Odd Goo</a>|<a href="/bands/Omnivorous/89920">Omnivorous</a>|<a href="/bands/Scarcross/26833">Scarcross</a>|<a href="/bands/Schwarzkristall/3540265042">Schwarzkristall</a>|<a href="/bands/The_Course_Is_Black/3540307246">The Course Is Black</a>|<a href="/bands/Uprising/3540408978">Uprising</a>|<a href="/bands/Warcult/3540359574">Warcult</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/AOP_Records/1832#label_tabs_albums">AOP Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:10:14</td>
+  <td id="tableHTML_column_9">2021-09-24</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968843.jpg?3628</td>
+  <td id="tableHTML_column_2"><a href="/albums/Necroticgorebeast/Human_Deviance_Galore/968843">Human Deviance Galore</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Necroticgorebeast/3540453270">Necroticgorebeast</a>|||<a href="https://www.metal-archives.com/lists/CA">Canada</a>
+</td>
+  <td id="tableHTML_column_4">Slam/Brutal Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Bookakee/3540343905">Bookakee</a>|<a href="/bands/Kaotik/3540283521">Kaotik</a>|<a href="/bands/Morningless/32821">Morningless</a>|<a href="/bands/Necronomicon/1410">Necronomicon</a>|<a href="/bands/Obscurcis_Romancia/6851">Obscurcis Romancia</a>|<a href="/bands/Oxidized_Faith/3540303249">Oxidized Faith</a>|<a href="/bands/Soiled_by_Blood/3540376704">Soiled by Blood</a>|<a href="/bands/The_Outborn/3540428177">The Outborn</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Comatose_Music/263#label_tabs_albums">Comatose Music</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-10-01</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968739.jpg?3049</td>
+  <td id="tableHTML_column_2"><a href="/albums/Putrevore/Miasmal_Monstrosity/968739">Miasmal Monstrosity</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Putrevore/3540263883">Putrevore</a>|||<a href="https://www.metal-archives.com/lists/XX">International</a>
+</td>
+  <td id="tableHTML_column_4">Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Ana%C3%ABmia/3017">Anaëmia</a>|<a href="/bands/Avulsed/982">Avulsed</a>|<a href="/bands/Banished_from_Inferno/121682">Banished from Inferno</a>|<a href="/bands/Bloodgut/3540310413">Bloodgut</a>|<a href="/bands/Bone_Gnawer/3540283236">Bone Gnawer</a>|<a href="/bands/Carve/4482">Carve</a>|<a href="/bands/Christ_Denied/3300">Christ Denied</a>|<a href="/bands/Dead_Sun/3540373434">Dead Sun</a>|<a href="/bands/Demiurg/88099">Demiurg</a>|<a href="/bands/Deranged/1036">Deranged</a>|<a href="/bands/Down_Among_the_Dead_Men/3540371621">Down Among the Dead Men</a>|<a href="/bands/Eaten/3540453534">Eaten</a>|<a href="/bands/Echelon/3540402715">Echelon</a>|<a href="/bands/Eye_of_Purgatory/3540437406">Eye of Purgatory</a>|<a href="/bands/Famishgod/3540387793">Famishgod</a>|<a href="/bands/Fondlecorpse/17421">Fondlecorpse</a>|<a href="/bands/Foreboding/3540255896">Foreboding</a>|<a href="/bands/Furnace/3540467568">Furnace</a>|<a href="/bands/Ghoulhouse/3540473026">Ghoulhouse</a>|<a href="/bands/God_Cries/3540475846">God Cries</a>|<a href="/bands/Golgotha/2402">Golgotha</a>|<a href="/bands/Graveyard_After_Graveyard/3540385524">Graveyard After Graveyard</a>|<a href="/bands/Grisly/3540442868">Grisly</a>|<a href="/bands/Heir_Corpse_One/3540490253">Heir Corpse One</a>|<a href="/bands/Holycide/3540392256">Holycide</a>|<a href="/bands/House_by_the_Cemetary/3540483478">House by the Cemetary</a>|<a href="/bands/Humanity_Delete/3540355980">Humanity Delete</a>|<a href="/bands/Johansson_%26_Speckmann/3540365785">Johansson &amp; Speckmann</a>|<a href="/bands/Lobotomy_Dept/3540431392">Lobotomy Dept</a>|<a href="/bands/Massacre/281">Massacre</a>|<a href="/bands/Megascavenger/3540342654">Megascavenger</a>|<a href="/bands/Metal_Against_Coronavirus/3540486673">Metal Against Coronavirus</a>|<a href="/bands/Minotaur_Head/3540415628">Minotaur Head</a>|<a href="/bands/Monstrous/3540471830">Monstrous</a>|<a href="/bands/Necrogod/3540392572">Necrogod</a>|<a href="/bands/Paganizer/3370">Paganizer</a>|<a href="/bands/PermaDeath/3540452382">PermaDeath</a>|<a href="/bands/Pile_of_Skulls/3540459546">Pile of Skulls</a>|<a href="/bands/Reek/3540464386">Reek</a>|<a href="/bands/Revolting/3540271425">Revolting</a>|<a href="/bands/Ribspreader/18698">Ribspreader</a>|<a href="/bands/Rogga_Johansson/3540424636">Rogga Johansson</a>|<a href="/bands/Rotten/3540373947">Rotten</a>|<a href="/bands/Severed_Limbs/3540373140">Severed Limbs</a>|<a href="/bands/Sinners_Burn/3540264703">Sinners Burn</a>|<a href="/bands/Skeletal_Spectre/3540296166">Skeletal Spectre</a>|<a href="/bands/Stass/3540430616">Stass</a>|<a href="/bands/Stygian_Dark/3540486450">Stygian Dark</a>|<a href="/bands/Svitjod/3540456982">Svitjod</a>|<a href="/bands/Swarming/3540312471">Swarming</a>|<a href="/bands/Terminal_Grip/3540280019">Terminal Grip</a>|<a href="/bands/The_11th_Hour/3540293223">The 11th Hour</a>|<a href="/bands/The_Cleaner_and_Mr._Filth%27s_Van_Murders/3540449271">The Cleaner and Mr. Filth's Van Murders</a>|<a href="/bands/The_Dead_Cold/3540298763">The Dead Cold</a>|<a href="/bands/The_Grotesquery/3540299035">The Grotesquery</a>|<a href="/bands/The_Skeletal/3540323840">The Skeletal</a>|<a href="/bands/Those_Who_Bring_the_Torture/108433">Those Who Bring the Torture</a>|<a href="/bands/To_Descend/3540440670">To Descend</a>|<a href="/bands/Yskelgroth/3540306233">Yskelgroth</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Xtreem_Music/109#label_tabs_albums">Xtreem Music</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-10-05</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968702.jpg?0129</td>
+  <td id="tableHTML_column_2"><a href="/albums/Antichrist_Siege_Machine/Purifying_Blade/968702">Purifying Blade</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Antichrist_Siege_Machine/3540426608">Antichrist Siege Machine</a>|||<a href="https://www.metal-archives.com/lists/US">United States</a>
+</td>
+  <td id="tableHTML_column_4">Black/Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Cellgraft/3540317225">Cellgraft</a>|<a href="/bands/Disevered/3540409470">Disevered</a>|<a href="/bands/Disintegration/3540434884">Disintegration</a>|<a href="/bands/Left_Cross/3540395808">Left Cross</a>|<a href="/bands/Sacridose/3540370526">Sacridose</a>|<a href="/bands/Sovereign/3540387374">Sovereign</a>|<a href="/bands/Unsacred/3540353502">Unsacred</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Profound_Lore_Records/160#label_tabs_albums">Profound Lore Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:29:06</td>
+  <td id="tableHTML_column_9">2021-10-08</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/8/968827.jpg?1114</td>
+  <td id="tableHTML_column_2"><a href="/albums/Leverage/Above_the_Beyond/968827">Above the Beyond</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Leverage/73597">Leverage</a>|||<a href="https://www.metal-archives.com/lists/FI">Finland</a>
+</td>
+  <td id="tableHTML_column_4">Heavy/Power Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Daimonic/3540483402">Daimonic</a>|<a href="/bands/Dyecrest/15992">Dyecrest</a>|<a href="/bands/Kalmah/702">Kalmah</a>|<a href="/bands/Kiuas/8998">Kiuas</a>|<a href="/bands/Metal_de_Facto/3540460378">Metal de Facto</a>|<a href="/bands/Purity/54820">Purity</a>|<a href="/bands/Raskasta_Joulua/3540389872">Raskasta Joulua</a>|<a href="/bands/Shining/2256">Shining</a>|<a href="/bands/Timo_Rautiainen_%26_Trio_Niskalaukaus/7776">Timo Rautiainen &amp; Trio Niskalaukaus</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Frontiers_Records/62#label_tabs_albums">Frontiers Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">NA</td>
+  <td id="tableHTML_column_9">2021-10-15</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/5/7/8/957831.jpg?1334</td>
+  <td id="tableHTML_column_2"><a href="/albums/First_Fragment/Gloire_%C3%A9ternelle/957831">Gloire éternelle</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/First_Fragment/3540325573">First Fragment</a>|||<a href="https://www.metal-archives.com/lists/CA">Canada</a>
+</td>
+  <td id="tableHTML_column_4">Neoclassical/Technical Death Metal</td>
+  <td id="tableHTML_column_5">
+<a href="/bands/Agressor/497">Agressor</a>|<a href="/bands/Arkhon_Infaustus/855">Arkhon Infaustus</a>|<a href="/bands/Atheretic/4479">Atheretic</a>|<a href="/bands/Atramentus/3540471023">Atramentus</a>|<a href="/bands/Augury/27517">Augury</a>|<a href="/bands/B.A.R.F./3723">B.A.R.F.</a>|<a href="/bands/Bane/3540303871">Bane</a>|<a href="/bands/Beyond_Creation/3540316039">Beyond Creation</a>|<a href="/bands/Black_Crown_Initiate/3540386765">Black Crown Initiate</a>|<a href="/bands/Black_March/3540379767">Black March</a>|<a href="/bands/Brought_by_Pain/3540303057">Brought by Pain</a>|<a href="/bands/Carnival_in_Coal/7708">Carnival in Coal</a>|<a href="/bands/Castigare/3540266100">Castigare</a>|<a href="/bands/Catuvolcus/3540259464">Catuvolcus</a>|<a href="/bands/Chthe%27ilist/3540357656">Chthe'ilist</a>|<a href="/bands/Cosmic_Atrophy/3540264314">Cosmic Atrophy</a>|<a href="/bands/Crimson_Shadows/98165">Crimson Shadows</a>|<a href="/bands/Cruxifiction/3540286660">Cruxifiction</a>|<a href="/bands/D%C3%A9combres/3540349358">Décombres</a>|<a href="/bands/D.D.T./6144">D.D.T.</a>|<a href="/bands/Drillpoint/46632">Drillpoint</a>|<a href="/bands/Equipoise/3540421313">Equipoise</a>|<a href="/bands/Erimha/3540335608">Erimha</a>|<a href="/bands/Eternity%27s_End/3540409019">Eternity's End</a>|<a href="/bands/Fleshdoll/48545">Fleshdoll</a>|<a href="/bands/Funebrarum/11723">Funebrarum</a>|<a href="/bands/Gore/3540288175">Gore</a>|<a href="/bands/Gorguts/1124">Gorguts</a>|<a href="/bands/Gorod/44494">Gorod</a>|<a href="/bands/Incandescence/3540335531">Incandescence</a>|<a href="/bands/Killitorous/3540353446">Killitorous</a>|<a href="/bands/Line_of_Sight/108216">Line of Sight</a>|<a href="/bands/Loudblast/944">Loudblast</a>|<a href="/bands/Melechesh/424">Melechesh</a>|<a href="/bands/Nader_Sadek/3540328284">Nader Sadek</a>|<a href="/bands/Necronomicon/1410">Necronomicon</a>|<a href="/bands/Negativa/78655">Negativa</a>|<a href="/bands/Next_on_the_List/100086">Next on the List</a>|<a href="/bands/No_Return/776">No Return</a>|<a href="/bands/Obduracy/3540343108">Obduracy</a>|<a href="/bands/Obvurt/3540485609">Obvurt</a>|<a href="/bands/Pronostic/3540353316">Pronostic</a>|<a href="/bands/Purgatoire/3540411657">Purgatoire</a>|<a href="/bands/Quo_Vadis/20">Quo Vadis</a>|<a href="/bands/Salvation/3540264190">Salvation</a>|<a href="/bands/Satanized/64373">Satanized</a>|<a href="/bands/Self_Collapse/3540352644">Self Collapse</a>|<a href="/bands/Serocs/3540291012">Serocs</a>|<a href="/bands/Solium_Fatalis/3540370957">Solium Fatalis</a>|<a href="/bands/Sonburst/3540353449">Sonburst</a>|<a href="/bands/Unleash_the_Archers/3540277256">Unleash the Archers</a>|<a href="/bands/Vacuus/3540406466">Vacuus</a>|<a href="/bands/Vengeful/66205">Vengeful</a>|<a href="/bands/VoidCeremony/3540388333">VoidCeremony</a>|<a href="/bands/Zealotry/3540289565">Zealotry</a>|<a href="/bands/Zubrowska/16943">Zubrowska</a>
+</td>
+  <td id="tableHTML_column_6"><a href="/labels/Unique_Leader_Records/172#label_tabs_albums">Unique Leader Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">01:11:28</td>
+  <td id="tableHTML_column_9">2021-10-29</td>
+  <td id="tableHTML_column_10">NA</td>
+</tr>
+<tr>
+<td id="tableHTML_column_1">/images/9/6/8/7/968788.jpg?5120</td>
+  <td id="tableHTML_column_2"><a href="/albums/Nocturnal_Art/Lilithianna/968788">Lilithianna</a></td>
+  <td id="tableHTML_column_3">
+<a href="/bands/Nocturnal_Art/3540390941">Nocturnal Art</a>|||<a href="https://www.metal-archives.com/lists/KZ">Kazakhstan</a>
+</td>
+  <td id="tableHTML_column_4">Black/Death Metal</td>
+  <td id="tableHTML_column_5"></td>
+  <td id="tableHTML_column_6"><a href="/labels/Careless_Records/49549#label_tabs_albums">Careless Records</a></td>
+  <td id="tableHTML_column_7">Full-length</td>
+  <td id="tableHTML_column_8">00:41:09</td>
+  <td id="tableHTML_column_9">2021-10-30</td>
+  <td id="tableHTML_column_10">2021-08-05</td>
 </tr>
 </tbody>
 </table>
