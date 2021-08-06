@@ -324,7 +324,7 @@ if (nrow(new) > 0) {
 
 ## generate a web page 
 export.webpage = 
-  function(dataname) { ## for extended version only
+  function(dataname) { 
     malink = 'https://www.metal-archives.com'
     target = './CheckingOutShitonMA/html/New.html'
     dataname %>%
@@ -362,14 +362,14 @@ export.webpage =
       select( Cover, Album, Band, Genre, Info, 
               Label, Type, Date) %>% 
       # as.tibble() %>% 
-      tableHTML::tableHTML(escape = FALSE,  ## retain links
-                           rownames=FALSE,  ## remove row index
-                           class="newlist", ## class name in css
+      tableHTML::tableHTML(escape = FALSE,  
+                           rownames=FALSE,  
+                           class="newlist", 
                            second_headers = list(c(2, 3, 4), c(' ', 'Band Info.', 'Release Info.')),
                            footer = (lubridate::today(tzone = "GMT")) ## add datetime info
       ) %>% 
       htmltools::save_html(file=target) 
-  
+    
   }
 export.webpage(new.list)
 
