@@ -54,7 +54,7 @@ const layout = () => {
 }
 $(function() {
   layout();
-  $('<small>Last updated on ' + moment().subtract(1, 'days').format('YYYY-MM-DD') + ' UTC. Total records: '+ 
+  $('<small>Last updated on ' + $('#footer').text() + ' UTC. Total records: '+ 
   $( ".release_info>tbody>tr" ).length+'. </small>').appendTo('#date');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
