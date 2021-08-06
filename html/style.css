@@ -1016,6 +1016,8 @@ table ::-webkit-scrollbar {
   border: transparent;
   padding: 1rem 0;
   font-size:.9rem;
+  white-space: nowrap;
+  overflow: hidden;
 }
 .newlist .group td:nth-last-child(1) {
   border-right: 1px solid #666;
