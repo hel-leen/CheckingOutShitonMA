@@ -17,7 +17,7 @@ library(gert)
 checkout =  
   function(){
     link = 
-      "https://www.metal-archives.com/release/ajax-upcoming/json/1?sEcho=1&iColumns=5&sColumns=&iDisplayStart="
+      "https://www.metal-archives.com/release/ajax-upcoming/json/1?sEcho=1&iDisplayStart="
     
     ajax.page = 
       link %>% 
