@@ -134,31 +134,6 @@ checkout =
       ) %>% 
       drop_na(Title)
     
-    count.distinct = 
-      releases %>% 
-      distinct_at(vars(Title)) %>% 
-      nrow()
-    
-    count.band = 
-      releases %>% 
-      distinct_at(vars(Band)) %>% 
-      nrow()
-    
-    count.black = 
-      releases %>% 
-      filter(str_detect(Genre, "Black|black")) %>%
-      nrow()
-    
-    count.death = 
-      releases %>% 
-      filter(str_detect(Genre, "Death|death")) %>%
-      nrow()
-    
-    count.fulllength = 
-      releases %>% 
-      filter(str_detect(Type, "Full-length")) %>%
-      nrow()
-    
     list(
       return(releases)
     ) 
