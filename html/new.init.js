@@ -40,16 +40,16 @@ const searchLink = q => window.matchMedia('(max-width: 767px)').matches ?
   '<a href="https://open.spotify.com/search/' + q.match(hreftext).join().replace(/\//g, '') + 
   "/spotify\">Spotify<i class='fa fa-search'></i></a>";
 const layout = () => {
-  if (window.matchMedia('(max-width: 767px)').matches) {3
-    $.fn.DataTable.ext.pager.numbers_length = 5;
-    if (navigator.userAgent.search(/mobile/gi) < 0) {
+  if (navigator.userAgent.search(/mobile/gi) < 0) {
+    $.fn.DataTable.ext.pager.numbers_length = 9;
+    if (window.matchMedia('(max-width: 767px)').matches) {
       $(":root").css("font-size", "100%");
     } else {
-      $(":root").css("font-size", "4.17vw");
+      $(":root").css("font-size", "2.23vh");
     }
   } else {
-    $.fn.DataTable.ext.pager.numbers_length = 9;
-    $(":root").css("font-size", "2.23vh");
+    $.fn.DataTable.ext.pager.numbers_length = 5;
+    $(":root").css("font-size", "4.17vw");
   }
 }
 $(function() {
