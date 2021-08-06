@@ -349,7 +349,7 @@ export.webpage(new.list)
 ## clean the environment
 unrm.list = c("new.list")
 rm(list=setdiff(ls(), unrm.list))
-save.image("~/.R/MA/all.RData")
+save.image("~/.R/MA/new.RData")
 
 ################################# commit ##################################
 
