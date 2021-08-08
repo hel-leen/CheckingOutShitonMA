@@ -289,12 +289,12 @@ $(function() {
       opacity: 1.0,
     });
   }, 1500);
-//  setTimeout(() => {
-//    $('.newlist,#date').animate({
- //     height: 'toggle',
-//      opacity: 'toggle',
- //   }, 'slow');
-//  }, 2500);
+  setTimeout(() => {
+    $('.newlist,#date').animate({
+      height: 'toggle',
+      opacity: 'toggle',
+    }, 'slow');
+  }, 2500);
   let table = $('.newlist').DataTable();
   // table.columns([6]).visible(false);
   table.columns(  ).visible( true );
