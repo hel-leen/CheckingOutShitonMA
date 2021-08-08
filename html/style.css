@@ -148,8 +148,8 @@ html {
 
 :root {
   font-family: "Mulish", Arial, sans-serif;
-  line-height: 1.5rem;
   font-size: 100%;
+  line-height: 1.5rem;
   background-color: #333;
   color: #fcfaf1;
   width: 100%;
@@ -589,19 +589,15 @@ a {
 
 .dataTables_wrapper,
 .filterSection {
-  opacity: 0.0;
-
+  /* opacity: 0.0; */
 }
+/* ul { */
+  /* padding-left: 50px */
+/* } */
 
-
-
-ul {
-  padding-left: 50px
-}
-
-ul li {
-  padding-left: 50px
-}
+/* ul li { */
+  /* padding-left: 50px */
+/* } */
 
 .hideItem {
   display: none;
@@ -1012,6 +1008,20 @@ table ::-webkit-scrollbar {
 .newlist tr th:nth-child(1)::before {
   visibility:hidden;
 }
+.newlist .group .prev:not(:hover),
+.newlist .group .next:not(:hover) {
+  opacity: .6;
+}
+.newlist .group .prev,
+.newlist .group .next {
+  cursor: pointer;
+  text-align:left;
+  justify-content: left;
+}
+.newlist .group .prev {
+  text-align:right;
+  justify-content: right;
+}
 .newlist .group td {
   border: transparent;
   padding: 1rem 0;
@@ -1392,6 +1402,10 @@ iframe {
   height: 8px;
 }
 
+.filterSection tbody {
+  display: grid;
+  /* grid-template-columns: 1fr 1fr; */
+}
 .filterSection {
   display: grid;
   margin: .77em 0;
@@ -1586,7 +1600,7 @@ iframe {
   align-self: center;
 }
 
-.filter-holder .fa {
+.newlist .fa {
   align-self: center;
   padding: 0;
   /* margin: 0; */
@@ -2095,6 +2109,10 @@ p {
     padding-top: 2rem;
     justify-content: center;
   }
+   .newlist tr.group {
+    grid-auto-flow: column;
+  }
+
  .newlist .group td:nth-child(1),
  .newlist .group td:nth-last-child(1) {
     display:none;

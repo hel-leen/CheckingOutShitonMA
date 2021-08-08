@@ -1,4 +1,3 @@
-// let today = new Date();
 jQuery.fn.extend({
   check: function() {
     return this.each(function() {
@@ -13,37 +12,32 @@ jQuery.fn.extend({
     });
   },
 });
-let thisday = moment().subtract(0, 'days').format('YYYY-MM-DD');
-var thisweek;
-if (moment().day() >= 5) {
-  thisweek = moment().day(5).subtract(0, 'days').format('YYYY-MM-DD');
-} else {
-  thisweek = moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
-}
+let thisday = moment().format('YYYY-MM-DD');
+var thisweek = moment().day() >= 5 ? 
+  moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
+  moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = q => '' + q.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maTarget = q => 'https://www.metal-archives.com' + q.match(hreflink);
 const maLink = q => '<a href="' + maTarget(q) + "\">MA Page<i class='fa fa-medium'></i></a>";
-const searchLink = q => window.matchMedia('(max-width: 767px)').matches ?
-  '<a href="https://bandcamp.com/search?q=' + q.match(hreftext) +
-  "\">Bandcamp<i class='fa fa-search'></i></a>" +
-  '<a href="https://www.youtube.com/results?search_query=' + q.match(hreftext) +
-  "\">Youtube<i class='fa fa-search'></i></a>" +
-  '<a href="https://open.spotify.com/search/' + q.match(hreftext).join().replace(/\//g, '') + 
-  "\">Spotify<i class='fa fa-search'></i></a>" :
-  '<a href="https://bandcamp.com/search?q=' + q.match(hreftext) +
-  "\">Bandcamp<i class='fa fa-search'></i></a>" +
-  '<a href="https://www.youtube.com/results?search_query=' + q.match(hreftext) +
-  "\">Youtube<i class='fa fa-search'></i></a>" +
-  '<a href="https://open.spotify.com/search/' + q.match(hreftext).join().replace(/\//g, '') + 
-  "/spotify\">Spotify<i class='fa fa-search'></i></a>";
+const searchLink = q => {
+  q = '<a href="https://bandcamp.com/search?q=' + q.match(hreftext) +
+    "\">Bandcamp<i class='fa fa-search'></i></a>" +
+    '<a href="https://www.youtube.com/results?search_query=' + q.match(hreftext) +
+    "\">Youtube<i class='fa fa-search'></i></a>" +
+    '<a href="https://open.spotify.com/search/' + q.match(hreftext).toString().replace(/\//g, '');
+  q += window.matchMedia('(max-width: 767px)').matches ?
+    '">Spotify<i class="fa fa-search"></i></a>' :
+    '/spotify">Spotify<i class="fa fa-search"></i></a>'
+  return q;
+};
 const layout = () => {
   if (navigator.userAgent.search(/mobile/gi) < 0) {
     $.fn.DataTable.ext.pager.numbers_length = 9;
     if (window.matchMedia('(max-width: 767px)').matches) {
-      $(":root").css("font-size", "");
+      // $(":root").css("font-size", "");
     } else {
       $(":root").css("font-size", "2.23vh");
     }
@@ -64,7 +58,6 @@ $(function() {
   });
   $('.newlist').DataTable({
     deferRender: true,
-    autoFill: true,
     stateSave: false,
     stateDuration: 60 * 60 * 6,
     stateSaveParams: function(settings, data) {
@@ -225,26 +218,28 @@ $(function() {
     }
 	],
 	"drawCallback": function ( settings ) {
-		//group rows by date or month
-			var groupColumn = 7;
-            var api = this.api();
-            var rows = api.rows( {page:'current'} ).nodes();
-            var last='';
-            api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
-              var date = group.match(/^\d.{9}/g).toString();
-              if (moment(date).format('YYYY') != moment().format('YYYY')) {
-                date = moment(date).format('MMM YYYY');
-              } else if (moment(date).format('MM') != moment().format('MM')) {
-                date = moment(date).format('MMMM');
-} else {
-                date = moment(date).format('Do MMM');
-}
-              if ( last !== date ) {
-                      $(rows).eq( i ).before( '<tr class="group ts"><td colspan="3"><td class="ts" colspan="1"> - '+date+' -</td><td colspan="4"></tr>' );
-                    last = date;
-				}
-            } );
-        },
+		//group rows by date
+		var groupColumn = 7;
+        var api = this.api();
+        var rows = api.rows( {page:'current'} ).nodes();
+        var last='';
+        api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
+			var date = group.match(/^\d.{9}/g).toString();
+			date = (
+				moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') : 
+				moment(date).format('MM') == moment().format('MM') ? moment(date).format('Do MMM') : 
+				moment(date).format('MMMM')
+		    );
+			if ( last !== date ) {
+				$(rows).eq( i ).before( '<tr class="group"><td colspan="2"></td>'+
+				'<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>'+
+				'<td class="ts" colspan="1"> '+date+'</td>'+
+				'<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>'+
+				'<td colspan="3"></tr>' );
+				last = date;
+			}
+        } );
+    },
     search: {
       // regex: true,
       "smart": true,
@@ -267,34 +262,21 @@ $(function() {
           column.search(val ? '^' + val + '$' : '', true, false).draw();
         });
         column.data().unique().sort().each(function(d, j) {
-          select.append('<option value="' + d.match(hreftext) + '">' + d.match(hreftext) + '</option>');
+		  var opval = d.match(hreftext);
+          select.append('<option value="' + opval + '">' + opval +  
+		  // column.search(opval ? '^' + opval + '$' : '', true, false).draw().rows().count() + 
+		  '</option>');
+		  // rows({search:'applied'})
         });
       });
     },
   });
   setTimeout(() => {
-    table.draw(false);
-    $('.filterSection').css({
-      opacity: 0.0,
-    }).animate({
-      opacity: 1.0,
-      height: 'fit-content',
-    });
-  }, 1000);
-  setTimeout(() => {
-    table.draw(false);
-    $('.dataTables_wrapper').css({
-      opacity: 0.0,
-    }).animate({
-      opacity: 1.0,
-    });
-  }, 1500);
-  setTimeout(() => {
     $('.newlist,#date').animate({
       height: 'toggle',
       opacity: 'toggle',
     }, 'slow');
-  }, 2500);
+  }, 0);
   let table = $('.newlist').DataTable();
   // table.columns([6]).visible(false);
   table.columns(  ).visible( true );
@@ -312,7 +294,17 @@ $(function() {
             $('.newlist .group').css('display', 'none');
         }
     } );
-  $('.newlist tbody').on('dblclick', 'tr', function() {
+  $('.newlist tbody').on('click', '.prev', function() {
+    $(this).parent().prevAll('.group').length >0 ?
+    $('html,body').animate({ scrollTop: $(this).parent().prevAll('.group').offset().top - $( ".dataTables_filter" ).height() }, 600):
+    $('html,body').animate({ scrollTop: $(this).parent().offset().top - $( ".dataTables_filter" ).height() }, 600)
+});
+  $('.newlist tbody').on('click', '.next', function() {
+    $(this).parent().nextAll('.group').length >0 ?
+    $('html,body').animate({ scrollTop: $(this).parent().nextAll('.group').offset().top - $( ".dataTables_filter" ).height() }, 600) :
+    $('html,body').animate({ scrollTop: $(this).parent().nextAll().last().children().last().offset().top - $( ".dataTables_filter" ).height() }, 600)
+});
+  $('.newlist tbody').on('dblclick', 'tr:not(.group)', function() {
     $(this).toggleClass('selected');
   });
   $('.newlist tbody').on('click', '.dropdown,.float', function() {
@@ -343,10 +335,9 @@ $(window).resize(function() {
   layout();
 });
 $(document).on('click', '.paginate_button', function() {
-  $('body,html').animate({
-    scrollTop: $('table thead').offset().top - 5,
-  }, 800);
+  $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $( ".dataTables_filter" ).height(),   }, 800);
 });
+
 $(document).on('click', '#reset, #Reset', function() {
   $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
