@@ -43,7 +43,7 @@ const layout = () => {
   if (navigator.userAgent.search(/mobile/gi) < 0) {
     $.fn.DataTable.ext.pager.numbers_length = 9;
     if (window.matchMedia('(max-width: 767px)').matches) {
-      $(":root").css("font-size", "100%");
+      $(":root").css("font-size", "");
     } else {
       $(":root").css("font-size", "2.23vh");
     }
@@ -186,7 +186,7 @@ $(function() {
         targets: [5],
     },
       {
-        //duration
+        //duration and type
         render: function(data, type, row) {
           if (type === 'display') {
             let duration = data.split('|||')[0];
@@ -225,13 +225,21 @@ $(function() {
     }
 	],
 	"drawCallback": function ( settings ) {
+		//group rows by date or month
 			var groupColumn = 7;
             var api = this.api();
             var rows = api.rows( {page:'current'} ).nodes();
             var last='';
             api.column(groupColumn, {page:'current'} ).data().each( function ( group, i ) {
-				var date = moment(group.match(/^\d.{9}/g).toString()).format('MMM Do, YYYY');
-                if ( last !== date ) {
+              var date = group.match(/^\d.{9}/g).toString();
+              if (moment(date).format('YYYY') != moment().format('YYYY')) {
+                date = moment(date).format('MMM YYYY');
+              } else if (moment(date).format('MM') != moment().format('MM')) {
+                date = moment(date).format('MMMM');
+} else {
+                date = moment(date).format('Do MMM');
+}
+              if ( last !== date ) {
                       $(rows).eq( i ).before( '<tr class="group ts"><td colspan="3"><td class="ts" colspan="1"> - '+date+' -</td><td colspan="4"></tr>' );
                     last = date;
 				}
@@ -250,6 +258,7 @@ $(function() {
       infoFiltered: ' [ Total: _MAX_ ]',
     },
     initComplete: function() {
+      // select box for labels
       this.api().columns(5).every(function() {
         var column = this;
         var select = $('<select><option value=""></option></select>')
@@ -280,19 +289,19 @@ $(function() {
       opacity: 1.0,
     });
   }, 1500);
-  setTimeout(() => {
-    $('.newlist,#date').animate({
-      height: 'toggle',
-      opacity: 'toggle',
-    }, 'slow');
-  }, 2500);
+//  setTimeout(() => {
+//    $('.newlist,#date').animate({
+ //     height: 'toggle',
+//      opacity: 'toggle',
+ //   }, 'slow');
+//  }, 2500);
   let table = $('.newlist').DataTable();
   // table.columns([6]).visible(false);
   table.columns(  ).visible( true );
   $(table.column(4).header()).text('Asso. Acts');
-  $('<div class=\"tip fixed float\">FORMAT:<p>Release type<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
+  $('<div class="fixed float">FORMAT: <p>Release type<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
   .appendTo( $(table.column( -2 ).header()) );
-   $('<div class=\"tip fixed float\">FORMAT:<p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div>')
+   $('<div class="fixed float">FORMAT: <p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div>')
   .appendTo( $(table.column( -1 ).header()) );
   $('.newlist thead').on( 'click', 'th.sorting ', function () {
         var currentOrder = table.order()[0];
