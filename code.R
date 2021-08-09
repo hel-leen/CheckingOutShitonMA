@@ -321,11 +321,10 @@ if (nrow(new) > 0) {
 export.webpage = 
   function(dataname) { 
     target = './CheckingOutShitonMA/html/New.html'
-    malink = 'https://www.metal-archives.com' #reduce page size
     dataname %>%
       filter(Date > Sys.Date() - days(180) & Date < Sys.Date() + days(180)) %>% ## within 360 days
       distinct_at(vars(album.link),.keep_all = TRUE) %>%  
-      distinct_at(vars(album.cover),.keep_all = TRUE) %>%  
+      # distinct_at(vars(album.cover),.keep_all = TRUE) %>%  
       distinct_at(vars(Title),.keep_all = TRUE) %>%  ## filter out the duplicates if any
       mutate( 
       ) %>%
