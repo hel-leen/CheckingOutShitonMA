@@ -11,7 +11,7 @@ library(stringr)
 library(ggplot2)
 library(rvest)
 library(lubridate)
-library(gery)
+library(gert)
 ##########################  check out new shit  #################################
 malink = 
   "https://www.metal-archives.com"
