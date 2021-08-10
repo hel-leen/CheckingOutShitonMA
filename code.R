@@ -1,6 +1,6 @@
 ### @Created By: hel_leen
 ### @Year: 2021
-# Open source under the MIT License.
+## Open source under the MIT License.
 
 library(tidyr)
 library(dplyr)
@@ -13,9 +13,6 @@ library(rvest)
 library(lubridate)
 library(gert)
 ##########################  check out new shit  #################################
-malink = 
-  "https://www.metal-archives.com"
-
 checkout =  
   function(link){
     
@@ -37,8 +34,8 @@ checkout =
     band.links.i = NA
     band.name.i = NA
     release.info.i = NA
-    
-    for (i in 1:(trunc(count.records/100)+1)) {
+    i=1
+    while (i <= (trunc(count.records/100)+1)) {
       ajax.page = 
         link %>% 
         paste0(.,(i-1),"00") %>%
@@ -46,25 +43,15 @@ checkout =
         minimal_html() %>% 
         html_elements("body")
       
-      content.href =
+      
+      album.link.i.p =
         ajax.page %>% 
         html_elements("a") %>% 
         html_attr("href") %>%  
-        str_extract('(http).*(?=\\\\)')
-      
-      album.link.i.p =
-        content.href %>% 
         str_subset("albums") %>% 
-        str_remove_all(malink)
+        str_extract('(?<=albums).*(?=\\\\)')
       album.link.i = c(album.link.i, album.link.i.p) 
       
-      # same as release.info[2]
-      album.title.i.p =
-        ajax.page %>% 
-        html_elements("a") %>% 
-        str_subset("albums") %>%
-        str_extract('(?<=\\"\\>).*(?=\\</a\\>)')
-      album.title.i = c(album.title.i, album.title.i.p) 
       
       band.links.i.p =
         ajax.page %>% 
@@ -74,38 +61,11 @@ checkout =
         unlist() %>%
         .[str_which(.,'href')] %>% 
         .[seq(1, length(.), 2)] %>% 
-        str_remove_all("%5C%22") %>% 
-        str_remove_all(malink) %>% 
-        str_extract('(?<=\\")<.*>(?=\\")') %>% 
-        str_remove_all(' title=.*?(?=>)')
+        str_extract_all('(?<=bands).+?(?=%5C%22\\"[\\s\\>])|(\\s[\\|\\/]\\s)') %>% 
+        sapply(str_flatten) 
+
       band.links.i = c(band.links.i, band.links.i.p)
-      
-      band.name.i.p =
-        ajax.page %>% 
-        html_elements("a") %>% 
-        str_extract(".*bands/.*") %>% 
-        str_extract('(?<=\\>).*(?=\\</a\\>)') %>% 
-        str_c(";") %>%
-        str_replace_na() %>%
-        str_flatten() %>% 
-        str_split("NA") %>%
-        .[[1]] %>% 
-        .[-length(.)] %>% 
-        str_split(";",simplify = TRUE) %>%
-        .[,-ncol(.)]
-      
-      band.name.i = plyr::rbind.fill.matrix(band.name.i, band.name.i.p)
-      
-      for (i in 1:ncol(band.name.i)) {
-        band.name.i =  
-          band.name.i %>% 
-          as.data.frame() %>% 
-          mutate(
-            # .keep = "unused",
-            "band.name.{i}" := .[,i]
-          ) 
-      }
-      
+ 
       release.info.i.p =
         ajax.page %>% 
         html_text() %>% 
@@ -116,6 +76,8 @@ checkout =
         .[[1]] %>% 
         str_split('\\",(\\")?',simplify = TRUE)
       release.info.i = rbind(release.info.i, release.info.i.p)
+      
+      i=i+1
     }
     
     
@@ -132,19 +94,63 @@ checkout =
               Date = parse_date_time(V5, c('%b %d, %y', '%b, %y', '%y'),
                                      select_formats='%y-%m-%d'),
             ),
-          album.title.i %>% as.data.frame() %>% transmute(album.title =  (.)),
           album.link.i %>% as.data.frame() %>% transmute(album.link = (.)),
           band.links.i %>% as.data.frame() %>% transmute(band.links = (.))
           # band.name.i %>% select(contains("band.name")),
+          # band.link.i %>% select(contains("band.link"))
         ) 
+      ) %>% mutate(
+        album.id = album.link %>% str_match('(?<=\\/)\\d+$')
       ) %>% drop_na(Title)
     
+    count.distinct = 
+      releases %>% 
+      distinct_at(vars(Title)) %>% 
+      nrow()
+    
+    count.band = 
+      releases %>% 
+      distinct_at(vars(Band)) %>% 
+      nrow()
+    
+    count.black = 
+      releases %>% 
+      filter(str_detect(Genre, "Black|black")) %>%
+      nrow()
+    
+    count.death = 
+      releases %>% 
+      filter(str_detect(Genre, "Death|death")) %>%
+      nrow()
+    
+    count.fulllength = 
+      releases %>% 
+      filter(str_detect(Type, "Full-length")) %>%
+      nrow()
+    
     list(
+      cat(
+        '\nWOAH behold, ' %+% make_style(rgb(0.53, 0.62, 0.95))(count.band) %+% 
+          ' bands are blessing us with their ' %+%
+          make_style(rgb(0.95, 0.3, 0.65))$underline$bold(count.records) %+%
+          ' newish albums and coming up soon.\n' %+% 
+          blurred(yellow((nrow(releases)-count.band)) %+% 
+                    white(' of them are duplicated though...\n\n')) %+% 
+          'Among them, there are ' %+%
+          make_style(rgb(0.83, 0.8, 0.45))(count.fulllength) %+% (' full-lengths. \n\n') %+%
+          make_style(rgb(0.93, 0.5, 0.72))$bold(count.black) %+% " are black-ish metal, and "%+% 
+          make_style(rgb(0.61, 0.8, 0.95))$bold(count.death) %+% " are said to be death-like stuff..\n\n "%+% 
+          make_style(rgb(0.49, 0.88, 0.85))$bold$italic("     Enjoy!") %+% reset(" \n\n")
+        
+      ),
       return(releases)
     ) 
   }
+malink = 
+  "https://www.metal-archives.com"
 upcoming =
   "https://www.metal-archives.com/release/ajax-upcoming/json/1?sEcho=1&iDisplayStart="
+
 
 ## generate new data based on current date
 name = Sys.Date() %>% format('%Y.%m.%d') %>% 
@@ -152,16 +158,15 @@ name = Sys.Date() %>% format('%Y.%m.%d') %>%
 assign(name, checkout(upcoming))
 
 new = anti_join(
-  by = c("Title", "Band", "Date"),
+  by = c("album.id"),
   y = new.list,
   x = name %>% 
     parse(text = .) %>% 
     eval())  
 
-######################  check out extended shit  ######################
 
 # extend every album
-extended = function(df=new) {
+extended = function(df) {
   album.cover.i = NA
   album.label.i = NA
   album.duration.i = NA
@@ -170,11 +175,12 @@ extended = function(df=new) {
   band.country.i = NA
   class(release.earliesttime.i) = "Date"
   i = 1
+  
   while (i <= length(df$album.link)) {
     album.page=
       df$album.link[i] %>%
+      paste0(malink,'/albums',.) %>% 
       # clipr::read_clip() %>%
-      paste0(malink,.) %>% 
       read_html() %>% 
       html_elements('.band_name, #cover, #album_tabs>ul,
       dl.float_right, td[align="right"]>strong')  
@@ -200,7 +206,8 @@ extended = function(df=new) {
       .[str_which(.,'Label')+1] %>%
       html_elements("a") %>%
       as.character() %>% 
-      str_remove_all(malink)
+      str_extract_all('\\/(\\d)+?(?=#)|\\"\\>.+(?=\\<\\/)') %>% 
+      sapply(str_flatten)
     if(length(album.label) <= 0) { album.label = NA }
     album.label.i[i] = album.label
     
@@ -236,23 +243,22 @@ extended = function(df=new) {
     
     band.pages =
       df$band.links[i] %>%
+      str_split('\\s(\\||\\/)\\s') %>% 
       # clipr::read_clip() %>%
-      str_split(' / ') %>% 
       .[[1]] %>% 
-      .[str_which(.,'bands')] 
+      .[str_which(.,'\\/\\d+')] %>% 
+      paste0(malink,'/bands',.)
+    
     
     band.country = NA
     for (j in 1:length(band.pages)) {
       band.country = 
         c(  c(band.country, " || "),
             band.pages[j] %>% 
-              str_match('(?<=\\<a\\shref\\=\\").*(?=\\"\\>)') %>%
-              paste0(malink,.) %>% 
               read_html() %>%  
               html_elements("#band_stats>.float_left>dd:nth-of-type(1)>a") %>% 
               as.character()%>% 
-              str_remove_all(malink) %>% 
-              str_remove_all('(<a href=\\"/lists/\\w*\\">)|(</a>)')
+              str_extract('(?<=\\"\\>).*(?=\\</a\\>)')
         )
     }
     band.country = band.country[-c(1, 2)]  %>% str_flatten('|')
@@ -263,12 +269,10 @@ extended = function(df=new) {
       band.related = 
         c(  c(band.related, " || "),
             band.pages[j] %>% 
-              str_match('(?<=\\<a\\shref\\=\\").*(?=\\"\\>)') %>%
-              paste0(malink,.) %>% 
               read_html() %>%  
               html_elements(".lineupBandsRow>td>a") %>% 
               as.character() %>% 
-              str_remove_all(malink) %>% 
+              str_extract('\\/\\d+?(?=\\"\\>).*(?=\\</a\\>)') %>% 
               sort() %>% 
               unique()
         )
@@ -279,7 +283,7 @@ extended = function(df=new) {
     
     i = i+1
   }
-  
+  # new.extended =
   df.extended =
     df %>% add_column(
       album.cover = album.cover.i,
@@ -305,16 +309,24 @@ extended = function(df=new) {
   )
 }
 
-
-
-
 if (nrow(new) > 0) {
   new.extended = extended(new)
-  new.list = union(
-    new.list,
-    new.extended
-  )
+  new.list =
+    union(
+      new.list,
+      new.extended
+    ) %>% 
+    mutate(
+      album.id = album.link %>% str_match('(?<=\\/)\\d+$'),
+      index = row_number()
+    )   %>%   
+    arrange(desc(index)) %>% 
+    distinct_at(vars(album.id),.keep_all = TRUE) %>% 
+    arrange((index)) %>% 
+    select(!index)
 }
+
+
 
 
 ## generate a web page 
@@ -322,40 +334,49 @@ export.webpage =
   function(dataname) { 
     target = './CheckingOutShitonMA/html/New.html'
     dataname %>%
-      filter(Date > Sys.Date() - days(180) & Date < Sys.Date() + days(180)) %>% ## within 360 days
-      distinct_at(vars(album.link),.keep_all = TRUE) %>%  
-      # distinct_at(vars(album.cover),.keep_all = TRUE) %>%  
+      filter(Date > Sys.Date() - days(183) & Date < Sys.Date() + days(183)) %>% 
+      # distinct_at(vars(album.cover),.keep_all = TRUE) %>%  ## filter out the duplicates if any
+      distinct_at(vars(album.link),.keep_all = TRUE) %>%  ## filter out the duplicates if any
       distinct_at(vars(Title),.keep_all = TRUE) %>%  ## filter out the duplicates if any
-      mutate( 
-      ) %>%
       mutate(
-        Cover = paste0( album.link %>% str_match('(?<=\\/)\\d[^.]*$'), ## generate id to sort the albums
-                        '|||',
-                        album.cover
-                        ),
-        Album = paste0('<a href="',album.link,'">',Title,'</a>'),
-        Band = paste0(band.links, 
-                      "|||",
-                      band.country
-                      ),
+        Cover = paste0( 
+          album.link %>% str_match('(?<=\\/)\\d[^.]*$'),
+          '|||',
+          album.cover
+        ),
+        Album = paste0(
+          Title,
+          "|||",
+          album.link
+        ),
+        Band = paste0(
+          Band,
+          "|||",
+          band.links, 
+          "|||",
+          band.country
+        ),
         Asso = band.related,
         Label = album.label,
         Duration = case_when( (is.na (Duration)) ~ '00:00:00',
                               TRUE ~ Duration),
-        Type =  paste0(Duration,
-                       "|||",
-                       Type),
+        Type =  paste0
+        (Duration,
+          "|||",
+          Type
+        ),
         EarliestDate = case_when( (earliest.date<as.Date(Date)) ~ 
-                                    as.character(earliest.date),   
-                                  TRUE ~ '0000-00-00'),  ## return '0000-00-00'if earliest.date >= Date
-        Date = paste0(Date,
-                      "|||",
-                      EarliestDate)
+                                    as.character(earliest.date),   ## return NA if earliest.date >= Date
+                                  TRUE ~ '0000-00-00'),
+        Date = paste0(
+          Date,
+          "|||",
+          EarliestDate
+        )
       ) %>% 
-      select( Cover, Album, 
-              Band, Genre, Asso, 
-              Label, Type, Date) %>% 
-      # as.tibble() %>% 
+      select( Cover, Album, Band, 
+              Genre, Asso, Label, 
+              Type, Date) %>% 
       tableHTML::tableHTML(escape = FALSE,  
                            rownames=FALSE,  
                            class="newlist", 

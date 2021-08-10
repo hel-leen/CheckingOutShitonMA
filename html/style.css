@@ -1187,6 +1187,7 @@ table ::-webkit-scrollbar {
   transform: translate(-50%, -0%);
   -webkit-animation: flip-2-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
   animation: flip-2-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  z-index: 999;
 }
 
 
@@ -1287,7 +1288,7 @@ table ::-webkit-scrollbar {
   padding: .8rem;
   line-height: 2;
   -webkit-line-clamp: initial;
-  z-index: 9;
+  z-index: 999;
   -webkit-animation: scale-in-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
   animation: scale-in-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
@@ -1952,7 +1953,7 @@ p {
 @media(max-width: 999px) {
 
   .newlist {
-    table-layout: fixed;
+    /* table-layout: fixed; */
   }
 }
 
