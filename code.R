@@ -269,8 +269,8 @@ extended = function(df) {
     
     i = i+1
   }
-  # new.extended =
-  df.extended =
+
+    df.extended =
     df %>% add_column(
       album.cover = album.cover.i,
       album.label = album.label.i,
@@ -321,8 +321,8 @@ export.webpage =
     target = './CheckingOutShitonMA/html/New.html'
     dataname %>%
       filter(Date > Sys.Date() - days(183) & Date < Sys.Date() + days(183)) %>% 
-      # distinct_at(vars(album.cover),.keep_all = TRUE) %>%  ## filter out the duplicates if any
-      distinct_at(vars(album.link),.keep_all = TRUE) %>%  ## filter out the duplicates if any
+      # distinct_at(vars(album.cover),.keep_all = TRUE) %>%  
+      distinct_at(vars(album.link),.keep_all = TRUE) %>%  
       distinct_at(vars(Title),.keep_all = TRUE) %>%  ## filter out the duplicates if any
       mutate(
         Cover = paste0( 
@@ -352,8 +352,8 @@ export.webpage =
           Type
         ),
         EarliestDate = case_when( (earliest.date<as.Date(Date)) ~ 
-                                    as.character(earliest.date),   ## return NA if earliest.date >= Date
-                                  TRUE ~ '0000-00-00'),
+                                    as.character(earliest.date),  
+                                  TRUE ~ '0000-00-00'),   ## return '0000-00-00' if earliest.date >= Date
         Date = paste0(
           Date,
           "|||",
