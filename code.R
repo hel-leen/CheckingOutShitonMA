@@ -1,6 +1,6 @@
-### @Created By: hel_leen
-### @Year: 2021
-## Open source under the MIT License.
+### Created By: hel_leen
+### Year: 2021
+### Open source under the MIT License.
 
 library(tidyr)
 library(dplyr)
