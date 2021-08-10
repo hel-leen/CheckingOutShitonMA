@@ -270,16 +270,16 @@ $(function () {
             column.search(val ? '^' + val + '$' : '', true, false).draw();
           });
 
-        column.data().unique().sort((x, y) => {
-          var xp = x.match(/(?<=;).*/g);
-          var yp = y.match(/(?<=;).*/g);
+        column.data().unique().filter(function (v) {
+          return v.match(/(?<=;).*/g) != null;
+        }
+        ).sort((x, y) => {
+          var xp = x.match(/(?<=;).*/g).toString().toLowerCase();
+          var yp = y.match(/(?<=;).*/g).toString().toLowerCase();
           return xp == yp ? 0 :
               xp < yp ? -1 :
               1;
-        }).filter(function (v) {
-          return v.match(/(?<=;).*/g) != null;
-        }
-        ).map((d, j) => {
+        }).map((d, j) => {
           var opval = d.match(/(?<=;).*/g);
           select.append('<option value="' + opval + '">' + opval +
             '</option>');
