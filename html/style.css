@@ -965,7 +965,7 @@ table {
   text-align: center;
 }
 
-tr.odd {
+.newlist tr.odd {
   background: rgba(60, 55, 50, .4);
 }
 
@@ -1051,7 +1051,8 @@ table ::-webkit-scrollbar {
   background-color: rgba(99, 99, 99, 0.6);
 }
 
-.newlist tr.selected {
+.newlist tbody tr.selected,
+.newlist tbody tr.selected:hover {
   background-color: #654;
   background-color: rgba(109, 100, 98, 0.8);
 }
