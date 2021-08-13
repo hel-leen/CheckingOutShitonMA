@@ -266,8 +266,11 @@ $(function () {
         var column = this;
         var select = $('<select><option value=""></option></select>')
           .insertBefore('#label-filter #labelclear').on('change', function () {
+			  $("input[type='checkbox']").uncheck();
+			  $('#genre-options option').uncheck();
+			  $('#datepicker').val('');
             var val = $.fn.dataTable.util.escapeRegex($(this).val());
-            column.search(val ? '^' + val + '$' : '', true, false).draw();
+            column.search( val ? val+'$' : '', true, false ).draw();
           });
 
         column.data().unique().filter(function (v) {
@@ -279,7 +282,7 @@ $(function () {
           return xp == yp ? 0 :
               xp < yp ? -1 :
               1;
-        }).map((d, j) => {
+        }).each((d, j) => {
           var opval = d.match(/(?<=;).*/g);
           select.append('<option value="' + opval + '">' + opval +
             '</option>');
