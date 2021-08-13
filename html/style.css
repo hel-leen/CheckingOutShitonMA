@@ -1250,6 +1250,10 @@ table ::-webkit-scrollbar {
   font-size: 95.5%;
 }
 
+.cd {
+  transform:scale(0.66,1);
+}
+
 .grid_item.ts {
   flex: 1 1 0;
   min-width: 0;
