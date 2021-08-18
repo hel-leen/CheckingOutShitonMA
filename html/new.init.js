@@ -48,7 +48,7 @@ const layout = () => {
 }
 $(function () {
   layout();
-  $.ajax({ url: "release.txt" }) .done(function( json ) { $( "#count" ).append('<a>Total records: ' + (JSON.parse(json).data.length - 1 )+ '. </a>'  ); });
+  $.ajax({ url: "release" }) .done(function( json ) { $( "#count" ).append('<a>Total records: ' + (JSON.parse(json).data.length - 1 )+ '. </a>'  ); });
   $('#date').append('<a>Last updated on ' + $('#footer').text() + ' UTC. ' + '</a>');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
@@ -60,7 +60,7 @@ $(function () {
 	// processing: true,
     // serverSide: true,
 	ajax:  {
-            url: "release.txt",
+            url: "release",
             dataSrc: function ( json ) {
       return json.data.slice(0, -1);
     }
@@ -217,7 +217,7 @@ $(function () {
           }
           return data;
         },
-        width: '8%',
+        width: '9%',
         targets: [6],
       },
       {
@@ -273,7 +273,7 @@ $(function () {
       searchPlaceholder: 'Search for albums or bands..',
       search: '_INPUT_',
       info: '( _START_ - _END_ ) / _TOTAL_ ',
-      infoEmpty: '0 entry',
+      infoEmpty: 'No data',
       infoFiltered: ' [ Total: _MAX_ ]',
     },
     initComplete: function () {
@@ -308,7 +308,7 @@ $(function () {
     },
   });
   setTimeout(() => {
-    $('.newlist,#info').animate({
+    $('#info').animate({
       height: 'toggle',
       opacity: 'toggle',
     }, 'slow');

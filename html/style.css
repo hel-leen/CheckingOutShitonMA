@@ -978,7 +978,7 @@ table {
 }
 
 .newlist {
-  display: none;
+  /* display: none; */
   text-align: center;
   justify-items: center;
   font-size: .9rem;
