@@ -265,10 +265,14 @@ $(function () {
           last = date;
         }
       });
-	//count rows
-	if ( api.data().count() != 0 ) {
-   	    $("#count").text('Total records: ' + api.rows().count() + '. ').children(':last').hide().fadeIn(500);
-	}
+      //count rows
+      if (api.data().count() != 0) {
+        $("#count").text('Total records: ' + api.rows().count() + '. ')
+		.children(':last').hide().animate({
+          height: 'toggle',
+          opacity: 'toggle',
+        }, 'slow');
+      }
     },
     search: {
       // regex: true,
@@ -294,7 +298,6 @@ $(function () {
             var val = $.fn.dataTable.util.escapeRegex($(this).val());
             column.search(val ? val + '$' : '', true, false).draw();
           });
-
         column.data().unique().filter(function (v) {
           return v.match(/(?<=>).*/g) != null;
         }
@@ -309,7 +312,6 @@ $(function () {
           select.append('<option value="' + opval + '">' + opval +
             '</option>');
         });
-
       });
     },
   });
@@ -438,8 +440,8 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
     dateset = date;
   }
   if (
-  ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
-  return false;
+    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
+    return false;
   }
   return genre.search('('.concat(genres.join('|'), ')')) > -1 && dateset;
   // return true;
