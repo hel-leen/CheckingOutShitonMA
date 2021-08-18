@@ -57,11 +57,11 @@ $(function () {
     },
   });
   $('.newlist').DataTable({
-    processing: true,
-    serverSide: true,
+    // processing: true,
+    // serverSide: true,
     ajax: {
-      url: "release",
-      // url: "https://hel-leen.github.io/CheckingOutShitonMA/html/release",
+      // url: "release",
+      url: "https://hel-leen.github.io/CheckingOutShitonMA/html/release",
 	  // dataFilter: function(data){
             // var json = jQuery.parseJSON( data );
             // json.recordsTotal = json.total;
