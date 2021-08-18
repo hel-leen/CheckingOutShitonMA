@@ -48,8 +48,8 @@ const layout = () => {
 }
 $(function () {
   layout();
-  $('<small>Last updated on ' + $('#footer').text() + ' UTC. Total records: ' +
-    $(".newlist>tbody>tr").length + '. </small>').appendTo('#date');
+  $.ajax({ url: "release.txt",  cache: false }) .done(function( json ) { $( "#count" ).append('<a>Total records: ' + (JSON.parse(json).data.length - 1 )+ '. </a>'  ); });
+  $('#date').append('<a>Last updated on ' + $('#footer').text() + ' UTC. ' + '</a>');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     buttons: {
@@ -57,6 +57,12 @@ $(function () {
     },
   });
   $('.newlist').DataTable({
+	ajax:  {
+            url: "release.txt",
+            dataSrc: function ( json ) {
+      return json.data.slice(0, -1);
+    }
+        },
     deferRender: true,
     stateSave: false,
     stateDuration: 60 * 60 * 6,
@@ -143,13 +149,13 @@ $(function () {
             var info = info_row.map(item => item.split('|').filter(uniq) != '' ?
               "<div class='grid_item ts'><div class='flex_item ts fixed'>" +
               item.split('|').filter(uniq).sort(() => Math.random() - 0.5).join(', ')
-                .replace(/\/\d+\"(&gt;)/g, '') +
+                .replace(/\/\d+\">/g, '') +
               '</div>' + "<div class='flex_item ts fixed float'>" +
               item.split('|').filter(uniq).map(link => {
                 return '<a href="https://www.metal-archives.com/bands/' +
                   link.match(/(?<=;).*/g) + "/" +
                   link.match(/(?<=\/)\d+/g) + '">' +
-                  link.match(/(?<=;).*/g) + '</a>';
+                  link.match(/(?<=>).*/g) + '</a>';
               }
               ).sort().join(', ') +
               '</div></div>' :
@@ -172,7 +178,7 @@ $(function () {
                 data = '<i>Independent</i>';
                 break;
               default:
-                var labeltext = data.match(/(?<=;).*/g)
+                var labeltext = data.match(/(?<=>).*/g)
                 data = "<div class='grid_item'><div class='flex_item'><a class='hreftext'>" +
                   labeltext + "</a><div class='dropdown'>" +
                   maLink('labels/', labeltext.concat(data.match(/\/\d+/g))) + '<a href="https://bandcamp.com/search?q=' +
@@ -191,13 +197,21 @@ $(function () {
         render: function (data, type, row) {
           if (type === 'display') {
             let duration = data.split('|||')[0];
-            let type = data.split('|||')[1];
+            let track = data.split('|||')[1];
+            let type = data.split('|||')[2];
             switch (duration) {
               case '00:00:00':
                 duration = "<i class='ts'>no data</i>";
                 break;
             }
-            return type + " <br><p class='extra'>(" + duration + ')</p>';
+            switch (track) {
+              case '0':
+                track = "";
+                break;
+              default:
+                track = " ∙ " + track;
+            }
+            return type + track  + " <br><p class='extra'>(" + duration + ')</p>';
           }
           return data;
         },
@@ -292,7 +306,7 @@ $(function () {
     },
   });
   setTimeout(() => {
-    $('.newlist,#date').animate({
+    $('.newlist,#info').animate({
       height: 'toggle',
       opacity: 'toggle',
     }, 'slow');
@@ -415,10 +429,10 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   } else {
     dateset = date;
   }
-  if (
-    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
-    return false;
-  }
+  // if (
+    // ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
+    // return false;
+  // }
   return genre.search('('.concat(genres.join('|'), ')')) > -1 && dateset;
   // return true;
 });

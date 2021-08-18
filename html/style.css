@@ -556,7 +556,7 @@ a {
 }
 
 #info {
-  margin-top: -1rem;
+  /* margin: 1rem; */
   display: none;
 }
 
@@ -2055,7 +2055,7 @@ p {
   }
 
   #label-filter select {
-    width: 50vw;
+    width: 45vw;
   }
 
   .newlist {
