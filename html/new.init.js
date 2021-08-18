@@ -48,7 +48,7 @@ const layout = () => {
 }
 $(function () {
   layout();
-  $('#date').append('<a>Last updated on ' + $('#footer').text() + ' UTC. ' + '</a>');
+  $('#date').text('Last updated on ' + $('#footer').text() + ' UTC. ');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     buttons: {
@@ -267,7 +267,7 @@ $(function () {
       });
 	//count rows
 	if ( api.data().count() != 0 ) {
-   	    $("#count").append('<a>Total records: ' + api.rows().count() + '. </a>').children(':last').hide().fadeIn(500);
+   	    $("#count").text('Total records: ' + api.rows().count() + '. ').children(':last').hide().fadeIn(500);
 	}
     },
     search: {
