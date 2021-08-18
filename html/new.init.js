@@ -57,6 +57,8 @@ $(function () {
     },
   });
   $('.newlist').DataTable({
+	// processing: true,
+    // serverSide: true,
 	ajax:  {
             url: "release.txt",
             dataSrc: function ( json ) {
