@@ -46,9 +46,10 @@ const layout = () => {
     $(":root").css("font-size", "4.17vw");
   }
 }
+
 $(function () {
   layout();
-  $('#date').text('Last updated on ' + $('#footer').text() + ' UTC. ');
+  // $('#date').text('Last updated on ' + $('#footer').text() + ' UTC. ');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     buttons: {
@@ -56,13 +57,22 @@ $(function () {
     },
   });
   $('.newlist').DataTable({
-    // processing: true,
-    // serverSide: true,
+    processing: true,
+    serverSide: true,
     ajax: {
       url: "release",
+      // url: "https://hel-leen.github.io/CheckingOutShitonMA/html/release",
+	  // dataFilter: function(data){
+            // var json = jQuery.parseJSON( data );
+            // json.recordsTotal = json.total;
+            // json.recordsFiltered = json.total;
+            // json.data = json.list;
+ 
+            // return JSON.stringify( json ); // return JSON string
+        // },
       dataSrc: function (json) {
         return json.data.slice(0, -1);
-      }
+      },
     },
     deferRender: true,
     stateSave: false,
@@ -72,6 +82,18 @@ $(function () {
     },
     order: [[7, 'asc'], [0, 'desc']],
     lengthMenu: [50, 100, 200, 400],
+    autoWidth: false,
+    search: {
+      // regex: true,
+      "smart": true,
+    },
+    language: {
+      searchPlaceholder: 'Search for albums or bands..',
+      search: '_INPUT_',
+      info: '( _START_ - _END_ ) / _TOTAL_ ',
+      infoEmpty: 'No data',
+      infoFiltered: ' [ Total: _MAX_ ]',
+    },
     columnDefs: [
       {
         //rendering cover
@@ -247,6 +269,7 @@ $(function () {
       //group rows by date
       var groupColumn = 7;
       var api = this.api();
+	  console.log(api);
       var rows = api.rows({ page: 'current' }).nodes();
       var last = '';
       api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
@@ -265,30 +288,18 @@ $(function () {
           last = date;
         }
       });
-      //count rows
-      if (api.data().count() != 0) {
-        $("#count").text('Total records: ' + api.rows().count() + '. ')
-		.children(':last').hide().animate({
-          height: 'toggle',
-          opacity: 'toggle',
-        }, 'slow');
-      }
-    },
-    search: {
-      // regex: true,
-      "smart": true,
-    },
-    autoWidth: false,
-    language: {
-      searchPlaceholder: 'Search for albums or bands..',
-      search: '_INPUT_',
-      info: '( _START_ - _END_ ) / _TOTAL_ ',
-      infoEmpty: 'No data',
-      infoFiltered: ' [ Total: _MAX_ ]',
     },
     initComplete: function () {
+      var api = this.api();
+	  console.log(api);
+      //count rows
+      if (api.data().count() != 0) {
+	    $('#date').text('Last updated on: ' + api.ajax.json().LastUpdate + '. ');
+        $("#count").text('Total records: ' + api.ajax.json().TotalRecords + '. ');
+	    $('#info').animate({ height: 'linear', opacity: 'easeOutBounce',}, "slow" );
+      }
       // select box for labels
-      this.api().columns(5).every(function () {
+      api.columns(5).every(function () {
         var column = this;
         var select = $('<select><option value=""></option></select>')
           .insertBefore('#label-filter #labelclear').on('change', function () {
@@ -315,13 +326,17 @@ $(function () {
       });
     },
   });
-  setTimeout(() => {
-    $('#info').hide().animate({
-      height: 'toggle',
-      opacity: 'toggle',
-    }, 'slow');
-  }, 0);
+  // setTimeout(() => {
+    // $('#info').hide().animate({
+      // height: 'toggle',
+      // opacity: 'toggle',
+    // }, 'slow');
+  // }, 0);
   let table = $('.newlist').DataTable();
+  // table.on( 'xhr', function () {
+    // var json = table.ajax.json();
+	// console.log(json);
+// } );
   // table.columns([6]).visible(false);
   table.columns().visible(true);
   $(table.column(4).header()).text('Asso. Acts');

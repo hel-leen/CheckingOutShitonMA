@@ -557,7 +557,7 @@ a {
 
 #info {
   /* margin: 1rem; */
-  /* display: none; */
+  display: flex;
 }
 
 .note {
