@@ -1,0 +1,102 @@
+<!DOCTYPE html><html lang = "en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+<title>New Albums on MA</title>
+<link rel="preconnect" href="https://www.metal-archives.com">
+<link rel="dns-prefetch" href="https://www.metal-archives.com">
+<script src="jquery.min.js"> </script><script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script><script type="text/javascript" language="javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script><script type="text/javascript" language="javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script><script type="text/javascript" language="javascript" src="new2.init.js"></script><link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" type="image/png" href="cat.png">
+</head>
+
+<body>
+  <h1 class="glow" id="header">New albums on MA  </h1>
+  <div class="sidenav">
+    <div id="home"><a href="../">Home</a></div>
+  </div>
+  <h4 style="margin: .5em 0%;">
+    All data from <a href="https://www.metal-archives.com/" target="_blank" rel="noopener noreferrer">THE Metal Archives</a>, with more album info included and duplicates filtered out. </h4>
+    <p>Web page genereated with <a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a> 
+    (<a href="https://raw.githubusercontent.com/hel-leen/CheckingOutShitonMA/main/code.R" target="_blank" rel="noopener noreferrer">source code</a>).
+  </p>
+  <p  id="info" style="margin: .5em 0%; font-size: small"><a id="date"></a><a id="count"></a></p>
+  
+  <div class="note">
+    <b>NOTE <i class="fa fa-caret-right"></i></b>
+    <a> Click to read tips.</a>
+    <div class="hideItem">
+      <p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while "unknown" means the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</s> Merged with "Release Info. - Date" data.</p>
+      <!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
+      <p><a href="https://www.metal-archives.com/images/cat.jpg" target="_blank" rel="noopener noreferrer">Cat picture</a> means the album doesn't have any cover(!?).</p>
+      <p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="Today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
+      <p>If you don't wanna see an album for some reason, double click it to select, then click "Hide selected" at the bottom right, gone. It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</p>
+      <!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
+    </div>
+  </div>
+  <div class="contentWrapper">
+    <table class="filterSection">
+<tr class="filterSection">
+<td><strong>Reset:</strong></td>
+        <td class="filter-holder" id="reset-filter">
+            <button id="reset">Default</button><button id="all">Show all</button>
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Date: </strong></td>
+        <td class="filter-holder" id="date-filter">
+          <input id="datecondition" type="text" value="After" readonly><input id="datepicker" type="text" readonly><i id="dateclear" class="solid fa fa-times-circle"></i>
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Genre:</strong></td>
+        <td class="filter-holder" id="genre-filter">
+        <div class="solid filter-item">
+          <select id="genre-options" multiple size="1"><option selected value="black">Black Metal</option>
+<option selected value="death">Death Metal</option>
+<option value="^((?!(black|death)).)*$">Other</option></select>
+</div>
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Label:</strong></td>
+        <td class="filter-holder" id="label-filter">
+          <i id="labelclear" class="solid fa fa-times-circle"></i>
+        </td>
+      </tr>
+<tr class="filterSection">
+<td><strong>Types:</strong></td>
+        <td class="filter-holder">
+          <label class="solid checkcontainer">
+            <input class="filter fa" id="Reissue" type="checkbox" checked><span class="checkmark solid fa fa-check-circle">
+              <p>No Reissue</p>
+            </span></label>
+          <label class="solid checkcontainer">
+            <input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle">
+              <p>Full-length only</p>
+            </span></label>
+        </td>
+      </tr>
+</table>
+</div>
+<table style="border-collapse:collapse;" class="newlist" border="1">
+<caption>
+<button id="delete_button">Hide selected</button> </caption>
+<caption id="footer" align="bottom">2021-08-16</caption>
+<thead>
+<tr>
+<th colspan="2" id="second_header_1"> </th>
+  <th colspan="3" id="second_header_2">Band Info.</th>
+  <th colspan="4" id="second_header_3">Release Info.</th>
+</tr>
+<tr>
+  <th id="header_1">Cover</th>
+  <th id="header_2">Album</th>
+  <th id="header_3">Band</th>
+  <th id="header_4">Genre</th>
+  <th id="header_5">Asso</th>
+  <th id="header_6">Label</th>
+  <th id="header_7">Type</th>
+  <th id="header_8">Date</th>
+</tr>
+</thead>
+</table>
