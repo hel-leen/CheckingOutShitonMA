@@ -21,7 +21,7 @@ let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maTarget = q => 'https://www.metal-archives.com/' + q;
-const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type  + link + '"' + ">MA Page<i class='fa fa-medium'></i></a>";
+const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' + ">MA Page<i class='fa fa-medium'></i></a>";
 const searchLink = text => {
   text = '<a href="https://bandcamp.com/search?q=' + text +
     "\">Bandcamp<i class='fa fa-search'></i></a>" +
@@ -48,7 +48,6 @@ const layout = () => {
 }
 $(function () {
   layout();
-  $.ajax({ url: "release" }) .done(function( json ) { $( "#count" ).append('<a>Total records: ' + (JSON.parse(json).data.length - 1 )+ '. </a>'  ); });
   $('#date').append('<a>Last updated on ' + $('#footer').text() + ' UTC. ' + '</a>');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
@@ -57,14 +56,14 @@ $(function () {
     },
   });
   $('.newlist').DataTable({
-	// processing: true,
+    // processing: true,
     // serverSide: true,
-	ajax:  {
-            url: "release",
-            dataSrc: function ( json ) {
-      return json.data.slice(0, -1);
-    }
-        },
+    ajax: {
+      url: "release",
+      dataSrc: function (json) {
+        return json.data.slice(0, -1);
+      }
+    },
     deferRender: true,
     stateSave: false,
     stateDuration: 60 * 60 * 6,
@@ -210,10 +209,13 @@ $(function () {
               case '0':
                 track = "";
                 break;
+              case '1':
+                track = "";
+                break;
               default:
                 track = " ∙ " + track;
             }
-            return type + track  + " <br><p class='extra'>(" + duration + ')</p>';
+            return type + track + " <br><p class='extra'>(" + duration + ')</p>';
           }
           return data;
         },
@@ -241,7 +243,7 @@ $(function () {
         targets: [7],
       }
     ],
-    "drawCallback": function (settings) {
+    drawCallback: function (settings) {
       //group rows by date
       var groupColumn = 7;
       var api = this.api();
@@ -263,6 +265,10 @@ $(function () {
           last = date;
         }
       });
+	//count rows
+	if ( api.data().count() != 0 ) {
+   	    $("#count").append('<a>Total records: ' + api.rows().count() + '. </a>');
+	}
     },
     search: {
       // regex: true,
@@ -282,24 +288,24 @@ $(function () {
         var column = this;
         var select = $('<select><option value=""></option></select>')
           .insertBefore('#label-filter #labelclear').on('change', function () {
-			  $("input[type='checkbox']").uncheck();
-			  $('#genre-options option').uncheck();
-			  $('#datepicker').val('');
+            $("input[type='checkbox']").uncheck();
+            $('#genre-options option').uncheck();
+            $('#datepicker').val('');
             var val = $.fn.dataTable.util.escapeRegex($(this).val());
-            column.search( val ? val+'$' : '', true, false ).draw();
+            column.search(val ? val + '$' : '', true, false).draw();
           });
 
         column.data().unique().filter(function (v) {
-          return v.match(/(?<=;).*/g) != null;
+          return v.match(/(?<=>).*/g) != null;
         }
         ).sort((x, y) => {
-          var xp = x.match(/(?<=;).*/g).toString().toLowerCase();
-          var yp = y.match(/(?<=;).*/g).toString().toLowerCase();
+          var xp = x.match(/(?<=>).*/g).toString().toLowerCase();
+          var yp = y.match(/(?<=>).*/g).toString().toLowerCase();
           return xp == yp ? 0 :
-              xp < yp ? -1 :
+            xp < yp ? -1 :
               1;
         }).each((d, j) => {
-          var opval = d.match(/(?<=;).*/g);
+          var opval = d.match(/(?<=>).*/g);
           select.append('<option value="' + opval + '">' + opval +
             '</option>');
         });
@@ -431,10 +437,10 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   } else {
     dateset = date;
   }
-  // if (
-    // ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
-    // return false;
-  // }
+  if (
+  ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
+  return false;
+  }
   return genre.search('('.concat(genres.join('|'), ')')) > -1 && dateset;
   // return true;
 });
