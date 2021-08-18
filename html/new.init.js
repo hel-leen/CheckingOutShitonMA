@@ -267,7 +267,7 @@ $(function () {
       });
 	//count rows
 	if ( api.data().count() != 0 ) {
-   	    $("#count").append('<a>Total records: ' + api.rows().count() + '. </a>');
+   	    $("#count").append('<a>Total records: ' + api.rows().count() + '. </a>').children(':last').hide().fadeIn(500);
 	}
     },
     search: {
@@ -314,7 +314,7 @@ $(function () {
     },
   });
   setTimeout(() => {
-    $('#info').animate({
+    $('#info').hide().animate({
       height: 'toggle',
       opacity: 'toggle',
     }, 'slow');
