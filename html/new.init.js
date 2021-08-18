@@ -48,7 +48,7 @@ const layout = () => {
 }
 $(function () {
   layout();
-  $.ajax({ url: "release.txt",  cache: false }) .done(function( json ) { $( "#count" ).append('<a>Total records: ' + (JSON.parse(json).data.length - 1 )+ '. </a>'  ); });
+  $.ajax({ url: "release.txt" }) .done(function( json ) { $( "#count" ).append('<a>Total records: ' + (JSON.parse(json).data.length - 1 )+ '. </a>'  ); });
   $('#date').append('<a>Last updated on ' + $('#footer').text() + ' UTC. ' + '</a>');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
