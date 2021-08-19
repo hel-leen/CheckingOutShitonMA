@@ -49,7 +49,6 @@ const layout = () => {
 
 $(function () {
   layout();
-  // $('#date').text('Last updated on ' + $('#footer').text() + ' UTC. ');
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     buttons: {
@@ -60,18 +59,11 @@ $(function () {
     // processing: true,
     // serverSide: true,
     ajax: {
-      // url: "release",
-      url: "https://hel-leen.github.io/CheckingOutShitonMA/html/release",
-	  // dataFilter: function(data){
-            // var json = jQuery.parseJSON( data );
-            // json.recordsTotal = json.total;
-            // json.recordsFiltered = json.total;
-            // json.data = json.list;
- 
-            // return JSON.stringify( json ); // return JSON string
-        // },
-      dataSrc: function (json) {
-        return json.data.slice(0, -1);
+      url: "release",
+      dataFilter: function (data) {
+        var json = jQuery.parseJSON(data);
+        json.data = json.data.slice(0, -1);
+        return JSON.stringify(json);
       },
     },
     deferRender: true,
@@ -82,7 +74,6 @@ $(function () {
     },
     order: [[7, 'asc'], [0, 'desc']],
     lengthMenu: [50, 100, 200, 400],
-    autoWidth: false,
     search: {
       // regex: true,
       "smart": true,
@@ -269,7 +260,6 @@ $(function () {
       //group rows by date
       var groupColumn = 7;
       var api = this.api();
-	  console.log(api);
       var rows = api.rows({ page: 'current' }).nodes();
       var last = '';
       api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
@@ -291,13 +281,6 @@ $(function () {
     },
     initComplete: function () {
       var api = this.api();
-	  console.log(api);
-      //count rows
-      if (api.data().count() != 0) {
-	    $('#date').text('Last updated on: ' + api.ajax.json().LastUpdate + '. ');
-        $("#count").text('Total records: ' + api.ajax.json().TotalRecords + '. ');
-	    $('#info').animate({ height: 'linear', opacity: 'easeOutBounce',}, "slow" );
-      }
       // select box for labels
       api.columns(5).every(function () {
         var column = this;
@@ -327,16 +310,21 @@ $(function () {
     },
   });
   // setTimeout(() => {
-    // $('#info').hide().animate({
-      // height: 'toggle',
-      // opacity: 'toggle',
-    // }, 'slow');
+  // $('#info').hide().animate({
+  // height: 'toggle',
+  // opacity: 'toggle',
+  // }, 'slow');
   // }, 0);
   let table = $('.newlist').DataTable();
-  // table.on( 'xhr', function () {
-    // var json = table.ajax.json();
-	// console.log(json);
-// } );
+  table.on('xhr', function () {
+    var json = table.ajax.json();
+    //count rows
+    if (json) {
+      $('#date').text('Last updated on: ' + json.lastUpdate + '. ');
+      $("#count").text('Total records: ' + json.recordsTotal + '. ');
+      $('#info').animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
+    }
+  });
   // table.columns([6]).visible(false);
   table.columns().visible(true);
   $(table.column(4).header()).text('Asso. Acts');
