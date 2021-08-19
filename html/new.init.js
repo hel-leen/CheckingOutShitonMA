@@ -59,6 +59,7 @@ $(function () {
     // processing: true,
     // serverSide: true,
     ajax: {
+      // url: "https://hel-leen.github.io/CheckingOutShitonMA/html/release",
       url: "release",
       dataFilter: function (data) {
         var json = jQuery.parseJSON(data);
@@ -329,7 +330,7 @@ $(function () {
     if (json) {
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
-      // $('#info').animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
+      $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
   // table.columns([6]).visible(false);
