@@ -110,9 +110,15 @@ $(function () {
             let album_title = data.split('|||')[0];
             let album_link = data.split('|||')[1];
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
-              album_title.replace(/\/(?=.{11,})/g, '/<br>')
-                .replace(/((?<=[,:\.])\s((?=\D{9,})|(?=\w{5,}))|(\s(?=\w[-\.]\w[-\.])))/g, '<br>')
-                .replace(/\s(?=[(])/g, ' <br>').replace(/\//g, '/<wbr>') + '</a>' +
+              album_title
+			    // .replace(/\s(?=[(])/g, ' <br>')
+			    .replace(/(\d{2,}|\s(?=\()|(?<!^)[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2') 
+			    .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>') 
+			    .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1') 
+                .replace(/(\/){1,}/g, '$1<wbr>')  +
+			    // .replace(/\/(?=.{11,})/g, '/<br>')
+                // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
+				 '</a>' +
               "<div class='dropdown'>" + maLink("albums", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
@@ -131,7 +137,7 @@ $(function () {
             let country = data.split('|||')[2].split('| || |');
             var band_col = band.map(
               (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
-                item + "</a><br><p class='extra ts'>(" + country[i] + ')</p>' + "<div class='dropdown'>" +
+                item + "</a><br><abbr class='extra ts'>(" + country[i] + ')</abbr>' + "<div class='dropdown'>" +
                 maLink("bands", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + '</div></div></div>');
             return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
           }
@@ -229,7 +235,7 @@ $(function () {
               default:
                 track = " ∙ " + track;
             }
-            return type + track + " <br><p class='extra'>(" + duration + ')</p>';
+            return type + track + " <br><abbr class='extra'>(" + duration + ')</abbr>';
           }
           return data;
         },
@@ -249,7 +255,7 @@ $(function () {
               default:
                 earlydate = '(' + earlydate + ')';
             }
-            return date + "<br><p class='extra'>" + earlydate + '</p>';
+            return date + "<br><abbr class='extra'>" + earlydate + '</abbr>';
           }
           return data;
         },
@@ -321,15 +327,15 @@ $(function () {
     var json = table.ajax.json();
     //count rows
     if (json) {
-      $('#date').text('Last updated on: ' + json.lastUpdate + '. ');
+      $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
-      $('#info').animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
+      // $('#info').animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
   // table.columns([6]).visible(false);
   table.columns().visible(true);
   $(table.column(4).header()).text('Asso. Acts');
-  $('<div class="fixed float">FORMAT: <p>Release type<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
+  $('<div class="fixed float">FORMAT: <p>Type ∙ tracks<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
     .appendTo($(table.column(-2).header()));
   $('<div class="fixed float">FORMAT: <p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div>')
     .appendTo($(table.column(-1).header()));
