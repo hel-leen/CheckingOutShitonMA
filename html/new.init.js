@@ -66,6 +66,7 @@ $(function () {
         return JSON.stringify(json);
       },
     },
+    autoWidth: false,
     deferRender: true,
     stateSave: false,
     stateDuration: 60 * 60 * 6,
