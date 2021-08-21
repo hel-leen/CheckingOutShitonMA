@@ -800,10 +800,10 @@ div.dt-datetime {
   box-shadow: 0 5px 2vh -5px rgba(0, 0, 0, 0.8);
   padding: 0 20px .86vh 20px;
   width: 275px;
-  /* -webkit-animation: scale-in-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
-  /* animation: scale-in-top 0.2s cubic-bezier(0.250, 0.460, 0.450, 0.940) both; */
-  /* transition: all .3s .3s cubic-bezier(.5, 0, .5, 1); */
-  /* transition-property: opacity, transform; */
+  -webkit-animation: none;
+  animation: none;
+  transition: all .2s .2s cubic-bezier(.5, 0, .5, 1);
+  transition-property: opacity, transform;
 }
 
 

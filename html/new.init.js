@@ -17,6 +17,13 @@ var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
+const partSort = ((x, y) => {
+          var xp = x.match(/(?<=>).*/g).toString().toLowerCase();
+          var yp = y.match(/(?<=>).*/g).toString().toLowerCase();
+          return xp == yp ? 0 :
+            xp < yp ? -1 :
+              1;
+        });
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
@@ -179,7 +186,7 @@ $(function () {
                   link.match(/(?<=\/)\d+/g) + '">' +
                   link.match(/(?<=>).*/g) + '</a>';
               }
-              ).sort().join(', ') +
+              ).sort(partSort).join(', ') +
               '</div></div>' :
               "<div class='grid_item ts'><div class='flex_item'>" +
               "<i class='extra'>(No data)</i></div></div>");
@@ -303,13 +310,7 @@ $(function () {
         column.data().unique().filter(function (v) {
           return v.match(/(?<=>).*/g) != null;
         }
-        ).sort((x, y) => {
-          var xp = x.match(/(?<=>).*/g).toString().toLowerCase();
-          var yp = y.match(/(?<=>).*/g).toString().toLowerCase();
-          return xp == yp ? 0 :
-            xp < yp ? -1 :
-              1;
-        }).each((d, j) => {
+        ).sort(partSort).each((d, j) => {
           var opval = d.match(/(?<=>).*/g);
           select.append('<option value="' + opval + '">' + opval +
             '</option>');
