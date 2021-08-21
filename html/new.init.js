@@ -18,12 +18,12 @@ var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
 const partSort = ((x, y) => {
-          var xp = x.match(/(?<=>).*/g).toString().toLowerCase();
-          var yp = y.match(/(?<=>).*/g).toString().toLowerCase();
-          return xp == yp ? 0 :
-            xp < yp ? -1 :
-              1;
-        });
+  var xp = x.match(/(?<=>).*/g).toString().toLowerCase();
+  var yp = y.match(/(?<=>).*/g).toString().toLowerCase();
+  return xp == yp ? 0 :
+    xp < yp ? -1 :
+      1;
+});
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
@@ -119,14 +119,14 @@ $(function () {
             let album_link = data.split('|||')[1];
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
-			    // .replace(/\s(?=[(])/g, ' <br>')
-			    .replace(/(\d{2,}|\s(?=\()|(?<!^)[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2') 
-			    .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>') 
-			    .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1') 
-                .replace(/(\/){1,}/g, '$1<wbr>')  +
-			    // .replace(/\/(?=.{11,})/g, '/<br>')
-                // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
-				 '</a>' +
+                // .replace(/\s(?=[(])/g, ' <br>')
+                .replace(/(\d{2,}|\s(?=\()|(?<!^)[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
+                .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
+                .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1')
+                .replace(/(\/){1,}/g, '$1<wbr>') +
+              // .replace(/\/(?=.{11,})/g, '/<br>')
+              // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
+              '</a>' +
               "<div class='dropdown'>" + maLink("albums", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
