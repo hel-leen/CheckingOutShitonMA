@@ -398,7 +398,7 @@ $(document).on('click', '#reset, #Reset', function () {
   $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
   $("input[type='text']").val('');
-  $('#Reissue').check();
+  // $('#Reissue').check();
   $('#genre-options option:not(:eq(2))').check();
   $('#datecondition').val('After');
   $('#datepicker').val(thisweek);
@@ -452,7 +452,7 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
     dateset = date;
   }
   if (
-    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 && version.indexOf('2021') < 0)) {
+    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 )) {
     return false;
   }
   return genre.search('('.concat(genres.join('|'), ')')) > -1 && dateset;
