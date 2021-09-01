@@ -127,7 +127,7 @@ $(function () {
               // .replace(/\/(?=.{11,})/g, '/<br>')
               // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
               '</a>' +
-              "<div class='dropdown'>" + maLink("albums", album_link) +
+              "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
           }

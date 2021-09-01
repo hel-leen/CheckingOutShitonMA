@@ -1,98 +1,199 @@
 jQuery.fn.extend({
-  check: function() {
-    return this.each(function() {
+  check: function () {
+    return this.each(function () {
       this.checked = true;
       this.selected = true;
     });
   },
-  uncheck: function() {
-    return this.each(function() {
+  uncheck: function () {
+    return this.each(function () {
       this.checked = false;
       this.selected = false;
     });
-  }
+  },
+});
+const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
+const partSort = ((x, y) => {
+  var xp = x.match(/(?<=>).*/g).toString().toLowerCase();
+  var yp = y.match(/(?<=>).*/g).toString().toLowerCase();
+  return xp == yp ? 0 :
+    xp < yp ? -1 :
+      1;
 });
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
-let hreflink = new RegExp(/(?<=\<a\shref\=\")http.*(?=\"\>)/g);
-const maLink = q => '' + '<a href="' + q.match(hreflink) +
-  '" target="_blank" rel="noopener noreferrer">MA Page<i class="fa fa-medium"></i></a>';
-const searchLink = q => (window.matchMedia("(max-width: 767px)").matches) ? 
-  '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
-  '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
-  '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>' : '' +
-  '<a href="https://bandcamp.com/search?q=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Bandcamp<i class="fa fa-search"></i></a>' +
-  '<a href="https://www.youtube.com/results?search_query=' +
-  q.match(hreftext) + '" target="_blank" rel="noopener noreferrer">Youtube<i class="fa fa-search"></i></a>' +
-  '<a href="https://open.spotify.com/search/' +
-  q.match(hreftext) + '/spotify" target="_blank" rel="noopener noreferrer">Spotify<i class="fa fa-search"></i></a>';
-
+let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
+const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
+const maTarget = q => 'https://www.metal-archives.com/' + q;
+const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' + ">MA Page<i class='fa fa-medium'></i></a>";
+const searchLink = text => {
+  text = '<a href="https://bandcamp.com/search?q=' + text +
+    "\">Bandcamp<i class='fa fa-search'></i></a>" +
+    '<a href="https://www.youtube.com/results?search_query=' + text +
+    "\">Youtube<i class='fa fa-search'></i></a>" +
+    '<a href="https://open.spotify.com/search/' + text.replace(/\//g, '');
+  text += window.matchMedia('(max-width: 767px)').matches ?
+    '">Spotify<i class="fa fa-search"></i></a>' :
+    '/spotify">Spotify<i class="fa fa-search"></i></a>'
+  return text;
+};
 const layout = () => {
-  if (window.matchMedia('(max-width: 767px)').matches) {3
-    $.fn.DataTable.ext.pager.numbers_length = 5;
-    if (navigator.userAgent.search(/mobile/gi) < 0) {
-      $(":root").css("font-size", "100%");
+  if (navigator.userAgent.search(/mobile/gi) < 0) {
+    $.fn.DataTable.ext.pager.numbers_length = 9;
+    if (window.matchMedia('(max-width: 767px)').matches) {
+      // $(":root").css("font-size", "");
     } else {
-      $(":root").css("font-size", "4.17vw");
+      $(":root").css("font-size", "2.23vh");
     }
   } else {
-    $.fn.DataTable.ext.pager.numbers_length = 9;
-    $(":root").css("font-size", "2.23vh");
+    $.fn.DataTable.ext.pager.numbers_length = 5;
+    $(":root").css("font-size", "4.17vw");
   }
+}
+var genre;
+var url = "toplist";
+let genreLoad = () => {
+   genre = $('#url-option').val()[0];
+   url = genre.toLowerCase().concat('list');
+  $('#header').empty();
+  $('title').empty();
+  var title = '<span>Top-rated ';
+  title +=  genre != 'Top'?
+  genre + ' Metal':'';
+  title +=  ' Albums on MA</span>';
+    $(title).appendTo($('#header'));
+    $(document).attr("title", $(title).text());
 }
 $(function() {
   layout();
-  $('.toplist').DataTable({
+  genreLoad();
+  $('.toplist').DataTable(
+  {
+      ajax: {
+      url: url,
+      dataFilter: function (data) {
+        var json = jQuery.parseJSON(data);
+        json.data = json.data.slice(0, -1);
+        return JSON.stringify(json);
+      },
+    },
+    autoWidth: false,
+    deferRender: true,
     stateSave: true,
+    stateDuration: 60 * 60 * 6,
+    stateSaveParams: function (settings, data) {
+      data.order = [[0, 'asc']]
+    },
+    order: [[0, 'asc']],
     "lengthMenu": [10, 20, 50, "All"],
     "search": {
       "regex": true
     },
-    "columnDefs": [{
-        "targets": [0],
-        "searchable": false,
-        "sorting": false
-      },
-	  {
-        render: function(data, type) { //rendering album
+    "columnDefs": [
+      {
+        //rendering cover
+        render: (data, type, row) => {
           if (type === 'display') {
-            let band_col = [];
-            data.split(" / ").forEach(function(item) {
-              band_col.push( '' + 
-			  '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
-                item.match(hreftext) + '</a>' +
-                '<div class="dropdown">' +
-                maLink(item) +
-                searchLink(item).replace(/\/spotify\"/g, '/albums"') +
-                '</div></div></div>');
-            });
-            return '<div class="grid_wrapper">'.concat(band_col.join(''), '</div>');
+            let album_index = data.split('|||')[0];
+            let album_cover = data.split('|||')[1];
+            return ('<img class="cover" src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy" alt="' + album_index+ '">'));
           }
           return data;
         },
-        "targets": [1]
+        searchable: false,
+        sorting: false,
+        width: '16%',
+        targets: [0],
       },
-	  {
-        render: function(data, type) { //rendering band
+      {
+        // rendering album
+        render: (data, type, row) => {
           if (type === 'display') {
-            let band_col = [];
-            data.split(" / ").forEach(function(item) {
-              band_col.push( '' + 
-			  '<div class="grid_item"><div class="flex_item"><a class="hreftext">' +
-                item.match(hreftext) + '</a>' +
-                '<div class="dropdown">' +
-                maLink(item) +
-                searchLink(item).replace(/\/spotify\"/g, '/artists"') +
-                '</div></div></div>');
-            });
-            return '<div class="grid_wrapper">'.concat(band_col.join(''), '</div>');
+            let album_col = '';
+            let album_title = data.split('|||')[0];
+            let album_link = data.split('|||')[1];
+            album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" + "<a class='hreftext'>" +
+              album_title
+                // .replace(/\s(?=[(])/g, ' <br>')
+                .replace(/(\d{2,}|\s(?=\()|(?<!^\w{1,5})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
+                .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
+                .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1')
+                .replace(/(\/){1,}/g, '$1<wbr>') +
+              // .replace(/\/(?=.{11,})/g, '/<br>')
+              // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
+              '</a>' +
+              "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
+              searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
+            return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
           }
           return data;
         },
-        "targets": [2]
+        width: '12%',
+        targets: [1],
+      },
+	  {
+        //rendering band
+        render: (data, type, row) => {
+          if (type === 'display') {
+            let band = data.split('|||')[0].split(/\s[\/\|]\s/g);
+            let bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g);
+            var band_col = band.map(
+              (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
+                item + "</a>" + "<div class='dropdown'>" +
+                maLink("bands", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + '</div></div></div>');
+            return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
+          }
+          return data;
+        },
+        width: '12%',
+        targets: [2],
+      },
+      {
+        // genre
+        render: (data, type) => {
+          if (type === 'display') {
+            let genre_col = [];
+            data.split(' | ').forEach(item => {
+			  var genre = item
+			  .replace(/(?<=[;|\),])\s|\s(?=with)/g, ' <br>')
+			  ;
+              genre_col.push("<div class='Genre grid_item '><p class='flex_item  fixed'>" +
+                genre + "</p><div class='flex_item ts fixed float'>" +
+				genre
+			  .replace(/((\w|\-)+(\/(\w|\-)+)+)/g, '\n$1\n')
+			  .replace(/^(\n)|(?<=br\>)\n/g, '')
+			  .replace(/(\n\s?)+/g, '\n')
+			  +
+              '</div></div></div>' )
+				
+            });
+            return tabLink("".concat(genre_col.join(''), ''));
+          }
+          return data;
+        },
+        width: '10%',
+        targets: [4],
+      }, 
+	  {
+        // continent
+        render: (data, type) => {
+          if (type === 'display') {
+            return "<p class='Continent'>".concat(data, '</p>');
+          }
+          return data;
+        },
+        width: '0%',
+        targets: [11],
+      },
+	  {
+        // index
+        render: (data, type) => {
+          if (type === 'display') {
+            return "<p class='Continent'>".concat(data, '</p>');
+          }
+          return data;
+        },
+        width: '0%',
+        targets: [-1],
       },
 	  ],
     language: {
@@ -120,7 +221,20 @@ $(function() {
     table.draw(false);
     $('.toplist').fadeIn();
   }, 2000);
-  $('.release_info tbody').on('click', '.dropdown,.float', function() {
+    table.on('xhr', function () {
+    var json = table.ajax.json();
+    //count rows
+    if (json) {
+      $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
+      $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
+    }
+  });
+   $('#url-option').on('change', function() {
+	 genreLoad();
+	 table.ajax.url( url ).load();
+    table.draw();
+  });
+  $('.toplist tbody').on('click', '.dropdown,.float', function() {
     $(this).toggleClass('actived');
   });
   $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function() {
