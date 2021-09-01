@@ -42,11 +42,11 @@ const layout = () => {
     if (window.matchMedia('(max-width: 767px)').matches) {
       // $(":root").css("font-size", "");
     } else {
-      $(":root").css("font-size", "2.23vh");
+      $(":root").css("font-size", "2.2vh");
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "4.17vw");
+    $(":root").css("font-size", "4.1vw");
   }
 }
 var genre;
@@ -154,16 +154,16 @@ $(function() {
             let genre_col = [];
             data.split(' | ').forEach(item => {
 			  var genre = item
-			  .replace(/(?<=[;|\),])\s|\s(?=with)/g, ' <br>')
+			  .replace(/(?<=[;|\),])\s|\s(?=with)/g, ' \n')
 			  ;
-              genre_col.push("<div class='Genre grid_item '><p class='flex_item  fixed'>" +
+              genre_col.push("<div class='Genre grid_item ts'><p class='flex_item fixed'>" +
                 genre + "</p><div class='flex_item ts fixed float'>" +
 				genre
-			  .replace(/((\w|\-)+(\/(\w|\-)+)+)/g, '\n$1\n')
+			  .replace(/((\(|\w|\-)+(\/(\S)+)+)/g, '\n$1\n')
 			  .replace(/^(\n)|(?<=br\>)\n/g, '')
 			  .replace(/(\n\s?)+/g, '\n')
 			  +
-              '</div></div></div>' )
+              '</div></div>' )
 				
             });
             return tabLink("".concat(genre_col.join(''), ''));

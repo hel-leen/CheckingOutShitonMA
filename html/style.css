@@ -1370,8 +1370,8 @@ table ::-webkit-scrollbar {
   opacity: 1;
   white-space: pre-line;
   overflow-y: auto;
-  padding: .8rem;
-  line-height: 2;
+  padding: .8em;
+  line-height: 2em;
   -webkit-line-clamp: initial;
   z-index: 999;
   -webkit-animation: scale-in-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
@@ -1892,7 +1892,8 @@ button:active {
 }
 
 .toplist td::before {
-  font-weight: 600;
+  /* font-weight: 600; */
+  color: #fed;
   padding-left: 1px;
   width: 90%;
   border-bottom: 1px dotted #333;
@@ -1912,7 +1913,7 @@ button:active {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  /* padding: 0 10%; */
+  padding: 0 20%;
   white-space: pre-wrap;
 }
 
@@ -1923,7 +1924,11 @@ button:active {
 
 .Genre::before,
 .toplist td:not(:nth-child(0)) {
-  line-height: 2.1rem;
+  line-height: 2rem;
+}
+.toplist .float,
+.toplist .dropdown{
+  line-height: 1.5em;
 }
 .cover,
 .entry img {
@@ -2399,7 +2404,7 @@ div.dt-datetime-label span {
   .float:hover,
   .fixed:hover~.float {
     width: 90%;
-    line-height: 1.8;
+    line-height: 1.8em;
 	font-size: .95rem;
   }
 
