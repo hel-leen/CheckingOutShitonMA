@@ -126,8 +126,8 @@ $(function () {
                 .replace(/(\/){1,}/g, '$1<wbr>') +
               // .replace(/\/(?=.{11,})/g, '/<br>')
               // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
-              '</a>' +
-              "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
+              "</a><div class='dropdown'>" + 
+			  maLink("release/view/id/", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
           }
@@ -146,7 +146,7 @@ $(function () {
             var band_col = band.map(
               (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
                 item + "</a><br><abbr class='extra ts'>(" + country[i] + ')</abbr>' + "<div class='dropdown'>" +
-                maLink("bands", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + '</div></div></div>');
+                maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + '</div></div></div>');
             return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
           }
           return data;
@@ -181,9 +181,8 @@ $(function () {
                 .replace(/\/\d+\">/g, '') +
               '</div>' + "<div class='flex_item ts fixed float'>" +
               item.split('|').filter(uniq).map(link => {
-                return '<a href="https://www.metal-archives.com/bands/' +
-                  link.match(/(?<=;).*/g) + "/" +
-                  link.match(/(?<=\/)\d+/g) + '">' +
+                return '<a href="https://www.metal-archives.com/bands/view' +
+                  link.match(/\/\d+(?=\")/g) + '">' +
                   link.match(/(?<=>).*/g) + '</a>';
               }
               ).sort(partSort).join(', ') +
@@ -210,7 +209,7 @@ $(function () {
                 var labeltext = data.match(/(?<=>).*/g)
                 data = "<div class='grid_item'><div class='flex_item'><a class='hreftext'>" +
                   labeltext + "</a><div class='dropdown'>" +
-                  maLink('labels/', labeltext.concat(data.match(/\/\d+/g))) + '<a href="https://bandcamp.com/search?q=' +
+                  maLink('labels/view', data.match(/\/\d+/g)) + '<a href="https://bandcamp.com/search?q=' +
                   labeltext + '">Bandcamp<i class=\'fa fa-search\'></i></a><a href="https://www.youtube.com/results?search_query=' +
                   labeltext + "\">Youtube<i class='fa fa-search'></i></a></div></div></div>";
             }
