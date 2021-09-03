@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+<link rel="preconnect" href="https://www.metal-archives.com">
+<link rel="dns-prefetch" href="https://www.metal-archives.com">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script src="jquery.min.js">  </script>
+<script src="jquery.dataTables.min.js"></script>
+<script src="https://cdn.plot.ly/plotly-2.4.2.min.js"></script>
+<script src="top.init.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" type="image/png" href="cat.png"/>
+<title>Top-rated Albums on MA</title>
+</head>
+<body>
+<h1 class="glow" id="header"> &nbsp;</h1>
+<div class="sidenav"><div id="home"><a href="../">Home</a></div></div>
+<div class="main-container">
+<div id='test'></div>
+<p>All data from <a href="https://www.metal-archives.com/"  target="_blank" rel="noopener noreferrer">THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/" target="_blank" rel="noopener noreferrer">R</a>.</p>
+<p>Click <a href="./Top.html"  target="_blank" rel="noopener noreferrer">here</a> to know more about data analysis. Or view the raw data files (<a href="./bmlist"  target="_blank" rel="noopener noreferrer">1</a>, <a href="./dmlist" target="_blank" rel="noopener noreferrer">2</a>).</p>
+<div class="content-wrapper">
+<p  id="info"><a id="update"></a>&nbsp;<a id="count"></a></p>
+<li class="filterSection" id="glossary">
+<strong>Glossary&nbsp;<i class="fa fa-caret-right" style=" margin-left: 1px;"></i></strong>
+<p style="display: none">
+	Rating Range: the lowest rating ~ the highest rating. <br>
+	Rating Mean:  the average of all the ratings. <br>
+	Rating Sd: the standard deviation of the ratings, a measure of how variable the ratings are.
+</p></li>
+<table class="filterSection">
+	<tr class="filterSection">
+		<td><strong>Genre:</strong></td>
+		<td class="filter-holder" id="url-filter">
+			<div class="solid filter-item">
+				<select id="url-option" multiple size="1">
+					<option value="Black" selected>Black Metal</option>
+					<option value="Death">Death Metal</option>
+					<!-- <option value="Top" selected>&nbsp;</option> -->
+				</select>
+			</div>
+		</td>
+	</tr>
+	<tr class="filterSection">
+		<td><strong>Region:</strong></td>
+		<td class="filter-holder" id="region-filter">
+			<select id="region-options" class="solid filter-item" multiple="multiple" size="1">
+				<option selected value="Europe">European</option>
+				<option selected value="Americas" >American</option>
+				<option selected value="Oceania" >Oceanian</option>
+				<option selected value="Asia" >Asian</option>
+				<option selected value="(International|Unknow|NA)" >Other</option>
+			</select>
+		</td>
+	</tr>
+	<tr class="filterSection">
+		<td><strong>Year:</strong></td>
+		<td class="filter-holder" id="year-filter">
+			<select id="year-options" class="solid filter-item" multiple="multiple" size="1">
+			  <option selected value="1950-1989" >1980s</option>
+			  <option selected value="1990-1999" >1990s</option>
+			  <option selected value="2000-2009" >2000s</option>
+			  <option selected value="2010-2099" >2010 to present</option>
+			</select>
+		</td>
+	</tr>
+	<tr class="filterSection">
+		<td><strong>Reset: </strong> </td>
+		<td class="filter-holder" id="reset-filter">
+			<button id="reset">Clear filters</button>
+		</td>
+	</tr>
+</table>
+<div class="container">
+<table class="toplist" style="width:100%">
+<thead>
+<tr>
+  <th class="header_1"> </th>
+  <th class="header_2"> </th>
+  <th class="header_3"> </th>
+  <th class="header_4"> </th>
+  <th class="header_5"> </th>
+  <th class="header_6"> </th>
+  <th class="header_7"> </th>
+  <th class="header_8"> </th>
+  <th class="header_9"> </th>
+  <th class="header_10"> </th>
+  <!-- <th class="header_11"> </th> -->
+  <!-- <th class="header_12"> </th> -->
+</tr>
+</thead>
+</table>
+
+<!-- <div id="pagingControls"> </div> -->
+
+</body></html>
