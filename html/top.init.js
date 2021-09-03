@@ -57,7 +57,7 @@ let genreLoad = () => {
   $('#header').empty();
   $('title').empty();
   var title = '<span>Top-rated ';
-  url = genre != "Top" ? genre.toLowerCase().charAt(0).concat('m') : genre;
+  url = genre != "Top" ? genre.toLowerCase().charAt(0).concat('m') : 'top';
   url += "list";
   title += genre != 'Top' ?
     genre + ' Metal' : '';
