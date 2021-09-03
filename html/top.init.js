@@ -24,7 +24,8 @@ let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maTarget = q => 'https://www.metal-archives.com/' + q;
-const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' + ">MA Page<i class='fa fa-medium'></i></a>";
+const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' + 
+   ">MA Page<i class='fa fa-medium'></i></a>";
 const searchLink = text => {
   text = '<a href="https://bandcamp.com/search?q=' + text +
     "\">Bandcamp<i class='fa fa-search'></i></a>" +
@@ -52,164 +53,238 @@ const layout = () => {
 var genre;
 var url = "toplist";
 let genreLoad = () => {
-   genre = $('#url-option').val()[0];
-   url = genre.toLowerCase().concat('list');
+  genre = $('#url-option').val()[0];
   $('#header').empty();
   $('title').empty();
   var title = '<span>Top-rated ';
-  title +=  genre != 'Top'?
-  genre + ' Metal':'';
-  title +=  ' Albums on MA</span>';
-    $(title).appendTo($('#header'));
-    $(document).attr("title", $(title).text());
+  url = genre != "Top" ? genre.toLowerCase().charAt(0).concat('m') : genre;
+  url += "list";
+  title += genre != 'Top' ?
+    genre + ' Metal' : '';
+  title += ' Albums on MA</span>';
+  $(title).appendTo($('#header'));
+  $(document).attr("title", $(title).text());
 }
-$(function() {
+$(function () {
   layout();
   genreLoad();
   $('.toplist').DataTable(
-  {
+    {
       ajax: {
-      url: url,
-      dataFilter: function (data) {
-        var json = jQuery.parseJSON(data);
-        json.data = json.data.slice(0, -1);
-        return JSON.stringify(json);
-      },
-    },
-    autoWidth: false,
-    deferRender: true,
-    stateSave: true,
-    stateDuration: 60 * 60 * 6,
-    stateSaveParams: function (settings, data) {
-      data.order = [[0, 'asc']]
-    },
-    order: [[0, 'asc']],
-    "lengthMenu": [10, 20, 50, "All"],
-    "search": {
-      "regex": true
-    },
-    "columnDefs": [
-      {
-        //rendering cover
-        render: (data, type, row) => {
-          if (type === 'display') {
-            let album_index = data.split('|||')[0];
-            let album_cover = data.split('|||')[1];
-            return ('<img class="cover" src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy" alt="' + album_index+ '">'));
-          }
-          return data;
+        url: url,
+        dataFilter: function (data) {
+          var json = jQuery.parseJSON(data);
+          json.data = json.data.slice(0, -1);
+          return JSON.stringify(json);
         },
-        searchable: false,
-        sorting: false,
-        width: '16%',
-        targets: [0],
       },
-      {
-        // rendering album
-        render: (data, type, row) => {
-          if (type === 'display') {
-            let album_col = '';
-            let album_title = data.split('|||')[0];
-            let album_link = data.split('|||')[1];
-            album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" + "<a class='hreftext'>" +
-              album_title
-                // .replace(/\s(?=[(])/g, ' <br>')
-                .replace(/(\d{2,}|\s(?=\()|(?<!^\w{1,5})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
-                .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
-                .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1')
-                .replace(/(\/){1,}/g, '$1<wbr>') +
-              // .replace(/\/(?=.{11,})/g, '/<br>')
-              // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
-              '</a>' +
-              "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
-              searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
-            return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
-          }
-          return data;
-        },
-        width: '12%',
-        targets: [1],
+      autoWidth: false,
+      deferRender: true,
+      stateSave: true,
+      stateDuration: 60 * 60 * 6,
+      stateSaveParams: function (settings, data) {
+        data.order = [[0, 'asc']]
       },
-	  {
-        //rendering band
-        render: (data, type, row) => {
-          if (type === 'display') {
-            let band = data.split('|||')[0].split(/\s[\/\|]\s/g);
-            let bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g);
-            var band_col = band.map(
-              (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
-                item + "</a>" + "<div class='dropdown'>" +
-                maLink("bands", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + '</div></div></div>');
-            return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
-          }
-          return data;
-        },
-        width: '12%',
-        targets: [2],
+      order: [[0, 'asc']],
+      "lengthMenu": [10, 20, 50, "All"],
+      "search": {
+        "regex": true
       },
-      {
-        // genre
-        render: (data, type) => {
-          if (type === 'display') {
-            let genre_col = [];
-            data.split(' | ').forEach(item => {
-			  var genre = item
-			  .replace(/(?<=[;|\),])\s|\s(?=with)/g, ' \n')
-			  ;
-              genre_col.push("<div class='Genre grid_item ts'><p class='flex_item fixed'>" +
-                genre + "</p><div class='flex_item ts fixed float'>" +
-				genre
-			  .replace(/((\(|\w|\-)+(\/(\S)+)+)/g, '\n$1\n')
-			  .replace(/^(\n)|(?<=br\>)\n/g, '')
-			  .replace(/(\n\s?)+/g, '\n')
-			  +
-              '</div></div>' )
-				
-            });
-            return tabLink("".concat(genre_col.join(''), ''));
-          }
-          return data;
+      "columnDefs": [
+        {
+          //rendering cover
+          render: (data, type, row) => {
+            if (type === 'display') {
+              let album_index = data.split('|||')[0];
+              let album_cover = data.split('|||')[1];
+              return ('<img class="cover" src="https://www.metal-archives.com'
+			  .concat(album_cover, '" loading="lazy" alt="' + 
+			  album_index + '">'));
+            }
+            return data;
+          },
+          searchable: false,
+          sorting: false,
+          width: '16%',
+          targets: [0],
         },
-        width: '10%',
-        targets: [4],
-      }, 
-	  {
-        // continent
-        render: (data, type) => {
-          if (type === 'display') {
-            return "<p class='Continent'>".concat(data, '</p>');
-          }
-          return data;
+        {
+          // rendering album
+          render: (data, type, row) => {
+            if (type === 'display') {
+              let album_col = '';
+              let album_title = data.split('|||')[0];
+              let album_link = data.split('|||')[1];
+              album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" + 
+			  "<a class='hreftext'>" +
+                album_title
+                  .replace(/(\d{2,}|\s(?=\()|(?<!^\w{1,5})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
+                  .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
+                  .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1')
+                  .replace(/(\/){1,}/g, '$1<wbr>') +
+                '</a>' +
+                "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
+                searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + 
+				'</div></div></div>';
+              return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
+            }
+            return data;
+          },
+          width: '12%',
+          targets: [1],
         },
-        width: '0%',
-        targets: [11],
+        {
+          //rendering band
+          render: (data, type, row) => {
+            if (type === 'display') {
+              let band = data.split('|||')[0].split(/\s[\/\|]\s/g);
+              let bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g);
+              var band_col = band.map(
+                (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + 
+				"<a class='hreftext'>" +
+                  item + "</a>" + "<div class='dropdown'>" +
+                  maLink("bands", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
+				  '</div></div></div>');
+              return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
+            }
+            return data;
+          },
+          width: '12%',
+          targets: [2],
+        },
+        {
+          // genre
+          render: (data, type) => {
+            if (type === 'display') {
+              let genre_col = [];
+              data.split(' | ').forEach(item => {
+                var genre = item
+                  .replace(/(?<=[;|\),])\s|\s(?=with)/g, ' \n')
+                  ;
+                genre_col.push("<div class='Genre grid_item ts'><p class='flex_item fixed'>" +
+                  genre + "</p><div class='flex_item ts fixed float'>" +
+                  genre
+                    .replace(/((\(|\w|\-)+(\/(\S)+)+)/g, '\n$1\n')
+                    .replace(/^(\n)|(?<=br\>)\n/g, '')
+                    .replace(/(\n\s?)+/g, '\n')
+                  +
+                  '</div></div>')
+
+              });
+              return tabLink("".concat(genre_col.join(''), ''));
+            }
+            return data;
+          },
+          width: '10%',
+          targets: [4],
+        },
+        {
+          render: (data, type, row) => {
+            let reviewers = data.split('|||')[0];
+            let range = data.split('|||')[1];
+            let mean = data.split('|||')[2];
+            let sd = data.split('|||')[3];
+            return "<a class='reviews'>".concat(data,
+              '</a><div class="ratings ts"><div class="ts"><p>Reviews: <b>' +
+              reviewers + '</b></p> <p> Min: <b>' +
+              range.replace(/~.*/g, '') + '</b></p><p>Max: <b>' +
+              range.replace(/.*?~/g, '') + '</b></p></div><div class="ts"><p> Mean: <b>' +
+              mean + '</b></p> <p>SD: <b> ' +
+              sd + '</b></p></div></div><div><div>');
+          },
+          createdCell: function (cell, data, cellData, rowData, row, col) {
+            let album_index = cellData[0].split('|||')[0];
+            $(cell).before('<td id="' + album_index + '" ></td>');
+            $(cell).addClass('plot');
+          },
+          targets: [-3],
+        },
+        {
+          // index
+          render: (data, type, row) => {
+            return "<a class='reviews'>".concat(data, '')
+          },
+          targets: [-2],
+        },
+        {
+          // continent
+          render: (data, type) => {
+            if (type === 'display') {
+              return "<p class='Continent'>".concat(data, '</p>');
+            }
+            return data;
+          },
+          width: '0%',
+          targets: [-1],
+        },
+      ],
+      language: {
+        searchPlaceholder: "Search for albums or bands..",
+        search: "_INPUT_",
+        info: "( _START_ - _END_ ) / _TOTAL_ ",
+        infoEmpty: "0 entry",
+        infoFiltered: " [ Total: _MAX_ ]"
       },
-	  {
-        // index
-        render: (data, type) => {
-          if (type === 'display') {
-            return "<p class='Continent'>".concat(data, '</p>');
+
+      drawCallback: function (settings) {
+        var api = this.api();
+        var hglayout = {
+          height: 180,
+          margin: { t: 0, r: 40, b: 20, l: 50 },
+          bargap: 0.05,
+          paper_bgcolor: "rgba(0,0,0,0)",
+          plot_bgcolor: "rgba(0,0,0,0)",
+          barmode: "overlay",
+          xaxis: {
+            tick0: 0,
+            dtick: 10,
+            // autotick: false,
+            range: [-5, 105],
+            linecolor: '#666',
+            tickfont: {
+              color: '#666'
+            },
+          },
+          yaxis: {
+            tick0: 0,
+            dtick: 20,
+            fixedrange: true,
+            zeroline: false,
+            autotick: false,
+            range: [-5, 100],
+            gridcolor: 'rgba(55,55,55,.3)',
+            color: '#666',
+            tickfont: {
+              color: '#333'
+            },
+          },
+          hoverlabel: {
+            align: "left"
           }
-          return data;
-        },
-        width: '0%',
-        targets: [-1],
+        };
+        var rows = api.rows({ page: 'current' }).nodes();
+        var score = api.column(8, { page: 'current' }).data().map((item) => item = item.match(/(?<=\|\[).*?(?=\])/g).toString().split(', ').map((item) => item == '0' ? item = 0.1 : parseFloat(item)));
+        var id = api.column(8, { page: 'current' }).data().map((item) => item = item.match(/\d{4}(?=\|)/g).toString());
+        for (var k = 0; k < id.length; k++) {
+          Plotly.newPlot(id[k], [{
+            x: score[k],
+            type: 'histogram',
+            xbins: { start: 1, end: 105, size: 10 },
+            histnorm: 'percent',
+			hoverlabel: { bgcolor: "rgba(0,0,0,0.8)" },
+            marker: {
+              color: '#000',
+            }, hovertemplate: '<i>Ratings</i>: %{x}<br><i>Percent</i>: %{y:.2f}%<extra></extra>'
+          }
+          ], hglayout, { displayModeBar: false });
+        };
       },
-	  ],
-    language: {
-      searchPlaceholder: "Search for albums or bands..",
-      search: "_INPUT_",
-      info: "( _START_ - _END_ ) / _TOTAL_ ",
-      infoEmpty: "0 entry",
-      infoFiltered: " [ Total: _MAX_ ]"
-    },
-  });
-  // $(".toplist").attr("placeholder", "Search for albums or bands..");
-  // $(".toplist_length").wrap("<div class='main-container'></div>");
-  // $(".dataTables_filter label input").attr("placeholder", "Search for albums or bands..");
+
+
+    });
   let table = $('.toplist').DataTable();
   // table.draw(); 
-  setTimeout(function() {
+  setTimeout(function () {
     table.draw(false);
     $('.dataTables_wrapper,.filterSection').css({
       opacity: 0.0
@@ -217,73 +292,74 @@ $(function() {
       opacity: 1.0
     });
   }, 1000);
-  setTimeout(function() {
+  setTimeout(function () {
     table.draw(false);
     $('.toplist').fadeIn();
   }, 2000);
-    table.on('xhr', function () {
+  table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
-    //count rows
     if (json) {
+      //count 
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
+
   });
-   $('#url-option').on('change', function() {
-	 genreLoad();
-	 table.ajax.url( url ).load();
+  $('#url-option').on('change', function () {
+    genreLoad();
+    table.ajax.url(url).load();
     table.draw();
   });
-  $('.toplist tbody').on('click', '.dropdown,.float', function() {
+  $('.toplist tbody').on('click', '.dropdown,.float', function () {
     $(this).toggleClass('actived');
   });
-  $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function() {
+  $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function () {
     table.draw();
   });
-  $('#reset').click(function() {
+  $('#reset').click(function () {
     $('.filter-holder select option').prop("selected", true);
     table.draw();
   });
-  $('#glossary strong').click(function() {
+  $('#glossary strong').click(function () {
     $('#glossary p').toggle("fast");
     $("#glossary strong i").toggleClass("fa-caret-right fa-caret-down");
   });
   // $('.filter').attr("checked", true);
 });
-$(window).resize(function() {
+$(window).resize(function () {
   layout();
 });
-$(document).on('click', 'a.paginate_button', function() {
+$(document).on('click', 'a.paginate_button', function () {
   $("body,html").animate({
     scrollTop: $("table thead").offset().top - 60
   }, 800);
 });
-// if (($(window).width()) < 768) {
-    // $.fn.DataTable.ext.pager.numbers_length = 5;
-// } else {
-    // $.fn.DataTable.ext.pager.numbers_length = 9;
-// }
+if (($(window).width()) < 768) {
+  $.fn.DataTable.ext.pager.numbers_length = 5;
+} else {
+  $.fn.DataTable.ext.pager.numbers_length = 9;
+}
 $.fn.dataTable.ext.search.push(
-  function(settings, data, dataIndex) {
+  function (settings, data, dataIndex) {
     let year = Number(data[6].match(/\d{4}/i).toString());
     let genre = data[4].toLowerCase();
-    let continent = data[11];
+    let continent = data[9];
     let genres = $("#genre-options").val() || [];
     let regions = $("#region-options").val() || [];
     let years = $("#year-options").val() || [];
     let yearsMin = [];
     let yearsMax = [];
-    years.forEach(function(item) {
+    years.forEach(function (item) {
       yearsMin.push(Number(item.match(/\d{4}/i)));
     });
 
-    years.forEach(function(item) {
+    years.forEach(function (item) {
       yearsMax.push(Number(item.match(/\d{4}(?!\D)/gi)));
     });
-    var yearMax = yearsMax.some(function(item) {
+    var yearMax = yearsMax.some(function (item) {
       return (item > year || item == year);
     });
-    var yearMin = yearsMin.some(function(item) {
+    var yearMin = yearsMin.some(function (item) {
       return (item < year || item == year);
     });
     return (continent.search("(".concat(regions.join("|"), ")")) > -1 && genre.search("(".concat(genres.join("|"), ")")) > -1 && yearMin && yearMax);

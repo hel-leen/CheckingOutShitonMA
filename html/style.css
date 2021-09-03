@@ -2,6 +2,21 @@
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(230, 194, 184, 0.2),
+      0 0 20px rgba(230, 194, 184, 0.1) 0 0 30px rgba(230, 194, 184, 0.01),
+      0 0 2.5em rgba(230, 194, 184, 0.01), 0 0 50px rgba(230, 194, 184, 0.01),
+      0 0 60px rgba(230, 194, 184, 0.01);
+  }
+
+  to {
+    text-shadow: 0 0 20px rgba(192, 162, 153, 0.5),
+      0 0 30px rgba(192, 162, 153, 0.1), 0 0 2.5em rgba(192, 162, 153, 0.05),
+      0 0 50px rgba(192, 162, 153, 0.02), 0 0 60px rgba(192, 162, 153, 0.01),
+      0 0 70px rgba(192, 162, 153, 0.01);
+  }
+}
 
 @-webkit-keyframes scale-out-center {
   0% {
@@ -666,6 +681,7 @@ a {
 }
 /* ul { */
   /* padding-left: 50px */
+
 /* } */
 
 /* ul li { */
@@ -675,27 +691,11 @@ a {
 .hideItem {
   display: none;
 }
-
 .glow {
   color: #fffefd;
   animation: glow 2.5s ease-in-out infinite alternate;
 }
 
-@-webkit-keyframes glow {
-  from {
-    text-shadow: 0 0 10px rgba(230, 194, 184, 0.2),
-      0 0 20px rgba(230, 194, 184, 0.1) 0 0 30px rgba(230, 194, 184, 0.01),
-      0 0 2.5em rgba(230, 194, 184, 0.01), 0 0 50px rgba(230, 194, 184, 0.01),
-      0 0 60px rgba(230, 194, 184, 0.01);
-  }
-
-  to {
-    text-shadow: 0 0 20px rgba(192, 162, 153, 0.5),
-      0 0 30px rgba(192, 162, 153, 0.1), 0 0 2.5em rgba(192, 162, 153, 0.05),
-      0 0 50px rgba(192, 162, 153, 0.02), 0 0 60px rgba(192, 162, 153, 0.01),
-      0 0 70px rgba(192, 162, 153, 0.01);
-  }
-}
 
 .dataTables_processing {
   position: absolute;
@@ -1414,6 +1414,13 @@ td>img {
   width: 95%;
 }
 
+.js-plotly-plot {
+	padding:0 1rem;
+}
+.js-plotly-plot a {
+  /* opacity: 0; */
+  /* display: none; */
+}
 
 pre:not([class]) {
   background-color: #444;
@@ -1845,7 +1852,7 @@ button:active {
   width: 100%;
   margin: auto;
   justify-items: center;
-  border: .5px solid;
+  /* border: .1px solid; */
   border-color: #333 transparent;
   padding: 0.3rem 0;
 }
@@ -1876,19 +1883,24 @@ button:active {
 }
 
 .toplist td:nth-child(8)::before {
-  content: "Reviewer:";
+  content: "Ratings:";
 }
 
 .toplist td:nth-child(9)::before {
-  content: "Rating Range:";
+  /* content: "Rating Range:"; */
 }
 
 .toplist td:nth-child(10)::before {
-  content: "Rating Mean:";
+  /* content: "Rating Mean:"; */
 }
 
 .toplist td:nth-child(11)::before {
-  content: "Rating Sd:";
+  /* content: "Rating Sd:"; */
+}
+.toplist td:nth-child(9),
+.toplist td:nth-child(10),
+.toplist td:nth-child(11) {
+	/* display:none; */
 }
 
 .toplist td::before {
@@ -1903,6 +1915,7 @@ button:active {
 .Genre {
   width:100%;
 }
+/* .plot>a, */
 .Album>a,
 .Genre>p {
   overflow-y: overlay;
@@ -1917,11 +1930,26 @@ button:active {
   white-space: pre-wrap;
 }
 
+.reviews,
 .Continent {
   visibility: hidden;
   height: .8rem;
 }
-
+.ratings>*>* {
+	margin:0
+}
+.ratings>*:nth-child(1) {
+	text-align: end;
+}
+.ratings >* {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 1fr;
+  color:#fed;
+}
+.ratings>*>* b{
+	color:#eee;
+}
 .Genre::before,
 .toplist td:not(:nth-child(0)) {
   line-height: 2rem;
