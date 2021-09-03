@@ -143,7 +143,7 @@ $(function () {
                 (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + 
 				"<a class='hreftext'>" +
                   item + "</a>" + "<div class='dropdown'>" +
-                  maLink("bands", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
+                  maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
 				  '</div></div></div>');
               return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
             }
