@@ -177,7 +177,7 @@ $(function () {
             let mean = data.split('|||')[2];
             let sd = data.split('|||')[3];
             return "<a class='scores'>".concat(data,
-              '</a><div class="ratings ts"><div class="ts"><p>scores: <b>' +
+              '</a><div class="ratings ts"><div class="ts"><p>Reviews: <b>' +
               reviewers + '</b></p> <p> Min: <b>' +
               range.replace(/~.*/g, '') + '</b></p><p>Max: <b>' +
               range.replace(/.*?~/g, '') + '</b></p></div><div class="ts"><p> Mean: <b>' +
