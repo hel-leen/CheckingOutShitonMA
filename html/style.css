@@ -12,7 +12,7 @@
     text-shadow: 0 0 10px rgba(230, 194, 184, 0.2),
       0 0 20px rgba(230, 194, 184, 0.1) 0 0 30px rgba(230, 194, 184, 0.01),
       0 0 2.5em rgba(230, 194, 184, 0.01), 0 0 50px rgba(230, 194, 184, 0.01),
-      0 0 60px rgba(230, 194, 184, 0.01);
+      0 0 60px rgba(230, 194, 184, );
   }
 
   to {
@@ -1710,52 +1710,7 @@ input:focus + .slider {
     /* justify-content: flex-end; */
 }
 
-input:checked + .slider:before {
-  /* -webkit-transform: translateX(26px); */
-  /* -ms-transform: translateX(26px); */
-  /* transform: translateX(26px); */
-}
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34rem;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}
-
-.bubble:hover,
-#datepicker:hover~.bubble {
-  display: block;
-  display: flex;
-
-}
-
-.bubble {
-  display: none;
-  align-items: center;
-  position: absolute;
-  background: #234;
-  border-radius: .4rem;
-  margin-left: 12.8rem;
-  /* opacity: .2; */
-  padding: 0.5em 1rem;
-}
-
-.bubble:after {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 0;
-  height: 0;
-  border: 0.58em solid transparent;
-  border-right-color: #234;
-  border-left: 0;
-  margin-top: -.5rem;
-  margin-left: -0.6rem;
-}
 
 .filter-holder .fa>* {
   padding: 0;
@@ -1902,6 +1857,8 @@ button:active {
 .toplist td:nth-child(11)::before {
   /* content: "Rating Sd:"; */
 }
+
+.toplist td:nth-child(4),
 .toplist td:nth-child(5),
 .toplist td:nth-child(6),
 .toplist td:nth-child(7) {
@@ -1940,7 +1897,7 @@ button:active {
   height: 2rem;
   transition: 1s;
 }
-/* .plot>a, */
+
 .Album:hover>a,
 .Genre:hover>p {
   /* -webkit-line-clamp: 2; */
@@ -1972,12 +1929,13 @@ button:active {
 .toplist td:not(:nth-child(0)) {
   line-height: 2rem;
 }
+
 .toplist .float,
 .toplist .dropdown{
   line-height: 1.7em;
 }
-.cover,
-.entry img {
+
+.cover {
   width: 100%;
   width: 350px;
   height: 350px;
@@ -2049,7 +2007,6 @@ div.dt-datetime-label span {
   font-size: .9rem;
 }
 
-.searchBox,
 .dataTables_filter {
   width: 100%;
   padding: 1rem;
@@ -2098,54 +2055,9 @@ div.dt-datetime-label span {
 }
 
 
-.btn {
-  display: inline-block;
-  width: 24px;
-  background-color: #444;
-  color: #a99;
-  text-align: center;
-  vertical-align: middle;
-  text-decoration: none;
-  cursor: pointer;
-  padding: 11px 12px;
-  font-size: 12px;
-  line-height: 1.4;
-  border-radius: 4px;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.btn.disabled {
-  color: #777;
-  background-color: #666;
-  pointer-events: none;
-}
-
-.btn-primary {
-  color: #fed;
-  background-color: #666;
-  border-color: #aaa;
-}
-
-.btn-primary:hover {
-  color: #fed;
-  background-color: #555;
-  border-color: #aaa;
-}
-
-.btn-primary:active {
-  color: #fed;
-  background-color: #444;
-  border-color: #777;
-}
 
 @media(max-width: 999px) {
-
-  .newlist {
-    /* table-layout: fixed; */
-  }
+	
 }
 
 @media(min-width: 768px) {
@@ -2255,15 +2167,9 @@ div.dt-datetime-label span {
     text-align: center;
   }
 
-  .entry img,
+  .toplist img,
   .newlist td img {
-    max-width: 300px;
-  }
-
-  .entry img {
-    width: 90%;
-    height: auto;
-    object-fit: contain;
+    max-width: 350px;
   }
 
   .newlist th,
@@ -2291,10 +2197,7 @@ div.dt-datetime-label span {
     box-shadow: 0 .285vh .86vh 0 rgba(0, 0, 0, 0.44), 0 1vh 2vh 0 rgba(0, 0, 0, 0.39);
   }
 
-  .newlist tbody tr td:nth-child(2) {
-    white-space: normal;
-  }
-
+  .newlist tbody tr td:nth-child(2),
   .newlist tbody tr td:nth-child(4) {
     white-space: normal;
   }
