@@ -1902,10 +1902,11 @@ button:active {
 .toplist td:nth-child(11)::before {
   /* content: "Rating Sd:"; */
 }
-.toplist td:nth-child(9),
-.toplist td:nth-child(10),
-.toplist td:nth-child(11) {
+.toplist td:nth-child(5),
+.toplist td:nth-child(6),
+.toplist td:nth-child(7) {
 	/* display:none; */
+  white-space: nowrap;
 }
 
 .toplist td::before {
@@ -1946,7 +1947,7 @@ button:active {
   flex-direction: column-reverse;
 }
 
-.reviews,
+.scores,
 .continent {
   visibility: hidden;
   height: .8rem;

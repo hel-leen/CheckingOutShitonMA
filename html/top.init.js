@@ -16,8 +16,8 @@ let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maTarget = q => 'https://www.metal-archives.com/' + q;
-const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' + 
-   ">MA Page<i class='fa fa-medium'></i></a>";
+const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' +
+  ">MA Page<i class='fa fa-medium'></i></a>";
 const searchLink = text => {
   text = '<a href="https://bandcamp.com/search?q=' + text +
     "\">Bandcamp<i class='fa fa-search'></i></a>" +
@@ -49,8 +49,8 @@ let genreLoad = () => {
   $('#header').empty();
   $('title').empty();
   var title = '<span>Top-rated ';
-  url = genre != "Top" ? 
-  genre.toLowerCase().charAt(0).concat('m') : 'top';
+  url = genre != "Top" ?
+    genre.toLowerCase().charAt(0).concat('m') : 'top';
   url += "list";
   title += genre != 'Top' ?
     genre + ' Metal' : '';
@@ -91,8 +91,8 @@ $(function () {
               let album_index = data.split('|||')[0];
               let album_cover = data.split('|||')[1];
               return ('<img class="cover" src="https://www.metal-archives.com'
-			  .concat(album_cover, '" loading="lazy" alt="' + 
-			  album_index + '">'));
+                .concat(album_cover, '" loading="lazy" alt="' +
+                  album_index + '">'));
             }
             return data;
           },
@@ -108,17 +108,16 @@ $(function () {
               let album_col = '';
               let album_title = data.split('|||')[0];
               let album_link = data.split('|||')[1];
-              album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" + 
-			  "<a class='hreftext'>" +
+              album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" +
+                "<a class='hreftext'>" +
                 album_title
                   .replace(/(\d{2,}|\s(?=\()|(?<!^\w{1,5})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
                   .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
-                  .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1')
                   .replace(/(\/){1,}/g, '$1<wbr>') +
                 '</a>' +
                 "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
-                searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + 
-				'</div></div></div>';
+                searchLink(album_title).replace(/\/spotify\"/g, '/albums"') +
+                '</div></div></div>';
               return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
             }
             return data;
@@ -133,11 +132,11 @@ $(function () {
               let band = data.split('|||')[0].split(/\s[\/\|]\s/g);
               let bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g);
               var band_col = band.map(
-                (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + 
-				"<a class='hreftext'>" +
+                (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" +
+                  "<a class='hreftext'>" +
                   item + "</a>" + "<div class='dropdown'>" +
-                  maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
-				  '</div></div></div>');
+                  maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
+                  '</div></div></div>');
               return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
             }
             return data;
@@ -177,8 +176,8 @@ $(function () {
             let range = data.split('|||')[1];
             let mean = data.split('|||')[2];
             let sd = data.split('|||')[3];
-            return "<a class='reviews'>".concat(data,
-              '</a><div class="ratings ts"><div class="ts"><p>Reviews: <b>' +
+            return "<a class='scores'>".concat(data,
+              '</a><div class="ratings ts"><div class="ts"><p>scores: <b>' +
               reviewers + '</b></p> <p> Min: <b>' +
               range.replace(/~.*/g, '') + '</b></p><p>Max: <b>' +
               range.replace(/.*?~/g, '') + '</b></p></div><div class="ts"><p> Mean: <b>' +
@@ -195,7 +194,7 @@ $(function () {
         {
           // index
           render: (data, type, row) => {
-            return "<a class='reviews'>".concat(data, '')
+            return "<a class='scores'>".concat(data, '')
           },
           targets: [-2],
         },
@@ -220,60 +219,58 @@ $(function () {
       },
 
       drawCallback: function (settings) {
+        // rendering histograms
         var api = this.api();
-        var hglayout = {
-          height: 180,
-          margin: { t: 0, r: 45, b: 20, l: 50 },
-          bargap: 0.05,
-          paper_bgcolor: "rgba(0,0,0,0)",
-          plot_bgcolor: "rgba(0,0,0,0)",
-          barmode: "overlay",
-          xaxis: {
-            tick0: 0,
-            dtick: 10,
-            range: [-2, 102],
-            fixedrange: true,
-            linecolor: '#666',
-            tickfont: {
-              color: '#666'
-            },
-          },
-          yaxis: {
-            tick0: 0,
-            dtick: 20,
-            range: [-1, 100],
-            fixedrange: true,
-            zeroline: false,
-            autotick: false,
-            gridcolor: 'rgba(55,55,55,.3)',
-            color: '#666',
-            tickfont: {
-              color: '#333'
-            },
-          },
-          hoverlabel: {
-            align: "left"
-          }
-        };
-		var coldata = api.column(8, { page: 'current' }).data();
-        var score = coldata.map((item) => item = item.slice(9).split(', ').map((item) => item == '0' ? item = 0.1 : parseInt(item)));
-        var id = coldata.map((item) => item = item.slice(0,4));
+        var coldata = api.column(8, { page: 'current' }).data();
+        var score = coldata.map((item) => item = item.slice(8, -1).split(', ').map((item) => item == '0' ? item = 1 : parseInt(item)));
+        var id = coldata.map((item) => item = item.slice(0, 4));
         for (var k = 0; k < id.length; k++) {
           Plotly.newPlot(id[k], [{
             x: score[k],
             type: 'histogram',
             xbins: { start: 1, end: 105, size: 10 },
             histnorm: 'percent',
-			hoverlabel: { bgcolor: "rgba(0,0,0,0.8)" },
+            hoverlabel: { bgcolor: "rgba(0,0,0,0.8)" },
             marker: {
               color: '#000',
             }, hovertemplate: '<i>Ratings</i>: %{x}<br><i>Percent</i>: %{y:.2f}%<extra></extra>'
           }
-          ], hglayout, { displayModeBar: false });
+          ], {
+            height: 180,
+            margin: { t: 0, r: 45, b: 20, l: 50 },
+            bargap: 0.05,
+            paper_bgcolor: "rgba(0,0,0,0)",
+            plot_bgcolor: "rgba(0,0,0,0)",
+            barmode: "overlay",
+            xaxis: {
+              tick0: 0,
+              dtick: 10,
+              range: [-2, 102],
+              fixedrange: true,
+              linecolor: '#666',
+              tickfont: {
+                color: '#666'
+              },
+            },
+            yaxis: {
+              tick0: 0,
+              dtick: 20,
+              range: [-1, 100],
+              fixedrange: true,
+              zeroline: false,
+              autotick: false,
+              gridcolor: 'rgba(55,55,55,.3)',
+              color: '#666',
+              tickfont: {
+                color: '#333'
+              },
+            },
+            hoverlabel: {
+              align: "left"
+            }
+          }, { displayModeBar: false });
         };
       },
-
-
     });
   let table = $('.toplist').DataTable();
   // table.draw(); 
