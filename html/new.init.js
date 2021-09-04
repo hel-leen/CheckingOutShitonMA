@@ -50,7 +50,7 @@ const layout = () => {
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "4.17vw");
+    $(":root").css("font-size", "4.07vw");
   }
 }
 
@@ -178,11 +178,11 @@ $(function () {
             var info = info_row.map(item => item.split('|').filter(uniq) != '' ?
               "<div class='grid_item ts'><div class='flex_item ts fixed'>" +
               item.split('|').filter(uniq).sort(() => Math.random() - 0.5).join(', ')
-                .replace(/\/\d+\">/g, '') +
+                .replace(/\/\d+[\"\']>/g, '') +
               '</div>' + "<div class='flex_item ts fixed float'>" +
               item.split('|').filter(uniq).map(link => {
                 return '<a href="https://www.metal-archives.com/bands/view' +
-                  link.match(/\/\d+(?=\")/g) + '">' +
+                  link.match(/\/\d+(?=\[\"\'])/g) + '">' +
                   link.match(/(?<=>).*/g) + '</a>';
               }
               ).sort(partSort).join(', ') +

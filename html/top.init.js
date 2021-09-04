@@ -12,14 +12,6 @@ jQuery.fn.extend({
     });
   },
 });
-const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
-const partSort = ((x, y) => {
-  var xp = x.match(/(?<=>).*/g).toString().toLowerCase();
-  var yp = y.match(/(?<=>).*/g).toString().toLowerCase();
-  return xp == yp ? 0 :
-    xp < yp ? -1 :
-      1;
-});
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
@@ -47,7 +39,7 @@ const layout = () => {
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "4.1vw");
+    $(":root").css("font-size", "4vw");
   }
 }
 var genre;
@@ -57,7 +49,8 @@ let genreLoad = () => {
   $('#header').empty();
   $('title').empty();
   var title = '<span>Top-rated ';
-  url = genre != "Top" ? genre.toLowerCase().charAt(0).concat('m') : 'top';
+  url = genre != "Top" ? 
+  genre.toLowerCase().charAt(0).concat('m') : 'top';
   url += "list";
   title += genre != 'Top' ?
     genre + ' Metal' : '';
@@ -210,7 +203,7 @@ $(function () {
           // continent
           render: (data, type) => {
             if (type === 'display') {
-              return "<p class='Continent'>".concat(data, '</p>');
+              return "<p class='continent'>".concat(data, '</p>');
             }
             return data;
           },
@@ -230,7 +223,7 @@ $(function () {
         var api = this.api();
         var hglayout = {
           height: 180,
-          margin: { t: 0, r: 40, b: 20, l: 50 },
+          margin: { t: 0, r: 45, b: 20, l: 50 },
           bargap: 0.05,
           paper_bgcolor: "rgba(0,0,0,0)",
           plot_bgcolor: "rgba(0,0,0,0)",
@@ -238,8 +231,8 @@ $(function () {
           xaxis: {
             tick0: 0,
             dtick: 10,
-            // autotick: false,
-            range: [-5, 105],
+            range: [-2, 102],
+            fixedrange: true,
             linecolor: '#666',
             tickfont: {
               color: '#666'
@@ -248,10 +241,10 @@ $(function () {
           yaxis: {
             tick0: 0,
             dtick: 20,
+            range: [-1, 100],
             fixedrange: true,
             zeroline: false,
             autotick: false,
-            range: [-5, 100],
             gridcolor: 'rgba(55,55,55,.3)',
             color: '#666',
             tickfont: {
@@ -262,9 +255,9 @@ $(function () {
             align: "left"
           }
         };
-        var rows = api.rows({ page: 'current' }).nodes();
-        var score = api.column(8, { page: 'current' }).data().map((item) => item = item.match(/(?<=\|\[).*?(?=\])/g).toString().split(', ').map((item) => item == '0' ? item = 0.1 : parseFloat(item)));
-        var id = api.column(8, { page: 'current' }).data().map((item) => item = item.match(/\d{4}(?=\|)/g).toString());
+		var coldata = api.column(8, { page: 'current' }).data();
+        var score = coldata.map((item) => item = item.slice(9).split(', ').map((item) => item == '0' ? item = 0.1 : parseInt(item)));
+        var id = coldata.map((item) => item = item.slice(0,4));
         for (var k = 0; k < id.length; k++) {
           Plotly.newPlot(id[k], [{
             x: score[k],
@@ -284,18 +277,6 @@ $(function () {
     });
   let table = $('.toplist').DataTable();
   // table.draw(); 
-  setTimeout(function () {
-    table.draw(false);
-    $('.dataTables_wrapper,.filterSection').css({
-      opacity: 0.0
-    }).animate({
-      opacity: 1.0
-    });
-  }, 1000);
-  setTimeout(function () {
-    table.draw(false);
-    $('.toplist').fadeIn();
-  }, 2000);
   table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
     if (json) {
@@ -303,7 +284,6 @@ $(function () {
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
-
   });
   $('#url-option').on('change', function () {
     genreLoad();

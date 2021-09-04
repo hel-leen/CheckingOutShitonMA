@@ -1,7 +1,12 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400&family=Mulish:wght@300&family=Playfair+Display:wght@600&family=Cinzel:wght@800&family=Pirata+One&display=swap');
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
-
+@keyframes scroll-x {
+	0% { margin-left: 0; transform: translate3d(0%, 0, 0);}
+	25% { margin-left: 0; transform: translate3d(0%, 0, 0);}
+	75% { margin-left: 100%; transform: translate3d(-100%, 0, 0);}
+	100% { margin-left: 100%; transform: translate3d(-100%, 0, 0);}
+}
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px rgba(230, 194, 184, 0.2),
@@ -1883,7 +1888,7 @@ button:active {
 }
 
 .toplist td:nth-child(8)::before {
-  content: "Ratings:";
+  content: "Ratings Distribution:";
 }
 
 .toplist td:nth-child(9)::before {
@@ -1914,26 +1919,38 @@ button:active {
 .Album,
 .Genre {
   width:100%;
+  /* display:inline-grid; */
 }
-/* .plot>a, */
 .Album>a,
 .Genre>p {
   overflow-y: overlay;
   overflow-x: hidden;
   text-overflow: ellipsis;
-  /* white-space: pre; */
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  padding: 0 20%;
+  /* padding: 0 20%; */
   white-space: pre-wrap;
+  overflow-anchor: ;
+  scroll-margin-block-end: 0;
+  /* -webkit-box-reflect: below 0 linear-gradient(transparent, white); */
+  display: flex;
+  flex-direction: column;
+  height: 2rem;
+  transition: 1s;
+}
+/* .plot>a, */
+.Album:hover>a,
+.Genre:hover>p {
+  /* -webkit-line-clamp: 2; */
+  flex-direction: column-reverse;
 }
 
 .reviews,
-.Continent {
+.continent {
   visibility: hidden;
   height: .8rem;
+  position: absolute;
 }
 .ratings>*>* {
 	margin:0
@@ -1956,7 +1973,7 @@ button:active {
 }
 .toplist .float,
 .toplist .dropdown{
-  line-height: 1.5em;
+  line-height: 1.7em;
 }
 .cover,
 .entry img {
@@ -2175,7 +2192,7 @@ div.dt-datetime-label span {
   :root {
     font-size: 100%;
     /* font-size: 4.45vw; */
-    line-height: 1.6rem;
+    line-height: 1.7rem;
   }
 
   ::-webkit-scrollbar {
@@ -2262,8 +2279,8 @@ div.dt-datetime-label span {
     display: grid;
     justify-items: center;
     padding: .8rem;
-    border: .5px solid;
-    border-color: #333 transparent;
+    border: .0px solid;
+    border-color: rgba(55,55,55,.1) transparent;
   }
 
 
@@ -2335,7 +2352,7 @@ div.dt-datetime-label span {
   }
 
   .newlist td::before {
-    font-weight: 600;
+	color: #fed;
     padding-left: 1px;
     padding-bottom: 1px;
     width: 90%;
@@ -2361,7 +2378,7 @@ div.dt-datetime-label span {
 
   .grid_item {
     display: flex;
-    margin: 0 15%;
+    margin: 0 10%;
     align-items: center;
     justify-content: center;
   }
