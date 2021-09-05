@@ -156,7 +156,7 @@ $(function () {
                 genre_col.push("<div class='Genre grid_item ts'><p class='flex_item fixed'>" +
                   genre + "</p><div class='flex_item ts fixed float'>" +
                   genre
-                    .replace(/\/(?!Rock|.+Metal)/g,', \n')
+                    .replace(/\/(?!Rock|.*?Metal)/g,', \n')
                     .replace(/((\(|\w|\-)+(\/(\S)+)+)/g, '\n$1\n')
                     .replace(/^(\n)|(?<=br\>)\n/g, '')
                     .replace(/(\n\s?)+/g, '\n')
