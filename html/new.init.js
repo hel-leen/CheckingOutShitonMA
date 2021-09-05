@@ -145,7 +145,7 @@ $(function () {
             let country = data.split('|||')[2].split('| || |');
             var band_col = band.map(
               (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
-                item + "</a><br><abbr class='extra ts' style='display:flex;'>(" + country[i] + ')</abbr>' + "<div class='dropdown'>" +
+                item + "</a><br><abbr class='extra ts'>(" + country[i] + ')</abbr>' + "<div class='dropdown'>" +
                 maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + '</div></div></div>');
             return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
           }
