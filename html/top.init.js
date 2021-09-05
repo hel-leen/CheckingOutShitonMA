@@ -157,9 +157,8 @@ $(function () {
                   genre + "</p><div class='flex_item ts fixed float'>" +
                   genre
                     .replace(/\/(?!Rock|.*?Metal)/g,', \n')
-                    .replace(/((\(|\w|\-)+(\/(\S)+)+)/g, '\n$1\n')
-                    .replace(/^(\n)|(?<=br\>)\n/g, '')
-                    .replace(/(\n\s?)+/g, '\n')
+                    .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
+                    .replace(/(?<=br\>|(\n\s?)|\b)\n/g, '')
                   +
                   '</div></div>')
 
