@@ -50,7 +50,7 @@ const layout = () => {
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "4.07vw");
+    $(":root").css("font-size", "3.97vw");
   }
 }
 
@@ -126,8 +126,8 @@ $(function () {
                 .replace(/(\/){1,}/g, '$1<wbr>') +
               // .replace(/\/(?=.{11,})/g, '/<br>')
               // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
-              "</a><div class='dropdown'>" + 
-			  maLink("release/view/id/", album_link) +
+              "</a><div class='dropdown'>" +
+              maLink("release/view/id/", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
           }
@@ -160,8 +160,14 @@ $(function () {
           if (type === 'display') {
             let genre_col = [];
             data.split(' | ').forEach(item => {
+              var genre = item
+                .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
+                .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
+                .replace(/(?<=[;|\),])\s/g, '  \n')
+                .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?Metal,)/g, '')
+                ;
               genre_col.push("<div class='grid_item'><div class='flex_item ts'>" +
-                item.replace(/(?<=[,])\s/g, ' <wbr>').replace(/\//g, '/<wbr>').replace(/(?<=[;|\),])\s/g, ' <br>') + '</div></div>');
+                genre + '</div></div>');
             });
             return tabLink("<div class='grid_wrapper'>".concat(genre_col.join(''), '</div>'));
           }
@@ -336,10 +342,10 @@ $(function () {
   // table.columns([6]).visible(false);
   table.columns().visible(true);
   $(table.column(4).header()).text('Asso. Acts');
-  $('<div class="fixed float">FORMAT: <p>Type ∙ tracks<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
-    .appendTo($(table.column(-2).header()));
-  $('<div class="fixed float">FORMAT: <p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div>')
-    .appendTo($(table.column(-1).header()));
+  // $('<div class="fixed float">FORMAT: <p>Type ∙ tracks<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
+  // .appendTo($(table.column(-2).header()));
+  // $('<div class="fixed float">FORMAT: <p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div>')
+  // .appendTo($(table.column(-1).header()));
   $('.newlist thead').on('click', 'th.sorting ', function () {
     var currentOrder = table.order()[0];
     if (currentOrder[0] == 7) {
@@ -451,7 +457,7 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
     dateset = date;
   }
   if (
-    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0 )) {
+    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0)) {
     return false;
   }
   return genre.search('('.concat(genres.join('|'), ')')) > -1 && dateset;

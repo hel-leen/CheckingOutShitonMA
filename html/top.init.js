@@ -39,7 +39,7 @@ const layout = () => {
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "4vw");
+    $(":root").css("font-size", "3.8vw");
   }
 }
 var genre;
@@ -85,8 +85,8 @@ $(function () {
       },
       "columnDefs": [
         {
-          //rendering cover
           render: (data, type, row) => {
+            //rendering cover
             if (type === 'display') {
               let album_index = data.split('|||')[0];
               let album_cover = data.split('|||')[1];
@@ -102,8 +102,8 @@ $(function () {
           targets: [0],
         },
         {
-          // rendering album
           render: (data, type, row) => {
+            // rendering album
             if (type === 'display') {
               let album_col = '';
               let album_title = data.split('|||')[0];
@@ -111,8 +111,8 @@ $(function () {
               album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" +
                 "<a class='hreftext'>" +
                 album_title
-                  .replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
-                  .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
+                  // .replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
+                  // .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
                   .replace(/(\/){1,}/g, '$1<wbr>') +
                 '</a>' +
                 "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
@@ -126,8 +126,8 @@ $(function () {
           targets: [1],
         },
         {
-          //rendering band
           render: (data, type, row) => {
+            //rendering band
             if (type === 'display') {
               let band = data.split('|||')[0].split(/\s[\/\|]\s/g);
               let bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g);
@@ -145,20 +145,20 @@ $(function () {
           targets: [2],
         },
         {
-          // genre
           render: (data, type) => {
+            // genre
             if (type === 'display') {
               let genre_col = [];
               data.split(' | ').forEach(item => {
                 var genre = item
-                  .replace(/(?<=[;|\),])\s|\s(?=with)/g, ' \n')
+                  .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
+                  .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
+                  .replace(/(?<=[;|\),])\s/g, '  \n')
+                  .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?Metal)/g, '')
                   ;
                 genre_col.push("<div class='Genre grid_item ts'><p class='flex_item fixed'>" +
                   genre + "</p><div class='flex_item ts fixed float'>" +
                   genre
-                    .replace(/\/(?!Rock|.*?Metal)/g,', \n')
-                    .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                    .replace(/(?<=br\>|\n\s?)\n|^\n/g, '')
                   +
                   '</div></div>')
 
@@ -171,7 +171,8 @@ $(function () {
           targets: [4],
         },
         {
-          render: (data, type, row) => { // reviews
+          render: (data, type, row) => {
+            // reviews
             let reviewers = data.split('|||')[0];
             let range = data.split('|||')[1];
             let mean = data.split('|||')[2];
@@ -192,15 +193,15 @@ $(function () {
           targets: [-3],
         },
         {
-          // scores
           render: (data, type, row) => {
+            // scores
             return "<a class='scores'>".concat(data, '')
           },
           targets: [-2],
         },
         {
-          // continent
           render: (data, type) => {
+            // continent
             if (type === 'display') {
               return "<p class='continent'>".concat(data, '</p>');
             }
@@ -210,23 +211,14 @@ $(function () {
           targets: [-1],
         },
       ],
-      language: {
-        searchPlaceholder: "Search for albums or bands..",
-        search: "_INPUT_",
-        info: "( _START_ - _END_ ) / _TOTAL_ ",
-        infoEmpty: "0 entry",
-        infoFiltered: " [ Total: _MAX_ ]"
-      },
-
       drawCallback: function (settings) {
         // rendering histograms
-        var api = this.api();
-        var coldata = api.column(8, { page: 'current' }).data();
-        var score = coldata.map((item) => item = item.slice(8, -1).split(', ').map((item) => item == '0' ? item = 1 : parseInt(item)));
-        var id = coldata.map((item) => item = item.slice(0, 4));
-        for (var k = 0; k < id.length; k++) {
-          Plotly.newPlot(id[k], [{
-            x: score[k],
+        var coldata = this.api().column(8, { page: 'current' }).data();
+        coldata.map((item) => {
+          var score = item.slice(8, -1).split(', ').map((score) => score == '0' ? score = 1 : parseInt(score));
+          var id = item.slice(0, 4);
+          Plotly.newPlot(id, [{
+            x: score,
             type: 'histogram',
             xbins: { start: 1, end: 105, size: 10 },
             histnorm: 'percent',
@@ -269,7 +261,14 @@ $(function () {
               align: "left"
             }
           }, { displayModeBar: false });
-        };
+        });
+      },
+      language: {
+        searchPlaceholder: "Search for albums or bands..",
+        search: "_INPUT_",
+        info: "( _START_ - _END_ ) / _TOTAL_ ",
+        infoEmpty: "0 entry",
+        infoFiltered: " [ Total: _MAX_ ]"
       },
     });
   let table = $('.toplist').DataTable();

@@ -1878,6 +1878,8 @@ button:active {
 .Genre {
   width:100%;
   /* display:inline-grid; */
+    /* height: 3rem; */
+  /* overflow-y: hidden; */
 }
 .Album>a,
 .Genre>p {
