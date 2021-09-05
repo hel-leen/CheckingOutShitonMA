@@ -158,12 +158,12 @@ $(function () {
                   genre
                     .replace(/\/(?!Rock|.*?Metal)/g,', \n')
                     .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                    .replace(/(?<=br\>|(\n\s?)|\b)(\n\s?)+/g, '')
+                    .replace(/(?<=br\>|(\n\s?)|\b)\n/g, '')
                   +
                   '</div></div>')
 
               });
-              return tabLink("".concat(genre_col.join(''), ''));
+              return tabLink(genre_col.join(''));
             }
             return data;
           },
@@ -171,7 +171,7 @@ $(function () {
           targets: [4],
         },
         {
-          render: (data, type, row) => {
+          render: (data, type, row) => { // reviews
             let reviewers = data.split('|||')[0];
             let range = data.split('|||')[1];
             let mean = data.split('|||')[2];
@@ -192,7 +192,7 @@ $(function () {
           targets: [-3],
         },
         {
-          // index
+          // scores
           render: (data, type, row) => {
             return "<a class='scores'>".concat(data, '')
           },
