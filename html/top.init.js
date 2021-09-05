@@ -111,7 +111,7 @@ $(function () {
               album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" +
                 "<a class='hreftext'>" +
                 album_title
-                  .replace(/(\d{2,}|\s(?=\()|(?<!^\w{1,5})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
+                  .replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
                   .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
                   .replace(/(\/){1,}/g, '$1<wbr>') +
                 '</a>' +
@@ -156,6 +156,7 @@ $(function () {
                 genre_col.push("<div class='Genre grid_item ts'><p class='flex_item fixed'>" +
                   genre + "</p><div class='flex_item ts fixed float'>" +
                   genre
+                    .replace(/\/(?!Rock|.+Metal)/g,', \n')
                     .replace(/((\(|\w|\-)+(\/(\S)+)+)/g, '\n$1\n')
                     .replace(/^(\n)|(?<=br\>)\n/g, '')
                     .replace(/(\n\s?)+/g, '\n')
