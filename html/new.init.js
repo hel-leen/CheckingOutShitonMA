@@ -165,6 +165,7 @@ $(function () {
                 .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
                 .replace(/(?<=[;|\),])\s/g, '  \n')
                 .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?Metal,)/g, '')
+				.replace(/\//g, '/<wbr>')
                 ;
               genre_col.push("<div class='grid_item'><div class='flex_item ts'>" +
                 genre + '</div></div>');
