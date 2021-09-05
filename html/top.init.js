@@ -158,7 +158,7 @@ $(function () {
                   genre
                     .replace(/\/(?!Rock|.*?Metal)/g,', \n')
                     .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                    .replace(/(?<=br\>|(\n\s?)|\b)\n/g, '')
+                    .replace(/(?<=br\>|(\n\s?)|\b)\n|^\n/g, '')
                   +
                   '</div></div>')
 
