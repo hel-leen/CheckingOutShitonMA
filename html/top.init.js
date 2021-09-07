@@ -156,9 +156,10 @@ $(function () {
                   .replace(/(?<=[;|\),])\s/g, '  \n')
                   .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?Metal)/g, '')
                   ;
-                genre_col.push("<div class='Genre grid_item ts'><p class='flex_item fixed'>" +
-                  genre + "</p><div class='flex_item ts fixed float'>" +
-                  genre
+                genre_col.push("<div class='Genre grid_item'><p class='flex_item fixed'>" +
+                  // genre + "</p><div class='flex_item ts fixed float'>" +
+                  genre.replace(/(.*?)\n/m,"   	$1  ...\n</p><div class='flex_item ts fixed float'> $1\n")
+                  // genre
                   +
                   '</div></div>')
 
@@ -215,7 +216,7 @@ $(function () {
         // rendering histograms
         var coldata = this.api().column(8, { page: 'current' }).data();
         coldata.map((item) => {
-          var score = item.slice(8, -1).split(', ').map((score) => score == '0' ? score = 1 : parseInt(score));
+          var score = item.slice(8, -1).split(', ').map(score => score == '0' ? score = 1 : parseInt(score));
           var id = item.slice(0, 4);
           Plotly.newPlot(id, [{
             x: score,
@@ -277,11 +278,12 @@ $(function () {
     var json = table.ajax.json();
     if (json) {
       //count 
-      $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
+      $('#update').html('Last updated on: ' + json.lastUpdate + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
   $('#url-option').on('change', function () {
+    // $(this).siblings().prop("selected", false);
     genreLoad();
     table.ajax.url(url).load();
     table.draw();

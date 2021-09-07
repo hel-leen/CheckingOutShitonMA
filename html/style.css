@@ -1882,28 +1882,28 @@ button:active {
   /* overflow-y: hidden; */
 }
 .Album>a,
-.Genre>p {
+.Genre>p,
+.Genre>pre {
   overflow-y: overlay;
   overflow-x: hidden;
+  height: 2rem;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   /* padding: 0 20%; */
-  white-space: pre-wrap;
-  overflow-anchor: ;
+  white-space: break-spaces;
   scroll-margin-block-end: 0;
   /* -webkit-box-reflect: below 0 linear-gradient(transparent, white); */
   display: flex;
   flex-direction: column;
-  height: 2rem;
   transition: 1s;
 }
 
 .Album:hover>a,
 .Genre:hover>p {
   /* -webkit-line-clamp: 2; */
-  flex-direction: column-reverse;
+  /* flex-direction: column-reverse; */
 }
 
 .scores,
