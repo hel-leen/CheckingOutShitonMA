@@ -79,7 +79,7 @@ $(function () {
         data.order = [[0, 'asc']]
       },
       order: [[0, 'asc']],
-      "lengthMenu": [[10, 20, 50, -1], [10, 20, 50, "All"]],
+      "lengthMenu": [10, 20, 50],
       "search": {
         "regex": true
       },
