@@ -269,7 +269,6 @@ $(function () {
             displayModeBar: false
           });
           var plotCounts = document.getElementById(id).calcdata[0].map((bin, i) => bin = bin.pts.length);
-
           Plotly.restyle(id, { customdata: [plotCounts] });
 
         });
