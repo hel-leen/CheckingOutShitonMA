@@ -40,7 +40,7 @@ const searchLink = text => {
     '/spotify">Spotify<i class="fa fa-search"></i></a>'
   return text;
 };
-const layout = () => {
+const pageLayout = () => {
   if (navigator.userAgent.search(/mobile/gi) < 0) {
     $.fn.DataTable.ext.pager.numbers_length = 9;
     if (window.matchMedia('(max-width: 767px)').matches) {
@@ -55,7 +55,7 @@ const layout = () => {
 }
 
 $(function () {
-  layout();
+  pageLayout();
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     buttons: {
@@ -163,7 +163,7 @@ $(function () {
               var genre = item
                 .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
                 .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                .replace(/(?<=[;|\),])\s/g, '  \n')
+                .replace(/(?<=[;|\),])\s/g, ' \n')
                 .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?Metal,)/g, '')
 				.replace(/\//g, '/<wbr>')
                 ;
@@ -394,7 +394,7 @@ $(function () {
   });
 });
 $(window).resize(function () {
-  layout();
+  pageLayout();
 });
 $(document).on('click', '.paginate_button', function () {
   $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $(".dataTables_filter").height(), }, 800);

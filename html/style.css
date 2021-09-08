@@ -1072,7 +1072,7 @@ table {
 
 
 .newlist tbody tr td:nth-child(4) {
-  white-space: break-spaces;
+  white-space: pre-line;
   overflow: initial;
 }
 
@@ -1250,6 +1250,10 @@ table ::-webkit-scrollbar {
 .flex_item {
   /* display: inline-grid; */
 }
+.grid_item > div {
+  grid-column-start: 1;
+  grid-row-start: 1;
+}
 
 .dd-c {
   display: none;
@@ -1311,8 +1315,9 @@ table ::-webkit-scrollbar {
 
 
 .hreftext {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   cursor: pointer;
+  text-shadow: 1px 1px black;
 }
 
 .extra {
@@ -1877,9 +1882,6 @@ button:active {
 .Album,
 .Genre {
   width:100%;
-  /* display:inline-grid; */
-    /* height: 3rem; */
-  /* overflow-y: hidden; */
 }
 .Album>a,
 .Genre>p,
@@ -1891,13 +1893,12 @@ button:active {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  /* padding: 0 20%; */
   white-space: break-spaces;
-  scroll-margin-block-end: 0;
-  /* -webkit-box-reflect: below 0 linear-gradient(transparent, white); */
   display: flex;
   flex-direction: column;
   transition: 1s;
+  opacity:1;
+  /* -webkit-box-reflect: below 0 linear-gradient(transparent, white); */
 }
 
 .Album:hover>a,
@@ -2161,7 +2162,11 @@ div.dt-datetime-label span {
   #label-filter select {
     width: 45vw;
   }
-
+.Album>a,
+.Genre>p,
+.Genre>pre {
+  height: auto;
+}
   .toplist,
   .newlist {
     font-size: 1rem;
@@ -2169,9 +2174,10 @@ div.dt-datetime-label span {
     text-align: center;
   }
 
-  .toplist img,
+  .toplist td img,
   .newlist td img {
-    max-width: 350px;
+    max-width: 90%;
+	object-fit: contain;
   }
 
   .newlist th,

@@ -29,7 +29,7 @@ const searchLink = text => {
     '/spotify">Spotify<i class="fa fa-search"></i></a>'
   return text;
 };
-const layout = () => {
+const pageLayout = () => {
   if (navigator.userAgent.search(/mobile/gi) < 0) {
     $.fn.DataTable.ext.pager.numbers_length = 9;
     if (window.matchMedia('(max-width: 767px)').matches) {
@@ -59,7 +59,7 @@ let genreLoad = () => {
   $(document).attr("title", $(title).text());
 }
 $(function () {
-  layout();
+  pageLayout();
   genreLoad();
   $('.toplist').DataTable(
     {
@@ -153,12 +153,12 @@ $(function () {
                 var genre = item
                   .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
                   .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                  .replace(/(?<=[;|\),])\s/g, '  \n')
-                  .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?Metal)/g, '')
+                  .replace(/(?<=[;|\),])\s/g, ' \n')
+                  .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?(Metal[;,]?\s+?\n|\w+$))/g, '')
                   ;
                 genre_col.push("<div class='Genre grid_item'><p class='flex_item fixed'>" +
                   // genre + "</p><div class='flex_item ts fixed float'>" +
-                  genre.replace(/(.*?)\n/m,"   	$1  ...\n</p><div class='flex_item ts fixed float'> $1\n")
+                  genre.replace(/(.*?)\n/m, "<a class='fixed'>    $1  ...\n</a></p><div class='flex_item ts fixed float'> $1\n")
                   // genre
                   +
                   '</div></div>')
@@ -218,50 +218,60 @@ $(function () {
         coldata.map((item) => {
           var score = item.slice(8, -1).split(', ').map(score => score == '0' ? score = 1 : parseInt(score));
           var id = item.slice(0, 4);
-          Plotly.newPlot(id, [{
-            x: score,
-            type: 'histogram',
-            xbins: { start: 1, end: 105, size: 10 },
-            histnorm: 'percent',
-            hoverlabel: { bgcolor: "rgba(0,0,0,0.8)" },
-            marker: {
-              color: '#000',
-            }, hovertemplate: '<i>Ratings</i>: %{x}<br><i>Percent</i>: %{y:.2f}%<extra></extra>'
-          }
-          ], {
-            height: 180,
-            margin: { t: 0, r: 45, b: 20, l: 50 },
-            bargap: 0.05,
-            paper_bgcolor: "rgba(0,0,0,0)",
-            plot_bgcolor: "rgba(0,0,0,0)",
-            barmode: "overlay",
-            xaxis: {
-              tick0: 0,
-              dtick: 10,
-              range: [-2, 102],
-              fixedrange: true,
-              linecolor: '#666',
-              tickfont: {
-                color: '#666'
+          var thePlot = document.getElementById(id),
+            data = [{
+              x: score,
+              customdata: score,
+              type: 'histogram',
+              xbins: { start: 1, end: 105, size: 10 },
+              histnorm: 'percent',
+              hoverlabel: { bgcolor: "rgba(0,0,0,0.8)",bordercolor: "transparent",  font: {color: "#eee"} },
+              marker: {
+                color: '#000',
               },
-            },
-            yaxis: {
-              tick0: 0,
-              dtick: 20,
-              range: [-1, 100],
-              fixedrange: true,
-              zeroline: false,
-              autotick: false,
-              gridcolor: 'rgba(55,55,55,.3)',
-              color: '#666',
-              tickfont: {
-                color: '#333'
+              hovertemplate: '<i>Ratings</i>: %{x}<br><i>Reviews</i>:%{customdata}<br><i>Percent</i>: %{y:.2f}%<extra></extra>',
+            }],
+            layout = {
+              height: 180,
+              margin: { t: 0, r: 45, b: 20, l: 50 },
+              bargap: 0.05,
+              paper_bgcolor: "rgba(0,0,0,0)",
+              plot_bgcolor: "rgba(0,0,0,0)",
+              barmode: "overlay",
+              xaxis: {
+                tick0: 0,
+                dtick: 10,
+                range: [-2, 102],
+                fixedrange: true,
+                linecolor: '#666',
+                tickfont: {
+                  color: '#666'
+                },
               },
-            },
-            hoverlabel: {
-              align: "left"
-            }
-          }, { displayModeBar: false });
+              yaxis: {
+                tick0: 0,
+                dtick: 20,
+                range: [-1, 100],
+                fixedrange: true,
+                zeroline: false,
+                autotick: false,
+                gridcolor: 'rgba(55,55,55,.3)',
+                color: '#666',
+                tickfont: {
+                  color: '#333'
+                },
+              },
+              hoverlabel: {
+                align: "left"
+              }
+            };
+          Plotly.newPlot(id, data, layout, {
+            displayModeBar: false
+          });
+          var plotCounts = document.getElementById(id).calcdata[0].map((bin, i) => bin = bin.pts.length);
+
+          Plotly.restyle(id, { customdata: [plotCounts] });
+
         });
       },
       language: {
@@ -305,7 +315,7 @@ $(function () {
   // $('.filter').attr("checked", true);
 });
 $(window).resize(function () {
-  layout();
+  pageLayout();
 });
 $(document).on('click', 'a.paginate_button', function () {
   $("body,html").animate({
