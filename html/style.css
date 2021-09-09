@@ -1893,7 +1893,7 @@ button:active {
   display: -webkit-box;
   -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
-  white-space: break-spaces;
+  white-space: pre-line;
   display: flex;
   flex-direction: column;
   transition: 1s;

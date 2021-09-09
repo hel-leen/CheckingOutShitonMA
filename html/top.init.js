@@ -12,52 +12,55 @@ jQuery.fn.extend({
     });
   },
 });
-let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
-let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
-const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
-const maTarget = q => 'https://www.metal-archives.com/' + q;
-const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' +
-  ">MA Page<i class='fa fa-medium'></i></a>";
-const searchLink = text => {
-  text = '<a href="https://bandcamp.com/search?q=' + text +
-    "\">Bandcamp<i class='fa fa-search'></i></a>" +
-    '<a href="https://www.youtube.com/results?search_query=' + text +
-    "\">Youtube<i class='fa fa-search'></i></a>" +
-    '<a href="https://open.spotify.com/search/' + text.replace(/\//g, '');
-  text += window.matchMedia('(max-width: 767px)').matches ?
-    '">Spotify<i class="fa fa-search"></i></a>' :
-    '/spotify">Spotify<i class="fa fa-search"></i></a>'
-  return text;
-};
-const pageLayout = () => {
-  if (navigator.userAgent.search(/mobile/gi) < 0) {
-    $.fn.DataTable.ext.pager.numbers_length = 9;
-    if (window.matchMedia('(max-width: 767px)').matches) {
-      // $(":root").css("font-size", "");
+// let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g),
+// hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
+const
+  tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">'),
+  maTarget = q => 'https://www.metal-archives.com/' + q,
+  maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' +
+    ">MA Page<i class='fa fa-medium'></i></a>",
+  searchLink = text => {
+    text = '<a href="https://bandcamp.com/search?q=' + text +
+      "\">Bandcamp<i class='fa fa-search'></i></a>" +
+      '<a href="https://www.youtube.com/results?search_query=' + text +
+      "\">Youtube<i class='fa fa-search'></i></a>" +
+      '<a href="https://open.spotify.com/search/' + text.replace(/\//g, '');
+    text += window.matchMedia('(min-width: 767px)').matches ?
+	'/spotify':'';
+      text += '">Spotify<i class="fa fa-search"></i></a>' ;
+    return text;
+  };
+ var
+  pageLayout,
+  genreOpt,
+  url = "toplist",
+  genreLoad = () => {
+    genreOpt = $('#url-option').val()[0];
+    $('#header').empty();
+    $('title').empty();
+    var title = '<span>Top-rated ';
+    url = genreOpt != "Top" ?
+      genreOpt.toLowerCase().charAt(0).concat('m') : 'top';
+    url += "list";
+    title += genreOpt != 'Top' ?
+      genreOpt + ' Metal' : '';
+    title += ' Albums on MA</span>';
+    $(title).appendTo($('#header'));
+    $(document).attr("title", $(title).text());
+  };
+pageLayout = () => {
+    if (navigator.userAgent.search(/mobile/gi) < 0) {
+      $.fn.DataTable.ext.pager.numbers_length = 9;
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        // $(":root").css("font-size", "");
+      } else {
+        $(":root").css("font-size", "2.2vh");
+      }
     } else {
-      $(":root").css("font-size", "2.2vh");
+      $.fn.DataTable.ext.pager.numbers_length = 5;
+      $(":root").css("font-size", "3.8vw");
     }
-  } else {
-    $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "3.8vw");
   }
-}
-var genre;
-var url = "toplist";
-let genreLoad = () => {
-  genre = $('#url-option').val()[0];
-  $('#header').empty();
-  $('title').empty();
-  var title = '<span>Top-rated ';
-  url = genre != "Top" ?
-    genre.toLowerCase().charAt(0).concat('m') : 'top';
-  url += "list";
-  title += genre != 'Top' ?
-    genre + ' Metal' : '';
-  title += ' Albums on MA</span>';
-  $(title).appendTo($('#header'));
-  $(document).attr("title", $(title).text());
-}
 $(function () {
   pageLayout();
   genreLoad();
@@ -88,8 +91,8 @@ $(function () {
           render: (data, type, row) => {
             //rendering cover
             if (type === 'display') {
-              let album_index = data.split('|||')[0];
-              let album_cover = data.split('|||')[1];
+              let album_index = data.split('|||')[0],
+                album_cover = data.split('|||')[1];
               return ('<img class="cover" src="https://www.metal-archives.com'
                 .concat(album_cover, '" loading="lazy" alt="' +
                   album_index + '">'));
@@ -105,17 +108,20 @@ $(function () {
           render: (data, type, row) => {
             // rendering album
             if (type === 'display') {
-              let album_col = '';
-              let album_title = data.split('|||')[0];
-              let album_link = data.split('|||')[1];
+              let
+                album_col = '',
+                album_title = data.split('|||')[0],
+                album_link = data.split('|||')[1];
+                album_title = window.matchMedia('(max-width: 767px)').matches &album_title.length>20 ?
+				album_title.replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2'):album_title;
               album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" +
                 "<a class='hreftext'>" +
                 album_title
                   // .replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2')
                   // .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
                   .replace(/(\/){1,}/g, '$1<wbr>') +
-                '</a>' +
-                "<div class='dropdown'>" + maLink("release/view/id/", album_link) +
+                "</a><div class='dropdown'>" + 
+				maLink("release/view/id/", album_link) +
                 searchLink(album_title).replace(/\/spotify\"/g, '/albums"') +
                 '</div></div></div>';
               return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
@@ -129,14 +135,15 @@ $(function () {
           render: (data, type, row) => {
             //rendering band
             if (type === 'display') {
-              let band = data.split('|||')[0].split(/\s[\/\|]\s/g);
-              let bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g);
-              var band_col = band.map(
-                (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" +
-                  "<a class='hreftext'>" +
-                  item + "</a>" + "<div class='dropdown'>" +
-                  maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
-                  '</div></div></div>');
+              let
+                band = data.split('|||')[0].split(/\s[\/\|]\s/g),
+                bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g),
+                band_col = band.map(
+                  (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" +
+                    "<a class='hreftext'>" +
+                    item + "</a>" + "<div class='dropdown'>" +
+                    maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
+                    '</div></div></div>');
               return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
             }
             return data;
@@ -156,15 +163,13 @@ $(function () {
                   .replace(/(?<=[;|\),])\s/g, ' \n')
                   .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?(Metal[;,]?\s+?\n|\w+$))/g, '')
                   ;
-                genre_col.push("<div class='Genre grid_item'><p class='flex_item fixed'>" +
-                  // genre + "</p><div class='flex_item ts fixed float'>" +
-                  genre.replace(/(.*?)\n/m, "<a class='fixed'>    $1  ...\n</a></p><div class='flex_item ts fixed float'> $1\n")
-                  // genre
-                  +
-                  '</div></div>')
+                genre_col += "<div class='Genre grid_item'><p class='flex_item fixed'>";
+				genre_col += window.matchMedia('(max-width: 767px)').matches?
+				  genre:genre.replace(/(.*?)\n/m, "<a class='fixed'>    $1  ...\n</a></p><div class='flex_item ts fixed float'> $1\n");
+                 genre_col +=  '</div></div>';
 
               });
-              return tabLink(genre_col.join(''));
+              return tabLink(genre_col);
             }
             return data;
           },
@@ -174,10 +179,11 @@ $(function () {
         {
           render: (data, type, row) => {
             // reviews
-            let reviewers = data.split('|||')[0];
-            let range = data.split('|||')[1];
-            let mean = data.split('|||')[2];
-            let sd = data.split('|||')[3];
+            let 
+			 reviewers = data.split('|||')[0],
+              range = data.split('|||')[1],
+              mean = data.split('|||')[2],
+              sd = data.split('|||')[3];
             return "<a class='scores'>".concat(data,
               '</a><div class="ratings ts"><div class="ts"><p>Reviews: <b>' +
               reviewers + '</b></p> <p> Min: <b>' +
@@ -216,16 +222,16 @@ $(function () {
         // rendering histograms
         var coldata = this.api().column(8, { page: 'current' }).data();
         coldata.map((item) => {
-          var score = item.slice(8, -1).split(', ').map(score => score == '0' ? score = 1 : parseInt(score));
-          var id = item.slice(0, 4);
-          var thePlot = document.getElementById(id),
+          var
+            id = item.slice(0, 4),
+            score = item.slice(8, -1).split(', ').map(score => score == '0' ? score = 1 : parseInt(score)),
             data = [{
               x: score,
               customdata: score,
               type: 'histogram',
               xbins: { start: 1, end: 105, size: 10 },
               histnorm: 'percent',
-              hoverlabel: { bgcolor: "rgba(0,0,0,0.8)",bordercolor: "transparent",  font: {color: "#eee"} },
+              hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#eee" } },
               marker: {
                 color: '#000',
               },
@@ -328,18 +334,18 @@ if (($(window).width()) < 768) {
 }
 $.fn.dataTable.ext.search.push(
   function (settings, data, dataIndex) {
-    let year = Number(data[6].match(/\d{4}/i).toString());
-    let genre = data[4].toLowerCase();
-    let continent = data[9];
-    let genres = $("#genre-options").val() || [];
-    let regions = $("#region-options").val() || [];
-    let years = $("#year-options").val() || [];
-    let yearsMin = [];
-    let yearsMax = [];
+    let
+      year = Number(data[6].match(/\d{4}/i).toString()),
+      genre = data[4].toLowerCase(),
+      continent = data[9],
+      genres = $("#genre-options").val() || [],
+      regions = $("#region-options").val() || [],
+      years = $("#year-options").val() || [],
+      yearsMin = [],
+      yearsMax = [];
     years.forEach(function (item) {
       yearsMin.push(Number(item.match(/\d{4}/i)));
     });
-
     years.forEach(function (item) {
       yearsMax.push(Number(item.match(/\d{4}(?!\D)/gi)));
     });
