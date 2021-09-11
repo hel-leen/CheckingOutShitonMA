@@ -163,20 +163,6 @@ checkout =
       nrow()
     
     list(
-      cat(
-        '\nWOAH behold, ' %+% make_style(rgb(0.53, 0.62, 0.95))(count.band) %+% 
-          ' bands are blessing us with their ' %+%
-          make_style(rgb(0.95, 0.3, 0.65))$underline$bold(count.records) %+%
-          ' newish albums and coming up soon.\n' %+% 
-          blurred(yellow((nrow(releases)-count.band)) %+% 
-                    white(' of them are duplicated though...\n\n')) %+% 
-          'Among them, there are ' %+%
-          make_style(rgb(0.83, 0.8, 0.45))(count.fulllength) %+% (' full-lengths. \n\n') %+%
-          make_style(rgb(0.93, 0.5, 0.72))$bold(count.black) %+% " are black-ish metal, and "%+% 
-          make_style(rgb(0.61, 0.8, 0.95))$bold(count.death) %+% " are said to be death-like stuff..\n\n "%+% 
-          make_style(rgb(0.49, 0.88, 0.85))$bold$italic("     Enjoy!") %+% reset(" \n\n")
-        
-      ),
       return(releases)
     ) 
   }
