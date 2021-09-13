@@ -15,9 +15,6 @@ library(gert)
 ##########################  check out new shit  #################################
 checkout =  
   function(link){
-    malink = 
-      "https://www.metal-archives.com"
-    
     ajax.page = 
       link %>% 
       paste0(.,"000") %>%  
@@ -357,67 +354,6 @@ new.list =
   arrange((index)) %>% 
   select(!index)
 
-
-
-### generate a web page ### now deprecated
-#
-# export.webpage = 
-#   function(dataname) { 
-#     target = './CheckingOutShitonMA/html/New.html'
-#     dataname %>%
-#       filter(Date > Sys.Date() - days(183) & Date < Sys.Date() + days(183)) %>% 
-#       # distinct_at(vars(album.cover),.keep_all = TRUE) %>%  
-#       distinct_at(vars(album.link),.keep_all = TRUE) %>%  
-#       distinct_at(vars(Title),.keep_all = TRUE) %>%  ## filter out the duplicates if any
-#       mutate(
-#         Cover = paste0( 
-#           album.link %>% str_match('(?<=\\/)\\d[^.]*$'),
-#           '|||',
-#           album.cover
-#         ),
-#         Album = paste0(
-#           Title,
-#           "|||",
-#           album.link
-#         ),
-#         Band = paste0(
-#           Band,
-#           "|||",
-#           band.links, 
-#           "|||",
-#           band.country
-#         ),
-#         Asso = band.related,
-#         Label = album.label,
-#         Duration = case_when( (is.na (Duration)) ~ '00:00:00',
-#                               TRUE ~ Duration),
-#         Type =  paste0
-#         (Duration,
-#           "|||",
-#           Type
-#         ),
-#         EarliestDate = case_when( (earliest.date<as.Date(Date)) ~ 
-#                                     as.character(earliest.date),  
-#                                   TRUE ~ '0000-00-00'),   ## return '0000-00-00' if earliest.date >= Date
-#         Date = paste0(
-#           Date,
-#           "|||",
-#           EarliestDate
-#         )
-#       ) %>% 
-#       select( Cover, Album, Band, 
-#               Genre, Asso, Label, 
-#               Type, Date) %>% 
-#       tableHTML::tableHTML(escape = FALSE,  
-#                            rownames=FALSE,  
-#                            class="newlist", 
-#                            second_headers = list(c(2, 3, 4), c(' ', 'Band Info.', 'Release Info.')),
-#                            footer = (lubridate::today(tzone = "GMT")) ## add datetime info
-#       ) %>% 
-#       htmltools::save_html(file=target) 
-#     
-#   }
-# export.webpage(new.list)
 
 
 ### generate a JSON file
