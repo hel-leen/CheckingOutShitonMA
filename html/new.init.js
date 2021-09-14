@@ -338,6 +338,7 @@ $(function () {
     //count rows
     if (json) {
 	  $('.filterSection').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
+	  $('.anchor').hide();
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");

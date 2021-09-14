@@ -435,7 +435,23 @@ div.sidenav {
   text-shadow: 0 0 2.5em rgba(230, 200, 190, 0.3),
     0 0 0.5em rgba(225, 194, 184, 0.6);
 }
-
+.anchor p {
+  color: black;
+  font-size: larger;
+  font-weight: bold;
+}
+.anchor img {
+  margin-top: 1.2rem;
+  max-width: 12rem;
+}
+.anchor {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity:.7;
+}
 .heart-Circle {
   border: 0px solid #000;
   border-radius: 260px;
