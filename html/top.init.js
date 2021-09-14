@@ -113,7 +113,7 @@ $(function () {
                 album_title = data.split('|||')[0],
                 album_link = data.split('|||')[1];
                 album_title = window.matchMedia('(max-width: 767px)').matches &album_title.length>20 ?
-				album_title.replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:]\s)(.*?$)/g, '$1<br>$2'):album_title;
+				album_title.replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:\;]\s)(.*?$)/g, '$1<br>$2'):album_title;
               album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" +
                 "<a class='hreftext'>" +
                 album_title
