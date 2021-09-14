@@ -1511,7 +1511,7 @@ iframe {
   /* grid-template-columns: 1fr 1fr; */
 }
 .filterSection {
-  display: grid;
+  display: none;
   margin: .37em 0;
   font-size: .9rem;
   border: 0px transparent;
