@@ -121,10 +121,11 @@ $(function () {
               album_title
                 // .replace(/\s(?=[(])/g, ' <br>')
                 .replace(/(\d{2,}|\s(?=\()|(?<!^)[\-\/\\\,\:\;]\s)(.*?$)/g, '$1<br>$2')
-                .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
+                .replace(/((?<=\w{5,})[\.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
                 .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1')
-                .replace(/(\/){1,}/g, '$1<wbr>') +
+                .replace(/(\/){1,}/g, '$1<wbr>')
                 .replace(/((<br>)|(\n))+(?=\W+)/g, '')
+				+
               // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
               "</a><div class='dropdown'>" +
               maLink("release/view/id/", album_link) +
