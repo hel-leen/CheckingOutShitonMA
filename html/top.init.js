@@ -292,6 +292,7 @@ $(function () {
   table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
     if (json) {
+	  $('.filterSection').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
       //count 
       $('#update').html('Last updated on: ' + json.lastUpdate + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
