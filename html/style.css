@@ -1334,6 +1334,7 @@ table ::-webkit-scrollbar {
   /* text-decoration: underline; */
   cursor: pointer;
   text-shadow: 1px 1px black;
+  white-space: pre-line;
 }
 
 .extra {

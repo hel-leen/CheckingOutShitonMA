@@ -120,11 +120,11 @@ $(function () {
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
                 // .replace(/\s(?=[(])/g, ' <br>')
-                .replace(/(\d{2,}|\s(?=\()|(?<!^)[\-\/\\\,\:\;]\s)(.*?$)/g, '$1<br>$2')
-                .replace(/((?<=\w{5,})[\.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
-                .replace(/\s(((V|v)ol|(P|p)t|(P|p)art)\.?\s(?:\d|[IVXLCDM])+)/g, '<br> $1')
-                .replace(/(\/){1,}/g, '$1<wbr>')
-                .replace(/((<br>)|(\n))+(?=\W+)/g, '')
+                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;]\s)/g, '$1\n')
+                .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*$)/g, '\n $1')
+                .replace(/(^\W+)\n/g, '$1')
+                // .replace(/(\/){1,}/g, '$1<wbr>')
+                // .replace(/((<br>)|(\n))+(?=\W+)/g, '')
 				// .replace(/([^\p{L}\s_'’`]+\s?|to\s(?=\d))/gu, '\n$1\n')
 				+
               // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
@@ -166,7 +166,7 @@ $(function () {
                 .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
                 .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
                 .replace(/(?<=[;|\),])\s/g, ' \n')
-                .replace(/(?<=br\>|\n\s?)\n|^\n|\n(?=\s?Metal,)/g, '')
+                .replace(/(?<=br\>|\n\s?)\n|^\n/g, '')
 				.replace(/\//g, '/<wbr>')
                 ;
               genre_col.push("<div class='grid_item'><div class='flex_item ts'>" +
@@ -346,11 +346,7 @@ $(function () {
   });
   // table.columns([6]).visible(false);
   table.columns().visible(true);
-  $(table.column(4).header()).text('Asso. Acts');
-  // $('<div class="fixed float">FORMAT: <p>Type ∙ tracks<br>(Duration)</p><p>Data incomple.</p><p>SORTING by duration</p></div>')
-  // .appendTo($(table.column(-2).header()));
-  // $('<div class="fixed float">FORMAT: <p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div>')
-  // .appendTo($(table.column(-1).header()));
+  // $(table.column(4).header()).text('Asso. Acts');
   $('.newlist thead').on('click', 'th.sorting ', function () {
     var currentOrder = table.order()[0];
     if (currentOrder[0] == 7) {
