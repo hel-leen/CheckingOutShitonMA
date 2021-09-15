@@ -1,12 +1,14 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400&family=Mulish:wght@300&family=Playfair+Display:wght@600&family=Cinzel:wght@800&family=Pirata+One&display=swap');
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 @keyframes scroll-x {
 	0% { margin-left: 0; transform: translate3d(0%, 0, 0);}
 	25% { margin-left: 0; transform: translate3d(0%, 0, 0);}
 	75% { margin-left: 100%; transform: translate3d(-100%, 0, 0);}
 	100% { margin-left: 100%; transform: translate3d(-100%, 0, 0);}
 }
+
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px rgba(230, 194, 184, 0.2),
@@ -14,7 +16,6 @@
       0 0 2.5em rgba(230, 194, 184, 0.01), 0 0 50px rgba(230, 194, 184, 0.01),
       0 0 60px rgba(230, 194, 184, );
   }
-
   to {
     text-shadow: 0 0 20px rgba(192, 162, 153, 0.5),
       0 0 30px rgba(192, 162, 153, 0.1), 0 0 2.5em rgba(192, 162, 153, 0.05),
@@ -36,7 +37,6 @@
     opacity: 1;
   }
 }
-
 @keyframes scale-out-center {
   0% {
     -webkit-transform: scale(1);
@@ -96,7 +96,6 @@
     transform-origin: 50% 50%;
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translate(-50%, -50%) scaleY(.1) scaleX(0.8);
     transform: translate(-50%, -50%) scaleY(.1) scaleX(0.8);
@@ -105,7 +104,6 @@
     opacity: 0;
   }
 }
-
 @keyframes flip-2-top {
   0% {
     -webkit-transform: translate(-50%, 0%) scaleY(1) scaleX(1);
@@ -114,7 +112,6 @@
     transform-origin: 50% 50%;
     opacity: 1;
   }
-
   100% {
     -webkit-transform: translate(-50%, -50%) scaleY(.1) scaleX(0.8);
     transform: translate(-50%, -50%) scaleY(.1) scaleX(0.8);
@@ -132,7 +129,6 @@
     transform-origin: 50% 0%;
     opacity: 0;
   }
-
   100% {
     -webkit-transform: translate(-50%, 0%) scaleY(1) scaleX(1);
     transform: translate(-50%, 0%) scaleY(1) scaleX(1);
@@ -141,7 +137,6 @@
     opacity: 1;
   }
 }
-
 @keyframes slide-in-blurred-top {
   0% {
     -webkit-transform: translate(-50%, -50%) scaleY(.1) scaleX(0.8);
@@ -150,7 +145,6 @@
     transform-origin: 50% 0%;
     opacity: 0;
   }
-
   100% {
     -webkit-transform: translate(-50%, 0%) scaleY(1) scaleX(1);
     transform: translate(-50%, 0%) scaleY(1) scaleX(1);
@@ -159,6 +153,7 @@
     opacity: 1;
   }
 }
+
 @-webkit-keyframes tracking-in-expand {
   0% {
     letter-spacing: -1em;
@@ -194,8 +189,6 @@
     opacity: 0;
   }
   100% {
-    /* -webkit-filter: blur(0px); */
-            /* filter: blur(0px); */
     opacity: 1;
   }
 }
@@ -206,8 +199,6 @@
     opacity: 0;
   }
   100% {
-    /* -webkit-filter: blur(0px); */
-            /* filter: blur(0px); */
     opacity: 1;
   }
 }
@@ -432,8 +423,7 @@ div.sidenav {
   width: 80%;
   margin: auto;
   color: #222;
-  text-shadow: 0 0 2.5em rgba(230, 200, 190, 0.3),
-    0 0 0.5em rgba(225, 194, 184, 0.6);
+  text-shadow: 0 0 2.5em rgba(230, 200, 190, 0.3), 0 0 0.5em rgba(225, 194, 184, 0.6);
 }
 .anchor p {
   color: black;
@@ -443,10 +433,12 @@ div.sidenav {
 .anchor img {
   margin-top: 1.2rem;
   max-width: 12rem;
+  -webkit-animation: scale-in-top .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: scale-in-top .5s cubic-bezier(0.050, 0.060, 0.450, 0.940) both;
 }
 .anchor {
   width: 100%;
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
   flex-direction: column;
@@ -1308,12 +1300,17 @@ table ::-webkit-scrollbar {
   text-align: center;
 }
 
+.searchBox i,
 .dropdown i {
   position: absolute;
   align-self: center;
   right: 10%;
   font-size: .9em;
   opacity: .6;
+}
+.searchBox i {
+  left:1rem;
+  width: fit-content;
 }
 
 
@@ -1382,6 +1379,8 @@ table ::-webkit-scrollbar {
 .float {
   display: none;
 }
+.float:focus-within,
+.float:focus,
 .float:hover,
 .fixed:hover~.float,
 .newlist th:hover .float {
@@ -2029,22 +2028,23 @@ div.dt-datetime-label span {
 
 .dataTables_filter {
   width: 100%;
-  padding: 1rem;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  background-color: #222;
   border-radius: 0.4rem;
-  color: #fff;
   box-sizing: border-box;
   transition: 0.2s;
+  padding-bottom: 1rem;
+  color: #fff;
+  background-color: #333;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   z-index: 666;
 }
 
 .dataTables_filter {
-  width: 100%;
-  padding: .2em 0;
-  background-color: #333;
+
 }
 
 .dataTables_filter label input {
@@ -2053,7 +2053,7 @@ div.dt-datetime-label span {
   background-color: #222;
   padding: 12px 24px;
   font-size: .9rem;
-  margin-bottom: 12px;
+  /* margin-bottom: 12px; */
   border: 1px solid #666;
   border-radius: 0.4rem;
   top: 0;

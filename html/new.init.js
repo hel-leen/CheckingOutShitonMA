@@ -66,7 +66,6 @@ $(function () {
     // processing: true,
     // serverSide: true,
     ajax: {
-      // url: "https://hel-leen.github.io/CheckingOutShitonMA/html/release",
       url: "release",
       dataFilter: function (data) {
         var json = jQuery.parseJSON(data);
@@ -75,8 +74,10 @@ $(function () {
       },
     },
     autoWidth: false,
+	fixedHeader: true,
+	orderCellsTop: false,
     deferRender: true,
-    stateSave: false,
+    // stateSave: true,
     stateDuration: 60 * 60 * 6,
     stateSaveParams: function (settings, data) {
       data.order = [[7, 'asc'], [0, 'desc']]
@@ -84,14 +85,14 @@ $(function () {
     order: [[7, 'asc'], [0, 'desc']],
     lengthMenu: [50, 100, 200, 400],
     search: {
-      // regex: true,
-      "smart": true,
+      regex: true,
+      smart: true,
     },
     language: {
       searchPlaceholder: 'Search for albums or bands..',
       search: '_INPUT_',
+      infoEmpty: ' ',
       info: '( _START_ - _END_ ) / _TOTAL_ ',
-      infoEmpty: 'No data',
       infoFiltered: ' [ Total: _MAX_ ]',
     },
     columnDefs: [
@@ -123,11 +124,7 @@ $(function () {
                 .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;]\s)/g, '$1\n')
                 .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*$)/g, '\n $1')
                 .replace(/(^\W+)\n/g, '$1')
-                // .replace(/(\/){1,}/g, '$1<wbr>')
-                // .replace(/((<br>)|(\n))+(?=\W+)/g, '')
-				// .replace(/([^\p{L}\s_'’`]+\s?|to\s(?=\d))/gu, '\n$1\n')
 				+
-              // .replace(/(?<=[,:\.\)])\s(?=([^\s]{9,}|[^\d]{6,}|\w{3,})\W?$)|(?<!\-)\s(?=([\(\-]|([\d]{2,})|(\w{1,2}[\.\s]{2,}){1,}[^\)]?$))/g, ' <br>')
               "</a><div class='dropdown'>" +
               maLink("release/view/id/", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
@@ -148,7 +145,8 @@ $(function () {
             var band_col = band.map(
               (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
                 item + "</a><div class='dropdown'>" +
-                maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + "</div><br><abbr class='extra ts'>(" + country[i] + ')</abbr></div></div>');
+                maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
+				"</div><br><abbr class='extra ts'>(" + country[i] + ')</abbr></div></div>');
             return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
           }
           return data;
@@ -326,12 +324,7 @@ $(function () {
       });
     },
   });
-  // setTimeout(() => {
-  // $('#info').hide().animate({
-  // height: 'toggle',
-  // opacity: 'toggle',
-  // }, 'slow');
-  // }, 0);
+
   let table = $('.newlist').DataTable();
   table.on('xhr', function () {
     var json = table.ajax.json();
@@ -344,9 +337,11 @@ $(function () {
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
-  // table.columns([6]).visible(false);
+  $('#searchBox').change(function () {
+	  var searchFields = $('#search-fields').val() || [];
+	  table.columns(searchFields ).search($(this).find('input').val() ).draw();
+	});
   table.columns().visible(true);
-  // $(table.column(4).header()).text('Asso. Acts');
   $('.newlist thead').on('click', 'th.sorting ', function () {
     var currentOrder = table.order()[0];
     if (currentOrder[0] == 7) {
