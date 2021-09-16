@@ -337,7 +337,7 @@ $(function () {
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
-  $('.anchor').css({'display': 'flex',height:.1,'padding-top': '10em'}).animate({height: '100%','padding-top': 0}, 1000);
+  $('.anchor').css({'display': 'flex',height:.1,'padding-top': '10em'});
   $('#searchBox').change(function () {
 	  var searchFields = $('#search-fields').val() || [];
 	  table.columns(searchFields ).search($(this).find('input').val() ).draw();

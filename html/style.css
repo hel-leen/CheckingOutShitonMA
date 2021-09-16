@@ -8,7 +8,40 @@
 	75% { margin-left: 100%; transform: translate3d(-100%, 0, 0);}
 	100% { margin-left: 100%; transform: translate3d(-100%, 0, 0);}
 }
-
+@-webkit-keyframes hideAnimation {
+  0% {
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+    visibility: hidden;
+	opacity:0;
+  }
+  30% {
+    visibility: visible;
+	opacity:1;
+  }
+  100% {
+	-webkit-transform: translateY(0%); 
+	transform: translateY(0%); 
+  }
+}
+@keyframes hideAnimation {	
+  0% {
+	-webkit-transform: translateY(100%);
+	transform: translateY(100%);
+    visibility: hidden;
+	opacity:0;
+  }
+  30% {
+    visibility: visible;
+	opacity:1;
+  }
+  60% {
+  }
+  100% {
+	-webkit-transform: translateY(0%); 
+	transform: translateY(0%); 
+  }
+}
 @-webkit-keyframes glow {
   from {
     text-shadow: 0 0 10px rgba(230, 194, 184, 0.2),
@@ -431,18 +464,20 @@ div.sidenav {
   font-weight: bold;
 }
 .anchor img {
-  margin-top: 1.2rem;
+  /* margin-top: 1.2rem; */
   max-width: 12rem;
-  -webkit-animation: scale-in-top .5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: scale-in-top .5s cubic-bezier(0.050, 0.060, 0.450, 0.940) both;
 }
 .anchor {
   width: 100%;
-  display: none;
+  display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   opacity:.7;
+  /* visibility:hidden; */
+  -webkit-animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+  animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+  /* animation-fill-mode: forwards; */
 }
 .heart-Circle {
   border: 0px solid #000;
@@ -1228,21 +1263,21 @@ table ::-webkit-scrollbar {
 
 .newlist thead>tr:nth-last-child(1)>th:nth-last-child(1) {}
 
-.dbtn {
-  background-color: rgba(0, 0, 0, 0);
-  background-image: url("searchicon.png");
-  background-position: 0.3125em 0.3125rem;
-  background-repeat: no-repeat;
-  color: white;
-  padding: 1rem;
-  font-size: 1rem;
-  border: none;
-}
+/* .dbtn { */
+  /* background-color: rgba(0, 0, 0, 0); */
+  /* background-image: url("searchicon.png"); */
+  /* background-position: 0.3125em 0.3125rem; */
+  /* background-repeat: no-repeat; */
+  /* color: white; */
+  /* padding: 1rem; */
+  /* font-size: 1rem; */
+  /* border: none; */
+/* } */
 
-.ddbtn {
-  background-color: rgba(0, 0, 0, 0);
-  border: none;
-}
+/* .ddbtn { */
+  /* background-color: rgba(0, 0, 0, 0); */
+  /* border: none; */
+/* } */
 
 .grid_item {
   position: relative;
