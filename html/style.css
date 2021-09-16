@@ -474,7 +474,6 @@ div.sidenav {
   align-items: center;
   flex-direction: column;
   opacity:.7;
-  /* visibility:hidden; */
   -webkit-animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
   animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
   /* animation-fill-mode: forwards; */
@@ -2069,17 +2068,13 @@ div.dt-datetime-label span {
   border-radius: 0.4rem;
   box-sizing: border-box;
   transition: 0.2s;
-  padding-bottom: 1rem;
+  padding: .2rem 0 1rem 0;
   color: #fff;
   background-color: #333;
   display: flex;
   flex-direction: column;
   justify-content: center;
   z-index: 666;
-}
-
-.dataTables_filter {
-
 }
 
 .dataTables_filter label input {
