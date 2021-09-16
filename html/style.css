@@ -464,11 +464,11 @@ div.sidenav {
   font-weight: bold;
 }
 .anchor img {
-  /* margin-top: 1.2rem; */
   max-width: 12rem;
 }
 .anchor {
   width: 100%;
+  margin-top: 1.2rem;
   display: flex;
   justify-content: center;
   align-items: center;

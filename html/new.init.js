@@ -330,17 +330,24 @@ $(function () {
     var json = table.ajax.json();
     //count rows
     if (json) {
-	  $('.filterSection').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
 	  $('.anchor').hide();
+	  $('.filterSection').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
-  $('.anchor').css({'display': 'flex',height:.1,'padding-top': '10em'});
-  $('#searchBox').change(function () {
+  // $(" #searchBox input").each(function(){
+        // if($(this).val()==num){ // EDITED THIS LINE
+            // $(this).attr("selected","selected");    
+        // }
+    // });
+  $("#search-fields, #searchBox input").on("keyup change click", function(e) {
 	  var searchFields = $('#search-fields').val() || [];
-	  table.columns(searchFields ).search($(this).find('input').val() ).draw();
+	  var searchValue = $('#searchBox input').val();
+	  table.columns(1).search('').columns(2).search('').columns(3).search('').draw(false);
+	  console.log(searchFields,searchValue);
+	  table.columns(searchFields).search(searchValue).draw();
 	});
   table.columns().visible(true);
   $('.newlist thead').on('click', 'th.sorting ', function () {
