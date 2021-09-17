@@ -140,9 +140,11 @@ $(function () {
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
                 // .replace(/\s(?=[(])/g, ' <br>')
-                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;-]\s)/g, '$1\n')
-                .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*$)/g, '\n $1')
-                .replace(/(^\W+)\n/g, '$1')
+                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;]\s)/gu, '$1\n')
+                .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*$)/gu, '\n $1')
+                // .replace(/(\-.*$)/g, '\n $1')
+                // .replace(/(^\W+)\n/g, '$1')
+                // .replace(/(\n\s?)+/g, '\n')
 				+
               "</a><div class='dropdown'>" +
               maLink("release/view/id/", album_link) +
