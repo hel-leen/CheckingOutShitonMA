@@ -125,7 +125,7 @@ $(function () {
                   // .replace(/((?<=\w{2,})[.​]{2,}|\b\.\s(?=\w{3,})(?=.{9,}))/g, '$1<br>')
                   .replace(/(\/){1,}/g, '$1<wbr>') +
                 "</a><div class='dropdown'>" + 
-				maLink("release/view/id/", album_link) +
+				maLink("albums/id//", album_link) +
                 searchLink(album_title).replace(/\/spotify\"/g, '/albums"') +
                 '</div></div></div>';
               return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
@@ -146,7 +146,7 @@ $(function () {
                   (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" +
                     "<a class='hreftext'>" +
                     item + "</a>" + "<div class='dropdown'>" +
-                    maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
+                    maLink("bands/id/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
                     '</div></div></div>');
               return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
             }

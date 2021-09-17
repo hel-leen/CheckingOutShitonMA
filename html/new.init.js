@@ -140,14 +140,14 @@ $(function () {
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
                 // .replace(/\s(?=[(])/g, ' <br>')
-                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;]\s)/gu, '$1\n')
-                .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*$)/gu, '\n $1')
-                // .replace(/(\-.*$)/g, '\n $1')
-                // .replace(/(^\W+)\n/g, '$1')
-                // .replace(/(\n\s?)+/g, '\n')
+                // .replace(/(-.*$)/g, '\n $1')
+                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
+                .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
+                .replace(/(^\W+|^\n)\n$/g, '$1')
+                .replace(/(\n\s?)+/g, '\n')
 				+
               "</a><div class='dropdown'>" +
-              maLink("release/view/id/", album_link) +
+              maLink("albums/id//", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
             return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
           }
@@ -166,7 +166,7 @@ $(function () {
             var band_col = band.map(
               (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
                 item + "</a><div class='dropdown'>" +
-                maLink("bands/view/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
+                maLink("bands/id/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
 				"</div><br><abbr class='extra ts'>(" + country[i] + ')</abbr></div></div>');
             return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
           }
@@ -184,7 +184,7 @@ $(function () {
               var genre = item
                 .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
                 .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                .replace(/(?<=[;|\),])\s/g, ' \n')
+                .replace(/(?<=[;|\),])\s/g, ' <br>')
                 .replace(/(?<=br\>|\n\s?)\n|^\n/g, '')
 				.replace(/\//g, '/<wbr>')
                 ;
@@ -239,7 +239,7 @@ $(function () {
                 var labeltext = data.match(/(?<=>).*/g);
                 data = "<div class='grid_item'><div class='flex_item'><a class='hreftext'>" +
                   labeltext + "</a><div class='dropdown'>" +
-                  maLink('labels/view', data.match(/\/\d+/g)) + '<a href="https://bandcamp.com/search?q=' +
+                  maLink('labels/id', data.match(/\/\d+/g)) + '<a href="https://bandcamp.com/search?q=' +
                   labeltext + '">Bandcamp<i class=\'fa fa-search\'></i></a><a href="https://www.youtube.com/results?search_query=' +
                   labeltext + "\">Youtube<i class='fa fa-search'></i></a></div></div></div>";
             }
