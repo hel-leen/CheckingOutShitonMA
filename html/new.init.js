@@ -53,7 +53,23 @@ const pageLayout = () => {
     $(":root").css("font-size", "3.97vw");
   }
 }
-
+function createFilter(table, columns) {
+  var input = $('<input type="text" class="search" placeholder="Search for albums or bands.." />').on("keyup", function() {
+    table.draw();
+  });
+  $.fn.dataTable.ext.search.push(function(
+    settings, searchData, index, rowData, counter
+  ) {
+    var val = input.val().toLowerCase();
+    for (var i = 0, ien = columns.length; i < ien; i++) {
+      if (searchData[columns[i]].toLowerCase().indexOf(val) !== -1) {
+        return true;
+      }
+    }
+    return false;
+  });
+  return input;
+}
 $(function () {
   pageLayout();
   $('#datepicker').val(thisweek);
@@ -79,6 +95,7 @@ $(function () {
     deferRender: true,
     // stateSave: true,
     stateDuration: 60 * 60 * 6,
+	dom: 'rt<"bottom"ip>',
     stateSaveParams: function (settings, data) {
       data.order = [[7, 'asc'], [0, 'desc']]
     },
@@ -94,6 +111,8 @@ $(function () {
       infoEmpty: ' ',
       info: '( _START_ - _END_ ) / _TOTAL_ ',
       infoFiltered: ' [ Total: _MAX_ ]',
+	  lengthMenu: " _MENU_ ",
+	  paginate: {"first":"First","last":"Last","next":"Next","previous":"Prev"},
     },
     columnDefs: [
       {
@@ -121,7 +140,7 @@ $(function () {
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
                 // .replace(/\s(?=[(])/g, ' <br>')
-                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;]\s)/g, '$1\n')
+                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;-]\s)/g, '$1\n')
                 .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*$)/g, '\n $1')
                 .replace(/(^\W+)\n/g, '$1')
 				+
@@ -174,6 +193,7 @@ $(function () {
           }
           return data;
         },
+		sorting: false,
         width: '10%',
         targets: [3],
       },
@@ -200,7 +220,8 @@ $(function () {
           }
           return data;
         },
-        "searchable": false,
+        searchable: false,
+		sorting: false,
         width: '10%',
         targets: [4],
       },
@@ -224,6 +245,7 @@ $(function () {
           }
           return data;
         },
+		sorting: false,
         width: '10%',
         targets: [5],
       },
@@ -331,23 +353,20 @@ $(function () {
     //count rows
     if (json) {
 	  $('.anchor').hide();
-	  $('.filterSection').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
+	  $('.filterWrapper').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
-  // $(" #searchBox input").each(function(){
-        // if($(this).val()==num){ // EDITED THIS LINE
-            // $(this).attr("selected","selected");    
-        // }
-    // });
-  $("#search-fields, #searchBox input").on("keyup change click", function(e) {
+ $("#searchInput").append(createFilter(table, ['2', '1']));
+  $("#search-fields").on("keyup change", function(e) {
 	  var searchFields = $('#search-fields').val() || [];
-	  var searchValue = $('#searchBox input').val();
-	  table.columns(1).search('').columns(2).search('').columns(3).search('').draw(false);
-	  console.log(searchFields,searchValue);
-	  table.columns(searchFields).search(searchValue).draw();
+	  var searchValue = $('#searchInput input.search').val();
+	  table.columns(1).search('').columns(2).search('').columns(3).search('').draw( );
+	  $("#searchInput input.search").val('');
+	  $("#searchInput").empty().append(createFilter(table, searchFields));
+	  $("#searchInput input.search").val(searchValue);
 	});
   table.columns().visible(true);
   $('.newlist thead').on('click', 'th.sorting ', function () {
@@ -378,11 +397,12 @@ $(function () {
   $('#delete_button').click(function () {
     table.rows('.selected').remove().draw(false);
   });
-  $('.filter,.genrefilter,.paginate_button, .filter-holder,#reset').change(function () {
+  $('.filter,.genrefilter,.paginate_button, .dataTables_length, .filter-holder,#reset').change(function () {
     table.draw();
   });
-  $('.dataTables_length').change(function () {
-    table.draw(true);
+  $('.dataTables_filter i ').click(function () {
+    $('.dataTables_filter table').toggle("fast");
+    $(".dataTables_filter i").toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
   });
   $('.note>b,.note>a').click(function () {
     $('.note>b i').toggleClass('fa-caret-right fa-caret-down');
@@ -406,8 +426,8 @@ $(document).on('click', '.paginate_button', function () {
 $(document).on('click', '#reset, #Reset', function () {
   $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
+  $('#searchBox option:eq(0), #searchBox option:eq(1)').check();
   $("input[type='text']").val('');
-  // $('#Reissue').check();
   $('#genre-options option:not(:eq(2))').check();
   $('#datecondition').val('After');
   $('#datepicker').val(thisweek);
@@ -415,8 +435,9 @@ $(document).on('click', '#reset, #Reset', function () {
   $('.newlist').DataTable().order([[7, 'asc'], [0, 'desc']]).draw(true);
 });
 $(document).on('click', '#all', function () {
-  $("input[type='checkbox']").uncheck();
   $('select option').uncheck();
+  $('#searchBox option').check();
+  $("input[type='checkbox']").uncheck();
   $("input[type='text']").val('');
   $('.newlist').DataTable().columns().search('').draw();
   $('.newlist').DataTable().order([[7, 'desc'], [0, 'desc']]).draw(true);
@@ -446,7 +467,7 @@ $(document).on('click', '#labelclear', function () {
 });
 $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   let genre = data[3].toLowerCase();
-  let type = data[6].split('|||')[1];
+  let type = data[6].split('|||')[2];
   let date = data[7].split('|||')[0];
   let version = data[7].split('|||')[1];
   let genres = $('#genre-options').val() || [];

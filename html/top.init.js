@@ -82,10 +82,11 @@ $(function () {
         data.order = [[0, 'asc']]
       },
       order: [[0, 'asc']],
-      "lengthMenu": [10, 20, 50],
-      "search": {
+      lengthMenu: [10, 20, 50],
+      search: {
         "regex": true
       },
+	  dom: 'frt<"bottom"ip>',
       "columnDefs": [
         {
           render: (data, type, row) => {
@@ -113,7 +114,10 @@ $(function () {
                 album_title = data.split('|||')[0],
                 album_link = data.split('|||')[1];
                 album_title = window.matchMedia('(max-width: 767px)').matches &album_title.length>20 ?
-				album_title.replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:\;]\s)(.*?$)/g, '$1<br>$2'):album_title;
+				album_title
+				.replace(/(\s(?=\()|(?<!^\w{1,15})[\-\/\\\,\:\;]\s)(.*?$)/g, '$1\n $2')
+				:
+				album_title;
               album_col += "<div class='grid_item'>" + "<div class='Album flex_item'>" +
                 "<a class='hreftext'>" +
                 album_title
@@ -279,21 +283,22 @@ $(function () {
 
         });
       },
-      language: {
-        searchPlaceholder: "Search for albums or bands..",
-        search: "_INPUT_",
-        info: "( _START_ - _END_ ) / _TOTAL_ ",
-        infoEmpty: "0 entry",
-        infoFiltered: " [ Total: _MAX_ ]"
-      },
+    language: {
+      searchPlaceholder: 'Search for albums or bands..',
+      search: '_INPUT_',
+      infoEmpty: ' ',
+      info: '( _START_ - _END_ ) / _TOTAL_ ',
+      infoFiltered: ' [ Total: _MAX_ ]',
+	  lengthMenu: " _MENU_ ",
+	  paginate: {"first":"First","last":"Last","next":"Next","previous":"Prev"},
+    },
     });
   let table = $('.toplist').DataTable();
   // table.draw(); 
   table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
     if (json) {
-	  $('.filterSection').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
-      //count 
+	  $('.filterWrapper').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
       $('#update').html('Last updated on: ' + json.lastUpdate + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }

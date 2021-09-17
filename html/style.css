@@ -474,8 +474,8 @@ div.sidenav {
   align-items: center;
   flex-direction: column;
   opacity:.7;
-  -webkit-animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
-  animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 3s both;
+  -webkit-animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s both;
+  animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s both;
   /* animation-fill-mode: forwards; */
 }
 .heart-Circle {
@@ -663,7 +663,8 @@ a {
   color: #fcfaf1;
 }
 
-.contentWrapper {
+.filterWrapper {
+  display:none;
   margin: 0 1%;
 }
 
@@ -756,10 +757,10 @@ a {
 .dataTables_paginate {
   background-color: #333;
   text-align: center;
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 0;
-  z-index: 666;
+  /* position: -webkit-sticky; */
+  /* position: sticky; */
+  /* bottom: 0; */
+  /* z-index: 666; */
   /* height: 2rem; */
 }
 
@@ -976,7 +977,7 @@ div.dt-datetime-iconDown button {
   /* display: inline-grid; */
 }
 
-.dataTables_filter label input::-webkit-input-placeholder {
+.dataTables_filter input::-webkit-input-placeholder {
   color: #fed;
 }
 
@@ -985,27 +986,44 @@ div.dt-datetime-iconDown button {
   font-size: .88rem;
   background-color: #333;
   color: #fed;
-  padding: .4rem 0;
-  position: -webkit-sticky;
-  position: sticky;
-  bottom: 2.34rem;
+  padding: .4rem 1rem;
+  /* position: -webkit-sticky; */
+  /* position: sticky; */
+  /* bottom: 2.34rem; */
   z-index: 555;
 }
 
+.dataTables_length:nth-child(1) {
+ visibility:hidden;
+}
 .dataTables_length {
   color: #fed;
-  position: relative;
+  opacity:.7;
+  /* position: relative; */
 }
 
 .dataTables_length label {
-  position: absolute;
-  right: 0;
-  bottom: 0;
+  /* position: absolute; */
+  /* right: 0; */
+  /* bottom: 0; */
 }
 
 .dataTables_length select {
   background: #555;
   color: #fed;
+}
+
+.bottom>div {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+.bottom {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  padding:.2rem;
+  background-color:#333;
 }
 
 #delete_button {
@@ -1342,10 +1360,7 @@ table ::-webkit-scrollbar {
   font-size: .9em;
   opacity: .6;
 }
-.searchBox i {
-  left:1rem;
-  width: fit-content;
-}
+
 
 
 .dd-c a:hover,
@@ -1561,7 +1576,7 @@ iframe {
   /* grid-template-columns: 1fr 1fr; */
 }
 .filterSection {
-  display: none;
+  display: grid;
   margin: .37em 0;
   font-size: .9rem;
   border: 0px transparent;
@@ -2060,39 +2075,63 @@ div.dt-datetime-label span {
   font-size: .9rem;
 }
 
+.dataTables_filter * {
+  background-color: transparent;
+  border-color: transparent;
+}
+.dataTables_filter >* {
+  /* padding-left:1rem; */
+  display: flex;
+  align-items:center;
+}
+
 .dataTables_filter {
   width: 100%;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
   border-radius: 0.4rem;
+  background-color: #222;
+  border: 1px solid #666;
   box-sizing: border-box;
   transition: 0.2s;
-  padding: .2rem 0 1rem 0;
+  padding: .2rem 0;
+  margin: .8rem 0;
   color: #fff;
-  background-color: #333;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  /* background-color: #333; */
   z-index: 666;
 }
 
-.dataTables_filter label input {
+#searchBox {
+  display: grid;
+  grid-template-columns: 1rem 1fr;
+  margin-top:0;
+}
+.dataTables_filter label {
+  display: flex;
+  justify-content: center;
+}
+.dataTables_filter input {
   display: inline-block;
   width: 100%;
-  background-color: #222;
-  padding: 12px 24px;
+  padding: .6rem 1rem;
   font-size: .9rem;
-  /* margin-bottom: 12px; */
-  border: 1px solid #666;
-  border-radius: 0.4rem;
-  top: 0;
-  position: fixed;
-  position: -webkit-sticky;
-  position: sticky;
   color: #fff;
 }
-
+.dataTables_filter b {
+  opacity: .8;
+}
+.dataTables_filter i {
+  left:1rem;
+  width: fit-content;
+  opacity: 1;
+}
+.dataTables_filter table {
+  display:none;
+}
+.dataTables_filter .filterSection {
+  margin-top:0;
+}
 .footer {
   display: inline-block;
   box-sizing: border-box;
@@ -2254,7 +2293,7 @@ div.dt-datetime-label span {
 
   .newlist tbody tr td:nth-child(2),
   .newlist tbody tr td:nth-child(4) {
-    white-space: normal;
+    white-space: pre;
   }
 
   .newlist tbody tr td:nth-child(1) {
