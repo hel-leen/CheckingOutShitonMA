@@ -462,7 +462,7 @@ div.sidenav {
   font-weight: bold;
 }
 .anchor img {
-  max-width: 12rem;
+  max-width: 10rem;
 }
 .anchor {
   width: 100%;
@@ -2313,7 +2313,7 @@ div.dt-datetime-label span {
 
   .toplist td img,
   .newlist td img {
-	width: 450px;
+	width: 400px;
     max-width: 90%;
 	object-fit: contain;
   }
