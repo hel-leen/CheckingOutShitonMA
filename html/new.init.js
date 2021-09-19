@@ -62,7 +62,7 @@ function createFilter(table, columns) {
   ) {
     var val = input.val().toLowerCase();
     for (var i = 0, ien = columns.length; i < ien; i++) {
-      if (searchData[columns[i]].toLowerCase().indexOf(val) !== -1) {
+      if (searchData[columns[i]].toLowerCase().split('|||')[0].indexOf(val) !== -1) {
         return true;
       }
     }

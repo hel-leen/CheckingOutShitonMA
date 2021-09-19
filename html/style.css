@@ -725,16 +725,7 @@ a {
 
 .dataTables_wrapper,
 .filterSection {
-  /* opacity: 0.0; */
 }
-/* ul { */
-  /* padding-left: 50px */
-
-/* } */
-
-/* ul li { */
-  /* padding-left: 50px */
-/* } */
 
 .hideItem {
   display: none;
@@ -1040,8 +1031,19 @@ div.dt-datetime-iconDown button {
   z-index: 999;
 }
 
+
+button {
+  background-color: #777;
+}
+button:active{
+  background-color: #555;
+  color: #fff;
+}
+button:hover{
+  background-color: #666;
+  color: #fed;
+}
 button#delete_button:active {
-  background: #555;
   box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
 }
 
@@ -1412,15 +1414,13 @@ table ::-webkit-scrollbar {
   padding: 0 10px;
 }
 
-.flex_item.ts {}
-
 .fixed {
   overflow-y: overlay;
   overflow: hidden;
   flex: 1 1 0;
   opacity: .7;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   /* padding: .2rem 10px; */
 }
@@ -2016,25 +2016,25 @@ td {
 }
 
 
-#Today:active {
-  color: #fed;
-  background: #555;
-  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
-}
+/* #Today:active { */
+  /* color: #fed; */
+  /* background: #555; */
+  /* box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29); */
+/* } */
 
-#Today {
-  border-radius: 4px;
-  border-width: 1px;
-  background: rgba(166, 166, 166, .6);
-  color: white;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 .285vh 8px 0 rgba(0, 0, 0, 0.19);
-}
+/* #Today { */
+  /* border-radius: 4px; */
+  /* border-width: 1px; */
+  /* background: rgba(166, 166, 166, .6); */
+  /* color: white; */
+  /* box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.14), 0 .285vh 8px 0 rgba(0, 0, 0, 0.19); */
+/* } */
 
 
 #all,
 #reset {
   height: 100%;
-  background: #777;
+  /* background: #777; */
   /* color: white; */
   padding-left: 1rem;
   padding-right: 1rem;
@@ -2044,8 +2044,8 @@ td {
 
 #all:active,
 #reset:active {
-  color: #fed;
-  background: #555;
+  /* color: #fed; */
+  /* background: #555; */
   box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
 }
 
@@ -2239,6 +2239,9 @@ div.dt-datetime-label span {
   .filterSection,
   div.dtsb-searchBuilder div.dtsb-titleRow {
     /* font-size: .85rem; */
+  }
+  .fixed {
+  -webkit-line-clamp: 2;
   }
 
   #datecondition {
