@@ -25,9 +25,11 @@
   </p>
   <p  id="info"><a id="update"></a>&nbsp;<a id="count"></a></p>
   
-  <div class="note">
-    <b>NOTE <i class="fa fa-caret-right"></i></b>
-    <a> Click to read tips.</a>
+  <div class="note ">
+	<span class="toggle">
+		<b >NOTE </b><i class="fa fa-caret fa-caret-right toggle"></i>
+		<a> Click to read tips.</a>
+	</span>
     <div class="hideItem">
       <p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while "unknown" means the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</s> Merged with "Release Info. - Date" data.</p>
       <!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
@@ -38,75 +40,79 @@
     </div>
   </div>
 <div class="filterWrapper">
-	<table class="filterSection">
-		<tr class="filterSection">
-			<td><strong>Reset:</strong></td>
-			<td class="filter-holder" id="reset-filter">
+	<div class="filterSection">
+		<p><strong>Reset:</strong></p>
+		<span class="filter-holder" id="reset-filter">
 				<button id="reset">Default</button><button id="all">Show all</button>
-			</td>
-		</tr>
-		<tr class="filterSection">
-			<td><strong>Date: </strong></td>
-			<td class="filter-holder" id="date-filter">
+			</span>
+	</div>
+	<span>
+	<div >
+		<span class="filterSection">
+			<p><strong>Date: </strong></p>
+			<span class="filter-holder 7" id="date-filter">
 				<input id="datecondition" type="text" value="After" readonly>
 				<input id="datepicker" type="text" readonly>
-				<i id="dateclear" class="clear solid fa fa-times-circle"></i>
-			</td>
-		</tr>
-		<tr class="filterSection">
-			<td><strong>Genre:</strong></td>
-			<td class="filter-holder" id="genre-filter">
+				<i id="" class="clear solid fa fa-times-circle"></i>
+			</span>
+		</span>
+		<span class="filterSection">
+			<p><strong>Genre:</strong></p>
+			<span class="filter-holder" id="genre-filter">
 				<div class="solid filter-item">
 					<select id="genre-options" multiple size="1">
 					<option selected value="black">Black Metal</option>
 					<option selected value="death">Death Metal</option>
 					<option value="^((?!(black|death)).)*$">Other</option></select>
 				</div>
-			</td>
-		</tr>
-		<tr class="filterSection">
-			<td><strong>Label:</strong></td>
-			<td class="filter-holder" id="label-filter">
+			</span>
+		</span>
+	</div>
+	<div >
+		<span class="filterSection">
+			<p><strong>Label:</strong></p>
+			<span class="filter-holder 5" id="label-filter">
 				<i id="labelclear" class="clear solid fa fa-times-circle"></i>
-			</td>
-		</tr>
-
-		<tr class="filterSection">
-			<td><strong>Types:</strong></td>
-			<td class="filter-holder">
-				<label class="solid checkcontainer">
-					<input class="filter fa" id="Reissue" type="checkbox"><span class="checkmark solid fa fa-check-circle">
-					<p>No Reissue</p>
-					</span></label>
-				<label class="solid checkcontainer">
-					<input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle">
-					<p>Full-length only</p>
-					</span></label>
-			</td>
-		</tr>
-	</table>
-	
-
+			</span>
+		</span>
+		<span class="filterSection">
+			<p><strong>Country:</strong></p>
+			<span class="filter-holder 2" id="country-filter">
+				<i id="countryclear" class="clear solid fa fa-times-circle"></i>
+			</span>
+		</span>
+	</div></span>
+	<div class="filterSection">
+		<p><strong>Types:</strong></p>
+		<span class="filter-holder">
+			<label class="solid checkcontainer">
+				<input class="filter fa" id="Reissue" type="checkbox"><span class="checkmark solid fa fa-check-circle">
+				<p>No Reissue</p>
+				</span></label>
+			<label class="solid checkcontainer">
+				<input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle">
+				<p>Full-length only</p>
+				</span></label>
+		</span>
+	</div>
 </div>
 <div id="searchBox" class="dataTables_filter searchBox">
-<div><i class="fa fa-chevron-circle-right"></i></div>
-<div id="searchInput"></div>
+<span class="toggle"><i class="fa fa-chevron fa-chevron-circle-right "></i></span>
+<div id="searchInput"> </div>
 <span></span>
-	<table id="searchField" class="filterSection">
-		<tr class="filterSection">
-			<td><b>Search field:</b> &nbsp;</td>
-			<td class="filter-holder" id="search-filter">
+	<span id="searchField" class="filterSection hideItem">
+			<p><b>Search field:</b> &nbsp;</p>
+			<span class="filter-holder" id="search-filter">
 				<div class="solid filter-item">
 				<select id="search-fields" multiple size="1">
 					<option selected value="1">Album</option>
 					<option selected value="2">Band</option> 
 					<option value="3">Genre</option> 
 					<option value="5">Label</option> 
-					</select>
+				</select>
 				</div>
-			</td>
-		</tr>
-	</table>
+			</span>
+	</span>
 </div>
 <table style="border-collapse:collapse;" class="newlist" border="1">
 	<caption>

@@ -378,8 +378,6 @@ div.sidenav {
   font-size: 2rem;
   font-weight: bold;
   color: white;
-  /* position: sticky; */
-  /* top: 0; */
   transition: 0.7s;
   z-index: 666;
 }
@@ -478,6 +476,55 @@ div.sidenav {
   animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 5s both;
   /* animation-fill-mode: forwards; */
 }
+.loading {
+  /* height: 100vh; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding:.5rem;
+}
+.loading>div {
+  width: 3px;
+  height: 1rem;
+  background: linear-gradient(45deg, wheat, #fff);
+  margin: 3px;
+  animation: wave 1.5s linear infinite;
+  border-radius: 2rem;
+}
+.loading>div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.loading>div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.loading>div:nth-child(4) {
+  animation-delay: 0.6s;
+}
+.loading>div:nth-child(5) {
+  animation-delay: 0.8s;
+}
+.loading>div:nth-child(6) {
+  animation-delay: 1s;
+}
+.loading>div:nth-child(7) {
+  animation-delay: 1.2s;
+}
+.loading>div:nth-child(8) {
+  animation-delay: 1.4s;
+}
+
+@keyframes wave {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
 .heart-Circle {
   border: 0px solid #000;
   border-radius: 260px;
@@ -665,7 +712,13 @@ a {
 
 .filterWrapper {
   display:none;
-  margin: 0 1%;
+  margin: 1%;
+  /* grid-template-columns: 1fr 1fr; */
+}
+
+.filterWrapper>span{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
 }
 
 .new {
@@ -729,6 +782,11 @@ a {
 
 .hideItem {
   display: none;
+}
+.toggle,
+.clear,
+button {
+  cursor: pointer;
 }
 .glow {
   color: #fffefd;
@@ -1019,12 +1077,9 @@ div.dt-datetime-iconDown button {
 
 #delete_button {
   position: fixed;
+  padding: .7rem;
   right: -4.5rem;
   bottom: 1rem;
-  padding: 1rem;
-  border: 0;
-  border-radius: 100px;
-  background: #666;
   color: white;
   outline: none;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24), 0 1vh 2vh 0 rgba(0, 0, 0, 0.19);
@@ -1033,6 +1088,10 @@ div.dt-datetime-iconDown button {
 
 
 button {
+  padding-left: .7rem;
+  padding-right: .7rem;
+  border-color: transparent;
+  border-radius: 100px;
   background-color: #777;
 }
 button:active{
@@ -1112,7 +1171,9 @@ table {
   table-layout: fixed;
   text-align: center;
 }
-
+.dataTables_empty{
+  line-height: 2rem;
+}
 .newlist tr.odd {
   background: rgba(60, 55, 50, .4);
 }
@@ -1456,8 +1517,8 @@ table ::-webkit-scrollbar {
 
 .newlist th:hover .float {
   left: 0;
-  right: 0;
-  bottom: 100%;
+  /* right: 0; */
+  /* bottom: 100%; */
   font-size: .66rem;
   color:lightgray;
   padding: 1rem;
@@ -1562,7 +1623,7 @@ iframe {
 
 #glossary p {
   font-size: .9rem;
-  margin-left: .4em;
+  margin: 0 .4em;
 }
 
 .breaker {
@@ -1577,7 +1638,7 @@ iframe {
 }
 .filterSection {
   display: grid;
-  margin: .37em 0;
+  min-height: 2rem;
   font-size: .9rem;
   border: 0px transparent;
   text-align: left;
@@ -1596,7 +1657,7 @@ iframe {
 .filterSection strong {
   align-items: center;
   display: flex;
-  min-width: 4.3rem;
+  min-width: 5rem;
 }
 
 
@@ -1617,11 +1678,11 @@ iframe {
   cursor: pointer;
 }
 
-.filter-holder>*:not(.filter-item),
+.filter-holder>*:not(.filter-item):not(select),
 .filter-holder select option {
   border-color: transparent;
   padding: .11rem .33rem;
-  border-radius: 27px;
+  border-radius: 22rem;
 }
 
 .filter-holder>*:not(:nth-last-child(1)),
@@ -1639,18 +1700,14 @@ iframe {
 
 .filter-holder>.checkcontainer {
   display: grid;
-  grid-template-rows: 1fr;
-  /* grid-template-columns: 1em 1fr; */
-  grid-auto-flow: column;
-  /* grid-column-gap: .2rem; */
   align-items: center;
   cursor: pointer;
   width: fit-content;
+  margin-left: -.33rem;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  padding: .285vh;
 }
 
 .checkcontainer input {
@@ -1776,8 +1833,6 @@ input:checked + .slider {
 }
 
 input:focus + .slider {
-  /* box-shadow: 0 0 1px #2196F3; */
-    /* justify-content: flex-end; */
 }
 
 
@@ -1794,22 +1849,23 @@ input:focus + .slider {
   /* margin: 0; */
 }
 
-.filter-holder .fa:not(.fa-check-circle),
-.checkcontainer .checkmark:before {
+.filter-holder i.fa:not(.fa-check-circle) {
+  /* color: gray; */
+  font-size: 1.1rem;
   opacity: .3;
 }
 
 .checkcontainer .checkmark:before {
-  /* font-size: 1.3rem; */
+  opacity: .3;
 }
 
 .checkcontainer input:hover~.checkmark:before {
   color: lightblue;
 }
 
-.filter-holder .fa:hover,
-.filter-holder .fa:focus,
-.filter-holder .fa:active,
+.filter-holder i.fa:hover,
+.filter-holder i.fa:focus,
+.filter-holder i.fa:active,
 .checkcontainer input:checked~.checkmark:before {
   opacity: 1;
 }
@@ -1821,10 +1877,11 @@ button:active {
 }
 
 
-#label-filter select {
+.filter-holder> select {
   background: rgba(66, 66, 66, .9);
   padding: .31em .57rem;
   width: 22rem;
+  border-radius: 11rem;
 }
 
 
@@ -1844,13 +1901,6 @@ button:active {
   max-width: 6em;
   text-shadow: 0px 0px 1px #9b9;
 }
-
-#dateclear,
-#labelclear {
-  color: gray;
-  font-size: 1.1rem;
-}
-
 
 
 .unresult {
@@ -2126,7 +2176,7 @@ div.dt-datetime-label span {
   width: fit-content;
   opacity: 1;
 }
-.dataTables_filter table {
+.dataTables_filter .hideItem{
   display:none;
 }
 .dataTables_filter .filterSection {
@@ -2224,8 +2274,6 @@ div.dt-datetime-label span {
     min-width: 100%;
   }
 
-
-
   a#home:hover {
     font-size: .7rem;
     top: 2rem;
@@ -2234,11 +2282,11 @@ div.dt-datetime-label span {
     height: 36px;
   }
 
-
-
+  .filterWrapper>span{
+    grid-template-columns: 1fr;
+  }
   .filterSection,
   div.dtsb-searchBuilder div.dtsb-titleRow {
-    /* font-size: .85rem; */
   }
   .fixed {
   -webkit-line-clamp: 2;
@@ -2265,6 +2313,7 @@ div.dt-datetime-label span {
 
   .toplist td img,
   .newlist td img {
+	width: 450px;
     max-width: 90%;
 	object-fit: contain;
   }

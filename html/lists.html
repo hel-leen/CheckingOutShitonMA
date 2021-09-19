@@ -24,56 +24,60 @@
 <p  id="info"><a id="update"></a>&nbsp;<a id="count"></a> (See what has <a href="./Top.html#update-info" target="_blank" rel="noopener noreferrer">changed</a>)</p>
 <div class="filterWrapper">
 <li class="filterSection" id="glossary">
-<strong>Glossary&nbsp;<i class="fa fa-caret-right" style=" margin-left: 1px;"></i></strong>
-<p style="display: none">
+<span class="toggle"><strong>Glossary&nbsp;<i class="fa fa-caret-right" style=" margin-left: 1px;"></i></strong></span>
+<p class="hideItem">
 	Rating Min and Max: the lowest rating and the highest rating. <br>
 	Rating Mean:  the average of all the ratings. <br>
 	Rating Sd: the standard deviation of the ratings, a measure of how variable the ratings are.
 </p></li>
-<table class="filterSection">
-	<tr class="filterSection">
-		<td><strong>Genre:</strong></td>
-		<td class="filter-holder" id="url-filter">
+<div>
+	<span class="filterSection">
+		<p><strong>Genre:</strong></p>
+		<span class="filter-holder" id="url-filter">
 			<div class="solid filter-item">
 				<select id="url-option" multiple size="1">
-					<option value="Black" selected>Black Metal</option>
-					<option value="Death">Death Metal</option>
-					<!-- <option value="Top" selected>&nbsp;</option> -->
+				<option selected value="black">Black Metal</option>
+				<option selected value="death">Death Metal</option>
 				</select>
 			</div>
-		</td>
-	</tr>
-	<tr class="filterSection">
-		<td><strong>Region:</strong></td>
-		<td class="filter-holder" id="region-filter">
-			<select id="region-options" class="solid filter-item" multiple="multiple" size="1">
+		</span>
+	</span>
+	<span class="filterSection">
+		<p><strong>Region:</strong></p>
+		<span class="filter-holder" id="region-filter">
+			<div class="solid filter-item">
+			<select id="region-options" multiple="multiple" size="1">
 				<option selected value="Europe">European</option>
 				<option selected value="Americas" >American</option>
 				<option selected value="Oceania" >Oceanian</option>
 				<option selected value="Asia" >Asian</option>
 				<option selected value="(International|Unknow|NA)" >Other</option>
 			</select>
-		</td>
-	</tr>
-	<tr class="filterSection">
-		<td><strong>Year:</strong></td>
-		<td class="filter-holder" id="year-filter">
-			<select id="year-options" class="solid filter-item" multiple="multiple" size="1">
+			</div>
+		</span>
+	</span>
+	<span class="filterSection">
+		<p><strong>year:</strong></p>
+		<span class="filter-holder" id="year-filter">
+			<div class="solid filter-item">
+			<select id="year-options" multiple="multiple" size="1">
+			<!-- <option selected value="1900-1979" >Before 1980s</option> -->
 			  <option selected value="1950-1989" >1980s</option>
 			  <option selected value="1990-1999" >1990s</option>
 			  <option selected value="2000-2009" >2000s</option>
 			  <option selected value="2010-2099" >2010 to present</option>
 			</select>
-		</td>
-	</tr>
-	<tr class="filterSection">
-		<td><strong>Reset: </strong> </td>
-		<td class="filter-holder" id="reset-filter">
-			<button id="reset">Clear filters</button>
-		</td>
-	</tr>
-</table>
-</div >
+			</div>
+		</span>
+	</span>
+		<div class="filterSection">
+		<p><strong>Reset:</strong></p>
+		<span class="filter-holder" id="reset-filter">
+				<button id="reset">Clear filters</button>
+			</span>
+	</div>
+</div>
+
 <div class="container">
 <table class="toplist" style="width:100%">
 <thead>

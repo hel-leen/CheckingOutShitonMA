@@ -54,10 +54,10 @@ const pageLayout = () => {
   }
 }
 function createFilter(table, columns) {
-  var input = $('<input type="text" class="search" placeholder="Search for albums or bands.." />').on("keyup", function() {
+  var input = $('<input type="text" class="search" placeholder="Search for albums or bands.."/>').on("keyup", function () {
     table.draw();
   });
-  $.fn.dataTable.ext.search.push(function(
+  $.fn.dataTable.ext.search.push(function (
     settings, searchData, index, rowData, counter
   ) {
     var val = input.val().toLowerCase();
@@ -90,12 +90,12 @@ $(function () {
       },
     },
     autoWidth: false,
-	fixedHeader: true,
-	orderCellsTop: false,
+    fixedHeader: true,
+    orderCellsTop: false,
     deferRender: true,
     // stateSave: true,
     stateDuration: 60 * 60 * 6,
-	dom: 'rt<"bottom"ip>',
+    dom: 'rt<"bottom"ip>',
     stateSaveParams: function (settings, data) {
       data.order = [[7, 'asc'], [0, 'desc']]
     },
@@ -111,8 +111,10 @@ $(function () {
       infoEmpty: ' ',
       info: '( _START_ - _END_ ) / _TOTAL_ ',
       infoFiltered: ' [ Total: _MAX_ ]',
-	  lengthMenu: " _MENU_ ",
-	  paginate: {"first":"First","last":"Last","next":"Next","previous":"Prev"},
+      lengthMenu: " _MENU_ ",
+      paginate: { "first": "First", "last": "Last", "next": "Next", "previous": "Prev" },
+      zeroRecords: "No matching records found<br>Set fewer filters and retry?",
+      loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
     },
     columnDefs: [
       {
@@ -145,7 +147,7 @@ $(function () {
                 .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
                 .replace(/(^\W+|^\n)\n$/g, '$1')
                 .replace(/(\n\s?)+/g, '\n')
-				+
+              +
               "</a><div class='dropdown'>" +
               maLink("albums/id//", album_link) +
               searchLink(album_title).replace(/\/spotify\"/g, '/albums"') + '</div></div></div>';
@@ -163,11 +165,11 @@ $(function () {
             let band = data.split('|||')[0].split(/\s[\/\|]\s/g);
             let bandlink = data.split('|||')[1].split(/\s[\/\|]\s/g);
             let country = data.split('|||')[2].split('| || |');
-            var band_col = band.map(
-              (item, i) => '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
-                item + "</a><div class='dropdown'>" +
-                maLink("bands/id/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') + 
-				"</div><br><abbr class='extra ts'>(" + country[i] + ')</abbr></div></div>');
+            var band_col = band.map((item, i) =>
+              '' + "<div class='grid_item'><div class='flex_item'>" + "<a class='hreftext'>" +
+              item + "</a><div class='dropdown'>" +
+              maLink("bands/id/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
+              "</div><br><abbr class='extra ts'>(" + country[i] + ')</abbr></div></div>');
             return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
           }
           return data;
@@ -186,7 +188,7 @@ $(function () {
                 .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
                 .replace(/(?<=[;|\),])\s/g, ' <br>')
                 .replace(/(?<=br\>|\n\s?)\n|^\n/g, '')
-				.replace(/\//g, '/<wbr>')
+                .replace(/\//g, '/<wbr>')
                 ;
               genre_col.push("<div class='grid_item'><div class='flex_item ts'>" +
                 genre + '</div></div>');
@@ -195,7 +197,7 @@ $(function () {
           }
           return data;
         },
-		sorting: false,
+        sorting: false,
         width: '10%',
         targets: [3],
       },
@@ -223,7 +225,7 @@ $(function () {
           return data;
         },
         searchable: false,
-		sorting: false,
+        sorting: false,
         width: '10%',
         targets: [4],
       },
@@ -247,7 +249,7 @@ $(function () {
           }
           return data;
         },
-		sorting: false,
+        sorting: false,
         width: '10%',
         targets: [5],
       },
@@ -330,19 +332,36 @@ $(function () {
       api.columns(5).every(function () {
         var column = this;
         var select = $('<select><option value=""></option></select>')
-          .insertBefore('#label-filter #labelclear').on('change', function () {
-            $("input[type='checkbox']").uncheck();
-            $('#genre-options option').uncheck();
-            $('#datepicker').val('');
+          .insertBefore('#label-filter .clear').on('change', function () {
             var val = $.fn.dataTable.util.escapeRegex($(this).val());
             column.search(val ? val + '$' : '', true, false).draw();
           });
         column.data().unique().filter(function (v) {
           return v.match(/(?<=>).*/g) != null;
-        }
-        ).sort(partSort).each((d, j) => {
+        }).sort(partSort).each((d, j) => {
           var opval = d.match(/(?<=>).*/g);
           select.append('<option value="' + opval + '">' + opval +
+            '</option>');
+        });
+      });
+      // select box for countries
+      api.columns(2).every(function () {
+        var column = this;
+        var select = $('<select><option value=""></option></select>')
+          .insertBefore('#country-filter .clear').on('change', function () {
+            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+            column.search(val ? val + '$' : '', true, false).draw();
+          });
+        var countries = column.data().map((d, j) => {
+          d = d.split('|||')[2].split('| || |');
+          return d;
+        }).flatten().sort().reduce(function (obj, item) {
+          obj[item] = (obj[item] || 0) + 1;
+          return obj;
+        }, {});
+        Object.entries(countries).forEach(entry => {
+          const [key, value] = entry;
+          select.append('<option value="' + key + '">' + key + ' (' + value + ') ' +
             '</option>');
         });
       });
@@ -354,22 +373,27 @@ $(function () {
     var json = table.ajax.json();
     //count rows
     if (json) {
-	  $('.anchor').hide();
-	  $('.filterWrapper').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
+      $('.anchor').hide();
+      $('.filterWrapper').css({ 'display': 'grid', opacity: .1 }).animate({ opacity: 1, }, 1000);
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
- $("#searchInput").append(createFilter(table, ['2', '1']));
-  $("#search-fields").on("keyup change", function(e) {
-	  var searchFields = $('#search-fields').val() || [];
-	  var searchValue = $('#searchInput input.search').val();
-	  table.columns(1).search('').columns(2).search('').columns(3).search('').draw( );
-	  $("#searchInput input.search").val('');
-	  $("#searchInput").empty().append(createFilter(table, searchFields));
-	  $("#searchInput input.search").val(searchValue);
-	});
+  $("#searchInput").append(createFilter(table, ['2', '1']));
+  $("#search-fields").on("keyup change", function (e) {
+    var 
+	  searchCols = [],
+     searchFields = $('#search-fields').val() || [],
+     searchValue = $('#searchInput input.search').val();
+	$('#search-fields option:selected').each(function() { searchCols.push( $( this ).text().toLowerCase().concat('s') ) });
+	searchCols = searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or');
+    $("#searchInput input.search").val('');
+    table.columns(1).search('').columns(2).search('').columns(3).search('').columns(5).search('').draw();
+    $("#searchInput").empty().append(createFilter(table, searchFields));
+    $("#searchInput input.search").attr('placeholder', 'Search for '.concat(searchCols,'..'));
+    $("#searchInput input.search").val(searchValue);
+  });
   table.columns().visible(true);
   $('.newlist thead').on('click', 'th.sorting ', function () {
     var currentOrder = table.order()[0];
@@ -396,27 +420,55 @@ $(function () {
   $('.newlist tbody').on('click', '.dropdown,.float', function () {
     $(this).toggleClass('actived');
   });
+  $('#datecondition').click(function () {
+    if ($(this).val() == 'After') {
+      $(this).val('Before');
+      $(this).css('text-shadow', '0px 0px 1px #d99');
+      $('.newlist').DataTable().order([[7, 'desc'], [0, 'desc']]).draw(true);
+    } else {
+      $(this).val('After');
+      $(this).css('text-shadow', '0px 0px 1px #9b9');
+      $('.newlist').DataTable().order([[7, 'asc'], [0, 'desc']]).draw(true);
+    }
+  });
+  $('#datepicker, #today, #Today, .dt-datetime-today').click(function () {
+    $('#datepicker').val(thisday);
+    $('.newlist').DataTable().draw();
+  });
   $('#delete_button').click(function () {
     table.rows('.selected').remove().draw(false);
   });
-  $('.filter,.genrefilter,.paginate_button, .dataTables_length, .filter-holder,#reset').change(function () {
+  $('.toggle ').click(function () {
+    $(this).parent().children('.hideItem').toggle("fast").css('display', 'grid');
+    $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
+    $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
+  });
+  $('.filterSection .clear').click(function () {
+    var filters = $(this).parent();
+    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
+    filters.children('select').children('option').prop('selected', false);
+    filters.children('#datepicker').val('');
+    table.columns(cols).search('').draw();
+  });
+  $('#all, #reset, #Reset').click(function () {
+    $('select option').uncheck();
+    $('#searchBox option').check();
+    $("input[type='checkbox']").uncheck();
+    $("input[type='text']").val('');
+    table.columns().search('').draw();
+    table.order([[7, 'desc'], [0, 'desc']]).draw(true);
+  });
+  $('#reset, #Reset').click(function () {
+    $('#searchBox option:not(:eq(0)):not(:eq(0))').uncheck();
+    $('#genre-options option:not(:eq(-1))').check();
+    $('#datecondition').val('After');
+    $('#datepicker').val(thisweek);
+    table.order([[7, 'asc'], [0, 'desc']]).draw(true);
+  });
+  $('.filter,.genrefilter,.paginate_button, .dataTables_length, .filter-holder,#reset').on("click change", function (e) {
     table.draw();
   });
-  $('.dataTables_filter i ').click(function () {
-    $('.dataTables_filter table').toggle("fast");
-    $(".dataTables_filter i").toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
-  });
-  $('.note>b,.note>a').click(function () {
-    $('.note>b i').toggleClass('fa-caret-right fa-caret-down');
-    $('.note>a').animate({
-      height: 'toggle',
-      opacity: 'toggle',
-    }, 'fast');
-    $('.note>div:not(:nth-last-of-type(0))').animate({
-      height: 'toggle',
-      opacity: 'toggle',
-    }, 'fast');
-  });
+
 });
 $(window).resize(function () {
   pageLayout();
@@ -425,48 +477,6 @@ $(document).on('click', '.paginate_button', function () {
   $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $(".dataTables_filter").height(), }, 800);
 });
 
-$(document).on('click', '#reset, #Reset', function () {
-  $("input[type='checkbox']").uncheck();
-  $('select option').uncheck();
-  $('#searchBox option:eq(0), #searchBox option:eq(1)').check();
-  $("input[type='text']").val('');
-  $('#genre-options option:not(:eq(2))').check();
-  $('#datecondition').val('After');
-  $('#datepicker').val(thisweek);
-  $('.newlist').DataTable().columns().search('').draw();
-  $('.newlist').DataTable().order([[7, 'asc'], [0, 'desc']]).draw(true);
-});
-$(document).on('click', '#all', function () {
-  $('select option').uncheck();
-  $('#searchBox option').check();
-  $("input[type='checkbox']").uncheck();
-  $("input[type='text']").val('');
-  $('.newlist').DataTable().columns().search('').draw();
-  $('.newlist').DataTable().order([[7, 'desc'], [0, 'desc']]).draw(true);
-});
-$(document).on('click', '#datecondition', function () {
-  if ($(this).val() == 'After') {
-    $(this).val('Before');
-    $(this).css('text-shadow', '0px 0px 1px #d99');
-    $('.newlist').DataTable().order([[7, 'desc'], [0, 'desc']]).draw(true);
-  } else {
-    $(this).val('After');
-    $(this).css('text-shadow', '0px 0px 1px #9b9');
-    $('.newlist').DataTable().order([[7, 'asc'], [0, 'desc']]).draw(true);
-  }
-});
-$(document).on('click', '#datepicker, #today, #Today, .dt-datetime-today', function () {
-  $('#datepicker').val(thisday);
-  $('.newlist').DataTable().draw();
-});
-$(document).on('click', '#dateclear', function () {
-  $('#datepicker').val('');
-  $('.newlist').DataTable().draw();
-});
-$(document).on('click', '#labelclear', function () {
-  $('#label-filter option').prop('selected', false);
-  $('.newlist').DataTable().columns(5).search('').draw();
-});
 $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   let genre = data[3].toLowerCase();
   let type = data[6].split('|||')[2];
