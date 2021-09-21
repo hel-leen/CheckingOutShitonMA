@@ -54,7 +54,11 @@ const pageLayout = () => {
   }
 }
 function createFilter(table, columns) {
-  var input = $('<input type="text" class="search" placeholder="Search for albums or bands.."/>').on("keyup", function () {
+  var input = $('<input type="text" class="search"/><span class="clear solid fa fa-times-circle"/></span/>').on("keyup click", function () {
+	var 
+	 kclear = $(this).filter(".clear" ), iclear = $(this).parent().children( ".clear" ), ivalue = $(this).parent().children( "input" );
+	if (ivalue.val() ) { iclear.show(); }  
+	if (kclear.length>0) { ivalue.val('') ; ivalue.focus();	iclear.hide();}
     table.draw();
   });
   $.fn.dataTable.ext.search.push(function (
@@ -305,10 +309,11 @@ $(function () {
     ],
     drawCallback: function (settings) {
       //group rows by date
-      var groupColumn = 7;
-      var api = this.api();
-      var rows = api.rows({ page: 'current' }).nodes();
-      var last = '';
+      var 
+	   groupColumn = 7,
+       api = this.api(),
+       rows = api.rows({ page: 'current' }).nodes(),
+       last = '';
       api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
         var date = group.match(/^\d.{9}/g).toString();
         date = (
@@ -381,9 +386,11 @@ $(function () {
     }
   });
   $("#searchInput").append(createFilter(table, ['2', '1']));
+  $("#searchInput input.search").attr('placeholder', 'Search for albums or bands..');
+  // $(createFilter(table, ['2', '1'])).insertBefore('#searchInput .clear')
   $("#search-fields").on("keyup change", function (e) {
     var 
-	  searchCols = [],
+	 searchCols = [],
      searchFields = $('#search-fields').val() || [],
      searchValue = $('#searchInput input.search').val();
 	$('#search-fields option:selected').each(function() { searchCols.push( $( this ).text().toLowerCase().concat('s') ) });
@@ -424,16 +431,16 @@ $(function () {
     if ($(this).val() == 'After') {
       $(this).val('Before');
       $(this).css('text-shadow', '0px 0px 1px #d99');
-      $('.newlist').DataTable().order([[7, 'desc'], [0, 'desc']]).draw(true);
+      table.order([[7, 'desc'], [0, 'desc']]).draw(true);
     } else {
       $(this).val('After');
       $(this).css('text-shadow', '0px 0px 1px #9b9');
-      $('.newlist').DataTable().order([[7, 'asc'], [0, 'desc']]).draw(true);
+      table.order([[7, 'asc'], [0, 'desc']]).draw(true);
     }
   });
   $('#datepicker, #today, #Today, .dt-datetime-today').click(function () {
     $('#datepicker').val(thisday);
-    $('.newlist').DataTable().draw();
+    table.draw();
   });
   $('#delete_button').click(function () {
     table.rows('.selected').remove().draw(false);

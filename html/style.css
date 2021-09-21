@@ -472,8 +472,8 @@ div.sidenav {
   align-items: center;
   flex-direction: column;
   opacity:.7;
-  -webkit-animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6.6s both;
-  animation: hideAnimation 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 6.6s both;
+  -webkit-animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 9.6s both;
+  animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 9.6s both;
   /* animation-fill-mode: forwards; */
 }
 .loading {
@@ -1702,6 +1702,7 @@ iframe {
   display: grid;
   align-items: center;
   cursor: pointer;
+  font-size: .9rem;
   width: fit-content;
   margin-left: -.33rem;
   -webkit-user-select: none;
@@ -1774,7 +1775,7 @@ iframe {
 
 
 .checkmark p {
-  font-size: .88rem;
+  /* font-size: .9rem; */
 }
 
 .checkmark {
@@ -1849,7 +1850,8 @@ input:focus + .slider {
   /* margin: 0; */
 }
 
-.filter-holder i.fa:not(.fa-check-circle) {
+/* .filter-holder i.fa:not(.fa-check-circle), */
+.clear {
   /* color: gray; */
   font-size: 1.1rem;
   opacity: .3;
@@ -1863,9 +1865,12 @@ input:focus + .slider {
   color: lightblue;
 }
 
-.filter-holder i.fa:hover,
-.filter-holder i.fa:focus,
-.filter-holder i.fa:active,
+.clear:hover,
+.clear:focus,
+.clear:active,
+/* .filter-holder i.fa:hover, */
+/* .filter-holder i.fa:focus, */
+/* .filter-holder i.fa:active, */
 .checkcontainer input:checked~.checkmark:before {
   opacity: 1;
 }
@@ -2171,11 +2176,19 @@ div.dt-datetime-label span {
 .dataTables_filter b {
   opacity: .8;
 }
-.dataTables_filter i {
+.dataTables_filter .fa {
   left:1rem;
   width: fit-content;
-  opacity: 1;
+  font-size: .9em;
 }
+.dataTables_filter .toggle .fa {
+  opacity: .9;
+}
+.dataTables_filter .clear {
+  padding: .6rem 1rem;
+  display:none;
+}
+
 .dataTables_filter .hideItem{
   display:none;
 }
