@@ -148,9 +148,7 @@ $(function () {
             let album_link = data.split('|||')[1];
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
-                // .replace(/\s(?=[(])/g, ' <br>')
-                // .replace(/(-.*$)/g, '\n $1')
-                .replace(/((?<=\w{5,})[\.​]{2,}|(?<!^)[,:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
+                .replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
                 .replace(/(([\/\(\\～~]|\d{2,}|((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
                 .replace(/(^\W+|^\n)\n$/g, '$1')
                 .replace(/(\n\s?)+/g, '\n')
