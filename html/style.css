@@ -472,8 +472,8 @@ div.sidenav {
   align-items: center;
   flex-direction: column;
   opacity:.7;
-  -webkit-animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 9.6s both;
-  animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 9.6s both;
+  -webkit-animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 11.6s both;
+  animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 11.6s both;
   /* animation-fill-mode: forwards; */
 }
 .loading {

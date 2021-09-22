@@ -193,7 +193,8 @@ $(function () {
               var genre = item
                 .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
                 .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                .replace(/(?<=[;|\),])\s|\s(?=[\(])/g, ' \n')
+                .replace(/(?<=[;])\s/g, ' <br>')
+                .replace(/(?<=[|\),])\s|\s(?=[\(])/g, ' \n')
                 .replace(/(?<=br\>|\n\s?)\n|^\n|(?<=\([^\)]*)\n/g, '')
                 .replace(/\//g, '/<wbr>')
                 ;
