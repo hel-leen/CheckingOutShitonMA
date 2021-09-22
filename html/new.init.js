@@ -28,7 +28,8 @@ let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g);
 let hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maTarget = q => 'https://www.metal-archives.com/' + q;
-const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' + ">MA Page<i class='fa fa-medium'></i></a>";
+const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' +
+  ">MA Page<i class='fa fa-medium'></i></a>";
 const searchLink = text => {
   text = '<a href="https://bandcamp.com/search?q=' + text +
     "\">Bandcamp<i class='fa fa-search'></i></a>" +
@@ -53,12 +54,13 @@ const pageLayout = () => {
     $(":root").css("font-size", "3.97vw");
   }
 }
-function createFilter(table, columns) {
-  var input = $('<input type="text" class="search"/><span class="clear solid fa fa-times-circle"/></span/>').on("keyup click", function () {
-	var 
-	 kclear = $(this).filter(".clear" ), iclear = $(this).parent().children( ".clear" ), ivalue = $(this).parent().children( "input" );
-	if (ivalue.val() ) { iclear.show(); }  
-	if (kclear.length>0) { ivalue.val('') ; ivalue.focus();	iclear.hide();}
+const createFilter = (table, columns) => {
+  var input = '<input type="text" class="search"/><span class="clear fa fa-times-circle"></span>';
+  input = $(input).on("keyup click", function () {
+    var
+      iclear = $(this).parent().children(".clear"), ivalue = $(this).parent().children("input");
+    if (ivalue.val()) { iclear.show(); }
+    if ($(this).filter(".clear").length > 0) { ivalue.val(''); ivalue.focus(); iclear.hide(); }
     table.draw();
   });
   $.fn.dataTable.ext.search.push(function (
@@ -74,6 +76,7 @@ function createFilter(table, columns) {
   });
   return input;
 }
+
 $(function () {
   pageLayout();
   $('#datepicker').val(thisweek);
@@ -190,8 +193,8 @@ $(function () {
               var genre = item
                 .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
                 .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
-                .replace(/(?<=[;|\),])\s/g, ' <br>')
-                .replace(/(?<=br\>|\n\s?)\n|^\n/g, '')
+                .replace(/(?<=[;|\),])\s|\s(?=[\(])/g, ' \n')
+                .replace(/(?<=br\>|\n\s?)\n|^\n|(?<=\([^\)]*)\n/g, '')
                 .replace(/\//g, '/<wbr>')
                 ;
               genre_col.push("<div class='grid_item'><div class='flex_item ts'>" +
@@ -309,11 +312,11 @@ $(function () {
     ],
     drawCallback: function (settings) {
       //group rows by date
-      var 
-	   groupColumn = 7,
-       api = this.api(),
-       rows = api.rows({ page: 'current' }).nodes(),
-       last = '';
+      var
+        groupColumn = 7,
+        api = this.api(),
+        rows = api.rows({ page: 'current' }).nodes(),
+        last = '';
       api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
         var date = group.match(/^\d.{9}/g).toString();
         date = (
@@ -332,33 +335,32 @@ $(function () {
       });
     },
     initComplete: function () {
-      var api = this.api();
-      // select box for labels
-      api.columns(5).every(function () {
-        var column = this;
-        var select = $('<select><option value=""></option></select>')
-          .insertBefore('#label-filter .clear').on('change', function () {
+      var api = this.api(), select;
+      api.columns([2, 5]).every(function () {
+		  var column = this;
+        $('<select><option value=""></option></select>') 
+		.insertBefore('.filter-holder.' + this[0] + ' .clear')
+        .on('change', function () {
             var val = $.fn.dataTable.util.escapeRegex($(this).val());
             column.search(val ? val + '$' : '', true, false).draw();
           });
-        column.data().unique().filter(function (v) {
+      });
+      // select box for labels
+      api.columns(5).every(function () {
+		select = $('.filter-holder.' + this[0] + ' select');
+        this.data().unique().filter(function (v) {
           return v.match(/(?<=>).*/g) != null;
         }).sort(partSort).each((d, j) => {
           var opval = d.match(/(?<=>).*/g);
-          select.append('<option value="' + opval + '">' + opval +
-            '</option>');
+          select.append('<option value="' + opval + '">' + opval + '</option>');
         });
       });
       // select box for countries
       api.columns(2).every(function () {
-        var column = this;
-        var select = $('<select><option value=""></option></select>')
-          .insertBefore('#country-filter .clear').on('change', function () {
-            var val = $.fn.dataTable.util.escapeRegex($(this).val());
-            column.search(val ? val + '$' : '', true, false).draw();
-          });
-        var countries = column.data().map((d, j) => {
-          d = d.split('|||')[2].split('| || |');
+		select = $('.filter-holder.' + this[0] + ' select');
+        var countries = 
+		  this.data().map((d, j) => {
+          return d = d.split('|||')[2].split('| || |');
           return d;
         }).flatten().sort().reduce(function (obj, item) {
           obj[item] = (obj[item] || 0) + 1;
@@ -366,8 +368,7 @@ $(function () {
         }, {});
         Object.entries(countries).forEach(entry => {
           const [key, value] = entry;
-          select.append('<option value="' + key + '">' + key + ' (' + value + ') ' +
-            '</option>');
+          select.append('<option value="' + key + '">' + key + ' (' + value + ') ' + '</option>');
         });
       });
     },
@@ -379,7 +380,7 @@ $(function () {
     //count rows
     if (json) {
       $('.anchor').hide();
-      $('.filterWrapper').css({ 'display': 'grid', opacity: .1 }).animate({ opacity: 1, }, 1000);
+      $('.filterWrapper, #searchBox').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
@@ -387,19 +388,19 @@ $(function () {
   });
   $("#searchInput").append(createFilter(table, ['2', '1']));
   $("#searchInput input.search").attr('placeholder', 'Search for albums or bands..');
-  // $(createFilter(table, ['2', '1'])).insertBefore('#searchInput .clear')
   $("#search-fields").on("keyup change", function (e) {
-    var 
-	 searchCols = [],
-     searchFields = $('#search-fields').val() || [],
-     searchValue = $('#searchInput input.search').val();
-	$('#search-fields option:selected').each(function() { searchCols.push( $( this ).text().toLowerCase().concat('s') ) });
-	searchCols = searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or');
-    $("#searchInput input.search").val('');
+    var
+      searchCols = [],
+      searchFields = $('#search-fields').val() || [],
+      searchInput = $('#searchInput input.search');
+      searchValue = searchInput.val();
+    $('#search-fields option:selected').each(function () { searchCols.push($(this).text().toLowerCase().concat('s')) });
+    searchCols = searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or');
+    searchInput.val('');
     table.columns(1).search('').columns(2).search('').columns(3).search('').columns(5).search('').draw();
-    $("#searchInput").empty().append(createFilter(table, searchFields));
-    $("#searchInput input.search").attr('placeholder', 'Search for '.concat(searchCols,'..'));
-    $("#searchInput input.search").val(searchValue);
+    $("#searchInput").empty().append(createFilter(table, searchFields))
+	.children('input.search').val(searchValue)
+	.attr('placeholder', 'Search for '.concat(searchCols, '..')) ;
   });
   table.columns().visible(true);
   $('.newlist thead').on('click', 'th.sorting ', function () {
@@ -481,7 +482,7 @@ $(window).resize(function () {
   pageLayout();
 });
 $(document).on('click', '.paginate_button', function () {
-  $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $(".dataTables_filter").height(), }, 800);
+  $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $(".dataTables_filter").height()-8, }, 800);
 });
 
 $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
@@ -504,6 +505,6 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
     ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0)) {
     return false;
   }
-  return genre.search('('.concat(genres.join('|'), ')')) > -1 && dateset;
+  return genre.search('('.concat('(', genres.join('|'), ')', ')')) > -1 && dateset;
   // return true;
 });

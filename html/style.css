@@ -2161,6 +2161,7 @@ div.dt-datetime-label span {
   display: grid;
   grid-template-columns: 1rem 1fr;
   margin-top:0;
+  visibility:hidden;
 }
 .dataTables_filter label {
   display: flex;
