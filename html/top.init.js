@@ -294,7 +294,6 @@ $(function () {
     },
     });
   let table = $('.toplist').DataTable();
-  // table.draw(); 
   table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
     if (json) {
@@ -319,9 +318,10 @@ $(function () {
     $('.filter-holder select option').prop("selected", true);
     table.draw();
   });
-  $('#glossary strong').click(function () {
-    $('#glossary p').toggle("fast");
-    $("#glossary strong i").toggleClass("fa-caret-right fa-caret-down");
+  $('.toggle ').click(function () {
+    $(this).parent().children('.hideItem').toggle("fast").css('display', 'grid');
+    $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
+    $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
   });
   // $('.filter').attr("checked", true);
 });
