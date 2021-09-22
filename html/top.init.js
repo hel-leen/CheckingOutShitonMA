@@ -297,7 +297,7 @@ $(function () {
   table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
     if (json) {
-	  $('.filterWrapper').css({'display': 'grid',opacity:.1}).animate({opacity: 1,}, 1000);
+	  $('.filterWrapper, #searchBox').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
       $('#update').html('Last updated on: ' + json.lastUpdate + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
@@ -328,10 +328,8 @@ $(function () {
 $(window).resize(function () {
   pageLayout();
 });
-$(document).on('click', 'a.paginate_button', function () {
-  $("body,html").animate({
-    scrollTop: $("table thead").offset().top - 60
-  }, 800);
+$(document).on('click', '.paginate_button', function () {
+  $('body,html').animate({ scrollTop: $('.toplist tbody').offset().top - $(".dataTables_filter").height()-8, }, 800);
 });
 if (($(window).width()) < 768) {
   $.fn.DataTable.ext.pager.numbers_length = 5;
@@ -344,9 +342,9 @@ $.fn.dataTable.ext.search.push(
       year = Number(data[6].match(/\d{4}/i).toString()),
       genre = data[4].toLowerCase(),
       continent = data[9],
-      genres = $("#genre-options").val() || [],
-      regions = $("#region-options").val() || [],
-      years = $("#year-options").val() || [],
+      genres = $(".filter-holder.4 select").val() || [],
+      regions= $(".filter-holder.9 select").val() || [],
+      years   =  $(".filter-holder.6 select").val() || [],
       yearsMin = [],
       yearsMax = [];
     years.forEach(function (item) {
