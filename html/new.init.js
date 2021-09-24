@@ -136,7 +136,7 @@ $(function () {
         },
         searchable: false,
         sorting: false,
-        width: '16%',
+        width: '15%',
         targets: [0],
       },
       {
@@ -204,7 +204,7 @@ $(function () {
           return data;
         },
         sorting: false,
-        width: '10%',
+        width: '11%',
         targets: [3],
       },
       {
