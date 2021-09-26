@@ -128,8 +128,8 @@ $(function () {
         //rendering cover
         render: (data, type, row) => {
           if (type === 'display') {
-            let album_id = data.split('|||')[0];
-            let album_cover = data.split('|||')[1];
+            let album_id = data.split(/(?<=\d)\|\|\|/g)[0];
+            let album_cover = data.split(/(?<=\d)\|\|\|/g)[1];
             return ('<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">'));
           }
           return data;
@@ -144,8 +144,8 @@ $(function () {
         render: (data, type, row) => {
           if (type === 'display') {
             let album_col = '';
-            let album_title = data.split('|||')[0];
-            let album_link = data.split('|||')[1];
+            let album_title = data.split(/\|\|\|(?=\d)/g)[0];
+            let album_link = data.split(/\|\|\|(?=\d)/g)[1];
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
                 .replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
