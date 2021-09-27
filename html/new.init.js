@@ -225,7 +225,7 @@ $(function () {
                 item.split('|').filter(uniq).sort(() => Math.random() - 0.5).map(text => text.match(format)[2]).join(', ') +
                 '</div>' + "<div class='flex_item ts fixed float'>" +
                 item.split('|').filter(uniq).map(link => {
-                  return '<a href="https://www.metal-archives.com/bands/view' +
+                  return '<a href="https://www.metal-archives.com/bands/view/' +
                     link.match(format)[1] + '">' +
                     link.match(format)[2] + '</a>';
                 }).sort(partSort).join(', ') :
@@ -255,7 +255,7 @@ $(function () {
                 item.split('|').filter(uniq).map(text => text.match(format)[2]).join(', ') +
                 '</div>' + "<div class='flex_item ts fixed float'>" +
                 item.split('|').filter(uniq).map(link => {
-                  return '<a href="https://www.metal-archives.com/bands/view' +
+                  return '<a href="https://www.metal-archives.com/bands/view/' +
                     link.match(format)[1] + '">' +
                     link.match(format)[2] + '</a>';
                 }).join(', ') :
@@ -286,7 +286,7 @@ $(function () {
                   labeltext = data.match(format)[2];
                 data = "<div class='grid_item'><div class='flex_item'><a class='hreftext'>" +
                   labeltext + "</a><div class='dropdown'>" +
-                  maLink('labels/id', data.match(format)[1]) + '<a href="https://bandcamp.com/search?q=' +
+                  maLink('labels/id/', data.match(format)[1]) + '<a href="https://bandcamp.com/search?q=' +
                   labeltext + '">Bandcamp<i class=\'fa fa-search\'></i></a><a href="https://www.youtube.com/results?search_query=' +
                   labeltext + "\">Youtube<i class='fa fa-search'></i></a></div></div></div>";
             }
