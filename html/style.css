@@ -1475,16 +1475,32 @@ table ::-webkit-scrollbar {
   padding: 0 10px;
 }
 
+
+
 .fixed {
   overflow-y: overlay;
   overflow: hidden;
   flex: 1 1 0;
-  opacity: .7;
+  opacity: .8;
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
+}
+.fixed i {
+  opacity: .7;
+  overflow: hidden;
+  white-space: pre-wrap;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
   /* padding: .2rem 10px; */
 }
+
+.fixed p {
+  opacity: 1;
+  color: #fed;
+}
+
 
 .float {
   display: none;
@@ -2217,6 +2233,7 @@ div.dt-datetime-label span {
 
   .newlist tbody tr td:nth-child(3),
   .newlist tbody tr td:nth-child(5),
+  .newlist tbody tr td:nth-child(6),
   .newlist tbody tr td:nth-child(4) {
     height: 1px;
   }
@@ -2243,13 +2260,15 @@ div.dt-datetime-label span {
   }
 
   .newlist td:not(:nth-child(1)) {
-    padding-left: 1.2rem;
-    padding-right: 1.2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
 
   .newlist td>img {
     min-width: 100px;
+    min-height: 200px;
     max-width: 250px;
+    object-fit: contain;
   }
 }
 
@@ -2384,32 +2403,34 @@ div.dt-datetime-label span {
   }
 
 
+  .newlist tr:not(.group) td:nth-child(4)::before {
+    content: "Genre:";
+  }
+
   .newlist tr:not(.group) td:nth-child(5)::before {
     content: "Asso. Acts:";
   }
 
 
-  .newlist tr:not(.group) td:nth-child(4)::before {
-    content: "Genre:";
+  .newlist tr:not(.group) td:nth-child(6)::before {
+    content: "Similar to:";
   }
 
-  .newlist tr:not(.group) td:nth-child(6)::before {
+
+  .newlist tr:not(.group) td:nth-child(7)::before {
     content: "Label:";
   }
 
-  .newlist tr:not(.group) td:nth-child(7)::before {
+  .newlist tr:not(.group) td:nth-child(8)::before {
     content: "Type:";
   }
 
-  .newlist tr:not(.group) td:nth-child(8)::before {
+  .newlist tr:not(.group) td:nth-child(9)::before {
     content: "Date:";
   }
 
-  .newlist tr:not(.group) td:nth-child(9)::before {
-    content: "Earliest date:";
-  }
 
-  .newlist tr:not(.group) td:nth-child(7),
+  /* .newlist tr:not(.group) td:nth-child(7), */
   .newlist tr:not(.group) td:nth-child(8),
   .newlist tr:not(.group) td:nth-child(9) {
     white-space: nowrap;
