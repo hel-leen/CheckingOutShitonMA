@@ -295,7 +295,7 @@ $(function () {
           return data;
         },
         sorting: false,
-        width: '8%',
+        width: '9%',
         targets: [6],
       },
       {

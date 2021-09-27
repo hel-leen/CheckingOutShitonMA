@@ -1371,7 +1371,7 @@ table ::-webkit-scrollbar {
 }
 
 .flex_item {
-  /* display: inline-grid; */
+    margin: 1rem 0;
 }
 .grid_item > div {
   grid-column-start: 1;
@@ -2460,6 +2460,9 @@ div.dt-datetime-label span {
   .grid_wrapper {
     width: 100%;
   }
+  .flex_item {
+    margin: .1rem 0;
+ }
 
   .grid_item {
     display: flex;
