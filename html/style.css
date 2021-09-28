@@ -1371,7 +1371,7 @@ table ::-webkit-scrollbar {
 }
 
 .flex_item {
-    margin: 1rem 0;
+    margin: .6rem 0;
 }
 .grid_item > div {
   grid-column-start: 1;
