@@ -1185,6 +1185,7 @@ table {
   justify-items: center;
   font-size: .9rem;
   table-layout: initial;
+  word-break: break-word;
 }
 
 .toplist a:hover,
