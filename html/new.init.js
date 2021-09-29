@@ -314,7 +314,7 @@ $(function () {
                 track = "";
                 break;
               case '1':
-                track = "";
+                track = " <br><abbr class='extra ts'>- " + track + ' track -</abbr>';
                 break;
               default:
                 track = " <br><abbr class='extra ts'>- " + track + ' tracks -</abbr>';
