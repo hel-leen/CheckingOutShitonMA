@@ -171,7 +171,7 @@ $(function () {
         render: (data, type, row) => {
           if (type === 'display') {
             let
-              format = /(.*)\|\|\|(\d[\d\s\/\|]*\d)\|\|\|(.*)/,
+              format = /(.*)\|\|\|(\d[\d\s\/\|]*\d?)\|\|\|(.*)/,
               band_name = data.match(format)[1].split(/\s[\/\|]\s/g),
               band_link = data.match(format)[2].split(/\s[\/\|]\s/g),
               country = data.match(format)[3].split('| || |');

@@ -2423,7 +2423,7 @@ div.dt-datetime-label span {
   }
 
   .newlist tr:not(.group) td:nth-child(8)::before {
-    content: "Type:";
+    content: "Length:";
   }
 
   .newlist tr:not(.group) td:nth-child(9)::before {

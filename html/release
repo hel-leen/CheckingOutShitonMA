@@ -1,5 +1,5 @@
-{"draw": 1, "lastUpdate":"2021-09-29 UTC",
-"recordsTotal":"3213",
+{"draw": 1, "lastUpdate":"2021-09-30 UTC",
+"recordsTotal":"3256",
 "data": [[
 "818997|||/images/8/1/8/9/818997.jpg?3853",
 "Sexual Flask|||818997|||Full-length",
@@ -13271,6 +13271,16 @@
 "00:05:03|||15",
 "2021-10-31|||0000-00-00"
 ],[
+"970441|||/images/9/7/0/4/970441.jpg?2359",
+"Under the Moon They Wander Until Fading Away|||970441|||Full-length",
+"Wooden Throne|||3540493115|||Finland",
+"Atmospheric Doom/Black Metal",
+"3540415916'Burial Choir|87100'October Falls",
+"",
+"3652'Purity Through Fire",
+"00:32:29|||7",
+"2021-09-30|||0000-00-00"
+],[
 "970507|||/images/9/7/0/5/970507.jpg?2312",
 "Soturnos Caminhos|||970507|||EP",
 "Sodomahorde|||3540322065|||Brazil",
@@ -18101,16 +18111,6 @@
 "00:11:05|||3",
 "2021-09-03|||0000-00-00"
 ],[
-"975907|||/images/9/7/5/9/975907.jpg?3438",
-"Paradise Lost|||975907|||Full-length",
-"Abysmia|||3540452928|||United States",
-"Groove/Thrash Metal",
-"",
-"",
-"",
-"00:34:29|||10",
-"2021-09-02|||0000-00-00"
-],[
 "975908|||/images/9/7/5/9/975908.jpg?5441",
 "Reconstruction of Concept|||975908|||Full-length",
 "Ebola|||3540417820|||Japan",
@@ -22260,16 +22260,6 @@
 "48975'Unfra Prod",
 "00:10:04|||2",
 "2021-09-02|||0000-00-00"
-],[
-"978302|||/images/9/7/8/3/978302.jpg?0947",
-"Demo 2021|||978302|||Demo",
-"Pile Tub|||3540494651|||United States",
-"Brutal Death Metal",
-"",
-"",
-"",
-"00:06:38|||2",
-"2021-09-10|||0000-00-00"
 ],[
 "978303|||/images/9/7/8/3/978303.jpg?2042",
 "Like Shades of Night|||978303|||EP",
@@ -27621,6 +27611,16 @@
 "00:12:46|||26",
 "2021-11-05|||0000-00-00"
 ],[
+"980775|||/images/9/8/0/7/980775.jpg?0245",
+"A Beast so Fierce|||980775|||Full-length",
+"Carnassial|||3540495140|||Norway",
+"Technical Death Metal/Grindcore",
+"3540296094'Blot|3540379264'Mental Disaster",
+"",
+"",
+"00:28:38|||25",
+"2021-09-17|||0000-00-00"
+],[
 "980782|||/images/9/8/0/7/980782.jpg?3722",
 "Black Metal Against Modern World|||980782|||Compilation",
 "Hellhound666|||3540491769|||Germany",
@@ -31661,16 +31661,6 @@
 "00:00:00|||8",
 "2021-09-27|||0000-00-00"
 ],[
-"982488|||/images/9/8/2/4/982488.jpg?5244",
-"Demo I|||982488|||Demo",
-"Ravens Dawn|||3540495465|||United States",
-"Raw Black Metal",
-"",
-"",
-"",
-"00:08:12|||3",
-"2021-09-28|||0000-00-00"
-],[
 "982495|||/images/9/8/2/4/982495.jpg?5945",
 "Systematic Brain Drain|||982495|||Full-length",
 "The Thomas Thompson Earth Project|||3540472704|||United States",
@@ -32071,6 +32061,16 @@
 "00:34:00|||2",
 "2021-10-08|||0000-00-00"
 ],[
+"982659|||/images/9/8/2/6/982659.jpg?0922",
+"Insomniak|||982659|||Demo",
+"Insomniak|||3540495496|||Germany",
+"Thrash Metal",
+"",
+"",
+"",
+"00:12:11|||4",
+"2021-09-29|||0000-00-00"
+],[
 "982660|||/images/9/8/2/6/982660.jpg?1428",
 "Смерть|||982660|||Single",
 "Сварга|||51656|||Russia",
@@ -32089,6 +32089,16 @@
 "",
 "",
 "00:19:07|||6",
+"2021-09-29|||0000-00-00"
+],[
+"982673|||/images/9/8/2/6/982673.jpg?4049",
+"Deru Dera|||982673|||Full-length",
+"Zihad|||3540495498|||Indonesia",
+"Symphonic Death Metal",
+"",
+"",
+"41566'Sadist Records",
+"00:50:36|||10",
 "2021-09-29|||0000-00-00"
 ],[
 "982692|||/images/9/8/2/6/982692.jpg?2750",
@@ -32121,6 +32131,16 @@
 "01:04:38|||8",
 "2021-09-29|||0000-00-00"
 ],[
+"982710|||/images/9/8/2/7/982710.jpg?1002",
+"Noctívago Autocídio Lucífugo|||982710|||Full-length",
+"Hate Gods|||3540495512|||Brazil",
+"Black Metal",
+"",
+"",
+"",
+"00:37:13|||12",
+"2021-09-29|||0000-00-00"
+],[
 "982735|||/images/9/8/2/7/982735.jpg?2102",
 "Frozen Mind|||982735|||EP",
 "Prokol|||3540495464|||Russia",
@@ -32130,5 +32150,415 @@
 "",
 "00:24:01|||7",
 "2021-09-27|||0000-00-00"
+],[
+"982740|||/images/9/8/2/7/982740.jpg?2605",
+"Rising Again|||982740|||EP",
+"Aizen|||3540472447|||Argentina",
+"Heavy Metal",
+"3540345895'Crisis|3540349713'Obito|3540373839'Shot Gun|3540417876'Dislexya",
+"",
+"50967'Argentina Thrash Metal",
+"00:00:00|||5",
+"2021-09-25|||0000-00-00"
+],[
+"982741|||/images/9/8/2/7/982741.jpg?3739",
+"Heavy Metal Morire|||982741|||Full-length",
+"Acero 14|||3540434765|||Argentina",
+"Heavy/Thrash Metal",
+"",
+"",
+"50967'Argentina Thrash Metal",
+"00:00:00|||10",
+"2021-09-25|||0000-00-00"
+],[
+"982746|||/images/9/8/2/7/982746.jpeg?3131",
+"Better than You|||982746|||Single",
+"Timōrātus|||3540398131|||United States",
+"Black/Death Metal with various influences",
+"124713'NeverLabeled|3540344742'Death Requisite|3540397641'Be Not Betrayed|3540434302'Symphony of Heaven|3540441135'Bismoth|3540459830'The Abrasive Realization|3540464677'Resign from Humanity|3540473798'Koronatizor|3540477263'Kata|3540478392'Ithiel|37693'Elgibbor",
+"",
+"",
+"00:04:27|||1",
+"2021-09-30|||0000-00-00"
+],[
+"982747|||/images/9/8/2/7/982747.jpg?3301",
+"Heretic|||982747|||Full-length",
+"Shatter|||3540490236|||Russia",
+"Death/Thrash Metal (early); Death/Thrash/Doom Metal (later)",
+"119029'Cavandish|3540331890'Carnage|3540373761'Tremor|3540388700'Living Twice|78386'I.N.F.|87683'Arvest",
+"",
+"",
+"00:52:29|||9",
+"2021-09-29|||0000-00-00"
+],[
+"982748|||/images/9/8/2/7/982748.jpg?3615",
+"The Shimmering of Entering Darkness|||982748|||EP",
+"Nirranthea|||3540495516|||Indonesia",
+"Raw Black Metal",
+"",
+"",
+"",
+"00:19:27|||6",
+"2021-09-29|||0000-00-00"
+],[
+"982750|||/images/9/8/2/7/982750.jpg?5236",
+"Stirring Clots|||982750|||Full-length",
+"Neoplasia|||47869|||Argentina",
+"Death Metal",
+"1001'Vile|104427'Spiritual|1067'Six Feet Under|113580'Erbio|115708'Infirmor|121248'Wolf &amp; Winter|1366'Abuse|20149'Kliffoth|22105'Vörnagar|3540258974'Blood Infected|3540321751'Monumental Torment|3540322757'Jeff Hughell|3540325739'Deformus Corpos|3540348673'Heksabort|3540352203'Neurogenic|3540355717'Acido|3540361895'Dark Blasphemer|3540377842'Bleak Flesh|3540379304'Creepy Mary|3540412371'Axsem|3540416663'Horrendum Vermis|3540428707'Mazikeen|3540429813'Habitual Depravity|3540433300'Hunhau Mitnal|3540444064'Solus ex Inferis|3540446210'Theofanus|3540449063'Myiacyst|3540449749'In Asymmetry|3540457865'Augurio|3540458150'Sobek|3540459610'Supreme Banishment|3540459874'Vile Carrion|3540461610'A Circle of Crows|3540471074'Last Shadow|3540471468'Atrofia|3540477288'Apterous|3540477361'A Pretext to Human Suffering|3540478520'The Odium Aftermath|3540484944'Sonivinos|3540493756'Bestial Profanation|3540493804'Diarrea|45496'Social Shit|5753'Sleep Terror|64723'Waking the Cadaver|66715'Brain Drill|720'Vital Remains|74954'The Faceless|84711'Anomalous",
+"",
+"38215'Dismembered Records",
+"00:38:21|||10",
+"2021-10-20|||0000-00-00"
+],[
+"982751|||/images/9/8/2/7/982751.jpg?5747",
+"As Yggdrasil|||982751|||EP",
+"Spire|||3540478834|||Russia",
+"Heavy/Doom Metal",
+"",
+"",
+"",
+"00:22:16|||4",
+"2021-09-29|||0000-00-00"
+],[
+"982752|||/images/9/8/2/7/982752.jpg?0029",
+"Swings|||982752|||Single",
+"Sickera|||3540472130|||Russia",
+"Heavy Metal",
+"3540371575'Maimer",
+"",
+"",
+"00:10:58|||3",
+"2021-09-27|||0000-00-00"
+],[
+"982763|||/images/9/8/2/7/982763.jpg?2119",
+"Perpetual Life|||982763|||Single",
+"D1straught|||3540340639|||Chile",
+"Thrash Metal",
+"3540311308'Atomic Genocide",
+"",
+"",
+"00:03:54|||1",
+"2021-09-24|||0000-00-00"
+],[
+"982771|||/images/9/8/2/7/982771.jpg?2627",
+"Subterranean Existential Warfare|||982771|||Full-length",
+"Diphenylchloroarsine|||3540403134|||International",
+"Slam/Brutal Death Metal",
+"34297'Kraanium|3540320355'Carnal Disfigurement|3540332959'Daudehaud|3540351930'Dragging Entrails|3540366515'Congenital Malformation|3540386422'Fermented Masturbation|3540389547'Pathological Abomination|3540420782'Psychosomatic Self-Mutilation|3680'Negligent Collateral Collapse|45574'Lypektomy|52576'Carbonized 16 Year Old Victim|85722'Guttural Engorgement|95066'Eardelete|96584'Secret Mutilation",
+"3540400157'Gravitational Distortion|3540351930'Dragging Entrails|3540434066'01101111011101100110111001101001|818'Devourment|3540435313'Buried in Pieces|3540380676'Spilling Entrails|3540396307'Embryectomy|95773'Gorevent|3540391155'Hymenotomy|3540397523'Pestilent|3540400766'Espermorragia|3540351196'Urogenital Macrophage",
+"34178'Rotten Music",
+"00:00:00|||11",
+"2021-10-30|||0000-00-00"
+],[
+"982776|||/images/9/8/2/7/982776.jpg?5532",
+"Thoughts Revoked|||982776|||Single",
+"Actus Reus|||3540473597|||United States",
+"Metalcore/Groove Metal",
+"",
+"",
+"",
+"00:00:00|||1",
+"2021-09-24|||0000-00-00"
+],[
+"982779|||/images/9/8/2/7/982779.jpg?1105",
+"Demos|||982779|||Demo",
+"Splatz|||3540487070|||United States",
+"Thrash Metal/Punk",
+"3540411733'Withered Icon|45173'Warghoul|51293'Desecrhate",
+"",
+"",
+"00:29:10|||7",
+"2021-09-29|||0000-00-00"
+],[
+"982780|||/images/9/8/2/7/982780.jpg?1319",
+"Plague of Shadows|||982780|||EP",
+"Goreworm|||3540438892|||Canada",
+"Technical Death Metal",
+"3540276766'Ending Tyranny",
+"",
+"",
+"00:13:44|||3",
+"2021-10-10|||0000-00-00"
+],[
+"982782|||/images/9/8/2/7/982782.jpg?3033",
+"The Hermit|||982782|||EP",
+"Rended|||3540464283|||United States",
+"Black Metal",
+"",
+"",
+"",
+"00:07:38|||2",
+"2021-09-29|||0000-00-00"
+],[
+"982784|||/images/9/8/2/7/982784.jpg?3910",
+"Couronees Dans Iòpprobre|||982784|||Demo",
+"Zëptenvr|||3540495526|||France",
+"Black Metal",
+"",
+"",
+"",
+"00:18:50|||3",
+"2021-09-30|||0000-00-00"
+],[
+"982787|||/images/9/8/2/7/982787.jpg?4440",
+"Eloa, le bel ange|||982787|||Single",
+"Le Chant Noir|||3540431165|||Brazil",
+"Avant-garde Black Metal",
+"101951'Thokkian Vortex|10422'Darkest Hate|10423'Black Winter Night|1175'Nocturnal Worshipper|129953'Vinterthron|2073'Mysteriis|21827'Necromancer|270'Grand Belial's Key|28247'Demonolatry|3540287324'Patria|3540328579'Hellscourge|3540370263'Hatred Sculpted Souls|3540454057'I Gather Your Grief|3540464114'Litosth|3540472381'The Troops of Doom|3540492612'Demoniac Harvest|3983'Ancientblood|41999'Tribuzy|47582'Meatgrinder|7262'Immuno Affinity|7286'Lux Ferre|7638'Inquisição|772'Ancient|7734'Thokk|87489'Darkest Hate Warfront",
+"",
+"52933'Blood Blast Distribution",
+"00:04:30|||1",
+"2021-09-01|||0000-00-00"
+],[
+"982788|||/images/9/8/2/7/982788.jpg?0822",
+"Da Capo - Part Two|||982788|||Single",
+"Alpha Drone|||25176|||Germany",
+"Black Metal, Industrial Noise/Drone",
+"105168'Verdorben|3540257313'Satanity|7223'Black Tribe",
+"5330'Reverend Kriss Hades|3540283229'Amaranthine Lament|1133'Sort Vokter|7223'Black Tribe|45017'Reverorum ib Malacht|3540424124'Zaraza",
+"",
+"00:06:51|||1",
+"2021-09-30|||2021-07-17"
+],[
+"982789|||/images/9/8/2/7/982789.jpg?2444",
+"The End Times|||982789|||Single",
+"Saturnian Mist|||119418|||Finland",
+"Black Metal",
+"104378'Teloch|10533'Sargeist|109788'Viha|11492'The Lust I Seek|123822'Baraxetamol|123862'Land ov Frost|125738'Cathedral Stivhet|15258'Cornigr|16977'Garcharot|23025'Anxiety|26993'Neutron Hammer|28696'Demonitar|29042'IC Rex|30931'Vitsaus|3209'Azazel|3231'Horna|33068'Charnel Winds|34311'Wakboth|3540262675'Ordinance|3540280683'Ancient Hatred|3540284590'Lordamor|3540291406'Creatura|3540315583'Pantheon of Blood|3540350413'Kuilu|3540362298'Araqiel|3540377551'Nécropole|3540400573'John the Baptist|3540406955'Sammas' Equinox|3540417883'Adaestuo|3540426574'Nephilim's Howl|3540493632'Moon Oracle|40792'Verge|42404'Blood Red Fog|4571'Baptism|5065'Flauros|70724'Utgard|90734'Arvet",
+"42404'Blood Red Fog|90734'Arvet|3540331718'Wolves' Winter|3540315583'Pantheon of Blood|33068'Charnel Winds|3540362298'Araqiel|6310'Behexen|29042'IC Rex|90126'Cosmic Church|3231'Horna|3540279329'Aura Saturnal|2551'Enochian Crescent|103525'Kêres|40792'Verge|2342'Azaghal|348'Beherit|23304'Black Death Ritual|3540291406'Creatura|3540299928'Dødkvlt|12557'Kadotus|36336'Lathspell|3540351325'Perdition Winds|3540400045'Sarastus|3540427653'Shaman Ritual|104378'Teloch|30931'Vitsaus|103526'Vritra",
+"53086'Petrichor",
+"00:06:06|||1",
+"2021-09-29|||0000-00-00"
+],[
+"982808|||/images/9/8/2/8/982808.jpeg?3249",
+"The Shapeless Ones|||982808|||Full-length",
+"Grave Defiler|||3540315674|||Sweden",
+"Death Metal",
+"31031'Undead|31125'Hidden|3540332219'Atomic Moonshine|3540431014'Plästered|49037'Chord of Souls",
+"406'Necrophagia",
+"",
+"00:28:29|||20",
+"2021-09-29|||0000-00-00"
+],[
+"982810|||/images/9/8/2/8/982810.jpg?0649",
+"Demo I|||982810|||Demo",
+"Zermürbungskrieg|||3540495529|||United States",
+"Raw Black Metal",
+"",
+"",
+"",
+"00:25:05|||3",
+"2021-09-30|||0000-00-00"
+],[
+"982813|||/images/9/8/2/8/982813.jpg?1313",
+"Spectral Creator|||982813|||Full-length",
+"Frightful|||3540425161|||Poland",
+"Death Metal/Grindcore (early); Death/Thrash Metal (later)",
+"3540338633'Repulsor|3540389001'Ägresor|3540396117'Orgon|3540401434'Dreadnought|3540407029'Pandemic Outbreak|3540415948'Gravelord|3540429497'Deafness",
+"",
+"48038'Awakening Records",
+"00:42:31|||9",
+"2021-10-31|||0000-00-00"
+],[
+"982823|||/images/9/8/2/8/982823.jpg?2713",
+"You're the Next|||982823|||Single",
+"Föxx Salema|||3540454567|||Brazil",
+"Heavy Metal",
+"11999'Broken Spell|16156'Noturna|2330'Witchhammer|3540330406'Seawalker|3540333187'Tormento|3540368691'Engradado|3540378676'For Bella Spanka|3540399150'Distürbia Cladis|3540400616'Ruins of Elysium|3540453514'Kultist|3540459254'Old Audrey's Funeral|3540469486'Black Motor Chimps|3540469553'Carnal Atrocity|98612'Vorticis",
+"",
+"",
+"00:04:36|||1",
+"2021-10-31|||0000-00-00"
+],[
+"982829|||/images/9/8/2/8/982829.jpg?0448",
+"Paradise Lost|||982829|||EP",
+"Balch|||3540487966|||Germany",
+"Black Metal/Ambient",
+"",
+"",
+"",
+"00:23:08|||6",
+"2021-09-29|||0000-00-00"
+],[
+"982832|||/images/9/8/2/8/982832.jpg?3115",
+"Death Meditation|||982832|||Demo",
+"Quimico|||3540493853|||United States",
+"Experimental Death Metal",
+"",
+"",
+"",
+"00:37:24|||7",
+"2021-09-30|||0000-00-00"
+],[
+"982835|||/images/9/8/2/8/982835.jpg?0101",
+"Nurch|||982835|||Demo",
+"Smuha|||3540495537|||Unknown",
+"Black Metal",
+"",
+"",
+"",
+"00:20:50|||4",
+"2021-09-28|||0000-00-00"
+],[
+"982836|||/images/9/8/2/8/982836.jpg?3746",
+"Twisted Tongue|||982836|||Single",
+"Gallery of Ghouls|||3540482205|||United States",
+"Sludge Metal",
+"3540461766'Torture Drome",
+"",
+"52624'The Swamp Records",
+"00:02:53|||1",
+"2021-09-30|||0000-00-00"
+],[
+"982837|||/images/9/8/2/8/982837.jpg?4204",
+"Condescendência Extinta|||982837|||EP",
+"Hate Gods|||3540495512|||Brazil",
+"Black Metal",
+"",
+"",
+"",
+"00:08:48|||5",
+"2021-09-05|||0000-00-00"
+],[
+"982838|||/images/9/8/2/8/982838.jpg?4541",
+"Demo 2021|||982838|||Demo",
+"Chaotic Injustice|||3540495538|||United States",
+"Thrash Metal",
+"",
+"",
+"7829'Headsplit Records",
+"00:00:00|||6",
+"2021-09-29|||0000-00-00"
+],[
+"982843|||/images/9/8/2/8/982843.jpg?0730",
+"Slaughtered Uprising|||982843|||EP",
+"Carnivorous Horde|||3540495539|||Malta",
+"Death Metal",
+"3540377468'Repugnance|3540416026'Bound to Prevail|3540439740'Gastroschisis|84385'Rising Sunset",
+"",
+"",
+"00:21:16|||5",
+"2021-09-30|||0000-00-00"
+],[
+"982848|||/images/9/8/2/8/982848.jpg?3443",
+"Pain of a Thousand Tears (Sympho & Piano)|||982848|||Full-length",
+"Anfel|||3540398041|||Russia",
+"Symphonic Gothic/Doom Metal",
+"12444'Capellan|32461'Sinful|3540411394'Solreid|3540453362'CityRains|90706'Zerber|98630'Blackthorn",
+"98630'Blackthorn|3540322030'I Miss My Death",
+"",
+"01:04:07|||10",
+"2021-09-30|||0000-00-00"
+],[
+"982851|||/images/9/8/2/8/982851.jpg?4052",
+"NorAdrenalin|||982851|||Full-length",
+"Kalt || Weiss|||3540458366|||Austria",
+"Avant-garde Black Metal (early); Digital Hardcore/Industiral (later)",
+"",
+"",
+"",
+"00:00:00|||11",
+"2021-09-30|||0000-00-00"
+],[
+"982853|||/images/9/8/2/8/982853.jpg?3645",
+"Hunter's Moon|||982853|||Single",
+"Ghost|||3540309157|||Sweden",
+"Heavy Metal/Rock",
+"14957'Probot|1702'Melvins|18364'In Solitude|18454'Genocrush Ferox|21360'Roswell|233'Bloodbath|24818'Komotio|3540260685'Sonic Ritual|3540278682'Maim|3540289441'Bombstrike|3540292638'V.Ö.M.B.|3540345278'Menace|3540351959'Vampire|3540382936'Tid|3540397337'The Great Discord|3540468625'Gasher|3540486673'Metal Against Coronavirus|42382'Superior|53703'Circle Six|57334'12 Gauge Dead|6'Katatonia|7193'Repugnant|76008'Chainwreck|8883'21 Lucifers",
+"182'Mercyful Fate|18364'In Solitude|255'King Diamond|99'Black Sabbath|3540329522'Uncle Acid and the Deadbeats|3540355453'Bloody Hammers|3540395914'Luciferian Light Orchestra|3540318499'Blood Ceremony|3540391390'Lucifer|1178'Deep Purple|39589'Tribulation|575'Demon|3540321961'Occultation|2976'Lordi|3540407661'Them|3540365687'The Oath|3540348368'Doom's Day|3540338779'Noctum|3540340232'Opera Diabolicus|3540379875'Spell|3540330702'Wytch Hazel|537'Angel Witch|3540358643'Witches' Coven|286'Danzig|3540355719'Ouijabeard|5010'Saviour Machine|3540400007'Sabbath Assembly|3540465010'Enxöfre|3540471443'The Sixth Chamber|34543'Powerwolf|3540427550'Earth Electric|3540424170'Chronus|3540335306'Graveyard|3540457700'Night Resident|3540336604'Kyng|3540404005'Vincenzo Marretta|101172'人間椅子|3540287570'ASG|3540317880'Trial (Swe)|3540318270'Devil|3540372145'Aktor|3540318265'Kings Destroy|3540388866'Selvans|3540377276'Demon Head",
+"30741'Loma Vista Recordings",
+"00:03:16|||1",
+"2021-09-30|||0000-00-00"
+],[
+"982854|||/images/9/8/2/8/982854.jpg?3949",
+"Messiah|||982854|||Single",
+"Castigation|||87230|||Indonesia",
+"Brutal Death Metal",
+"3540294558'Silluet",
+"",
+"",
+"00:05:08|||2",
+"2021-09-21|||0000-00-00"
+],[
+"982857|||/images/9/8/2/8/982857.jpg?5756",
+"Noose Almighty|||982857|||Full-length",
+"Swamp Coffin|||3540462637|||United Kingdom",
+"Sludge/Doom/Stoner Metal",
+"",
+"",
+"44918'APF Records",
+"00:07:39|||6",
+"2021-11-26|||0000-00-00"
+],[
+"982859|||/images/9/8/2/8/982859.jpg?0619",
+"Alzawabe'a - الزوابع|||982859|||Single",
+"نار جهنم|||99139|||Bahrain",
+"Black/Death Metal with Middle Eastern influences",
+"43251'Gravedom|65081'Smouldering in Forgotten",
+"424'Melechesh|3540256815'AlNamrood|3540394441'Akhenaten|7642'Odious|65081'Smouldering in Forgotten|3540346791'Arsh Anubis|3540285080'Aeternam|3540389204'Cyaxares|3540321278'Al Lat|3540318791'Arsames|263'Behemoth|64967'Kartikeya|314'Rotting Christ|3540270867'Scarab|62938'Arkan|107583'Atra Hora|3540391634'اكوان|8935'Litham|3540425848'Maysaloon|4958'Rudra|39163'Bilocate|3540385551'Gilgamesh|3540404430'Qaf|3540380343'Crescent|3540334240'Seeds of Iblis|3540382717'Abhoth|112092'Blood of Kingu|3540305204'Bohema|3540318059'Maat|3540330474'Mordab|3540296840'Satanized|3540328342'تدنيس",
+"",
+"00:09:22|||1",
+"2021-09-30|||0000-00-00"
+],[
+"982862|||/images/9/8/2/8/982862.jpg?1259",
+"XX лет|||982862|||Live album",
+"Ария|||272|||Russia",
+"HeavyMetal",
+"1188'Круиз|1228'Чёрный Кофе|127626'Гран-Куражъ|14467'Сергей Маврин|208'Мастер|28004'КипеловМаврин|316'Легион|3174'The Arrow|3540301827'Glossy Teria|3540334365'Артур Беркут|3540368380'ЧернышёвБулгаков|3540446814'Nebesa|3540453771'Dragoninside|55767'Артерия|56659'Химера|57710'Новый Завет|5990'Вал'кирия|65260'Miriada|78137'RD|8649'Кипелов",
+"25'Iron Maiden|8649'Кипелов|97'Judas Priest|952'Grim Reaper|759'Wolf|198'Accept|943'Loudness|15424'Scorpions|626'Saxon|208'Мастер|3540384000'Terminal|342'U.D.O.|28004'КипеловМаврин|8615'Attick Demons|3540352496'Monument|14467'Сергей Маврин|548'Jag Panzer|159'Helloween|316'Легион|1228'Чёрный Кофе|537'Angel Witch|14684'Август|3540317880'Trial (Swe)|600'Blaze|3536'Turbo|1190'Pokolgép|127626'Гран-Куражъ|8080'Эпидемия|6557'Luzbel|3540388984'Легенда|3540328850'Aella|3540383208'Seven Sisters|123785'Арктида|3540334365'Артур Беркут|78271'Чёрный Кузнец",
+"33222'M2BA",
+"02:07:27|||21",
+"2021-09-10|||0000-00-00"
+],[
+"982863|||/images/9/8/2/8/982863.jpg?1515",
+"Blood & Iron|||982863|||Full-length",
+"Wolftooth|||3540436324|||United States",
+"Heavy/Doom Metal",
+"3540454534'Darknes|56222'Shroud",
+"57071'The Sword|7162'Grand Magus|99'Black Sabbath|15473'Fireball Ministry",
+"12'Napalm Records",
+"00:49:32|||9",
+"2021-12-03|||0000-00-00"
+],[
+"982864|||/images/9/8/2/8/982864.jpg?2549",
+"Galgenbrok|||982864|||Full-length",
+"Schavot|||3540495541|||Netherlands",
+"Black Metal",
+"18923'Meslamtaea|23396'Escutcheon|3540344621'Asgrauw|51693'Sagenland|6511'Deifecation",
+"",
+"50538'Void Wanderer Productions",
+"00:00:00|||8",
+"2021-09-30|||0000-00-00"
+],[
+"982880|||/images/9/8/2/8/982880.jpg?5923",
+"Corpus|||982880|||Full-length",
+"Astrophobos|||3540316335|||Sweden",
+"Black Metal",
+"10188'Ondskapt|150'Amon Amarth|2337'October Tide|33164'Valkyrja|3540292395'Furia|3540315384'Detonator|3540315435'Morito Ergo Sum|3540441889'Blood Worship|42721'Vituperation|60651'Unchaste|9981'Ofermod",
+"183'Dissection|1350'Necrophobic|618'Naglfar|1430'Mörk Gryning|908'Sacramentum|126757'Thulcandra|1455'Dawn|55312'Black Horizons|3540339801'Hyperion|3540382869'Hedon|3540426264'Unceremonial",
+"33795'Triumvirate Records",
+"00:00:00|||7",
+"2021-11-12|||0000-00-00"
+],[
+"982884|||/images/9/8/2/8/982884.jpg?0332",
+"Bellum I|||982884|||Full-length",
+"Aquilus|||99197|||Australia",
+"Neoclassical Black/Folk Metal",
+"3540278259'Adamus Exul|3540356241'Myridian|3540392970'Take This Life|3540395373'Deadspace|3540414825'Omnipresence",
+"38'Opeth|3540278206'Pensées Nocturnes|305'Agalloch|89'Moonsorrow|3540290073'Obsequiae|101968'Gris|3540272142'Igric|3540359125'Nechochwen|115504'A Forest of Stars|2345'Empyrium|87100'October Falls|3540351284'Wilderun|1208'Ulver|45372'Melancolia|104'Enslaved|91913'Ne Obliviscaris|29'Summoning|3540359903'Caladan Brood|126117'Panopticon|3540337897'Xanthochroid|3540415142'Eneferens|528'Nokturnal Mortum|2335'Profanum|3540388866'Selvans|3540343747'Mare Cognitum|5954'Estatic Fear|3540380505'Ifing|392'In the Woods...|3540333774'Nhor|3540315587'Árstíðir lífsins|3540373234'Saor|3540385532'Skyforest|3540319121'Crow Black Sky",
+"27608'Blood Music",
+"00:00:00|||8",
+"2021-12-03|||0000-00-00"
+],[
+"982892|||/images/9/8/2/8/982892.jpg?0516",
+"Endless Landscapes of Grim Carnage|||982892|||Full-length",
+"Huntress of Stars|||3540469760|||United States",
+"Sludge/Post-Metal",
+"",
+"",
+"",
+"00:57:02|||8",
+"2021-09-30|||0000-00-00"
 ],[
 ]]}
