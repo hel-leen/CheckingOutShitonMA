@@ -111,7 +111,7 @@ $(function () {
           render: (data, type, row) => {
             //rendering cover
             if (type === 'display') {
-              return ('<img src="'
+              return ('<img class=".cover" src="'
                 .concat(data, '" loading="lazy" >'));
             }
             return data;
