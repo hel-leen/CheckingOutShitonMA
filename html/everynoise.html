@@ -1,0 +1,59 @@
+<!DOCTYPE html><html lang = "en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+<title>New Albums on Spotify</title>
+<link rel="preconnect" href="https://www.metal-archives.com">
+<link rel="dns-prefetch" href="https://www.metal-archives.com">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://nightly.datatables.net/js/jquery.dataTables.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.0/js/dataTables.dateTime.min.js"></script>
+<script type="text/javascript" src="noise.init.js"></script>
+<link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" type="image/png" href="cat.png">
+</head>
+<body>
+  <h1 class="glow" id="header">New albums on Spotify </h1>
+  <div class="sidenav">
+    <div id="home"><a href="../">Home</a></div>
+  </div>
+ 
+  <p  id="info"><a id="update"></a>&nbsp;<a id="count"></a></p>
+  
+ 
+
+<div id="searchBox" class="dataTables_filter searchBox">
+<span class="toggle"><i class="fa fa-chevron fa-chevron-circle-right "></i></span>
+<div id="searchInput"> </div>
+<span></span>
+	<span id="searchField" class="filterSection hideItem">
+			<p><b>Search field:</b> &nbsp;</p>
+			<span class="filter-holder" id="search-filter">
+				<div class="solid filter-item">
+				<select id="search-fields" multiple size="1">
+					<option selected value="1">Album</option>
+					<option selected value="2">Band</option> 
+					<option value="4">Genre</option> 
+				</select>
+				</div>
+			</span>
+	</span>
+</div>
+<table style="border-collapse:collapse;" class="noise newlist" border="1">
+	<caption>
+		<button id="delete_button">Hide selected</button> </caption>
+	<thead>
+
+		<tr>
+			<th id="header_1">Cover</th>
+			<th id="header_3">Band</th>
+			<th id="header_2">Album</th>
+			<th id="header_4">Track</th>
+			<th id="header_4">Genre</th>
+			<th id="header_5">Date<div class="fixed float">FORMAT: <p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div></th>
+		</tr>
+	</thead>
+</table>
+
+</body>
