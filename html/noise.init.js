@@ -90,7 +90,7 @@ $(function () {
     stateDuration: 60 * 60 * 6,
     dom: 'rt<"bottom"ip>',
     lengthMenu: [150, 300, 600],
-    order: [[5, 'desc'], [3, 'desc']],
+    order: [[6, 'desc'], [4, 'asc'], [3, 'desc'], [2, 'asc'], [1, 'asc']],
     search: {
       regex: true,
       smart: true,
@@ -118,7 +118,7 @@ $(function () {
           },
           searchable: false,
           sorting: false,
-          width: '20%',
+          width: '22%',
           targets: [0],
         },
         {
@@ -130,17 +130,35 @@ $(function () {
             return data;
           },
           width: '10%',
-          targets: [5],
+          targets: [6],
         },
         {
-          width: '20%',
-          targets: [1,2,4],
+		    render: function (data, type, row) {
+          if (type === 'display') {
+            let type = data;
+            let track = row[5];
+            switch (track) {
+              case '1':
+                track = '';
+                break;
+              default:
+                track = " · "+track;
+            }
+            return type + track;
+          }
+          return data;
         },
+          width: '10%',
+          targets: [4],
+        },
+        {width: '22%', targets: [1],},
+        {width: '20%', targets: [2],},
+        {width: '5%', visible: false,targets: [5],},
 	],
     drawCallback: function (settings) {
       //group rows by date
       var
-        groupColumn = 5,
+        groupColumn = 6,
         api = this.api(),
         rows = api.rows({ page: 'current' }).nodes(),
         last = '';

@@ -2271,6 +2271,9 @@ div.dt-datetime-label span {
     max-width: 250px;
     object-fit: contain;
   }
+  .noise td>img {
+    max-width: 350px;
+  }
 }
 
 @media(max-width: 767px) {
@@ -2429,6 +2432,17 @@ div.dt-datetime-label span {
   .newlist tr:not(.group) td:nth-child(9)::before {
     content: "Date:";
   }
+
+  .noise tr:not(.group) td:nth-child(5)::before {
+    content: "Type:";
+  }
+
+
+  .noise tr:not(.group) td:nth-child(6)::before {
+    content: "Update:";
+  }
+
+
 
 
   /* .newlist tr:not(.group) td:nth-child(7), */
