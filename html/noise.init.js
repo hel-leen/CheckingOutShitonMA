@@ -122,6 +122,26 @@ $(function () {
           targets: [0],
         },
         {
+          render: (data, type, row) => {
+            //rendering album
+            if (type === 'display') {
+			let text = data.match(/(.*\>)(.+?)(?=[<\(])/).slice(-1)[0];
+			let type = 
+			data.search(/(spotify\:artist)/)>-1 ?  '&type=band_name"':
+			 data.search(/(spotify\:album)/)>-1 ?  '&type=album_title"':
+			'"';
+			
+			let dropdown = "<div class='grid_item'><div class='flex_item'>" +data+
+			"<div class='dropdown ts' style='width:90%;'>" +
+              '<a href="https://www.metal-archives.com/search?searchString=' + text + type +  ">Search on MA<i class='fa fa-medium'></i></a>"+
+              "</div></div></div>";
+              return tabLink(dropdown);
+            }
+            return data;
+          },
+          targets: [1,2],
+        },
+        {
 		    render: function (data, type, row) {
           if (type === 'display') {
 			let format = /(\d+)\|\|\|(.*)/;
