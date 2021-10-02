@@ -266,10 +266,10 @@ $(function () {
   $('#reset').click(function () {
     $('.filter-holder.4 select option').prop("selected", true);
     $('.filter-holder.3 select option').prop("selected", false);
-    table.draw();
+    table.columns(3).search('').draw(true);
   });
   $('.paginate_button, .dataTables_length,.filterSection, .filter-holder,#reset').on("click change", function (e) {
-    table.draw();
+    table.draw(false);
   });
 });
 $(window).resize(function () {
