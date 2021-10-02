@@ -33,11 +33,11 @@ const pageLayout = () => {
     if (window.matchMedia('(max-width: 767px)').matches) {
       // $(":root").css("font-size", "");
     } else {
-      $(":root").css("font-size", "2.23vh");
+      $(":root").css("font-size", "2.4vh");
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "3.97vw");
+    $(":root").css("font-size", "3.6vw");
   }
 }
 const createFilter = (table, columns) => {
@@ -90,7 +90,7 @@ $(function () {
     stateDuration: 60 * 60 * 6,
     dom: 'rt<"bottom"ip>',
     lengthMenu: [150, 300, 600],
-    order: [[6, 'desc'], [4, 'asc'], [3, 'desc'], [2, 'asc'], [1, 'asc']],
+    order: [[6, 'desc'], [5, 'desc'], [3, 'asc'], [2, 'asc'], [1, 'asc']],
     search: {
       regex: true,
       smart: true,
@@ -122,6 +122,22 @@ $(function () {
           targets: [0],
         },
         {
+		    render: function (data, type, row) {
+          if (type === 'display') {
+			let format = /(\d+)\|\|\|(.*)/;
+            let genre = data.match(format)[2];
+            return genre;
+          }
+          return data;
+        },
+          width: '15%',
+          targets: [3],
+        },
+        {
+          width: '10%',
+          targets: [4],
+        },
+        {
           render: (data, type, row) => {
             //rendering cover
             if (type === 'display') {
@@ -132,28 +148,10 @@ $(function () {
           width: '10%',
           targets: [6],
         },
-        {
-		    render: function (data, type, row) {
-          if (type === 'display') {
-            let type = data;
-            let track = row[5];
-            switch (track) {
-              case '1':
-                track = '';
-                break;
-              default:
-                track = " · "+track;
-            }
-            return type + track;
-          }
-          return data;
-        },
-          width: '10%',
-          targets: [4],
-        },
-        {width: '22%', targets: [1],},
-        {width: '20%', targets: [2],},
-        {width: '5%', visible: false,targets: [5],},
+
+        {width: '20%', targets: [1],},
+        {width: '18%', targets: [2],},
+        {width: '5%',visible:false, targets: [5]},
 	],
     drawCallback: function (settings) {
       //group rows by date
@@ -163,12 +161,7 @@ $(function () {
         rows = api.rows({ page: 'current' }).nodes(),
         last = '';
       api.column(groupColumn, { page: 'current' }).data().each(function (group, i) {
-        var date = moment(group, "YYYYMMDD");
-        date = (
-          moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') :
-            moment(date).format('MM') == moment().format('MM') ? moment(date).format('Do MMM') :
-              moment(date).format('MMMM')
-        );
+        var date = moment(group, "YYYYMMDD").format('Do MMM, YYYY');
         if (last !== date) {
           $(rows).eq(i).before('<tr class="group"><td colspan="1"></td>' +
             '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
@@ -225,17 +218,7 @@ $(function () {
   $('.newlist tbody').on('click', '.dropdown,.float', function () {
     $(this).toggleClass('actived');
   });
-  $('#datecondition').click(function () {
-    if ($(this).val() == 'After') {
-      $(this).val('Before');
-      $(this).css('text-shadow', '0px 0px 1px #d99');
-      table.order([[8, 'desc'], [0, 'desc']]).draw(true);
-    } else {
-      $(this).val('After');
-      $(this).css('text-shadow', '0px 0px 1px #9b9');
-      table.order([[8, 'asc'], [0, 'desc']]).draw(true);
-    }
-  });
+ 
   $('#datepicker, #today, #Today, .dt-datetime-today').click(function () {
     $('#datepicker').val(thisday);
     table.draw();
@@ -259,6 +242,8 @@ $(function () {
 $(window).resize(function () {
   pageLayout();
 });
-
+$(document).on('click', '.paginate_button', function () {
+  $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $(".dataTables_filter").height() - 8, }, 800);
+});
 
 
