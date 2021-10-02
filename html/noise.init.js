@@ -100,8 +100,8 @@ $(function () {
           render: (data, type, row) => {
             //rendering cover
             if (type === 'display') {
-              return ('<img class=".cover" src="'
-                .concat(data, '" loading="lazy" >'));
+              return (' <img class=".cover" src="'
+                .concat(data, '" loading="lazy" ></div>'));
             }
             return data;
           },
@@ -120,9 +120,14 @@ $(function () {
 			 data.search(/(spotify\:album)/)>-1 ?  '&type=album_title"':
 			'"';
 			
-			let dropdown = "<div class='grid_item'><div class='flex_item'>" +data+
+			let dropdown = "<div class='grid_item'><div class='flex_item'>" +
+			"<a class='hreftext'>"+ text + '</a>'+
 			"<div class='dropdown ts' style='width:90%;'>" +
-              '<a href="https://www.metal-archives.com/search?searchString=' + text + type +  ">Search on MA<i class='fa fa-medium'></i></a>"+
+				data
+				.replace(/<\/?i>/,'')
+				.replace(text,"<i class='fa fa-spotify'></i>Open in Spotify") +
+              '<a href="https://www.metal-archives.com/search?searchString=' + text + type +  
+			  ">Search on MA<i class='fa fa-medium ts'></i></a>"+
               "</div></div></div>";
               return tabLink(dropdown);
             }
