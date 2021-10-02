@@ -1323,7 +1323,7 @@ table ::-webkit-scrollbar {
   -moz-user-select: none;
 }
 
-.searchBox .fa,
+.searchBox i,
 .dropdown .fa {
   position: absolute;
   align-self: center;
