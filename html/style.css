@@ -874,7 +874,7 @@ div.dtsb-searchBuilder div.dtsb-titleRow div.dtsb-title {
 div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-condition option.dtsb-option,
 div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-data option.dtsb-option,
 div.dtsb-searchBuilder div.dtsb-group div.dtsb-criteria select.dtsb-value option.dtsb-option {
-  background-color: #666;
+  background-color: rgba(111, 111, 111, .4);
 }
 
 div.dtsb-searchBuilder div.dtsb-group div.dtsb-logicContainer {
@@ -1191,11 +1191,6 @@ table ::-webkit-scrollbar {
   height: .86vh
 }
 
-.noise tbody  tr:not(.group) {
-}
-
- 
-
 .newlist #footer {
   visibility:hidden;
 }
@@ -1246,20 +1241,20 @@ table ::-webkit-scrollbar {
 .toplist tbody tr:hover,
 .newlist tbody tr:not(.group):hover {
   background-color: #444;
-  background-color: rgba(99, 99, 99, 0.6);
+  background-color: rgba(99, 99, 99, .4);
 }
 
 .newlist tbody tr.selected,
 .newlist tbody tr.selected:hover {
   background-color: #654;
-  background-color: rgba(109, 100, 98, 0.8);
+  background-color: rgba(109, 100, 98, .8);
 }
 
 
 .newlist th {
   padding: 1rem;
   text-overflow: ellipsis;
-  background: rgba(111, 111, 111, 0.2);
+  background: rgba(111, 111, 111, .2);
 }
 
 .newlist thead>tr:nth-last-child(1) {}
@@ -1278,24 +1273,6 @@ table ::-webkit-scrollbar {
 .newlist thead>tr:nth-last-child(1)>th:nth-child(2) {
   font-weight: 600;
 }
-
-.newlist thead>tr:nth-last-child(1)>th:nth-last-child(1) {}
-
-/* .dbtn { */
-  /* background-color: rgba(0, 0, 0, 0); */
-  /* background-image: url("searchicon.png"); */
-  /* background-position: 0.3125em 0.3125rem; */
-  /* background-repeat: no-repeat; */
-  /* color: white; */
-  /* padding: 1rem; */
-  /* font-size: 1rem; */
-  /* border: none; */
-/* } */
-
-/* .ddbtn { */
-  /* background-color: rgba(0, 0, 0, 0); */
-  /* border: none; */
-/* } */
 
 .grid_item {
   position: relative;
@@ -1316,22 +1293,13 @@ table ::-webkit-scrollbar {
   grid-row-start: 1;
 }
 
-.dd-c {
-  display: none;
-  position: absolute;
-  background-color: #444;
-  min-width: 160px;
-  box-shadow: 0px 8px 1em 0px rgba(222, 222, 222, 0.2);
-  z-index: 1;
-}
-
 .dropdown {
   display: none;
   position: absolute;
-  background-color: #444;
+  background-color: rgba(66, 66, 66, .8);
   min-width: 160px;
-  border: 1px solid rgba(111, 111, 111, .7);
-  box-shadow: 0px 4px 1em 0px rgba(222, 222, 222, 0.1);
+  border: 1px solid rgba(111, 111, 111, .6);
+  box-shadow: 0px 4px 1em 0px rgba(166, 166, 166, .1);
   z-index: 1;
   left: 50%;
   transform: translate(-50%, -0%);
@@ -1341,7 +1309,6 @@ table ::-webkit-scrollbar {
 }
 
 
-.dd-c a,
 .dropdown a {
   color: #ffe;
   padding: .86vh 8px;
@@ -1351,6 +1318,9 @@ table ::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   text-align: center;
+  user-select: none; 
+  -webkit-user-select: none; 
+  -moz-user-select: none;
 }
 
 .searchBox .fa,
@@ -1364,12 +1334,10 @@ table ::-webkit-scrollbar {
 
 
 
-.dd-c a:hover,
 .dropdown a:hover {
-  background-color: #666;
+  background-color: rgba(111, 111, 111, .4);
 }
 
-.dd:hover .dd-c,
 .flex_item:hover .dropdown {
   display: block;
   -webkit-animation: slide-in-blurred-top 0.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
@@ -1382,6 +1350,9 @@ table ::-webkit-scrollbar {
   cursor: pointer;
   text-shadow: 1px 1px black;
   white-space: pre-line;
+  user-select: none; 
+  -webkit-user-select: none; 
+  -moz-user-select: none;
 }
 
 .extra {
@@ -1450,7 +1421,7 @@ table ::-webkit-scrollbar {
 .newlist th:hover .float {
   display: block;
   position: absolute;
-  background-color: #444;
+  background-color: rgba(99, 99, 99, 0.6);
   border: 1px solid rgba(111, 111, 111, .7);
   box-shadow: 0px .285vh .4em 0px rgba(111, 111, 111, 0.1);
   max-width: 300px;
@@ -1497,7 +1468,7 @@ table ::-webkit-scrollbar {
 td hr {
   margin: 0 30%;
   border: .1px solid transparent;
-  border-top: .1px solid #444;
+  border-top: .1px solid rgba(99, 99, 99, 0.6);
 }
 
 td>img {
@@ -1691,13 +1662,14 @@ iframe {
 }
 
 .filter-holder select option {
-  background-color: #444;
+  background-color: rgba(99, 99, 99, 0.6);
   display: inline-flex;
   justify-content: center;
   align-items: center;
   border-width: 0.15rem .4rem;
   border-style: solid;
   border-color: #444 !important;
+  border-color: rgba(99, 99, 99, 0.6) !important;
 }
 
 .filter-holder select option:hover,
@@ -2175,7 +2147,7 @@ div.dt-datetime-label span {
   }
 
   .grid_wrapper>div:not(:nth-child(1)) {
-    border-top: .1px solid #444;
+    border-top: .1px solid rgba(99, 99, 99, 0.6);
   }
 
   .grid_wrapper>div:nth-child(1) {
