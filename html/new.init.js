@@ -228,7 +228,8 @@ $(function () {
                   return '<a href="https://www.metal-archives.com/bands/view/' +
                     link.match(format)[1] + '">' +
                     link.match(format)[2] + '</a>';
-                }).sort(partSort).join(', ') :
+                }).sort((x, y) => {   var xp = x.tolowercase().match(format)[2];   var yp = y.tolowercase().match(format)[2];   
+				return xp == yp ? 0 : xp < yp ? -1 :1; }).join(', ') :
                 "<i class='extra'>(No data)</i>";
               rows += '</div></div>';
               return rows;

@@ -192,7 +192,27 @@ $(function () {
         }
       });
     },
-
+    initComplete: function () {
+      var api = this.api(), select;
+      api.columns([3]).every(function () {
+        var column = this;
+        $('<select><option value=""></option></select>')
+          .insertBefore('.filter-holder.' + this[0] + ' .clear')
+          .on('change', function () {
+            var val = $.fn.dataTable.util.escapeRegex($(this).val());
+            column.search(val ? val + '$' : '', true, false).draw();
+          });
+      });
+      // select box for labels
+      api.columns(3).every(function () {
+        select = $('.filter-holder.' + this[0] + ' select');
+        var genres =
+          this.data().unique().filter(v => v != '').map(d => d.match(/(\d+)\|\|\|(.*)/)[2]).sort(partSort).each(opval => {
+            select.append('<option value="' + opval + '">' + opval + '</option>');
+          });
+      });
+ 
+    },
   });
   let table = $('.newlist').DataTable();
   table.on('xhr', function () {
@@ -217,7 +237,7 @@ $(function () {
     $('#search-fields option:selected').each(function () { searchCols.push($(this).text().toLowerCase().concat('s')) });
     searchCols = searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or');
     searchInput.val('');
-    table.columns(1).search('').columns(2).search('').columns(3).search('').columns(6).search('').draw();
+    table.columns(1).search('').columns(2).search('').columns(3).search('').draw();
     $("#searchInput").empty().append(createFilter(table, searchFields))
       .children('input.search').val(searchValue)
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
@@ -238,11 +258,7 @@ $(function () {
   $('.newlist tbody').on('click', '.dropdown,.float', function () {
     $(this).toggleClass('actived');
   });
- 
-  $('#datepicker, #today, #Today, .dt-datetime-today').click(function () {
-    $('#datepicker').val(thisday);
-    table.draw();
-  });
+
   $('#delete_button').click(function () {
     table.rows('.selected').remove().draw(false);
   });
@@ -258,6 +274,14 @@ $(function () {
     filters.children('#datepicker').val('');
     table.columns(cols).search('').draw();
   });
+  $('#reset').click(function () {
+    $('.filter-holder.4 select option').prop("selected", true);
+    $('.filter-holder.3 select option').prop("selected", false);
+    table.draw();
+  });
+  $('.paginate_button, .dataTables_length,.filterSection, .filter-holder,#reset').on("click change", function (e) {
+    table.draw();
+  });
 });
 $(window).resize(function () {
   pageLayout();
@@ -266,4 +290,11 @@ $(document).on('click', '.paginate_button', function () {
   $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $(".dataTables_filter").height() - 8, }, 800);
 });
 
+$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+    let
+      type = data[4],
+      types = $(".filter-holder.4 select").val() || [];
 
+  return type.search('('.concat('(', types.join('|'), ')', ')')) > -1 ;
+  // return true;
+});
