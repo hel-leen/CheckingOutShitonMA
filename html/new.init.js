@@ -18,8 +18,7 @@ var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
 const partSort = ((x, y) => {
-  var xp = x.toLowerCase();
-  var yp = y.toLowerCase();
+  var xp = x.toLowerCase(), yp = y.toLowerCase();
   return xp == yp ? 0 :
     xp < yp ? -1 :
       1;
@@ -228,7 +227,7 @@ $(function () {
                   return '<a href="https://www.metal-archives.com/bands/view/' +
                     link.match(format)[1] + '">' +
                     link.match(format)[2] + '</a>';
-                }).sort((x, y) => {   var xp = x.tolowercase().match(format)[2];   var yp = y.tolowercase().match(format)[2];   
+                }).sort((x, y) => {   var xp = x.toLowerCase().match(format)[2], yp = y.toLowerCase().match(format)[2];   
 				return xp == yp ? 0 : xp < yp ? -1 :1; }).join(', ') :
                 "<i class='extra'>(No data)</i>";
               rows += '</div></div>';

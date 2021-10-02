@@ -12,14 +12,9 @@ jQuery.fn.extend({
     });
   },
 });
-let thisday = moment().format('YYYY-MM-DD');
-var thisweek = moment().day() >= 5 ?
-  moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
-  moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value == '' || value == ' ' || value == '/' || value == null);
 const partSort = ((x, y) => {
-  var xp = x.toLowerCase();
-  var yp = y.toLowerCase();
+  var xp = x.toLowerCase(), yp = y.toLowerCase();
   return xp == yp ? 0 :
     xp < yp ? -1 :
       1;
@@ -65,12 +60,6 @@ const createFilter = (table, columns) => {
 
 $(function () {
   pageLayout();
-  $('#datepicker').val(thisweek);
-  $('#datepicker').dtDateTime({
-    buttons: {
-      // today: true,  clear: true
-    },
-  });
   $('.noise').DataTable({
     // processing: true,
     // serverSide: true,
