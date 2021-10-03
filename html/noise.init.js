@@ -28,7 +28,7 @@ const pageLayout = () => {
     if (window.matchMedia('(max-width: 767px)').matches) {
       // $(":root").css("font-size", "");
     } else {
-      $(":root").css("font-size", "2.4vh");
+      $(":root").css("font-size", "2.23vh");
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
@@ -64,7 +64,7 @@ $(function () {
     // processing: true,
     // serverSide: true,
     ajax: {
-      url: "everynoise",
+      url: "noise",
       dataFilter: function (data) {
         var json = jQuery.parseJSON(data);
         json.data = json.data.slice(0, -1);
@@ -77,7 +77,7 @@ $(function () {
     deferRender: true,
     // stateSave: true,
     stateDuration: 60 * 60 * 6,
-    dom: 'rt<"bottom"ip>',
+    dom: 'rt<"bottom"<<"btm"> i<"#del.btm">>p>',
     lengthMenu: [150, 300, 600],
     order: [[6, 'desc'], [5, 'desc'], [3, 'asc'], [2, 'asc'], [1, 'asc']],
     search: {

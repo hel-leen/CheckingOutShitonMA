@@ -784,6 +784,7 @@ a {
 }
 .toggle,
 .clear,
+#del,
 button {
   cursor: pointer;
 }
@@ -1024,11 +1025,13 @@ div.dt-datetime-iconDown button {
   color: #fed;
 }
 
+.btm,
 .dataTables_info {
   text-align: center;
   font-size: .88rem;
+  line-height: 1.35rem;
   color: #fed;
-  padding: .4rem 1rem;
+  padding: .5rem 1rem;
   z-index: 555;
 }
 
@@ -1053,11 +1056,38 @@ div.dt-datetime-iconDown button {
   justify-content: center;
   align-items: center;
 }
+
+
+#del {
+  color: rgba(238, 221, 204,.6);
+  background: rgba(0,0,0,.3);
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 24%), 0 1vh 2vh 0 rgb(0 0 0 / 19%);
+}
+#del:before {
+  content: "Hide Sel.";
+}
+
+.btm {
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  width: 20%;
+  height: 100%;
+  max-width: 6rem;
+  padding: .2rem;
+  font-size:.8rem;
+  outline: none;
+  opacity:.1;
+  border-radius:2rem;
+}
+
+
 .bottom {
   position: -webkit-sticky;
   position: sticky;
   bottom: 0;
   padding:.2rem;
+  overflow-x:hidden;
   background-color:#333;
 }
 
@@ -1087,13 +1117,6 @@ button:active{
 button:hover{
   background-color: #666;
   color: #fed;
-}
-button#delete_button:active {
-  box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
-}
-
-button#delete_button:hover {
-  right: 0px;
 }
 
 table.dataTable thead .sorting,
@@ -1156,6 +1179,10 @@ table {
   font-size: 0.9rem;
   table-layout: fixed;
   text-align: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 .dataTables_empty{
   line-height: 2rem;
@@ -1281,9 +1308,6 @@ table ::-webkit-scrollbar {
   justify-content: center;
 }
 
-.grid_item .flex_item:not(:nth-child(1)) {
-  border-top: 1px dashed #333;
-}
 
 .flex_item {
     margin: .6rem 0;
@@ -1293,60 +1317,8 @@ table ::-webkit-scrollbar {
   grid-row-start: 1;
 }
 
-.dropdown {
-  display: none;
-  position: absolute;
-  background-color: rgba(66, 66, 66, .8);
-  min-width: 160px;
-  border: 1px solid rgba(111, 111, 111, .6);
-  box-shadow: 0px 4px 1em 0px rgba(166, 166, 166, .1);
-  z-index: 1;
-  left: 50%;
-  transform: translate(-50%, -0%);
-  -webkit-animation: flip-2-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  animation: flip-2-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
-  z-index: 999;
-}
-
-
-.dropdown a {
-  color: #ffe;
-  padding: .86vh 8px;
-  text-decoration: none;
-  display: block;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  user-select: none; 
-  -webkit-user-select: none; 
-  -moz-user-select: none;
-}
-
-.searchBox i,
-.dropdown .fa {
-  position: absolute;
-  align-self: center;
-  right: 10%;
-  font-size: .9em;
-  opacity: .6;
-}
-
-
-
-.dropdown a:hover {
-  background-color: rgba(111, 111, 111, .4);
-}
-
-.flex_item:hover .dropdown {
-  display: block;
-  -webkit-animation: slide-in-blurred-top 0.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-  animation: slide-in-blurred-top 0.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
-}
-
 
 .hreftext {
-  /* text-decoration: underline; */
   cursor: pointer;
   text-shadow: 1px 1px black;
   white-space: pre-line;
@@ -1385,7 +1357,6 @@ table ::-webkit-scrollbar {
 }
 
 
-
 .fixed {
   overflow-y: overlay;
   overflow: hidden;
@@ -1395,6 +1366,7 @@ table ::-webkit-scrollbar {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
+
 .fixed i {
   opacity: .7;
   overflow: hidden;
@@ -1410,23 +1382,62 @@ table ::-webkit-scrollbar {
   color: #fed;
 }
 
+.float,
+.dropdown  {
+  display: none;
+  position: absolute;
+  background-color: rgba(66, 66, 66, .8);
+  border: 1px solid rgba(111, 111, 111, .6);
+  box-shadow: 0px 4px 1em 0px rgba(111, 111, 111, .1);
+  z-index: 999;
+}
+
+.dropdown  {
+  min-width: 160px;
+  left: 50%;
+  transform: translate(-50%, -0%);
+  -webkit-animation: flip-2-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+  animation: flip-2-top 0.5s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+
+.dropdown a {
+  color: #ffe;
+  padding: .86vh 8px;
+  text-decoration: none;
+  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  user-select: none; 
+  -webkit-user-select: none; 
+  -moz-user-select: none;
+}
+
+.searchBox i,
+.dropdown .fa {
+  position: absolute;
+  align-self: center;
+  right: 10%;
+  font-size: .9em;
+  opacity: .6;
+}
+
+.dropdown a:hover {
+  background-color: rgba(111, 111, 111, .4);
+}
+
+.flex_item:hover .dropdown {
+  display: block;
+  -webkit-animation: slide-in-blurred-top 0.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+  animation: slide-in-blurred-top 0.2s cubic-bezier(0.230, 1.000, 0.320, 1.000) both;
+}
 
 .float {
-  display: none;
-}
-.float:focus-within,
-.float:focus,
-.float:hover,
-.fixed:hover~.float,
-.newlist th:hover .float {
-  display: block;
-  position: absolute;
-  background-color: rgba(99, 99, 99, 0.6);
-  border: 1px solid rgba(111, 111, 111, .7);
-  box-shadow: 0px .285vh .4em 0px rgba(111, 111, 111, 0.1);
   max-width: 300px;
-  width: 200%;
   max-height: 66vh;
+  width: 200%;
   font-size: .9rem;
   opacity: 1;
   white-space: pre-line;
@@ -1439,11 +1450,16 @@ table ::-webkit-scrollbar {
   animation: scale-in-top 0.1s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
 }
 
+.float:focus,
+.float:hover,
+.fixed:hover~.float,
+.newlist th:hover .float {
+  display: block;
+}
+
 
 .newlist th:hover .float {
   left: 0;
-  /* right: 0; */
-  /* bottom: 100%; */
   font-size: .66rem;
   color:lightgray;
   padding: 1rem;
@@ -1473,14 +1489,6 @@ td hr {
 
 td>img {
   width: 95%;
-}
-
-.js-plotly-plot {
-	padding:0 1rem;
-}
-.js-plotly-plot a {
-  /* opacity: 0; */
-  /* display: none; */
 }
 
 pre:not([class]) {
@@ -1534,17 +1542,12 @@ iframe {
   outline: none;
 }
 
-
-#glossary {
-  /* margin-bottom: -.77em; */
-}
+ 
 
 #glossary>* {
   cursor: pointer;
   align-self: flex-start;
 }
-
-#glossary strong {}
 
 #glossary p {
   font-size: .9rem;
@@ -1559,7 +1562,6 @@ iframe {
 
 .filterSection tbody {
   display: grid;
-  /* grid-template-columns: 1fr 1fr; */
 }
 .filterSection {
   display: grid;
@@ -1630,10 +1632,6 @@ iframe {
   font-size: .9rem;
   width: fit-content;
   margin-left: -.33rem;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
 }
 
 .checkcontainer input {
@@ -1658,7 +1656,6 @@ iframe {
 }
 
 .filter-holder select option:nth-of-type(1) {
-  /* margin-right: .23rem; */
 }
 
 .filter-holder select option {
@@ -1669,7 +1666,7 @@ iframe {
   border-width: 0.15rem .4rem;
   border-style: solid;
   border-color: #444 !important;
-  border-color: rgba(99, 99, 99, 0.6) !important;
+  border-color: transparent !important;
 }
 
 .filter-holder select option:hover,
@@ -1773,16 +1770,14 @@ input:focus + .slider {
 .newlist .fa {
   align-self: center;
   padding: 0;
-  /* margin: 0; */
 }
 
-/* .filter-holder i.fa:not(.fa-check-circle), */
 .clear {
-  /* color: gray; */
   font-size: 1.1rem;
-  opacity: .3;
 }
 
+.btm,
+.clear,
 .checkcontainer .checkmark:before {
   opacity: .3;
 }
@@ -1791,17 +1786,18 @@ input:focus + .slider {
   color: lightblue;
 }
 
+.btm:hover,
+.btm:focus,
+.btm:active,
 .clear:hover,
 .clear:focus,
 .clear:active,
-/* .filter-holder i.fa:hover, */
-/* .filter-holder i.fa:focus, */
-/* .filter-holder i.fa:active, */
 .checkcontainer input:checked~.checkmark:before {
   opacity: 1;
 }
 
 i:active,
+.btm:active,
 option:active,
 button:active {
   transform: translateY(1px);
@@ -2453,14 +2449,18 @@ div.dt-datetime-label span {
   .dropdown {
     min-width: 45vw;
   }
-
+  
+  .btm {
+    padding: .1rem;
+  }
+  .btm,
   .dataTables_info {
     font-size: .77rem;
+    white-space: pre-line;
   }
 
   .paginate_button {
     font-size: .8rem;
-    /* padding: 0 .8rem; */
     margin: 0 1px .4rem 1px;
   }
 

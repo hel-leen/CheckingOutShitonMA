@@ -101,7 +101,7 @@ $(function () {
     deferRender: true,
     // stateSave: true,
     stateDuration: 60 * 60 * 6,
-    dom: 'rt<"bottom"ip>',
+    dom: 'rt<"bottom"<<"btm"> i<"#del.btm">>p>',
     stateSaveParams: function (settings, data) {
       data.order = [[8, 'asc'], [0, 'desc']]
     },
@@ -116,7 +116,7 @@ $(function () {
       search: '_INPUT_',
       infoEmpty: ' ',
       info: '( _START_ - _END_ ) / _TOTAL_ ',
-      infoFiltered: ' [ Total: _MAX_ ]',
+      infoFiltered: '\n [ Total: _MAX_ ]',
       lengthMenu: " _MENU_ ",
       paginate: { "first": "First", "last": "Last", "next": "Next", "previous": "Prev" },
       zeroRecords: "No matching records found<br>Set fewer filters and retry?",
@@ -477,7 +477,7 @@ $(function () {
     $('#datepicker').val(thisday);
     table.draw();
   });
-  $('#delete_button').click(function () {
+  $('#delete_button,#del').click(function () {
     table.rows('.selected').remove().draw(false);
   });
   $('.toggle ').click(function () {
