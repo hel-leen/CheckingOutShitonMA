@@ -1089,7 +1089,19 @@ div.dt-datetime-iconDown button {
   padding:.2rem;
   overflow-x:hidden;
   background-color:#333;
+
+ 
+ /* box-shadow: 0 0 5rem hsla(170, 0%, 45%, 1); */
+  /* box-shadow: 0 0 5rem #333; */
 }
+
+
+
+
+
+
+
+
 
 #delete_button {
   position: fixed;
@@ -1101,7 +1113,6 @@ div.dt-datetime-iconDown button {
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24), 0 1vh 2vh 0 rgba(0, 0, 0, 0.19);
   z-index: 999;
 }
-
 
 button {
   padding-left: .7rem;
@@ -1174,7 +1185,7 @@ table.dataTable thead .sorting_desc_disabled:after {
 
 table {
   width: 100%;
-  border: .285vh solid rgba(99, 99, 99, 0.6);
+  border: 1.5px solid rgba(99, 99, 99, .5);
   background-color: transparent;
   font-size: 0.9rem;
   table-layout: fixed;
@@ -1187,13 +1198,12 @@ table {
 .dataTables_empty{
   line-height: 2rem;
 }
-.newlist tr.odd {
-  background: rgba(60, 55, 50, .4);
+.newlist tr.even {
+  /* background: rgba(60, 60, 60, .4); */
 }
 
 .toplist,
 .newlist {
-  /* display: none; */
   text-align: center;
   justify-items: center;
   font-size: .9rem;
@@ -1249,9 +1259,6 @@ table ::-webkit-scrollbar {
   white-space: nowrap;
   overflow: hidden;
 }
-.newlist .group td:nth-last-child(1) {
-  border-right: 1px solid rgba(99, 99, 99, 0.6);
-}
 .newlist td {
   padding: 0.75em 0.15em 0.75em 0.15rem;
 }
@@ -1260,15 +1267,40 @@ table ::-webkit-scrollbar {
   text-overflow: ellipsis;
 }
 
+.newlist .group td:nth-last-child(1) {
+  border-right: 1px solid rgba(99, 99, 99, .5);
+}
 .newlist tbody tr {
-  border-bottom: 1px solid rgba(99, 99, 99, 0.6);
+  border-bottom: 1px solid rgba(99, 99, 99, .5);
+  scroll-margin-inline-end: 1rem;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
 }
 
 .newlist tr.header,
 .toplist tbody tr:hover,
 .newlist tbody tr:not(.group):hover {
-  background-color: #444;
-  background-color: rgba(99, 99, 99, .4);
+  /* background-color: #444; */
+  background-color: rgba(99, 99, 99, .3);
+  /* background-image:linear-gradient( */
+  /* to top, */
+ /* hsla(0,0%,38.8%, 0.2857) 0%, */
+ /* hsla(0,0%,38.8%, 0.2794) 9.5%, */
+ /* hsla(0,0%,38.8%, 0.2643) 17.7%, */
+ /* hsla(0,0%,38.8%, 0.2449) 24.7%, */
+ /* hsla(0,0%,38.8%, 0.2231) 31%, */
+ /* hsla(0,0%,38.8%, 0.2003) 36.8%, */
+ /* hsla(0,0%,38.8%, 0.1771) 42.3%, */
+ /* hsla(0,0%,38.8%, 0.1537) 47.6%, */
+ /* hsla(0,0%,38.8%, 0.13) 52.9%, */
+ /* hsla(0,0%,38.8%, 0.1066) 58.2%, */
+ /* hsla(0,0%,38.8%, 0.0831) 63.7%, */
+ /* hsla(0,0%,38.8%, 0.0606) 69.5%, */
+ /* hsla(0,0%,38.8%, 0.0394) 75.8%, */
+ /* hsla(0,0%,38.8%, 0.02) 82.9%, */
+ /* hsla(0,0%,38.8%, 0.0054) 91.2%, */
+ /* hsla(0,0%,38.8%, 0) 100% */
+/* ); */
 }
 
 .newlist tbody tr.selected,
@@ -1278,17 +1310,37 @@ table ::-webkit-scrollbar {
 }
 
 
+.newlist thead {
+  background-color: rgba(111, 111, 111, .2);
+  /* background-image:linear-gradient( */
+  /* to top, */
+  /* hsla(0,0%,20%,1) 0%, */
+  /* hsla(0,0%,20%, 0.978) 9.5%, */
+  /* hsla(0,0%,20%, 0.925) 17.7%, */
+  /* hsla(0,0%,20%, 0.857) 24.7%, */
+  /* hsla(0,0%,20%, 0.781) 31%, */
+  /* hsla(0,0%,20%, 0.701) 36.8%, */
+  /* hsla(0,0%,20%, 0.62) 42.3%, */
+  /* hsla(0,0%,20%, 0.538) 47.6%, */
+  /* hsla(0,0%,20%, 0.455) 52.9%, */
+  /* hsla(0,0%,20%, 0.373) 58.2%, */
+  /* hsla(0,0%,20%, 0.291) 63.7%, */
+  /* hsla(0,0%,20%, 0.212) 69.5%, */
+  /* hsla(0,0%,20%, 0.138) 75.8%, */
+  /* hsla(0,0%,20%, 0.07) 82.9%, */
+  /* hsla(0,0%,20%, 0.019) 91.2%, */
+  /* hsla(0,0%,20%, 0) 100% */
+/* ); */
+}
 .newlist th {
   padding: 1rem;
   text-overflow: ellipsis;
-  background: rgba(111, 111, 111, .2);
 }
 
-.newlist thead>tr:nth-last-child(1) {}
 
 .newlist thead>tr:nth-last-child(1) {
-  border-top: 1px solid #555;
-  border-bottom: 2px double rgba(99, 99, 99, 0.6);
+  border-top: 1px rgba(99, 99, 99, .5);
+  border-bottom: 1px double rgba(99, 99, 99, .5);
   padding: .1em .8rem;
 }
 

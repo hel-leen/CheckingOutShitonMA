@@ -101,6 +101,8 @@ $(function () {
     deferRender: true,
     // stateSave: true,
     stateDuration: 60 * 60 * 6,
+    scrollCollapse: true,
+	// scrollY: '70vh',
     dom: 'rt<"bottom"<<"btm"> i<"#del.btm">>p>',
     stateSaveParams: function (settings, data) {
       data.order = [[8, 'asc'], [0, 'desc']]
