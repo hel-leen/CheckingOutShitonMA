@@ -1060,8 +1060,8 @@ div.dt-datetime-iconDown button {
 
 #del {
   color: rgba(238, 221, 204,.6);
-  background: rgba(0,0,0,.3);
-  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 24%), 0 1vh 2vh 0 rgb(0 0 0 / 19%);
+  background: rgba(11,11,11,.4);
+  box-shadow: 0 1px 4px 0 rgb(0 0 0 / 24%), 0 1vh 2vh 0 rgb(0 0 0 / 20%);
 }
 #del:before {
   content: "Hide Sel.";
@@ -1089,29 +1089,6 @@ div.dt-datetime-iconDown button {
   padding:.2rem;
   overflow-x:hidden;
   background-color:#333;
-
- 
- /* box-shadow: 0 0 5rem hsla(170, 0%, 45%, 1); */
-  /* box-shadow: 0 0 5rem #333; */
-}
-
-
-
-
-
-
-
-
-
-#delete_button {
-  position: fixed;
-  padding: .7rem;
-  right: -4.5rem;
-  bottom: 1rem;
-  color: white;
-  outline: none;
-  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.24), 0 1vh 2vh 0 rgba(0, 0, 0, 0.19);
-  z-index: 999;
 }
 
 button {
