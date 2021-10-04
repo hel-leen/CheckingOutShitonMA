@@ -26,13 +26,16 @@ const pageLayout = () => {
   if (navigator.userAgent.search(/mobile/gi) < 0) {
     $.fn.DataTable.ext.pager.numbers_length = 9;
     if (window.matchMedia('(max-width: 767px)').matches) {
-      // $(":root").css("font-size", "");
+      $(":root").css("font-size", "");
+	  console.log(1, $(":root").css('font-size'));
     } else {
       $(":root").css("font-size", "2.22vh");
+	  console.log(2, $(":root").css('font-size'));
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
     $(":root").css("font-size", "3.6vw");
+	  console.log(3,$(":root").css('font-size'));
   }
 }
 const createFilter = (table, columns) => {
