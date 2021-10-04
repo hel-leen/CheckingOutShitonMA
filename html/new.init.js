@@ -79,39 +79,26 @@ const createFilter = (table, columns) => {
 $(function () {
   pageLayout();
   $('#datepicker').val(thisweek);
-  $('#datepicker').dtDateTime({
-    buttons: {
-      // today: true,  clear: true
-    },
-  });
+  $('#datepicker').dtDateTime({ });
   $('.newlist').DataTable({
     // processing: true,
     // serverSide: true,
-    ajax: {
-      url: "release",
-      dataFilter: function (data) {
-        var json = jQuery.parseJSON(data);
-        json.data = json.data.slice(0, -1);
-        return JSON.stringify(json);
-      },
-    },
+    dom: 'rt<"bottom"<<"#res.btm"> i<"#del.btm">>p>',
     autoWidth: false,
     fixedHeader: true,
+    scrollCollapse: true,
     orderCellsTop: false,
     deferRender: true,
-    // stateSave: true,
-    stateDuration: 60 * 60 * 6,
-    scrollCollapse: true,
-	// scrollY: '70vh',
-    dom: 'rt<"bottom"<<"btm"> i<"#del.btm">>p>',
-    stateSaveParams: function (settings, data) {
-      data.order = [[8, 'asc'], [0, 'desc']]
-    },
     order: [[8, 'asc'], [0, 'desc']],
     lengthMenu: [50, 100, 200, 400],
-    search: {
-      regex: true,
-      smart: true,
+    search: { regex: true, smart: true, },
+    stateSave: true,
+    stateDuration: 60 * 60 * 24 * 7,
+    fnStateSave: function (Settings, Data) {
+      localStorage.setItem('newList', JSON.stringify(Data));
+    },
+    fnStateLoad: function (Settings) {
+      return JSON.parse(localStorage.getItem('newList'));
     },
     language: {
       searchPlaceholder: 'Search for albums or bands..',
@@ -124,6 +111,14 @@ $(function () {
       zeroRecords: "No matching records found<br>Set fewer filters and retry?",
       loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
     },
+    ajax: {
+      url: "release",
+      dataFilter: function (data) {
+        var json = jQuery.parseJSON(data);
+        json.data = json.data.slice(0, -1);
+        return JSON.stringify(json);
+      },
+    },
     columnDefs: [
       {
         //rendering cover
@@ -135,7 +130,7 @@ $(function () {
           }
           return data;
         },
-        searchable: false,
+        // searchable: false,
         sorting: false,
         width: '16%',
         targets: [0],
@@ -153,7 +148,7 @@ $(function () {
               album_title
                 .replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
                 .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
-                .replace(/(^\W+|^)\n/g, '$1')
+                .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
                 .replace(/(\n\s?)+/g, '\n')
               +
               "</a><div class='dropdown'>" +
@@ -229,8 +224,10 @@ $(function () {
                   return '<a href="https://www.metal-archives.com/bands/view/' +
                     link.match(format)[1] + '">' +
                     link.match(format)[2] + '</a>';
-                }).sort((x, y) => {   var xp = x.toLowerCase().match(format)[2], yp = y.toLowerCase().match(format)[2];   
-				return xp == yp ? 0 : xp < yp ? -1 :1; }).join(', ') :
+                }).sort((x, y) => {
+                  var xp = x.toLowerCase().match(format)[2], yp = y.toLowerCase().match(format)[2];
+                  return xp == yp ? 0 : xp < yp ? -1 : 1;
+                }).join(', ') :
                 "<i class='extra'>(No data)</i>";
               rows += '</div></div>';
               return rows;
@@ -407,15 +404,19 @@ $(function () {
           select.append('<option value="' + key + '">' + key + ' (' + value + ') ' + '</option>');
         });
       });
+      if (localStorage.getItem('NewSelected') != undefined) {
+        var selected = localStorage.getItem('NewSelected').split(',').join('|');
+        api.columns(0).search('^('.concat(selected, ')'), true).rows({ search: 'applied' }).remove().column(0).search('').draw();
+      };
     },
   });
-
   let table = $('.newlist').DataTable();
   table.on('xhr', function () {
     var json = table.ajax.json();
     //count rows
     if (json) {
       $('.anchor').hide();
+      $('.btm').css({ 'display': 'flex' });
       $('.filterWrapper, #searchBox').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
@@ -439,29 +440,47 @@ $(function () {
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
   });
   table.columns().visible(true);
-  $('.newlist thead').on('click', 'th.sorting ', function () {
+  table.on('click', 'th.sorting ', function () {
     var currentOrder = table.order()[0];
     if (currentOrder[0] == 8) {
-      $('.newlist .group').css('display', 'table-row');
+      $('table .group').css('display', 'table-row');
     }
     else {
-      $('.newlist .group').css('display', 'none');
+      $('table .group').css('display', 'none');
     }
   });
-  $('.newlist tbody').on('click', '.prev', function () {
+  table.on('click', '.prev', function () {
     $(this).parent().prevAll('.group').length > 0 ?
       $('html,body').animate({ scrollTop: $(this).parent().prevAll('.group').offset().top - $(".dataTables_filter").height() }, 600) :
       $('html,body').animate({ scrollTop: $(this).parent().offset().top - $(".dataTables_filter").height() }, 600)
   });
-  $('.newlist tbody').on('click', '.next', function () {
+  table.on('click', '.next', function () {
     $(this).parent().nextAll('.group').length > 0 ?
       $('html,body').animate({ scrollTop: $(this).parent().nextAll('.group').offset().top - $(".dataTables_filter").height() }, 600) :
       $('html,body').animate({ scrollTop: $(this).parent().nextAll().last().children().last().offset().top - $(".dataTables_filter").height() }, 600)
   });
-  $('.newlist tbody').on('dblclick', 'tr:not(.group)', function () {
+
+  table.on('dblclick', 'tr:not(.group)', function () {
     $(this).toggleClass('selected');
   });
-  $('.newlist tbody').on('click', '.dropdown,.float', function () {
+  $('#del').click(function () {
+    var selected = table.rows('.selected').data().map((d, j) => {
+      return d = d[0].split(/(?<=\d)\|\|\|/g)[0];
+    }).toArray();
+    if (localStorage.getItem('NewSelected') != null) {
+      var storedItems = localStorage.getItem('NewSelected').split(',');
+      localStorage.setItem('NewSelected', storedItems.concat(selected));
+    } else {
+      localStorage.setItem('NewSelected', selected);
+    }
+    table.rows('.selected').remove().draw(false);
+  });
+  $('#res').click(function () {
+    delete localStorage.NewSelected;
+    location.reload();
+  });
+
+  table.on('click', '.dropdown,.float', function () {
     $(this).toggleClass('actived');
   });
   $('#datecondition').click(function () {
@@ -478,9 +497,6 @@ $(function () {
   $('#datepicker, #today, #Today, .dt-datetime-today').click(function () {
     $('#datepicker').val(thisday);
     table.draw();
-  });
-  $('#delete_button,#del').click(function () {
-    table.rows('.selected').remove().draw(false);
   });
   $('.toggle ').click(function () {
     $(this).parent().children('.hideItem').toggle("fast").css('display', 'grid');
@@ -544,3 +560,4 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   return genre.search('('.concat('(', genres.join('|'), ')', ')')) > -1 && dateset;
   // return true;
 });
+

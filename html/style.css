@@ -828,8 +828,11 @@ button {
 .paginate_button:hover,
 .paginate_button.current {
   border: 1px rgba(111, 111, 111, 1) solid;
-  background-color: rgba(111, 111, 111, .7);
+  background-color: rgba(111, 111, 111, .8);
   color: #edc;
+}
+.paginate_button.current {
+  background-color: rgba(122, 122, 122, .7);
 }
 
 .paginate_button.current {
@@ -1061,12 +1064,13 @@ div.dt-datetime-iconDown button {
   background: rgba(11,11,11,.5);
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 24%), 0 1vh 2vh 0 rgb(0 0 0 / 20%);
 }
+
 #del:before {
   content: "Hide Sel.";
 }
 
 .btm {
-  display:flex;
+  display:none;
   justify-content:center;
   align-items:center;
   width: 20%;

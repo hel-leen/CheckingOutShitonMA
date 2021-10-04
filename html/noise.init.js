@@ -28,7 +28,7 @@ const pageLayout = () => {
     if (window.matchMedia('(max-width: 767px)').matches) {
       // $(":root").css("font-size", "");
     } else {
-      $(":root").css("font-size", "2.23vh");
+      $(":root").css("font-size", "2.22vh");
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
@@ -61,8 +61,38 @@ const createFilter = (table, columns) => {
 $(function () {
   pageLayout();
   $('.noise').DataTable({
-    // processing: true,
-    // serverSide: true,
+    dom: 'rt<"bottom"<<"#res.btm"> i<"#del.btm">>p>',
+    autoWidth: false,
+    fixedHeader: true,
+    scrollCollapse: true,
+    orderCellsTop: false,
+    deferRender: true,
+    lengthMenu: [150, 300, 600],
+    order: [[7, 'desc'], [5, 'desc'], [6, 'asc'], [3, 'asc'], [2, 'asc'], [1, 'asc']],
+    search: { regex: true, smart: true, },
+    stateSave: true,
+    stateDuration: 60 * 60 * 24 * 7,
+    stateSaveParams: function (settings, data) {
+      data.order = [[7, 'desc'], [5, 'desc'], [6, 'asc'], [3, 'asc'], [2, 'asc'], [1, 'asc']];
+	  // data.columns = [{"visible": true},{"visible": true},{"visible": true},{"visible": true},{"visible": true},{"visible": false},{"visible": true}]
+    },
+    fnStateSave: function (Settings, Data) {
+      localStorage.setItem('noiseNoir', JSON.stringify(Data));
+    },
+    fnStateLoad: function (Settings) {
+      return JSON.parse(localStorage.getItem('noiseNoir'));
+    },
+    language: {
+      searchPlaceholder: 'Search for albums or bands..',
+      search: '_INPUT_',
+      infoEmpty: ' ',
+      info: '( _START_ - _END_ ) / _TOTAL_ ',
+      infoFiltered: '\n [ Total: _MAX_ ]',
+      lengthMenu: " _MENU_ ",
+      paginate: { "first": "First", "last": "Last", "next": "Next", "previous": "Prev" },
+      zeroRecords: "No matching records found<br>Set fewer filters and retry?",
+      loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
+    },
     ajax: {
       url: "noise",
       dataFilter: function (data) {
@@ -70,30 +100,6 @@ $(function () {
         json.data = json.data.slice(0, -1);
         return JSON.stringify(json);
       },
-    },
-    autoWidth: false,
-    fixedHeader: true,
-    orderCellsTop: false,
-    deferRender: true,
-    // stateSave: true,
-    stateDuration: 60 * 60 * 6,
-    dom: 'rt<"bottom"<<"btm"> i<"#del.btm">>p>',
-    lengthMenu: [150, 300, 600],
-    order: [[6, 'desc'], [5, 'desc'], [3, 'asc'], [2, 'asc'], [1, 'asc']],
-    search: {
-      regex: true,
-      smart: true,
-    },
-    language: {
-      searchPlaceholder: 'Search for albums or bands..',
-      search: '_INPUT_',
-      infoEmpty: ' ',
-      info: '( _START_ - _END_ ) / _TOTAL_ ',
-      infoFiltered: ' [ Total: _MAX_ ]',
-      lengthMenu: " _MENU_ ",
-      paginate: { "first": "First", "last": "Last", "next": "Next", "previous": "Prev" },
-      zeroRecords: "No matching records found<br>Set fewer filters and retry?",
-      loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
     },
       "columnDefs": [
         {
@@ -107,29 +113,31 @@ $(function () {
           },
           searchable: false,
           sorting: false,
-          width: '22%',
+          width: '20%',
           targets: [0],
         },
         {
           render: (data, type, row) => {
             //rendering album
             if (type === 'display') {
-			let text = data.match(/(.*\>)(.+?)(?=[<])/).slice(-1)[0];
-			let type = 
-			data.search(/(spotify\:artist)/)>-1 ?  '&type=band_name"':
-			 data.search(/(spotify\:album)/)>-1 ?  '&type=album_title"':
+			let 
+			format =  /([^\:]\:[^|]+)\|\|\|(.*)/,
+			href = data.match(format)[1],
+			text = data.match(format)[2],
+			type = 
+			data.search(/(artist\:)/)>-1 ?  '&type=band_name"':
+			 data.search(/(album\:)/)>-1 ?  '&type=album_title"':
 			'"';
 			
-			let dropdown = "<div class='grid_item'><div class='flex_item'>" +
+			let dropdown = "<div class='grid_item'><div class='flex_item'>" + 
 			"<a class='hreftext'>"+ text
 				.replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
                 .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
-                .replace(/(^\W+|^)\n/g, '$1')
+                .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
                 .replace(/(\n\s?)+/g, '\n') + '</a>'+
 			"<div class='dropdown ts' style='width:90%;'>" +
-				data
-				.replace(/<\/?i>/,'')
-				.replace(text,"<i class='fa fa-spotify'></i>Open in Spotify") +
+				"<a href='spotify:"+href +
+				"'>Open in Spotify<i class='fa fa-spotify'></i></a>"+
               '<a href="https://www.metal-archives.com/search?searchString=' + text.replace(/\s?\(.*?\)/g,'') + type +  
 			  ">Search on MA<i class='fa fa-medium ts'></i></a>"+
               "</div></div></div>";
@@ -137,6 +145,7 @@ $(function () {
             }
             return data;
           },
+		  width: '15%',
           targets: [1,2],
         },
         {
@@ -148,33 +157,42 @@ $(function () {
           }
           return data;
         },
-          width: '15%',
+          width: '14%',
           targets: [3],
         },
         {
-          width: '10%',
+          width: '8%',
           targets: [4],
         },
         {
           render: (data, type, row) => {
             //rendering cover
             if (type === 'display') {
+              return parseFloat( data).toLocaleString(undefined);
+            }
+            return data;
+          },
+          width: '8%',
+          targets: [6],
+        },
+        {
+          render: (data, type, row) => {
+            //rendering date
+            if (type === 'display') {
               return (data.slice(0,4).concat('-',data.slice(4,6),'-',data.slice(6)));
             }
             return data;
           },
           width: '10%',
-          targets: [6],
+          targets: [7],
         },
 
-        {width: '20%', targets: [1],},
-        {width: '18%', targets: [2],},
         {width: '5%',visible:false, targets: [5]},
 	],
     drawCallback: function (settings) {
       //group rows by date
       var
-        groupColumn = 6,
+        groupColumn = 7,
         api = this.api(),
         rows = api.rows({ page: 'current' }).nodes(),
         last = '';
@@ -209,7 +227,10 @@ $(function () {
             select.append('<option value="' + opval + '">' + opval + '</option>');
           });
       });
- 
+       if (localStorage.getItem('NoiseSelected') != undefined) {
+        var selected = localStorage.getItem('NoiseSelected').split(',').join('|');
+        api.columns(1).search('('.concat(selected, ')'), true).rows({ search: 'applied' }).remove().column(1).search('').draw();
+      };
     },
   });
   let table = $('.newlist').DataTable();
@@ -218,6 +239,7 @@ $(function () {
     //count rows
     if (json) {
       $('.anchor').hide();
+      $('.btm').css({ 'display': 'flex' });
       $('.filterWrapper, #searchBox').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
       $("#count").text('Total records: ' + json.recordsTotal + '. ');
@@ -240,25 +262,45 @@ $(function () {
       .children('input.search').val(searchValue)
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
   });
-  $('.newlist tbody').on('click', '.prev', function () {
+  table.columns(5).visible(false);
+  table.on('click', 'th.sorting ', function () {
+    var currentOrder = table.order()[0];
+    if (currentOrder[0] == 8) {
+      $('table .group').css('display', 'table-row');
+    }
+    else {
+      $('table .group').css('display', 'none');
+    }
+  });
+  table.on('click', '.prev', function () {
     $(this).parent().prevAll('.group').length > 0 ?
       $('html,body').animate({ scrollTop: $(this).parent().prevAll('.group').offset().top - $(".dataTables_filter").height() }, 600) :
       $('html,body').animate({ scrollTop: $(this).parent().offset().top - $(".dataTables_filter").height() }, 600)
   });
-  $('.newlist tbody').on('click', '.next', function () {
+  table.on('click', '.next', function () {
     $(this).parent().nextAll('.group').length > 0 ?
       $('html,body').animate({ scrollTop: $(this).parent().nextAll('.group').offset().top - $(".dataTables_filter").height() }, 600) :
       $('html,body').animate({ scrollTop: $(this).parent().nextAll().last().children().last().offset().top - $(".dataTables_filter").height() }, 600)
   });
-  $('.newlist tbody').on('dblclick', 'tr:not(.group)', function () {
+
+  table.on('dblclick', 'tr:not(.group)', function () {
     $(this).toggleClass('selected');
   });
-  $('.newlist tbody').on('click', '.dropdown,.float', function () {
-    $(this).toggleClass('actived');
+  $('#del').click(function () {
+    var selected = table.rows('.selected').data().map((d, j) => {
+      return d = d[1].match(/[^\:]\:([^|]+)\|\|\|(.*)/)[1];
+    }).toArray();
+    if (localStorage.getItem('NoiseSelected') != null) {
+      var storedItems = localStorage.getItem('NoiseSelected').split(',');
+      localStorage.setItem('NoiseSelected', storedItems.concat(selected));
+    } else {
+      localStorage.setItem('NoiseSelected', selected);
+    }
+    table.rows('.selected').remove().draw(false);
   });
 
-  $('#delete_button').click(function () {
-    table.rows('.selected').remove().draw(false);
+  table.on('click', '.dropdown,.float', function () {
+    $(this).toggleClass('actived');
   });
   $('.toggle ').click(function () {
     $(this).parent().children('.hideItem').toggle("fast").css('display', 'grid');
@@ -276,6 +318,8 @@ $(function () {
     $('.filter-holder.4 select option').prop("selected", true);
     $('.filter-holder.3 select option').prop("selected", false);
     table.columns(3).search('').draw(true);
+	delete localStorage.NoiseSelected;
+    location.reload();
   });
   $('.paginate_button, .dataTables_length,.filterSection, .filter-holder,#reset').on("click change", function (e) {
     table.draw(false);
