@@ -2022,7 +2022,7 @@ button:active {
  /* content: "\f51f"; */
 }
 .nocover text {
-  font-size: 24em;
+  font-size: 22em;
   dominant-baseline: middle;
   text-anchor: middle;
   font-weight: 800;
@@ -2564,6 +2564,6 @@ div.dt-datetime-label span {
     pointer-events: all;
   }
   .nocover {
-  width: 70%;
+    width: 75%;
   }
 }

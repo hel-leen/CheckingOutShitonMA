@@ -129,9 +129,7 @@ $(function () {
             switch (album_cover) {
               case '/images/cat.jpg':
                 // album_cover = "<div class='nocover'>Too sick to have a cover</div>";
-                // album_cover = '<canvas  class="nocover" width="200" height="200"><div>Too sick to have a cover</div></canvas >';
                 album_cover = '<svg  data-prefix="fad" data-icon="compact-disc" role="img" viewBox="0 0 512 512" class="nocover"><g><path d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM88,256H56C56,150.1,142.1,64,248,64V96C159.8,96,88,167.8,88,256Zm160,96a96,96,0,1,1,96-96A96,96,0,0,1,248,352Z"></path><path d="M248,160a96,96,0,1,0,96,96A96,96,0,0,0,248,160Zm0,128a32,32,0,1,1,32-32A32,32,0,0,1,248,288Z"></path><text x="256" y="275"  fill="currentColor">?</text></g></svg>';
-                // album_cover = '<svg aria-hidden="true" focusable="false" data-prefix="fad" data-icon="tombstone" role="img" viewBox="0 0 512 512" class="nocover"><g class="fa-group"><path d="M448 192C448 86 362 0 256 0S64 86 64 192v224h384zm-96-8a16 16 0 0 1-16 16h-56v128a16 16 0 0 1-16 16h-16a16 16 0 0 1-16-16V200h-56a16 16 0 0 1-16-16v-16a16 16 0 0 1 16-16h56v-48a16 16 0 0 1 16-16h16a16 16 0 0 1 16 16v48h56a16 16 0 0 1 16 16z" class="fa-secondary"></path><path d="M496 448H16a16 16 0 0 0-16 16v32a16 16 0 0 0 16 16h480a16 16 0 0 0 16-16v-32a16 16 0 0 0-16-16zM176 200h56v128a16 16 0 0 0 16 16h16a16 16 0 0 0 16-16V200h56a16 16 0 0 0 16-16v-16a16 16 0 0 0-16-16h-56v-48a16 16 0 0 0-16-16h-16a16 16 0 0 0-16 16v48h-56a16 16 0 0 0-16 16v16a16 16 0 0 0 16 16z" class="fa-primary"></path></g></svg>';
                 break;
               default:
                 album_cover ='<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">');
@@ -392,14 +390,6 @@ $(function () {
             column.search(val ? val + '$' : '', true, false).draw();
           });
       });
-      // select box for labels
-      api.columns(6).every(function () {
-        select = $('.filter-holder.' + this[0] + ' select');
-        var lables =
-          this.data().unique().filter(v => v != '').map(d => d.match(/(?<=\d')(.*)/)[1]).sort(partSort).each(opval => {
-            select.append('<option value="' + opval + '">' + opval + '</option>');
-          });
-      });
       // select box for countries
       api.columns(2).every(function () {
         select = $('.filter-holder.' + this[0] + ' select');
@@ -414,6 +404,29 @@ $(function () {
           const [key, value] = entry;
           select.append('<option value="' + key + '">' + key + ' (' + value + ') ' + '</option>');
         });
+      });
+      // select box for labels
+      api.columns(6).every(function () {
+        select = $('.filter-holder.' + this[0] + ' select');
+        var lables =
+          this.data().unique().filter(v => v != '').map(d => d.match(/(?<=\d')(.*)/)[1]).sort(partSort).each(opval => {
+            select.append('<option value="' + opval + '">' + opval + '</option>');
+          });
+      });
+      // charts box for dates
+      api.columns(8).every(function () {
+        var date =
+          this.data().map((d, j) => {
+            return d = d.split('|||')[0];
+          }).reduce(function (obj, item) {
+            obj[item] = (obj[item] || 0) + 1;
+            return obj;
+          }, {});
+		  var 
+		   dates= Object.entries(date).map(entry => { return entry =  entry[0]; }),
+		   dateCount = Object.entries(date).map(entry => { return entry =  entry[1]; });
+		  var data = [   {     x: dates,     y: dateCount,     type: 'scatter'   } ];
+		  // Plotly.newPlot('timecharts', data);
       });
       if (localStorage.getItem('NewSelected') != undefined) {
         var selected = localStorage.getItem('NewSelected').split(',').join('|');
@@ -552,6 +565,7 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3];
   let genre = data[3].toLowerCase();
   let date = data[8].split('|||')[0];
+  var dateCount=[];
   let version = data[8].split('|||')[1];
   let genres = $('#genre-options').val() || [];
   var dateset;
