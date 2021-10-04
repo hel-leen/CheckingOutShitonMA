@@ -2018,6 +2018,15 @@ button:active {
   padding: 1em 0;
 }
  
+.nocover {
+  /* width: 100%; */
+  min-height: 200px;
+  min-height: 200px;
+  background:#222;
+  object-fit: cover;
+  padding: 1em 0;
+}
+ 
  
 td {
   max-width: 100%;

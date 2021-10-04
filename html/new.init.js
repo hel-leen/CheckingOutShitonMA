@@ -126,7 +126,14 @@ $(function () {
           if (type === 'display') {
             let album_id = data.split(/(?<=\d)\|\|\|/g)[0];
             let album_cover = data.split(/(?<=\d)\|\|\|/g)[1];
-            return ('<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">'));
+            switch (album_cover) {
+              // case '/images/cat.jpg':
+                // album_cover = "<div class='nocover'>Too sick to have a cover</div>";
+                // break;
+              default:
+                album_cover ='<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">');
+            }
+            return album_cover;
           }
           return data;
         },

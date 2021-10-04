@@ -77,7 +77,6 @@ $(function () {
     stateDuration: 60 * 60 * 24 * 7,
     stateSaveParams: function (settings, data) {
       data.order = [[7, 'desc'], [5, 'desc'], [6, 'asc'], [3, 'asc'], [2, 'asc'], [1, 'asc']];
-	  // data.columns = [{"visible": true},{"visible": true},{"visible": true},{"visible": true},{"visible": true},{"visible": false},{"visible": true}]
     },
     fnStateSave: function (Settings, Data) {
       localStorage.setItem('noiseNoir', JSON.stringify(Data));
