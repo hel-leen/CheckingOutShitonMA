@@ -422,7 +422,7 @@ $(function () {
         var
 		tests = Object.entries(date) .filter(( entry, i) =>  {
 			var datevalue = moment(entry[0]).toDate(),  days = sScreen? 60 * 60 * 24 * 1000 * 20:  60 * 60 * 24 * 1000 * 60;
-			if ( datevalue <(moment().valueOf() + days ) & datevalue > (moment().valueOf() - days )) 
+			if ( datevalue <(moment().valueOf() + days/2 ) & datevalue > (moment().valueOf() - days )) 
 				return entry });
           dates = tests.map(entry => { return entry = moment(entry[0]).toDate(); }),
           dateCount = tests.map(entry => { return entry = entry[1]; });
@@ -446,7 +446,7 @@ $(function () {
           hovertemplate: ' %{x}: %{y} releases <extra></extra>',
         }]
         var layout = {
-          height: 150,
+          height: 160,
           margin: { t: 0, r: 10, b: 15, l: 10 },
           paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
           xaxis: {
