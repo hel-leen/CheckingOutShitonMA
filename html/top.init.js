@@ -236,10 +236,10 @@ $(function () {
               xbins: { start: 1, end: 105, size: 10 },
               histnorm: 'percent',
               hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#eee" } },
+              hovertemplate: '<i>Ratings</i>: %{x}<br><i>Reviews</i>:%{customdata}<br><i>Percent</i>: %{y:.2f}%<extra></extra>',
               marker: {
                 color: '#000',
               },
-              hovertemplate: '<i>Ratings</i>: %{x}<br><i>Reviews</i>:%{customdata}<br><i>Percent</i>: %{y:.2f}%<extra></extra>',
             }],
             layout = {
               height: 180,

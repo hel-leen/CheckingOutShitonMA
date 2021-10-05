@@ -79,7 +79,7 @@ const createFilter = (table, columns) => {
 $(function () {
   pageLayout();
   $('#datepicker').val(thisweek);
-  $('#datepicker').dtDateTime({ });
+  $('#datepicker').dtDateTime({});
   $('.newlist').DataTable({
     // processing: true,
     // serverSide: true,
@@ -129,12 +129,12 @@ $(function () {
             switch (album_cover) {
               case '/images/cat.jpg':
                 // album_cover = "<div class='nocover'>Too sick to have a cover</div>";
-                album_cover = '<svg  data-prefix="fad" data-icon="compact-disc" role="img" viewBox="0 0 512 512" class="nocover"><g><path d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM88,256H56C56,150.1,142.1,64,248,64V96C159.8,96,88,167.8,88,256Zm160,96a96,96,0,1,1,96-96A96,96,0,0,1,248,352Z"></path><path d="M248,160a96,96,0,1,0,96,96A96,96,0,0,0,248,160Zm0,128a32,32,0,1,1,32-32A32,32,0,0,1,248,288Z"></path><text x="256" y="275"  fill="currentColor">?</text></g></svg>';
+                album_cover = '<svg  data-prefix="fad" data-icon="compact-disc" role="img" viewBox="0 0 512 512" class="nocover"><g><path d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM88,256H56C56,150.1,142.1,64,248,64V96C159.8,96,88,167.8,88,256Zm160,96a96,96,0,1,1,96-96A96,96,0,0,1,248,352Z"></path><path d="M248,160a96,96,0,1,0,96,96A96,96,0,0,0,248,160Zm0,128a32,32,0,1,1,32-32A32,32,0,0,1,248,288Z"></path><text x="256" y="275"  fill="currentColor"></text></g></svg>';
                 break;
               default:
-                album_cover ='<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">');
+                album_cover = '<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">');
             }
-			
+
             return album_cover;
           }
           return data;
@@ -416,17 +416,58 @@ $(function () {
       // charts box for dates
       api.columns(8).every(function () {
         var date =
-          this.data().map((d, j) => {
-            return d = d.split('|||')[0];
-          }).reduce(function (obj, item) {
-            obj[item] = (obj[item] || 0) + 1;
-            return obj;
-          }, {});
-		  var 
-		   dates= Object.entries(date).map(entry => { return entry =  entry[0]; }),
-		   dateCount = Object.entries(date).map(entry => { return entry =  entry[1]; });
-		  var data = [   {     x: dates,     y: dateCount,     type: 'scatter'   } ];
-		  // Plotly.newPlot('timecharts', data);
+          this.data().map((d, j) => { return d = d.split('|||')[0]; }).reduce(function (obj, item) { obj[item] = (obj[item] || 0) + 1; return obj; }, {});
+        var
+          dates = Object.entries(date).map(entry => { return entry = moment(entry[0]).toDate(); }),
+          dateCount = Object.entries(date).map(entry => { return entry = entry[1]; });
+        var frames = [];
+        var x = dates;
+        var y = dateCount;
+        var xrange;
+        for (var i = 0; i < y.length; i++) {
+          frames[i] = {
+            data: [{
+              x: [], y: [], fillcolor: ''
+            }]
+            // , layout: { xaxis: { range: [] } } 
+          };
+          frames[i].data[0].x = x.slice(0, i + 1); frames[i].data[0].y = y.slice(0, i + 1);
+          var colorfill = 'hsla('.concat(320 - ((i + 1) * 320 / y.length) + 40, ',.8,.9,.2)');
+          var days = 60 * 60 * 24 * 1000 * 30;
+          xrange = Math.max(...frames[i].data[0].x);
+          frames[i].data[0].fillcolor = colorfill;
+          if (xrange <= (moment().valueOf() + days)) {
+            // frames[i].layout.xaxis.range = [moment(xrange - days).toDate(), moment(xrange).toDate()];
+          } else {
+            // frames[i].layout.xaxis.range = [moment().valueOf() - days, moment().valueOf() + days]
+          }
+          // console.log(  colorfill );
+        }
+        var data = [{
+          x: frames[5].data[0].x, y: frames[5].data[0].y,
+          type: "scatter", mode: "lines", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(111,111,111,.8)' },
+		  hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" } },
+          hovertemplate: ' %{x}: %{y} releases <extra></extra>',
+        }]
+        var layout = {
+          height: 150,
+          margin: { t: 0, r: 10, b: 5, l: 10 },
+          paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
+          xaxis: {
+            automargin: true, fixedrange: true,
+            color: 'rgba(222,222,222,.8)', tickfont: { color: 'rgba(222,222,222,.6)' },
+            range: [frames.slice(-1)[0].data[0].x[0], frames.slice(-1)[0].data[0].x.slice(-1)[0]],
+            showgrid: false
+          },
+          yaxis: {
+            range: [0, (Math.floor(Math.max(...y) / 10) + 3) * 10],  
+			showgrid: false, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
+          },
+        };
+        Plotly.newPlot('timecharts', data, layout, {displayModeBar: false}).then( function () {
+          Plotly.animate('timecharts', frames, { transition: { duration: 500, }, frame: { duration: 0, redraw: false, } });
+        })
+		// .then(setTimeout(function(){ $('#timecharts') .hide(1000); }, frames.length*40 ) );
       });
       if (localStorage.getItem('NewSelected') != undefined) {
         var selected = localStorage.getItem('NewSelected').split(',').join('|');
@@ -441,9 +482,9 @@ $(function () {
     if (json) {
       $('.anchor').hide();
       $('.btm').css({ 'display': 'flex' });
-      $('.filterWrapper, #searchBox').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
+      $('.filterWrapper, #searchBox, #timecharts').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
       $('#update').text('Last updated on: ' + json.lastUpdate + '. ');
-      $("#count").text('Total records: ' + json.recordsTotal + '. ');
+      $("#count").text('Total records: ' + json.recordsTotal + ' ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }
   });
@@ -523,7 +564,7 @@ $(function () {
     table.draw();
   });
   $('.toggle ').click(function () {
-    $(this).parent().children('.hideItem').toggle("fast").css('display', 'grid');
+    $(this).parent().children('.hideItem, .hideItem>*').toggle({duration: 500, height: "easeInBounce"}).css('display', 'grid');
     $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
     $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
   });
@@ -565,7 +606,7 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3];
   let genre = data[3].toLowerCase();
   let date = data[8].split('|||')[0];
-  var dateCount=[];
+  var dateCount = [];
   let version = data[8].split('|||')[1];
   let genres = $('#genre-options').val() || [];
   var dateset;
