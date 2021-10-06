@@ -27,15 +27,12 @@ const pageLayout = () => {
     $.fn.DataTable.ext.pager.numbers_length = 9;
     if (window.matchMedia('(max-width: 767px)').matches) {
       $(":root").css("font-size", "");
-	  console.log(1, $(":root").css('font-size'));
     } else {
       $(":root").css("font-size", "2.22vh");
-	  console.log(2, $(":root").css('font-size'));
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
     $(":root").css("font-size", "3.6vw");
-	  console.log(3,$(":root").css('font-size'));
   }
 }
 const createFilter = (table, columns) => {
@@ -123,7 +120,7 @@ $(function () {
             //rendering album
             if (type === 'display') {
 			let 
-			format =  /([^\:]\:[^|]+)\|\|\|(.*)/,
+			format = /([^:]*?\:[^|]+)\|\|\|(.*)/,
 			href = data.match(format)[1],
 			text = data.match(format)[2],
 			type = 
