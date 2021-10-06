@@ -421,7 +421,7 @@ $(function () {
           this.data().map((d, j) => { return d = d.split('|||')[0]; }).reduce(function (obj, item) { obj[item] = (obj[item] || 0) + 1; return obj; }, {});
         var
 		tests = Object.entries(date) .filter(( entry, i) =>  {
-			var datevalue = moment(entry[0]).toDate(),  days = sScreen? 60 * 60 * 24 * 1000 * 20:  60 * 60 * 24 * 1000 * 60;
+			var datevalue = moment(entry[0]).toDate(),  days = sScreen? 60 * 60 * 24 * 1000 * 25:  60 * 60 * 24 * 1000 * 60;
 			if ( datevalue <(moment().valueOf() + days/2 ) & datevalue > (moment().valueOf() - days )) 
 				return entry });
           dates = tests.map(entry => { return entry = moment(entry[0]).toDate(); }),
@@ -434,7 +434,7 @@ $(function () {
 		  // , layout: { xaxis: { range: [] } } 
 		  };
           frames[i].data[0].x = x.slice(0, i + 1); frames[i].data[0].y = y.slice(0, i + 1);
-          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i+50)/50)))/100+0.08;
+          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i+50)/50)))/100+0.085;
 		  // (i == y.length) ? colorfill+= ',1,1,'.concat(alphafill,')'): 
 		  colorfill+=  ',.99,.9,'.concat(alphafill,')');
           xrange = Math.max(...frames[i].data[0].x);
