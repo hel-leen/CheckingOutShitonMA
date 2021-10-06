@@ -230,13 +230,13 @@ $(function () {
               rows += item.split('|').filter(uniq) != '' ?
                 item.split('|').filter(uniq).sort(() => Math.random() - 0.5).map(text => text.match(format)[2]).join(', ') +
                 '</div>' + "<div class='flex_item ts fixed float'>" +
-                item.split('|').filter(uniq).map(link => {
+                item.split('|').filter(uniq).sort((x, y) => {
+                  var xp = x.toLowerCase().match(format)[2], yp = y.toLowerCase().match(format)[2];
+                  return xp == yp ? 0 : xp < yp ? -1 : 1;
+                }).map(link => {
                   return '<a href="https://www.metal-archives.com/bands/view/' +
                     link.match(format)[1] + '">' +
                     link.match(format)[2] + '</a>';
-                }).sort((x, y) => {
-                  var xp = x.toLowerCase().match(format)[2], yp = y.toLowerCase().match(format)[2];
-                  return xp == yp ? 0 : xp < yp ? -1 : 1;
                 }).join(', ') :
                 "<i class='extra'>(No data)</i>";
               rows += '</div></div>';
@@ -429,12 +429,14 @@ $(function () {
         var x = dates;
         var y = dateCount;
         var xrange;
-        for (var i = 0; i < y.length; i++) {
+        for (var i = 0; i <= y.length; i++) {
           frames[i] = { data: [{ x: [], y: [], fillcolor: '' }] 
 		  // , layout: { xaxis: { range: [] } } 
 		  };
           frames[i].data[0].x = x.slice(0, i + 1); frames[i].data[0].y = y.slice(0, i + 1);
-          var colorfill = 'hsla('.concat(320 - ((i + 1) * 320 / y.length) + 40, ',.8,.9,.2)');
+          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i+50)/50)))/100+0.08;
+		  // (i == y.length) ? colorfill+= ',1,1,'.concat(alphafill,')'): 
+		  colorfill+=  ',.99,.9,'.concat(alphafill,')');
           xrange = Math.max(...frames[i].data[0].x);
           frames[i].data[0].fillcolor = colorfill;
           // console.log(  colorfill );
@@ -443,7 +445,7 @@ $(function () {
           x: frames[0].data[0].x, y: frames[0].data[0].y,
           type: "scatter", mode: "lines", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(111,111,111,.8)' },
 		  hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" } },
-          hovertemplate: ' %{x}: %{y} releases <extra></extra>',
+          hovertemplate: '  %{x|%_d %b (%a)}: %{y} releases <extra></extra>',
         }]
         var layout = {
           height: 160,
@@ -452,19 +454,19 @@ $(function () {
           xaxis: {
             automargin: false, fixedrange: true, showgrid: false,
             color: 'rgba(222,222,222,.8)', tickfont: { color: 'rgba(222,222,222,.6)' , size:11 },
-			tickformat: '%d %b',
+			tickformat: '%_d %b',
             range: [frames.slice(-1)[0].data[0].x[0], frames.slice(-1)[0].data[0].x.slice(-1)[0]],
           },
           yaxis: {
-            range: [0, (Math.floor(Math.max(...y) / 10) + 3) * 10],  
-			showgrid: false, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
+            range: [0, (Math.floor(Math.max(...y) / 10) + 3) * 10],  gridcolor: 'rgba(111,111,111,.21)', 
+			showgrid: true, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
           },
         };
         Plotly.newPlot('timecharts', data, layout, {displayModeBar: false})
 		.then(
 		setTimeout(function() {
 		function update() {
-          Plotly.animate('timecharts', frames, { transition: { duration: 5, }, frame: { duration: 1, redraw: false, } });
+          Plotly.animate('timecharts', frames, { transition: { duration: 50, }, frame: { duration: 1, redraw: false, } });
         }  update()  }, 1000) )
 		// .then(setTimeout(function(){ $('#timecharts') .hide(1000); }, frames.length*40 ) );
       });
