@@ -421,7 +421,7 @@ $(function () {
           this.data().map((d, j) => { return d = d.split('|||')[0]; }).reduce(function (obj, item) { obj[item] = (obj[item] || 0) + 1; return obj; }, {});
         var
 		tests = Object.entries(date) .filter(( entry, i) =>  {
-			var datevalue = moment(entry[0]).toDate(),  days = sScreen? 60 * 60 * 24 * 1000 * 25:  60 * 60 * 24 * 1000 * 60;
+			var datevalue = moment(entry[0]).toDate(),  days = sScreen? 60 * 60 * 24 * 1000 * 25:  60 * 60 * 24 * 1000 * 66;
 			if ( datevalue <(moment().valueOf() + days/2 ) & datevalue > (moment().valueOf() - days )) 
 				return entry });
           dates = tests.map(entry => { return entry = moment(entry[0]).toDate(); }),
@@ -443,7 +443,7 @@ $(function () {
         }
         var data = [{
           x: frames[0].data[0].x, y: frames[0].data[0].y,
-          type: "scatter", mode: "lines", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(111,111,111,.8)' },
+          type: "scatter", mode: "lines", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(111,111,111,.5)', width: 1},
 		  hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" } },
           hovertemplate: '  %{x|%_d %b (%a)}: %{y} releases <extra></extra>',
         }]
