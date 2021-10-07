@@ -470,7 +470,7 @@ $(function () {
           paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", font: { color: 'rgba(238,221,204,.7)', },
           xaxis: {
             automargin: false, fixedrange: true, showgrid: false,
-            color: 'rgba(222,222,222,.8)', tickfont: { color: 'rgba(222,222,222,.6)', size: 11 }, 
+            linecolor: 'rgba(222,222,222,.2)', tickfont: { color: 'rgba(222,222,222,.6)', size: 11 }, 
             tickformat: '%_d %b',tickwidth: 1, tickcolor:'rgba(111,111,111,.5)',
             range: [frames.slice(-1)[0].data[0].x[0], frames.slice(-1)[0].data[0].x.slice(-1)[0]],
           },
