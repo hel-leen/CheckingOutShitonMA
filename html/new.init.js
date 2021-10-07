@@ -443,7 +443,7 @@ $(function () {
           };
           frames[i].data[0].x = frames[i].data[1].x  = x.slice(0, i + 1); 
 		  frames[i].data[0].y = y.slice(0, i + 1);
-          frames[i].data[1].y = y.slice(0, i + 1).map(count => { return count = count + 10 });
+          frames[i].data[1].y = y.slice(0, i + 1).map(count => { return count = count + 15 });
           var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 100 + 0.085;
           colorfill += ',.99,.9,'.concat(alphafill, ')');
           xrange = x.slice(0, i + 1).slice(-1)[0];
@@ -475,7 +475,7 @@ $(function () {
             range: [frames.slice(-1)[0].data[0].x[0], frames.slice(-1)[0].data[0].x.slice(-1)[0]],
           },
           yaxis: {
-            range: [0, (Math.floor(Math.max(...y) / 10) + 3) * 10], gridcolor: 'rgba(111,111,111,.2)',
+            range: [0, (Math.floor(Math.max(...y) / 10) + 5) * 10], gridcolor: 'rgba(111,111,111,.2)',
             showgrid: true, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
           },
         };
