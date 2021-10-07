@@ -1,3 +1,4 @@
+
 jQuery.fn.extend({
   check: function () {
     return this.each(function () {
@@ -23,14 +24,14 @@ const partSort = ((x, y) => {
     xp < yp ? -1 :
       1;
 });
-let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g),  hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
+let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g), hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maTarget = q => 'https://www.metal-archives.com/' + q;
 const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' +
   ">MA Page<i class='fa fa-medium'></i></a>";
-var 
- mobile = (navigator.userAgent.search(/mobile/gi) > -1),
- sScreen = window.matchMedia('(max-width: 767px)').matches;
+var
+  mobile = (navigator.userAgent.search(/mobile/gi) > -1),
+  sScreen = window.matchMedia('(max-width: 767px)').matches;
 const searchLink = text => {
   text = '<a href="https://bandcamp.com/search?q=' + text +
     "\">Bandcamp<i class='fa fa-search'></i></a>" +
@@ -82,7 +83,7 @@ $(function () {
   pageLayout();
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({});
-  $('.newlist').DataTable({
+  $('.dataTables').DataTable({
     // processing: true,
     // serverSide: true,
     dom: 'rt<"bottom"<<"#res.btm"> i<"#del.btm">>p>',
@@ -96,11 +97,15 @@ $(function () {
     search: { regex: true, smart: true, },
     stateSave: true,
     stateDuration: 60 * 60 * 24 * 7,
+    stateSaveParams: function (settings, data) {
+      data.order = [[8, 'asc'], [0, 'desc']];
+      data.columns.forEach(item => { item.search.search = '' });
+    },
     fnStateSave: function (Settings, Data) {
-      localStorage.setItem('newList', JSON.stringify(Data));
+      localStorage.setItem('dataTables', JSON.stringify(Data));
     },
     fnStateLoad: function (Settings) {
-      return JSON.parse(localStorage.getItem('newList'));
+      return JSON.parse(localStorage.getItem('dataTables'));
     },
     language: {
       searchPlaceholder: 'Search for albums or bands..',
@@ -388,7 +393,7 @@ $(function () {
           .insertBefore('.filter-holder.' + this[0] + ' .clear')
           .on('change', function () {
             var val = $.fn.dataTable.util.escapeRegex($(this).val());
-            column.search(val ? val + '$' : '', true, false).draw();
+            column.search(val ? val + '$' : '', true, true).draw();
           });
       });
       // select box for countries
@@ -416,59 +421,92 @@ $(function () {
       });
       // time serials 
       api.columns(8).every(function () {
-        var frames = [];
-        var date =
-          this.data().map((d, j) => { return d = d.split('|||')[0]; }).reduce(function (obj, item) { obj[item] = (obj[item] || 0) + 1; return obj; }, {});
         var
-		tests = Object.entries(date) .filter(( entry, i) =>  {
-			var datevalue = moment(entry[0]).toDate(),  days = sScreen? 60 * 60 * 24 * 1000 * 25:  60 * 60 * 24 * 1000 * 66;
-			if ( datevalue <(moment().valueOf() + days/2 ) & datevalue > (moment().valueOf() - days )) 
-				return entry });
-          dates = tests.map(entry => { return entry = moment(entry[0]).toDate(); }),
-          dateCount = tests.map(entry => { return entry = entry[1]; });
+          column = this,
+          frames = [],
+          date =
+            Object.entries(this.data().map((d, j) => { return d = d.split('|||')[0]; }).reduce(function (obj, item) { obj[item] = (obj[item] || 0) + 1; return obj; }, {}))
+              .filter(entry => {
+                var datevalue = moment(entry[0]).toDate(), days = sScreen ? 60 * 60 * 24 * 1000 * 25 : 60 * 60 * 24 * 1000 * 66;
+                if (datevalue < (moment().valueOf() + days / 2) & datevalue > (moment().valueOf() - days))
+                  return entry
+              });
+        dates = date.map(entry => { return entry = entry[0] }),
+          dateCount = date.map(entry => { return entry = entry[1]; }),
+          texts = dates.map(item => { item == thisday ? item = 'Today' : item = ''; return item })
         var x = dates;
         var y = dateCount;
         var xrange;
         for (var i = 0; i <= y.length; i++) {
-          frames[i] = { data: [{ x: [], y: [], fillcolor: '' }] 
-		  // , layout: { xaxis: { range: [] } } 
-		  };
-          frames[i].data[0].x = x.slice(0, i + 1); frames[i].data[0].y = y.slice(0, i + 1);
-          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i+50)/50)))/100+0.085;
-		  // (i == y.length) ? colorfill+= ',1,1,'.concat(alphafill,')'): 
-		  colorfill+=  ',.99,.9,'.concat(alphafill,')');
-          xrange = Math.max(...frames[i].data[0].x);
+          frames[i] = {
+            data: [
+              { x: [], y: [], fillcolor: '' },
+              { x: [], y: [], text: '' },
+              { x: [], fillcolor: '' },
+            ]
+            , layout: {
+              // xaxis: { range: [] } ,
+              shapes: []
+            },
+          };
+          frames[i].data[0].x = dates.slice(0, i + 1); frames[i].data[0].y = dateCount.slice(0, i + 1);
+          frames[i].data[1].x = dates.slice(0, i + 1); frames[i].data[1].y = dateCount.slice(0, i + 1).map(count => { return count = count + 10 });
+          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 100 + 0.085;
+          // (i == y.length) ? colorfill+= ',1,1,'.concat(alphafill,')'): 
+          colorfill += ',.99,.9,'.concat(alphafill, ')');
+          xrange = dates.slice(0, i + 1).slice(-1)[0];
+          i == y.length ? frames[i].data[1].text = texts.slice(0, i + 1) : '';
+          if (thisweek <= xrange)
+            frames[i].layout.shapes = [{
+              x0: thisweek, y0: 0, x1: xrange, y1: 1,
+              type: 'rect', xref: 'x', yref: 'paper', fillcolor: 'rgba(222,222,222,.2)', opacity: .1, line: { width: 0 }
+            }]
           frames[i].data[0].fillcolor = colorfill;
-          // console.log(  colorfill );
         }
+        // console.log(dates );
         var data = [{
-          x: frames[0].data[0].x, y: frames[0].data[0].y,
-          type: "scatter", mode: "lines", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(111,111,111,.5)', width: 1},
-		  hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" } },
-          hovertemplate: '  %{x|%_d %b (%a)}: %{y} releases <extra></extra>',
-        }]
+          name: "line", x: frames[0].data[0].x, y: frames[0].data[0].y,
+          type: "scatter", mode: "lines+text", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(116,111,111,.8)', width: 1 },
+          hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" }, },
+          hovertemplate: '%{x|%_d %b (%a)}: %{y} releases <br> Click to see details <extra></extra>',
+        },
+        {
+          name: "text", x: frames[0].data[1].x, y: frames[0].data[1].y, textposition: 'top',
+          type: "scatter", mode: "text",hoverinfo:'skip',
+        }];
         var layout = {
-          height: 160,
-          margin: { t: 0, r: 10, b: 15, l: 10 },
-          paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)",
+          height: 160, margin: { t: 0, r: 10, b: 20, l: 10 }, showlegend: false,
+          paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", font: { color: 'rgba(238,221,204,.7)', },
           xaxis: {
             automargin: false, fixedrange: true, showgrid: false,
-            color: 'rgba(222,222,222,.8)', tickfont: { color: 'rgba(222,222,222,.6)' , size:11 },
-			tickformat: '%_d %b',
+            color: 'rgba(222,222,222,.8)', tickfont: { color: 'rgba(222,222,222,.6)', size: 11 }, 
+            tickformat: '%_d %b',tickwidth: 1, tickcolor:'rgba(111,111,111,.5)',
             range: [frames.slice(-1)[0].data[0].x[0], frames.slice(-1)[0].data[0].x.slice(-1)[0]],
           },
           yaxis: {
-            range: [0, (Math.floor(Math.max(...y) / 10) + 3) * 10],  gridcolor: 'rgba(111,111,111,.21)', 
-			showgrid: true, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
+            range: [0, (Math.floor(Math.max(...dateCount) / 10) + 3) * 10], gridcolor: 'rgba(111,111,111,.2)',
+            showgrid: true, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
           },
         };
-        Plotly.newPlot('timecharts', data, layout, {displayModeBar: false})
-		.then(
-		setTimeout(function() {
-		function update() {
-          Plotly.animate('timecharts', frames, { transition: { duration: 50, }, frame: { duration: 1, redraw: false, } });
-        }  update()  }, 1000) )
-		// .then(setTimeout(function(){ $('#timecharts') .hide(1000); }, frames.length*40 ) );
+        Plotly.newPlot('timecharts', data, layout, { displayModeBar: false })
+          .then(setTimeout(function () {
+            function update() {
+              Plotly.animate('timecharts', frames, { transition: { duration: 50, }, frame: { duration: 1, redraw: false, } });
+            } update()
+          }, 1000));
+        // .then(setTimeout(function(){ $('#timecharts') .hide(1000); }, frames.length*40 ) );
+        document.getElementById('timecharts').on('plotly_click', function (data) {
+          var val = '';
+          for (var i = 0; i < data.points.length; i++) {
+            var val = $.fn.dataTable.util.escapeRegex(data.points[i].x);
+            if (val != '') {
+              $('body,html').animate({ scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").height() - 8, }, 800);
+              $('.filter-holder.8 input').val('');
+              column.search(val ? val : '', true, true).draw();
+            }
+          }
+        });
+
       });
       if (localStorage.getItem('NewSelected') != undefined) {
         var selected = localStorage.getItem('NewSelected').split(',').join('|');
@@ -476,7 +514,7 @@ $(function () {
       };
     },
   });
-  let table = $('.newlist').DataTable();
+  let table = $('.dataTables').DataTable();
   table.on('xhr', function () {
     var json = table.ajax.json();
     //count rows
@@ -565,7 +603,7 @@ $(function () {
     table.draw();
   });
   $('.toggle ').click(function () {
-    $(this).parent().children('.hideItem, .hideItem>*').toggle({duration: 500, height: "easeInBounce"}).css('display', 'grid');
+    $(this).parent().children('.hideItem, .hideItem>*').toggle({ duration: 500, height: "easeInBounce" }).css('display', 'grid');
     $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
     $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
   });
@@ -600,7 +638,7 @@ $(window).resize(function () {
   pageLayout();
 });
 $(document).on('click', '.paginate_button', function () {
-  $('body,html').animate({ scrollTop: $('.newlist tbody').offset().top - $(".dataTables_filter").height() - 8, }, 800);
+  $('body,html').animate({ scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").height() - 8, }, 800);
 });
 
 $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
