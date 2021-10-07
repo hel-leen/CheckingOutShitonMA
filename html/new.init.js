@@ -435,7 +435,7 @@ $(function () {
           texts = x.map(item => { item == thisday ? item = 'Today' : item = ''; return item })
         for (var i = 0; i <= y.length; i++) {
           frames[i] = {
-            data: [ { x: [], y: [], fillcolor: '' }, { x: [], y: [], text: '' } ]
+            data: [ { x: [], y: [], fillcolor: '',line :{color:''}}, { x: [], y: [], text: '' } ]
             , layout: {
               // xaxis: { range: [] } ,
               shapes: []
@@ -444,20 +444,21 @@ $(function () {
           frames[i].data[0].x = frames[i].data[1].x  = x.slice(0, i + 1); 
 		  frames[i].data[0].y = y.slice(0, i + 1);
           frames[i].data[1].y = y.slice(0, i + 1).map(count => { return count = count + 15 });
-          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 100 + 0.085;
-          colorfill += ',.99,.9,'.concat(alphafill, ')');
+          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 30), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 100 + 0.08;
           xrange = x.slice(0, i + 1).slice(-1)[0];
-          frames[i].data[0].fillcolor = colorfill;
+          frames[i].data[0].fillcolor = colorfill + ',.9,.9,'.concat(alphafill, ')');
+          frames[i].data[0].line.color = colorfill + ',.9,.9, .6)';
           i == y.length ? frames[i].data[1].text = texts.slice(0, i + 1) : '';
           if (thisweek <= xrange)
             frames[i].layout.shapes = [{
-              x0: thisweek, y0: 0, x1: xrange, y1: 1,type: 'rect', xref: 'x', yref: 'paper', fillcolor: 'rgba(222,222,222,.2)', opacity: .1, line: { width: 0 }
+              x0: thisweek, y0: 0, x1: xrange, y1: 1,type: 'gradient', xref: 'x', yref: 'paper', fillcolor: 'rgba(222,222,222,.2)', opacity: .1, line: { width: 0 },
+			  marker:{color: 'rgba(238, 221, 204,.5)',gradient: {color: "rgba(31, 119, 180, .8)",type:"horizontal"}}
             }]
         }
         // console.log(x );
         var data = [{
           name: "line", x: frames[0].data[0].x, y: frames[0].data[0].y,
-          type: "scatter", mode: "lines+text", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(116,111,111,.8)', width: 1 },
+          type: "scatter", mode: "lines+text", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(116,111,111,1)', width: 1.5 },
           hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" }, },
           hovertemplate: '%{x|%_d %b (%a)}: %{y} releases <br> Click to see details <extra></extra>',
         },
