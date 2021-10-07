@@ -489,10 +489,11 @@ $(function () {
         document.getElementById('timecharts').on('plotly_click', function (data) {
           var val = '';
           for (var i = 0; i < data.points.length; i++) {
-            var val = $.fn.dataTable.util.escapeRegex(data.points[i].x);
+            var val = $.fn.dataTable.util.escapeRegex(data.points[i].x );
             if (val != '') {
+				alert(val)
               $('body,html').animate({ scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").height() - 8, }, 800);
-              $('.filter-holder.8 input').val(''); column.search(val ? val : '', true, true).draw();
+              $('.filter-holder.8 input').val(''); column.search(val ? '^'+val : '', true, true).draw();
             }
           }
         });
