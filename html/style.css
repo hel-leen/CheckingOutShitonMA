@@ -1530,7 +1530,7 @@ td hr {
 }
 
 td>img {
-  width: 95%;
+  width: 90%;
 }
 
 pre:not([class]) {
@@ -2263,7 +2263,7 @@ div.dt-datetime-label span {
     object-fit: contain;
   }
   .noise td>img {
-    max-width: 350px;
+    max-width: 90%;
   }
 }
 
