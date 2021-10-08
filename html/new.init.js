@@ -655,4 +655,3 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   return genre.search('('.concat('(', genres.join('|'), ')', ')')) > -1 && dateset;
   // return true;
 });
-
