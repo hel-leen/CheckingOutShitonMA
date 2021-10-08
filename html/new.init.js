@@ -444,10 +444,10 @@ $(function () {
           frames[i].data[0].x = frames[i].data[1].x  = x.slice(0, i + 1); 
 		  frames[i].data[0].y = y.slice(0, i + 1);
           frames[i].data[1].y = y.slice(0, i + 1).map(count => { return count = count + 15 });
-          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 30), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 100 + 0.08;
+          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 100 + 0.08;
           xrange = x.slice(0, i + 1).slice(-1)[0];
-          frames[i].data[0].fillcolor = colorfill + ',.9,.9,'.concat(alphafill, ')');
-          frames[i].data[0].line.color = colorfill + ',.9,.9, .6)';
+          frames[i].data[0].fillcolor = colorfill + ',.3,.8,'.concat(alphafill, ')');
+          frames[i].data[0].line.color = colorfill + ',.5,.8, .3)';
           i == y.length ? frames[i].data[1].text = texts.slice(0, i + 1) : '';
           if (thisweek <= xrange)
             frames[i].layout.shapes = [{
