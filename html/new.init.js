@@ -445,7 +445,6 @@ $(function () {
             this.fill = 'tonexty'
             this.textposition = 'top center'
             this.hoverlabel = { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" }, }
-            this.hovertemplate = '%{x|%_d %b (%a)}: %{y} releases <br> Click to see details <extra></extra>'
             this.hoverinfo = 'skip'
           };
           function makeTraces(n) {
@@ -469,7 +468,7 @@ $(function () {
             },
           };
           frames[i].data[n - 1].line = { 'color': colorfill.concat(',.4,.7, .3)'), width: 1.5 };
-          frames[i].data[n - 1].hoverinfo = 'all';
+          frames[i].data[n - 1].hovertemplate = '%{x|%_d %b (%a)}: %{y} releases <br> Click to see details <extra></extra>'
           xrange = x.slice(0, i + 1).pop();
           if (thisweek <= xrange) {
             frames[i].layout.shapes = [{
