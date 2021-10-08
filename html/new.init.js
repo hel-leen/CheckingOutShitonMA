@@ -422,78 +422,97 @@ $(function () {
       // time serials 
       api.columns(8).every(function () {
         var
-          column = this, frames = [], xrange,
+          column = this, frames = [],
           date =
             Object.entries(this.data().map((d, j) => { return d = d.split('|||')[0]; }).reduce(function (obj, item) { obj[item] = (obj[item] || 0) + 1; return obj; }, {}))
               .filter(entry => {
-                var datevalue = moment(entry[0]).toDate(), days = sScreen ? 60 * 60 * 24 * 1000 * 25 : 60 * 60 * 24 * 1000 * 66;
+                var datevalue = moment(entry[0]).toDate(), days = 60 * 60 * 24 * 1000 * window.innerWidth / 30;
                 if (datevalue < (moment().valueOf() + days / 2) & datevalue > (moment().valueOf() - days))
                   return entry
               });
+        var
           x = date.map(entry => { return entry = entry[0] }),
           y = date.map(entry => { return entry = entry[1]; }),
-          texts = x.map(item => { item == thisday ? item = 'Today' : item = ''; return item })
+          xrange, yrange = (Math.floor(Math.max(...y) / 10) + 3) * 10,
+          texts = x.map(item => { item == thisday ? item = 'Today' : item = ''; return item });
         for (var i = 0; i <= y.length; i++) {
+          var colorfill = 'hsla('.concat( ((i + 1) * 360 / y.length) -0), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 50 + 0.03;
+          function trace() {
+            this.x = x.slice(0, i + 1)
+            this.fillcolor = ''
+            this.type = "scatter"
+            this.mode = "lines+text"
+            this.fill = 'tonexty'
+            this.textposition = 'top center'
+            this.hoverlabel = { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" }, }
+            this.hovertemplate = '%{x|%_d %b (%a)}: %{y} releases <br> Click to see details <extra></extra>'
+            this.hoverinfo = 'skip'
+          };
+          function makeTraces(n) {
+            var traces = new Array(n)
+            for (var j = 0; j < n; ++j) {
+              traces[j] = {
+                ...new trace(),
+                y: y.slice(0, i + 1).map(y => { return y = y * j / (n - 1) - 1 }),
+                name: "lines" + j, line: { 'color': colorfill.concat(',.5,.6,', alphafill * j / (n - 1), ')'), 'width': 0 },
+                fillcolor: colorfill.concat(',.4,.6,', alphafill * j / (n - 1) + 0.03, ')'), text: new Array(x.slice(0, i + 1).length).fill('')
+              };
+            }
+            return traces
+          };
+          n = 6;
           frames[i] = {
-            data: [ { x: [], y: [], fillcolor: '',line :{color:''}}, { x: [], y: [], text: '' } ]
+            data: (makeTraces(n))
             , layout: {
               // xaxis: { range: [] } ,
               shapes: []
             },
           };
-          frames[i].data[0].x = frames[i].data[1].x  = x.slice(0, i + 1); 
-		  frames[i].data[0].y = y.slice(0, i + 1);
-          frames[i].data[1].y = y.slice(0, i + 1).map(count => { return count = count + 15 });
-          var colorfill = 'hsla('.concat(330 - ((i + 1) * 330 / y.length) + 10), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 100 + 0.08;
-          xrange = x.slice(0, i + 1).slice(-1)[0];
-          frames[i].data[0].fillcolor = colorfill + ',.3,.8,'.concat(alphafill, ')');
-          frames[i].data[0].line.color = colorfill + ',.5,.8, .3)';
-          i == y.length ? frames[i].data[1].text = texts.slice(0, i + 1) : '';
-          if (thisweek <= xrange)
+          frames[i].data[n - 1].line = { 'color': colorfill.concat(',.4,.7, .3)'), width: 1.5 };
+          frames[i].data[n - 1].hoverinfo = 'all';
+          xrange = x.slice(0, i + 1).pop();
+          if (thisweek <= xrange) {
             frames[i].layout.shapes = [{
-              x0: thisweek, y0: 0, x1: xrange, y1: 1,type: 'gradient', xref: 'x', yref: 'paper', fillcolor: 'rgba(222,222,222,.2)', opacity: .1, line: { width: 0 },
-			  marker:{color: 'rgba(238, 221, 204,.5)',gradient: {color: "rgba(31, 119, 180, .8)",type:"horizontal"}}
+              x0: thisweek, y0: 0, x1: xrange, y1: 1, type: 'gradient', xref: 'x', yref: 'paper', fillcolor: 'rgba(222,222,222,.2)', opacity: .1, line: { width: 0 },
+              marker: { color: 'rgba(238, 221, 204,.5)', gradient: { color: "rgba(31, 119, 180, .8)", type: "horizontal" } }
             }]
+          }
+          if (thisday <= xrange) {
+            frames[i].layout.annotations = [{
+              x: thisday, y: date.filter(item => item[0] == thisday)[0][1],
+              xref: 'x', yref: 'y', ax: 20, ay: -25, text: 'Today', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth: 1, arrowcolor: '#636363', // fillcolor: 'rgba(222,222,22,.2)', opacity: 1, line: { width: 0 },
+              marker: { color: 'rgba(238, 221, 204,.5)', gradient: { color: "rgba(31, 119, 180, .8)", type: "horizontal" } }
+            }]
+          }
         }
-        // console.log(x );
-        var data = [{
-          name: "line", x: frames[0].data[0].x, y: frames[0].data[0].y,
-          type: "scatter", mode: "lines+text", fill: 'tozeroy', fillcolor: 'rgba(238, 221, 204,.5)', line: { color: 'rgba(116,111,111,1)', width: 1.5 },
-          hoverlabel: { bgcolor: "rgba(0,0,0,0.8)", bordercolor: "transparent", font: { color: "#ccc" }, },
-          hovertemplate: '%{x|%_d %b (%a)}: %{y} releases <br> Click to see details <extra></extra>',
-        },
-        {
-          name: "text", x: frames[0].data[1].x, y: frames[0].data[1].y, textposition: 'top',
-          type: "scatter", mode: "text",hoverinfo:'skip',
-        }];
         var layout = {
-          height: 160, margin: { t: 0, r: 10, b: 22, l: 10 }, showlegend: false,
+          height: 160, margin: { t: 0, r: 0, b: 22, l: 10 }, showlegend: false,
           paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", font: { color: 'rgba(238,221,204,.7)', },
           xaxis: {
             automargin: false, fixedrange: true, showgrid: false,
-            linecolor: 'rgba(222,222,222,.2)', tickfont: { color: 'rgba(222,222,222,.6)', size: 11 }, 
-            tickformat: '%_d %b',tickwidth: 1, tickcolor:'rgba(111,111,111,.5)',
-            range: [frames.slice(-1)[0].data[0].x[0], frames.slice(-1)[0].data[0].x.slice(-1)[0]],
+            linecolor: 'rgba(222,222,222,.2)', tickfont: { color: 'rgba(222,222,222,.6)', size: 11 },
+            tickformat: '%_d %b', tickwidth: 1, tickcolor: 'rgba(111,111,111,.5)',
+            range: [frames.pop().data[0].x[0], frames.pop().data[0].x.pop()],
           },
           yaxis: {
-            range: [0, (Math.floor(Math.max(...y) / 10) + 5) * 10], gridcolor: 'rgba(111,111,111,.2)',
+            range: [0, yrange], gridcolor: 'rgba(111,111,111,.2)',
             showgrid: true, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
           },
         };
-        Plotly.newPlot('timecharts', data, layout, { displayModeBar: false })
+        Plotly.newPlot('timecharts', frames[0].data, layout, { displayModeBar: false })
           .then(setTimeout(function () {
             function update() {
-              Plotly.animate('timecharts', frames, { transition: { duration: 50, }, frame: { duration: 1, redraw: false, } });
+              Plotly.animate('timecharts', frames, { transition: { duration: 0, }, frame: { duration: 1, redraw: false, } });
             } update()
           }, 1000));
         // .then(setTimeout(function(){ $('#timecharts') .hide(1000); }, frames.length*40 ) );
         document.getElementById('timecharts').on('plotly_click', function (data) {
           var val = '';
           for (var i = 0; i < data.points.length; i++) {
-            var val = $.fn.dataTable.util.escapeRegex(data.points[i].x );
+            var val = $.fn.dataTable.util.escapeRegex(data.points[i].x);
             if (val != '') {
               $('body,html').animate({ scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").height() - 8, }, 800);
-              $('.filter-holder.8 input').val(''); column.search(val ? '^'+val : '', true, true).draw();
+              $('.filter-holder.8 input').val(''); column.search(val ? '^' + val : '', true, true).draw();
             }
           }
         });
@@ -655,3 +674,4 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   return genre.search('('.concat('(', genres.join('|'), ')', ')')) > -1 && dateset;
   // return true;
 });
+

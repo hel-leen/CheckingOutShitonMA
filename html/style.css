@@ -709,18 +709,36 @@ div.sidenav {
 a {
   color: #fcfaf1;
 }
-
-#timecharts .cartesianlayer .subplot .plot g.trace .lines path{
+ 
+#timecharts .main-svg .shapelayer  path{
+  /* filter: drop-shadow(0px 17px 1.3em rgba(111,222,222,1)); */
+}
+#timecharts .main-svg .cartesianlayer .subplot .plot g.trace .lines path{
    /* filter: drop-shadow(0px -3px 2px rgba(166,166,166,.2)); */
    /* filter: drop-shadow(2px 2px .01em rgba(222,222,222,1)); */
 }
-#timecharts .cartesianlayer .subplot .plot g.trace .fills path{
-  /* filter: drop-shadow(2px -8px .3em rgba(222,222,222,.6)); */
+#timecharts .main-svg .cartesianlayer .subplot .plot g.trace .fills g:nth-last-child(1) path{
+	  /* filter: drop-shadow(2px 1em .51em hsla(0,8%,7.8%,.5)); */
 }
 
-#timecharts .main-svg .shapelayer  path{
-  /* filter: drop-shadow(0px 17px 1.3em rgba(51,51,51,1)); */
+#timecharts .main-svg .cartesianlayer .subplot .plot {
+  /* filter: drop-shadow(2px -8px .3em rgba(222,222,222,.6)); */
+  /* opacity:.5; */
+  /* filter: drop-shadow(0px -17px 1.3em rgba(150,150,50,.2)); */
 }
+#timecharts .main-svg .cartesianlayer .subplot .plot g.trace:nth-last-child(3) path{
+  /* filter: drop-shadow(2px -8px .3em rgba(222,222,222,.6)); */
+  /* opacity:.5; */
+  /* filter: drop-shadow(0px -17px 1.3em rgba(150,50,50,.2)); */
+}
+
+#timecharts .main-svg .cartesianlayer .subplot .plot g.trace:nth-last-child(1){
+  /* filter: drop-shadow(2px -8px .3em rgba(222,222,222,.6)); */
+  /* opacity:.5; */
+  /* filter: drop-shadow(0px -17px 1.3em rgba(150,50,50,.2)); */
+  /* visibility:hidden !important */
+}
+
 
 .filterWrapper {
   display:none;

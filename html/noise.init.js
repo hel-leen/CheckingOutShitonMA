@@ -49,7 +49,7 @@ const createFilter = (table, columns) => {
   ) {
     var val = input.val().toLowerCase();
     for (var i = 0, ien = columns.length; i < ien; i++) {
-      if (searchData[columns[i]].toLowerCase().split('|||')[0].indexOf(val) !== -1) {
+      if (searchData[columns[i]].toLowerCase().split('|||')[1].indexOf(val) !== -1) {
         return true;
       }
     }
@@ -68,12 +68,12 @@ $(function () {
     orderCellsTop: false,
     deferRender: true,
     lengthMenu: [150, 300, 600],
-    order: [[7, 'desc'], [5, 'desc'], [6, 'asc'], [3, 'asc'], [2, 'asc'], [1, 'asc']],
+    order: [[7, 'desc'], [5, 'asc'], [6, 'asc']],
     search: { regex: true, smart: true, },
     stateSave: true,
     stateDuration: 60 * 60 * 24 * 7,
     stateSaveParams: function (settings, data) {
-      data.order = [[7, 'desc'], [5, 'desc'], [6, 'asc'], [3, 'asc'], [2, 'asc'], [1, 'asc']];
+      data.order = [[7, 'desc'], [5, 'asc'], [6, 'asc']];
     },
     fnStateSave: function (Settings, Data) {
       localStorage.setItem('noiseNoir', JSON.stringify(Data));
@@ -156,7 +156,7 @@ $(function () {
           }
           return data;
         },
-          width: '14%',
+          width: '15%',
           targets: [3],
         },
         {
@@ -182,7 +182,7 @@ $(function () {
             }
             return data;
           },
-          width: '10%',
+          width: '9%',
           targets: [7],
         },
 
@@ -233,6 +233,8 @@ $(function () {
     },
   });
   let table = $('.newlist').DataTable();
+  table.columns(5).visible(false);
+  // table.columns().visible(true);
   table.on('xhr', function () {
     var json = table.ajax.json();
     //count rows
@@ -261,7 +263,6 @@ $(function () {
       .children('input.search').val(searchValue)
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
   });
-  table.columns(5).visible(false);
   table.on('click', 'th.sorting ', function () {
     var currentOrder = table.order()[0];
     if (currentOrder[0] == 8) {
