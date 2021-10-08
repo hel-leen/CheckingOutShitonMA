@@ -710,6 +710,10 @@ a {
   color: #fcfaf1;
 }
  
+#timecharts .main-svg defs  .clips .axesclip rect {
+  /* filter: drop-shadow(0px 17px 1.3em rgba(111,222,222,1)); */
+	
+}
 #timecharts .main-svg .shapelayer  path{
   /* filter: drop-shadow(0px 17px 1.3em rgba(111,222,222,1)); */
 }
