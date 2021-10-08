@@ -436,7 +436,7 @@ $(function () {
           xrange, yrange = (Math.floor(Math.max(...y) / 10) + 3) * 10,
           texts = x.map(item => { item == thisday ? item = 'Today' : item = ''; return item });
         for (var i = 0; i <= y.length; i++) {
-          var colorfill = 'hsla('.concat( ((i + 1) * 360 / y.length) -0), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 50 + 0.03;
+          var colorfill = 'hsla('.concat( ((i + 1) * 360 / y.length) -0), alphafill = Math.abs(Math.sin(Math.floor((i + 50) / 50))) / 50 + 0.02;
           function trace() {
             this.x = x.slice(0, i + 1)
             this.fillcolor = ''
@@ -452,9 +452,8 @@ $(function () {
             for (var j = 0; j < n; ++j) {
               traces[j] = {
                 ...new trace(),
-                y: y.slice(0, i + 1).map(y => { return y = y * j / (n - 1) - 1 }),
-                name: "lines" + j, line: { 'color': colorfill.concat(',.5,.6,', alphafill * j / (n - 1), ')'), 'width': 0 },
-                fillcolor: colorfill.concat(',.4,.6,', alphafill * j / (n - 1) + 0.03, ')'), text: new Array(x.slice(0, i + 1).length).fill('')
+                y: y.slice(0, i + 1).map(y => { return y = y * j / (n - 1)  }),  line: { 'color': colorfill.concat(',.5,.6,', alphafill * j / (n - 1), ')'), 'width': 0 },
+                name: "lines" + j, fillcolor: colorfill.concat(',.4,.6,', alphafill * j / (n - 1) + 0.03, ')'), text: new Array(x.slice(0, i + 1).length).fill('')
               };
             }
             return traces
@@ -469,7 +468,7 @@ $(function () {
           };
           frames[i].data[n - 1].line = { 'color': colorfill.concat(',.4,.7, .3)'), width: 1.5 };
           frames[i].data[n - 1].hovertemplate = '%{x|%_d %b (%a)}: %{y} releases <br> Click to see details <extra></extra>'
-          xrange = x.slice(0, i + 1).pop();
+          xrange = x.slice(0, i + 1).slice(-1)[0];
           if (thisweek <= xrange) {
             frames[i].layout.shapes = [{
               x0: thisweek, y0: 0, x1: xrange, y1: 1, type: 'gradient', xref: 'x', yref: 'paper', fillcolor: 'rgba(222,222,222,.2)', opacity: .1, line: { width: 0 },
@@ -479,19 +478,19 @@ $(function () {
           if (thisday <= xrange) {
             frames[i].layout.annotations = [{
               x: thisday, y: date.filter(item => item[0] == thisday)[0][1],
-              xref: 'x', yref: 'y', ax: 20, ay: -25, text: 'Today', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth: 1, arrowcolor: '#636363', // fillcolor: 'rgba(222,222,22,.2)', opacity: 1, line: { width: 0 },
+              xref: 'x', yref: 'y', ax: 20, ay: -25, text: 'Today', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth: 1, arrowcolor: '#636363', 
               marker: { color: 'rgba(238, 221, 204,.5)', gradient: { color: "rgba(31, 119, 180, .8)", type: "horizontal" } }
             }]
           }
         }
         var layout = {
-          height: 160, margin: { t: 0, r: 0, b: 22, l: 10 }, showlegend: false,
+          height: 160, margin: { t: 0, r: 10, b: 22, l: 10 }, showlegend: false,
           paper_bgcolor: "rgba(0,0,0,0)", plot_bgcolor: "rgba(0,0,0,0)", font: { color: 'rgba(238,221,204,.7)', },
           xaxis: {
             automargin: false, fixedrange: true, showgrid: false,
             linecolor: 'rgba(222,222,222,.2)', tickfont: { color: 'rgba(222,222,222,.6)', size: 11 },
             tickformat: '%_d %b', tickwidth: 1, tickcolor: 'rgba(111,111,111,.5)',
-            range: [frames.pop().data[0].x[0], frames.pop().data[0].x.pop()],
+            range: [frames.slice(-1)[0].data.slice(-1)[0].x[0], frames.slice(-1)[0].data.slice(-1)[0].x.slice(-1)[0]],
           },
           yaxis: {
             range: [0, yrange], gridcolor: 'rgba(111,111,111,.2)',
@@ -499,11 +498,9 @@ $(function () {
           },
         };
         Plotly.newPlot('timecharts', frames[0].data, layout, { displayModeBar: false })
-          .then(setTimeout(function () {
-            function update() {
+          .then(setTimeout(function () { function update() {
               Plotly.animate('timecharts', frames, { transition: { duration: 0, }, frame: { duration: 1, redraw: false, } });
-            } update()
-          }, 1000));
+            } update()}, 1000));
         // .then(setTimeout(function(){ $('#timecharts') .hide(1000); }, frames.length*40 ) );
         document.getElementById('timecharts').on('plotly_click', function (data) {
           var val = '';
