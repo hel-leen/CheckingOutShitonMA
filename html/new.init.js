@@ -453,7 +453,7 @@ $(function () {
               traces[j] = {
                 ...new trace(),
                 y: y.slice(0, i + 1).map(y => { return y = y * j / (n - 1)  }),  line: { 'color': colorfill.concat(',.5,.6,', alphafill * j / (n - 1), ')'), 'width': 0 },
-                name: "lines" + j, fillcolor: colorfill.concat(',.4,.6,', alphafill * j / (n - 1) + 0.03, ')'), text: new Array(x.slice(0, i + 1).length).fill('')
+                name: "lines" + j, fillcolor: colorfill.concat(',.4,.6,', alphafill * j / (n - 1) + 0.02, ')'), text: new Array(x.slice(0, i + 1).length).fill('')
               };
             }
             return traces
@@ -497,10 +497,11 @@ $(function () {
             showgrid: true, zeroline: false, showline: false, autotick: true, ticks: '', fixedrange: true, showticklabels: false
           },
         };
-        Plotly.newPlot('timecharts', frames[0].data, layout, { displayModeBar: false })
-          .then(setTimeout(function () { function update() {
+		function update() {
               Plotly.animate('timecharts', frames, { transition: { duration: 0, }, frame: { duration: 1, redraw: false, } });
-            } update()}, 1000));
+            };
+        Plotly.newPlot('timecharts', frames[0].data, layout, { displayModeBar: false })
+          .then(setTimeout(function () {  update() }, 1000));
         // .then(setTimeout(function(){ $('#timecharts') .hide(1000); }, frames.length*40 ) );
         document.getElementById('timecharts').on('plotly_click', function (data) {
           var val = '';
