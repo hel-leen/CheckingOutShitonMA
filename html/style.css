@@ -1765,10 +1765,6 @@ iframe {
 }
 
 
-.checkmark p {
-  /* font-size: .9rem; */
-}
-
 .checkmark {
   grid-column: 1 / span 1;
   grid-row: 1/span 1;
@@ -2476,7 +2472,9 @@ div.dt-datetime-label span {
   }
 
 
-
+.checkmark p {
+  font-size: .77rem;
+}
 
   /* .newlist tr:not(.group) td:nth-child(7), */
   .newlist tr:not(.group) td:nth-child(8),
