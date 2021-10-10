@@ -1244,7 +1244,7 @@ table ::-webkit-scrollbar {
   visibility:hidden;
 }
 .newlist tr th:nth-child(1) {
-  pointer-events: none;
+  /* pointer-events: none; */
 }
 .newlist tr th:nth-child(1)::after,
 .newlist tr th:nth-child(1)::before {
@@ -2248,7 +2248,9 @@ div.dt-datetime-label span {
 }
 
 @media(min-width: 768px) {
-
+  #hiddenToggle {
+    display: none;
+  }
   .newlist tbody tr td:nth-child(3),
   .newlist tbody tr td:nth-child(5),
   .newlist tbody tr td:nth-child(6),
@@ -2376,6 +2378,18 @@ div.dt-datetime-label span {
   .dataTables_length {
     display: none;
   }
+
+  .newlist th.sorting,
+  .newlist th.sorting_asc,
+  .newlist th.sorting_desc {
+    /* display: flex; */
+	padding:0.1rem;
+	width:100%;
+  }
+  .newlist thead tr:nth-last-child(1) {
+    /* display: grid; */
+  }
+ 
 
   .newlist tbody tr {
     display: grid;

@@ -608,6 +608,15 @@ $(function () {
     $('#datepicker').val(thisday);
     table.draw();
   });
+  function sortHandler1() {
+	table.order( [ 0, 'desc' ] ).draw();
+    $(this).one("click", handler2);
+  }
+  function sortHandler2() {
+	table.order([[8, 'asc'], [0, 'desc']]).draw();
+    $(this).one("click", sortHandler2);
+  }
+  $("#Newest").one("click", sortHandler1);
   $('.toggle ').click(function () {
     $(this).parent().children('.hideItem, .hideItem>*').toggle({ duration: 500, height: "easeInBounce" }).css('display', 'grid');
     $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
