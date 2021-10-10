@@ -610,7 +610,7 @@ $(function () {
   });
   function sortHandler1() {
 	table.order( [ 0, 'desc' ] ).draw();
-    $(this).one("click", handler2);
+    $(this).one("click", sortHandler2);
   }
   function sortHandler2() {
 	table.order([[8, 'asc'], [0, 'desc']]).draw();
