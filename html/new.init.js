@@ -165,6 +165,7 @@ $(function () {
                 .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
                 .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
                 .replace(/(\n\s?)+/g, '\n')
+                .replace(/\n$/g, '')
               +
               "</a><div class='dropdown'>" +
               maLink("albums/id//", album_link) +
@@ -426,7 +427,7 @@ $(function () {
           date =
             Object.entries(this.data().map((d, j) => { return d = d.split('|||')[0]; }).reduce(function (obj, item) { obj[item] = (obj[item] || 0) + 1; return obj; }, {}))
               .filter(entry => {
-                var datevalue = moment(entry[0]).toDate(), days = 60 * 60 * 24 * 1000 * window.innerWidth / 30;
+                var datevalue = moment(entry[0]).toDate(), days = 60 * 60 * 24 * 1000 * window.innerWidth / 25;
                 if (datevalue < (moment().valueOf() + days / 2) & datevalue > (moment().valueOf() - days))
                   return entry
               });
@@ -458,7 +459,7 @@ $(function () {
             }
             return traces
           };
-          n = 6;
+          n = 2;
           frames[i] = {
             data: (makeTraces(n))
             , layout: {
@@ -479,7 +480,6 @@ $(function () {
             frames[i].layout.annotations = [{
               x: thisday, y: date.filter(item => item[0] == thisday)[0][1],
               xref: 'x', yref: 'y', ax: 20, ay: -25, text: 'Today', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth: 1, arrowcolor: '#636363', 
-              marker: { color: 'rgba(238, 221, 204,.5)', gradient: { color: "rgba(31, 119, 180, .8)", type: "horizontal" } }
             }]
           }
         }
