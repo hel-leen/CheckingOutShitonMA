@@ -112,7 +112,7 @@ $(function () {
           },
           searchable: false,
           sorting: false,
-          width: '20%',
+          width: '16%',
           targets: [0],
         },
         {
