@@ -614,7 +614,7 @@ $(function () {
   }
   function sortHandler2() {
 	table.order([[8, 'asc'], [0, 'desc']]).draw();
-    $(this).one("click", sortHandler2);
+    $(this).one("click", sortHandler1);
   }
   $("#Newest").one("click", sortHandler1);
   $('.toggle ').click(function () {
