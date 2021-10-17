@@ -8,6 +8,7 @@ library(knitr)
 library(ggjoy)
 library(dplyr)
 library(stringi)
+library(zoo)
 
 
 Sys.setenv(SPOTIFY_CLIENT_ID = '88af1a508b584cdbb46cd466c2b0b237')
@@ -75,7 +76,7 @@ everynoise =
           rank=str_extract(V1,'(?<=rank\\s)(.*?)(?=\\")') %>% str_remove_all(',') %>% as.numeric,
           V3='',
         ) %>% 
-        zoo::na.locf %>%
+        na.locf %>%
         filter(V2!='') %>% 
         add_column(
           cover=

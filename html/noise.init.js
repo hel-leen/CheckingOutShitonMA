@@ -106,7 +106,7 @@ $(function () {
             //rendering cover
             if (type === 'display') {
               return (' <img class=".cover" src="'
-                .concat(data, '" loading="lazy" ></div>'));
+                .concat('https://i.scdn.co/image/',data, '" loading="lazy" ></div>'));
             }
             return data;
           },
