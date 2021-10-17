@@ -161,7 +161,7 @@ $(function () {
 			
 			let dropdown = "<div class='grid_item'><div class='flex_item'>" + 
 			"<a class='hreftext'>"+ text
-				 + '</a>'+
+				 + '</a>' +
 			"<div class='dropdown ts' style='width:90%;'>" +
 				"<a href=\"https://open.spotify.com/"+type+"/"+href +
 				"\">Open in Spotify<i class='fa fa-spotify'></i></a>"+
