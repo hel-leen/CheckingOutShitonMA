@@ -1393,9 +1393,7 @@ table ::-webkit-scrollbar {
   cursor: pointer;
   text-shadow: 1px 1px black;
   white-space: pre-line;
-  /* user-select: none;  */
-  /* -webkit-user-select: none;  */
-  /* -moz-user-select: none; */
+  /* text-transform: capitalize; */
 }
 
 .extra {

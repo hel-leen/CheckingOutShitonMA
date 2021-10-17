@@ -35,6 +35,29 @@ const pageLayout = () => {
     $(":root").css("font-size", "3.6vw");
   }
 }
+
+String.prototype.toTitleCase = function() {
+  var i, j, str, lowers, uppers;
+  str = this.replace(/\S*?\b[\p{L}']+/gu, function(txt) {
+    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+  });
+  lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At',  'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'];
+  for (i = 0, j = lowers.length; i < j; i++)
+    str = str.replace(new RegExp('\\s' + lowers[i] + '\\s', 'g'), 
+      function(txt) {
+        return txt.toLowerCase();
+      });
+  uppers =['usbm'];
+  var numbers= this.match(/((?<=\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?=\b))/gi);
+  if (numbers!=null) {
+	  numbers=numbers.filter(v => v != '');
+  uppers=uppers.concat(numbers);
+  }
+  for (i = 0, j = uppers.length; i < j; i++)
+    str = str.replace(new RegExp('\\b' + uppers[i] + '\\b', 'gi'), 
+      uppers[i].toUpperCase());
+  return str;
+}
 const createFilter = (table, columns) => {
   var input = '<input type="text" class="search"/><span class="clear fa fa-times-circle"></span>';
   input = $(input).on("keyup click", function () {
@@ -122,7 +145,7 @@ $(function () {
 			let 
 			format = /([^:]*?\:[^|]+)\|\|\|(.*)/,
 			href = data.match(format)[1],
-			text = data.match(format)[2],
+			text = data.match(format)[2].toTitleCase(),
 			type = 
 			data.search(/(artist\:)/)>-1 ?  '&type=band_name"':
 			 data.search(/(album\:)/)>-1 ?  '&type=album_title"':
@@ -155,7 +178,7 @@ $(function () {
 		    render: function (data, type, row) {
           if (type === 'display') {
 			let format = /(\d+)\|\|\|(.*)/;
-            let genre = data.match(format)[2];
+            let genre = data.match(format)[2].toTitleCase();
             return genre;
           }
           return data;
