@@ -13,23 +13,33 @@
 <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" type="image/png" href="cat.png">
 <style>
-.bottom {
-  background-color:#000;
-}
 .newlist td::before {
   border-bottom: 1px dotted #000;
 }
-#del {
-  background: rgba(111,111,111,.5);
+.dataTables_filter {
+  background-color: #333;
 }
 </style>
 </head>
 <body>
-  <h1 class="glow" id="header">New albums on Spotify </h1>
+  <h1 class="glow" id="header">Noise and Noir</h1>
   <div class="sidenav"> <div id="home"><a href="../">Home</a></div> </div>
+  <div class="hideItem floating" style="display: flex;   position: fixed;   height: 100vh;   width: 100%; ; top: 0;  left: 0;  right: 0;  bottom: 0; margin: 0; z-index: -1;">
+	<svg width="100%">
+         <defs>
+            <linearGradient id="sampleGradient" x1="0%" y1="30%" x2="0%" y2="80%">
+               <stop offset="0%" stop-color="#000" /><stop offset="100%" stop-color="#333" />
+            </linearGradient>
+         </defs>
+         <g> <rect x="0" y="0" width="100%" height="100%" fill="url(#sampleGradient)" /> </g>
+      </svg>
+   </div>
    <div style="margin: .5em 0%;">
-   Weekly collection of <a href="https://developer.spotify.com/documentation/web-api/reference/" target="_blank" rel="noopener noreferrer">Spotify</a> new releases. </div>
-  <p  id="info"><a id="update"></a>&nbsp;<a id="count"></a></p>
+   Weekly collection of <a href="https://developer.spotify.com/documentation/web-api/reference/" target="_blank" rel="noopener noreferrer">Spotify</a> new releases, for black metal, death metal, and things. </div>
+  <p><b >NOTE </b> genre categories are also from Spotify and they aren't accurate.  </p>
+  <p>A <a href="./New.html" target="_blank" rel="noopener noreferrer">COSOMA</a> side project created on 17/10/2021 (see <a href="../noise.R" target="_blank" rel="noopener noreferrer">source code</a>).</p>
+  <p><a style="opacity:.5; color:white;">- R.I.P. my beloved one. <small> 惟願長樂未央 君無憂</small> -</a> </p>
+  <!-- <p  id="info"><a id="update"></a>&nbsp;<a id="count"></a></p> -->
   
  <div class="filterWrapper">
  <div>

@@ -127,13 +127,17 @@ $(function () {
 			data.search(/(artist\:)/)>-1 ?  '&type=band_name"':
 			 data.search(/(album\:)/)>-1 ?  '&type=album_title"':
 			'"';
-			
-			let dropdown = "<div class='grid_item'><div class='flex_item'>" + 
-			"<a class='hreftext'>"+ text
+			text =
+			data.search(/(artist\:)/)>-1 ? text:
+			text
 				.replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
                 .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
                 .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
-                .replace(/(\n\s?)+/g, '\n') + '</a>'+
+                .replace(/(\n\s?)+/g, '\n');
+			
+			let dropdown = "<div class='grid_item'><div class='flex_item'>" + 
+			"<a class='hreftext'>"+ text
+				 + '</a>'+
 			"<div class='dropdown ts' style='width:90%;'>" +
 				"<a href='spotify:"+href +
 				"'>Open in Spotify<i class='fa fa-spotify'></i></a>"+
@@ -182,7 +186,7 @@ $(function () {
             }
             return data;
           },
-          width: '9%',
+          width: '10%',
           targets: [7],
         },
 
@@ -200,9 +204,9 @@ $(function () {
         if (last !== date) {
           $(rows).eq(i).before('<tr class="group"><td colspan="1"></td>' +
             '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
-            '<td class="ts" colspan="1"> ' + date + '</td>' +
+            '<td class="ts" colspan="2"> ' + date + '</td>' +
             '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
-            '<td colspan="3"></tr>');
+            '<td colspan="2"></tr>');
           last = date;
         }
       });
