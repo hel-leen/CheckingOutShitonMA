@@ -143,15 +143,16 @@ $(function () {
             //rendering album
             if (type === 'display') {
 			let 
-			format = /([^:]*?\:[^|]+)\|\|\|(.*)/,
-			href = data.match(format)[1],
-			text = data.match(format)[2].toTitleCase(),
-			type = 
-			data.search(/(artist\:)/)>-1 ?  '&type=band_name"':
-			 data.search(/(album\:)/)>-1 ?  '&type=album_title"':
+			format = /((?:artist|album))\:(.*?)\|\|\|(.*)/,
+			type = data.match(format)[1],
+			href = data.match(format)[2],
+			text = data.match(format)[3].toTitleCase(),
+			searchtype = 
+			type=="artist" ?  '&type=band_name"':
+			 type=="album" ?  '&type=album_title"':
 			'"';
 			text =
-			data.search(/(artist\:)/)>-1 ? text:
+			type=="artist" ? text:
 			text
 				.replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
                 .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
@@ -162,9 +163,9 @@ $(function () {
 			"<a class='hreftext'>"+ text
 				 + '</a>'+
 			"<div class='dropdown ts' style='width:90%;'>" +
-				"<a href='spotify:"+href +
-				"'>Open in Spotify<i class='fa fa-spotify'></i></a>"+
-              '<a href="https://www.metal-archives.com/search?searchString=' + text.replace(/\s?\(.*?\)/g,'') + type +  
+				"<a href=\"https://open.spotify.com/"+type+"/"+href +
+				"\">Open in Spotify<i class='fa fa-spotify'></i></a>"+
+              '<a href="https://www.metal-archives.com/search?searchString=' + text.replace(/\s?\(.*?\)/g,'') + searchtype +  
 			  ">Search on MA<i class='fa fa-medium ts'></i></a>"+
               "</div></div></div>";
               return tabLink(dropdown);
