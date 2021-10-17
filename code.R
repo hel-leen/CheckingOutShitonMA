@@ -434,9 +434,9 @@ save.image("~/.R/MA/new.RData")
 ################################# commit ##################################
 
 
-repo = "./CheckingOutShitonMA/"
-git_commit_all("updating", repo = repo)
-git_push(repo=repo)
+"./CheckingOutShitonMA/" %T>% 
+  git_commit_all("updating", repo = .) %>% 
+  git_push(repo = .)
 # git_log(max = 10,repo=repo)
 
 
