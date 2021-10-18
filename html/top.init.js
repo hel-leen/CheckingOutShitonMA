@@ -297,7 +297,8 @@ $(function () {
   table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
     if (json) {
-	  $('.filterWrapper, #searchBox').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
+	   $('.filterWrapper, #searchBox, #timecharts, .bottom')
+	   .removeClass('hideItem').css({ 'display': 'grid', visibility: 'visible', opacity: .1 }).animate({ opacity: 1, }, 1000);
       $('#update').html('Last updated on: ' + json.lastUpdate + '. ');
       $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
     }

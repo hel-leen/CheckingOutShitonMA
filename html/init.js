@@ -84,7 +84,6 @@ const createFilter = (table, columns) => {
 }
 
 $(function() {
-  $('.bottom').hide();
   $('.dataTables').on('click', 'th.sorting ', function() {
     var currentOrder = table.order()[0];
     if (currentOrder[0] == 8) {

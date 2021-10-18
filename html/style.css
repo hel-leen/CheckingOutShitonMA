@@ -1116,7 +1116,7 @@ div.dt-datetime-iconDown button {
 
 
 .bottom {
-  /* display: none; */
+  display: none;
   position: -webkit-sticky;
   position: sticky;
   /* position: fixed; */
