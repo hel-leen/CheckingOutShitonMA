@@ -8,6 +8,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.4/moment.min.js"></script>
+<script type="text/javascript" src="init.js"></script>
 <script type="text/javascript" src="noise.init.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
@@ -40,7 +41,7 @@
   <p><a style="opacity:.418; color:white;">- R.I.P. my beloved. <small> 惟願長樂未央 君無憂</small> -</a> </p>
   <!-- <p  id="info"><a id="update"></a>&nbsp;<a id="count"></a></p> -->
   
- <div class="filterWrapper">
+ <div class="filterWrapper hideItem">
  <div>
 		<span class="filterSection">
 			<p><strong>Genre:</strong></p>
@@ -69,7 +70,7 @@
 </div>
 </div>
 
-<div id="searchBox" class="dataTables_filter searchBox">
+<div id="searchBox" class="dataTables_filter searchBox hideItem">
 <span class="toggle"><i class="fa fa-chevron fa-chevron-circle-right "></i></span>
 <div id="searchInput"> </div>
 <span></span>
@@ -86,7 +87,7 @@
 			</span>
 	</span>
 </div>
-<table style="border-collapse:collapse;" class="noise newlist" border="1">
+<table style="border-collapse:collapse;" class="noise newlist dataTables" border="1">
 	<thead>
 		<tr>
 			<th id="header_1">Cover</th>
@@ -96,7 +97,7 @@
 			<th id="header_4">Type</th>
 			<th id="header_4">Track</th>
 			<th id="header_4">Rank</th>
-			<th id="header_5">Date</th>
+			<th id="header_5">Update</th>
 		</tr>
 	</thead>
 </table>

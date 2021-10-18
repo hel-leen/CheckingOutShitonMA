@@ -745,7 +745,6 @@ a {
 
 
 .filterWrapper {
-  display:none;
   margin: 1%;
   /* grid-template-columns: 1fr 1fr; */
 }
@@ -1103,11 +1102,10 @@ div.dt-datetime-iconDown button {
 }
 
 .btm {
-  display:none;
+  display:flex;
   justify-content:center;
   align-items:center;
   width: 20%;
-  height: 100%;
   max-width: 6rem;
   padding: .25rem .2rem;
   font-size:.8rem;
@@ -1118,6 +1116,7 @@ div.dt-datetime-iconDown button {
 
 
 .bottom {
+  /* display: none; */
   position: -webkit-sticky;
   position: sticky;
   /* position: fixed; */
@@ -1210,8 +1209,9 @@ table {
   -ms-user-select: none;
   user-select: none;
 }
-.dataTables_empty{
+.dataTables .dataTables_empty{
   line-height: 2rem;
+  padding: 6vh;
 }
 .newlist tr.even {
   /* background: rgba(60, 60, 60, .4); */
@@ -1292,9 +1292,8 @@ table ::-webkit-scrollbar {
   scroll-snap-type: y mandatory;
 }
 
-.newlist tr.header,
-.toplist tbody tr:hover,
-.newlist tbody tr:not(.group):hover {
+.dataTables tr.header,
+.dataTables tbody tr:not(.group):hover {
   /* background-color: #444; */
   background-color: rgba(99, 99, 99, .3);
   /* background-image:linear-gradient( */
@@ -1326,7 +1325,7 @@ table ::-webkit-scrollbar {
 
 
 .dataTables tbody {
-  background-color: rgba(0, 0, 0, .1);
+  background-color: rgba(0, 0, 0, .0);
 }
 .dataTables thead {
   background-color: rgba(111, 111, 111, .2);

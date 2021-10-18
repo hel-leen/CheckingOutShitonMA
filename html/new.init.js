@@ -1,38 +1,11 @@
-jQuery.fn.extend({
-  check: function() {
-    return this.each(function() {
-      this.checked = true;
-      this.selected = true;
-    });
-  },
-  uncheck: function() {
-    return this.each(function() {
-      this.checked = false;
-      this.selected = false;
-    });
-  },
-});
+ 
 let thisday = moment().format('YYYY-MM-DD');
 var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
-const uniq = (value, index, self) => self.indexOf(value) === index && !(value === '' || value == ' ' || value == '/' || value == null);
-const partSort = ((x, y) => {
-  var xp = x.toLowerCase(),
-    yp = y.toLowerCase();
-  return xp == yp ? 0 :
-    xp < yp ? -1 :
-    1;
-});
-let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g),
-  hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
-const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
 const maTarget = q => 'https://www.metal-archives.com/' + q;
 const maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' +
   ">MA Page<i class='fa fa-medium'></i></a>";
-var
-  mobile = (navigator.userAgent.search(/mobile/gi) > -1),
-  sScreen = window.matchMedia('(max-width: 767px)').matches;
 const searchLink = text => {
   text = '<a href="https://bandcamp.com/search?q=' + text +
     "\">Bandcamp<i class='fa fa-search'></i></a>" +
@@ -57,57 +30,7 @@ const pageLayout = () => {
     $(":root").css("font-size", "3.97vw");
   }
 }
-String.prototype.toTitleCase = function() {
-  var i, j, str, lowers, uppers;
-  str = this.replace(/\S*?\b[\p{L}']+/gu, function(txt) {
-    return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-  });
-  lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At',  'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'];
-  for (i = 0, j = lowers.length; i < j; i++)
-    str = str.replace(new RegExp('\\s' + lowers[i] + '\\s', 'g'), 
-      function(txt) {
-        return txt.toLowerCase();
-      });
-  uppers =['usbm'];
-  var numbers= this.match(/((?<=\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?=\b))/gi);
-  if (numbers!=null) {
-	  numbers=numbers.filter(v => v != '');
-  uppers=uppers.concat(numbers);
-  }
-  for (i = 0, j = uppers.length; i < j; i++)
-    str = str.replace(new RegExp('\\b' + uppers[i] + '\\b', 'gi'), 
-      uppers[i].toUpperCase());
-  return str;
-}
-const createFilter = (table, columns) => {
-  var input = '<input type="text" class="search"/><span class="clear fa fa-times-circle"></span>';
-  input = $(input).on("keyup click", function() {
-    var
-      iclear = $(this).parent().children(".clear"),
-      ivalue = $(this).parent().children("input");
-    if (ivalue.val()) {
-      iclear.show();
-    }
-    if ($(this).filter(".clear").length > 0) {
-      ivalue.val('');
-      ivalue.focus();
-      iclear.hide();
-    }
-    table.draw();
-  });
-  $.fn.dataTable.ext.search.push(function(
-    settings, searchData, index, rowData, counter
-  ) {
-    var val = input.val().toLowerCase();
-    for (var i = 0, ien = columns.length; i < ien; i++) {
-      if (searchData[columns[i]].toLowerCase().split('|||')[0].indexOf(val) !== -1) {
-        return true;
-      }
-    }
-    return false;
-  });
-  return input;
-}
+  
 
 $(function() {
   pageLayout();
@@ -143,10 +66,10 @@ $(function() {
       });
     },
     fnStateSave: function(Settings, Data) {
-      localStorage.setItem('dataTables', JSON.stringify(Data));
+      localStorage.setItem(ajaxurl, JSON.stringify(Data));
     },
     fnStateLoad: function(Settings) {
-      return JSON.parse(localStorage.getItem('dataTables'));
+      return JSON.parse(localStorage.getItem(ajaxurl));
     },
     language: {
       searchPlaceholder: 'Search for albums or bands..',
@@ -165,7 +88,7 @@ $(function() {
       loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
     },
     ajax: {
-      url: "release",
+      url: ajaxurl,
       dataFilter: function(data) {
         var json = jQuery.parseJSON(data);
         json.data = json.data.slice(0, -1);
@@ -654,8 +577,8 @@ $(function() {
           }
         });
       });
-      if (localStorage.getItem('NewSelected') != undefined) {
-        var selected = localStorage.getItem('NewSelected').split(',').join('|');
+      if (localStorage.getItem(deletedItem) != undefined) {
+        var selected = localStorage.getItem(deletedItem).split(',').join('|');
         api.columns(0).search('^('.concat(selected, ')'), true).rows({
           search: 'applied'
         }).remove().column(0).search('').draw();
@@ -665,13 +588,11 @@ $(function() {
   let table = $('.dataTables').DataTable();
   table.on('xhr', function() {
     var json = table.ajax.json();
-    //count rows
     if (json) {
       $('.anchor').hide();
-      $('.btm').css({
-        'display': 'flex'
-      });
-      $('.filterWrapper, #searchBox, #timecharts').css({
+      $('.filterWrapper, #searchBox, #timecharts, .bottom')
+	  .removeClass('hideItem')
+	  .css({
         'display': 'grid',
         visibility: 'visible',
         opacity: .1
@@ -684,7 +605,10 @@ $(function() {
         height: 'linear',
         opacity: 'easeOutBounce',
       }, "slow");
-    }
+    } else {
+		$('.bottom').hide();
+		$('.anchor').show().css({ 'display': 'flex' }); 
+		}
   });
   $("#searchInput").append(createFilter(table, ['2', '1']));
   $("#searchInput input.search").attr('placeholder', 'Search for albums or bands..');
@@ -705,33 +629,6 @@ $(function() {
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
   });
   table.columns().visible(true);
-  table.on('click', 'th.sorting ', function() {
-    var currentOrder = table.order()[0];
-    if (currentOrder[0] == 8) {
-      $('table .group').css('display', 'table-row');
-    } else {
-      $('table .group').css('display', 'none');
-    }
-  });
-  table.on('click', '.prev', function() {
-    $(this).parent().prevAll('.group').length > 0 ?
-      $('html,body').animate({
-        scrollTop: $(this).parent().prevAll('.group').offset().top - $(".dataTables_filter").height()
-      }, 600) :
-      $('html,body').animate({
-        scrollTop: $(this).parent().offset().top - $(".dataTables_filter").height()
-      }, 600)
-  });
-  table.on('click', '.next', function() {
-    $(this).parent().nextAll('.group').length > 0 ?
-      $('html,body').animate({
-        scrollTop: $(this).parent().nextAll('.group').offset().top - $(".dataTables_filter").height()
-      }, 600) :
-      $('html,body').animate({
-        scrollTop: $(this).parent().nextAll().last().children().last().offset().top - $(".dataTables_filter").height()
-      }, 600)
-  });
-
   table.on('dblclick', 'tr:not(.group)', function() {
     $(this).toggleClass('selected');
   });
@@ -739,19 +636,18 @@ $(function() {
     var selected = table.rows('.selected').data().map((d, j) => {
       return d = d[0].split(/(?<=\d)\|\|\|/g)[0];
     }).toArray();
-    if (localStorage.getItem('NewSelected') != null) {
-      var storedItems = localStorage.getItem('NewSelected').split(',');
-      localStorage.setItem('NewSelected', storedItems.concat(selected));
+    if (localStorage.getItem(deletedItem) != null) {
+      var storedItems = localStorage.getItem(deletedItem).split(',');
+      localStorage.setItem(deletedItem, storedItems.concat(selected));
     } else {
-      localStorage.setItem('NewSelected', selected);
+      localStorage.setItem(deletedItem, selected);
     }
     table.rows('.selected').remove().draw(false);
   });
   $('#res').click(function() {
-    delete localStorage.NewSelected;
+    localStorage.setItem(deletedItem, [0]);
     location.reload();
   });
-
   table.on('click', '.dropdown,.float', function() {
     $(this).toggleClass('actived');
   });
@@ -772,10 +668,6 @@ $(function() {
       ]).draw(true);
     }
   });
-  $('#datepicker, #today, #Today, .dt-datetime-today').click(function() {
-    $('#datepicker').val(thisday);
-    table.draw();
-  });
 
   function sortHandler1() {
     table.order([0, 'desc']).draw();
@@ -790,26 +682,10 @@ $(function() {
     $(this).one("click", sortHandler1);
   }
   $("#Newest").one("click", sortHandler1);
-  $('.toggle ').click(function() {
-    $(this).parent().children('.hideItem, .hideItem>*').toggle({
-      duration: 500,
-      height: "easeInBounce"
-    }).css('display', 'grid');
-    $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
-    $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
-  });
   $('.filterSection .clear').click(function() {
-    var filters = $(this).parent();
-    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
-    filters.children('select').children('option').prop('selected', false);
-    filters.children('#datepicker').val('');
     table.columns(cols).search('').draw();
   });
   $('#all, #reset, #Reset').click(function() {
-    $('select option').uncheck();
-    $('#searchBox option').check();
-    $("input[type='checkbox']").uncheck();
-    $("input[type='text']").val('');
     table.columns().search('').draw();
     table.order([
       [8, 'desc'],
@@ -817,14 +693,16 @@ $(function() {
     ]).draw(true);
   });
   $('#reset, #Reset').click(function() {
-    $('#searchBox option:not(:eq(0)):not(:eq(0))').uncheck();
-    $('#genre-options option:not(:eq(-1))').check();
     $('#datecondition').val('After');
     $('#datepicker').val(thisweek);
     table.order([
       [8, 'asc'],
       [0, 'desc']
     ]).draw(true);
+  });
+  $('#datepicker, #today, #Today, .dt-datetime-today').click(function() {
+    $('#datepicker').val(thisday);
+    table.draw();
   });
   $('.filter,.genrefilter,.paginate_button, .dataTables_length, .filter-holder,#reset').on("click change", function(e) {
     table.draw();
@@ -834,12 +712,6 @@ $(function() {
 $(window).resize(function() {
   pageLayout();
 });
-$(document).on('click', '.paginate_button', function() {
-  $('body,html').animate({
-    scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").height() - 8,
-  }, 800);
-});
-
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
   let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3];
   let genre = data[3].toLowerCase();
