@@ -1126,6 +1126,7 @@ div.dt-datetime-iconDown button {
   padding:.2rem;
   overflow-x:hidden;
   background-color:#333;
+    box-shadow: 0px 4px 3em 1.5em #333;
 }
 
 button {
