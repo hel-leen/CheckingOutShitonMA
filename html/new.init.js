@@ -683,6 +683,10 @@ $(function() {
   }
   $("#Newest").one("click", sortHandler1);
   $('.filterSection .clear').click(function() {
+    var filters = $(this).parent();
+    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
+    filters.children('select').children('option').prop('selected', false);
+    filters.children('#datepicker').val('');
     table.columns(cols).search('').draw();
   });
   $('#all, #reset, #Reset').click(function() {

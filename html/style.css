@@ -2466,7 +2466,7 @@ div.dt-datetime-label span {
     content: "Similar to:";
   }
   .noise tr:not(.group) td:nth-child(6)::before {
-    content: "Rank:";
+    content: "Obscurity:";
   }
 
   .noise tr:not(.group) td:nth-child(7)::before {

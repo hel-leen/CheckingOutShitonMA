@@ -302,7 +302,10 @@ $(function () {
     $(this).toggleClass('actived');
   });
   $('.filterSection .clear').click(function () {
-    table.columns(cols).search('').draw();
+    var filters = $(this).parent();
+    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
+    filters.children('select').children('option').prop('selected', false);
+    filters.children('#datepicker').val('');
   });
   $('#reset').click(function () {
     $('.filter-holder.4 select option').prop("selected", true);
