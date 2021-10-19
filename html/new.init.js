@@ -23,11 +23,11 @@ const pageLayout = () => {
     if (sScreen) {
       // $(":root").css("font-size", "");
     } else {
-      $(":root").css("font-size", "2.23vh");
+      $(":root").css("font-size", "2.2vh");
     }
   } else {
     $.fn.DataTable.ext.pager.numbers_length = 5;
-    $(":root").css("font-size", "3.97vw");
+    $(":root").css("font-size", "3.8vw");
   }
 }
   
@@ -176,7 +176,7 @@ $(function() {
               .replace(/(?<=[|\),])\s|\s(?=[\(])/g, ' \n')
               .replace(/(?<=br\>|\n\s?)\n|^\n|(?<=\([^\)]*)\n/g, '')
               .replace(/\//g, '/<wbr>');
-            genre_col.push("<div class='grid_item'><div class='flex_item ts'>" +
+            genre_col.push("<div class='grid_item'><div class='flex_item ts genre'>" +
               genre + '</div></div>');
           });
           return tabLink("<div class='grid_wrapper'>".concat(genre_col.join(''), '</div>'));

@@ -1126,7 +1126,7 @@ div.dt-datetime-iconDown button {
   padding:.2rem;
   overflow-x:hidden;
   background-color:#333;
-    box-shadow: 0px 4px 3em 1.5em #333;
+  box-shadow: 0px 4px 3em 1.5em #333;
 }
 
 button {
@@ -2032,7 +2032,7 @@ button:active {
   grid-auto-columns: 1fr;
   color:#fed;
 }
-.ratings>*>* b{
+.ratings>*>* >*{
 	color:#eee;
 }
 .Genre::before,
@@ -2407,9 +2407,10 @@ div.dt-datetime-label span {
     border: .285vh solid rgba(66, 66, 66, .4);
     box-shadow: 0 .285vh .86vh 0 rgba(0, 0, 0, 0.44), 0 1vh 2vh 0 rgba(0, 0, 0, 0.39);
   }
-
-  .newlist tbody tr td:nth-child(2),
-  .newlist tbody tr td:nth-child(4) {
+  .newlist tbody tr td .title,
+  /* .newlist tbody tr td:nth-child(2), */
+  /* .newlist tbody tr td:nth-child(4), */
+  .newlist tbody tr td .genre  {
     white-space: normal;
   }
 
@@ -2462,7 +2463,7 @@ div.dt-datetime-label span {
   }
 
   .noise tr:not(.group) td:nth-child(5)::before {
-    content: "Type:";
+    content: "Similar to:";
   }
   .noise tr:not(.group) td:nth-child(6)::before {
     content: "Rank:";
