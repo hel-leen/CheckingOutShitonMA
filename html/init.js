@@ -84,14 +84,6 @@ const createFilter = (table, columns) => {
 }
 
 $(function() {
-  $('.dataTables').on('click', 'th.sorting ', function() {
-    var currentOrder = table.order()[0];
-    if (currentOrder[0] == 8) {
-      $('table .group').css('display', 'table-row');
-    } else {
-      $('table .group').css('display', 'none');
-    }
-  });
   $('.dataTables').on('click', '.prev', function() {
     $(this).parent().prevAll('.group').length > 0 ?
       $('html,body').animate({

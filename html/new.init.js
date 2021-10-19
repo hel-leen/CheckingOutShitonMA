@@ -586,6 +586,7 @@ $(function() {
     },
   });
   let table = $('.dataTables').DataTable();
+  table.columns().visible(true);
   table.on('xhr', function() {
     var json = table.ajax.json();
     if (json) {
@@ -628,10 +629,26 @@ $(function() {
       .children('input.search').val(searchValue)
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
   });
-  table.columns().visible(true);
-  table.on('dblclick', 'tr:not(.group)', function() {
-    $(this).toggleClass('selected');
+  //cancel groups
+  table.on('click', 'th ', function() {
+    var currentOrder = table.order()[0][0];
+    if (currentOrder == 8) {
+      $('table tr.group').css('display', 'table-row');
+    } else {
+      $('table tr.group').css('display', 'none');
+    }
   });
+  //active link after click second time (for mobile devices only)
+  table.on('click', '.dropdown,.float', function() {
+    $(this).toggleClass('actived');
+  });
+  //double click to select tr(s) 
+  table.on('dblclick', 'tr:not(.group)', function(e) {
+    $(this).toggleClass('selected');
+  }).on('dblclick', 'td *', function(e) {
+    e.stopPropagation();
+  });
+  //delete entries in selected tr(s) 
   $('#del').click(function() {
     var selected = table.rows('.selected').data().map((d, j) => {
       return d = d[0].split(/(?<=\d)\|\|\|/g)[0];
@@ -644,12 +661,18 @@ $(function() {
     }
     table.rows('.selected').remove().draw(false);
   });
+  //restore deleted entries
   $('#res').click(function() {
     localStorage.setItem(deletedItem, [0]);
     location.reload();
   });
-  table.on('click', '.dropdown,.float', function() {
-    $(this).toggleClass('actived');
+  //clear filterSection
+  $('.filterSection .clear').click(function() {
+    var filters = $(this).parent();
+    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
+    filters.children('select').children('option').prop('selected', false);
+    filters.children('#datepicker').val('');
+    table.columns(cols).search('').draw();
   });
   $('#datecondition').click(function() {
     if ($(this).val() == 'After') {
@@ -668,12 +691,11 @@ $(function() {
       ]).draw(true);
     }
   });
-
+// sortHandlers
   function sortHandler1() {
     table.order([0, 'desc']).draw();
     $(this).one("click", sortHandler2);
   }
-
   function sortHandler2() {
     table.order([
       [8, 'asc'],
@@ -682,13 +704,7 @@ $(function() {
     $(this).one("click", sortHandler1);
   }
   $("#Newest").one("click", sortHandler1);
-  $('.filterSection .clear').click(function() {
-    var filters = $(this).parent();
-    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
-    filters.children('select').children('option').prop('selected', false);
-    filters.children('#datepicker').val('');
-    table.columns(cols).search('').draw();
-  });
+  //reset default settings
   $('#all, #reset, #Reset').click(function() {
     table.columns().search('').draw();
     table.order([
