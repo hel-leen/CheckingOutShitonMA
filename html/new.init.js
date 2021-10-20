@@ -20,13 +20,13 @@
    if (!mobile) {
      $.fn.DataTable.ext.pager.numbers_length = 9;
      if (sScreen) {
-       // $(":root").css("font-size", "");
+       $(":root").css("font-size", "2.1vh");
      } else {
        $(":root").css("font-size", "2.2vh");
      }
    } else {
      $.fn.DataTable.ext.pager.numbers_length = 5;
-     $(":root").css("font-size", "3.8vw");
+     $(":root").css("font-size", "3.7vw");
    }
  }
 

@@ -58,7 +58,7 @@ pageLayout = () => {
       }
     } else {
       $.fn.DataTable.ext.pager.numbers_length = 5;
-      $(":root").css("font-size", "3.8vw");
+      $(":root").css("font-size", "3.7vw");
     }
   }
 $(function () {

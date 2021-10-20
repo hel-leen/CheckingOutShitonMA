@@ -1382,7 +1382,7 @@ table ::-webkit-scrollbar {
 
 
 .flex_item {
-    margin: .6rem 0;
+    /* margin: .6rem 0; */
 }
 .grid_item > div {
   grid-column-start: 1;
@@ -1997,6 +1997,7 @@ button:active {
   overflow-y: overlay;
   overflow-x: hidden;
   height: 2rem;
+  margin-block-start: 0;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -2470,8 +2471,8 @@ div.dt-datetime-label span {
     content: "Obscurity:";
   }
 
-  .noise tr:not(.group) td:nth-child(7)::before {
-    content: "Update:";
+  .noise tr:not(.group) td:nth-child(8)::before {
+    content: "Date:";
   }
 
 

@@ -2,7 +2,7 @@ const pageLayout = () => {
   if (navigator.userAgent.search(/mobile/gi) < 0) {
     $.fn.DataTable.ext.pager.numbers_length = 9;
     if (window.matchMedia('(max-width: 767px)').matches) {
-      $(":root").css("font-size", "");
+      $(":root").css("font-size", "2.1vh");
     } else {
       $(":root").css("font-size", "2.2vh");
     }
