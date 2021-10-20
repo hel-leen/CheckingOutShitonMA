@@ -22,7 +22,7 @@ $(function() {
     deferRender: true,
     lengthMenu: [150, 300, 600],
     order: [
-      [8, 'desc'],
+      [9, 'desc'],
       [6, 'asc'],
       [5, 'asc']
     ],
@@ -34,7 +34,7 @@ $(function() {
     stateDuration: 60 * 60 * 24 * 7,
     stateSaveParams: function(settings, data) {
       data.order = [
-        [8, 'desc'],
+        [9, 'desc'],
         [6, 'asc'],
         [5	, 'asc']
       ];
@@ -83,7 +83,7 @@ $(function() {
       },
       searchable: false,
       sorting: false,
-      width: '16%',
+      width: '15%',
       targets: [0],
     }, {
       width: '10%',
@@ -100,8 +100,6 @@ $(function() {
             extra = "",
             searchtype =
             type == "artist" ? '&type=band_name"' : '&type=album_title"';
-          extra +=
-            type == "artist" ? '' : "<abbr class='extra ts'>(" + row[7] + ')</abbr>';
           text =
             type == "artist" ? text :
             text
@@ -116,12 +114,12 @@ $(function() {
             "\">Open in Spotify<i class='fa fa-spotify'></i></a>" +
             '<a href="https://www.metal-archives.com/search?searchString=' + text.replace(/\s?\(.*?\)/g, '') + searchtype +
             ">Search on MA<i class='fa fa-medium ts'></i></a>" +
-            "</div><br>" +  '</div></div>';
+            "</div><br>" + '</div></div>';
           return tabLink(dropdown);
         }
         return data;
       },
-      width: '13%',
+      width: '11%',
       targets: [1, 2],
     }, {
       //genre
@@ -134,7 +132,7 @@ $(function() {
         }
         return data;
       },
-      width: '13%',
+      width: '9%',
       targets: [3],
     }, {
       render: (data, type, row) => {
@@ -159,26 +157,9 @@ $(function() {
         }
         return data;
       },
-      width: '15%',
+      width: '11%',
       targets: [4],
     }, {
-      render: (data, type, row) => {
-        //rendering type
-        if (type === 'display') {
-          var
-          format = /(.*)\|\|\|(.*)/,
-          label = data.match(format)[2],
-          type = data.match(format)[1];
-          // type = data;
-          return '<div class="ts">' + type + 
-		  '<br><ui class="ts" style="opacity:.7;  color: #fed;">' + label + 
-		  '</ui></div>';
-        }
-        return data;
-      },
-      width: '13%',
-      targets: [7],
-    },{
       render: (data, type, row) => {
         //rendering rank
         if (type === 'display') {
@@ -191,10 +172,43 @@ $(function() {
         }
         return data;
       },
-      width: '11%',
+      width: '9%',
 	  type: "ranking",
       targets: [5],
     }, {
+      render: (data, type, row) => {
+        //rendering date
+        if (type === 'display') {
+           switch (data) {
+             case '':
+               data = "<i class='ts'>(No data)</i>";
+               break;
+             default:
+               data =   data ;
+           }
+        }
+        return '<div class="ts">' + data+'</div>';
+      },
+      width: '8%',
+      targets: [7],
+    }, {
+      render: (data, type, row) => {
+        //rendering length
+        if (type === 'display') {
+          var
+          format = /(.*)\|\|\|(.*)/,
+          type = data.match(format)[2],
+          length = data.match(format)[1];
+          // type = data;
+          return '<div class="ts">' + length + 
+		  '<br><ui class="ts" style="opacity:.6;  color: #fed;">- ' + type + 
+		  ' -</ui></div>';
+        }
+        return data;
+      },
+      width: '7%',
+      targets: [8],
+    },{
       render: (data, type, row) => {
         //rendering date
         if (type === 'display') {
@@ -202,13 +216,13 @@ $(function() {
         }
         return data;
       },
-      width: '10%',
+      width: '7%',
       targets: [-1],
     }, ],
     drawCallback: function(settings) {
       //group rows by date
       var
-        groupColumn = 8,
+        groupColumn = 9,
         api = this.api(),
         rows = api.rows({
           page: 'current'
@@ -371,7 +385,7 @@ $.fn.dataTable.ext.type.order['ranking-pre'] = function ( d ) {
 };
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
   let
-    type = data[7],
+    type = data[8],
     types = $(".filter-holder.7 select").val() || [];
   return type.search('('.concat('(', types.join('|'), ')', ')')) > -1;
   // return true;

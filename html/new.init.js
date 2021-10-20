@@ -11,7 +11,7 @@
      '<a href="https://www.youtube.com/results?search_query=' + text +
      "\">Youtube<i class='fa fa-search'></i></a>" +
      '<a href="https://open.spotify.com/search/' + text.replace(/\//g, '');
-   text += sScreen ?
+   text += mobile ?
      '">Spotify<i class="fa fa-search"></i></a>' :
      '/spotify">Spotify<i class="fa fa-search"></i></a>'
    return text;

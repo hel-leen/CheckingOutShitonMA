@@ -2451,7 +2451,6 @@ div.dt-datetime-label span {
     content: "Similar to:";
   }
 
-
   .newlist tr:not(.group) td:nth-child(7)::before {
     content: "Label:";
   }
@@ -2469,10 +2468,6 @@ div.dt-datetime-label span {
   }
   .noise tr:not(.group) td:nth-child(6)::before {
     content: "Obscurity:";
-  }
-
-  .noise tr:not(.group) td:nth-child(8)::before {
-    content: "Date:";
   }
 
 
