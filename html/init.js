@@ -36,7 +36,7 @@ String.prototype.toTitleCase = function() {
   str = this.replace(/\S*?\b[\p{L}']+/gu, function(txt) {
     return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
   });
-  lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At',  'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With'];
+  lowers = ['A', 'An', 'The', 'And', 'But', 'Or', 'For', 'Nor', 'As', 'At',  'By', 'For', 'From', 'In', 'Into', 'Near', 'Of', 'On', 'Onto', 'To', 'With', 'Von'];
   for (i = 0, j = lowers.length; i < j; i++)
     str = str.replace(new RegExp('\\s' + lowers[i] + '\\s', 'g'), 
       function(txt) {

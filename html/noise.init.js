@@ -22,9 +22,9 @@ $(function() {
     deferRender: true,
     lengthMenu: [150, 300, 600],
     order: [
-      [10, 'desc'],
+      [8, 'desc'],
       [6, 'asc'],
-      [9, 'asc']
+      [5, 'asc']
     ],
     search: {
       regex: true,
@@ -34,9 +34,9 @@ $(function() {
     stateDuration: 60 * 60 * 24 * 7,
     stateSaveParams: function(settings, data) {
       data.order = [
-        [10, 'desc'],
+        [8, 'desc'],
         [6, 'asc'],
-        [9, 'asc']
+        [5	, 'asc']
       ];
       data.columns.forEach(item => {
         item.search.search = ''
@@ -76,7 +76,7 @@ $(function() {
       render: (data, type, row) => {
         //rendering cover
         if (type === 'display') {
-          return (' <img class=".cover" src="'
+          return (' <img class="" src="'
             .concat('https://i.scdn.co/image/', data, '" loading="lazy" ></div>'));
         }
         return data;
@@ -96,7 +96,7 @@ $(function() {
             format = /((?:artist|album))\:(.*?)\|\|\|(.*)/,
             type = data.match(format)[1],
             href = data.match(format)[2],
-            text = data.match(format)[3].toTitleCase(),
+            text  = data.match(format)[3].toTitleCase(),
             extra = "",
             searchtype =
             type == "artist" ? '&type=band_name"' : '&type=album_title"';
@@ -116,7 +116,7 @@ $(function() {
             "\">Open in Spotify<i class='fa fa-spotify'></i></a>" +
             '<a href="https://www.metal-archives.com/search?searchString=' + text.replace(/\s?\(.*?\)/g, '') + searchtype +
             ">Search on MA<i class='fa fa-medium ts'></i></a>" +
-            "</div><br>" + extra + '</div></div>';
+            "</div><br>" +  '</div></div>';
           return tabLink(dropdown);
         }
         return data;
@@ -141,13 +141,15 @@ $(function() {
         // similar
         if (type === 'display') {
           switch (data) {
-            case '':
+            case 'NA|||NA':
               data = "<i class='ts extra'>No data</i>";
               break;
             default:
-              let artist_id = row[5].split(/,\s?/g);
-              var artist = data.split(/,\s?/g);
-              var floated = artist.map((item, i) => {
+              var 
+			   format=/(.*)\|\|\|(.*)/,
+               artist = data.match(format)[1].split(/,\s?/g),
+               artist_id = data.match(format)[2].split(/,\s?/g),
+               floated = artist.map((item, i) => {
                 return '<a href="https://open.spotify.com/artist/' +
                   artist_id[i] + '">' + item + '</a>'
               });
@@ -157,28 +159,46 @@ $(function() {
         }
         return data;
       },
-      width: '16%',
+      width: '15%',
       targets: [4],
     }, {
+      render: (data, type, row) => {
+        //rendering type
+        if (type === 'display') {
+          var
+          format = /(.*)\|\|\|(.*)/,
+          label = data.match(format)[2],
+          type = data.match(format)[1];
+          // type = data;
+          return '<div class="ts">' + type + 
+		  '<br><ui class="ts" style="opacity:.7;  color: #fed;">' + label + 
+		  '</ui></div>';
+        }
+        return data;
+      },
+      width: '13%',
+      targets: [7],
+    },{
       render: (data, type, row) => {
         //rendering rank
         if (type === 'display') {
           var
-          // format = /(.*)-(.*)/,
-            followers = parseFloat(row[8]).toLocaleString(undefined);
-          ranking = parseFloat(data).toLocaleString(undefined);
+          format = /(^ranking:)(\d+)\|\|\|(.*)/,
+          followers = parseFloat(data.match(format)[3]).toLocaleString(undefined),
+          ranking = parseFloat(data.match(format)[2]).toLocaleString(undefined);
           return '<div class="ts"><ui style="opacity:.7;">Ranking: </ui>' + ranking + 
 		  '<br><ui style="opacity:.7;">Listeners: </ui>' + followers + "</div>";
         }
         return data;
       },
       width: '11%',
-      targets: [9],
+	  type: "ranking",
+      targets: [5],
     }, {
       render: (data, type, row) => {
         //rendering date
         if (type === 'display') {
-          return (data.slice(0, 4).concat('-', data.slice(4, 6), '-', data.slice(6)));
+          // return (data.slice(0, 4).concat('-', data.slice(4, 6), '-', data.slice(6)));
         }
         return data;
       },
@@ -188,7 +208,7 @@ $(function() {
     drawCallback: function(settings) {
       //group rows by date
       var
-        groupColumn = -1,
+        groupColumn = 8,
         api = this.api(),
         rows = api.rows({
           page: 'current'
@@ -198,15 +218,24 @@ $(function() {
         page: 'current'
       }).data().each(function(group, i) {
         var date = moment(group, "YYYYMMDD").format('Do MMM, YYYY');
-        if (last !== date) {
-          $(rows).eq(i).before('<tr class="group"><td colspan="2"></td>' +
-            '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
-            '<td class="ts" colspan="1"> ' + date + '</td>' +
-            '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
-            '<td colspan="2"></tr>');
-          last = date;
-        }
+         if (last !== date) {
+           $(rows).eq(i).before('<tr class="group"><td colspan="2"></td>' +
+             '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
+             '<td class="ts" colspan="2"> ' + date + '</td>' +
+             '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
+             '<td colspan="3"></tr>');
+           last = date;
+         }
       });
+	  	      //cancel groups
+   $('.dataTables th').on('click',  function() {
+     var currentOrder = table.order()[0][0];
+     if (currentOrder == groupColumn) {
+       $('table tr.group').css('display', 'table-row');
+     } else {
+       $('table tr.group').css('display', 'none');
+     }
+   });
     },
     initComplete: function() {
       var api = this.api(),
@@ -244,7 +273,7 @@ $(function() {
     },
   });
   let table = $('.dataTables').DataTable();
-  table.columns([5, 6, 7, 8]).visible(false);
+  table.columns([6]).visible(false);
   // table.columns().visible(true);
   table.on('xhr', function() {
     var json = table.ajax.json();
@@ -289,14 +318,6 @@ $(function() {
     $("#searchInput").empty().append(createFilter(table, searchFields))
       .children('input.search').val(searchValue)
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
-  });
-  table.on('click', 'th ', function() {
-    var currentOrder = table.order()[0][0];
-    if (currentOrder == -1) {
-      $('table tr.group').css('display', 'table-row');
-    } else {
-      $('table tr.group').css('display', 'none');
-    }
   });
   //active link after click second time (for mobile devices only)
   table.on('click', '.dropdown,.float', function() {
@@ -344,12 +365,14 @@ $(function() {
 $(window).resize(function() {
   pageLayout();
 });
-
+$.fn.dataTable.ext.type.order['ranking-pre'] = function ( d ) {
+     d= parseFloat(''.concat(d.match(/(^ranking:)(\d+)\|\|\|(.*)/)[2]));
+	 return d;
+};
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
   let
     type = data[7],
     types = $(".filter-holder.7 select").val() || [];
-
   return type.search('('.concat('(', types.join('|'), ')', ')')) > -1;
   // return true;
 });

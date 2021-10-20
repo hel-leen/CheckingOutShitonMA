@@ -1126,7 +1126,7 @@ div.dt-datetime-iconDown button {
   padding:.2rem;
   overflow-x:hidden;
   background-color:#333;
-  box-shadow: 0px 4px 3em 1.5em #333;
+  box-shadow: 0px 0px  2em 2em #333;
 }
 
 button {
@@ -1197,7 +1197,8 @@ table.dataTable thead .sorting_asc_disabled::before,
 table.dataTable thead .sorting_desc_disabled::after {
   opacity: 0;
 }
-
+table * ::selection { background: rgba(0,0,0,.5); }
+table * ::-moz-selection { background: rgba(0,0,0,5); }
 table {
   width: 100%;
   border: 1.5px solid rgba(99, 99, 99, .5);
@@ -1205,10 +1206,10 @@ table {
   font-size: 0.9rem;
   table-layout: fixed;
   text-align: center;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  /* -webkit-user-select: none; */
+  /* -moz-user-select: none; */
+  /* -ms-user-select: none; */
+  /* user-select: none; */
 }
 .dataTables .dataTables_empty{
   line-height: 2rem;

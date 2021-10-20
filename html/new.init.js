@@ -322,7 +322,7 @@
      drawCallback: function(settings) {
        //group rows by date
        var
-         groupColumn = 8,
+         groupColumn = $('.dataTables tr:nth-last-child(1) th').length-1,
          api = this.api(),
          rows = api.rows({
            page: 'current'
@@ -346,6 +346,15 @@
            last = date;
          }
        });
+	      //cancel groups
+   $('.dataTables th').on('click',  function() {
+     var currentOrder = table.order()[0][0];
+     if (currentOrder == groupColumn) {
+       $('table tr.group').css('display', 'table-row');
+     } else {
+       $('table tr.group').css('display', 'none');
+     }
+   });
      },
      initComplete: function() {
        var api = this.api(),
@@ -630,15 +639,7 @@
        .children('input.search').val(searchValue)
        .attr('placeholder', 'Search for '.concat(searchCols, '..'));
    });
-   //cancel groups
-   table.on('click', 'th ', function() {
-     var currentOrder = table.order()[0][0];
-     if (currentOrder == 8) {
-       $('table tr.group').css('display', 'table-row');
-     } else {
-       $('table tr.group').css('display', 'none');
-     }
-   });
+
    //active link after click second time (for mobile devices only)
    table.on('click', '.dropdown,.float', function() {
      $(this).toggleClass('actived');
