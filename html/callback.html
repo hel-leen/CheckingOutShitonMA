@@ -1,0 +1,30 @@
+
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body style="">
+  <script>
+  var OAuthConfig = (function() {
+  'use strict';
+  var clientId = '88af1a508b584cdbb46cd466c2b0b237';
+  var redirectUri;
+  if (window.location.protocol.search('http') <-1 ) {
+    redirectUri = 'http://localhost:8000/callback.html';
+  } else {
+    redirectUri = 'https://hel-leen.github.io/CheckingOutShitonMA/html/callback.html';
+  }
+  var host = /http[s]?:\/\/[^/]+/.exec(redirectUri)[0];
+  return {
+    clientId: clientId,
+    redirectUri: redirectUri,
+    host: host
+  };
+})();
+  var target = window.self === window.top ? window.opener : window.parent;
+
+var hash = window.location.hash;
+if (hash) {
+  var token = window.location.hash.split('&')[0].split('=')[1];
+  target.postMessage(token, OAuthConfig.host);
+}
+  </script>
+  <!-- endbuild -->
+
+</body></html>
