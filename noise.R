@@ -34,8 +34,7 @@ everynoise =
       html_elements('select[name="date"]>option') %>% 
       html_text()
     
-    results=
-      tibble(cover=NA,artist=NA,album=NA,artist.link=NA,album.link=NA,track=NA,genre=NA,type=NA,rank=NA,update=NA)
+    results = tibble(cover=NA,artist=NA,album=NA)
     
     i = 1
     while (i <= 1) {
@@ -82,21 +81,75 @@ everynoise =
           cover=
             page %>% 
             html_elements('.cover') %>% 
-            sapply(.,function(i) str_extract(i,'(?<=src=\\").*(?=\\"\\stitle)') ),
+            sapply(.,function(i) str_extract(i,'(?<=image\\/).*(?=\\"\\stitle)') ),
           .before='V1'
         ) %>% 
         mutate(
-          update=date[i]
+          update=date[i] %>% str_replace_all('(\\d{2})(\\d{2})$','-\\1-\\2')
         ) %>% 
         # rename( c("artist" = "V1","album" = "V2","track" = "V3",)) %>% 
         select(!starts_with("V")) %>% 
         mutate(across(where(is.character),~str_replace_all(.x,'"',"'"))) 
       
+      extra = 
+        entries %>% 
+        (function(df) {
+          related =
+            df %>% distinct_at('artist.link')  %>%
+            pull %>%
+            map(function(x) x %>% str_extract('(?<=artist\\:).*') %>%
+                  get_related_artists() %>% .[c("name", "id")]  ) %>%
+            tibble(related=.) %>%
+            unnest_wider(related) %>%
+            rename(c("related.artist" = "name","related.artist.id" = "id"))
+          
+          bandinfo=
+            df %>%
+            distinct_at('artist.link')  %>% 
+            pull %>% 
+            map(function(x) x %>% str_extract('(?<=artist\\:).*') %>% 
+                  get_artist() %>% .[c("genres", "followers")])  %>% 
+            tibble (bandinfo=.) %>% 
+            unnest_wider(bandinfo)
+          
+          albuminfo=
+            df %>%
+            distinct_at('album.link')  %>% 
+            pull %>% 
+            map(function(x) x %>% str_extract('(?<=album\\:).*') %>% 
+                  get_album() %>% .[c("release_date", "label","tracks")] %>% 
+                  sapply(., function(x){
+                    if ("items" %in% names(x) )                    
+                    { return(x=x%>%.$items %>% .$duration_ms %>% sum )} 
+                    else 
+                    {return(x=paste0(x))}
+                    x
+                  }))  %>% 
+            tibble (albuminfo=.) %>% 
+            unnest_wider(albuminfo)  %>% 
+            rename(c("length" = "tracks")) 
+          
+          list(
+            band =
+              add_column(bandinfo,related, df %>% distinct_at('artist.link')) %>% 
+              mutate(
+                across(starts_with('related')|c(genres), 
+                       ~ str_replace_all(.x, c('(^c\\()|\\s?\\)$|\\"'='',"NULL"='' )) ),
+                across(c(followers), ~ str_extract(.x, '\\d+' ) )
+              ),
+            album =
+              add_column(albuminfo,df %>% distinct_at('album.link'))  
+          )
+          
+        })(.)
+      entries %<>% 
+        left_join(extra$band) %>% 
+        left_join(extra$album)  
+      
       results %<>% 
-        add_row(
-          entries
-        ) %>% 
-        drop_na(album)
+        full_join(entries) %>% 
+        drop_na(album) 
+      
       i = i+1
     }
     

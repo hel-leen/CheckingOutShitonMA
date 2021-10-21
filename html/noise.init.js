@@ -83,7 +83,7 @@ $(function() {
       },
       searchable: false,
       sorting: false,
-      width: '15%',
+      width: '14%',
       targets: [0],
     }, {
       width: '10%',
@@ -172,12 +172,12 @@ $(function() {
         }
         return data;
       },
-      width: '9%',
+      width: '10%',
 	  type: "ranking",
       targets: [5],
     }, {
       render: (data, type, row) => {
-        //rendering date
+        //rendering label
         if (type === 'display') {
            switch (data) {
              case '':
