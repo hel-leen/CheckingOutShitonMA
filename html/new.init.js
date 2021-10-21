@@ -307,7 +307,7 @@
            let earlydate = data.split('|||')[1];
            switch (earlydate) {
              case '0000-00-00':
-               earlydate = "<i class='ts'>(unknown)</i>";
+               earlydate = "<i style='display:none;'>(unknown)</i>";
                break;
              default:
                earlydate = '(' + earlydate + ')';
