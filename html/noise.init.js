@@ -93,7 +93,7 @@ $(function() {
         //rendering album
         if (type === 'display') {
           let
-            format = /(.*)\|\|\|((?:artist|album))\:(.*?)/,
+            format = /(.*)\|\|\|((?:artist|album))\:(.*)/,
             type = data.match(format)[2],
             href = data.match(format)[3],
             text  = data.match(format)[1].toTitleCase(),
@@ -227,7 +227,7 @@ $(function() {
       targets: [-1],
     }, ],
     drawCallback: function(settings) {
-	  $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
+	  // $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
       //group rows by date
       var
         groupColumn = 9,
