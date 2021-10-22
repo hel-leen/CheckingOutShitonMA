@@ -259,11 +259,10 @@
                var
                  format = /(\d+)'(.*)/,
                  labeltext = data.match(format)[2];
-               data = "<div class='grid_item'><div class='flex_item'><a class='hreftext'>" +
-                 labeltext + "</a><div class='dropdown'>" +
-                 maLink('labels/id/', data.match(format)[1]) + '<a href="https://bandcamp.com/search?q=' +
-                 labeltext + '">Bandcamp<i class=\'fa fa-search\'></i></a><a href="https://www.youtube.com/results?search_query=' +
-                 labeltext + "\">Youtube<i class='fa fa-search'></i></a></div></div></div>";
+				data = "<div class='grid_item'><div class='flex_item'><a class='hreftext'>" +
+				labeltext + "</a><div class='dropdown'>" +
+				maLink("labels/id/", data.match(format)[1])+ searchLink(labeltext).replace(/\/spotify\"/g, '/profiles"')+
+                 "</div></div></div>";
            }
            return data;
          }

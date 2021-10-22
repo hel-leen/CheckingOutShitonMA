@@ -93,10 +93,10 @@ $(function() {
         //rendering album
         if (type === 'display') {
           let
-            format = /((?:artist|album))\:(.*?)\|\|\|(.*)/,
-            type = data.match(format)[1],
-            href = data.match(format)[2],
-            text  = data.match(format)[3].toTitleCase(),
+            format = /(.*)\|\|\|((?:artist|album))\:(.*?)/,
+            type = data.match(format)[2],
+            href = data.match(format)[3],
+            text  = data.match(format)[1].toTitleCase(),
             extra = "",
             searchtype =
             type == "artist" ? '&type=band_name"' : '&type=album_title"';
@@ -188,7 +188,6 @@ $(function() {
                 label =   data.toLowerCase(),
                 labelname =  data.search(/(\d+\sRecords DK)/)>-1? '<a class="hreftext" href="https://distrokid.com/">DistroKid</a>':data,
 				band = row[2].toLowerCase().match(/(.*)\|\|\|(.*)/)[2];
-				console.log(label,band);
 				data = label.search(band)< 0? labelname: "<i class='ts'>Indepedent</i>"
            }
         }
@@ -397,7 +396,7 @@ $.fn.dataTable.ext.type.order['ranking-pre'] = function ( d ) {
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
   let
     type = data[8],
-    types = $(".filter-holder.7 select").val() || [];
+    types = $(".filter-holder.8 select").val() || [];
   return type.search('('.concat('(', types.join('|'), ')', ')')) > -1;
   // return true;
 });
