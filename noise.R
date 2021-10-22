@@ -11,7 +11,7 @@ library(stringi)
 library(zoo)
 
 
-Sys.setenv(SPOTIFY_CLIENT_ID = '88af1a508b584cdbb46cd466c2b0b237')
+Sys.setenv(SPOTIFY_CLIENT_ID = '')
 Sys.setenv(SPOTIFY_CLIENT_SECRET = '') # crossed out
 access_token = get_spotify_access_token()
 
