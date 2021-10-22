@@ -128,7 +128,6 @@ $(function() {
     $('#genre-options option:not(:eq(-1))').check();
   });
 });
-
 $(document).on('click', '.paginate_button', function() {
   $('body,html').animate({
     scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").height() - 8,

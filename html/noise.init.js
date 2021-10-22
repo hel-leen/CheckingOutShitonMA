@@ -115,7 +115,7 @@ $(function() {
             '<a href="https://www.metal-archives.com/search?searchString=' + text.replace(/\s?\(.*?\)/g, '') + searchtype +
             ">Search on MA<i class='fa fa-medium ts'></i></a>" +
             "</div><br>" + '</div></div>';
-          return tabLink(dropdown);
+          return dropdown;
         }
         return data;
       },
@@ -151,8 +151,8 @@ $(function() {
                 return '<a href="https://open.spotify.com/artist/' +
                   artist_id[i] + '">' + item + '</a>'
               });
-              return tabLink("<div class='grid_wrapper ts'><div class='grid_item ts'><div class='flex_item ts fixed'>" + 
-			  artist.join(',  ').toTitleCase() + "</div><div class='flex_item ts fixed float'>" + floated.join(',  ') + '</div></div></div>');
+              return "<div class='grid_wrapper ts'><div class='grid_item ts'><div class='flex_item ts fixed'>" + 
+			  artist.join(',  ').toTitleCase() + "</div><div class='flex_item ts fixed float'>" + floated.join(',  ') + '</div></div></div>';
           }
         }
         return data;
@@ -167,8 +167,8 @@ $(function() {
           format = /(^ranking:)(\d+)\|\|\|(.*)/,
           followers = parseFloat(data.match(format)[3]).toLocaleString(undefined),
           ranking = parseFloat(data.match(format)[2]).toLocaleString(undefined);
-          return '<div class="ts"><ui style="opacity:.7;">Ranking: </ui>' + ranking + 
-		  '<br><ui style="opacity:.7;">Listeners: </ui>' + followers + "</div>";
+          return '<div class="ts"><abbr style="opacity:.7;">Ranking: </abbr>' + ranking + 
+		  '<br><abbr style="opacity:.7;">Listeners: </abbr>' + followers + "</div>";
         }
         return data;
       },
@@ -184,7 +184,12 @@ $(function() {
                data = "<i class='ts'>(No data)</i>";
                break;
              default:
-               data =   data ;
+			   var
+                label =   data.toLowerCase(),
+                labelname =  data.search(/(\d+\sRecords DK)/)>-1? '<a class="hreftext" href="https://distrokid.com/">DistroKid</a>':data,
+				band = row[2].toLowerCase().match(/(.*)\|\|\|(.*)/)[2];
+				console.log(label,band);
+				data = label.search(band)< 0? labelname: "<i class='ts'>Indepedent</i>"
            }
         }
         return '<div class="ts">' + data+'</div>';
@@ -201,8 +206,8 @@ $(function() {
           length = data.match(format)[1];
           // type = data;
           return '<div class="ts">' + length + 
-		  '<br><ui class="ts" style="opacity:.6;  color: #fed;">- ' + type + 
-		  ' -</ui></div>';
+		  '<br><abbr class="ts" style="opacity:.6;  color: #fed;">- ' + type + 
+		  ' -</abbr></div>';
         }
         return data;
       },
@@ -212,6 +217,8 @@ $(function() {
       render: (data, type, row) => {
         //rendering date
         if (type === 'display') {
+			var format = /(.*)\|\|\|(.*)/;
+			return data.match(format)[2];
           // return (data.slice(0, 4).concat('-', data.slice(4, 6), '-', data.slice(6)));
         }
         return data;
@@ -220,6 +227,7 @@ $(function() {
       targets: [-1],
     }, ],
     drawCallback: function(settings) {
+	  $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
       //group rows by date
       var
         groupColumn = 9,
@@ -231,14 +239,17 @@ $(function() {
       api.column(groupColumn, {
         page: 'current'
       }).data().each(function(group, i) {
-        var date = moment(group, "YYYYMMDD").format('Do MMM, YYYY');
-         if (last !== date) {
-           $(rows).eq(i).before('<tr class="group"><td colspan="2"></td>' +
+        var 
+		 format = /(.*)\|\|\|(.*)/,
+		update= group.match(format)[1]; 
+		update = moment(update).format('Do MMM, YYYY');
+         if (last !== update) {
+           $(rows).eq(i).before('<tr class="group ts"><td colspan="2"></td>' +
              '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
-             '<td class="ts" colspan="2"> ' + date + '</td>' +
+             '<td class="ts" colspan="2"> <abbr style="opacity:.6;  color: #fff;">Updated on: </abbr><br>' + update + '</td>' +
              '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
              '<td colspan="3"></tr>');
-           last = date;
+           last = update;
          }
       });
 	  	      //cancel groups

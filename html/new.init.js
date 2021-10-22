@@ -136,7 +136,7 @@
              maLink("albums/id//", album_link) +
              searchLink(album_title).replace(/\/spotify\"/g, '/albums"') +
              "</div><br><abbr class='extra ts'>(" + album_type + ')</abbr></div></div>';
-           return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
+           return "<div class='grid_wrapper'>".concat(album_col, '</div>');
          }
          return data;
        },
@@ -156,7 +156,7 @@
              item + "</a><div class='dropdown'>" +
              maLink("bands/id/", band_link[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
              "</div><br><abbr class='extra ts'>(" + country[i] + ')</abbr></div></div>');
-           return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
+           return "<div class='grid_wrapper'>".concat(band_col.join(''), '</div>');
          }
          return data;
        },
@@ -178,7 +178,7 @@
              genre_col.push("<div class='grid_item'><div class='flex_item ts genre'>" +
                genre + '</div></div>');
            });
-           return tabLink("<div class='grid_wrapper'>".concat(genre_col.join(''), '</div>'));
+           return "<div class='grid_wrapper'>".concat(genre_col.join(''), '</div>');
          }
          return data;
        },
@@ -210,7 +210,7 @@
              rows += '</div></div>';
              return rows;
            });
-           return tabLink("<div class='grid_wrapper ts'>".concat(info.join(''), '</div>'));
+           return "<div class='grid_wrapper ts'>".concat(info.join(''), '</div>');
          }
          return data;
        },
@@ -239,7 +239,7 @@
              rows += '</div></div>';
              return rows;
            });
-           return tabLink("<div class='grid_wrapper ts'>".concat(info.join(''), '</div>'));
+           return "<div class='grid_wrapper ts'>".concat(info.join(''), '</div>');
          }
          return data;
        },
@@ -265,7 +265,7 @@
                  labeltext + '">Bandcamp<i class=\'fa fa-search\'></i></a><a href="https://www.youtube.com/results?search_query=' +
                  labeltext + "\">Youtube<i class='fa fa-search'></i></a></div></div></div>";
            }
-           return tabLink(data);
+           return data;
          }
          return data;
        },
@@ -320,6 +320,7 @@
        targets: [8],
      }],
      drawCallback: function(settings) {
+	  $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
        //group rows by date
        var
          groupColumn = $('.dataTables tr:nth-last-child(1) th').length-1,

@@ -128,7 +128,7 @@ $(function () {
 				maLink("albums/id//", album_link) +
                 searchLink(album_title).replace(/\/spotify\"/g, '/albums"') +
                 '</div></div></div>';
-              return tabLink("<div class='grid_wrapper'>".concat(album_col, '</div>'));
+              return "<div class='grid_wrapper'>".concat(album_col, '</div>');
             }
             return data;
           },
@@ -148,7 +148,7 @@ $(function () {
                     item + "</a>" + "<div class='dropdown'>" +
                     maLink("bands/id/", bandlink[i]) + searchLink(item).replace(/\/spotify\"/g, '/artists"') +
                     '</div></div></div>');
-              return tabLink("<div class='grid_wrapper'>".concat(band_col.join(''), '</div>'));
+              return "<div class='grid_wrapper'>".concat(band_col.join(''), '</div>');
             }
             return data;
           },
@@ -173,7 +173,7 @@ $(function () {
                  genre_col +=  '</div></div>';
 
               });
-              return tabLink(genre_col);
+              return genre_col;
             }
             return data;
           },
@@ -223,6 +223,7 @@ $(function () {
         },
       ],
       drawCallback: function (settings) {
+	  $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
         // rendering histograms
         var coldata = this.api().column(8, { page: 'current' }).data();
         coldata.map((item) => {

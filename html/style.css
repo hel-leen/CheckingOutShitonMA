@@ -1255,6 +1255,10 @@ table ::-webkit-scrollbar {
 .newlist tr th:nth-child(1)::before {
   visibility:hidden;
 }
+.newlist .group td:not(.prev):not(.next) {
+  color: #fed;
+}
+
 .newlist .group .prev:not(:hover),
 .newlist .group .next:not(:hover) {
   opacity: .6;
@@ -1394,6 +1398,7 @@ table ::-webkit-scrollbar {
   cursor: pointer;
   text-shadow: 1px 1px black;
   white-space: pre-line;
+  text-decoration: none;
   /* text-transform: capitalize; */
 }
 
