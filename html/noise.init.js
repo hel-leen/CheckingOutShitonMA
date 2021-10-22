@@ -186,7 +186,8 @@ $(function() {
              default:
 			   var
                 label =   data.toLowerCase(),
-                labelname =  data.search(/(\d+\sRecords DK)/)>-1? '<a class="hreftext" href="https://distrokid.com/">DistroKid</a>':data,
+                labelname =  data.search(/(\d+\sRecords DK)/)>-1? '<a class="hreftext" href="https://distrokid.com/">DistroKid</a>':
+				data.replace(/(?<=[,])\s/g, ' \n'),
 				band = row[2].toLowerCase().match(/(.*)\|\|\|(.*)/)[2];
 				data = label.search(band)< 0? labelname: "<i class='ts'>Indepedent</i>"
            }
