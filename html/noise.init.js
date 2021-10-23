@@ -246,7 +246,7 @@ $(function() {
          if (last !== update) {
            $(rows).eq(i).before('<tr class="group ts"><td colspan="2"></td>' +
              '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
-             '<td class="ts" colspan="2"> <abbr style="opacity:.6;  color: #fff;">Updated on: </abbr><br>' + update + '</td>' +
+             '<td class="ts" colspan="2"> <abbr style="opacity:.6;  color: #fff;">Updated on: </abbr>\n' + update + '</td>' +
              '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
              '<td colspan="3"></tr>');
            last = update;

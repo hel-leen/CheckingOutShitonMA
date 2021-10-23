@@ -1257,6 +1257,7 @@ table ::-webkit-scrollbar {
 }
 .newlist .group td:not(.prev):not(.next) {
   color: #fed;
+  white-space: break-spaces;
 }
 
 .newlist .group .prev:not(:hover),
@@ -2479,7 +2480,7 @@ div.dt-datetime-label span {
 .checkmark p {
   font-size: .77rem;
 }
-
+  .newlist .group td:not(.prev):not(.next),
   /* .newlist tr:not(.group) td:nth-child(7), */
   .newlist tr:not(.group) td:nth-child(8),
   .newlist tr:not(.group) td:nth-child(9) {
