@@ -22,8 +22,8 @@ $(function() {
     deferRender: true,
     lengthMenu: [150, 300, 600],
     order: [
+      [6, 'desc'],
       [9, 'desc'],
-      [6, 'asc'],
       [5, 'asc']
     ],
     search: {
@@ -34,8 +34,8 @@ $(function() {
     stateDuration: 60 * 60 * 24 * 7,
     stateSaveParams: function(settings, data) {
       data.order = [
+        [6, 'desc'],
         [9, 'desc'],
-        [6, 'asc'],
         [5	, 'asc']
       ];
       data.columns.forEach(item => {
@@ -97,7 +97,9 @@ $(function() {
             type = data.match(format)[2],
             href = data.match(format)[3],
             text  = data.match(format)[1].toTitleCase(),
-            extra = "",
+			release = row[8].match(/(.*)\|\|\|(.*)/)[2],
+            extra = type == "artist" ? "":'<abbr class="ts" style="opacity:.6;">- ' + release + ' -</abbr></div>',
+            space = type == "artist" ? "":'<br>',
             searchtype =
             type == "artist" ? '&type=band_name"' : '&type=album_title"';
           text =
@@ -107,14 +109,14 @@ $(function() {
             .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
             .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
             .replace(/(\n\s?)+/g, '\n');
-          let dropdown = "<div class='grid_item'><div class='flex_item'>" +
+          let dropdown = "<div class='grid_item'><div class='flex_item'>" + 
             "<a class='hreftext'>" + text + '</a>' +
             "<div class='dropdown ts' style='width:90%;'>" +
             "<a href=\"https://open.spotify.com/" + type + "/" + href +
             "\">Open in Spotify<i class='fa fa-spotify'></i></a>" +
             '<a href="https://www.metal-archives.com/search?searchString=' + text.replace(/\s?\(.*?\)/g, '') + searchtype +
             ">Search on MA<i class='fa fa-medium ts'></i></a>" +
-            "</div><br>" + '</div></div>';
+            "</div><br>" + extra+ '</div></div>';
           return dropdown;
         }
         return data;
@@ -181,15 +183,16 @@ $(function() {
         if (type === 'display') {
            switch (data) {
              case '':
-               data = "<i class='ts'>(No data)</i>";
+               data = "<i class='ts' style='opacity:.7;'>(No data)</i>";
                break;
              default:
 			   var
-                label =   data.toLowerCase(),
+                indepedent = "<i class='ts'>Self-released</i>",
+                label = data.toLowerCase(),
                 labelname =  data.search(/(\d+\sRecords DK)/)>-1? '<a class="hreftext" href="https://distrokid.com/">DistroKid</a>':
-				data.replace(/(?<=[,])\s/g, ' \n'),
-				band = row[2].toLowerCase().match(/(.*)\|\|\|(.*)/)[2];
-				data = label.search(band)< 0? labelname: "<i class='ts'>Indepedent</i>"
+				data.replace(/\s?,\s/g, ',\n'),
+				band = row[2].toLowerCase().match(/(.*)\|\|\|(.*)/)[1];
+				data = (label.search(band) >= 0 || band.search(label) >= 0 || label==('default'||'indepedent'))? indepedent:labelname
            }
         }
         return '<div class="ts">' + data+'</div>';
@@ -203,11 +206,11 @@ $(function() {
           var
           format = /(.*)\|\|\|(.*)/,
           type = data.match(format)[2],
-          length = data.match(format)[1];
+          lengths = data.match(format)[1];
           // type = data;
-          return '<div class="ts">' + length + 
-		  '<br><abbr class="ts" style="opacity:.6;  color: #fed;">- ' + type + 
-		  ' -</abbr></div>';
+          return '<div class="ts">' + lengths + 
+		  // '<br><abbr class="ts" style="opacity:.6;  color: #fed;">- ' + type + 
+		  ' </div>';
         }
         return data;
       },
@@ -218,7 +221,7 @@ $(function() {
         //rendering date
         if (type === 'display') {
 			var format = /(.*)\|\|\|(.*)/;
-			return data.match(format)[2];
+			return '<div class="ts">' + data + ' </div>';
           // return (data.slice(0, 4).concat('-', data.slice(4, 6), '-', data.slice(6)));
         }
         return data;
@@ -230,19 +233,18 @@ $(function() {
 	  $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
       //group rows by date
       var
-        groupColumn = 9,
+        groupColumn = 6,
         api = this.api(),
         rows = api.rows({
           page: 'current'
         }).nodes(),
         last = '';
-      api.column(groupColumn, {
+      api.column([ groupColumn], {
         page: 'current'
-      }).data().each(function(group, i) {
+      }).data().each(function(data, i) {
         var 
-		 format = /(.*)\|\|\|(.*)/,
-		update= group.match(format)[1]; 
-		update = moment(update).format('Do MMM, YYYY');
+		update= data.slice(0,8), 
+		update = moment(update,'YYYYMMDD').format('Do MMM, YYYY');
          if (last !== update) {
            $(rows).eq(i).before('<tr class="group ts"><td colspan="2"></td>' +
              '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +

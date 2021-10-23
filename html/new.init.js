@@ -169,12 +169,13 @@
            let genre_col = [];
            data.split(' | ').forEach(item => {
              var genre = item
+			   .replace(/\//g, ' / ')
                .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
                .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
                .replace(/(?<=[;])\s/g, ' <br>')
                .replace(/(?<=[|\),])\s|\s(?=[\(])/g, ' \n')
                .replace(/(?<=br\>|\n\s?)\n|^\n|(?<=\([^\)]*)\n/g, '')
-               .replace(/\//g, '/<wbr>');
+               ;
              genre_col.push("<div class='grid_item'><div class='flex_item ts genre'>" +
                genre + '</div></div>');
            });
