@@ -227,7 +227,7 @@ $(function() {
       targets: [-1],
     }, ],
     drawCallback: function(settings) {
-	  // $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
+	  $("a").attr({"target": "_blank", "rel":"noopener noreferrer"});
       //group rows by date
       var
         groupColumn = 9,
