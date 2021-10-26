@@ -26,7 +26,6 @@ const partSort = ((x, y) => {
 let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g),
   hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">');
- 
 var
   mobile = (navigator.userAgent.search(/mobile/gi) > -1),
   sScreen = window.matchMedia('(max-width: 767px)').matches;

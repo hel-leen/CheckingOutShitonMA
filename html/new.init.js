@@ -641,7 +641,8 @@
        .attr('placeholder', 'Search for '.concat(searchCols, '..'));
    });
 
-   //active link after click second time (for mobile devices only)
+   //active link after click second time 
+   // (for mobile devices only)
    table.on('click', '.dropdown,.float', function() {
      $(this).toggleClass('actived');
    });
@@ -714,7 +715,7 @@
      table.order([
        [8, 'desc'],
        [0, 'desc']
-     ]).draw(true);
+     ]).draw();
    });
    $('#reset, #Reset').click(function() {
      $('#datecondition').val('After');
@@ -722,13 +723,13 @@
      table.order([
        [8, 'asc'],
        [0, 'desc']
-     ]).draw(true);
+     ]).draw();
    });
    $('#datepicker, #today, #Today, .dt-datetime-today').click(function() {
      $('#datepicker').val(thisday);
      table.draw();
    });
-   $('.filter,.genrefilter,.paginate_button, .dataTables_length, .filter-holder,#reset').on("click change", function(e) {
+   $('.filter,.genrefilter,.paginate_button, .dataTables_length, .filter-holder,#reset').on("click change", function( ) {
      table.draw();
    });
 
