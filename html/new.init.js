@@ -169,8 +169,8 @@
            let genre_col = [];
            data.split(' | ').forEach(item => {
              var genre = item
-			   .replace(/\//g, ' / ')
                .replace(/\/(?!Rock|.*?Metal)/g, ', \n')
+			   .replace(/\//g, ' / ')
                .replace(/(\S+(\/\S+)+)/g, '\n$1\n')
                .replace(/(?<=[;])\s/g, ' <br>')
                .replace(/(?<=[|\),])\s|\s(?=[\(])/g, ' \n')
