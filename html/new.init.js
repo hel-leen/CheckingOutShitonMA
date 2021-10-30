@@ -310,9 +310,9 @@
                earlydate = "<i style='display:none;'>(unknown)</i>";
                break;
              default:
-               earlydate = '(' + earlydate + ')';
+               earlydate = "<br><abbr class='extra'>(" + earlydate + ')</abbr>';
            }
-           return date + "<br><abbr class='extra'>" + earlydate + '</abbr>';
+           return date  + earlydate ;
          }
          return data;
        },

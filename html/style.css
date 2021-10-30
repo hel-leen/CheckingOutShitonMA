@@ -718,7 +718,6 @@ a {
   /* filter: drop-shadow(0px 17px 1.3em rgba(111,222,222,1)); */
 }
 #timecharts .main-svg .cartesianlayer .subplot .plot g.trace .lines path{
-   /* filter: drop-shadow(0px -3px 2px rgba(166,166,166,.2)); */
    /* filter: drop-shadow(2px 2px .01em rgba(222,222,222,1)); */
 }
 #timecharts .main-svg .cartesianlayer .subplot .plot g.trace .fills g:nth-last-child(1) path{
@@ -726,18 +725,15 @@ a {
 }
 
 #timecharts .main-svg .cartesianlayer .subplot .plot {
-  /* filter: drop-shadow(2px -8px .3em rgba(222,222,222,.6)); */
   /* opacity:.5; */
   /* filter: drop-shadow(0px -17px 1.3em rgba(150,150,50,.2)); */
 }
 #timecharts .main-svg .cartesianlayer .subplot .plot g.trace:nth-last-child(3) path{
-  /* filter: drop-shadow(2px -8px .3em rgba(222,222,222,.6)); */
   /* opacity:.5; */
   /* filter: drop-shadow(0px -17px 1.3em rgba(150,50,50,.2)); */
 }
 
 #timecharts .main-svg .cartesianlayer .subplot .plot g.trace:nth-last-child(1){
-  /* filter: drop-shadow(2px -8px .3em rgba(222,222,222,.6)); */
   /* opacity:.5; */
   /* filter: drop-shadow(0px -17px 1.3em rgba(150,50,50,.2)); */
   /* visibility:hidden !important */
@@ -1201,7 +1197,6 @@ table * ::selection { background: rgba(0,0,0,.5); }
 table * ::-moz-selection { background: rgba(0,0,0,5); }
 table {
   width: 100%;
-  border: 1.5px solid rgba(99, 99, 99, .5);
   background-color: transparent;
   font-size: 0.9rem;
   table-layout: fixed;
@@ -1226,6 +1221,8 @@ table {
   font-size: .9rem;
   table-layout: initial;
   word-break: break-word;
+  /* border-spacing: 10px; */
+  border-color: transparent;
 }
 
 .toplist a:hover,
@@ -1241,15 +1238,14 @@ table {
 }
 
 table ::-webkit-scrollbar {
-  width: .86vh;
-  height: .86vh
+  width: .66vh;
+  height: .66vh
 }
 
 .newlist #footer {
   visibility:hidden;
 }
 .newlist tr th:nth-child(1) {
-  /* pointer-events: none; */
 }
 .newlist tr th:nth-child(1)::after,
 .newlist tr th:nth-child(1)::before {
@@ -1274,8 +1270,39 @@ table ::-webkit-scrollbar {
   text-align:right;
   justify-content: right;
 }
-.newlist .group td {
+
+.newlist  td {
+  /* border: 1px solid rgba(99, 99, 99, .2); */
   border: transparent;
+}
+ 
+.newlist  th + th {
+  border-left: 1px solid rgba(99, 99, 99, .3);
+}
+ 
+.noise  th + th {
+  border-left: 1px solid rgba(99, 99, 99, 0);
+}
+
+.newlist  thead {
+  border-top: 1px solid rgba(99, 99, 99, .6);
+}
+.newlist  thead tr + tr {
+  border-top: 1px solid rgba(99, 99, 99, .3);
+  border-bottom: 1px solid rgba(99, 99, 99, .6);
+ }
+ 
+.newlist tbody tr {
+  border-top: 1px solid rgba(99, 99, 99, .2);
+}
+
+.newlist tbody tr.group {
+  border-top: 1px solid rgba(99, 99, 99, .6);
+  border-bottom: 1.1px solid rgba(99, 99, 99, .6);
+}
+
+
+.newlist .group td {
   padding: 1rem 0;
   font-size:.9rem;
   white-space: nowrap;
@@ -1289,19 +1316,16 @@ table ::-webkit-scrollbar {
   text-overflow: ellipsis;
 }
 
-.newlist .group td:nth-last-child(1) {
-  border-right: 1px solid rgba(99, 99, 99, .5);
-}
 .newlist tbody tr {
-  border-bottom: 1px solid rgba(99, 99, 99, .5);
   scroll-margin-inline-end: 1rem;
   box-sizing: border-box;
   scroll-snap-type: y mandatory;
 }
 
 .dataTables tr.header,
-.dataTables tbody tr:not(.group):hover {
+.dataTables tbody tr:not(.group):hover   {
   /* background-color: #444; */
+  border: .2px solid rgba(99, 99, 99, .3);
   background-color: rgba(99, 99, 99, .3);
   /* background-image:linear-gradient( */
   /* to top, */
@@ -1364,8 +1388,8 @@ table ::-webkit-scrollbar {
 
 
 .newlist thead>tr:nth-last-child(1) {
-  border-top: 1px rgba(99, 99, 99, .5);
-  border-bottom: 1px double rgba(99, 99, 99, .5);
+  /* border-top: 1px rgba(99, 99, 99, .0); */
+  /* border-bottom: 1px double rgba(99, 99, 99, .5); */
   padding: .1em .8rem;
 }
 
@@ -1559,8 +1583,8 @@ table ::-webkit-scrollbar {
 
 td hr {
   margin: 0 30%;
-  border: .1px solid transparent;
-  border-top: .1px solid rgba(99, 99, 99, 0.6);
+  /* border: .1px solid transparent; */
+  /* border-top: .1px solid rgba(99, 99, 99, 0.6); */
 }
 
 td>img {
@@ -2277,7 +2301,7 @@ div.dt-datetime-label span {
   }
 
   .grid_wrapper>div:not(:nth-child(1)) {
-    border-top: .1px solid rgba(99, 99, 99, 0.6);
+    border-top: .1px solid rgba(99, 99, 99, 0.2);
   }
 
   .grid_wrapper>div:nth-child(1) {
