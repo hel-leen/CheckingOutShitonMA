@@ -135,7 +135,7 @@
              .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
              .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
              .replace(/(\n\s?)+/g, '\n')
-             .replace(/\n$/g, '') +
+             .replace(/\n$|(?<=^\S{0,4}\s?)\n/g, '') +
              "</a><div class='dropdown'>" +
              maLink("albums/id//", album_link) +
              searchLink(album_title).replace(/\/spotify\"/g, '/albums"') +
@@ -591,6 +591,8 @@
            }
          });
        });
+	   $("#timecharts").addClass("hideItem");
+	   // localStorage
        if (localStorage.getItem(deletedItem) != undefined) {
          var selected = localStorage.getItem(deletedItem).split(',').join('|');
          api.columns(0).search('^('.concat(selected, ')'), true).rows({

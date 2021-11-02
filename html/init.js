@@ -106,7 +106,8 @@ $(function() {
   $('.toggle ').click(function() {
     $(this).parent().children('.hideItem, .hideItem>*').toggle({
       duration: 500,
-      height: "easeInBounce"
+      height: "easeInBounce",
+	  display: "easeInBounce"
     }).css('display', 'grid');
     $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
     $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
