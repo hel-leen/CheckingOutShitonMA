@@ -36,7 +36,6 @@
    pageLayout();
    $('#datepicker').val(thisweek);
    $('#datepicker').dtDateTime({
-	   locale: userLang,
 	   minDate: moment().add(-1, 'years').toDate(),
 	   maxDate: moment().add(1, 'years').toDate()
 	   });
