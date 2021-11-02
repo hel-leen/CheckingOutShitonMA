@@ -1,3 +1,4 @@
+ // moment.locale(userLang);
  let thisday = moment().format('YYYY-MM-DD');
  var thisweek = moment().day() >= 5 ?
    moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
@@ -34,7 +35,11 @@
  $(function() {
    pageLayout();
    $('#datepicker').val(thisweek);
-   $('#datepicker').dtDateTime({});
+   $('#datepicker').dtDateTime({
+	   locale: userLang,
+	   minDate: moment().add(-1, 'years').toDate(),
+	   maxDate: moment().add(1, 'years').toDate()
+	   });
    $('.dataTables').DataTable({
      // processing: true,
      // serverSide: true,
@@ -334,9 +339,10 @@
        }).data().each(function(group, i) {
          var date = group.match(/^\d.{9}/g).toString();
          date = (
-           moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') :
-           moment(date).format('MM') == moment().format('MM') ? moment(date).format('Do MMM') :
-           moment(date).format('MMMM')
+           // moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') :
+            // moment(date).format('MM') != moment().format('MM') ? moment(date).format('MMMM') :
+			// moment(date,'Do MMM')
+			moment(date).format('Do MMM, YYYY')
          );
          if (last !== date) {
            $(rows).eq(i).before('<tr class="group"><td colspan="2"></td>' +

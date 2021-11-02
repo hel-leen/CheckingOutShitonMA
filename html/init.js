@@ -13,6 +13,7 @@ jQuery.fn.extend({
   },
 });
 var 
+  userLang  = window.navigator.userLanguage || window.navigator.language,
  ajaxurl = window.location.href.toString().toLowerCase().match(/[\/\\]((?:.(?![\/\\]))+)\.html/)[1],
  deletedItem = ajaxurl.concat('deleted');
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value === '' || value == ' ' || value == '/' || value == null);
