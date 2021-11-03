@@ -353,7 +353,7 @@
          }
        });
 	      //cancel groups
-   $('.dataTables th').on('click',  function() {
+   $('.dataTables th, .filterSection').on('click change',  function() {
      var currentOrder = table.order()[0][0];
      if (currentOrder == groupColumn) {
        $('table tr.group').css('display', 'table-row');
