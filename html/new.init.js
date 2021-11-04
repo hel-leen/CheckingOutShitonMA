@@ -91,7 +91,10 @@
        loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
      },
      ajax: {
-       url: ajaxurl,
+       // url: ajaxurl,
+       url: function (ajaxurl) {
+		   return ajaxurl;
+	   },
        dataFilter: function(data) {
          var json = jQuery.parseJSON(data);
          json.data = json.data.slice(0, -1);
@@ -595,6 +598,7 @@
 	   // localStorage
        if (localStorage.getItem(deletedItem) != undefined) {
          var selected = localStorage.getItem(deletedItem).split(',').join('|');
+		 console.log(selected);
          api.columns(0).search('^('.concat(selected, ')'), true).rows({
            search: 'applied'
          }).remove().column(0).search('').draw();
