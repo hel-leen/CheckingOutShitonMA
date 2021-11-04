@@ -91,10 +91,7 @@
        loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
      },
      ajax: {
-       // url: ajaxurl,
-       url: function (ajaxurl) {
-		   return ajaxurl;
-	   },
+       url: ajaxurl,
        dataFilter: function(data) {
          var json = jQuery.parseJSON(data);
          json.data = json.data.slice(0, -1);
