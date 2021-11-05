@@ -1199,8 +1199,8 @@ table ::-webkit-scrollbar {
   scroll-snap-type: y mandatory;
 }
 
-.dataTables tr.header,
-.dataTables tbody tr:not(.group):hover {
+.newlist tr.header,
+.newlist tbody tr:not(.group):hover {
   /* background-color: #444; */
   border: .2px solid rgba(99, 99, 99, .3);
   background-color: rgba(99, 99, 99, .3);
@@ -1232,11 +1232,11 @@ table ::-webkit-scrollbar {
 }
 
 
-.dataTables tbody {
+.newlist tbody {
   background-color: rgba(0, 0, 0, .0);
 }
 
-.dataTables thead {
+.newlist thead {
   background-color: rgba(111, 111, 111, .2);
   /* background-image:linear-gradient( */
   /* to top, */

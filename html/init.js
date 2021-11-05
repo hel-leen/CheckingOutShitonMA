@@ -100,7 +100,7 @@ const loadData = ((data, callback, settings) => {
         showCallback(data);
         data = {
           ...data,
-          expire: moment.now() + 60 * 60 * 12 * 1000,
+          expire: moment.now() + 60 * 60  * 1000 * 24 * data.TTL,
         };
         localStorage.setItem(savedItem, JSON.stringify(data));
       })
@@ -126,18 +126,15 @@ const modifyItems = (api) => {
     var selected = api.rows('.selected').data().map((d, j) => {
       return d = d[0].split(/(?<=\d)\|\|\|/g)[0];
     }).toArray();
-    // $('.btm:nth-last-child(4)').css({'visibility':'visible'});
     $('.btm:nth-last-child(1),.btm:nth-last-child(2)').css({
       'visibility': 'visible'
     });
-    // $('.btm:nth-last-child(1)').css({'visibility':'visible'});
     if (getDeletedItem != (undefined || null || '0')) {
       var storedItems = getDeletedItem.split(',');
       localStorage.setItem(deletedItem, storedItems.concat(selected));
     } else {
       localStorage.setItem(deletedItem, selected);
     }
-    // $('.btm:nth-last-child(1)').css({'visibility':'visible'});
     api.rows('.selected').remove().draw(false);
   });
   //restore deleted entries

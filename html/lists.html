@@ -7,8 +7,10 @@
 <link rel="preconnect" href="https://www.metal-archives.com">
 <link rel="dns-prefetch" href="https://www.metal-archives.com">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.5.1/plotly.min.js"></script>
+<script type="text/javascript" src="init.js"></script>
 <script type="text/javascript" src="top.init.js"></script>
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
@@ -22,7 +24,7 @@
 <p>All data from <a href="https://www.metal-archives.com/" >THE Metal Archives</a>. Web page genereated with <a href="https://www.r-project.org/">R</a>.</p>
 <p>Click <a href="./Top.html" >here</a> to know more about data analysis. Or view the raw data files (<a href="./bmlist" >1</a>, <a href="./dmlist">2</a>).</p>
 <div class="content-wrapper">
-<p  id="info"><a id="update"></a>&nbsp;<a id="count"></a> (See what has <a href="./Top.html#update-info">changed</a>)</p>
+<p  id="info"><a id="update"></a><a id="count"></a> (See <a href="./Top.html#update-info">details</a>). </p>
 <div class="filterWrapper">
   <li class="filterSection" id="glossary">
 	<span class="toggle">
@@ -83,7 +85,7 @@
 </div>
 
 <div class="container">
-<table class="toplist" style="width:100%">
+<table class="toplist dataTables" style="width:100%">
 <thead>
 <tr>
   <th class="header_1"> </th>
