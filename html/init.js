@@ -272,7 +272,11 @@ $(function() {
         $('.btm:nth-last-child(2)').css({
           'visibility': 'visible'
         });
-      }
+      } else {
+        $('.btm:nth-last-child(2)').css({
+          'visibility': 'hidden'
+        });
+	  }
     })
     .on('dblclick', 'td *', function noDblClick(e) {
       e.stopPropagation();
