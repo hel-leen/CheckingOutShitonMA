@@ -27,10 +27,12 @@
     <p>Web page genereated with <a href="https://www.r-project.org/">R</a> 
     (See <a href="../code.R">source code</a> and <a href="./New">data file</a>).
   </p>
-  <div  id="info"><a id="update"></a>&nbsp;<span class="toggle"><a id="count"></a><i class="fa fa-caret fa-caret-down toggle"></i></span>
-  <!-- <div id="timecharts" class="hideItem"></div> -->
+  <div  id="info">
+  <span class="pointer reload" data-title='Reload data'><a id="update"></a><i class="fas fa-redo-alt ts"></i> ; </span>&nbsp;
+  <span class="toggle" data-title='Show/hide graph'><a id="count"></a><i class="fa fa-caret fa-caret-down toggle"></i></span>
   <div id="timecharts"> </div>
-  <p></p></div>
+  <p></p>
+  </div>
   <div class="note">
 	<span class="toggle">
 		<b >NOTE </b><i class="fa fa-caret fa-caret-right toggle"></i>
@@ -41,15 +43,17 @@
       <!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
       <p><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> means the album doesn't have any cover(!?).</p>
       <p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="Today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
-      <p>If you don't wanna see an album for some reason, double click it to select, then click "Hide Sel." at the bottom right, gone. <s>It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</s> It finally works... and the effect will last for a week or so. In case you regret, click <button id="res">this</button> to bring back deleted album(s)  . </p>
+      <p>If you don't wanna see an album for some reason, double click it to select, then click <i class="fas fa-trash delItems" ></i> at the bottom right, gone. <s>It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</s> It finally works... and the effect will last for a week or so. In case you regret, click  <i class="fas fa-trash-restore resItems" ></i> or  <button id="res">this</button> to bring back deleted album(s)  . </p>
       <!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
     </div>
+	  <p></p>
   </div>
 <div class="filterWrapper hideItem">
 	<div class="filterSection">
 		<p><strong>Reset:</strong></p>
 		<span class="filter-holder" id="reset-filter">
 				<button id="reset">Default</button><button id="all">Show all</button>
+				<!-- <button id="res">Undel.</button> -->
 			</span>
 	</div>
 	<span>
@@ -57,8 +61,8 @@
 		<span class="filterSection">
 			<p><strong>Date: </strong></p>
 			<span class="filter-holder 8" id="date-filter">
-				<input id="datecondition" type="text" value="After" readonly>
-				<input id="datepicker" type="text" readonly>
+				<input id="datecondition" type="text" value="After" class='pointer' data-title='Toggle conditions' readonly>
+				<input id="datepicker" type="text" class='pointer'  data-title='Select date' readonly>
 				<i id="" class="clear solid fa fa-times-circle"></i>
 			</span>
 		</span>
@@ -92,11 +96,13 @@
 		<p><strong>Types:</strong></p>
 		<span class="filter-holder">
 			<label class="solid checkcontainer">
-				<input class="filter fa" id="Reissue" type="checkbox"><span class="checkmark solid fa fa-check-circle">
+				<input class="filter fa" id="Reissue" type="checkbox"><span class="checkmark solid">
+				<i class="fa fa-check-circle"></i>
 				<p>No Reissue</p>
 				</span></label>
 			<label class="solid checkcontainer">
-				<input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid fa fa-check-circle">
+				<input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid">
+				<i class="fa fa-check-circle"></i>
 				<p>Full-length only</p>
 				</span></label>
 			<label class="solid checkcontainer" id="hiddenToggle">

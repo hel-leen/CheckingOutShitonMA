@@ -15,7 +15,6 @@ jQuery.fn.extend({
 // let hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g),
 // hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g);
 const
-  tabLink = links => '' + links.replace(/"\>/g, '" target="_blank" rel="noopener noreferrer">'),
   maTarget = q => 'https://www.metal-archives.com/' + q,
   maLink = (type, link) => '<a href="https://www.metal-archives.com/' + type + link + '"' +
     ">MA Page<i class='fa fa-medium'></i></a>",
@@ -64,7 +63,7 @@ pageLayout = () => {
 $(function () {
   pageLayout();
   genreLoad();
-  $('.toplist').DataTable(
+  let table = $('.toplist').DataTable(
     {
       ajax: {
         url: url,
@@ -294,7 +293,6 @@ $(function () {
 	  paginate: {"first":"First","last":"Last","next":"Next","previous":"Prev"},
     },
     });
-  let table = $('.toplist').DataTable();
   table.on('xhr', function (e, settings, json, xhr) {
     var json = table.ajax.json();
     if (json) {
