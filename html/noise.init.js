@@ -1,5 +1,7 @@
+$(window).on("resize load ", function () {
+  pageLayout();
+});
 $(function() {
-  pageLayout("2.1vh","2.2vh","3.6vw");
   let table = $('.dataTables')
     .on('processing.dt', function(e, settings, processing) {
       preShow();
@@ -229,6 +231,7 @@ $(function() {
           api.columns([3]).every(function() {
             var column = this;
             $('<select><option value=""></option></select>')
+			.attr("name",this[0])
               .insertBefore('.filter-holder.' + this[0] + ' .clear')
               .on('change', function() {
                 var val = $.fn.dataTable.util.escapeRegex($(this).val());
@@ -271,9 +274,6 @@ $(function() {
   $('.paginate_button, .dataTables_length,.filterSection, .filter-holder,#reset').on("click change", function(e) {
     table.draw(false);
   });
-});
-$(window).resize(function() {
-    pageLayout("2.1vh","2.2vh","3.6vw");
 });
 $.fn.dataTable.ext.type.order['ranking-pre'] = function(d) {
   d = parseFloat(''.concat(d.match(/(^ranking:)(\d+)\|\|\|(.*)/)[2]));

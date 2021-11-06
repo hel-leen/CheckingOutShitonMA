@@ -14,7 +14,6 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.5.1/plotly.min.js"></script>
 <script type="text/javascript" src="init.js"></script>
 <script type="text/javascript" src="new.init.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" type="image/png" href="cat.png">
 </head>
@@ -51,7 +50,7 @@
 	<div class="filterSection">
 		<p><strong>Reset:</strong></p>
 		<span class="filter-holder" id="reset-filter">
-				<button id="reset">Default</button><button id="all">Show all</button>
+				<button id="reSet">Default</button><button id="all">Show all</button>
 				<!-- <button id="res">Undel.</button> -->
 			</span>
 	</div>
@@ -60,8 +59,8 @@
 		<span class="filterSection">
 			<p><strong>Date: </strong></p>
 			<span class="filter-holder 8" id="date-filter">
-				<input id="datecondition" type="text" value="After" class='pointer' data-title='Toggle conditions' readonly>
-				<input id="datepicker" type="text" class='pointer'  data-title='Select date' readonly>
+				<input id="datecondition" type="text" value="After" class='pointer'  readonly>
+				<input id="datepicker" type="text" class='pointer' readonly>
 				<i id="" class="clear solid fa fa-times-circle"></i>
 			</span>
 		</span>
@@ -69,7 +68,7 @@
 			<p><strong>Genre:</strong></p>
 			<span class="filter-holder 3" id="genre-filter">
 				<div class="solid filter-item">
-					<select id="genre-options" multiple size="1">
+					<select id="genre-options" name="genre-options" multiple size="1">
 					<option selected value="black.*metal">Black Metal</option>
 					<option selected value="death.*metal">Death Metal</option>
 					<option value="^((?!(black|death)).)*$">Other</option></select>
@@ -95,12 +94,12 @@
 		<p><strong>Types:</strong></p>
 		<span class="filter-holder">
 			<label class="solid checkcontainer">
-				<input class="filter fa" id="Reissue" type="checkbox"><span class="checkmark solid">
+				<input class="filter fa" id="Reissue" name="Reissue" type="checkbox"><span class="checkmark solid">
 				<i class="fa fa-check-circle"></i>
 				<p>No Reissue</p>
 				</span></label>
 			<label class="solid checkcontainer">
-				<input class="filter fa" id="Fulllength" type="checkbox"><span class="checkmark solid">
+				<input class="filter fa" id="Fulllength" name="Fulllength" type="checkbox"><span class="checkmark solid">
 				<i class="fa fa-check-circle"></i>
 				<p>Full-length only</p>
 				</span></label>

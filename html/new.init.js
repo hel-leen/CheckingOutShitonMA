@@ -2,9 +2,11 @@ let thisday = moment().format('YYYY-MM-DD');
 var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
-
+$(window).on("resize load ", function() {
+  pageLayout();
+   $('.dataTables').DataTable().draw(false)
+});
 $(function() {
-  pageLayout("2.1vh","2.2vh","3.7vw");
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     minDate: moment().add(-1, 'years').toDate(),
@@ -19,19 +21,11 @@ $(function() {
     })
     .DataTable({
       ...defaultParams,
-      order: [
-          [8, 'asc'],
-          [0, 'desc']
-        ],
-        stateSaveParams: function(settings, data) {
-          data.order = [
-            [8, 'asc'],
-            [0, 'desc']
-          ];
-          data.columns.forEach(item => {
-            item.search.search = ''
-          });
-        },
+      order: [ [8, 'asc'], [0, 'desc'] ],
+      stateLoadParams: function(settings, data) {
+          data.order = [ [8, 'asc'], [0, 'desc'] ];
+          data.columns.forEach(item => { item.search.search = ''});
+      },
         columnDefs: [{
           //rendering cover
           render: (data, type, row) => {
@@ -308,6 +302,7 @@ $(function() {
           api.columns([2, 6]).every(function selectBoxes() {
             var column = this;
             $('<select><option value=""></option></select>')
+			  .attr("name",this[0])
               .insertBefore('.filter-holder.' + this[0] + ' .clear')
               .on('change', function boxesVal() {
                 var val = $.fn.dataTable.util.escapeRegex($(this).val());
@@ -566,13 +561,10 @@ $(function() {
       [0, 'desc']
     ]).draw();
   });
-  $('#reset, #Reset').click(function reset() {
+  $('#reSet, #Reset').click(function reset() {
     $('#datecondition').val('After');
     $('#datepicker').val(thisweek);
-    table.order([
-      [8, 'asc'],
-      [0, 'desc']
-    ]).draw();
+    table.order([ [8, 'asc'], [0, 'desc'] ]).draw();
   });
   $('#datecondition').click(function() {
     if ($(this).val() == 'After') {
@@ -595,14 +587,13 @@ $(function() {
     $('#datepicker').val(thisday);
     table.draw();
   });
-  $('.filter,.genrefilter,.paginate_button, .dataTables_length, .filter-holder,#reset').on("click change", function filterSection() {
+  $('.filter,.genrefilter, .dataTables_length, .filter-holder,#reset').on("click change", function filterSection() {
     table.draw();
   });
 
 });
-$(window).resize(function() {
-  pageLayout("2.1vh","2.2vh","3.7vw");
-});
+ 
+
 $.fn.dataTable.ext.search.push(function(settings, data, dataIndex) {
   let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3];
   let genre = data[3].toLowerCase();

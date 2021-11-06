@@ -1,11 +1,14 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Aleo:wght@400&family=Mulish:wght@300&family=Playfair+Display:wght@600&family=Cinzel:wght@800&family=Pirata+One&display=swap');
 
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
 
-
+.btm:hover .balloon,
 [data-title]:hover:after {
   opacity: 1;
   visibility: visible;
+  font-size:.8em;
+  white-space: nowrap;
   -webkit-animation: scale-in-ver-bottom 0.22s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
   animation: scale-in-ver-bottom 0.22s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
 }
@@ -14,13 +17,11 @@
   content: attr(data-title);
   color: #eee;
   position: absolute;
-  font-family: arial;
-  font-size: .8rem !important;
+  font-size: .8em !important;
   bottom: 100%;
-  transform: translate(-50%, 0px);
-  transform-origin: top;
-  padding: 8px;
-  white-space: nowrap;
+  left:50%;
+  /* right:50%; */
+  padding: .4em .8em;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -33,10 +34,12 @@
   background-image: -ms-linear-gradient(top, #000, #111);
   background-image: -o-linear-gradient(top, #000, #111);
   opacity: 0;
-  z-index: 99999;
+  z-index: 9999;
   visibility: visible;
 }
 
+
+.balloon:before,
 [data-title]:before {
   background: no-repeat url(data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http://www.w3.org/2000/svg%22%20width%3D%2236px%22%20height%3D%2212px%22%3E%3Cpath%20fill%3D%22rgba(17, 17, 17, 0.9)%22%20transform%3D%22rotate(0)%22%20d%3D%22M2.658, 0.000%20C-13.615, 0.000%2050.938, 0.000%2034.662, 0.000%20C28.662, 0.000%2023.035, 12.002%2018.660, 12.002%20C14.285, 12.002%208.594, 0.000%202.658, 0.000%20Z%22/%3E%3C/svg%3E);
   background-size: 100% auto;
@@ -47,7 +50,7 @@
 [data-title] {
   position: relative;
 }
-
+ 
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -660,9 +663,11 @@ a {
 .pointer,
 .toggle,
 .clear,
-#del,
+.btm,
+option,
 button {
   cursor: pointer;
+  transition: .11s;
 }
 
 .glow {
@@ -702,6 +707,7 @@ button {
   border: 1px transparent solid;
   border-radius: .285vh;
   background-color: rgba(111, 111, 111, .5);
+  transition: .6s;
 }
 
 .paginate_button:focus,
@@ -950,13 +956,36 @@ div.dt-datetime-iconDown button {
   background: rgba(11, 44, 22, .3);
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 24%), 0 1vh 2vh 0 rgb(0 0 0 / 20%);
 }
-
+.balloon {
+    position: absolute;
+    bottom: 105%;
+    background: black;
+    padding: .4em 1.1em;
+    border-radius: .4em;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+	visibility:hidden;
+	z-index:9999;
+}
+.balloon:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 0;
+	top:100%;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-top: 6px solid #000;
+    clear: both;
+}
 .btm:not(:nth-last-child(3)) {
   visibility: hidden;
 }
 
 .btm {
   display: flex;
+  flex-flow: column-reverse;
   justify-content: center;
   align-items: center;
   /* width: 20%; */
@@ -966,8 +995,9 @@ div.dt-datetime-iconDown button {
   margin: 0 .2rem;
   font-size: .8rem;
   outline: none;
-  opacity: .1;
+  opacity: .2;
   border-radius: 2rem;
+  /* pointer-events:none; */
 }
 
 
@@ -1091,7 +1121,7 @@ table {
   justify-items: center;
   font-size: .9rem;
   table-layout: initial;
-  word-break: break-word;
+  /* word-break: break-word; */
   /* border-spacing: 10px; */
   border-color: transparent;
 }
@@ -1147,8 +1177,8 @@ table ::-webkit-scrollbar {
 }
 
 .newlist td {
-  /* border: 1px solid rgba(99, 99, 99, .2); */
   border: transparent;
+  padding: 0.75em 0.15em 0.75em 0.15rem;
 }
 
 .newlist th+th {
@@ -1170,6 +1200,10 @@ table ::-webkit-scrollbar {
 
 .newlist tbody tr {
   border-top: 1px solid rgba(99, 99, 99, .2);
+  scroll-margin-inline-end: 1rem;
+  box-sizing: border-box;
+  scroll-snap-type: y mandatory;
+  transition: .6s;
 }
 
 .newlist tbody tr.group {
@@ -1185,19 +1219,11 @@ table ::-webkit-scrollbar {
   overflow: hidden;
 }
 
-.newlist td {
-  padding: 0.75em 0.15em 0.75em 0.15rem;
-}
 
 .newlist td:not(:nth-child(1)) {
   text-overflow: ellipsis;
 }
 
-.newlist tbody tr {
-  scroll-margin-inline-end: 1rem;
-  box-sizing: border-box;
-  scroll-snap-type: y mandatory;
-}
 
 .newlist tr.header,
 .newlist tbody tr:not(.group):hover {
@@ -1760,7 +1786,6 @@ input:focus+.slider {}
   font-size: 1.1rem;
 }
 
-.btm,
 .clear,
 .checkcontainer .checkmark .fa {
   opacity: .3;
@@ -1794,6 +1819,7 @@ button:active {
   max-width: 8em;
   background: rgba(66, 66, 66, .9);
   color: transparent;
+  border-width: .3rem;
   text-align: center;
   text-shadow: 0px 0px 1px #fed;
 }
@@ -2528,13 +2554,13 @@ div.dt-datetime-label span {
   }
 
   .btm {
-    padding: .26rem 0;
+    /* padding: .26rem 0; */
   }
 
   .btm,
   .dataTables_info {
     font-size: .77rem;
-    white-space: pre-line;
+    white-space: pre;
   }
 
   .paginate_button {
@@ -2777,17 +2803,17 @@ div.dt-datetime-label span {
 
 @-webkit-keyframes scale-in-ver-bottom {
   0% {
-    -webkit-transform: translate(-50%, 100%);
+    -webkit-transform: translate(0%, 100%);
     -webkit-transform-origin: top;
-    transform: translate(-50%, 100%);
+    transform: translate(0%, 100%);
     transform-origin: top;
     opacity: .2;
   }
 
   100% {
-    -webkit-transform: translate(-50%, 0%);
+    -webkit-transform: translate(0%, 0%);
     -webkit-transform-origin: top;
-    transform: translate(-50%, 0%);
+    transform: translate(0%, 0%);
     transform-origin: top;
     opacity: 1;
   }
@@ -2795,17 +2821,17 @@ div.dt-datetime-label span {
 
 @keyframes scale-in-ver-bottom {
   0% {
-    -webkit-transform: translate(-50%, 100%);
+    -webkit-transform: translate(0%, 100%);
     -webkit-transform-origin: top;
-    transform: translate(-50%, 100%);
+    transform: translate(0%, 100%);
     transform-origin: top;
     opacity: .2;
   }
 
   100% {
-    -webkit-transform: translate(-50%, 0%);
+    -webkit-transform: translate(0%, 0%);
     -webkit-transform-origin: top;
-    transform: translate(-50%, 0%);
+    transform: translate(0%, 0%);
     transform-origin: top;
     opacity: 1;
   }

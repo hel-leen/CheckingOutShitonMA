@@ -10,6 +10,7 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.5.1/plotly.min.js"></script>
+<script type="text/javascript" src="jquery.formsaver.js"></script>
 <script type="text/javascript" src="init.js"></script>
 <script type="text/javascript" src="top.init.js"></script>
 <link rel="shortcut icon" type="image/png" href="cat.png"/>
@@ -25,7 +26,7 @@
 <p>Click <a href="./Top.html" >here</a> to know more about data analysis. Or view the raw data files (<a href="./bmlist" >1</a>, <a href="./dmlist">2</a>).</p>
 <div class="content-wrapper">
 <p  id="info"><a id="update"></a><a id="count"></a> (See <a href="./Top.html#update-info">details</a>). </p>
-<div class="filterWrapper">
+<div class="filterWrapper" >
   <li class="filterSection" id="glossary">
 	<span class="toggle">
 		<strong>Glossary&nbsp;<i class="fa fa-caret fa-caret-right toggle"></i></strong>
@@ -41,7 +42,7 @@
 		<p><strong>Genre:</strong></p>
 		<span class="filter-holder" id="url-filter">
 			<div class="solid filter-item">
-				<select id="url-option" multiple size="1">
+				<select id="url-option" name="url-option"  multiple size="1">
 				<option selected value="black">Black Metal</option>
 				<option selected value="death">Death Metal</option>
 				</select>
@@ -52,7 +53,7 @@
 		<p><strong>Region:</strong></p>
 		<span class="filter-holder 9" id="region-filter">
 			<div class="solid filter-item">
-			<select id="region-options" multiple="multiple" size="1">
+			<select id="region-options"  name="region-options"   multiple="multiple" size="1">
 				<option selected value="Europe">European</option>
 				<option selected value="Americas" >American</option>
 				<option selected value="Oceania" >Oceanian</option>
@@ -66,7 +67,7 @@
 		<p><strong>Year:</strong></p>
 		<span class="filter-holder 6" id="year-filter">
 			<div class="solid filter-item">
-			<select id="year-options" multiple="multiple" size="1">
+			<select id="year-options" name="year-options"  multiple="multiple" size="1">
 			<!-- <option selected value="1900-1979" >Before 1980s</option> -->
 			  <option selected value="1950-1989" >1980s</option>
 			  <option selected value="1990-1999" >1990s</option>
@@ -79,9 +80,10 @@
 		<div class="filterSection">
 		<p><strong>Reset:</strong></p>
 		<span class="filter-holder" id="reset-filter">
-				<button id="reset">Clear filters</button>
+				<button id="reSet">Clear filters</button>
 			</span>
 	</div>
+</div>
 </div>
 
 <div class="container">

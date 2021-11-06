@@ -9,11 +9,10 @@
 <link rel="dns-prefetch" href="https://www.metal-archives.com">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment-with-locales.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/spotify-web-api-js@0.23.0/src/spotify-web-api.js"></script>
 <script type="text/javascript" src="init.js"></script>
 <script type="text/javascript" src="noise.init.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
 <link rel="shortcut icon" type="image/png" href="cat.png">
 <style>
@@ -49,7 +48,9 @@ body {
    Weekly collection of <a href="https://developer.spotify.com/documentation/web-api/reference/">Spotify</a> new releases, for black metal, death metal, and things. </div>
   <p><b >NOTE </b> genre categories are also from Spotify data and they aren't accurate (or even understandable at times).  </p>
   <p>A <a href="./New.html">COSOMA</a> side project since 17/10/2021 (see <a href="../noise.R">source code</a>). </p>
+<div  id="info">
     <span class="pointer reload" data-title='Reload data'><a id="update"></a><small><i class="fas fa-redo-alt ts"></i></small> </span>
+</div>
   <p><a style="opacity:.418; color:white;">- R.I.P. my beloved. <small  style="display:none;" > 惟願長樂未央 君無憂</small> -</a> </p>
   <!-- <p  id="info"><a id="update"></a>&nbsp;<a id="count"></a></p> -->
   
@@ -65,7 +66,7 @@ body {
 		<p><strong>Type:</strong></p>
 		<span class="filter-holder 8">
 			<div class="solid filter-item">
-				<select id="url-option" multiple size="1">
+				<select id="url-option"  name="url-option" multiple size="1">
 				<option selected value="Album">Album</option>
 				<option selected value="EP">EP</option>
 				<option selected value="Single">Single</option>
@@ -76,7 +77,7 @@ body {
 		<div class="filterSection">
 		<p><strong>Reset:</strong></p>
 		<span class="filter-holder" id="reset-filter">
-				<button id="reset">Clear filters</button>
+				<button id="reSet">Clear filters</button>
 			</span>
 	</div>
 </div>
