@@ -2406,6 +2406,7 @@ div.dt-datetime-label span {
   }
 
   .newlist tr.group {
+	display: grid;
     grid-auto-flow: column;
   }
 

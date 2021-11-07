@@ -249,7 +249,7 @@ const callbackShow = (api) => {
   lastCol = api.column(-1).nodes().to$();
   lastColTh= lastCol.filter(':not(.checklist)').parentsUntil('table').parent().find('thead tr:nth-last-child(1) th:nth-last-child(1)')
   lastCol.filter(':not(.checklist)').parent()
-    .append('<td class="check"><label class="checkcontainer"><input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
+    .append('<td class="check" style="display:none;"><label class="checkcontainer"><input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
   lastCol.addClass('checklist') ;
 }
 
