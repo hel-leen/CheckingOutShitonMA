@@ -13,6 +13,16 @@ jQuery.fn.extend({
     });
   },
 });
+const pageLayout = () => {
+  var
+    w = ($(window).width() / 100),
+    sw = (screen.width / 100),
+    sh = (screen.height / 100)
+  pn = w>10? 10 : w+1;
+  w = w > 9 ? 9 : w < 8 && w < sh ? (w + .88 * sh) : w;
+  $(":root").css("font-size", 14 + w / 10);
+  $.fn.DataTable.ext.pager.numbers_length = pn;
+};
 var
   hreftext = new RegExp(/(?<=\>).*(?=\<\/a\>)/g),
   hreflink = new RegExp(/(?<=\<a\shref\=\")\/.*(?=\"\>)/g),
@@ -45,10 +55,9 @@ showTitle = () => {
   $('#header').empty();
   $('title').empty();
   var title = '<span>Top-rated ';
-  title += ajaxurl == 'top' ?
-   '' : 
-   datafile.charAt(0) =="b"?  ' Black Metal':
-   datafile.charAt(0) =="d"?  ' Death Metal' :''   ;
+  title +=
+    datafile == "bmlist" ? ' Black Metal' :
+      datafile == "dmlist" ? ' Death Metal' : '';
   title += ' Albums on MA</span>';
   $(title).appendTo($('#header'));
   $(document).attr("title", $(title).text());
@@ -73,12 +82,6 @@ const searchLink = text => {
     '">Spotify<i class="fa fa-search"></i></a>' :
     '/spotify">Spotify<i class="fa fa-search"></i></a>'
   return text;
-};
-const pageLayout = () => {
-  var w = Math.floor($(window).width() / 100);
-  w = w > 9 ? 9 : w;
-  $.fn.DataTable.ext.pager.numbers_length = w;
-  $(":root").css("font-size", 14 + w / 10);
 };
 const uniq = (value, index, self) => self.indexOf(value) === index && !(value === '' || value == ' ' || value == '/' || value == null);
 const partSort = ((x, y) => {
@@ -161,24 +164,7 @@ const partSort = ((x, y) => {
 })(jQuery);
 $(window).on("beforeunload", function () {
   $(".filterWrapper").saveForm();
-})
-const preShow = () => {
-  $('.anchor').show().css({     'display': 'flex'   });
-  $('.bottom').hide();
-  $('#info').hide();
-}
-const initShow = () => {
-  $('.anchor').hide();
-  $('#del.btm').html('<i class="fas fa-trash-alt"></i><div class="balloon">Delete selected</div>');
-  $('#res.btm').html('<i class="fas fa-trash-restore" ></i><div class="balloon">Restore delected</div>');
-  $('.filterWrapper, #searchBox, #timecharts, .bottom')
-    .removeClass('hideItem')
-    .css({ 'display': 'grid', visibility: 'visible', opacity: .1 })
-    .animate({ opacity: 1, }, 1000);
-  $(".filterWrapper").restoreForm();
-  $('#info').show()
-    .animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
-}
+});
 const loadData = ((data, callback, settings) => {
   const showCallback = data => {
     callback(data);
@@ -202,33 +188,113 @@ const loadData = ((data, callback, settings) => {
     showCallback(data);
   }
 });
+
+const preShow = () => {
+  $('.anchor').show().css({ 'display': 'flex' });
+  $('.bottom').hide();
+  $('#info').hide();
+}
+const initShow = (api) => {
+  $('.anchor').hide();
+  $('.filterWrapper, #searchBox, #timecharts, .bottom')
+    .removeClass('hideItem')
+    .css({ 'display': 'grid', visibility: 'visible', opacity: .1 })
+    .animate({ opacity: 1, }, 1000);
+  $(".filterWrapper").restoreForm();
+  $('#info').show()
+    .animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
+}
+const callbackShow = (api) => {
+  $("a").attr({ "target": "_blank", "rel": "noopener noreferrer" });
+  //group rows by date
+  var
+    lastColIndex = api.data(0)[0] ? api.data(0)[0].length - 1 : -1,
+    lastColIndex = -1,
+    rows = api.rows({ page: 'current' }).nodes(),
+    last = '';
+
+  api.column(lastColIndex, { page: 'current' })
+    .data().each(function (group, i) {
+      var date = group.match(/^\d.{9}/g).toString();
+      date = (
+        // moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') :
+        // moment(date).format('MM') != moment().format('MM') ? moment(date).format('MMMM') :
+        // moment(date,'Do MMM')
+        moment(date).format('Do MMM, YYYY')
+      );
+      if (last !== date) {
+        var
+          colspan = 2,
+          cols = lastColIndex - 1 - colspan,
+          colsL = Math.floor(cols / 2),
+          colsR = cols - colsL;
+        $(rows).eq(i).before('<tr class="group"><td colspan="' + 2 + '"></td>' +
+          '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
+          '<td class="ts" colspan="' + colspan + '"> ' + date + '</td>' +
+          '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
+          '<td colspan="' + 2 + '"></tr>');
+        last = date;
+      }
+    });
+  //cancel groups
+  $('.dataTables th, .filterSection').on('click change', function cancelGroup() {
+    var currentOrder = api.order()[0][0];
+    if (currentOrder == lastColIndex) {
+      $('table tr.group').css('display', 'table-row');
+    } else {
+      $('table tr.group').css('display', 'none');
+    }
+  });
+  // last column add checkbox
+  lastCol = api.column(-1).nodes().to$();
+  lastColTh= lastCol.filter(':not(.checklist)').parentsUntil('table').parent().find('thead tr:nth-last-child(1) th:nth-last-child(1)')
+  lastCol.filter(':not(.checklist)').parent()
+    .append('<td class="check"><label class="checkcontainer"><input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
+  lastCol.addClass('checklist') ;
+}
+
 const modifyItems = (api) => {
   // load from localStorage
   var
     delected = localStorage.getItem(deletedItem),
-    delBtn = $('.btm:nth-last-child(2)'),
-    resBtn = $('.btm:nth-last-child(1)');
+    delBtn = $('.btm:nth-last-child(2)').html('<i class="fas fa-trash-alt"></i><div class="balloon">Delete selected</div>'),
+    resBtn = $('.btm:nth-last-child(1)').html('<i class="fas fa-trash-restore" ></i><div class="balloon">Restore delected</div>');
   if (delected == (undefined || null)) {
     localStorage.setItem(deletedItem, [0]);
   } else if (delected.length > 1) {
-    delBtn.css({ 'visibility': 'visible' });
-    resBtn.css({ 'visibility': 'visible' });
+    storedCount = delected.slice(2).split(',').length;
+    delBtn
+      .css({ 'visibility': 'visible' });
+    resBtn.css({ 'visibility': 'visible' })
+      .children().last().text('Restore delected (' + storedCount + ') ');
     var
-	 pageStart=api.state().start,
-	 pageLength=api.state().length,
-	 deletedItems = delected.split(',').join('|');
+      pageStart = api.state().start,
+      pageLength = api.state().length,
+      deletedItems = delected.split(',').join('|');
     api.columns(0).search('^('.concat(deletedItems, ')'), true).rows({
       search: 'applied'
-    }).remove().column(0).search('').page(pageStart/pageLength).draw('page');
+    }).remove().column(0).search('').page(pageStart / pageLength).draw('page');
   };
   //double click to select tr(s) 
-  $('.dataTables').on('dblclick', ' tr:not(.group)', function dblClick(e) {
-    $(this).toggleClass('selected');
+  $('.dataTables tbody tr:not(.group)').on('dblclick change', function dblClick(e) {
+    $(this).toggleClass('selected')
+    $(this).find($('.selected input:not(:checked)')).each(function(){
+     $(this).prop('checked', !$(this)[0].checked);
+  })
+    $(this).find($('tr:not(.selected) input:checked')).each(function(){
+     $(this).prop('checked', false);
+  })
     delected = localStorage.getItem(deletedItem);
     select = $('.selected');
-    select.length + delected.length <= 1 ? delBtn.css({ 'visibility': 'hidden' }) :
-      select.length == 0 ? delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '.2' }) :
-        delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '.6' });
+    select.length + delected.length <= 1 ? delBtn.css({ 'visibility': 'hidden' }) : '';
+    if (select.length == 0) {
+      delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '.2' });
+      $(this).parent().removeClass('selection');
+    } else {
+      $(this).parent().addClass('selection');
+      delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '.6' })
+        .children().last().text('Delete selected (' + select.length + ') ')        ;
+    }
   })
     .on('dblclick', 'td *', function noDblClick(e) {
       e.stopPropagation();
@@ -238,13 +304,16 @@ const modifyItems = (api) => {
     var
       selected = api.rows('.selected').data().map((d, j) => {
         return d = d[0].split(/(?<=\d)\|\|\|/g)[0];
-      }).toArray();
-    delected = localStorage.getItem(deletedItem);
-    var storedItems = delected.split(',');
-    localStorage.setItem(deletedItem, storedItems.concat(selected));
+      }).toArray(),
+      toStoreItems = localStorage.getItem(deletedItem).split(',').concat(selected),
+      storedCount = toStoreItems.length - 1;
+    localStorage.setItem(deletedItem, toStoreItems);
     api.rows('.selected').remove().draw(false);
-    delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '' });
-    resBtn.css({ 'visibility': 'visible' });
+    delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '' })
+      .children().last().text('Delete selected');
+    resBtn.css({ 'visibility': 'visible' })
+      .children().last().text('Restore delected (' + storedCount + ') ')
+    $(".dataTables tbody").removeClass('selection');
   });
   //restore deleted entries
   $('#res.btm,.resItems').click(function () {

@@ -6,9 +6,6 @@ $(function() {
     .on('processing.dt', function(e, settings, processing) {
       preShow();
     })
-    .on('init.dt', function() {
-      initShow();
-    })
     .DataTable({
       ...defaultParams,
       order: [
@@ -185,14 +182,11 @@ $(function() {
           targets: [-1],
         }, ],
         drawCallback: function(settings) {
-          $("a").attr({
-            "target": "_blank",
-            "rel": "noopener noreferrer"
-          });
+          $("a").attr({             "target": "_blank",             "rel": "noopener noreferrer"           });
           //group rows by date
           var
-            api = this.api(),
-            groupColumn = 6,
+            api = this.api();
+/*             groupColumn = 6,
             rows = api.rows({
               page: 'current'
             }).nodes(),
@@ -220,7 +214,8 @@ $(function() {
             } else {
               $('table tr.group').css('display', 'none');
             }
-          });
+          }); */
+		  callbackShow(api)
         },
         initComplete: function() {
           initShow();

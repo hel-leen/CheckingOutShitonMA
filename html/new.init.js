@@ -16,9 +16,6 @@ $(function() {
     .on('processing.dt', function(e, settings, processing) {
       preShow();
     })
-    .on('init.dt', function() {
-      initShow();
-    })
     .DataTable({
       ...defaultParams,
       order: [ [8, 'asc'], [0, 'desc'] ],
@@ -251,46 +248,10 @@ $(function() {
           targets: [8],
         }],
         drawCallback: function(settings) {
-          $("a").attr({
-            "target": "_blank",
-            "rel": "noopener noreferrer"
-          });
           //group rows by date
           var
-            api = this.api(),
-            groupColumn = $('.dataTables tr:nth-last-child(1) th').length - 1,
-            rows = api.rows({
-              page: 'current'
-            }).nodes(),
-            last = '';
-          api.column(groupColumn, {
-            page: 'current'
-          }).data().each(function(group, i) {
-            var date = group.match(/^\d.{9}/g).toString();
-            date = (
-              // moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') :
-              // moment(date).format('MM') != moment().format('MM') ? moment(date).format('MMMM') :
-              // moment(date,'Do MMM')
-              moment(date).format('Do MMM, YYYY')
-            );
-            if (last !== date) {
-              $(rows).eq(i).before('<tr class="group"><td colspan="2"></td>' +
-                '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
-                '<td class="ts" colspan="2"> ' + date + '</td>' +
-                '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
-                '<td colspan="3"></tr>');
-              last = date;
-            }
-          });
-          //cancel groups
-          $('.dataTables th, .filterSection').on('click change', function cancelGroup() {
-            var currentOrder = table.order()[0][0];
-            if (currentOrder == groupColumn) {
-              $('table tr.group').css('display', 'table-row');
-            } else {
-              $('table tr.group').css('display', 'none');
-            }
-          });
+            api = this.api();
+			callbackShow(api);
         },
         initComplete: function initComp() {
           initShow();
