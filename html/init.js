@@ -271,9 +271,11 @@ const modifyItems = (api) => {
       pageStart = api.state().start,
       pageLength = api.state().length,
       deletedItems = delected.split(',').join('|');
-    api.columns(0).search('^('.concat(deletedItems, ')'), true).rows({
+    api.columns(1).search('('.concat(deletedItems, ')'), true).rows({
       search: 'applied'
-    }).remove().column(0).search('').page(pageStart / pageLength).draw('page');
+    }).remove().column(1).search('')
+	.page(pageStart / pageLength)
+	.draw('page');
   };
   //double click to select tr(s) 
   $('.dataTables tbody tr:not(.group)').on('dblclick change', function dblClick(e) {

@@ -8,17 +8,9 @@ $(function() {
     })
     .DataTable({
       ...defaultParams,
-      order: [
-          [6, 'desc'],
-          [9, 'desc'],
-          [5, 'asc']
-        ],
+      order: [           [6, 'desc'],           [9, 'desc'],           [5, 'asc']         ],
         stateSaveParams: function(settings, data) {
-          data.order = [
-            [6, 'desc'],
-            [9, 'desc'],
-            [5, 'asc']
-          ];
+          data.order = [             [6, 'desc'],             [9, 'desc'],             [5, 'asc']           ];
           data.columns.forEach(item => {
             item.search.search = ''
           });
@@ -32,7 +24,7 @@ $(function() {
             }
             return data;
           },
-          searchable: false,
+          // searchable: false,
           sorting: false,
           width: '14%',
           targets: [0],
