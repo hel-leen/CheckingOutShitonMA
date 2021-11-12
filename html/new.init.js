@@ -39,7 +39,6 @@ $(function () {
               default:
                 album_cover = '<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">');
             }
-
             return album_cover;
           }
           return data;

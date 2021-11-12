@@ -170,6 +170,7 @@ function loadData(data, callback, settings) {
     callback(data);
     $('#update').text('Last updated on: ' + data.lastUpdate + ' ');
     $("#count").text('Total records: ' + data.recordsTotal + ' ');
+    $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
   }
   // download and save to localStorage
   if (moment.now() >= savedData.expire) {
@@ -182,27 +183,31 @@ function loadData(data, callback, settings) {
           expire: moment.now() + 60 * 60 * 1000 * 24 * data.TTL,
         };
         localStorage.setItem(savedItem, JSON.stringify(data));
+		location.reload();
       })
   } else {
-    data = savedData;
-    showCallback(data);
+    // data = savedData;
+    showCallback(savedData);
   }
 };
 
 function preShow() {
   $('.anchor').show().css({ 'display': 'flex' });
-  $('.bottom').hide();
+  // $('.bottom').hide();
   $('#info').hide();
+  $('.dataTables_wrapper').addClass('hideItem');
+  $( ".filterWrapper " ).after( '<div class="loading"><div><div></div><div></div><div></div><div></div><div></div><div></div></div>'
+  + '<div> Loading...</div></div>' );
+	// $('.dataTables_empty').html('No matching records found<br>Set fewer filters and retry?');
 }
 function initShow(api) {
-  $('.anchor').hide();
-  $('.filterWrapper, #searchBox, #timecharts, .bottom')
+  $('.anchor, .loading').hide();
+  $('.filterWrapper, #searchBox, #timecharts, .dataTables_wrapper')
     .removeClass('hideItem')
     .css({ 'display': 'grid', visibility: 'visible', opacity: .1 })
     .animate({ opacity: 1, }, 1000);
   $(".filterWrapper").restoreForm();
-  $('#info').show()
-    .animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
+  $('#info').show() .animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
 }
 function callbackShow(api, groupCol) {
   $("a").attr({ "target": "_blank", "rel": "noopener noreferrer" });
@@ -400,6 +405,7 @@ const defaultParams = {
   stateDuration: 60 * 60 * 24 * 7,
   stateSaveCallback: stateSave,
   stateLoadCallback: stateLoad,
+  ajax: loadData,
   language: {
     searchPlaceholder: 'Search for albums or bands..',
     search: '_INPUT_',
@@ -414,9 +420,8 @@ const defaultParams = {
       "previous": "Prev"
     },
     zeroRecords: "No matching records found<br>Set fewer filters and retry?",
-    loadingRecords: '<div class="loading"><div></div><div></div><div></div><div></div><div></div><div></div></div> Loading...',
+    loadingRecords: '<div class="loading"><div><div></div><div></div><div></div><div></div><div></div><div></div></div><div> Loading...</div></div>',
   },
-  ajax: loadData
 }
 $(function () {
   $('.dataTables').on('click', '.prev', function () {
