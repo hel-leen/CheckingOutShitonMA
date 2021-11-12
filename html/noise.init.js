@@ -207,7 +207,7 @@ $(function() {
               $('table tr.group').css('display', 'none');
             }
           }); */
-		  callbackShow(api)
+		  callbackShow(api,6);
         },
         initComplete: function() {
           initShow();

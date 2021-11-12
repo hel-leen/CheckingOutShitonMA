@@ -13,12 +13,12 @@ jQuery.fn.extend({
     });
   },
 });
-const pageLayout = () => {
+function pageLayout() {
   var
     w = ($(window).width() / 100),
     sw = (screen.width / 100),
     sh = (screen.height / 100)
-  pn = w>10? 10 : w+1;
+  pn = w > 10 ? 10 : w + 1;
   w = w > 9 ? 9 : w < 8 && w < sh ? (w + .88 * sh) : w;
   $(":root").css("font-size", 14 + w / 10);
   $.fn.DataTable.ext.pager.numbers_length = pn;
@@ -93,7 +93,7 @@ const partSort = ((x, y) => {
 });
 (function ($) {
   function formsaver(method, container) {
-    function getStorageId(container) {
+    const getStorageId = (container) => {
       return '$url$extra_formdata'
         .replace('$url', datafile)
         .replace('$extra', container.attr('id') || '');
@@ -162,10 +162,10 @@ const partSort = ((x, y) => {
     formsaver(['restore', 'clear'], $(this));
   };
 })(jQuery);
-$(window).on("beforeunload", function () {
+$(window).on("beforeunload", function loadForm() {
   $(".filterWrapper").saveForm();
 });
-const loadData = ((data, callback, settings) => {
+function loadData(data, callback, settings) {
   const showCallback = data => {
     callback(data);
     $('#update').text('Last updated on: ' + data.lastUpdate + ' ');
@@ -187,14 +187,14 @@ const loadData = ((data, callback, settings) => {
     data = savedData;
     showCallback(data);
   }
-});
+};
 
-const preShow = () => {
+function preShow() {
   $('.anchor').show().css({ 'display': 'flex' });
   $('.bottom').hide();
   $('#info').hide();
 }
-const initShow = (api) => {
+function initShow(api) {
   $('.anchor').hide();
   $('.filterWrapper, #searchBox, #timecharts, .bottom')
     .removeClass('hideItem')
@@ -204,7 +204,7 @@ const initShow = (api) => {
   $('#info').show()
     .animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
 }
-const callbackShow = (api) => {
+function callbackShow(api, groupCol) {
   $("a").attr({ "target": "_blank", "rel": "noopener noreferrer" });
   //group rows by date
   var
@@ -212,34 +212,37 @@ const callbackShow = (api) => {
     lastColIndex = -1,
     rows = api.rows({ page: 'current' }).nodes(),
     last = '';
-
-  api.column(lastColIndex, { page: 'current' })
+  $(api.table().body()).append('<tr class="group">' + '<td class="ts" colspan="9"><div> </div></td>' +   '</tr>');
+  api.column(groupCol, { page: 'current' })
     .data().each(function (group, i) {
-      var date = group.match(/^\d.{9}/g).toString();
+      var date = group.replace(/\-|\|/g, '').slice(0, 8);
       date = (
         // moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') :
         // moment(date).format('MM') != moment().format('MM') ? moment(date).format('MMMM') :
         // moment(date,'Do MMM')
-        moment(date).format('Do MMM, YYYY')
+        moment(date, 'YYYYMMDD').format('Do MMM, YYYY')
       );
+
       if (last !== date) {
         var
           colspan = 2,
           cols = lastColIndex - 1 - colspan,
           colsL = Math.floor(cols / 2),
           colsR = cols - colsL;
-        $(rows).eq(i).before('<tr class="group"><td colspan="' + 2 + '"></td>' +
-          '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
-          '<td class="ts" colspan="' + colspan + '"> ' + date + '</td>' +
-          '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
-          '<td colspan="' + 2 + '"></tr>');
+        $(rows).eq(i).before('<tr class="group">' +
+          // '<td colspan="' + 2 + '"></td><td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
+          // '<td class="ts" colspan="' + colspan + '"> <abbr style="opacity:.6;  color: #fff;">Updated on: \n</abbr>' + date + '</td>' +
+          // '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td><td colspan="' + 2 + '">' +
+          '<td class="ts" colspan="9"><div><i class="fa fa-angle-left prev"></i> <div><abbr style="opacity:.6;  color: #fff;">Updated on: \n</abbr>' +
+          date + '</div> <i class="fa fa-angle-right next"></i></td></div></td>' +
+          '</tr>');
         last = date;
       }
     });
   //cancel groups
   $('.dataTables th, .filterSection').on('click change', function cancelGroup() {
     var currentOrder = api.order()[0][0];
-    if (currentOrder == lastColIndex) {
+    if (currentOrder == groupCol) {
       $('table tr.group').css('display', 'table-row');
     } else {
       $('table tr.group').css('display', 'none');
@@ -247,18 +250,20 @@ const callbackShow = (api) => {
   });
   // last column add checkbox
   lastCol = api.column(-1).nodes().to$();
-  lastColTh= lastCol.filter(':not(.checklist)').parentsUntil('table').parent().find('thead tr:nth-last-child(1) th:nth-last-child(1)')
+  lastColTh = lastCol.filter(':not(.checklist)').parentsUntil('table').parent().find('thead tr:nth-last-child(1) th:nth-last-child(1)')
   lastCol.filter(':not(.checklist)').parent()
     .append('<td class="check" style="display:none;"><label class="checkcontainer"><input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
-  lastCol.addClass('checklist') ;
+  lastCol.addClass('checklist');
 }
 
-const modifyItems = (api) => {
+function modifyItems(api) {
   // load from localStorage
+  $('#del.btm').html('<i class="fas fa-trash-alt"></i><div class="balloon">Delete selected</div>');
+  $('#res.btm').html('<i class="fas fa-trash-restore" ></i><div class="balloon">Restore delected</div>');
   var
     delected = localStorage.getItem(deletedItem),
-    delBtn = $('.btm:nth-last-child(2)').html('<i class="fas fa-trash-alt"></i><div class="balloon">Delete selected</div>'),
-    resBtn = $('.btm:nth-last-child(1)').html('<i class="fas fa-trash-restore" ></i><div class="balloon">Restore delected</div>');
+    delBtn = $('.btm:nth-last-child(2)'),
+    resBtn = $('.btm:nth-last-child(1)');
   if (delected == (undefined || null)) {
     localStorage.setItem(deletedItem, [0]);
   } else if (delected.length > 1) {
@@ -270,22 +275,22 @@ const modifyItems = (api) => {
     var
       pageStart = api.state().start,
       pageLength = api.state().length,
-      deletedItems = delected.split(',').join('|');
-    api.columns(1).search('('.concat(deletedItems, ')'), true).rows({
-      search: 'applied'
-    }).remove().column(1).search('')
-	.page(pageStart / pageLength)
-	.draw('page');
+      deletedEntries = '(' + delected.slice(2).split(',').join('|') + ')';
+    api
+      .columns(0).search(deletedEntries, true).rows({ search: 'applied' }).remove()
+      .column(0).search('')
+      .page(pageStart / pageLength)
+      .draw('page');
   };
   //double click to select tr(s) 
   $('.dataTables tbody tr:not(.group)').on('dblclick change', function dblClick(e) {
     $(this).toggleClass('selected')
-    $(this).find($('.selected input:not(:checked)')).each(function(){
-     $(this).prop('checked', !$(this)[0].checked);
-  })
-    $(this).find($('tr:not(.selected) input:checked')).each(function(){
-     $(this).prop('checked', false);
-  })
+    $(this).find($('.selected input:not(:checked)')).each(function () {
+      $(this).prop('checked', !$(this)[0].checked);
+    })
+    $(this).find($('tr:not(.selected) input:checked')).each(function () {
+      $(this).prop('checked', false);
+    })
     delected = localStorage.getItem(deletedItem);
     select = $('.selected');
     select.length + delected.length <= 1 ? delBtn.css({ 'visibility': 'hidden' }) : '';
@@ -295,7 +300,7 @@ const modifyItems = (api) => {
     } else {
       $(this).parent().addClass('selection');
       delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '.6' })
-        .children().last().text('Delete selected (' + select.length + ') ')        ;
+        .children().last().text('Delete selected (' + select.length + ') ');
     }
   })
     .on('dblclick', 'td *', function noDblClick(e) {
@@ -324,7 +329,7 @@ const modifyItems = (api) => {
   });
 
 };
-const createFilter = (table, columns) => {
+function createFilter(table, columns) {
   var input = '<input type="text" class="search"/><span class="clear fa fa-times-circle"></span>';
   input = $(input).on("keyup click", function () {
     var
@@ -373,10 +378,10 @@ const searchBox = api => {
       .attr('placeholder', 'Search for '.concat(searchCols, '..'));
   });
 }
-const stateSave = (settings, data) => {
+function stateSave(settings, data) {
   localStorage.setItem(savedSettings, JSON.stringify({ ...data, file: datafile }));
 };
-const stateLoad = (settings) => {
+function stateLoad(settings) {
   return JSON.parse(localStorage.getItem(savedSettings));
 };
 const defaultParams = {
@@ -415,22 +420,32 @@ const defaultParams = {
 }
 $(function () {
   $('.dataTables').on('click', '.prev', function () {
-    $(this).parent().prevAll('.group').length > 0 ?
+    var groupRow = $(this).parentsUntil('.group').parent();
+	console.log(groupRow.nextAll('.group').length);
+    if (groupRow.prevAll('.group').length > 0) {
       $('html,body').animate({
-        scrollTop: $(this).parent().prevAll('.group').offset().top - $(".dataTables_filter").height()
-      }, 600) :
-      $('html,body').animate({
-        scrollTop: $(this).parent().offset().top - $(".dataTables_filter").height()
+        scrollTop: groupRow.prevAll('.group').offset().top - $(".dataTables_filter").height()
       }, 600)
+    } else {
+      $('html,body').animate({
+        scrollTop: groupRow.offset().top - $(".dataTables_filter").height()
+      }, 600);
+    }
   });
   $('.dataTables').on('click', '.next', function () {
-    $(this).parent().nextAll('.group').length > 0 ?
+    var groupRow = $(this).parentsUntil('.group').parent();
+	console.log(groupRow.nextAll('.group').length);
+    if (groupRow.nextAll('.group').length > 1) {
       $('html,body').animate({
-        scrollTop: $(this).parent().nextAll('.group').offset().top - $(".dataTables_filter").height()
-      }, 600) :
-      $('html,body').animate({
-        scrollTop: $(this).parent().nextAll().last().children().last().offset().top - $(".dataTables_filter").height()
+        scrollTop: groupRow.nextAll('.group').offset().top - $(".dataTables_filter").height()
       }, 600)
+    } else {
+      $('html,body').animate({
+        scrollTop: groupRow.nextAll().last().offset().top - $(".dataTables_filter").height()
+      }, 600);
+      $("<div class='toast' >End reached</div>").hide().appendTo('.bottom')
+        .stop().delay(1000).fadeIn(500).delay(1500).fadeOut(600);
+    }
   });
   $('.toggle ').click(function () {
     $(this).parent().children('.hideItem, .hideItem>*').toggle({

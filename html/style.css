@@ -7,7 +7,7 @@
 [data-title]:hover:after {
   opacity: 1;
   visibility: visible;
-  font-size:.8em;
+  font-size: .8em;
   white-space: nowrap;
   -webkit-animation: scale-in-ver-bottom 0.22s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
   animation: scale-in-ver-bottom 0.22s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
@@ -19,7 +19,7 @@
   position: absolute;
   font-size: .8em !important;
   bottom: 100%;
-  left:50%;
+  left: 50%;
   /* right:50%; */
   padding: .4em .8em;
   -moz-border-radius: 5px;
@@ -50,7 +50,7 @@
 [data-title] {
   position: relative;
 }
- 
+
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -310,6 +310,24 @@ div.sidenav {
   -webkit-animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 11.6s both;
   animation: hideAnimation .6s cubic-bezier(0.250, 0.460, 0.450, 0.940) 11.6s both;
   /* animation-fill-mode: forwards; */
+}
+
+.toast {
+  width: 160px;
+  height: 20px;
+  height: auto;
+  position: fixed;
+  left: 50%;
+  margin-left: -80px;
+  font-size: .8rem;
+  bottom: 15%;
+  background-color: #222;
+  padding: 10px;
+  text-align: center;
+  border-radius: 2px;
+  -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+  -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+  box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
 }
 
 .loading {
@@ -956,29 +974,32 @@ div.dt-datetime-iconDown button {
   background: rgba(11, 44, 22, .3);
   box-shadow: 0 1px 4px 0 rgb(0 0 0 / 24%), 0 1vh 2vh 0 rgb(0 0 0 / 20%);
 }
+
 .balloon {
-    position: absolute;
-    bottom: 105%;
-    background: black;
-    padding: .4em 1.1em;
-    border-radius: .4em;
-    color: #eee;
-    display: flex;
-    justify-content: center;
-	visibility:hidden;
-	z-index:9999;
+  position: absolute;
+  bottom: 105%;
+  background: black;
+  padding: .4em 1.1em;
+  border-radius: .4em;
+  color: #eee;
+  display: flex;
+  justify-content: center;
+  visibility: hidden;
+  z-index: 9999;
 }
+
 .balloon:after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0;
-	top:100%;
-    border-left: 6px solid transparent;
-    border-right: 6px solid transparent;
-    border-top: 6px solid #000;
-    clear: both;
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  top: 100%;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid #000;
+  clear: both;
 }
+
 .btm:not(:nth-last-child(3)) {
   visibility: hidden;
 }
@@ -1154,6 +1175,12 @@ table ::-webkit-scrollbar {
   visibility: hidden;
 }
 
+
+.newlist .group td>div {
+  display: flex;
+  justify-content: center;
+}
+
 .newlist .group td:not(.prev):not(.next) {
   color: #fed;
   white-space: break-spaces;
@@ -1164,9 +1191,14 @@ table ::-webkit-scrollbar {
   opacity: .6;
 }
 
+.newlist .group td>div div {
+  width: 60%;
+}
+
 .newlist .group .prev,
 .newlist .group .next {
   cursor: pointer;
+  width: 100%;
   text-align: left;
   justify-content: left;
 }
@@ -1250,6 +1282,7 @@ table ::-webkit-scrollbar {
   /* hsla(0,0%,38.8%, 0) 100% */
   /* ); */
 }
+
 /* .newlist tbody tr:not(.group)::after {
     content: '';
     border: 12px solid transparent;
@@ -1280,10 +1313,12 @@ table ::-webkit-scrollbar {
 .newlist tbody {
   background-color: rgba(0, 0, 0, .0);
 }
+
 .inSelection {
-	background-color:red;
-	background: linear-gradient(blue, #333);
+  background-color: red;
+  background: linear-gradient(blue, #333);
 }
+
 .newlist thead {
   background-color: rgba(111, 111, 111, .2);
   /* background-image:linear-gradient( */
@@ -1796,7 +1831,7 @@ input:focus+.slider {}
 }
 
 .selection .check {
-    /* display: table-cell; */
+  /* display: table-cell; */
 }
 
 .filter-holder .checkcontainer p {
@@ -1814,11 +1849,14 @@ input:focus+.slider {}
   font-size: 1.1rem;
 }
 
+.checkcontainer .checkmark:hover i {
+  color: lightcoral;
+}
+
 .clear,
 .checkcontainer .checkmark i {
   opacity: .3;
 }
-
 
 .btm:hover,
 .btm:focus,
@@ -1829,12 +1867,15 @@ input:focus+.slider {}
 .checkcontainer input:checked~.checkmark i {
   opacity: 1;
 }
+
 .checkcontainer input:checked~.checkmark .fa-circle {
-	display:none;
+  display: none;
 }
+
 .checkcontainer input:not(:checked)~.checkmark .fa-check-circle {
-	display:none;
+  display: none;
 }
+
 i:active,
 .btm:active,
 option:active,
@@ -2406,7 +2447,7 @@ div.dt-datetime-label span {
   }
 
   .newlist tr.group {
-	display: grid;
+    display: grid;
     grid-auto-flow: column;
   }
 
