@@ -151,6 +151,7 @@ div.sidenav {
   justify-content: center;
   align-items: center;
   padding: 8px;
+  transition:.5s;
 }
 
 #home a {
@@ -167,7 +168,7 @@ div.sidenav {
 }
 
 #home:not(:hover) a {
-  color: #000;
+  color: transparent;
 }
 
 #home:not(:hover) {
@@ -176,7 +177,7 @@ div.sidenav {
 
 .home-top,
 .home-bottom {
-  z-index: 999;
+  z-index: 9999;
 }
 
 .home-button {
@@ -646,8 +647,8 @@ a {
 
 #info {
   /* display: none; */
-  -webkit-animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
-  animation: tracking-in-expand 1s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  -webkit-animation: tracking-in-expand 2.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
+  animation: tracking-in-expand 2.3s cubic-bezier(0.215, 0.610, 0.355, 1.000) both;
 }
 
 .note {
@@ -2917,10 +2918,16 @@ div.dt-datetime-label span {
     letter-spacing: -1em;
     height: 1px;
     opacity: 0;
+	left:-100%
+  }
+  
+  20% {
+    letter-spacing: -1em;
+    height: 1px;
+    opacity: 0;
   }
 
-  40% {
-    letter-spacing: -0.5em;
+  60% {
     opacity: 0.6;
   }
 
@@ -2934,10 +2941,16 @@ div.dt-datetime-label span {
     letter-spacing: -1em;
     height: 1px;
     opacity: 0;
+	left:-100%
+  }
+  
+  20% {
+    letter-spacing: -1em;
+    height: 1px;
+    opacity: 0;
   }
 
-  40% {
-    letter-spacing: -0.5em;
+  60% {
     opacity: 0.6;
   }
 

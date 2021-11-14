@@ -4,7 +4,7 @@ var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 $(window).on("resize load ", function () {
   pageLayout();
-  $('.dataTables').DataTable().draw(false)
+  // $('.dataTables').DataTable().draw(false)
 });
 $(function () {
   $('#datepicker').val(thisweek);
