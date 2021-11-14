@@ -581,6 +581,9 @@ a {
   color: #fcfaf1;
 }
 
+#timecharts {
+  overflow: auto;
+}
 #timecharts .main-svg defs .clips .axesclip rect {
   /* filter: drop-shadow(0px 17px 1.3em rgba(111,222,222,1)); */
 
@@ -1081,9 +1084,11 @@ table.dataTable thead .sorting_asc_disabled::after,
 table.dataTable thead .sorting_desc_disabled::before,
 table.dataTable thead .sorting_desc_disabled::after {
   position: absolute;
-  bottom: 1.2rem;
   display: block;
   opacity: 0.3;
+    font-size: .8rem;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 table.dataTable thead .sorting::before,

@@ -21,6 +21,7 @@ $(function () {
     })
     .DataTable({
       ...defaultParams,
+      responsive: true,
       order: [[8, 'asc'], [0, 'desc']],
       stateLoadParams: function (settings, data) {
         data.order = [[8, 'asc'], [0, 'desc']];
@@ -44,7 +45,8 @@ $(function () {
           return data;
         },
         // searchable: false,
-        sorting: false,
+        // sorting: false,
+        responsivePriority: 1,
         width: '16%',
         targets: [0],
       }, {
@@ -71,6 +73,7 @@ $(function () {
           }
           return data;
         },
+        responsivePriority: 1,
         width: '11%',
         targets: [1],
       }, {
@@ -91,6 +94,7 @@ $(function () {
           }
           return data;
         },
+        responsivePriority: 1,
         width: '11%',
         targets: [2],
       }, {
@@ -114,6 +118,7 @@ $(function () {
           return data;
         },
         sorting: false,
+        responsivePriority: 1,
         width: '11%',
         targets: [3],
       }, {
@@ -145,8 +150,9 @@ $(function () {
           }
           return data;
         },
-        searchable: false,
+        // searchable: false,
         sorting: false,
+        responsivePriority: 2,
         width: '10%',
         targets: [4],
       }, {
@@ -174,8 +180,8 @@ $(function () {
           }
           return data;
         },
-        searchable: false,
         sorting: false,
+        responsivePriority: 2,
         width: '10%',
         targets: [5],
       }, {
@@ -200,6 +206,7 @@ $(function () {
           return data;
         },
         sorting: false,
+        responsivePriority: 3,
         width: '9%',
         targets: [6],
       }, {
@@ -227,6 +234,7 @@ $(function () {
           }
           return data;
         },
+        responsivePriority: 3,
         width: '7%',
         targets: [7],
       }, {
@@ -246,46 +254,13 @@ $(function () {
           }
           return data;
         },
+        responsivePriority: 1,
         width: '8%',
         targets: [8],
       }],
       drawCallback: function (settings) {
         //group rows by date
-        var
-          api = this.api();
-        /*             groupColumn = $('.dataTables tr:nth-last-child(1) th').length - 1,
-                    rows = api.rows({
-                      page: 'current'
-                    }).nodes(),
-                    last = '';
-                  api.column(groupColumn, {
-                    page: 'current'
-                  }).data().each(function(group, i) {
-                    var date = group.match(/^\d.{9}/g).toString();
-                    date = (
-                      // moment(date).format('YYYY') != moment().format('YYYY') ? moment(date).format('MMM YYYY') :
-                      // moment(date).format('MM') != moment().format('MM') ? moment(date).format('MMMM') :
-                      // moment(date,'Do MMM')
-                      moment(date).format('Do MMM, YYYY')
-                    );
-                    if (last !== date) {
-                      $(rows).eq(i).before('<tr class="group"><td colspan="2"></td>' +
-                        '<td class=\'prev\'><i class=\'fa fa-angle-left\'></i></td>' +
-                        '<td class="ts" colspan="2"> ' + date + '</td>' +
-                        '<td class=\'next\'><i class=\'fa fa-angle-right\'></i></td>' +
-                        '<td colspan="3"></tr>');
-                      last = date;
-                    } 
-                  });
-                  //cancel groups
-                  $('.dataTables th, .filterSection').on('click change', function cancelGroup() {
-                    var currentOrder = table.order()[0][0];
-                    if (currentOrder == groupColumn) {
-                      $('table tr.group').css('display', 'table-row');
-                    } else {
-                      $('table tr.group').css('display', 'none');
-                    }
-                  });*/
+        var api = this.api();
         callbackShow(api, 8);
         $('tr.group abbr').text('');
       },
@@ -420,8 +395,10 @@ $(function () {
               }]
             }
             if (thisday <= xrange) {
-              frames[i].layout.annotations = [{ x: thisday, y: date.filter(item => item[0] == thisday)[0][1], 
-			  xref: 'x', yref: 'y', ax: 20, ay: -25, text: 'Today', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth: 1, arrowcolor: '#636363', }]
+              frames[i].layout.annotations = [{
+                x: thisday, y: date.filter(item => item[0] == thisday)[0][1],
+                xref: 'x', yref: 'y', ax: 20, ay: -25, text: 'Today', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth: 1, arrowcolor: '#636363',
+              }]
             }
           }
           var layout = {
@@ -471,6 +448,12 @@ $(function () {
           });
         });
       },
+    })
+    .on('responsive-resize', function (e, api, columns) {
+      var count = columns.reduce(function (a, b) {
+        return b === false ? a + 1 : a;
+      }, 0);
+      console.log(count + ' column(s) are hidden' + '\n' + api);
     });
   $("#timecharts").addClass("hideItem");
   table.columns().visible(true);
