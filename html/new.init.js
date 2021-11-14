@@ -453,7 +453,7 @@ $(function () {
       var count = columns.reduce(function (a, b) {
         return b === false ? a + 1 : a;
       }, 0);
-      console.log(count + ' column(s) are hidden' + '\n' + api);
+      // console.log(count + ' column(s) are hidden' + '\n' + api);
     });
   $("#timecharts").addClass("hideItem");
   table.columns().visible(true);

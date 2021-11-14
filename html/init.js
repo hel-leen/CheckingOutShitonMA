@@ -206,10 +206,10 @@ function initShow(api) {
     .removeClass('hideItem')
     .css({ 'display': 'grid', visibility: 'visible', opacity: .1 })
     .animate({ opacity: 1, }, 1000);
-  $(".filterWrapper").restoreForm();
   $('#info').show() .animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
 }
 function callbackShow(api, groupCol) {
+  $(".filterWrapper").restoreForm();
   $("a").attr({ "target": "_blank", "rel": "noopener noreferrer" });
   //group rows by date
   var
