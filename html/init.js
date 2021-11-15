@@ -186,7 +186,7 @@ function loadData(data, callback, settings) {
           expire: moment.now() + 60 * 60 * 1000 * 24 * data.TTL,
         };
         localStorage.setItem(savedItem, JSON.stringify(data));
-		location.reload();
+		// location.reload();
       })
   } else {
     // data = savedData;
