@@ -173,7 +173,6 @@ function loadData(data, callback, settings) {
     callback(data);
     $('#update').text('Last updated on: ' + data.lastUpdate + ' ');
     $("#count").text('Total records: ' + data.recordsTotal + ' ');
-    $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
   }
   // download and save to localStorage
   if (moment.now() >= savedData.expire) {
