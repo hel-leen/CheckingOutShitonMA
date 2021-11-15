@@ -9,7 +9,6 @@
 <link rel="dns-prefetch" href="https://www.metal-archives.com">
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
 <script type="text/javascript" src="https://unpkg.com/spotify-web-api-js@0.23.0/src/spotify-web-api.js"></script>
 <script type="text/javascript" src="init.js"></script>
@@ -59,13 +58,13 @@ body {
  <div>
 		<span class="filterSection">
 			<p><strong>Genre:</strong></p>
-			<span class="filter-holder 3">
+			<span class="filter-holder sel-genre">
 				<i class="clear solid fa fa-times-circle"></i>
 			</span>
 		</span>
 		<span class="filterSection">
 		<p><strong>Type:</strong></p>
-		<span class="filter-holder 8">
+		<span class="filter-holder sel-length">
 			<div class="solid filter-item">
 				<select id="url-option"  name="url-option" multiple size="1">
 				<option selected value="Album">Album</option>
@@ -93,10 +92,10 @@ body {
 			<span class="filter-holder" id="search-filter">
 				<div class="solid filter-item">
 				<select id="search-fields" multiple size="1">
-					<option selected value="1">Album</option>
-					<option selected value="2">Band</option> 
-					<option value="3">Genre</option> 
-					<option value="7">Label</option>  
+					<option selected value="album">Album</option>
+					<option selected value="band">Band</option> 
+					<option value="genre">Genre</option> 
+					<option value="label">Label</option> 
 				</select>
 				</div>
 			</span>

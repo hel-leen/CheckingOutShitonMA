@@ -2,11 +2,8 @@ let thisday = moment().format('YYYY-MM-DD');
 var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
-$(window).on("resize load ", function () {
-  pageLayout();
-  // $('.dataTables').DataTable().draw(false)
-});
 $(function () {
+  pageLayout();
   $('#datepicker').val(thisweek);
   $('#datepicker').dtDateTime({
     minDate: moment().add(-1, 'years').toDate(),
@@ -21,7 +18,6 @@ $(function () {
     })
     .DataTable({
       ...defaultParams,
-      responsive: true,
       order: [[8, 'asc'], [0, 'desc']],
       stateLoadParams: function (settings, data) {
         data.order = [[8, 'asc'], [0, 'desc']];
@@ -46,7 +42,8 @@ $(function () {
         },
         // searchable: false,
         // sorting: false,
-        responsivePriority: 1,
+        // responsivePriority: 1,
+		className: "col_cover all",
         width: '16%',
         targets: [0],
       }, {
@@ -73,7 +70,8 @@ $(function () {
           }
           return data;
         },
-        responsivePriority: 1,
+        // responsivePriority: 1,
+		className: "col-album all",
         width: '11%',
         targets: [1],
       }, {
@@ -94,7 +92,8 @@ $(function () {
           }
           return data;
         },
-        responsivePriority: 1,
+        // responsivePriority: 1,
+		className: "col-band all",
         width: '11%',
         targets: [2],
       }, {
@@ -118,7 +117,7 @@ $(function () {
           return data;
         },
         sorting: false,
-        responsivePriority: 1,
+		className: "col-genre all",
         width: '11%',
         targets: [3],
       }, {
@@ -152,7 +151,7 @@ $(function () {
         },
         // searchable: false,
         sorting: false,
-        responsivePriority: 2,
+		className: "col-asso all",
         width: '10%',
         targets: [4],
       }, {
@@ -181,7 +180,8 @@ $(function () {
           return data;
         },
         sorting: false,
-        responsivePriority: 2,
+        // responsivePriority: 2,
+		className: "col-simi all",
         width: '10%',
         targets: [5],
       }, {
@@ -206,11 +206,11 @@ $(function () {
           return data;
         },
         sorting: false,
-        responsivePriority: 3,
+		className: "col-label not-tablet",
         width: '9%',
         targets: [6],
       }, {
-        //duration and type
+        //duration and track
         render: function (data, type, row) {
           if (type === 'display') {
             let duration = data.split('|||')[0];
@@ -234,7 +234,7 @@ $(function () {
           }
           return data;
         },
-        responsivePriority: 3,
+		className: "col-length not-fablet",
         width: '7%',
         targets: [7],
       }, {
@@ -254,14 +254,15 @@ $(function () {
           }
           return data;
         },
-        responsivePriority: 1,
+        // responsivePriority: 1,
+		className: "col-date all",
         width: '8%',
         targets: [8],
       }],
       drawCallback: function (settings) {
         //group rows by date
         var api = this.api();
-        callbackShow(api, 8);
+        callbackShow(api);
         $('tr.group abbr').text('');
       },
       initComplete: function initComp() {
@@ -271,19 +272,19 @@ $(function () {
         modifyItems(api);
         // select boxes
         var select;
-        api.columns([2, 6]).every(function selectBoxes() {
-          var column = this;
+        api.columns('.col-band,.col-label').every(function () {
+          var column = this, selName = 'sel-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
           $('<select><option value=""></option></select>')
-            .attr("name", this[0])
-            .insertBefore('.filter-holder.' + this[0] + ' .clear')
+            .attr("name", selName)
+            .insertBefore('.' + selName + ' .clear')
             .on('change', function boxesVal() {
               var val = $.fn.dataTable.util.escapeRegex($(this).val());
               column.search(val ? val + '$' : '', true, true).draw();
             });
         });
         // select box for countries
-        api.columns(2).every(function () {
-          select = $('.filter-holder.' + this[0] + ' select');
+        api.columns('.col-band').every(function () {
+          select = $('.sel-band select');
           var countries =
             this.data().map((d, j) => {
               return d = d.split('|||')[2].split('| || |');
@@ -297,15 +298,15 @@ $(function () {
           });
         });
         // select box for labels
-        api.columns(6).every(function () {
-          select = $('.filter-holder.' + this[0] + ' select');
+        api.columns('.col-label').every(function () {
+          select = $('.sel-label select');
           var lables =
             this.data().unique().filter(v => v != '').map(d => d.match(/(?<=\d')(.*)/)[1]).sort(partSort).each(opval => {
               select.append('<option value="' + opval + '">' + opval + '</option>');
             });
         });
         // time serials 
-        api.columns(8).every(function () {
+        api.columns('.col-date').every(function () {
           var
             column = this,
             frames = [],
@@ -449,18 +450,13 @@ $(function () {
         });
       },
     })
-    .on('responsive-resize', function (e, api, columns) {
-      var count = columns.reduce(function (a, b) {
-        return b === false ? a + 1 : a;
-      }, 0);
-      // console.log(count + ' column(s) are hidden' + '\n' + api);
-    });
+;
   $("#timecharts").addClass("hideItem");
   table.columns().visible(true);
   //clear filterSection
   $('.filterSection .clear').click(function () {
     var filters = $(this).parent();
-    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
+    var cols = filters.attr('class').replace(/.*sel-/g, '.col-');
     filters.children('select').children('option').prop('selected', false);
     filters.children('#datepicker').val('');
     table.columns(cols).search('').draw();
@@ -478,9 +474,9 @@ $(function () {
   $("#Newest").one("click", sortById);
 
   //reset default settings
-  $('#all, #reset, #Reset').click(function resetAll() {
-    table.columns().search('').draw();
-    table.order([[8, 'desc'], [0, 'desc']]).draw();
+  $('#all, #reSet, #Reset').click(function resetAll() {
+    table.columns().every( function () {this .search( '' ); } );
+	table.order([[8, 'desc'], [0, 'desc']]).draw();
   });
   $('#reSet, #Reset').click(function reset() {
     $('#datecondition').val('After');
@@ -505,7 +501,10 @@ $(function () {
   $('.filter,.genrefilter, .dataTables_length, .filter-holder,#reset').on("click change", function filterSection() {
     table.draw();
   });
-
+$(window).on("resize load ", function () {
+  pageLayout(table);
+  // $('.dataTables').DataTable().draw(false)
+});
 });
 
 

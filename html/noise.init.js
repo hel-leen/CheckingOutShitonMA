@@ -1,14 +1,11 @@
-$(window).on("resize load ", function () {
-  pageLayout();
-});
 $(function () {
+  pageLayout();
   let table = $('.dataTables')
     .on('processing.dt', function (e, settings, processing) {
       preShow();
     })
     .DataTable({
       ...defaultParams,
-	  responsive: true,
       order: [[6, 'desc'], [9, 'desc'], [5, 'asc']],
       stateSaveParams: function (settings, data) {
         data.order = [[6, 'desc'], [9, 'desc'], [5, 'asc']];
@@ -27,10 +24,15 @@ $(function () {
         },
         // searchable: false,
         sorting: false,
-		responsivePriority: 1,
+        className: "col-cover all",
         width: '14%',
         targets: [0],
       }, {
+        className: "col-album all",
+        width: '11%',
+        targets: [1],
+      }, {
+        className: "col-band all",
         width: '10%',
         targets: [2],
       }, {
@@ -67,8 +69,6 @@ $(function () {
           }
           return data;
         },
-		responsivePriority: 1,
-        width: '11%',
         targets: [1, 2],
       }, {
         //genre
@@ -81,8 +81,8 @@ $(function () {
           }
           return data;
         },
-		responsivePriority: 1,
-		sorting: false,
+        className: "col-genre all",
+        sorting: false,
         width: '9%',
         targets: [3],
       }, {
@@ -108,8 +108,8 @@ $(function () {
           }
           return data;
         },
-		responsivePriority: 2,
-		sorting: false,
+        className: "col-simi not-tablet",
+        sorting: false,
         width: '11%',
         targets: [4],
       }, {
@@ -125,10 +125,14 @@ $(function () {
           }
           return data;
         },
-		responsivePriority: 3,
+        className: "col-rank not-tablet",
         type: "ranking",
         width: '10%',
         targets: [5],
+      }, {
+        className: "col-date never",
+        visible: false,
+        targets: [6],
       }, {
         render: (data, type, row) => {
           //rendering label
@@ -149,8 +153,8 @@ $(function () {
           }
           return '<div class="ts">' + data + '</div>';
         },
-		responsivePriority: 3,
-		sorting: false,
+        className: "col-label not-fablet",
+        sorting: false,
         width: '8%',
         targets: [7],
       }, {
@@ -163,12 +167,11 @@ $(function () {
               lengths = data.match(format)[1];
             // type = data;
             return '<div class="ts">' + lengths +
-              // '<br><abbr class="ts" style="opacity:.6; color: #fed;">- ' + type + 
               ' </div>';
           }
           return data;
         },
-		responsivePriority: 2,
+		className: "col-length not-fablet",
         width: '7%',
         targets: [8],
       }, {
@@ -181,7 +184,7 @@ $(function () {
           }
           return data;
         },
-		responsivePriority: 1,
+        className: "col-update all",
         width: '7%',
         targets: [-1],
       },],
@@ -219,7 +222,7 @@ $(function () {
          $('table tr.group').css('display', 'none');
          }
          }); */
-        callbackShow(api, 6);
+        callbackShow(api);
       },
       initComplete: function () {
         initShow();
@@ -227,19 +230,19 @@ $(function () {
         searchBox(api);
         modifyItems(api);
         var select;
-        api.columns([3]).every(function () {
-          var column = this;
+        api.columns('.col-genre').every(function () {
+          var column = this, selName = 'sel-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
           $('<select><option value=""></option></select>')
-            .attr("name", this[0])
-            .insertBefore('.filter-holder.' + this[0] + ' .clear')
+            .attr("name", selName)
+            .insertBefore('.' + selName + ' .clear')
             .on('change', function () {
               var val = $.fn.dataTable.util.escapeRegex($(this).val());
               column.search(val ? val + '' : '', true, false).draw();
             });
         });
         // select box for labels
-        api.columns(3).every(function () {
-          select = $('.filter-holder.' + this[0] + ' select');
+        api.columns('.col-genre').every(function () {
+          select = $('.sel-genre select');
           var genres =
             this.data().map((d, j) => {
               return d = d.toTitleCase().split(/,\s?/);
@@ -254,24 +257,25 @@ $(function () {
         });
       },
     });
-  table.columns([6]).visible(false);
-  // table.columns().visible(true);
   //clear filterSection
   $('.filterSection .clear').click(function () {
     var filters = $(this).parent();
-    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
+    var cols = filters.attr('class').replace(/.*sel-/g, '.col-');
     filters.children('select').children('option').prop('selected', false);
     filters.children('#datepicker').val('');
     table.columns(cols).search('').draw();
   });
   //reset default settings
-  $('#reset').click(function () {
-    $('.filter-holder.3 select option').prop("selected", false);
-    $('.filter-holder.7 select option').prop("selected", true);
-    table.columns(3).search('').draw(true);
+  $('#reSet').click(function () {
+    $('.filter-holder select option').prop("selected", true);
+    $('.sel-genre select option').prop("selected", false);
+    table.columns().every( function () {this .search( '' ); } );
   });
   $('.paginate_button, .dataTables_length,.filterSection, .filter-holder,#reset').on("click change", function (e) {
     table.draw(false);
+  });
+  $(window).on("resize load ", function () {
+    pageLayout(table);
   });
 });
 $.fn.dataTable.ext.type.order['ranking-pre'] = function (d) {
@@ -281,7 +285,7 @@ $.fn.dataTable.ext.type.order['ranking-pre'] = function (d) {
 $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   let
     type = data[8],
-    types = $(".filter-holder.8 select").val() || [];
+    types = $(".sel-length select").val() || [];
   return type.search('('.concat('(', types.join('|'), ')', ')')) > -1;
   // return true;
 });

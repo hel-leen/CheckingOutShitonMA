@@ -1211,6 +1211,9 @@ table ::-webkit-scrollbar {
 .newlist .group .next {
   cursor: pointer;
   width: 100%;
+  display: flex;
+  align-self: stretch;
+  align-items: center;
   text-align: left;
   justify-content: left;
 }
