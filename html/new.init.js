@@ -43,7 +43,7 @@ $(function () {
         // searchable: false,
         // sorting: false,
         // responsivePriority: 1,
-		className: "col_cover all",
+		className: "col-cover all",
         width: '16%',
         targets: [0],
       }, {
@@ -452,46 +452,44 @@ $(function () {
     })
 ;
   $("#timecharts").addClass("hideItem");
-  table.columns().visible(true);
-  //clear filterSection
-  $('.filterSection .clear').click(function () {
-    var filters = $(this).parent();
-    var cols = filters.attr('class').replace(/.*sel-/g, '.col-');
-    filters.children('select').children('option').prop('selected', false);
-    filters.children('#datepicker').val('');
-    table.columns(cols).search('').draw();
-  });
+  var ids = new GetId(table);
+  
   // sortHandlers
   function sortById() {
-    table.order([0, 'desc']).draw();
+    table.order([ids.cover, 'desc']).draw();
     $(this).one("click", sortDefault);
   }
-
   function sortDefault() {
-    table.order([[8, 'asc'], [0, 'desc']]).draw();
+    table.order([[ids.date, 'asc'], [ids.cover, 'desc']]).draw();
     $(this).one("click", sortById);
   }
   $("#Newest").one("click", sortById);
-
-  //reset default settings
-  $('#all, #reSet, #Reset').click(function resetAll() {
-    table.columns().every( function () {this .search( '' ); } );
-	table.order([[8, 'desc'], [0, 'desc']]).draw();
+  //clear filterSection
+  $('.filterSection .clear').on('click', function clearField () {
+    var cols = $(this).parent().attr('class').replace(/.*sel-/g, '.col-');
+    table.columns(cols).search('').draw();
   });
-  $('#reSet, #Reset').click(function reset() {
-    $('#datecondition').val('After');
+
+  //reset settings
+  $('#all').on('click', function setAll () {
+    table.columns().every( function () {this .search( '' ); } );
+	table.order([[ ids.date, 'desc'], [ids.cover, 'desc']]).draw();
+  });
+  //reset default settings
+  $('#reSet, #Reset').on('click', function setDefault() {
+    // $('#datecondition').val('After');
     $('#datepicker').val(thisweek);
-    table.order([[8, 'asc'], [0, 'desc']]).draw();
+    table.order([[ids.date, 'asc'], [ids.cover, 'desc']]).draw();
   });
   $('#datecondition').click(function () {
     if ($(this).val() == 'After') {
       $(this).val('Before');
       $(this).css('text-shadow', '0px 0px 1px #d99');
-      table.order([[8, 'desc'], [0, 'desc']]).draw(true);
+      table.order([[ids.date,, 'desc'], [ids.cover, 'desc']]).draw(true);
     } else {
       $(this).val('After');
       $(this).css('text-shadow', '0px 0px 1px #9b9');
-      table.order([[8, 'asc'], [0, 'desc']]).draw(true);
+      table.order([[ids.date, 'asc'], [ids.cover, 'desc']]).draw(true);
     }
   });
   $('#datepicker, #today, #Today, .dt-datetime-today').click(function datePicker() {
@@ -516,7 +514,7 @@ $.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
   let version = data[8].split('|||')[1];
   let genres = $('#genre-options').val() || [];
   var dateset;
-  if ($('#datepicker').val()) {
+  if ($('#datepicker').val() !='') {
     if ($('#datecondition').val() == 'After') {
       dateset = eval(date >= $('#datepicker').val());
     } else if ($('#datecondition').val() == 'Before') {

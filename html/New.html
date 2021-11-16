@@ -3,7 +3,8 @@
 <!-- <base target="_blank" rel="noopener noreferrer"> <form target="_self"> -->
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
-<meta name="theme-color" content="#333">
+<meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#000" media="(prefers-color-scheme: light)">
 <title>New Albums on MA</title>
 <link rel="preconnect" href="https://www.metal-archives.com">
 <link rel="dns-prefetch" href="https://www.metal-archives.com">
@@ -61,7 +62,7 @@
 		<span class="filterSection">
 			<p><strong>Date: </strong></p>
 			<span class="filter-holder 8" id="date-filter">
-				<input id="datecondition" type="text" value="After" class='pointer'  readonly>
+				<input id="datecondition" type="button" value="After" class='pointer'  readonly>
 				<input id="datepicker" type="text" class='pointer' readonly>
 				<i id="" class="clear solid fa fa-times-circle"></i>
 			</span>
@@ -120,20 +121,20 @@
 	</div>
 </div>
 <div id="searchBox" class="dataTables_filter searchBox hideItem">
-<span class="toggle"><i class="fa fa-chevron fa-chevron-circle-right "></i></span>
-<div id="searchInput"> </div>
-<span></span>
+	<span class="toggle"><i class="fa fa-chevron fa-chevron-circle-right "></i></span>
+	<div id="searchInput"> </div>
+	<span></span>
 	<span id="searchField" class="filterSection hideItem">
-			<p><b>Search field:</b> &nbsp;</p>
+			<span><b>Search field:</b> &nbsp;</span>
 			<span class="filter-holder" id="search-filter">
 				<div class="solid filter-item">
-				<select id="search-fields" multiple size="1">
+				<select id="searchOps" multiple size="1">
 					<option selected value="album">Album</option>
 					<option selected value="band">Band</option> 
 					<option value="genre">Genre</option> 
 					<option value="label">Label</option> 
-					<option value="asso">Associated acts</option> 
-					<option value="simi">Similar artists</option> 
+					<option value="asso">Associated act</option> 
+					<option value="simi">Similar artist</option> 
 				</select>
 				</div>
 			</span>

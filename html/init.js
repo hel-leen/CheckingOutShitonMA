@@ -15,15 +15,15 @@ jQuery.fn.extend({
 });
 function pageLayout(api) {
   var
-    w = ($(window).width() / 100), sw = (screen.width / 100),  sh = (screen.height / 100),  
-	pn = w > 10 ? 10 : w + 1,
+    w = ($(window).width() / 100), sw = (screen.width / 100), sh = (screen.height / 100),
+    pn = w > 10 ? 10 : w + 1,
     fs = w > 9 ? 9 : w < 8 && w < sh ? (w + .88 * sh) : w;
   $(":root").css("font-size", 14 + fs / 10);
   $.fn.DataTable.ext.pager.numbers_length = pn;
   if (api) {
-	w > 7.68 && w <=10.24 ? api.columns().visible( true ).columns('.never, .not-fablet, .not-tablet').visible( false ) :
-	w > 7.68 && w < 12 ? api.columns().visible( true ).columns('.never, .not-fablet ').visible( false )  :
-	api.columns().visible( true ).columns('.never').visible( false )
+    w > 7.68 && w <= 10.24 ? api.columns().visible(true).columns('.never, .not-fablet, .not-tablet').visible(false) :
+      w > 7.68 && w < 12 ? api.columns().visible(true).columns('.never, .not-fablet ').visible(false) :
+        api.columns().visible(true).columns('.never').visible(false)
   }
 };
 var
@@ -91,8 +91,7 @@ const partSort = ((x, y) => {
   var xp = x.toLowerCase(),
     yp = y.toLowerCase();
   return xp == yp ? 0 :
-    xp < yp ? -1 :
-      1;
+    xp < yp ? -1 : 1;
 });
 (function ($) {
   function formsaver(method, container) {
@@ -103,15 +102,9 @@ const partSort = ((x, y) => {
     }
     var storageId = getStorageId(container),
       controller = {
-        save: function () {
-          this._save(storageId, this.extractValues());
-        },
-        restore: function () {
-          this.fillFields(this._load(storageId));
-        },
-        clear: function () {
-          this._remove(storageId);
-        },
+        save: function () { this._save(storageId, this.extractValues()); },
+        restore: function () { this.fillFields(this._load(storageId)); },
+        clear: function () { this._remove(storageId); },
         extractValues: function () {
           var formData = container.find(":input[name]").serializeArray(),
             preparedData = {};
@@ -120,8 +113,7 @@ const partSort = ((x, y) => {
               value = encodeURIComponent(element.value);
             if (preparedData[name]) {
               preparedData[name] = preparedData[name] instanceof Array ?
-                preparedData[name].concat(value) :
-                [preparedData[name], value];
+                preparedData[name].concat(value) : [preparedData[name], value];
             } else {
               preparedData[name] = value;
             }
@@ -143,33 +135,23 @@ const partSort = ((x, y) => {
             }
           });
         },
-        _save: function (storageId, data) {
-          localStorage[storageId] = JSON.stringify(data);
-        },
-        _load: function (storageId) {
-          return localStorage[storageId] ? JSON.parse(localStorage[storageId]) : {};
-        },
-        _remove: function (storageId) {
-          localStorage.removeItem(storageId);
-        }
+        _save: function (storageId, data) { localStorage[storageId] = JSON.stringify(data); },
+        _load: function (storageId) { return localStorage[storageId] ? JSON.parse(localStorage[storageId]) : {}; },
+        _remove: function (storageId) { localStorage.removeItem(storageId); }
       },
       methodsQueue = method instanceof Array ? method : [method];
     $.each(methodsQueue, function (index, method) {
       controller[method]();
     });
   }
-  $.fn.saveForm = function () {
-    formsaver('save', $(this));
-  };
-  $.fn.restoreForm = function () {
-    formsaver(['restore', 'clear'], $(this));
-  };
+  $.fn.saveForm = function () { formsaver('save', $(this)); };
+  $.fn.restoreForm = function () { formsaver(['restore', 'clear'], $(this)); };
 })(jQuery);
 $(window).on("beforeunload", function loadForm() {
   $(".filterWrapper").saveForm();
 });
 function loadData(data, callback, settings) {
-  const showCallback = data => {
+  const loadCallback = data => {
     callback(data);
     $('#update').text('Last updated on: ' + data.lastUpdate + ' ');
     $("#count").text('Total records: ' + data.recordsTotal + ' ');
@@ -178,45 +160,48 @@ function loadData(data, callback, settings) {
   if (moment.now() >= savedData.expire) {
     $.getJSON(ajaxurl)
       .done(function (data) {
-        showCallback(data);
+        loadCallback(data);
         data = {
-          ...data,
-          json: ajaxurl,
+          ...data, json: ajaxurl,
           expire: moment.now() + 60 * 60 * 1000 * 24 * data.TTL,
         };
         localStorage.setItem(savedItem, JSON.stringify(data));
-		// location.reload();
       })
   } else {
     // data = savedData;
-    showCallback(savedData);
+    loadCallback(savedData);
   }
 };
-
+function GetId(api) {
+  this.cover = api.column('.col-cover').index();
+  this.album = api.column('.col-album').index();
+  this.band = api.column('.col-band').index();
+  this.genre = api.column('.col-genre').index();
+  this.date = api.column('.col-date').index();
+}
 function preShow() {
   $('.anchor').show().css({ 'display': 'flex' });
-  // $('.bottom').hide();
   $('#info').hide();
   $('.dataTables_wrapper').addClass('hideItem');
-  $( ".filterWrapper " ).after( '<div class="loading"><div><div></div><div></div><div></div><div></div><div></div><div></div></div>'
-  + '<div> Loading...</div></div>' );
+  $(".filterWrapper ").after('<div class="loading"><div>' +
+    '<div></div><div></div><div></div><div></div><div></div><div></div></div>' +
+    '<div> Loading...</div></div>');
 }
 function initShow(api) {
-  $('.anchor, .loading').hide();
+  $('.anchor, .loading').remove();
   $('.filterWrapper, #searchBox, #timecharts, .dataTables_wrapper')
     .removeClass('hideItem')
     .css({ 'display': 'grid', visibility: 'visible', opacity: .1 })
     .animate({ opacity: 1, }, 1000);
-  $('#info').show() .animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
+  $('#info').show().animate({ height: 'linear', opacity: 'easeOutBounce', }, "slow");
 }
 function callbackShow(api) {
   $(".filterWrapper").restoreForm();
   $("a").attr({ "target": "_blank", "rel": "noopener noreferrer" });
-  //add one empty row for spacing
-  $(api.table().body()).append('<tr class="group">' + '<td class="ts" colspan="9"><div> </div></td>' +   '</tr>');
   //group rows by date
   var
     rows = api.rows({ page: 'current' }).nodes(),
+    cols = api.columns().indexes('visible').length,
     last = '';
   api.column('.col-date', { page: 'current' })
     .data().each(function (coldate, i) {
@@ -230,15 +215,15 @@ function callbackShow(api) {
 
       if (last !== date) {
         $(rows).eq(i).before('<tr class="group">' +
-          '<td class="ts" colspan="9"><div><i class="fa fa-angle-left prev"></i> ' +
-		  '<div><abbr style="opacity:.6;  color: #fff;">Updated on: \n</abbr>' +
+          '<td class="ts" colspan="' + cols + '"><div><i class="fa fa-angle-left prev"></i> ' +
+          '<div><abbr style="opacity:.6;  color: #fff;">Updated on: \n</abbr>' +
           date + '</div> <i class="fa fa-angle-right next"></i></td></div></td>' +
           '</tr>');
         last = date;
       }
     });
   //cancel groups
-  $('.dataTables th, .filterSection').on('click change', function cancelGroup() {
+  $('.dataTables').on('click change', 'th, .filterSection', function cancelGroup() {
     var currentOrder = api.order()[0][0], groupCol = api.column('.col-date').index();
     currentOrder == groupCol ?
       $('table tr.group').css('display', 'table-row') :
@@ -248,8 +233,8 @@ function callbackShow(api) {
   lastCol = api.column(-1).nodes().to$();
   lastColTh = lastCol.filter(':not(.checklist)').parentsUntil('table').parent().find('thead tr:nth-last-child(1) th:nth-last-child(1)')
   lastCol.filter(':not(.checklist)').parent()
-    .append('<td class="check" style="display:none;"><label class="checkcontainer">'+
-	'<input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
+    .append('<td class="check" style="display:none;"><label class="checkcontainer">' +
+      '<input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
   lastCol.addClass('checklist');
 }
 
@@ -265,8 +250,7 @@ function modifyItems(api) {
     localStorage.setItem(deletedItem, [0]);
   } else if (delected.length > 1) {
     storedCount = delected.slice(2).split(',').length;
-    delBtn
-      .css({ 'visibility': 'visible' });
+    delBtn.css({ 'visibility': 'visible' });
     resBtn.css({ 'visibility': 'visible' })
       .children().last().text('Restore delected (' + storedCount + ') ');
     var
@@ -276,11 +260,10 @@ function modifyItems(api) {
     api
       .columns(0).search(deletedEntries, true).rows({ search: 'applied' }).remove()
       .column(0).search('')
-      .page(pageStart / pageLength)
-      .draw('page');
+      .page(pageStart / pageLength).draw('page');
   };
   //double click to select tr(s) 
-  $('.dataTables tbody tr:not(.group)').on('dblclick change', function dblClick(e) {
+  $('.dataTables tbody').on('dblclick change', 'tr:not(.group)', function dblClick(e) {
     $(this).toggleClass('selected')
     $(this).find($('.selected input:not(:checked)')).each(function () {
       $(this).prop('checked', !$(this)[0].checked);
@@ -324,69 +307,56 @@ function modifyItems(api) {
     localStorage.setItem(deletedItem, [0]);
     location.reload();
   });
-
 };
-function createFilter(table, columns) {
-  var input = '<input type="text" class="search"/><span class="clear fa fa-times-circle"></span>';
-  input = $(input).on("keyup click", function () {
-    var
-      iclear = $(this).parent().children(".clear"),
-      ivalue = $(this).parent().children("input");
-    if (ivalue.val()) {
-      iclear.show();
-    }
-    if ($(this).filter(".clear").length > 0) {
-      ivalue.val('');
-      ivalue.focus();
-      iclear.hide();
-    }
-    table.draw();
-  });
-  $.fn.dataTable.ext.search.push(function (
-    settings, searchData, index, rowData, counter
-  ) {
-    var val = input.val().toLowerCase();
-	  // console.log( '\n 2', searchData,'\n 3',  index, '\n 5', counter);
-    for (var i = 0, ien = columns.length; i < ien; i++) {
-	  var data = searchData[columns[i]], dataLower = data.toLowerCase(),  position = dataLower.indexOf(val);
-      // if (searchData[columns[i]].toLowerCase().split('|||')[0].indexOf(val) !== -1) {
-      if ( position !== -1) {
-		if (val != '') {
-		const matches = data.substring(position, (val.length + position));
-        const regex = new RegExp(matches, 'ig');
-        const highlighted = data.replace(regex, `<mark>${matches}</mark>`);
-	  // console.log('1',highlighted);
+function searchBox(api) {
+  var input = '<input type="text" class="search" placeholder="Search for albums or bands.."/><span class="clear fa fa-times-circle"></span>';
+  $("#searchBox").find("#searchInput").append(input).end()
+    .find(".clear").hide().end()
+    // .find('input').attr('placeholder', 'Search for albums or bands..').end()
+    .on("load change keyup click", function (e) {
+
+      var
+        target = $(e.target),
+        iclear = $(this).find(".clear").hide(),
+        searchInput = $(this).find("input"),
+        searchCols = [],
+        searchOps = $(this).find("select").val() || [],
+        searchValue = searchInput.val(),
+        searchIndex = searchOps.map((d, j) => {
+          return d = api.column('.col-' + d).index();
+        });
+      if (searchInput.val()) {
+        iclear.show().css('display', 'flex');
       }
-        return true;
-	  }
-    }
-    return false;
-  });
-  return input;
-}
-const searchBox = api => {
-  $("#searchInput").append(createFilter(api, [2, 1]));
-  $("#searchInput input.search").attr('placeholder', 'Search for albums or bands..');
-  $("#search-fields").on("keyup change", function searchFields(e) {
-    var
-      searchCols = [],
-      searchFields = $('#search-fields').val() || [],
-      searchInput = $('#searchInput input.search'),
-    searchValue = searchInput.val(),
-	searchIndex = searchFields.map((d, j) => {
-        return d = api.column('.col-' + d).index();
+      if (target.hasClass("clear")) {
+        searchInput.val('').focus();
+        iclear.hide();
+      }
+      if (target.is("select")) {
+        $(this).find('option:selected').each(function () { searchCols.push($(this).text().toLowerCase().concat('s')) });
+        searchCols = searchCols.length < 4 ? searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or') :
+          searchCols.join(', ').replace(/^((?:[^,]+,\s?){0,3}[^,]+(?=\b))(.*)/g, '$1, etc');
+        searchInput.val('');
+        // api.columns().every(function () { this.search('') });
+        $("#searchInput").empty()
+          .append(input).find('input').val(searchValue)
+          .attr('placeholder', 'Search for '.concat(searchCols, '..'))
+          .trigger('keyup');
+      }
+      $.fn.dataTable.ext.search.push(function (settings, searchData, index, rowData, counter) {
+        var val = searchInput.val().toLowerCase(), len = searchIndex.length;
+        if (len == 0) { return true } else {
+          for (var i = 0, ien = searchIndex.length; i < ien; i++) {
+            var data = searchData[searchIndex[i]], dataLower = data.toLowerCase().split('|||')[0], position = dataLower.indexOf(val);
+            if (position !== -1) {
+              return true;
+            }
+          }
+          return false;
+        }
       });
-    $('#search-fields option:selected').each(function () {
-      searchCols.push($(this).text().toLowerCase().concat('s'))
+      api.draw();
     });
-    searchCols = searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or');
-    searchInput.val('');
-	api.columns().every( function () {this .search( '' ); } );
-    $("#searchInput").empty().append(createFilter(api, searchIndex))
-      .children('input.search').val(searchValue)
-      .attr('placeholder', 'Search for '.concat(searchCols, '..'));
-	  // $(".dataTables").highlight(searchValue);
-  });
 }
 function stateSave(settings, data) {
   localStorage.setItem(savedSettings, JSON.stringify({ ...data, file: datafile }));
@@ -406,6 +376,7 @@ const defaultParams = {
     regex: true,
     smart: true,
   },
+  searchDelay: 1000,
   stateSave: true,
   stateDuration: 60 * 60 * 24 * 7,
   stateSaveCallback: stateSave,
@@ -455,7 +426,11 @@ $(function () {
         .stop().delay(1000).fadeIn(500).delay(1500).fadeOut(600);
     }
   });
-  $('.toggle ').click(function () {
+  //active link after click second time (for mobile devices only)
+  $('.dataTables').on('click', '.dropdown,.float', function activeFloat() {
+    $(this).toggleClass('actived');
+  });
+  $('.toggle ').on('click', function toggleBtw() {
     $(this).parent().children('.hideItem, .hideItem>*').toggle({
       duration: 500,
       height: "easeInBounce",
@@ -464,42 +439,64 @@ $(function () {
     $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
     $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
   });
-  //active link after click second time (for mobile devices only)
-  $('.dataTables').on('click', '.dropdown,.float', function activeFloat() {
-    $(this).toggleClass('actived');
+  //clear filterSection
+  $('.filterSection').on('click', '.clear', function clearField() {
+    var filter = $(this).parent();
+    filter.find('option').prop('selected', false);
+    filter.find('input[type="text"]').val('');
   });
-
-
-  $('.filterSection .clear').click(function () {
-    var filters = $(this).parent();
-    var cols = filters.attr('class').replace(/.*(?=\d)/g, '');
-    filters.children('select').children('option').prop('selected', false);
-    filters.children('#datepicker').val('');
-  });
-  $('#all, #reSet, #Reset').click(function () {
-    $('select option').uncheck();
-    $('#searchBox option').check();
-    $("input[type='checkbox']").uncheck();
-    $("input[type='text']").val('');
+  //reset settings
+  $('#all').on('click', function setAll() {
+    $('.searchBox, .filterSection').find('input[type="text"]').val('');
+    $('.searchBox, .filterSection').find('input[type="checkbox"]').prop('checked', false);
+    $('.searchBox, .filterSection').find('select[multiple] option').prop('selected', true);
+    $('.searchBox, .filterSection').find('select:not([multiple]) option').prop('selected', false);
 
   });
-  $('#reSet, #Reset').click(function () {
-    $('#searchBox option:not(:eq(0)):not(:eq(0))').uncheck();
-    $('#genre-options option:not(:eq(-1))').check();
+  //reset default settings
+  $('#reSet, #Reset').on('click', function setDefault() {
+    $('.searchBox, .filterSection').find('input[type="checkbox"]').prop('checked', function () { return $(this).prop('defaultChecked'); });
+    $('.searchBox, .filterSection').find('input[type="text"]').val(function () { return $(this).prop('defaultValue'); }).attr('placeholder', 'Search for albums or bands..');
+    $('.searchBox, .filterSection').find('option').prop('selected', function () { return $(this).prop('defaultSelected'); });
+    // $('.searchBox, .filterSection').find('input').attr('placeholder', 'Search for albums or bands..');
   });
-  $('.reload').click(function () {
-    localStorage.setItem(savedItem, JSON.stringify({
-      expire: 0,
-    }));
+  $('.reload').on('click', function reloadData() {
+    localStorage.setItem(savedItem, JSON.stringify({ expire: 0, }));
     location.reload();
   });
+
 });
 $(document).on('click', '.paginate_button', function scrollTo() {
   $('body,html').animate({
-    scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").height() - 8,
+    scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").outerHeight(),
   }, 800);
 });
+$(window).one('scroll', function () {
+  $('.dataTables tbody tr').each(function () {
+    var tr = $(this);
+    var position = tr.position().top - $(window).scrollTop();
+    var top_of_element = $(this).offset().top;
+    var mid_of_element = $(this).offset().top + $(this).outerHeight() / 2;
+    var bottom_of_element = $(this).offset().top + $(this).outerHeight();
+    var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight() - $(".bottom").outerHeight() - 50;
+    var top_of_screen = $(window).scrollTop();
+    // if (top_of_screen - top_of_element < -$(  this ).outerHeight()/2) {
+    if ((bottom_of_screen > bottom_of_element) && (top_of_screen < top_of_element - $(this).outerHeight() / 2)) {
+      tr.stop().delay(20000).addClass('selected');
+    } else {
+      tr.stop().delay(30000).removeClass('selected');
+    }
+    console.log(top_of_screen, bottom_of_screen, top_of_element, bottom_of_element, position);
+    if ($('.selected').length > 0) {
+      $('body,html').animate({
+        scrollTop: $('.selected').first().offset().top - $(".dataTables_filter").outerHeight() ,
+      }, 800);
+	   $('.selected').removeClass('selected');
+    }
+    // $(window).off( "scroll" )
+  });
 
+});
 String.prototype.toTitleCase = function () {
   var i, j, str, lowers, uppers;
   str = this.replace(/\S*?\b[\p{L}']+/gu, function (txt) {

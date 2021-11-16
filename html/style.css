@@ -681,8 +681,6 @@ a {
   display: "";
 }
 
-.dataTables_wrapper,
-.filterSection {}
 
 .hideItem {
   display: none;
@@ -966,10 +964,22 @@ div.dt-datetime-iconDown button {
   color: #fed;
 }
 
+.bottom {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: .2rem;
+  padding-top: 2rem;
+}
+
 .bottom>div {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: #333;
+  box-shadow: 0px 0px 2em 2em #333;
 }
 
 
@@ -1031,20 +1041,6 @@ div.dt-datetime-iconDown button {
   /* pointer-events:none; */
 }
 
-
-.bottom {
-  /* display: none; */
-  position: -webkit-sticky;
-  position: sticky;
-  /* position: fixed; */
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: .2rem;
-  /* overflow-x:hidden; */
-  background-color: #333;
-  box-shadow: 0px 0px 2em 2em #333;
-}
 
 button {
   padding-left: .7rem;
@@ -1247,9 +1243,7 @@ table ::-webkit-scrollbar {
 
 .newlist tbody tr {
   border-top: 1px solid rgba(99, 99, 99, .2);
-  scroll-margin-inline-end: 1rem;
   box-sizing: border-box;
-  scroll-snap-type: y mandatory;
   transition: .6s;
 }
 
@@ -1329,10 +1323,7 @@ table ::-webkit-scrollbar {
   background-color: rgba(0, 0, 0, .0);
 }
 
-.inSelection {
-  background-color: red;
-  background: linear-gradient(blue, #333);
-}
+
 
 .newlist thead {
   background-color: rgba(111, 111, 111, .2);
@@ -1377,6 +1368,8 @@ table ::-webkit-scrollbar {
 .newlist thead>tr:nth-last-child(1)>th:nth-child(2) {
   font-weight: 600;
 }
+
+
 
 .grid_item {
   position: relative;
@@ -1640,6 +1633,10 @@ iframe {
   height: 8px;
 }
 
+.filterSection span {
+  display: inline-flex;
+    align-items: center;
+}
 .filterSection tbody {
   display: grid;
 }
@@ -1667,7 +1664,6 @@ iframe {
   display: flex;
   min-width: 5rem;
 }
-
 
 #label-filter select:hover,
 #label-filter option:hover,
@@ -1777,12 +1773,9 @@ iframe {
 }
 
 .filter-holder {
-  display: inline-flex;
   overflow: hidden;
-  max-width: 55vw;
-  align-items: center;
+  /* max-width: 55vw; */
 }
-
 
 .checkmark {
   grid-column: 1 / span 1;
@@ -1853,6 +1846,7 @@ input:focus+.slider {}
   padding: 0;
   margin-left: 4px;
   align-self: center;
+  white-space: nowrap;
 }
 
 .newlist .fa {
@@ -2197,7 +2191,7 @@ div.dt-datetime-label span {
 .dataTables_filter>* {
   /* padding-left:1rem; */
   display: flex;
-  align-items: center;
+  align-items: stretch;
 }
 
 .dataTables_filter {
@@ -2219,8 +2213,9 @@ div.dt-datetime-label span {
 
 #searchBox {
   display: grid;
-  grid-template-columns: 1rem 1fr;
+  grid-template-columns: 0rem 1fr;
   margin-top: 0;
+  padding: .5rem 1rem;
   visibility: hidden;
 }
 
@@ -2232,8 +2227,7 @@ div.dt-datetime-label span {
 .dataTables_filter input {
   display: inline-block;
   width: 100%;
-  padding: .6rem 1rem;
-  font-size: .9rem;
+  padding: .4rem 1.2rem;
   color: #fff;
 }
 
@@ -2244,7 +2238,6 @@ div.dt-datetime-label span {
 .dataTables_filter .fa {
   left: 1rem;
   width: fit-content;
-  font-size: .9em;
 }
 
 .dataTables_filter .toggle .fa {
@@ -2252,8 +2245,7 @@ div.dt-datetime-label span {
 }
 
 .dataTables_filter .clear {
-  padding: .6rem 1rem;
-  display: none;
+  align-items: center;
 }
 
 .dataTables_filter .hideItem {
@@ -2261,7 +2253,7 @@ div.dt-datetime-label span {
 }
 
 .dataTables_filter .filterSection {
-  margin-top: 0;
+  /* margin-top: 0; */
 }
 
 .footer {
