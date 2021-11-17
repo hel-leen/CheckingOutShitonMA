@@ -716,6 +716,7 @@ button {
 
 .dataTables_paginate {
   text-align: center;
+  z-index: 9999;
 }
 
 .paginate_button {
@@ -972,18 +973,19 @@ div.dt-datetime-iconDown button {
   bottom: 0;
   left: 0;
   right: 0;
-  padding: .2rem;
   padding-top: 1rem;
 }
 
+.bottom>div:nth-child(1) {
+  box-shadow: 0px 0px 2em 2em #333;
+  -moz-box-shadow: 0px 0px 2em 2em #333;
+  -webkit-box-shadow: 0px 0px 2em 2em #333;
+}
 .bottom>div {
   display: flex;
   justify-content: center;
   align-items: center;
   background: #333;
-  box-shadow: 0px 0px 2em 2em #333;
-  -moz-box-shadow: 0px 0px 2em 2em #333;
-  -webkit-box-shadow: 0px 0px 2em 2em #333;
 }
 
 

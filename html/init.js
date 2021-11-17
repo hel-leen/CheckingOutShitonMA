@@ -462,7 +462,7 @@ $(document).on('click', '.paginate_button', function scrollPage() {
     }
   );
 })
-$(window).on('scroll', function (e) {
+/* $(window).on('scroll', function (e) {
   var st = $(this).scrollTop(),
     off_b = $(".bottom").outerHeight(),
     off_t = $(".dataTables_filter").outerHeight(),
@@ -496,11 +496,9 @@ $(window).on('scroll', function (e) {
         scrolling(scroll);
       }
     }
-    // console.log("Haven't scrolled in 250ms!");
     lastScrollTop = st;
   }, 666));
-  // console.log(top_of_screen, bottom_of_screen, top_of_element, bottom_of_element, position);
-});
+}); */
 
 // text replacer
 String.prototype.toTitleCase = function () {
