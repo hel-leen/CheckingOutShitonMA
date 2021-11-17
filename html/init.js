@@ -1,7 +1,7 @@
 const scrolling = (scroll, fun) => {
   $('body,html').stop().animate({
     scrollTop: scroll,
-  }, Math.min(Math.max(Math.abs(scroll - $(window).scrollTop()) * 1.5, 200), 2000), fun);
+  }, Math.min(Math.max(Math.abs(scroll - $(window).scrollTop()) * 1.5, 150), 1500), fun);
 }
 function pageLayout(api) {
   var
@@ -407,9 +407,12 @@ $(function () {
     if (groupRow.nextAll('.group').length > 1) {
       scrolling(groupRow.nextAll('.group').offset().top - $(".dataTables_filter").outerHeight());
     } else {
-      scrolling(groupRow.nextAll().last().offset().top - $(".dataTables_filter").outerHeight());
-      $("<div class='toast' >End reached</div>").hide().appendTo('.bottom')
-        .stop().delay(1000).fadeIn(500).delay(1500).fadeOut(600, function () { $(this).remove(); });
+      scrolling(groupRow.nextAll().last().offset().top - $(".dataTables_filter").outerHeight(),
+	    function () {
+	      $("<div class='toast' >End reached</div>").hide().appendTo('.bottom')
+			.stop().delay(500).fadeIn(500).delay(1500).fadeOut(600, function () { $(this).remove(); });
+    });
+
     }
   });
   //active link after click second time (for mobile devices only)
