@@ -29,12 +29,13 @@ $(function () {
           if (type === 'display') {
             let album_id = data.split(/(?<=\d)\|\|\|/g)[0];
             let album_cover = data.split(/(?<=\d)\|\|\|/g)[1];
+			var svg = '<svg  data-prefix="fad" data-icon="compact-disc" role="img" viewBox="0 0 512 512" class="nocover"><g><path d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM88,256H56C56,150.1,142.1,64,248,64V96C159.8,96,88,167.8,88,256Zm160,96a96,96,0,1,1,96-96A96,96,0,0,1,248,352Z"></path><path d="M248,160a96,96,0,1,0,96,96A96,96,0,0,0,248,160Zm0,128a32,32,0,1,1,32-32A32,32,0,0,1,248,288Z"></path><text x="256" y="275"  fill="currentColor"></text></g></svg>';
             switch (album_cover) {
               case '/images/cat.jpg':
-                album_cover = '<svg  data-prefix="fad" data-icon="compact-disc" role="img" viewBox="0 0 512 512" class="nocover"><g><path d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM88,256H56C56,150.1,142.1,64,248,64V96C159.8,96,88,167.8,88,256Zm160,96a96,96,0,1,1,96-96A96,96,0,0,1,248,352Z"></path><path d="M248,160a96,96,0,1,0,96,96A96,96,0,0,0,248,160Zm0,128a32,32,0,1,1,32-32A32,32,0,0,1,248,288Z"></path><text x="256" y="275"  fill="currentColor"></text></g></svg>';
+                album_cover = svg ;
                 break;
               default:
-                album_cover = '<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy">');
+                album_cover = '<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy" onError="this.onerror=null;this.src=\'https://www.metal-archives.com/images/cat.jpg\';">');
             }
             return album_cover;
           }
@@ -43,7 +44,7 @@ $(function () {
         // searchable: false,
         // sorting: false,
         // responsivePriority: 1,
-		className: "col-cover all",
+        className: "col-cover all",
         width: '16%',
         targets: [0],
       }, {
@@ -71,7 +72,7 @@ $(function () {
           return data;
         },
         // responsivePriority: 1,
-		className: "col-album all",
+        className: "col-album all",
         width: '11%',
         targets: [1],
       }, {
@@ -93,7 +94,7 @@ $(function () {
           return data;
         },
         // responsivePriority: 1,
-		className: "col-band all",
+        className: "col-band all",
         width: '11%',
         targets: [2],
       }, {
@@ -117,10 +118,11 @@ $(function () {
           return data;
         },
         sorting: false,
-		className: "col-genre all",
+        className: "col-genre all",
         width: '11%',
         targets: [3],
-      }, {
+      },
+      {
         // asso
         render: (data, type) => {
           if (type === 'display') {
@@ -151,7 +153,7 @@ $(function () {
         },
         // searchable: false,
         sorting: false,
-		className: "col-asso all",
+        className: "col-asso all",
         width: '10%',
         targets: [4],
       }, {
@@ -181,7 +183,7 @@ $(function () {
         },
         sorting: false,
         // responsivePriority: 2,
-		className: "col-simi all",
+        className: "col-simi all",
         width: '10%',
         targets: [5],
       }, {
@@ -206,7 +208,7 @@ $(function () {
           return data;
         },
         sorting: false,
-		className: "col-label not-tablet",
+        className: "col-label not-tablet",
         width: '9%',
         targets: [6],
       }, {
@@ -234,10 +236,11 @@ $(function () {
           }
           return data;
         },
-		className: "col-length not-fablet",
+        className: "col-length not-fablet",
         width: '7%',
         targets: [7],
-      }, {
+      },
+      {
         // date
         render: (data, type, row) => {
           if (type === 'display') {
@@ -255,7 +258,7 @@ $(function () {
           return data;
         },
         // responsivePriority: 1,
-		className: "col-date all",
+        className: "col-date all",
         width: '8%',
         targets: [8],
       }],
@@ -264,6 +267,33 @@ $(function () {
         var api = this.api();
         callbackShow(api);
         $('tr.group abbr').text('');
+        $.fn.dataTable.ext.search = 
+		$.fn.dataTable.ext.search.filter(function (fun) { return fun.name !== 'filterSec' } ).concat(
+          function filterSec(settings, data, dataIndex) {
+            let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3];
+            let genre = data[3].toLowerCase();
+            let date = data[8].split('|||')[0];
+            var dateCount = [];
+            let version = data[8].split('|||')[1];
+            let genres = $('#genre-options').val() || [];
+            var dateset;
+            if ($('#datepicker').val() != '' && $('#datecondition').val() != '') {
+              if ($('#datecondition').val() == 'After') {
+                dateset = eval(date >= $('#datepicker').val());
+              } else if ($('#datecondition').val() == 'Before') {
+                dateset = eval(date < $('#datepicker').val());
+              }
+            } else {
+              dateset = date;
+            }
+            if (
+              ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0)) {
+              return false;
+            }
+            return genre.search('('.concat('(', genres.join('|'), ')', ')')) > -1 && dateset;
+            // return true;
+          }
+        );
       },
       initComplete: function initComp() {
         initShow();
@@ -273,10 +303,10 @@ $(function () {
         // select boxes
         var select;
         api.columns('.col-band,.col-label').every(function () {
-          var column = this, selName = 'sel-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
+          var column = this, colName = $(this.header()).attr('class').match(/col-(\S*)/)[1];
           $('<select><option value=""></option></select>')
-            .attr("name", selName)
-            .insertBefore('.' + selName + ' .clear')
+            .attr("name", 'filter-' + colName)
+            .insertBefore('.filter-holder.' + colName + ' .clear')
             .on('change', function boxesVal() {
               var val = $.fn.dataTable.util.escapeRegex($(this).val());
               column.search(val ? val + '$' : '', true, true).draw();
@@ -284,7 +314,7 @@ $(function () {
         });
         // select box for countries
         api.columns('.col-band').every(function () {
-          select = $('.sel-band select');
+          select = $('.filter-holder.band select');
           var countries =
             this.data().map((d, j) => {
               return d = d.split('|||')[2].split('| || |');
@@ -299,7 +329,7 @@ $(function () {
         });
         // select box for labels
         api.columns('.col-label').every(function () {
-          select = $('.sel-label select');
+          select = $('.filter-holder.label select');
           var lables =
             this.data().unique().filter(v => v != '').map(d => d.match(/(?<=\d')(.*)/)[1]).sort(partSort).each(opval => {
               select.append('<option value="' + opval + '">' + opval + '</option>');
@@ -349,9 +379,7 @@ $(function () {
               this.hoverlabel = {
                 bgcolor: "rgba(0,0,0,0.8)",
                 bordercolor: "transparent",
-                font: {
-                  color: "#ccc"
-                },
+                font: { color: "#ccc" },
               }
               this.hoverinfo = 'skip'
             };
@@ -448,12 +476,13 @@ $(function () {
             }
           });
         });
+
       },
     })
-;
+    ;
   $("#timecharts").addClass("hideItem");
   var ids = new GetId(table);
-  
+
   // sortHandlers
   function sortById() {
     table.order([ids.cover, 'desc']).draw();
@@ -464,28 +493,30 @@ $(function () {
     $(this).one("click", sortById);
   }
   $("#Newest").one("click", sortById);
+
   //clear filterSection
-  $('.filterSection .clear').on('click', function clearField () {
+  $('.filterSection .clear').on('click', function clearField() {
     var cols = $(this).parent().attr('class').replace(/.*sel-/g, '.col-');
     table.columns(cols).search('').draw();
   });
 
   //reset settings
-  $('#all').on('click', function setAll () {
-    table.columns().every( function () {this .search( '' ); } );
-	table.order([[ ids.date, 'desc'], [ids.cover, 'desc']]).draw();
+  $('#all').on('click', function setAll() {
+    table.columns().every(function () { this.search(''); });
+    table.order([[ids.date, 'desc'], [ids.cover, 'desc']]).draw();
   });
   //reset default settings
   $('#reSet, #Reset').on('click', function setDefault() {
-    // $('#datecondition').val('After');
+    $('#datecondition').val('After');
     $('#datepicker').val(thisweek);
+    table.columns().every(function () { this.search(''); });
     table.order([[ids.date, 'asc'], [ids.cover, 'desc']]).draw();
   });
   $('#datecondition').click(function () {
     if ($(this).val() == 'After') {
       $(this).val('Before');
       $(this).css('text-shadow', '0px 0px 1px #d99');
-      table.order([[ids.date,, 'desc'], [ids.cover, 'desc']]).draw(true);
+      table.order([[ids.date, 'desc'], [ids.cover, 'desc']]).draw(true);
     } else {
       $(this).val('After');
       $(this).css('text-shadow', '0px 0px 1px #9b9');
@@ -493,40 +524,17 @@ $(function () {
     }
   });
   $('#datepicker, #today, #Today, .dt-datetime-today').click(function datePicker() {
+    table.column(ids.date).search('');
     $('#datepicker').val(thisday);
     table.draw();
   });
-  $('.filter,.genrefilter, .dataTables_length, .filter-holder,#reset').on("click change", function filterSection() {
+  $('.filter,.genrefilter, .dataTables_length, .filter-holder, #reset').on("click change", function filterSection() {
     table.draw();
   });
-$(window).on("resize load ", function () {
-  pageLayout(table);
-  // $('.dataTables').DataTable().draw(false)
-});
+  $(window).on("resize load ", function () {
+    pageLayout(table);
+  });
+
 });
 
 
-$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
-  let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3];
-  let genre = data[3].toLowerCase();
-  let date = data[8].split('|||')[0];
-  var dateCount = [];
-  let version = data[8].split('|||')[1];
-  let genres = $('#genre-options').val() || [];
-  var dateset;
-  if ($('#datepicker').val() !='') {
-    if ($('#datecondition').val() == 'After') {
-      dateset = eval(date >= $('#datepicker').val());
-    } else if ($('#datecondition').val() == 'Before') {
-      dateset = eval(date < $('#datepicker').val());
-    }
-  } else {
-    dateset = date;
-  }
-  if (
-    ($('#Fulllength').is(':checked') && type.indexOf('Full') < 0) || ($('#Reissue').is(':checked') && version.indexOf('0000') < 0)) {
-    return false;
-  }
-  return genre.search('('.concat('(', genres.join('|'), ')', ')')) > -1 && dateset;
-  // return true;
-});

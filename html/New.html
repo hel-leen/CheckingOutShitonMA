@@ -1,67 +1,86 @@
-<!DOCTYPE html><html lang = "en">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<!-- <base target="_blank" rel="noopener noreferrer"> <form target="_self"> -->
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
-<meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
-<meta name="theme-color" content="#000" media="(prefers-color-scheme: light)">
-<title>New Albums on MA</title>
-<link rel="preconnect" href="https://www.metal-archives.com">
-<link rel="dns-prefetch" href="https://www.metal-archives.com">
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
-<script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.5.1/plotly.min.js"></script>
-<script type="text/javascript" src="init.js"></script>
-<script type="text/javascript" src="new.init.js"></script>
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" type="image/png" href="cat.png">
+	<!-- <base target="_blank" rel="noopener noreferrer"> <form target="_self"> -->
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta charset="UTF-8" content="width=device-width, height=device-height, initial-scale=1.0" name="viewport">
+	<meta name="theme-color" content="#333" media="(prefers-color-scheme: dark)">
+	<meta name="theme-color" content="#000" media="(prefers-color-scheme: light)">
+	<title>New Albums on MA</title>
+	<link rel="preconnect" href="https://www.metal-archives.com">
+	<link rel="dns-prefetch" href="https://www.metal-archives.com">
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.21/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/datetime/1.1.1/js/dataTables.dateTime.min.js">
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.5.1/plotly.min.js"></script>
+	<script type="text/javascript" src="init.js"></script>
+	<script type="text/javascript" src="new.init.js"></script>
+	<link rel="stylesheet" href="style.css">
+	<link rel="shortcut icon" type="image/png" href="cat.png">
 </head>
+
 <body>
-  <h1 class="glow" id="header">New albums on MA  </h1>
-  <div class="sidenav"> <div id="home"><a href="../">Home</a></div> </div>
-  <div style="margin: .5em 0%;">
-    All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included and duplicates filtered out. </div>
-    <p>Web page genereated with <a href="https://www.r-project.org/">R</a> 
-    ( See <a href="../code.R">source code</a>
-	<!-- and <a href="./new">data file</a> -->
-	).
-  </p>
-  <div  id="info">
-  <span class="pointer reload" data-title='Reload data'><a id="update"></a><small><i class="fas fa-redo-alt ts"></i></small> ; </span>&nbsp;
-  <span class="toggle" data-title='Hide/show graph'><a id="count"></a><i class="fa fa-caret fa-caret-down toggle"></i></span>
-  <div id="timecharts"> </div>
-  <p></p>
-  </div>
-  <div class="note">
-	<span class="toggle">
+	<h1 class="glow" id="header">New albums on MA  </h1>
+	<div class="sidenav">
+		<div id="home"><a href="../">Home</a></div>
+	</div>
+	<div style="margin: .5em 0%;">
+		All data from <a href="https://www.metal-archives.com/">THE Metal Archives</a>, with more album info included
+		and duplicates filtered out. </div>
+	<p>Web page genereated with <a href="https://www.r-project.org/">R</a>
+		( See <a href="../code.R">source code</a>
+		<!-- and <a href="./new">data file</a> -->
+		).
+	</p>
+	<div id="info">
+		<span class="pointer reload" data-title='Reload data'><a id="update"></a><small><i class="fas fa-redo-alt ts"></i></small> ; </span>&nbsp;
+		<span class="toggle" data-title='Hide/show graph'><a id="count"></a><i class="fa fa-caret fa-caret-down toggle"></i></span>
+		<div id="timecharts"> </div>
+		<p></p>
+	</div>
+	<div class="note">
+		<span class="toggle">
 		<b >NOTE </b><i class="fa fa-caret fa-caret-right toggle"></i>
 		<a> Click to read tips.</a>
 	</span>
-    <div class="hideItem">
-      <p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other version(s) of the album in question, if it has any, while "unknown" means the album doesn't have any version earlier than the one shown here. The info is useful when you want to skip re-releases.</s> Merged with "Release Info. - Date" data.</p>
-      <!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
-      <p><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> means the album doesn't have any cover(!?).</p>
-      <p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click <button id="Today">here</button> to filter it based on today (in your timezone). Or use "<b id="Reset">Reset</b>" to restore default settings.</p>
-      <p>If you don't wanna see an album for some reason, double click it to select, then click <i class="fas fa-trash delItems" ></i> at the bottom right, gone. <s>It comes back after refreshing the page you say? Well my little page is just static without a server. What else do you expect from it?</s> It finally works... and the effect will last for a week or so. In case you regret, click  <i class="fas fa-trash-restore resItems" ></i> or  <button id="res">this</button> to bring back deleted album(s)  . </p>
-      <!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
-    </div>
-	  <p></p>
-  </div>
-<div class="filterWrapper hideItem">
-	<div class="filterSection">
-		<p><strong>Reset:</strong></p>
-		<span class="filter-holder" id="reset-filter">
+		<div class="hideItem">
+			<p><s> The last column "EarliestDate" of the table stands for (literally) the earliest release date of other
+					version(s) of the album in question, if it has any, while "unknown" means the album doesn't have any
+					version earlier than the one shown here. The info is useful when you want to skip re-releases.</s>
+				Merged with "Release Info. - Date" data.</p>
+			<!-- <p>The column "BandPage" only shows links of the first band in case of a split or compilation.</p> -->
+			<p><a href="https://www.metal-archives.com/images/cat.jpg">Cat picture</a> means the album doesn't have any
+				cover(!?).</p>
+			<p>In "Date" filter, the default condition is release date after (including) last Friday. You can also click
+				<button id="Today">here</button> to filter it based on today (in your timezone). Or use
+				"<b id="Reset">Reset</b>" to restore default settings.</p>
+			<p>If you don't wanna see an album for some reason, double click it to select, then click
+				<i class="fas fa-trash delItems" ></i> at the bottom right, gone. <s>It comes back after refreshing the
+					page you say? Well my little page is just static without a server. What else do you expect from
+					it?</s> It finally works... and the effect will last for a week or so. In case you regret, click
+				<i class="fas fa-trash-restore resItems" ></i> or <button id="res">this</button> to bring back deleted
+				album(s) . </p>
+			<!-- <p>The page is RAM-eating while loading the big bunch of covers. Good luck!</p> </p>  -->
+		</div>
+		<p></p>
+	</div>
+	<div class="filterWrapper hideItem">
+		<div class="filterSection">
+			<p><strong>Reset:</strong></p>
+			<span class="filter-holder" id="reset-filter">
 				<button id="reSet">Default</button><button id="all">Show all</button>
 				<!-- <button id="res">Undel.</button> -->
 			</span>
-	</div>
-	<span>
+		</div>
+		<span>
 	<div >
 		<span class="filterSection">
 			<p><strong>Date: </strong></p>
-			<span class="filter-holder 8" id="date-filter">
+			<span class="filter-holder date 8" id="date-filter">
 				<input id="datecondition" type="button" value="After" class='pointer'  readonly>
 				<input id="datepicker" type="text" class='pointer' readonly>
 				<i id="" class="clear solid fa fa-times-circle"></i>
@@ -69,7 +88,7 @@
 		</span>
 		<span class="filterSection">
 			<p><strong>Genre:</strong></p>
-			<span class="filter-holder 3" id="genre-filter">
+			<span class="filter-holder genre 3" id="genre-filter">
 				<div class="solid filter-item">
 					<select id="genre-options" name="genre-options" multiple size="1">
 					<option selected value="black.*metal">Black Metal</option>
@@ -79,23 +98,23 @@
 			</span>
 		</span>
 	</div>
-	<div >
+	<div>
 		<span class="filterSection">
 			<p><strong>Label:</strong></p>
-			<span class="filter-holder sel-label" id="label-filter">
+			<span class="filter-holder label 6" id="label-filter">
 				<i id="labelclear" class="clear solid fa fa-times-circle"></i>
 			</span>
 		</span>
 		<span class="filterSection">
 			<p><strong>Country:</strong></p>
-			<span class="filter-holder sel-band" id="country-filter">
+			<span class="filter-holder band 2" id="country-filter">
 				<i id="countryclear" class="clear solid fa fa-times-circle"></i>
 			</span>
 		</span>
 	</div></span>
 	<div class="filterSection">
 		<p><strong>Types:</strong></p>
-		<span class="filter-holder">
+		<span class="filter-holder album 1">
 			<label class="solid checkcontainer">
 				<input class="filter fa" id="Reissue" name="Reissue" type="checkbox">
 				<span class="checkmark solid toggle">
@@ -103,14 +122,14 @@
 				<i class="far fa-check-circle"></i>
 				<p>No Reissue</p>
 				</span></label>
-			<label class="solid checkcontainer">
+		<label class="solid checkcontainer">
 				<input class="filter fa" id="Fulllength" name="Fulllength" type="checkbox">
 				<span class="checkmark solid toggle">
 				<i class="far fa-circle"></i>
 				<i class="far fa-check-circle"></i>
 				<p>Full-length only</p>
 				</span></label>
-			<label class="solid checkcontainer" id="hiddenToggle">
+		<label class="solid checkcontainer" id="hiddenToggle">
 				<input class="filter fa" id="Newest" type="checkbox">
 				<span class="checkmark solid toggle">
 				<i class="far fa-circle"></i>
@@ -119,14 +138,14 @@
 				</span></label>
 		</span>
 	</div>
-</div>
-<div id="searchBox" class="dataTables_filter searchBox hideItem">
-	<span class="toggle"><i class="fa fa-chevron fa-chevron-circle-right "></i></span>
-	<div id="searchInput"> </div>
-	<span></span>
-	<span id="searchField" class="filterSection hideItem">
+	</div>
+	<div id="searchBox" class="dataTables_filter searchBox hideItem">
+		<span class="toggle"><i class="fa fa-chevron fa-chevron-circle-right "></i></span>
+		<div id="searchInput"> </div>
+		<span></span>
+		<span id="searchField" class="filterSection hideItem">
 			<span><b>Search field:</b> &nbsp;</span>
-			<span class="filter-holder" id="search-filter">
+		<span class="filter-holder" id="search-filter">
 				<div class="solid filter-item">
 				<select id="searchOps" multiple size="1">
 					<option selected value="album">Album</option>
@@ -138,30 +157,35 @@
 				</select>
 				</div>
 			</span>
-	</span>
-</div>
-<table class="newlist dataTables"  style="border-collapse:collapse;" border="1">
-	<thead>
-		<tr>
-			<th colspan="2" id="second_header_1"> </th>
-			<th colspan="4" id="second_header_2">Band Info.</th>
-			<th colspan="4" id="second_header_3">Release Info.</th>
-		</tr>
-		<tr>
-			<th id="header_0">Cover</th>
-			<th id="header_1">Album</th>
-			<th id="header_2">Band</th>
-			<th id="header_3">Genre</th>
-			<th id="header_4">Asso. Acts</th>
-			<th id="header_5">Similar to</th>
-			<th id="header_6">Label</th>
-			<th id="header_7">Length</th>
-			<th id="header_8">Date<div class="fixed float">FORMAT: <p>Date of current release<br>(Date of earliest known version)</p><p>SORTING by current date</p></div></th>
-		</tr>
-	</thead>
-</table>
-<div class="anchor hideItem">
-  <img src="annoyedcat.png" class="text-center shadow">
-  <p>slow internet is annoying me..</p>
-</div>
+		</span>
+	</div>
+	<table class="newlist dataTables" style="border-collapse:collapse;" border="1">
+		<thead>
+			<tr>
+				<th colspan="2" id="second_header_1"> </th>
+				<th colspan="4" id="second_header_2">Band Info.</th>
+				<th colspan="4" id="second_header_3">Release Info.</th>
+			</tr>
+			<tr>
+				<th id="header_0">Cover</th>
+				<th id="header_1">Album</th>
+				<th id="header_2">Band</th>
+				<th id="header_3">Genre</th>
+				<th id="header_4">Asso. Acts</th>
+				<th id="header_5">Similar to</th>
+				<th id="header_6">Label</th>
+				<th id="header_7">Length</th>
+				<th id="header_8">Date
+					<div class="fixed float">FORMAT:
+						<p>Date of current release<br>(Date of earliest known version)</p>
+						<p>SORTING by current date</p>
+					</div>
+				</th>
+			</tr>
+		</thead>
+	</table>
+	<div class="anchor hideItem">
+		<img src="annoyedcat.png" class="text-center shadow">
+		<p>slow internet is annoying me..</p>
+	</div>
 </body>

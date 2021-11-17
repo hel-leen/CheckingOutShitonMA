@@ -282,7 +282,7 @@ $.fn.dataTable.ext.type.order['ranking-pre'] = function (d) {
   d = parseFloat(''.concat(d.match(/(^ranking:)(\d+)\|\|\|(.*)/)[2]));
   return d;
 };
-$.fn.dataTable.ext.search.push(function (settings, data, dataIndex) {
+$.fn.dataTable.ext.search.push(function filterSec(settings, data, dataIndex) {
   let
     type = data[8],
     types = $(".sel-length select").val() || [];

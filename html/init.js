@@ -1,18 +1,8 @@
-
-jQuery.fn.extend({
-  check: function () {
-    return this.each(function () {
-      this.checked = true;
-      this.selected = true;
-    });
-  },
-  uncheck: function () {
-    return this.each(function () {
-      this.checked = false;
-      this.selected = false;
-    });
-  },
-});
+const scrolling = (scroll, fun) => {
+  $('body,html').stop().animate({
+    scrollTop: scroll,
+  }, Math.min(Math.max(Math.abs(scroll - $(window).scrollTop()) * 1.5, 200), 2000), fun);
+}
 function pageLayout(api) {
   var
     w = ($(window).width() / 100), sw = (screen.width / 100), sh = (screen.height / 100),
@@ -198,11 +188,12 @@ function initShow(api) {
 function callbackShow(api) {
   $(".filterWrapper").restoreForm();
   $("a").attr({ "target": "_blank", "rel": "noopener noreferrer" });
-  //group rows by date
   var
     rows = api.rows({ page: 'current' }).nodes(),
     cols = api.columns().indexes('visible').length,
     last = '';
+  $(api.table().body()).find('tr:last-child').after('<tr class="group"><td  colspan="' + cols + '">   </td></tr>');
+  //group rows by date
   api.column('.col-date', { page: 'current' })
     .data().each(function (coldate, i) {
       var date = coldate.replace(/\-|\|/g, '').slice(0, 8);
@@ -236,6 +227,7 @@ function callbackShow(api) {
     .append('<td class="check" style="display:none;"><label class="checkcontainer">' +
       '<input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
   lastCol.addClass('checklist');
+
 }
 
 function modifyItems(api) {
@@ -309,12 +301,13 @@ function modifyItems(api) {
   });
 };
 function searchBox(api) {
-  var input = '<input type="text" class="search" placeholder="Search for albums or bands.."/><span class="clear fa fa-times-circle"></span>';
-  $("#searchBox").find("#searchInput").append(input).end()
+  var
+    searchBox = $("#searchBox"),
+    input = '<input type="text" class="search" placeholder="Search for albums or bands.."/><span class="clear fa fa-times-circle"></span>';
+  searchBox.find("#searchInput").append(input).end()
     .find(".clear").hide().end()
     // .find('input').attr('placeholder', 'Search for albums or bands..').end()
-    .on("load change keyup click", function (e) {
-
+    .on("change keyup click", function (e) {
       var
         target = $(e.target),
         iclear = $(this).find(".clear").hide(),
@@ -332,7 +325,7 @@ function searchBox(api) {
         searchInput.val('').focus();
         iclear.hide();
       }
-      if (target.is("select")) {
+      if (target.is("select") && e.type == 'change') {
         $(this).find('option:selected').each(function () { searchCols.push($(this).text().toLowerCase().concat('s')) });
         searchCols = searchCols.length < 4 ? searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or') :
           searchCols.join(', ').replace(/^((?:[^,]+,\s?){0,3}[^,]+(?=\b))(.*)/g, '$1, etc');
@@ -341,20 +334,21 @@ function searchBox(api) {
         $("#searchInput").empty()
           .append(input).find('input').val(searchValue)
           .attr('placeholder', 'Search for '.concat(searchCols, '..'))
-          .trigger('keyup');
+        // searchBox.trigger('change');
       }
-      $.fn.dataTable.ext.search.push(function (settings, searchData, index, rowData, counter) {
-        var val = searchInput.val().toLowerCase(), len = searchIndex.length;
-        if (len == 0) { return true } else {
-          for (var i = 0, ien = searchIndex.length; i < ien; i++) {
-            var data = searchData[searchIndex[i]], dataLower = data.toLowerCase().split('|||')[0], position = dataLower.indexOf(val);
-            if (position !== -1) {
-              return true;
+      $.fn.dataTable.ext.search = $.fn.dataTable.ext.search.filter(function (fun) { return fun.name !== 'multiSearch' }).concat(
+        function multiSearch(settings, searchData, index, rowData, counter) {
+          var val = searchInput.val().toLowerCase(), len = searchIndex.length;
+          if (len == 0) { return true } else {
+            for (var i = 0, ien = searchIndex.length; i < ien; i++) {
+              var data = searchData[searchIndex[i]], dataLower = data.toLowerCase().split('|||')[0], position = dataLower.indexOf(val);
+              if (position !== -1) {
+                return true;
+              }
             }
+            return false;
           }
-          return false;
-        }
-      });
+        });
       api.draw();
     });
 }
@@ -403,27 +397,19 @@ $(function () {
   $('.dataTables').on('click', '.prev', function scrollPrev() {
     var groupRow = $(this).parentsUntil('.group').parent();
     if (groupRow.prevAll('.group').length > 0) {
-      $('html,body').animate({
-        scrollTop: groupRow.prevAll('.group').offset().top - $(".dataTables_filter").height()
-      }, 600)
+      scrolling(groupRow.prevAll('.group').offset().top - $(".dataTables_filter").outerHeight());
     } else {
-      $('html,body').animate({
-        scrollTop: groupRow.offset().top - $(".dataTables_filter").height()
-      }, 600);
+      scrolling(groupRow.offset().top - $(".dataTables_filter").outerHeight());
     }
   });
   $('.dataTables').on('click', '.next', function scrollNext() {
     var groupRow = $(this).parentsUntil('.group').parent();
     if (groupRow.nextAll('.group').length > 1) {
-      $('html,body').animate({
-        scrollTop: groupRow.nextAll('.group').offset().top - $(".dataTables_filter").height()
-      }, 600)
+      scrolling(groupRow.nextAll('.group').offset().top - $(".dataTables_filter").outerHeight());
     } else {
-      $('html,body').animate({
-        scrollTop: groupRow.nextAll().last().offset().top - $(".dataTables_filter").height()
-      }, 600);
+      scrolling(groupRow.nextAll().last().offset().top - $(".dataTables_filter").outerHeight());
       $("<div class='toast' >End reached</div>").hide().appendTo('.bottom')
-        .stop().delay(1000).fadeIn(500).delay(1500).fadeOut(600);
+        .stop().delay(1000).fadeIn(500).delay(1500).fadeOut(600, function () { $(this).remove(); });
     }
   });
   //active link after click second time (for mobile devices only)
@@ -440,10 +426,11 @@ $(function () {
     $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
   });
   //clear filterSection
-  $('.filterSection').on('click', '.clear', function clearField() {
+  $('.filterSection, .searchBox').on('click', '.clear', function clearField() {
     var filter = $(this).parent();
     filter.find('option').prop('selected', false);
     filter.find('input[type="text"]').val('');
+    filter.trigger('change');
   });
   //reset settings
   $('#all').on('click', function setAll() {
@@ -456,9 +443,8 @@ $(function () {
   //reset default settings
   $('#reSet, #Reset').on('click', function setDefault() {
     $('.searchBox, .filterSection').find('input[type="checkbox"]').prop('checked', function () { return $(this).prop('defaultChecked'); });
-    $('.searchBox, .filterSection').find('input[type="text"]').val(function () { return $(this).prop('defaultValue'); }).attr('placeholder', 'Search for albums or bands..');
     $('.searchBox, .filterSection').find('option').prop('selected', function () { return $(this).prop('defaultSelected'); });
-    // $('.searchBox, .filterSection').find('input').attr('placeholder', 'Search for albums or bands..');
+    $('.searchBox').find('input[type="text"]').val(function () { return $(this).prop('defaultValue'); }).attr('placeholder', 'Search for albums or bands..');
   });
   $('.reload').on('click', function reloadData() {
     localStorage.setItem(savedItem, JSON.stringify({ expire: 0, }));
@@ -466,37 +452,57 @@ $(function () {
   });
 
 });
-$(document).on('click', '.paginate_button', function scrollTo() {
-  $('body,html').animate({
-    scrollTop: $('.dataTables tbody').offset().top - $(".dataTables_filter").outerHeight(),
-  }, 800);
-});
-$(window).one('scroll', function () {
-  $('.dataTables tbody tr').each(function () {
-    var tr = $(this);
-    var position = tr.position().top - $(window).scrollTop();
-    var top_of_element = $(this).offset().top;
-    var mid_of_element = $(this).offset().top + $(this).outerHeight() / 2;
-    var bottom_of_element = $(this).offset().top + $(this).outerHeight();
-    var bottom_of_screen = $(window).scrollTop() + $(window).innerHeight() - $(".bottom").outerHeight() - 50;
-    var top_of_screen = $(window).scrollTop();
-    // if (top_of_screen - top_of_element < -$(  this ).outerHeight()/2) {
-    if ((bottom_of_screen > bottom_of_element) && (top_of_screen < top_of_element - $(this).outerHeight() / 2)) {
-      tr.stop().delay(20000).addClass('selected');
-    } else {
-      tr.stop().delay(30000).removeClass('selected');
-    }
-    console.log(top_of_screen, bottom_of_screen, top_of_element, bottom_of_element, position);
-    if ($('.selected').length > 0) {
-      $('body,html').animate({
-        scrollTop: $('.selected').first().offset().top - $(".dataTables_filter").outerHeight() ,
-      }, 800);
-	   $('.selected').removeClass('selected');
-    }
-    // $(window).off( "scroll" )
-  });
 
+var lastScrollTop = 0;
+// jump on paging
+$(document).on('click', '.paginate_button', function scrollPage() {
+  scrolling($('.dataTables tbody').offset().top - $(".dataTables_filter").outerHeight(),
+    function () {
+      lastScrollTop = 0;
+    }
+  );
+})
+$(window).on('scroll', function (e) {
+  var st = $(this).scrollTop(),
+    off_b = $(".bottom").outerHeight(),
+    off_t = $(".dataTables_filter").outerHeight(),
+    m_screen = $(window).innerHeight();
+  // console.log(e, 'scroll')
+  clearTimeout($.data(this, 'scrollTimer'));
+  $.data(this, 'scrollTimer', setTimeout(function () {
+    // do something
+    $('.dataTables tbody tr').each(function () {
+      var tr = $(this),
+        t_tr = $(this).offset().top,
+        m_tr = $(this).outerHeight() / 3,
+        b_tr = $(this).offset().top + $(this).outerHeight(),
+        b_screen = $(window).scrollTop() + $(window).innerHeight() - off_b,
+        t_screen = $(window).scrollTop() + off_t,
+        tr_top = t_tr - t_screen,
+        tr_btm = b_tr - b_screen;
+      if ((t_tr - b_screen < m_tr / (-1) && b_tr > b_screen && st > lastScrollTop) || (t_tr < t_screen && b_tr - t_screen > m_tr && st < lastScrollTop)) {
+        tr.addClass('nearest');
+      } else {
+        tr.removeClass('nearest');
+      }
+    });
+    var sel = $('.nearest');
+    if (sel.length > 0 && lastScrollTop != 0) {
+      if (st - lastScrollTop < -100) {
+        var scroll = sel.offset().top - off_t;
+        scrolling(scroll);
+      } else if (st - lastScrollTop > 100) {
+        var scroll = sel.offset().top + sel.outerHeight() - (m_screen - off_b);
+        scrolling(scroll);
+      }
+    }
+    // console.log("Haven't scrolled in 250ms!");
+    lastScrollTop = st;
+  }, 666));
+  // console.log(top_of_screen, bottom_of_screen, top_of_element, bottom_of_element, position);
 });
+
+// text replacer
 String.prototype.toTitleCase = function () {
   var i, j, str, lowers, uppers;
   str = this.replace(/\S*?\b[\p{L}']+/gu, function (txt) {

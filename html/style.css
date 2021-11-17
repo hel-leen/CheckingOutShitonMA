@@ -151,7 +151,7 @@ div.sidenav {
   justify-content: center;
   align-items: center;
   padding: 8px;
-  transition:.5s;
+  transition: .5s;
 }
 
 #home a {
@@ -322,13 +322,13 @@ div.sidenav {
   margin-left: -80px;
   font-size: .8rem;
   bottom: 15%;
-  background-color: #222;
+  background: #222 !important;
   padding: 10px;
   text-align: center;
   border-radius: 2px;
-  -webkit-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
-  -moz-box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
-  box-shadow: 0px 0px 24px -1px rgba(56, 56, 56, 1);
+  -webkit-box-shadow: 0px 0px 4px -1px rgba(56, 56, 56, 1) !important;
+  -moz-box-shadow: 0px 0px 4px -1px rgba(56, 56, 56, 1) !important;
+  box-shadow: 0px 0px 4px -1px rgba(56, 56, 56, 1) !important;
 }
 
 .loading>*,
@@ -339,6 +339,7 @@ div.sidenav {
   align-items: center;
   margin: 2rem;
 }
+
 .loading>div:nth-child(1) {
   flex-direction: row;
   padding: .5rem;
@@ -584,6 +585,7 @@ a {
 #timecharts {
   overflow: auto;
 }
+
 #timecharts .main-svg defs .clips .axesclip rect {
   /* filter: drop-shadow(0px 17px 1.3em rgba(111,222,222,1)); */
 
@@ -971,15 +973,17 @@ div.dt-datetime-iconDown button {
   left: 0;
   right: 0;
   padding: .2rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .bottom>div {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #333;
+  background: #333;
   box-shadow: 0px 0px 2em 2em #333;
+  -moz-box-shadow: 0px 0px 2em 2em #333;
+  -webkit-box-shadow: 0px 0px 2em 2em #333;
 }
 
 
@@ -997,7 +1001,7 @@ div.dt-datetime-iconDown button {
 
 .balloon {
   position: absolute;
-  bottom: 105%;
+  top: -10%;
   background: black;
   padding: .4em 1.1em;
   border-radius: .4em;
@@ -1082,9 +1086,9 @@ table.dataTable thead .sorting_desc_disabled::after {
   position: absolute;
   display: block;
   opacity: 0.3;
-    font-size: .8rem;
-    top: 50%;
-    transform: translateY(-50%);
+  font-size: .8rem;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 table.dataTable thead .sorting::before,
@@ -1196,7 +1200,7 @@ table ::-webkit-scrollbar {
 
 .newlist .group .prev:not(:hover),
 .newlist .group .next:not(:hover) {
-  opacity: .6;
+  opacity: .4;
 }
 
 .newlist .group td>div div {
@@ -1319,8 +1323,9 @@ table ::-webkit-scrollbar {
 }
 
 
-.newlist tbody {
+.dataTables tbody {
   background-color: rgba(0, 0, 0, .0);
+  border-bottom: 1rem solid transparent;
 }
 
 
@@ -1635,8 +1640,9 @@ iframe {
 
 .filterSection span {
   display: inline-flex;
-    align-items: center;
+  align-items: center;
 }
+
 .filterSection tbody {
   display: grid;
 }
@@ -2918,9 +2924,9 @@ div.dt-datetime-label span {
     letter-spacing: -1em;
     height: 1px;
     opacity: 0;
-	left:-100%
+    left: -100%
   }
-  
+
   20% {
     letter-spacing: -1em;
     height: 1px;
@@ -2941,9 +2947,9 @@ div.dt-datetime-label span {
     letter-spacing: -1em;
     height: 1px;
     opacity: 0;
-	left:-100%
+    left: -100%
   }
-  
+
   20% {
     letter-spacing: -1em;
     height: 1px;
