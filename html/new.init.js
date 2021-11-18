@@ -265,18 +265,19 @@ $(function () {
       drawCallback: function (settings) {
         //group rows by date
         var api = this.api();
+			// var ids = new GetId(api);
         callbackShow(api);
         $('tr.group abbr').text('');
         $.fn.dataTable.ext.search = 
 		$.fn.dataTable.ext.search.filter(function (fun) { return fun.name !== 'filterSec' } ).concat(
           function filterSec(settings, data, dataIndex) {
-            let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3];
-            let genre = data[3].toLowerCase();
-            let date = data[8].split('|||')[0];
-            var dateCount = [];
-            let version = data[8].split('|||')[1];
-            let genres = $('#genre-options').val() || [];
-            var dateset;
+             let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3],
+             genre = data[3].toLowerCase(),
+             date = data[8].split('|||')[0],
+             dateCount = [],
+             version = data[8].split('|||')[1],
+             genres = $('#genre-options').val() || [],
+             dateset;
             if ($('#datepicker').val() != '' && $('#datecondition').val() != '') {
               if ($('#datecondition').val() == 'After') {
                 dateset = eval(date >= $('#datepicker').val());
@@ -482,7 +483,6 @@ $(function () {
     ;
   $("#timecharts").addClass("hideItem");
   var ids = new GetId(table);
-
   // sortHandlers
   function sortById() {
     table.order([ids.cover, 'desc']).draw();

@@ -167,6 +167,8 @@ function GetId(api) {
   this.album = api.column('.col-album').index();
   this.band = api.column('.col-band').index();
   this.genre = api.column('.col-genre').index();
+  this.label = api.column('.col-label').index();
+  this.length = api.column('.col-length').index();
   this.date = api.column('.col-date').index();
 }
 function preShow() {
