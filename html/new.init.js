@@ -253,7 +253,7 @@ $(function () {
               default:
                 earlydate = "<br><abbr class='extra'>(" + earlydate + ')</abbr>';
             }
-            return date + earlydate;
+            return '<div>' + date + earlydate +'<div>';
           }
           return data;
         },

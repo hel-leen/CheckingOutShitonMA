@@ -716,7 +716,7 @@ button {
 
 .dataTables_paginate {
   text-align: center;
-  z-index: 9999;
+  /* z-index: 9999; */
 }
 
 .paginate_button {
@@ -976,7 +976,7 @@ div.dt-datetime-iconDown button {
   padding-top: 1rem;
 }
 
-.bottom>div:nth-child(1) {
+.bottom>div  {
   box-shadow: 0px 0px 2em 2em #333;
   -moz-box-shadow: 0px 0px 2em 2em #333;
   -webkit-box-shadow: 0px 0px 2em 2em #333;
@@ -1205,19 +1205,20 @@ table ::-webkit-scrollbar {
   opacity: .4;
 }
 
-.newlist .group td>div div {
+.newlist .group td>div>* {
   width: 60%;
+  display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .newlist .group .prev,
 .newlist .group .next {
   cursor: pointer;
   width: 100%;
-  display: flex;
-  align-self: stretch;
-  align-items: center;
   text-align: left;
   justify-content: left;
+  padding:1rem;
 }
 
 .newlist .group .prev {
@@ -1227,7 +1228,7 @@ table ::-webkit-scrollbar {
 
 .newlist td {
   border: transparent;
-  padding: 0.75em 0.15em 0.75em 0.15rem;
+  padding: 0.75em 0.15em 0.75em 0.15em;
 }
 
 .newlist th+th {
@@ -1259,8 +1260,7 @@ table ::-webkit-scrollbar {
 }
 
 
-.newlist .group td {
-  padding: 1rem 0;
+.newlist tbody .group td {
   font-size: .9rem;
   white-space: nowrap;
   overflow: hidden;
@@ -1333,7 +1333,7 @@ table ::-webkit-scrollbar {
 
 
 .newlist thead {
-  background-color: rgba(111, 111, 111, .2);
+  /* background-color: rgba(111, 111, 111, .2); */
   /* background-image:linear-gradient( */
   /* to top, */
   /* hsla(0,0%,20%,1) 0%, */
@@ -1358,9 +1358,15 @@ table ::-webkit-scrollbar {
 .newlist th {
   padding: 1rem;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 
+.newlist thead>tr:not(:nth-last-child(1)) {
+	  background-color: rgba(111, 111, 111, .2);
+      box-shadow: 0px 4em 0em 0em rgba(111, 111, 111, .2);
+      -webkit-box-shadow: 0px 4em 0em 0em rgba(111, 111, 111, .2);
+}
 .newlist thead>tr:nth-last-child(1) {
   /* border-top: 1px rgba(99, 99, 99, .0); */
   /* border-bottom: 1px double rgba(99, 99, 99, .5); */
@@ -1376,7 +1382,16 @@ table ::-webkit-scrollbar {
   font-weight: 600;
 }
 
-
+.check {
+  display: none;
+  width: 2%;
+}
+.check>*{
+ padding: 100% 1rem;
+}
+.selection .check {
+  display: table-cell;
+}
 
 .grid_item {
   position: relative;
@@ -1842,13 +1857,7 @@ input:checked+.slider {
 
 input:focus+.slider {}
 
-.check {
-  display: none;
-}
 
-.selection .check {
-  /* display: table-cell; */
-}
 
 .filter-holder .checkcontainer p {
   padding: 0;
@@ -2313,8 +2322,8 @@ div.dt-datetime-label span {
   }
 
   .newlist td:not(:nth-child(1)) {
-    padding-left: 1rem;
-    padding-right: 1rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
   }
 
   .newlist td>img {
@@ -2456,19 +2465,23 @@ div.dt-datetime-label span {
     white-space: normal;
   }
 
-  .newlist tbody tr td:nth-child(1) {
-    padding-top: 2rem;
+  .newlist tbody tr:not(.group) td:nth-child(1) {
+    padding: 2rem 0;
     justify-content: center;
   }
 
-  .newlist tr.group {
-    display: grid;
-    grid-auto-flow: column;
+  .newlist tbody tr.group {
+    /* display: grid; */
+    /* grid-auto-flow: column; */
+  }
+  .newlist tbody tr.group td {
+    display: flex !important;
+	align-content: stretch;
+    flex-direction: column;
   }
 
   .newlist .group td:nth-child(1),
   .newlist .group td:nth-last-child(1) {
-    display: none;
   }
 
   /* .newlist tbody tr td:nth-child(2)::before, */
@@ -2665,6 +2678,17 @@ div.dt-datetime-label span {
 
   .nocover {
     width: 75%;
+  }
+  .check >*{
+  padding: 1rem 100% ;
+  }
+  .foot {
+  display: none !important;
+  }
+  .check {
+  width: auto !important;
+  display: grid !important;
+  overflow: hidden;
   }
 }
 

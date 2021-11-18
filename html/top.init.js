@@ -32,7 +32,7 @@ $(function () {
       stateLoadCallback: function (settings) {
         return JSON.parse(localStorage.getItem(datafile + '_setting'));
       },
-      dom: 'frt<"bottom"ip>',
+      dom: 'frt<"bottom"<i>p>',
       "columnDefs": [{
         render: (data, type, row) => {
           //rendering cover

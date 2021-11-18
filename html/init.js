@@ -192,7 +192,7 @@ function callbackShow(api) {
     rows = api.rows({ page: 'current' }).nodes(),
     cols = api.columns().indexes('visible').length,
     last = '';
-  $(api.table().body()).find('tr:last-child').after('<tr class="group"><td  colspan="' + cols + '">   </td></tr>');
+  api.tables().body().to$().find('tr:last-child').after('<tr class="group foot"><td  colspan="' + cols + '"> </td></tr>');
   //group rows by date
   api.column('.col-date', { page: 'current' })
     .data().each(function (coldate, i) {
@@ -221,12 +221,17 @@ function callbackShow(api) {
       $('table tr.group').css('display', 'none');
   });
   // last column add checkbox
-  lastCol = api.column(-1).nodes().to$();
-  lastColTh = lastCol.filter(':not(.checklist)').parentsUntil('table').parent().find('thead tr:nth-last-child(1) th:nth-last-child(1)')
-  lastCol.filter(':not(.checklist)').parent()
-    .append('<td class="check" style="display:none;"><label class="checkcontainer">' +
-      '<input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label></td>');
-  lastCol.addClass('checklist');
+  if ($(".last").length == 0 )  {
+	  var td = '<td class="check" style=" display: ;">'+
+	'<label class="checkcontainer">' +
+      '<input type="checkbox"><span class="checkmark toggle"> <i class="far fa-circle"></i> <i class="far fa-check-circle"></i> <p></p></span></label>'+
+	  '</td>';
+  // lastColTh = api.columns(-1).header().to$().not( ".lastth" ).addClass('lastth').after('eeee');
+  // lastColTh = api.tables().header().to$().find('tr').not( ".lastth" ).addClass('lastth').after('<tr><td  style=" position:absolute ;" colspan="' + cols + '">eeee');
+  lastCol = api.column(-1).nodes().to$().not( ".last" ).addClass('last')
+  .after(td);
+  // .attr('colspan',2)
+  }
 
 }
 
@@ -264,13 +269,13 @@ function modifyItems(api) {
       $(this).prop('checked', false);
     })
     delected = localStorage.getItem(deletedItem);
-    select = $('.selected');
+    select = api.rows('.selected')[0];
     select.length + delected.length <= 1 ? delBtn.css({ 'visibility': 'hidden' }) : '';
     if (select.length == 0) {
       delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '.2' });
-      $(this).parent().removeClass('selection');
+      $(this).parent().parent().removeClass('selection');
     } else {
-      $(this).parent().addClass('selection');
+      $(this).parent().parent().addClass('selection');
       delBtn.css({ 'visibility': 'visible' }).css({ 'opacity': '.6' })
         .children().last().text('Delete selected (' + select.length + ') ');
     }
@@ -292,7 +297,7 @@ function modifyItems(api) {
       .children().last().text('Delete selected');
     resBtn.css({ 'visibility': 'visible' })
       .children().last().text('Restore delected (' + storedCount + ') ')
-    $(".dataTables tbody").removeClass('selection');
+    $(".selection").removeClass('selection');
   });
   //restore deleted entries
   $('#res.btm,.resItems').click(function () {
