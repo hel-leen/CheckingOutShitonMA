@@ -1212,13 +1212,14 @@ table ::-webkit-scrollbar {
     align-items: center;
 }
 
-.newlist .group .prev,
-.newlist .group .next {
+.newlist .group .fa {
   cursor: pointer;
   width: 100%;
+  padding:1rem;
+}
+.newlist .group .next {
   text-align: left;
   justify-content: left;
-  padding:1rem;
 }
 
 .newlist .group .prev {
@@ -2680,7 +2681,8 @@ div.dt-datetime-label span {
     width: 75%;
   }
   .check >*{
-  padding: 1rem 100% ;
+  padding: 1rem 50% ;
+  margin: 0;
   }
   .foot {
   display: none !important;

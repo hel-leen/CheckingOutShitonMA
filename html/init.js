@@ -190,7 +190,7 @@ function callbackShow(api) {
   $("a").attr({ "target": "_blank", "rel": "noopener noreferrer" });
   var
     rows = api.rows({ page: 'current' }).nodes(),
-    cols = api.columns().indexes('visible').length,
+    cols = api.columns().indexes('visible').length+1,
     last = '';
   api.tables().body().to$().find('tr:last-child').after('<tr class="group foot"><td  colspan="' + cols + '"> </td></tr>');
   //group rows by date
