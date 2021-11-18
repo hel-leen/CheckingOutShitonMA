@@ -267,9 +267,10 @@ $(function () {
   });
   //reset default settings
   $('#reSet').click(function () {
-    $('.filter-holder select option').prop("selected", true);
-    $('.sel-genre select option').prop("selected", false);
+    // $('.filter-holder select option').prop("selected", true);
+    // $('.sel-genre select option').prop("selected", false);
     table.columns().every( function () {this .search( '' ); } );
+    table.order([[6, 'desc'], [9, 'desc'], [5, 'asc']]).draw();
   });
   $('.paginate_button, .dataTables_length,.filterSection, .filter-holder,#reset').on("click change", function (e) {
     table.draw(false);
