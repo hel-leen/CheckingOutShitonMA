@@ -1383,14 +1383,14 @@ table ::-webkit-scrollbar {
 }
 
 .check {
-  display: none;
+  display: none !important;
   width: 2%;
 }
 .check>*{
  padding: 100% 1rem;
 }
 .selection .check {
-  display: table-cell;
+  display: table-cell !important;
 }
 
 .grid_item {
@@ -2685,7 +2685,7 @@ div.dt-datetime-label span {
   .foot {
   display: none !important;
   }
-  .check {
+  .selection .check {
   width: auto !important;
   display: grid !important;
   overflow: hidden;
