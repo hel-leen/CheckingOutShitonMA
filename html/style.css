@@ -1225,6 +1225,7 @@ table ::-webkit-scrollbar {
 .newlist .group .prev {
   /* text-align: right; */
   /* justify-content: right; */
+  justify-content: flex-end;
 }
 
 .newlist td {
