@@ -319,8 +319,8 @@ function searchBox(api) {
         target = $(e.target),
         iclear = $(this).find(".clear").hide(),
         searchInput = $(this).find("input"),
-        searchCols = [],
-        searchOps = $(this).find("select").val() || [],
+        placeHolder = [],
+        searchOps = $('#select-column').val() || [],
         searchValue = searchInput.val(),
         searchIndex = searchOps.map((d, j) => {
           return d = api.column('.col-' + d).index();
@@ -333,14 +333,14 @@ function searchBox(api) {
         iclear.hide();
       }
       if (target.is("select") && e.type == 'change') {
-        $(this).find('option:selected').each(function () { searchCols.push($(this).text().toLowerCase().concat('s')) });
-        searchCols = searchCols.length < 4 ? searchCols.join(', ').replace(/,(?=[^,]*$)/g, ' or') :
-          searchCols.join(', ').replace(/^((?:[^,]+,\s?){0,3}[^,]+(?=\b))(.*)/g, '$1, etc');
+        $(this).find('option:selected').each(function () { placeHolder.push($(this).text().toLowerCase().concat('s')) });
+        placeHolder = placeHolder.length < 4 ? placeHolder.join(', ').replace(/,(?=[^,]*$)/g, ' or') :
+          placeHolder.join(', ').replace(/^((?:[^,]+,\s?){0,3}[^,]+(?=\b))(.*)/g, '$1, etc');
         searchInput.val('');
         // api.columns().every(function () { this.search('') });
         $("#searchInput").empty()
           .append(input).find('input').val(searchValue)
-          .attr('placeholder', 'Search for '.concat(searchCols, '..'))
+          .attr('placeholder', 'Search for '.concat(placeHolder, '..'))
         // searchBox.trigger('change');
       }
       $.fn.dataTable.ext.search = $.fn.dataTable.ext.search.filter(function (fun) { return fun.name !== 'multiSearch' }).concat(

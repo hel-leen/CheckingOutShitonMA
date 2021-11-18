@@ -1908,8 +1908,8 @@ button:active {
   transform: translateY(1px);
 }
 
-#datepicker,
-#datecondition {
+#input-datetime,
+#input-condition {
   height: 100%;
   width: 25vw;
   max-width: 8em;
@@ -1920,7 +1920,7 @@ button:active {
   text-shadow: 0px 0px 1px #fed;
 }
 
-#datecondition {
+#input-condition {
   max-width: 6em;
   text-shadow: 0px 0px 1px #9b9;
 }
@@ -2391,7 +2391,7 @@ div.dt-datetime-label span {
     -webkit-line-clamp: 2;
   }
 
-  #datecondition {
+  #input-condition {
     width: 20vw;
   }
 

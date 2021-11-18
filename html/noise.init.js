@@ -231,10 +231,10 @@ $(function () {
         modifyItems(api);
         var select;
         api.columns('.col-genre').every(function () {
-          var column = this, filterName = 'filter-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
+          var column = this, colname  = $(this.header()).attr('class').match(/col-(\S*)/)[1];
           $('<select><option value=""></option></select>')
-            .attr("name", filterName)
-            .insertBefore('.' + filterName + ' .clear')
+            .attr("id",  'select-'+ colname  )
+            .insertBefore('.filter-' + colname   + ' .clear')
             .on('change', function () {
               var val = $.fn.dataTable.util.escapeRegex($(this).val());
               column.search(val ? val + '' : '', true, false).draw();
@@ -242,7 +242,7 @@ $(function () {
         });
         // select box for labels
         api.columns('.col-genre').every(function () {
-          select = $('.filter-genre select');
+          select = $('#select-genre');
           var genres =
             this.data().map((d, j) => {
               return d = d.toTitleCase().split(/,\s?/);
@@ -262,7 +262,6 @@ $(function () {
     var filters = $(this).parent();
     var cols = filters.attr('class').replace(/.*filter-/g, '.col-').replace(/[\s\d]/g, '');
     filters.children('select').children('option').prop('selected', false);
-    filters.children('#datepicker').val('');
     table.columns(cols).search('').draw();
   });
   //reset default settings
@@ -283,10 +282,12 @@ $.fn.dataTable.ext.type.order['ranking-pre'] = function (d) {
   d = parseFloat(''.concat(d.match(/(^ranking:)(\d+)\|\|\|(.*)/)[2]));
   return d;
 };
-$.fn.dataTable.ext.search.push(function filterSec(settings, data, dataIndex) {
+$.fn.dataTable.ext.search = 
+ $.fn.dataTable.ext.search.filter(function (fun) { return fun.name !== 'filterSec' } ).concat(
+          function filterSec(settings, data, dataIndex) {
   let
     type = data[8],
-    types = $(".filter-length select").val() || [];
+    types = $("#select-length").val() || [];
   return type.search('('.concat('(', types.join('|'), ')', ')')) > -1;
   // return true;
 });

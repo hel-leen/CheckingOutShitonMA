@@ -4,8 +4,8 @@ var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
 $(function () {
   pageLayout();
-  $('#datepicker').val(thisweek);
-  $('#datepicker').dtDateTime({
+  $('#input-datetime').val(thisweek);
+  $('#input-datetime').dtDateTime({
     minDate: moment().add(-1, 'years').toDate(),
     maxDate: moment().add(1, 'years').toDate()
   });
@@ -23,7 +23,9 @@ $(function () {
         data.order = [[8, 'asc'], [0, 'desc']];
         data.columns.forEach(item => { item.search.search = '' });
       },
-      columnDefs: [{
+      columnDefs: [
+	  { "orderSequence": [ 'desc', "asc" ], "targets": "_all"},
+	  {
         //rendering cover
         render: (data, type, row) => {
           if (type === 'display') {
@@ -265,24 +267,24 @@ $(function () {
       drawCallback: function (settings) {
         //group rows by date
         var api = this.api();
-			// var ids = new GetId(api);
+			var ids = new GetId(api);
         callbackShow(api);
         $('tr.group abbr').text('');
         $.fn.dataTable.ext.search = 
 		$.fn.dataTable.ext.search.filter(function (fun) { return fun.name !== 'filterSec' } ).concat(
           function filterSec(settings, data, dataIndex) {
-             let type = data[1].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3],
-             genre = data[3].toLowerCase(),
-             date = data[8].split('|||')[0],
+             let type = data[ids.album].match(/(.*)\|\|\|(\d+)\|\|\|(.*)/)[3],
+             genre = data[ids.genre].toLowerCase(),
+             date = data[ids.date].split('|||')[0],
              dateCount = [],
-             version = data[8].split('|||')[1],
-             genres = $('#genre-options').val() || [],
+             version = data[ids.date].split('|||')[1],
+             genres = $('#select-genre').val() || [],
              dateset;
-            if ($('#datepicker').val() != '' && $('#datecondition').val() != '') {
-              if ($('#datecondition').val() == 'After') {
-                dateset = eval(date >= $('#datepicker').val());
-              } else if ($('#datecondition').val() == 'Before') {
-                dateset = eval(date < $('#datepicker').val());
+            if ($('#input-datetime').val() != '' && $('#input-condition').val() != '') {
+              if ($('#input-condition').val() == 'After') {
+                dateset = eval(date >= $('#input-datetime').val());
+              } else if ($('#input-condition').val() == 'Before') {
+                dateset = eval(date < $('#input-datetime').val());
               }
             } else {
               dateset = date;
@@ -304,10 +306,10 @@ $(function () {
         // select boxes
         var select;
         api.columns('.col-band,.col-label').every(function () {
-          var column = this, filterName = 'filter-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
+          var column = this, colname  = $(this.header()).attr('class').match(/col-(\S*)/)[1];
           $('<select><option value=""></option></select>')
-            .attr("name",  filterName)
-            .insertBefore('.' + filterName + ' .clear')
+            .attr("id",  'select-'+ colname  )
+            .insertBefore('.filter-' + colname   + ' .clear')
             .on('change', function boxesVal() {
               var val = $.fn.dataTable.util.escapeRegex($(this).val());
               column.search(val ? val + '$' : '', true, true).draw();
@@ -315,7 +317,7 @@ $(function () {
         });
         // select box for countries
         api.columns('.col-band').every(function () {
-          select = $('.filter-band select');
+          select = $('#select-band');
           var countries =
             this.data().map((d, j) => {
               return d = d.split('|||')[2].split('| || |');
@@ -330,7 +332,7 @@ $(function () {
         });
         // select box for labels
         api.columns('.col-label').every(function () {
-          select = $('.filter-label select');
+          select = $('#select-label');
           var lables =
             this.data().unique().filter(v => v != '').map(d => d.match(/(?<=\d')(.*)/)[1]).sort(partSort).each(opval => {
               select.append('<option value="' + opval + '">' + opval + '</option>');
@@ -507,12 +509,12 @@ $(function () {
   });
   //reset default settings
   $('#reSet, #Reset').on('click', function setDefault() {
-    $('#datecondition').val('After');
-    $('#datepicker').val(thisweek);
+    $('#input-condition').val('After');
+    $('#input-datetime').val(thisweek);
     table.columns().every(function () { this.search(''); });
     table.order([[ids.date, 'asc'], [ids.cover, 'desc']]).draw();
   });
-  $('#datecondition').click(function () {
+  $('#input-condition').click(function () {
     if ($(this).val() == 'After') {
       $(this).val('Before');
       $(this).css('text-shadow', '0px 0px 1px #d99');
@@ -523,9 +525,9 @@ $(function () {
       table.order([[ids.date, 'asc'], [ids.cover, 'desc']]).draw(true);
     }
   });
-  $('#datepicker, #today, #Today, .dt-datetime-today').click(function datePicker() {
+  $('#input-datetime, #today, #Today, .dt-datetime-today').click(function datePicker() {
     table.column(ids.date).search('');
-    $('#datepicker').val(thisday);
+    $('#input-datetime').val(thisday);
     table.draw();
   });
   $('.filter,.genrefilter, .dataTables_length, .filter-holder, #reset').on("click change", function filterSection() {
