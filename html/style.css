@@ -1218,13 +1218,13 @@ table ::-webkit-scrollbar {
   padding:1rem;
 }
 .newlist .group .next {
-  text-align: left;
-  justify-content: left;
+  /* text-align: left; */
+  /* justify-content: left; */
 }
 
 .newlist .group .prev {
-  text-align: right;
-  justify-content: right;
+  /* text-align: right; */
+  /* justify-content: right; */
 }
 
 .newlist td {
