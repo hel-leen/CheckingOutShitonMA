@@ -2459,8 +2459,6 @@ div.dt-datetime-label span {
   }
 
   .newlist tbody tr td .title,
-  /* .newlist tbody tr td:nth-child(2), */
-  /* .newlist tbody tr td:nth-child(4), */
   .newlist tbody tr td .genre {
     white-space: normal;
   }
@@ -2471,8 +2469,6 @@ div.dt-datetime-label span {
   }
 
   .newlist tbody tr.group {
-    /* display: grid; */
-    /* grid-auto-flow: column; */
   }
   .newlist tbody tr.group td {
     display: flex !important;
@@ -2480,11 +2476,6 @@ div.dt-datetime-label span {
     flex-direction: column;
   }
 
-  .newlist .group td:nth-child(1),
-  .newlist .group td:nth-last-child(1) {
-  }
-
-  /* .newlist tbody tr td:nth-child(2)::before, */
   .newlist tr:not(.group) td:nth-child(2)::before {
     content: "Title:";
   }
@@ -2647,11 +2638,7 @@ div.dt-datetime-label span {
   }
 
   .dropdown {
-    min-width: 45vw;
-  }
-
-  .btm {
-    /* padding: .26rem 0; */
+    min-width: 40vw;
   }
 
   .btm,
@@ -2680,7 +2667,7 @@ div.dt-datetime-label span {
     width: 75%;
   }
   .check >*{
-  padding: 1rem 50% ;
+  padding: 1rem 40% ;
   margin: 0;
   }
   .foot {
@@ -2690,7 +2677,7 @@ div.dt-datetime-label span {
   width: auto !important;
   display: grid !important;
   overflow: hidden;
-  max-width:95vw;
+  /* max-width:80vw; */
   }
 }
 
