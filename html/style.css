@@ -2530,7 +2530,10 @@ div.dt-datetime-label span {
   .newlist tr:not(.group) td:nth-child(9) {
     white-space: nowrap;
   }
-
+.newlist .group .next,
+.newlist .group .prev {
+  justify-content: center;
+}
   .newlist td::before {
     color: #fed;
     padding-left: 1px;

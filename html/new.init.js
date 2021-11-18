@@ -303,10 +303,10 @@ $(function () {
         // select boxes
         var select;
         api.columns('.col-band,.col-label').every(function () {
-          var column = this, colName = $(this.header()).attr('class').match(/col-(\S*)/)[1];
+          var column = this, filterName = 'filter-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
           $('<select><option value=""></option></select>')
-            .attr("name", 'filter-' + colName)
-            .insertBefore('.filter-holder.' + colName + ' .clear')
+            .attr("name",  filterName)
+            .insertBefore('.' + filterName + ' .clear')
             .on('change', function boxesVal() {
               var val = $.fn.dataTable.util.escapeRegex($(this).val());
               column.search(val ? val + '$' : '', true, true).draw();
@@ -314,7 +314,7 @@ $(function () {
         });
         // select box for countries
         api.columns('.col-band').every(function () {
-          select = $('.filter-holder.band select');
+          select = $('.filter-band select');
           var countries =
             this.data().map((d, j) => {
               return d = d.split('|||')[2].split('| || |');
@@ -329,7 +329,7 @@ $(function () {
         });
         // select box for labels
         api.columns('.col-label').every(function () {
-          select = $('.filter-holder.label select');
+          select = $('.filter-label select');
           var lables =
             this.data().unique().filter(v => v != '').map(d => d.match(/(?<=\d')(.*)/)[1]).sort(partSort).each(opval => {
               select.append('<option value="' + opval + '">' + opval + '</option>');
@@ -496,7 +496,7 @@ $(function () {
 
   //clear filterSection
   $('.filterSection .clear').on('click', function clearField() {
-    var cols = $(this).parent().attr('class').replace(/.*sel-/g, '.col-');
+    var cols = $(this).parent().attr('class').replace(/.*filter-/g, '.col-').replace(/[\s\d]/g, '');
     table.columns(cols).search('').draw();
   });
 

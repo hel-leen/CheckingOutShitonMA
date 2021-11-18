@@ -231,10 +231,10 @@ $(function () {
         modifyItems(api);
         var select;
         api.columns('.col-genre').every(function () {
-          var column = this, selName = 'sel-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
+          var column = this, filterName = 'filter-' + $(this.header()).attr('class').match(/col-(\S*)/)[1];
           $('<select><option value=""></option></select>')
-            .attr("name", selName)
-            .insertBefore('.' + selName + ' .clear')
+            .attr("name", filterName)
+            .insertBefore('.' + filterName + ' .clear')
             .on('change', function () {
               var val = $.fn.dataTable.util.escapeRegex($(this).val());
               column.search(val ? val + '' : '', true, false).draw();
@@ -242,7 +242,7 @@ $(function () {
         });
         // select box for labels
         api.columns('.col-genre').every(function () {
-          select = $('.sel-genre select');
+          select = $('.filter-genre select');
           var genres =
             this.data().map((d, j) => {
               return d = d.toTitleCase().split(/,\s?/);
@@ -260,7 +260,7 @@ $(function () {
   //clear filterSection
   $('.filterSection .clear').click(function () {
     var filters = $(this).parent();
-    var cols = filters.attr('class').replace(/.*sel-/g, '.col-');
+    var cols = filters.attr('class').replace(/.*filter-/g, '.col-').replace(/[\s\d]/g, '');
     filters.children('select').children('option').prop('selected', false);
     filters.children('#datepicker').val('');
     table.columns(cols).search('').draw();
@@ -285,7 +285,7 @@ $.fn.dataTable.ext.type.order['ranking-pre'] = function (d) {
 $.fn.dataTable.ext.search.push(function filterSec(settings, data, dataIndex) {
   let
     type = data[8],
-    types = $(".sel-length select").val() || [];
+    types = $(".filter-length select").val() || [];
   return type.search('('.concat('(', types.join('|'), ')', ')')) > -1;
   // return true;
 });
