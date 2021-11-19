@@ -313,7 +313,7 @@ function modifyItems(api) {
 function searchBox(api) {
   var
     searchBox = $("#searchBox"),
-    input = '<div class="input" contenteditable="true" placeholder="Search for albums or bands.."/></div><span class="clear fa fa-times-circle"></span>';
+    input = '<input class="input" contenteditable="true" placeholder="Search for albums or bands.."/><span class="clear fa fa-times-circle"></span>';
   searchBox.find("#searchInput").append(input).end()
     .find(".clear").hide().end()
     .on("change keyup click", function (e) {
@@ -323,7 +323,7 @@ function searchBox(api) {
         searchInput = $(this).find(".input"),
         placeHolder = [],
         searchOps = $('#select-column').val() || [],
-        searchValue = searchInput.text(),
+        searchValue = searchInput.val(),
         searchIndex = searchOps.map((d, j) => {
           return d = api.column('.col-' + d).index();
         });
@@ -331,7 +331,7 @@ function searchBox(api) {
         iclear.show().css('display', 'flex');
       }
       if (target.hasClass("clear")) {
-        searchInput.text('').focus();
+        searchInput.val('').focus();
 		searchValue = '';
         iclear.hide();
       }
@@ -339,10 +339,9 @@ function searchBox(api) {
         $(this).find('option:selected').each(function () { placeHolder.push($(this).text().toLowerCase().concat('s')) });
         placeHolder = placeHolder.length < 4 ? placeHolder.join(', ').replace(/,(?=[^,]*$)/g, ' or') :
           placeHolder.join(', ').replace(/^((?:[^,]+,\s?){0,3}[^,]+(?=\b))(.*)/g, '$1, etc');
-        // searchInput.text('');
         // api.columns().every(function () { this.search('') });
         $("#searchInput").empty()
-          .append(input).find('.input').text(searchValue)
+          .append(input).find('.input').val(searchValue)
           .attr('placeholder', 'Search for '.concat(placeHolder, '..'))
         // searchBox.trigger('change');
       }
