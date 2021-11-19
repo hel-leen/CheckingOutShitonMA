@@ -1198,10 +1198,6 @@ table ::-webkit-scrollbar {
   justify-content: center;
 }
 
-.newlist .group td:not(.prev):not(.next) {
-  color: #fed;
-  white-space: break-spaces;
-}
 
 .newlist .group .prev:not(:hover),
 .newlist .group .next:not(:hover) {
@@ -1213,7 +1209,11 @@ table ::-webkit-scrollbar {
   display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+}
+.newlist .group div>*:not(.prev):not(.next) {
+  color: #fed;
+  white-space: break-spaces;
+  flex-direction: column;
 }
 
 .newlist .group .fa {
