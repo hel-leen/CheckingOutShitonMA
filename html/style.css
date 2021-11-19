@@ -1213,6 +1213,7 @@ table ::-webkit-scrollbar {
   display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .newlist .group .fa {
@@ -2489,48 +2490,34 @@ div.dt-datetime-label span {
     flex-direction: column;
   }
 
-  .newlist tr:not(.group) td:nth-child(2)::before {
+  .newlist td.col-album::before {
     content: "Title:";
   }
-
-  .newlist tr:not(.group) td:nth-child(3)::before {
+  .newlist td.col-band::before {
     content: "Band:";
   }
-
-
-  .newlist tr:not(.group) td:nth-child(4)::before {
+  .newlist td.col-genre::before {
     content: "Genre:";
   }
-
-  .newlist tr:not(.group) td:nth-child(5)::before {
+  .newlist td.col-asso::before {
     content: "Asso. Acts:";
   }
-
-
-  .newlist tr:not(.group) td:nth-child(6)::before {
+  .newlist td.col-simi::before {
     content: "Similar to:";
   }
-
-  .newlist tr:not(.group) td:nth-child(7)::before {
+  .newlist td.col-label::before {
     content: "Label:";
   }
-
-  .newlist tr:not(.group) td:nth-child(8)::before {
+  .newlist td.col-length::before {
     content: "Length:";
   }
-
-  .newlist tr:not(.group) td:nth-child(9)::before {
+  .newlist td.col-update::before,
+  .newlist td.col-date::before {
     content: "Date:";
   }
-
-  .noise tr:not(.group) td:nth-child(5)::before {
-    content: "Similar to:";
-  }
-
-  .noise tr:not(.group) td:nth-child(6)::before {
+  .newlist td.col-rank::before {
     content: "Obscurity:";
   }
-
 
   .checkmark p {
     font-size: 88%;
@@ -2538,9 +2525,8 @@ div.dt-datetime-label span {
   }
 
   .newlist .group td:not(.prev):not(.next),
-  /* .newlist tr:not(.group) td:nth-child(7), */
-  .newlist tr:not(.group) td:nth-child(8),
-  .newlist tr:not(.group) td:nth-child(9) {
+  .newlist tr:not(.group) td:nth-last-child(2),
+  .newlist tr:not(.group) td:nth-last-child(1) {
     white-space: nowrap;
   }
 .newlist .group .next,
