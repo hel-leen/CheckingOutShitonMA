@@ -1212,7 +1212,7 @@ table ::-webkit-scrollbar {
 }
 .newlist .group div>*:not(.prev):not(.next) {
   color: #fed;
-  white-space: break-spaces;
+  /* white-space: break-spaces; */
   flex-direction: column;
 }
 
