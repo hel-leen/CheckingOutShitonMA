@@ -316,7 +316,6 @@ function searchBox(api) {
     input = '<div class="input" contenteditable="true" placeholder="Search for albums or bands.."/></div><span class="clear fa fa-times-circle"></span>';
   searchBox.find("#searchInput").append(input).end()
     .find(".clear").hide().end()
-    // .find('input').attr('placeholder', 'Search for albums or bands..').end()
     .on("change keyup click", function (e) {
       var
         target = $(e.target),
@@ -401,7 +400,7 @@ const defaultParams = {
       "next": "Next",
       "previous": "Prev"
     },
-    zeroRecords: "No matching records found<br>Clear date filter and retry?",
+    zeroRecords: "No matching records found<br>Clear filters and retry?",
     loadingRecords: '<div class="loading"><div><div></div><div></div><div></div><div></div><div></div><div></div></div><div> Loading...</div></div>',
   },
 }
