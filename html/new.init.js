@@ -503,12 +503,12 @@ $(function () {
   });
 
   //reset settings
-  $('#all').on('click', function setAll() {
+  $('#button-all').on('click', function setAll() {
     table.columns().every(function () { this.search(''); });
     table.order([[ids.date, 'desc'], [ids.cover, 'desc']]).draw();
   });
   //reset default settings
-  $('#reSet, #Reset').on('click', function setDefault() {
+  $('#button-def, #Reset').on('click', function setDefault() {
     $('#input-condition').val('After');
     $('#input-datetime').val(thisweek);
     table.columns().every(function () { this.search(''); });

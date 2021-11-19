@@ -51,6 +51,13 @@
   position: relative;
 }
 
+[contenteditable=true]:empty::before{
+  content: attr(placeholder);
+  pointer-events: none;
+  display: block; /* For Firefox */
+  color: #fed;
+  opacity: 1;
+}
 
 ::-webkit-scrollbar {
   width: 8px;
@@ -937,10 +944,6 @@ div.dt-datetime-iconDown button {
 
 .dt-datetime-label {
   /* display: inline-grid; */
-}
-
-.dataTables_filter input::-webkit-input-placeholder {
-  color: #fed;
 }
 
 .btm,
@@ -2159,7 +2162,7 @@ td {
   max-width: 100%;
 }
 
-#reset-filter button {
+.filter-holder.reset button {
   height: 100%;
   /* background: #777; */
   /* color: white; */
@@ -2169,15 +2172,15 @@ td {
 }
 
 
-#reset-filter button:active {
+.filter-holder.reset button:active {
   box-shadow: 0 0px 3px 0 rgba(0, 0, 0, 0.34), 0 5px 10px 0 rgba(0, 0, 0, 0.29);
 }
 
-#Reset {
+.filter-holder.reset {
   cursor: pointer;
 }
 
-#Reset:active {
+.filter-holder.reset:active {
   color: #fed
 }
 
@@ -2231,7 +2234,7 @@ div.dt-datetime-label span {
   display: grid;
   grid-template-columns: 0rem 1fr;
   margin-top: 0;
-  padding: .5rem 1rem;
+  padding: .2rem 1rem;
   visibility: hidden;
 }
 
@@ -2240,11 +2243,26 @@ div.dt-datetime-label span {
   justify-content: center;
 }
 
+.dataTables_filter input::-webkit-input-placeholder {
+  color: #fed;
+  opacity: 1;
+}
+
+.dataTables_filter #input,
+.dataTables_filter .input,
 .dataTables_filter input {
   display: inline-block;
-  width: 100%;
-  padding: .4rem 1.2rem;
+  width: fit-content;
+  padding: .5rem 1.5rem;
   color: #fff;
+  font-size: .9rem !important;
+  width: 100%;
+}
+
+.dataTables_filter .input:not(:empty),
+.dataTables_filter .input:focus,
+.dataTables_filter input:focus {
+/* width: fit-content !important; */
 }
 
 .dataTables_filter b {
@@ -2253,15 +2271,10 @@ div.dt-datetime-label span {
 
 .dataTables_filter .fa {
   left: 1rem;
+  /* opacity: .9; */
   width: fit-content;
-}
-
-.dataTables_filter .toggle .fa {
-  opacity: .9;
-}
-
-.dataTables_filter .clear {
-  align-items: center;
+  align-self: center;
+  font-size: .9rem !important;
 }
 
 .dataTables_filter .hideItem {
@@ -2288,7 +2301,7 @@ div.dt-datetime-label span {
 @media(max-width: 999px) {}
 
 @media(min-width: 768px) {
-  #hiddenToggle {
+  .checkcontainer.id {
     display: none;
   }
 

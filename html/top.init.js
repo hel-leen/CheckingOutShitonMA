@@ -266,7 +266,7 @@ $(function () {
   $('.filter,.genrefilter,.paginate_button, .filter-holder:not(#url-filter),#reset').change(function () {
     table.draw();
   });
-  $('#reSet').click(function () {
+  $('#button-def').click(function () {
     $('.filter-holder select option').prop("selected", true);
     table.draw();
   });

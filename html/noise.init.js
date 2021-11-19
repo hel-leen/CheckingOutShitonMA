@@ -24,7 +24,7 @@ $(function () {
         },
         // searchable: false,
         sorting: false,
-        className: "col-cover all",
+        className: "col-cover col-id all",
         width: '14%',
         targets: [0],
       }, {
@@ -265,7 +265,7 @@ $(function () {
     table.columns(cols).search('').draw();
   });
   //reset default settings
-  $('#reSet').click(function () {
+  $('#button-def').click(function () {
     // $('.filter-holder select option').prop("selected", true);
     // $('.sel-genre select option').prop("selected", false);
     table.columns().every( function () {this .search( '' ); } );

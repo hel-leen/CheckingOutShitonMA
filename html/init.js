@@ -157,12 +157,15 @@ function loadData(data, callback, settings) {
         };
         localStorage.setItem(savedItem, JSON.stringify(data));
       })
+	  .fail(function() {
+		  console.log( "error on loading json file ", ajaxurl );
+	  })
   } else {
-    // data = savedData;
     loadCallback(savedData);
   }
 };
 function GetId(api) {
+  this.id = api.column('.col-id').index();
   this.cover = api.column('.col-cover').index();
   this.album = api.column('.col-album').index();
   this.band = api.column('.col-band').index();
@@ -310,7 +313,7 @@ function modifyItems(api) {
 function searchBox(api) {
   var
     searchBox = $("#searchBox"),
-    input = '<input type="text" class="search" placeholder="Search for albums or bands.."/><span class="clear fa fa-times-circle"></span>';
+    input = '<div class="input" contenteditable="true" placeholder="Search for albums or bands.."/></div><span class="clear fa fa-times-circle"></span>';
   searchBox.find("#searchInput").append(input).end()
     .find(".clear").hide().end()
     // .find('input').attr('placeholder', 'Search for albums or bands..').end()
@@ -318,34 +321,35 @@ function searchBox(api) {
       var
         target = $(e.target),
         iclear = $(this).find(".clear").hide(),
-        searchInput = $(this).find("input"),
+        searchInput = $(this).find(".input"),
         placeHolder = [],
         searchOps = $('#select-column').val() || [],
-        searchValue = searchInput.val(),
+        searchValue = searchInput.text(),
         searchIndex = searchOps.map((d, j) => {
           return d = api.column('.col-' + d).index();
         });
-      if (searchInput.val()) {
+      if (searchValue) {
         iclear.show().css('display', 'flex');
       }
       if (target.hasClass("clear")) {
-        searchInput.val('').focus();
+        searchInput.text('').focus();
+		searchValue = '';
         iclear.hide();
       }
       if (target.is("select") && e.type == 'change') {
         $(this).find('option:selected').each(function () { placeHolder.push($(this).text().toLowerCase().concat('s')) });
         placeHolder = placeHolder.length < 4 ? placeHolder.join(', ').replace(/,(?=[^,]*$)/g, ' or') :
           placeHolder.join(', ').replace(/^((?:[^,]+,\s?){0,3}[^,]+(?=\b))(.*)/g, '$1, etc');
-        searchInput.val('');
+        // searchInput.text('');
         // api.columns().every(function () { this.search('') });
         $("#searchInput").empty()
-          .append(input).find('input').val(searchValue)
+          .append(input).find('.input').text(searchValue)
           .attr('placeholder', 'Search for '.concat(placeHolder, '..'))
         // searchBox.trigger('change');
       }
       $.fn.dataTable.ext.search = $.fn.dataTable.ext.search.filter(function (fun) { return fun.name !== 'multiSearch' }).concat(
         function multiSearch(settings, searchData, index, rowData, counter) {
-          var val = searchInput.val().toLowerCase(), len = searchIndex.length;
+          var val = searchValue.toLowerCase(), len = searchIndex.length;
           if (len == 0) { return true } else {
             for (var i = 0, ien = searchIndex.length; i < ien; i++) {
               var data = searchData[searchIndex[i]], dataLower = data.toLowerCase().split('|||')[0], position = dataLower.indexOf(val);
@@ -356,7 +360,8 @@ function searchBox(api) {
             return false;
           }
         });
-      api.draw();
+      api.draw(); 
+	  console.log(e);
     });
 }
 function stateSave(settings, data) {
@@ -396,7 +401,7 @@ const defaultParams = {
       "next": "Next",
       "previous": "Prev"
     },
-    zeroRecords: "No matching records found<br>Set fewer filters and retry?",
+    zeroRecords: "No matching records found<br>Clear date filter and retry?",
     loadingRecords: '<div class="loading"><div><div></div><div></div><div></div><div></div><div></div><div></div></div><div> Loading...</div></div>',
   },
 }
@@ -431,7 +436,8 @@ $(function () {
       duration: 500,
       height: "easeInBounce",
       display: "easeInBounce"
-    }).css('display', 'grid');
+    })
+	.css('display', 'grid !important');
     $(this).children('.fa-chevron').toggleClass("fa-chevron-circle-right fa-chevron-circle-down");
     $(this).children('.fa-caret').toggleClass("fa-caret-right fa-caret-down");
   });
@@ -442,19 +448,20 @@ $(function () {
     filter.find('input[type="text"]').val('');
     filter.trigger('change');
   });
-  //reset settings
-  $('#all').on('click', function setAll() {
+  //reset all 
+  $('#button-all').on('click', function setAll() {
+    $('.searchBox, .filterSection').find('div.input').text('');
     $('.searchBox, .filterSection').find('input[type="text"]').val('');
     $('.searchBox, .filterSection').find('input[type="checkbox"]').prop('checked', false);
     $('.searchBox, .filterSection').find('select[multiple] option').prop('selected', true);
     $('.searchBox, .filterSection').find('select:not([multiple]) option').prop('selected', false);
 
   });
-  //reset default settings
-  $('#reSet, #Reset').on('click', function setDefault() {
+  //reset default  
+  $('#button-def, #Reset').on('click', function setDefault() {
+    $('.searchBox, .filterSection').find('div.input').text('');
     $('.searchBox, .filterSection').find('input[type="checkbox"]').prop('checked', function () { return $(this).prop('defaultChecked'); });
     $('.searchBox, .filterSection').find('option').prop('selected', function () { return $(this).prop('defaultSelected'); });
-    $('.searchBox').find('input[type="text"]').val(function () { return $(this).prop('defaultValue'); }).attr('placeholder', 'Search for albums or bands..');
   });
   $('.reload').on('click', function reloadData() {
     localStorage.setItem(savedItem, JSON.stringify({ expire: 0, }));
