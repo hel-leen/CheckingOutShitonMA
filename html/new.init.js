@@ -2,6 +2,14 @@ let thisday = moment().format('YYYY-MM-DD');
 var thisweek = moment().day() >= 5 ?
   moment().day(5).subtract(0, 'days').format('YYYY-MM-DD') :
   moment().day(5).subtract(7, 'days').format('YYYY-MM-DD');
+var formats = {
+	cover: "(?<id>\\d+)\\|\\|\\|(?<cover>.*)",
+	album: "(?<album>.*)\\|\\|\\|(?<albumid>\\d+)\\|\\|\\|(?<type>.*)",
+	band: "(?<bands>.*)\\|\\|\\|(?<bandids>\\d[\\d\\s\\/\\|]*\\d?)\\|\\|\\|(?<country>.*)",
+	label: "(?<labelid>\\d+)\\'(?<label>.*)",
+	length: "(?<length>.*)\\|\\|\\|(?<track>.*)",
+	date: "(?<date>.*)\\|\\|\\|(?<date0>.*)"
+};
 $(function () {
   pageLayout();
   $('#input-datetime').val(thisweek);
@@ -29,13 +37,16 @@ $(function () {
         //rendering cover
         render: (data, type, row) => {
           if (type === 'display') {
-            let album_id = data.split(/(?<=\d)\|\|\|/g)[0];
-            let album_cover = data.split(/(?<=\d)\|\|\|/g)[1];
-			var svg = '<svg  data-prefix="fad" data-icon="compact-disc" role="img" viewBox="0 0 512 512" class="nocover"><g><path d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM88,256H56C56,150.1,142.1,64,248,64V96C159.8,96,88,167.8,88,256Zm160,96a96,96,0,1,1,96-96A96,96,0,0,1,248,352Z"></path><path d="M248,160a96,96,0,1,0,96,96A96,96,0,0,0,248,160Zm0,128a32,32,0,1,1,32-32A32,32,0,0,1,248,288Z"></path><text x="256" y="275"  fill="currentColor"></text></g></svg>';
+            // let album_id = data.split(/(?<=\d)\|\|\|/g)[0];
+            // let album_cover = data.split(/(?<=\d)\|\|\|/g)[1];
+			var 
+			album_id = data.match(formats.cover).groups.id,
+			album_cover = data.match(formats.cover).groups.cover,
+			svg = '<svg  data-prefix="fad" data-icon="compact-disc" role="img" viewBox="0 0 512 512" class="nocover"><g><path d="M248,8C111,8,0,119,0,256S111,504,248,504,496,393,496,256,385,8,248,8ZM88,256H56C56,150.1,142.1,64,248,64V96C159.8,96,88,167.8,88,256Zm160,96a96,96,0,1,1,96-96A96,96,0,0,1,248,352Z"></path><path d="M248,160a96,96,0,1,0,96,96A96,96,0,0,0,248,160Zm0,128a32,32,0,1,1,32-32A32,32,0,0,1,248,288Z"></path><text x="256" y="275"  fill="currentColor"></text></g></svg>';
             switch (album_cover) {
-              case '/images/cat.jpg':
-                album_cover = svg ;
-                break;
+              // case '/images/cat.jpg':
+                // album_cover = svg ;
+                // break;
               default:
                 album_cover = '<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy" onError="this.onerror=null;this.src=\'https://www.metal-archives.com/images/cat.jpg\';">');
             }
@@ -426,9 +437,10 @@ $(function () {
                 marker: { color: 'rgba(238, 221, 204,.5)', gradient: { color: "rgba(31, 119, 180, .8)", type: "horizontal" } }
               }]
             }
-            if (thisday <= xrange) {
+			var Today = date.filter(item => item[0] == thisday)[0];
+            if (thisday <= xrange && Today) {
               frames[i].layout.annotations = [{
-                x: thisday, y: date.filter(item => item[0] == thisday)[0][1],
+                x: thisday, y: Today[1],
                 xref: 'x', yref: 'y', ax: 20, ay: -25, text: 'Today', showarrow: true, arrowhead: 1, arrowsize: 1, arrowwidth: 1, arrowcolor: '#636363',
               }]
             }
