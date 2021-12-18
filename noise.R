@@ -118,16 +118,21 @@ everynoise =
             pull %>% 
             map(function(x) x %>% str_extract('(?<=album\\:).*') %>% 
                   get_album() %>% .[c("release_date", "label","tracks")] %>% 
-                  sapply(., function(x){
-                    if ("items" %in% names(x) )                    
-                    { return(x=x%>%.$items %>% .$duration_ms %>% sum )} 
-                    else 
-                    {return(x=paste0(x))}
-                    x
-                  }))  %>% 
+                  try(
+                    sapply(., function(x){
+                      if ("items" %in% names(x) )                    
+                      {return(x=x%>%.$items %>% .$duration_ms %>% sum )} 
+                      else 
+                      {return(x=paste0(x))}
+                      x
+                    }),
+                    silent=TRUE
+                  )
+            ) %>% 
             tibble (albuminfo=.) %>% 
-            unnest_wider(albuminfo)  %>% 
-            rename(c("length" = "tracks")) 
+            unnest_wider(albuminfo) %>% 
+            rename(c("length" = "tracks")) %>% 
+            select(release_date:length)
           
           list(
             band =
