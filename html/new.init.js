@@ -48,7 +48,7 @@ $(function () {
                 // album_cover = svg ;
                 // break;
               default:
-                album_cover = '<img src="https://www.metal-archives.com'.concat(album_cover, '" loading="lazy" onError="this.onerror=null;this.src=\'https://www.metal-archives.com/images/cat.jpg\';">');
+                album_cover = '<img src="https://www.metal-archives.com/'.concat(album_cover, '" loading="lazy" onError="this.onerror=null;this.src=\'https://www.metal-archives.com/images/cat.jpg\';">');
             }
             return album_cover;
           }
