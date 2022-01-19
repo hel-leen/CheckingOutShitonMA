@@ -166,8 +166,12 @@ checkout =
 malink = 
   "https://www.metal-archives.com"
 upcoming =
-  "https://www.metal-archives.com/release/ajax-upcoming/json/1?sEcho=1&iDisplayStart="
-
+  paste0(
+    "https://www.metal-archives.com/release/ajax-upcoming/json/1?sEcho=1&fromDate=",
+    lubridate::today(tzone = "UTC"),
+    "&toDate=0000-00-00",
+    "&iDisplayStart="
+  )
 
 ## generate new data based on current date
 name = Sys.Date() %>% format('%Y.%m.%d') %>% 
