@@ -14,7 +14,7 @@ library(lubridate)
 library(gert)
 ##########################  check out new shit  #################################
 checkout =  
-  function(link){
+  \(link){
     ajax.page = 
       link %>% 
       paste0(.,"000") %>%  
@@ -187,7 +187,7 @@ new = anti_join(
 
 
 # extend every album
-extended = function(df=new) {
+extended = \(df=new) {
   album.cover.i = NA
   album.label.i = NA
   album.track.i = NA
@@ -362,7 +362,7 @@ new.list =
 
 ### generate a JSON file
 export.data = 
-  function(dataname) { 
+  \(dataname) { 
     dataname %>%
       arrange(desc(album.link)) %>% 
       filter(album.date > Sys.Date() - days(183) & album.date < Sys.Date() + days(183)) %>% 
