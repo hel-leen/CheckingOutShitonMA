@@ -72,7 +72,7 @@ $(function () {
             album_col += "<div class='grid_item'>" + "<div class='flex_item'>" + "<a class='hreftext'>" +
               album_title
                 .replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
-                .replace(/(([\/\(\\～~]|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
+                .replace(/(((?<=\s)[\/\(\\～~](?=\s?\S{3,})|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
                 .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
                 .replace(/(\n\s?)+/g, '\n')
                 .replace(/\n$|(?<=^\S{0,4}\s?)\n/g, '') +
