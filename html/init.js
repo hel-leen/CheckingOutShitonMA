@@ -527,7 +527,7 @@ String.prototype.toTitleCase = function () {
       function (txt) {
         return txt.toLowerCase();
       });
-  uppers = ['osdm', 'usbm', 'us', 'uk', 'ny', 'nz', "'n", "'n'", 'dna'];
+  uppers = ['osdm', 'usbm', 'us', 'uk', 'ny', 'nz', "'n", "'n'", 'dna','nyc'];
   var numbers = this.match(/((?<=\b)M{0,4}(?:CM|CD|D?C{0,3})(?:XC|XL|L?X{0,3})(?:IX|IV|V?I{0,3})(?=\b))/gi);
   if (numbers != null) {
     numbers = numbers.filter(v => v != '');
