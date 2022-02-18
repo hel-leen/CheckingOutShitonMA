@@ -117,9 +117,10 @@ $(function () {
           //rendering rank
           if (type === 'display') {
             var
-              format = /(^ranking:)(\d+)\|\|\|(.*)/,
+              format = /(^ranking:)([0-9\+eE]+)\|\|\|(.*)/,
               followers = parseFloat(data.match(format)[3]).toLocaleString(undefined),
-              ranking = parseFloat(data.match(format)[2]).toLocaleString(undefined);
+              ranking = parseFloat(data.match(format)[2]);
+			  ranking = ranking >= 1000000000 ? "Unavaliable" : ranking.toLocaleString(undefined);
             return '<div class="ts"><abbr style="opacity:.7;">Ranking: </abbr>' + ranking +
               '<br><abbr style="opacity:.7;">Listeners: </abbr>' + followers + "</div>";
           }
@@ -279,7 +280,7 @@ $(function () {
   });
 });
 $.fn.dataTable.ext.type.order['ranking-pre'] = function (d) {
-  d = parseFloat(''.concat(d.match(/(^ranking:)(\d+)\|\|\|(.*)/)[2]));
+  d = parseFloat(''.concat(d.match(/(^ranking:)([0-9\+eE]+)\|\|\|(.*)/)[2]));
   return d;
 };
 $.fn.dataTable.ext.search = 
