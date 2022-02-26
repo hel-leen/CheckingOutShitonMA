@@ -22,7 +22,7 @@ library(stringi)
 # library(imager)
 # library(ggthemr)
 # library(colorDF)
-load("all.RData")
+save.image("../all.RData")
 ##########################  check out new releases  #################################
 
 
@@ -557,13 +557,13 @@ export.data =
         paste0('"recordsTotal":"',ncol(.),'",'),
         '"data": [[',.) %>% head(., -1) %>% append(']]}') %>% 
       write_lines(sep = "\n",
-                  file='./CheckingOutShitonMA/html/new',append= FALSE)
+                  file='./html/new',append= FALSE)
   }
 export.data(new.list)
 
 ################################# commit ##################################
 
-save.image("all.RData")
+save.image("../all.RData")
 
 ## clean the environment
 unrm.list = c("new.list")
