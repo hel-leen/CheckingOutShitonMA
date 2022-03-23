@@ -108,7 +108,7 @@ $(function () {
           }
           return data;
         },
-        className: "col-simi not-tablet",
+        className: "col-simi not-tablet never",
         sorting: false,
         width: '11%',
         targets: [4],
