@@ -1,5 +1,5 @@
 {"draw": 1, "lastUpdate":"2022-05-06 UTC", "TTL":3,
-"recordsTotal":"2858",
+"recordsTotal":"2855",
 "data": [[
 "ab67616d00001e02ead058a2679241c3473645fd",
 "Farther from the Sun|||album:24wVMfaP5cRKv447x5R5qi",
@@ -2124,17 +2124,6 @@
 "00:03:55|||Single · 1",
 "2022-04-22"
 ],[
-"ab67616d00001e02397bee1d34424c3d71ffcb39",
-"Green Wave (single)|||album:7IffcaHdhmo55EugwHY3xD",
-"Acidbrain|||artist:5VXKQP85PpaN5iyp3ZO4t5",
-"Death Metal",
-"<chr|||<chr",
-"ranking:1530483|||203",
-"20220422000750",
-"AcidBrain Productions",
-"00:10:53|||Single · 2",
-"2022-04-20"
-],[
 "ab67616d00001e0270a44c43be64d1eb34fc245f",
 "Diabolical Servants of the Cross|||album:6SdUu7867LvGJiItrbYcIw",
 "Depressed|||artist:78uXsOMs7TrbahKttaUhF4",
@@ -3750,17 +3739,6 @@
 "20220401000750",
 "Testimony Records",
 "00:04:48|||Single · 1",
-"2022-04-01"
-],[
-"ab67616d00001e02000519b4444ffaaaa9e0897a",
-"Natural Born Killaz|||album:1UFA35BBMaaLUqXLDc6mAQ",
-"Acidbrain|||artist:5VXKQP85PpaN5iyp3ZO4t5",
-"Death Metal",
-"<chr|||<chr",
-"ranking:1352142|||203",
-"20220401000750",
-"AcidBrain Productions",
-"00:04:16|||Single · 1",
 "2022-04-01"
 ],[
 "ab67616d00001e029c4490dd2f723c2fb8f17269",
@@ -10636,17 +10614,6 @@
 "20220114000750",
 "Pale Gaze",
 "00:01:59|||Single · 1",
-"2022-01-14"
-],[
-"ab67616d00001e020a3ae67d130a324e0c65a004",
-"Limbless Fuckdoll|||album:1ohKzUjZV11DNZmYuMk6Ac",
-"Acidbrain|||artist:5VXKQP85PpaN5iyp3ZO4t5",
-"Death Metal",
-"Cerebral Incubation, Fluids, Disgorge, Visceral Disgorge, Guttural Slug, Kraanium|||2gpu0EtvWqIdVLzZwR0XAA, 7AwjxGNLsFAov9qk9w1nwm, 4QGOIwBOrKa9axQxMz3yav, 7vWBtzzt2W1c41nztJMjVk, 3vzyZYhXq78QlMV7VghI0e, 5Gp1GsvxkVzZW7oYFRvBWw",
-"ranking:1804592|||130",
-"20220114000750",
-"AcidBrain Productions",
-"00:02:58|||Single · 1",
 "2022-01-14"
 ],[
 "ab67616d00001e029aae248b971b603379ac58f8",
