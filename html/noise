@@ -1,6 +1,556 @@
-{"draw": 1, "lastUpdate":"2022-05-27 UTC", "TTL":3,
-"recordsTotal":"2913",
+{"draw": 1, "lastUpdate":"2022-06-03 UTC", "TTL":3,
+"recordsTotal":"2902",
 "data": [[
+"ab67616d00001e026665fd2b51cccb75b3d76194",
+"Eerily Howling Winds|||album:3yoU9TrrAPEYg63Hn4ATb5",
+"Ancient|||artist:1KJ1OrDIh6JTeVXn4BFMD1",
+"black metal, dark black metal, melodic black metal",
+"<chr|||<chr",
+"ranking:301118|||20144",
+"20220603999999",
+"Soulseller",
+"01:07:51|||Album · 11",
+"2022-06-03"
+],[
+"ab67616d00001e0230db5acee5e3de15c9393eeb",
+"In de nevel van afgunst|||album:3ubAPqv71B6D66pk3iTRzd",
+"Hellevaerder|||artist:1jfR9GW80Us5tGpsgbMIsq",
+"Black Metal",
+"<chr|||<chr",
+"ranking:1283156|||259",
+"20220603999999",
+"901901 Records DK",
+"00:39:49|||Album · 7",
+"2022-06-01"
+],[
+"ab67616d00001e02cef11082dacf4e6e095d88f2",
+"De vaendrig|||album:7rYx5ALdudDvkYCL0ROpQ8",
+"Wrang|||artist:4uuweZmXWdKtG2xHSqUWk1",
+"Pagan Black Metal",
+"<chr|||<chr",
+"ranking:1209116|||152",
+"20220603999999",
+"Dominance of Darkness",
+"00:43:00|||Album · 7",
+"2022-06-01"
+],[
+"ab67616d00001e029a59caec2a9b58297a6f47e7",
+"Theosis|||album:1JSn3yaHfycaNgxcIzQQp0",
+"Acherontas|||artist:5CLeQ572ap28idGd1bB7JF",
+"cosmic black metal, dark black metal, greek black metal",
+"<chr|||<chr",
+"ranking:395207|||10891",
+"20220603999999",
+"Zazen Sounds",
+"00:57:37|||Album · 10",
+"2022-05-29"
+],[
+"ab67616d00001e0298349ad59c1b5f040f208cc7",
+"Crystal Knight|||album:5wCJTn4zmI8ZUFNg8j8Brs",
+"Whisper of Runes|||artist:4GFZRaK0fGVCVNgyz41OUB",
+"Atmospheric Black Metal",
+"<chr|||<chr",
+"ranking:901914|||1583",
+"20220603999999",
+"Militant Zone",
+"00:47:18|||Album · 9",
+"2022-05-31"
+],[
+"ab67616d00001e0246e6643798fbf9740f8de6fb",
+"XIII Mantras of the Key to the Gates of Apocalypse|||album:0pX8eFFo4zq6jTjNv3y8Yx",
+"Mistigo Varggoth Darkestra|||artist:02XBZD5XbzmwgS8fmTvTA0",
+"autonomous black metal, dungeon synth, ukrainian black metal",
+"<chr|||<chr",
+"ranking:1849931|||659",
+"20220603999999",
+"Oriana Music",
+"01:12:46|||Album · 13",
+"2022-05-28"
+],[
+"ab67616d00001e02834802dbe9af5cc0ebcad188",
+"Den svarte sjelen|||album:29scHs6Z7nU1qKLoKTRUAG",
+"Massemord|||artist:018gIUaP08hROTOiVdiEQ3",
+"polish black metal",
+"<chr|||<chr",
+"ranking:731142|||1005",
+"20220603999999",
+"Massemord",
+"00:21:28|||EP · 4",
+"2022-05-29"
+],[
+"ab67616d00001e0282436439d6262137edb930fe",
+"Gastkramad|||album:3Ha9oULffUrwLQKUrMMnV3",
+"Bergsvriden|||artist:5SM4APkKCPP7RzQtVEkzri",
+"folk black metal, nordic folk metal",
+"<chr|||<chr",
+"ranking:1046350|||150",
+"20220603999999",
+"Northern fog records",
+"00:35:01|||Album · 9",
+"2022-05-31"
+],[
+"ab67616d00001e0230aea8fd6a13fc43d56e764c",
+"Ancient Hymns|||album:6LHzufH9BN5lH6h0VOE9Kv",
+"Rotting Flesh|||artist:4cYyaSCIKeUZcvvBtLUuLE",
+"greek black metal",
+"<chr|||<chr",
+"ranking:4165687|||47",
+"20220603999999",
+"Sleaszy Rider",
+"00:40:12|||Album · 9",
+"2022-06-03"
+],[
+"ab67616d00001e0255c79c643de9c5e635b89dd3",
+"Shoegaze Rave|||album:5kBByL1sKI6UDLAURLyzHv",
+"Violet Cold|||artist:5eh1n96NC6g34nPqpIItIo",
+"atmospheric black metal, cosmic black metal, post-black metal",
+"<chr|||<chr",
+"ranking:130555|||28240",
+"20220603999800",
+"La Petite Mort Prod.",
+"00:21:40|||EP · 4",
+"2022-06-03"
+],[
+"ab67616d00001e02d7d650f819bf14842387a8df",
+"The Return Of The Shadow|||album:5CRuGnaWh51qhLjYpRJE6H",
+"Battlelore|||artist:6vDPwpGZIflBoW6Gy3FWFw",
+"finnish power metal, folk metal, gothic metal",
+"<chr|||<chr",
+"ranking:116540|||17277",
+"20220603999800",
+"Napalm Records",
+"01:02:16|||Album · 12",
+"2022-06-03"
+],[
+"ab67616d00001e0250ddd0f4df8cfb619f25ab22",
+"Radiant Bloom|||album:4srAPrUWbnkQfuX69sWyRu",
+"Astronoid|||artist:2S13OV7nLeciVigE0Wxo7E",
+"blackgaze, boston metal, cosmic black metal",
+"<chr|||<chr",
+"ranking:82631|||27655",
+"20220603999800",
+"Century Media",
+"00:46:07|||Album · 9",
+"2022-06-03"
+],[
+"ab67616d00001e0237083a7134aad0f67030ba74",
+"Chaosmos|||album:5BHeJN2hC60FoCBmOZfDAG",
+"Origin|||artist:4Mmo0f1kp7dyyH3UbK9vUU",
+"brutal death metal, cosmic death metal, death metal",
+"<chr|||<chr",
+"ranking:113211|||57427",
+"20220603999750",
+"Agonia Records",
+"00:44:29|||Album · 8",
+"2022-06-03"
+],[
+"ab67616d00001e029a1bf69ad9d194d1e9b1f501",
+"Death as a Process|||album:2i3sDojjPeQaUUlkmPinPA",
+"Corrosive|||artist:5IRr5jC8llJWFbqFdRnLyH",
+"german death metal",
+"<chr|||<chr",
+"ranking:1415220|||362",
+"20220603999750",
+"Black Sunset / a division of MDD Records",
+"00:44:46|||Album · 11",
+"2022-06-03"
+],[
+"ab67616d00001e026975bc28358f61f149d6b35e",
+"Summoning the Slayer|||album:2DE5wnCoDph2KliojjP2hE",
+"Temple of Void|||artist:0gCLnqVApwj3H6EqfaZZUi",
+"death doom, new wave of osdm, voidgaze",
+"<chr|||<chr",
+"ranking:268650|||12545",
+"20220603999750",
+"Relapse Records",
+"00:40:15|||Album · 7",
+"2022-06-03"
+],[
+"ab67616d00001e02d00db65688f0e66745ec3eac",
+"Artificial Brain|||album:3TXzJXJDbXRMW2RtX5eDRs",
+"Artificial Brain|||artist:0FJTTwSyFG3TnPYs0Gwuwr",
+"cosmic death metal, dissonant death metal, new york death metal",
+"<chr|||<chr",
+"ranking:206341|||15457",
+"20220603999750",
+"Profound Lore",
+"00:45:28|||Album · 10",
+"2022-06-03"
+],[
+"ab67616d00001e028d8c96eb692501aab7887deb",
+"Crypt World|||album:2Jtt6aba17o4dQK92Em4Nt",
+"Ribspreader|||artist:0F76aAtBIyV17aRiD9F1uf",
+"swedish death metal",
+"<chr|||<chr",
+"ranking:610000|||4125",
+"20220603999750",
+"Xtreem Music",
+"00:30:41|||Album · 9",
+"2022-05-31"
+],[
+"ab67616d00001e0289b0de0996a09deaed5c79f1",
+"Though life has turned out nothing like I imagined, it is far better than I could have dreamt. (Instrumental)|||album:4IdhjyxdGOeNyJfByb8ecw",
+"Breaths|||artist:4VrGHIY719K8lT4fAjXJIW",
+"doomgaze",
+"<chr|||<chr",
+"ranking:1310776|||287",
+"20220603999000",
+"Breaths",
+"00:35:09|||Album · 6",
+"2022-06-01"
+],[
+"ab67616d00001e02b497fae11d15b364c6b435f3",
+"De Pessimism Philosophiam Et Dogma Nihilistic|||album:1HAGe6M5EUAAWWlnALNNev",
+"Morcrof|||artist:0eFfjtAqPnvoBvfikjo28R",
+"brazilian doom metal",
+"<chr|||<chr",
+"ranking:2567080|||159",
+"20220603999000",
+"MORCROF",
+"00:43:35|||Album · 11",
+"2022-06-01"
+],[
+"ab67616d00001e02a2e610ca430bd177ed4e9b21",
+"Epic Discordant Vision|||album:3Gl9BgHA9KuypKPlg8xtyV",
+"CKRAFT|||artist:7gH3aavpQu7KMkweyc023u",
+"Avant-Garde Metal",
+"<chr|||<chr",
+"ranking:497305|||552",
+"20220603999000",
+"CKRAFTPROD",
+"00:50:57|||Album · 10",
+"2022-06-03"
+],[
+"ab67616d00001e0262c0ac0baae659d28d354c4f",
+"Twisted Phantasy|||album:1SQFihqLk0vcLOGx4SRaRE",
+"Tripsitter|||artist:34NWLW5d4yhwesh4qVJbGk",
+"austrian metal, blackened hardcore, melodic hardcore",
+"<chr|||<chr",
+"ranking:660982|||2866",
+"20220603100800",
+"The Church Club Records",
+"00:20:04|||EP · 3",
+"2022-06-03"
+],[
+"ab67616d00001e02e03825f913c7234a64ba498d",
+"Héritage|||album:7AWC4cE6SGGgwTE2yC0FTJ",
+"Hysterical Blindness|||artist:0G70HHH9eYSyb3bur00DQL",
+"Black Metal",
+"<chr|||<chr",
+"ranking:803049|||195",
+"20220603000999",
+"Hysterical Blindness",
+"00:04:51|||Single · 1",
+"2022-05-31"
+],[
+"ab67616d00001e027385e491ad17046fc7313d8e",
+"Moon Sorcery|||album:58NpyNsBLtIDWwCVIOflqf",
+"Veter Daemonaz|||artist:0LG7EViMWtL1YEYohD362S",
+"Black Metal",
+"<chr|||<chr",
+"ranking:1325282|||786",
+"20220603000999",
+"Osmose Productions",
+"00:03:24|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e02d7d8f95d8ca068b74bdf55d0",
+"Mercy as a Blade|||album:6FkpqvdzSKS73pIraGsg3M",
+"Liber Null|||artist:25AID6ggwFAyjAcJb17eQ2",
+"Black Metal",
+"<chr|||<chr",
+"ranking:1824131|||198",
+"20220603000999",
+"Immortal Frost Productions",
+"00:05:01|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e028f624d6787f5be1a09648fba",
+"Spits You Out|||album:5EYPmyCqOnc31MUeccVjGh",
+"Dead|||artist:0WgGTfGlFgMQ747RKKTt7Q",
+"Black Metal",
+"<chr|||<chr",
+"ranking:2657508|||19",
+"20220603000999",
+"1477879 Records DK",
+"00:03:24|||Single · 1",
+"2022-06-01"
+],[
+"ab67616d00001e02e17e009e1f989c1d403c4765",
+"Svøpt i en dynge av dritt|||album:3OSqjVcdpPIkxU8zcRpff6",
+"Sarkom|||artist:0iwjFW3QpeB5Rk45dlh4pl",
+"dark black metal",
+"<chr|||<chr",
+"ranking:684140|||6434",
+"20220603000999",
+"Sarkom",
+"00:09:01|||Single · 2",
+"2022-06-03"
+],[
+"ab67616d00001e02226f2827954820bcb58df75c",
+"Аминь|||album:627JdxleOl3wnB583wPgfN",
+"Рожь|||artist:6H4aSq8C0uNkxUKDsC2t0j",
+"forest black metal",
+"<chr|||<chr",
+"ranking:644477|||1910",
+"20220603000999",
+"RUMEDIA.IO",
+"00:14:29|||EP · 1",
+"2022-06-03"
+],[
+"ab67616d00001e02bc15949e17c622fa704986b8",
+"Ember | hoffnungsträger|||album:0Fx52w1MGTUm7IdD4izvJx",
+"Corpus Vitreum|||artist:0eH9oW3WcYiONVk1V5yEsQ",
+"Atmospheric Black Metal",
+"<chr|||<chr",
+"ranking:819986|||695",
+"20220603000999",
+"2876123 Records DK2",
+"00:16:00|||Single · 2",
+"2022-05-30"
+],[
+"ab67616d00001e02b6c4d634b935db5f649932b5",
+"Hart Island|||album:4Or7frVJ55Dayv3ZFKE5GH",
+"Executioner's Mask|||artist:4OF5Zpz0aLolwT07pMe4qX",
+"Voidgaze",
+"<chr|||<chr",
+"ranking:690527|||1081",
+"20220603000999",
+"Profound Lore",
+"00:03:56|||Single · 1",
+"2022-05-31"
+],[
+"ab67616d00001e02e9d5d537baf4ec3784d7739d",
+"Resurrect the flesh|||album:6CvOLEn9xna8oQKI9CXY8E",
+"Putrid Fate|||artist:3w9ESYYljnI8U94rPwfvNI",
+"Voidgaze",
+"<chr|||<chr",
+"ranking:2857691|||28",
+"20220603000999",
+"2847112 Records DK",
+"00:04:13|||Single · 1",
+"2022-06-01"
+],[
+"ab67616d00001e02c723da907422d9bde76876f7",
+"Dzwony|||album:1yDd8xF8fm1jek3gLFBmkt",
+"Okrütnik|||artist:1z5eFkYjCmrBA7G1KIlDko",
+"polish black metal",
+"<chr|||<chr",
+"ranking:850666|||712",
+"20220603000999",
+"Ossuary Records",
+"00:05:09|||Single · 1",
+"2022-06-02"
+],[
+"ab67616d00001e02773ca0d4700f0edce37222b0",
+"Hell's Tape|||album:2hosoGuorPPpI1JhkukNhD",
+"Paradise in Flames|||artist:6honyUhmd1xmcPZT1Ns4AW",
+"brazilian black metal, metal mineiro",
+"<chr|||<chr",
+"ranking:824123|||1057",
+"20220603000999",
+"Paradise In Flames",
+"00:03:32|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e023e4d7c91c9367e4e7a3b5df3",
+"Sylvan Awakening|||album:0IG66QNDq62kCj69ljhDp2",
+"Hulder|||artist:65vrcJ67suxLePeEhUtLLo",
+"raw black metal",
+"<chr|||<chr",
+"ranking:252486|||9387",
+"20220603000999",
+"20 Buck Spin",
+"00:04:50|||Single · 1",
+"2022-06-01"
+],[
+"ab67616d00001e0292f6166bbf17ff71ae1e59d5",
+"Standing Aside|||album:1sqVvg0Dtqdn9wlyajRvtm",
+"Nocturnal Pestilence|||artist:71wN07P76croe8iPzElk7n",
+"czsk black metal",
+"<chr|||<chr",
+"ranking:395561|||874",
+"20220603000999",
+"Seabeast Production",
+"00:04:41|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e023ec9f80ff20469304950d83c",
+"Weight Of The World|||album:4yfKkfZReF8JyOUUAnU3fH",
+"PowerHouse|||artist:2dNDrJyhKi2pH2YkU5PL9H",
+"Cascadian Black Metal",
+"<chr|||<chr",
+"ranking:1608892|||138",
+"20220603000999",
+"Adrenaline Inc.",
+"00:10:52|||Single · 2",
+"2022-05-28"
+],[
+"ab67616d00001e02c85fec3ce816a8c34d74eae8",
+"Elvenking|||album:3LXIw7gqN79xCKhQ8FWoem",
+"Battlelore|||artist:6vDPwpGZIflBoW6Gy3FWFw",
+"finnish power metal, folk metal, gothic metal",
+"<chr|||<chr",
+"ranking:116540|||17277",
+"20220603000800",
+"Napalm Records",
+"00:15:43|||EP · 3",
+"2022-06-02"
+],[
+"ab67616d00001e0256b946897d1c3d5a9c9a5ad2",
+"Nunquam|||album:4RAgMei2MTduxUb5KnBsOz",
+"Hexis|||artist:1gA55xnafhPiBIM07ZlXHA",
+"blackened crust, blackgaze, danish black metal",
+"<chr|||<chr",
+"ranking:435705|||4803",
+"20220603000800",
+"Debemur Morti Productions",
+"00:02:43|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e02d08d5724bf54033d7766ac9b",
+"Behind The Serpent's Curse|||album:2b6yJfA82MvvaRIeYfu7Ea",
+"Massacre|||artist:10tKMKG6F95zDrJOxqtjhA",
+"brutal death metal, death metal, florida death metal",
+"<chr|||<chr",
+"ranking:148892|||32819",
+"20220603000750",
+"Nuclear Blast",
+"00:07:42|||Single · 2",
+"2022-06-02"
+],[
+"ab67616d00001e0239b2120f16c6732a5570d120",
+"Possessed|||album:1ZZflGzxjdhqkDV6vt5IME",
+"Entrails|||artist:5WOBHV40DFyglQzLVjoH2s",
+"death metal, grisly death metal, swedish death metal",
+"<chr|||<chr",
+"ranking:203508|||16663",
+"20220603000750",
+"Hammerheart Records",
+"00:04:23|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e02512b2e36b7210eebaf686d78",
+"I'm Now The Monster|||album:7f0coQtmqEp9nO7SE7TUYm",
+"Inhuman Condition|||artist:3unugXDIgyLGDkorSoRTfm",
+"florida death metal",
+"<chr|||<chr",
+"ranking:167975|||4449",
+"20220603000750",
+"Inhuman Condition",
+"00:04:36|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e02df88af82378ce41d98a113cd",
+"Screams Of Agony|||album:1e4fTBb6uLEFh1hhpavaQw",
+"Malevolent Assault|||artist:2XzW3jOBEyigMacGNGLFiA",
+"Death Metal",
+"<chr|||<chr",
+"ranking:2032708|||61",
+"20220603000750",
+"3255789 Records DK",
+"00:03:27|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e02651d74210e17c89e1f470c05",
+"Alienation Creed|||album:1ECj0bJJxo9JcD0gp1ZSQb",
+"Ancestral Malediction|||artist:0BwlCOMdN2tKMbonhV6klV",
+"Death Metal",
+"<chr|||<chr",
+"ranking:2294675|||178",
+"20220603000750",
+"Ancestral Malediction",
+"00:03:16|||Single · 1",
+"2022-06-01"
+],[
+"ab67616d00001e02b09db945475776082c337a12",
+"Burning Clouds|||album:0RK9YlXWZbEEffDxK7k35L",
+"Drakwald|||artist:0Vzp352SOAHNdSfgasIRg9",
+"celtic metal, french death metal",
+"<chr|||<chr",
+"ranking:655805|||1718",
+"20220603000750",
+"Riven Records",
+"00:03:42|||Single · 1",
+"2022-06-02"
+],[
+"ab67616d00001e029783fb24e3cdc0a38e2f189d",
+"Blackened Skies|||album:6Z7rvsqK8AWR0o0scGcgNs",
+"Adsecula|||artist:5rsao8WMaeTP73YzyeZ9Z6",
+"norwegian death metal",
+"NA|||NA",
+"ranking:3701759|||98",
+"20220603000750",
+"Adsecula",
+"00:06:23|||Single · 1",
+"2022-06-03"
+],[
+"ab67616d00001e02ccacaa97b85164c918c38684",
+"The Third Mutation|||album:2R3R26DKdoY6uDt0i4CEat",
+"Organectomy|||artist:6u35vrqf6Lh3EafXoJF6Qs",
+"nz metal, slam death metal",
+"<chr|||<chr",
+"ranking:225769|||13909",
+"20220603000750",
+"Unique Leader Records",
+"00:03:42|||Single · 1",
+"2022-06-02"
+],[
+"ab67616d00001e024b68e5d4d2ec0540d9505a90",
+"The Art Of Squirting|||album:63U3PWAEaI1uG3s8vIzCM2",
+"Brutal Sphincter|||artist:1NJxe9h9WqmL7K6KlAxIkK",
+"belgian death metal",
+"<chr|||<chr",
+"ranking:393328|||2695",
+"20220603000750",
+"KernKraftRitter records",
+"00:02:12|||Single · 1",
+"2022-05-30"
+],[
+"ab67616d00001e0280e531f1f0c0f251cf09fa60",
+"Morbid Sepulchral Phantasm|||album:2QvtRS4739y27iJhdhkEBj",
+"Bodysnatch|||artist:3ws6T11scXa8qz58yVkEXO",
+"Brutal Death Metal",
+"<chr|||<chr",
+"ranking:1072958|||359",
+"20220603000750",
+"igroovemusic.com",
+"00:04:24|||Single · 1",
+"2022-05-31"
+],[
+"ab67616d00001e02f4133c9b141a43af47c512f8",
+"No Ground to Give|||album:4rZIhl9qrRzbnXyiOEUi2d",
+"ZOUS|||artist:3TeDBn1NfIGQlxEo9RE0ex",
+"Cavernous Death Metal",
+"<chr|||<chr",
+"ranking:386766|||609",
+"20220603000750",
+"Closed Casket Activities",
+"00:19:50|||EP · 5",
+"2022-05-31"
+],[
+"ab67616d00001e02824f4f497c8acb782fd52893",
+"Earthbound|||album:6kKhf1oTgIRKVbVR3xnSqp",
+"Black Royal|||artist:33lkAv8r2X0dsr8AWzZ6MY",
+"finnish psychedelic rock",
+"<chr|||<chr",
+"ranking:527798|||3296",
+"20220603000000",
+"M-Theory Audio",
+"00:04:26|||Single · 1",
+"2022-06-01"
+],[
+"ab67616d00001e02d0354a0a37524353a4f11d7e",
+"We Mourned You|||album:3Vnr5ZTliDEBFoRN1VZpZh",
+"Picture Ann|||artist:11DHHDMSnwxmB427vBOMh4",
+"danish experimental",
+"<chr|||<chr",
+"ranking:3676689|||41",
+"20220603000000",
+"Picture Ann",
+"00:18:08|||EP · 5",
+"2022-06-03"
+],[
 "ab67616d00001e0254e92cc9cc0edd45b87354f7",
 "Rapture|||album:3LK4RzSqoZwzZ6rtEbOj1G",
 "Lord Belial|||artist:7gVIcvxZLQ9mKI7k6tXQdq",
@@ -298,17 +848,6 @@
 "00:07:09|||Single · 1",
 "2022-05-26"
 ],[
-"ab67616d00001e0243e85a65ef1a66cda93ae6fc",
-"Loputon Yö|||album:4ruwaxEX9SRIx3w1STizyJ",
-"Naula|||artist:2rx1nSeaSAJp7LZVdLv3TU",
-"Norwegian Black Metal",
-"<chr|||<chr",
-"ranking:4279490|||32",
-"20220527000999",
-"Dyckert Records",
-"00:16:18|||EP · 5",
-"2022-05-27"
-],[
 "ab67616d00001e02358c5b86421be132246135b8",
 "Sons of Shadows|||album:4BiYXBX4aCSBUHcOMRAaXX",
 "Nazghor|||artist:1Yj3Q9JEqpFCytALOgE1oI",
@@ -419,17 +958,6 @@
 "00:05:06|||Single · 1",
 "2022-05-24"
 ],[
-"ab67616d00001e02e18ff58335e8ee9333b153f0",
-"All I Have to Do|||album:2HB1opWN8XrihPHZwiYvad",
-"Nordmark|||artist:59CF8ID3Tc13Hvw30e1FKB",
-"Raw Black Metal",
-"<chr|||<chr",
-"ranking:789707|||170",
-"20220527000999",
-"Nordmark Records",
-"00:03:47|||Single · 1",
-"2022-05-27"
-],[
 "ab67616d00001e02bf8bf7d6a4e84fbccf8ec930",
 "God of This Age|||album:1hNGzDgdPlE0PeucK5UAf0",
 "A Lie Nation|||artist:56tUivD4LuAu4fSuTdhI9h",
@@ -473,17 +1001,6 @@
 "656533 Records DK",
 "00:04:45|||Single · 1",
 "2022-05-21"
-],[
-"ab67616d00001e02504e065bfaf99404ae393590",
-"Tant Pis|||album:4VSyauZUgHSEfEITlRgcC5",
-"Murmures|||artist:0YhyRNv0e6zYRX8dNJTMVS",
-"Blackgaze",
-"<chr|||<chr",
-"ranking:3914501|||16",
-"20220527000800",
-"Murmures",
-"00:02:38|||Single · 1",
-"2022-05-25"
 ],[
 "ab67616d00001e025a0b6b9ecaf377f2b8753963",
 "Serpent Messiah|||album:3dVbvhK6esUysE2aNih19b",
@@ -749,17 +1266,6 @@
 "00:33:00|||Album · 8",
 "2022-05-16"
 ],[
-"ab67616d00001e02239f8c583afd4d290980f528",
-"Nostalgic Tomorrow|||album:446AaRFJsycIGxHFGG5DSI",
-"Vampillia|||artist:6Pr6S0eWVYP4uDGbWXJIpT",
-"avant-garde metal, double drumming, japanese post-hardcore",
-"<chr|||<chr",
-"ranking:237189|||7790",
-"20220520999800",
-"Virgin Babylon Records",
-"00:24:47|||EP · 4",
-"2022-05-20"
-],[
 "ab67616d00001e02c135b8b1933e50a1db59df88",
 "All Paths Lead to Death|||album:3VZYkOMkWKt9HqOQPOpmZS",
 "Amiensus|||artist:2Rie2HMfNzg82CEux0LnLV",
@@ -902,17 +1408,6 @@
 "Soulseller",
 "00:03:53|||Single · 1",
 "2022-05-20"
-],[
-"ab67616d00001e02c102b3a620de47c4450e1723",
-"Moonlight|||album:5t6Rp3Thxr3GBXzBnqbVc1",
-"Through the Void|||artist:6sBWRSeKnGVLnZfhUkoPv3",
-"Atmospheric Black Metal",
-"<chr|||<chr",
-"ranking:323862|||598",
-"20220520000999",
-"3296154 Records DK",
-"00:03:05|||Single · 1",
-"2022-05-17"
 ],[
 "ab67616d00001e027da5fca3ad56b64acb7d8b39",
 "Skog Brudmarsch|||album:4yt053tSkUinb2uhqEeUEt",
@@ -1638,17 +2133,6 @@
 "20220513000750",
 "RUMF Productions",
 "00:04:08|||Single · 1",
-"2022-05-12"
-],[
-"ab67616d00001e02020c2727e9afcea0d677a139",
-"Chaosmos|||album:0IiUESpS2MNQMHV0kLCasP",
-"Origin|||artist:4Mmo0f1kp7dyyH3UbK9vUU",
-"brutal death metal, cosmic death metal, death metal",
-"<chr|||<chr",
-"ranking:129676|||56758",
-"20220513000750",
-"Agonia Records",
-"00:07:25|||Single · 2",
 "2022-05-12"
 ],[
 "ab67616d00001e025433a8fed4c09bc5db513c9b",
@@ -2507,17 +2991,6 @@
 "20220506000000",
 "Meltdown Records",
 "00:04:21|||Single · 1",
-"2022-05-06"
-],[
-"ab67616d00001e02e443cf0bb9d66ef4ae7d44a6",
-"Epic Discordant Vision|||album:3wBpJdDj2CnPK2RN8wcgYk",
-"CKRAFT|||artist:7gH3aavpQu7KMkweyc023u",
-"Avant-Garde Metal",
-"<chr|||<chr",
-"ranking:437711|||436",
-"20220506000000",
-"CKRAFTPROD",
-"00:04:52|||Single · 1",
 "2022-05-06"
 ],[
 "ab67616d00001e0294d92d70082fd0d32ba2293a",
@@ -5962,17 +6435,6 @@
 "Soulseller",
 "00:04:21|||Single · 1",
 "2022-03-25"
-],[
-"ab67616d00001e0236288a8ffd0bbf8a1463329e",
-"Rapula (2022 Remastered)|||album:6Bc1J58yhN55w0L0INag0B",
-"Naula|||artist:2rx1nSeaSAJp7LZVdLv3TU",
-"Norwegian Black Metal",
-"<chr|||<chr",
-"ranking:3135383|||32",
-"20220325000999",
-"Dyckert Records",
-"00:04:29|||Single · 1",
-"2022-03-22"
 ],[
 "ab67616d00001e02393b8a8a0704f55d6800ab07",
 "When Empathy Is Gone|||album:3ZHzaNWu0TpuK188dL5COt",
@@ -12651,17 +13113,6 @@
 "00:17:24|||EP · 4",
 "2022-01-07"
 ],[
-"ab67616d00001e028aa1a4e278a4339443c6bc00",
-"Valtikka (2022 Remastered)|||album:5pCZKSLQqUXs5Y7bBGi6Vt",
-"Naula|||artist:2rx1nSeaSAJp7LZVdLv3TU",
-"Norwegian Black Metal",
-"Jazop, Fjell, Valarty, Wulfgasm, <U+0414><U+0440><U+0430><U+0433><U+0448><U+0430><U+043D><U+044A>, Øde Vinter|||7gTQhfJUtZXUfu6VSrfiDk, 6kszaSXx9JvJpEuyhWVVtN, 0WPM49QF9s8jjpQvctrEA1, 5LgAXr8FJZ1ZEG18paPjVg, 0Q3wAisaWjnixD7EBBv2vV, 0ahcoDvzSYPE1ji1dgz19I",
-"ranking:3206144|||31",
-"20220107000999",
-"677879 Records DK2",
-"00:03:25|||Single · 1",
-"2022-01-03"
-],[
 "ab67616d00001e0213baaec0ad4146e4dfac5b8c",
 "The Rise Of Evil: Killer Instinct|||album:6LYKoGqP01F1ryu9RcloDl",
 "Rimfrost|||artist:1w9v6uzpkkM12NnoUwSb9v",
@@ -14179,17 +14630,6 @@
 "Breath Of Wind",
 "00:33:01|||EP · 5",
 "2021-12-05"
-],[
-"ab67616d00001e0269b3f14da5f82c727f6c02bd",
-"Possessed|||album:4KXDXb7NOnIwoTadvpr1Gv",
-"No Point in Living|||artist:4NvxjAX6GAFxG1rarh1eY2",
-"japanese black metal",
-"My Useless Life, Afraid of Destiny, Sacrimoon, Lebenssucht, Deadlife, Exiled from Light|||1wMqSb6Jx1f9ETpLwMgQno, 1mZwBAEwEeWg4oJ5E1n0xr, 6rjHvg5Py3Y795at1fqOWm, 6LUV4a8N8NlqOR4Jld94X1, 2K6kM5nZ41hCFMlmXX1P0f, 63KBYmCigES5YC8fv5n4gN",
-"ranking:428985|||2099",
-"20211210999999",
-"No Point in Living",
-"00:28:00|||EP · 4",
-"2021-12-04"
 ],[
 "ab67616d00001e0284cda687b1d6408902c8bdbb",
 "Universus|||album:491xPxtzeaQEw4b58W5Q00",
@@ -21702,17 +22142,6 @@
 "20210924000800",
 "Lifeforce Records",
 "00:04:45|||Single · 1",
-"2021-09-24"
-],[
-"ab67616d00001e02746f155a925671e74da1dbb0",
-"Trop vite|||album:122GfueXHnwu68S8DVGOUC",
-"Murmures|||artist:0YhyRNv0e6zYRX8dNJTMVS",
-"Blackgaze",
-"Meena Mahadevan, L'Acephale, Cold Body Radiation, Lonesummer, WOLFMANGLER, Airs|||1AJGyh7fZb40DCHv1uBHUu, 3gUrdik6xCAYl2Fgpfiqhg, 7EIe8RgyD1wCWJKe97v8QW, 5xhja6Mh354RwW6rCScL0U, 2YKaw7og6gKw9I00Kth3Q0, 3NxNmAIBJyFr4KSR3lA2uH",
-"ranking:3184855|||12",
-"20210924000800",
-"Murmures",
-"00:03:22|||Single · 1",
 "2021-09-24"
 ],[
 "ab67616d00001e02468baacdf24fc02a643416db",
@@ -29987,17 +30416,6 @@
 "00:18:21|||EP · 4",
 "2021-06-18"
 ],[
-"ab67616d00001e0216028cc5d8bcc79e041db0d2",
-"Tu ne reviendras pas|||album:4qLh530WD1kw9EYRvripSL",
-"Murmures|||artist:0YhyRNv0e6zYRX8dNJTMVS",
-"Blackgaze",
-"Meena Mahadevan, L'Acephale, Cold Body Radiation, Lonesummer, WOLFMANGLER, Airs|||1AJGyh7fZb40DCHv1uBHUu, 3gUrdik6xCAYl2Fgpfiqhg, 7EIe8RgyD1wCWJKe97v8QW, 5xhja6Mh354RwW6rCScL0U, 2YKaw7og6gKw9I00Kth3Q0, 3NxNmAIBJyFr4KSR3lA2uH",
-"ranking:4587078|||12",
-"20210618000800",
-"Murmures",
-"00:02:35|||Single · 1",
-"2021-06-18"
-],[
 "ab67616d00001e02207be4e10dee1de0422ac0ab",
 "Chain Of Command|||album:2QDM4wPPHICU6yq5Megp7v",
 "White Stones|||artist:7wHp80FBpJ37p5Au4r863m",
@@ -31504,543 +31922,4 @@
 "1735638 Records DK",
 "00:08:03|||Single · 1",
 "2021-05-31"
-],[
-"ab67616d00001e021b7254f333fe1e2c8f3b5128",
-"Skyggespil|||album:6zw0EJSxlJHq5g2w5MdvuB",
-"Angstskríg|||artist:6iNPyVa4pnZANbl6umJNUb",
-"Black Metal",
-"ORM, Terminalist, Khandra, Katla, The Day Of The Beast, Solbrud|||2E8FAAk6jPrKHlFdDxCBQD, 5N4HmRQloswgMMTnnIHQmQ, 4UoMTxMFWU13Oxo1SexG2F, 6FFTQRf8CS9YJf9T8dcAnG, 4yMLUwQNOZsjccTcWARUgn, 7vFqwPmjJ6bjCyICdXMwmH",
-"ranking:654023|||589",
-"20210528999999",
-"Despotz Records AB",
-"00:34:08|||Album · 6",
-"2021-05-28"
-],[
-"ab67616d00001e0252e621bb930672b960bd7c9f",
-"Krieg ernährt Krieg|||album:1ZlpClWvP6nj774e062oxU",
-"Runenwacht|||artist:0Bvr0dIRVLfyCgukFplQtP",
-"german black metal",
-"Leichenzug, Kirchenbrand, Schrat, Odal, Sarkrista, Irrlycht|||4RycVV0wJt75nxSx9CQwsx, 4KVJz0MGpTeacTREcMxLmg, 3tA2lIfzksRlSSWdmmRZGa, 71nUSqRWaFZFOO15z9L7MV, 2VCOvrl9WTbFAkzAs6N2Au, 72QIoTqXY7HcfcRs83wQtm",
-"ranking:943827|||727",
-"20210528999999",
-"Nothern Fog Records",
-"00:43:28|||Album · 10",
-"2021-05-28"
-],[
-"ab67616d00001e02051e7c86c5f83d3d6bd4f74b",
-"Att kuva det upproriska köttet|||album:3XtjlNyLML59z9nhJbgNgw",
-"Botgörelsen|||artist:0PhUgjveWGolGeOW4ayvck",
-"Black Metal",
-"Fiat Nox, Mannveira, Abkehr, Melkor, Cryptospital, Disparaitre|||5yKrhbfInV3eqVTjmM6L9w, 4DPVJiHjNjjmXYoTvTUknP, 6R76PWOsQ8sN1X3md9R0hG, 3CfF2urvMFv2zmflcfXEMe, 72pX0Xw6iPBfLzyQ4VPkjI, 3A4erbdYyKxmPuNA7TMCOm",
-"ranking:1245244|||48",
-"20210528999999",
-"3063957 Records DK",
-"00:41:07|||Album · 5",
-"2021-05-22"
-],[
-"ab67616d00001e0283557c5b94f7366975bca86f",
-"Dies Tenebrosa Sicut Nox|||album:35coZ9jCl73PvyqHG2fQ1A",
-"Thronum Vrondor|||artist:31B6F3JzTmBvPWqX5RSeYm",
-"belgian black metal",
-"Ondfødt, Old Forest, Unendlich, Elderblood, Sordide, Gorgon|||5uTwxBGntF8CBbnElxZ0OG, 3lLWQr2WmOViUBagvW1CqN, 6GeriLdGZ4N7T1sjqJhnsr, 2RA1nC1boeKgC1hPcXEpBh, 14TF8iKZX4auvzzucsstIi, 5Zh8ymVLMGv5jyDhxFeuZi",
-"ranking:1633888|||119",
-"20210528999999",
-"Immortal Frost Productions",
-"00:37:03|||Album · 8",
-"2021-05-28"
-],[
-"ab67616d00001e0215f5326aa2f0e5d065f76b4e",
-"Mortal Coil|||album:6xf9VbFcw5uZRqAhVSuRcY",
-"Dödsrit|||artist:1ZR1y4fCztcaoliwAIbEAb",
-"atmospheric black metal, neo-crust, swedish black metal",
-"Wiegedood, Fluisteraars, Groza, Spectral Wound, Aara, Martyrdöd|||1JjP30v8j95bAMZN3ws8Kb, 51xjQsqn95MC8DlAVEO4cm, 5PC1B9qDXhyin3ZgyRcio7, 3i6zP2x9GMBV3WyRzqQtM6, 3UpDjZ41s0rOQsDKSECKmt, 4PD9yGB6QsgYA931FJcKD9",
-"ranking:183254|||6961",
-"20210528999999",
-"Wolves of Hades",
-"00:36:50|||Album · 4",
-"2021-05-28"
-],[
-"ab67616d00001e0206469fede6ddea6262ff1403",
-"Eventide|||album:224ycWRwdpMF0m8qN8TJWZ",
-"The Flight of Sleipnir|||artist:45p40vusZYCwMWQ5FrUXDJ",
-"atmospheric black metal, denver metal, melodic doom",
-"Wheel, Hooded Menace, Withered, Dordeduh, Woman is the Earth, Fyrnask|||5aiZGEIY6zrm17Gej4KNN6, 10mjw8SFRZjS0d8tecdEW8, 7hT3DnuPUAbhRxj11FruSB, 052X0cOZM6KscHPcJwsPh0, 4AXDLXZcXMUBRogct3kfyY, 7LYa5IrFl4v9yDyyQa1J6i",
-"ranking:338386|||4553",
-"20210528999999",
-"Eisenwald",
-"00:44:24|||Album · 6",
-"2021-05-28"
-],[
-"ab67616d00001e02e5fbb3c56157664ade43e0c1",
-"Wretched Abyss|||album:4LNObd7xucB7pkqafA223u",
-"Noctule|||artist:6g6sWfMwXneKLVkmV2ww7a",
-"epic black metal",
-"Svalbard, Vouna, Underdark, Woman is the Earth, Oryx, Aenigmatum|||2HLQr8aUMombMeuIEDv6wA, 1qw5Q42ehCthecRc0fkAoy, 1Z1Ie125waPvLmEOxQGeKW, 4AXDLXZcXMUBRogct3kfyY, 6Ll4Jjhwgp3NsYtMWyvhIN, 6hPzHetCWPHhweQC0q9E4E",
-"ranking:351665|||1787",
-"20210528999999",
-"Church Road Records",
-"00:41:38|||Album · 8",
-"2021-05-28"
-],[
-"ab67616d00001e024ceff72ca3f81abdf99706fb",
-"Under The Burning Eclipse|||album:3HZY0jJepaa2WkwyHoQ4Ia",
-"Stormruler|||artist:3CjGhU3qZnUxxdCU5qwzbn",
-"usbm",
-"Khandra, Ninkharsag, The Day Of The Beast, Wormlight, Seth, Eye of Purgatory|||4UoMTxMFWU13Oxo1SexG2F, 0mvy3IITTL7Y8uGV6w49eU, 4yMLUwQNOZsjccTcWARUgn, 6uJzQECN2I7pXCY4GLAM7N, 0mZohnzbCiVv54VIEA6Wb7, 0VBb6deTbH8Bd6kMn7j5Uh",
-"ranking:436409|||1376",
-"20210528999999",
-"Napalm Records",
-"01:00:36|||Album · 19",
-"2021-05-28"
-],[
-"ab67616d00001e0265397fff7607dee4a24cad63",
-"Poupě|||album:1HXibQynLMazAaiNpIEnJk",
-"PAČESS|||artist:1AawcSlvyZDi15ekIRXgk3",
-"Voidgaze",
-"Panychida, Tortharry, Krabathor, YBCA, Airbrusher, Mean Messiah|||1v5KAomhHRR0tIVAKk8EKF, 6wBjgzFmskVpicMKkVxgkh, 7KtAgDwn0XssWOCch5etU4, 2NNgzy74b20nnqDBLCoGfA, 20tEPFX73v85tYkRvEes8Q, 6ExdfQkEBXn559EOk8a6Qj",
-"ranking:1311441|||86",
-"20210528999999",
-"Slovak Metal Army",
-"00:45:34|||Album · 8",
-"2021-05-23"
-],[
-"ab67616d00001e0239d189edd76f3f383b16c27a",
-"Cryptic Immoral Secure|||album:6iXuAAy7e6pxFU3A54CPqr",
-"Maggot Crown|||artist:195PtwWdMjlF4bJHQAOWt4",
-"Voidgaze",
-"Necrogod, Typhonian, Ghost Spawn, Ashen Earth, Occulsed, Siderean|||73NoAkh5IZASMBe1rKgMjB, 6ekkXbAELKlFCUyYaygJJ1, 3WYktnyuVjg6RYp9ljNP8v, 2Bbbex16OHtTlMhOoeypQc, 7n19tdZeiDDHDzHdhVOOcD, 3Wsz59YAIyU5S7Db53rvz3",
-"ranking:1636417|||31",
-"20210528999999",
-"Vargheist Records",
-"00:35:00|||Album · 10",
-"2021-05-22"
-],[
-"ab67616d00001e02f664061e49f1c4dbaf523fde",
-"Chirality|||album:4SEj9AZU5XzecKNZ3RVtCt",
-"Nocturnal Pestilence|||artist:71wN07P76croe8iPzElk7n",
-"czsk black metal",
-"Noisebleed, Fate DeStroyed, The End of Melancholy, Synlakross, Among Your Gods, Lutharo|||4vsPWbsErTuIyJZo3p1QFG, 0SLTP7xRXkIReIAaUpg7WA, 63S8HFQpwuQVlYTFXJ8f5J, 5C4cGwwVx56fKQECoCFljD, 6Qz02nt4isR0wEYnXVn0Ox, 38RQwSDbSq8ztizimX2vYp",
-"ranking:254456|||486",
-"20210528999999",
-"Noisebleed Studio",
-"00:29:07|||EP · 6",
-"2021-05-28"
-],[
-"ab67616d00001e02222bd11b2fd9205aeefa3670",
-"Chinook|||album:2mY46upPu2oKyoIYyCdKGS",
-"SVNEATR|||artist:6jKuZoPyfuwYMtmkfpbA6z",
-"cascadian black metal, vancouver metal",
-"Polemicist, Hanternoz, Bizarrekult, Stone Healer, Beyond Grace, Burning Darkness|||5Cg2tjSYIPmcPL8GoXMWKy, 5iXcXAZzVfABJLdYDiz5UV, 6Cj4Bc1WpdNZhGcKyQfWci, 49tTRtQKlyAvwisPyQWb5q, 5YOoYE1DkMEngX7zg35EqM, 1ooeUaBILaM70vABcT8uBb",
-"ranking:872245|||347",
-"20210528999999",
-"Default",
-"00:43:09|||Album · 6",
-"2021-05-28"
-],[
-"ab67616d00001e02e1ff06b355142f79eb7aa2b3",
-"20th Anniversary Show (Live in Budapest 2007)|||album:1e6U4oewsr26lJDbcYaukf",
-"Therion|||artist:5c8Cw62ZYj9XO6iDLRDEsi",
-"gothic metal, gothic symphonic metal, metal",
-"Theatre Of Tragedy, Tristania, Epica, Leaves' Eyes, Moonspell, After Forever|||31eXqCx5cAlItdGdoHMEOu, 2EOmvmVtYMTgn45w9mWUTV, 5HA5aLY3jJV7eimXWkRBBp, 63qODcvBCdG2kTguOJkEqJ, 17bYSQ9ZRnreVnJjE5X2x6, 6ISyfZw4EVt16zhmH2lvxp",
-"ranking:16415|||235511",
-"20210528999800",
-"Adulruna",
-"02:31:51|||Album · 26",
-"2021-05-28"
-],[
-"ab67616d00001e021cfef81a9f5399425d790cb9",
-"Eight Headed Serpent|||album:6FWo9ImFJCisYkW6OiLJr1",
-"Impaled Nazarene|||artist:4Q7d9egO7iMngBWfgvm57d",
-"black 'n' roll, black metal, black thrash",
-"Barathrum, Marduk, Carpathian Forest, 1349, Lord Belial, Gorgoroth|||1SGvAkR4nsQoXdhHHFFuM4, 2lxB5NTcQXj7GGRR4xAVaH, 0sFntmE9T1tiF6G6O6Lm3H, 150xbiJGnTy1tSBZ9EFKnT, 7gVIcvxZLQ9mKI7k6tXQdq, 1Dt7cfRzxM8qPVa82jX9y5",
-"ranking:81358|||47182",
-"20210528999750",
-"Osmose Productions",
-"00:32:32|||Album · 13",
-"2021-05-28"
-],[
-"ab67616d00001e02c8b1dbe26225b85344dea7a0",
-"AVOW|||album:1V7usKn0ebZ9D4XtHw1JFy",
-"Portal|||artist:1WiZz4d759EPtACSUBEfmt",
-"australian black metal, australian death metal, australian metal",
-"Altarage, Imperial Triumphant, Suffering Hour, Grave Miasma, Krallice, Deathspell Omega|||1t6R1cmictIjcNCPKO4Nsp, 5zvMklMSTgoGUS9Un5domO, 6ISdh8nhJQIZ141GLZsSrf, 0YDJIWfqi9rqQWkdefQvtx, 7pICtPXy11dc7D82jsF1Xy, 4pP3Gtdmwp2cHtz736pyGI",
-"ranking:119021|||26141",
-"20210528999750",
-"Profound Lore",
-"00:43:12|||Album · 6",
-"2021-05-28"
-],[
-"ab67616d00001e0291697c5795dec2d9ab502f44",
-"Hagbulbia|||album:3DqyIQB2O0kBYyav8Q5Sz8",
-"Portal|||artist:1WiZz4d759EPtACSUBEfmt",
-"australian black metal, australian death metal, australian metal",
-"Altarage, Imperial Triumphant, Suffering Hour, Grave Miasma, Krallice, Deathspell Omega|||1t6R1cmictIjcNCPKO4Nsp, 5zvMklMSTgoGUS9Un5domO, 6ISdh8nhJQIZ141GLZsSrf, 0YDJIWfqi9rqQWkdefQvtx, 7pICtPXy11dc7D82jsF1Xy, 4pP3Gtdmwp2cHtz736pyGI",
-"ranking:119021|||26141",
-"20210528999750",
-"Profound Lore",
-"00:38:11|||Album · 5",
-"2021-05-28"
-],[
-"ab67616d00001e0225e31101a2766540783f2c4c",
-"While Our World Dissolves|||album:6DtF5QsjcRT9quNDDIQJjz",
-"REJECT THE SICKNESS|||artist:44kbVCY8XyLRzpIMo6sCMY",
-"belgian death metal, belgian metal",
-"The Very End, Path of Destiny, Hiraes, Godslave, This Ending, Overt Enemy|||4oJ1LUH8pL4QJFm1W7JijH, 1iydHn2q6TisTwNxU0yc2K, 1Djkm24RzECe7M6KuxKZzt, 5xLkB61DNBnrx3GmQplSK2, 4B2cntB0jOuS1Lurf4uepo, 6WbrZ78kjWRsKI0OpA5pTP",
-"ranking:400137|||4646",
-"20210528999750",
-"WormHoleDeath",
-"00:44:57|||Album · 9",
-"2021-05-28"
-],[
-"ab67616d00001e0254bbb3af5dde95b2782e6f5a",
-"Arte Médica Siniestra|||album:6bcSwd9hJw0zxSDVOqHIKv",
-"Unidad Trauma|||artist:7kAZASv0RSd5DdjUeLcQtS",
-"Death Metal",
-"Black Hate, Solitude, Indepth, In Asymmetry, Seputus, Los Males Del Mundo|||1YK9suOewtPHgPf3DbMbQG, 3hDNiQ9xmOr02iziaZZEKJ, 3Vet4MWeuADf2x1q1pAnVV, 6Z35Nmqa6osfFEb8BdrUhd, 7dwo6DNJ1OtzA2khelGBmj, 7pYwWvoUOvBJM5a9xSPdn2",
-"ranking:558567|||676",
-"20210528999750",
-"Traumatic Records",
-"00:21:52|||EP · 6",
-"2021-05-28"
-],[
-"ab67616d00001e02e282d70186039941b37306e2",
-"Svartrviðr|||album:0Lh8MTCcxjgzLepzmfGw7N",
-"King of Asgard|||artist:7AUos3yuM9KT0qeTJuMCfz",
-"finnish metal, folk metal, swedish melodeath",
-"Månegarm, Thyrfing, Gwydion, Wulfgar, Einherjer, Obscurity|||6jQgWQKirZ7IKDGN8fRtdA, 2UGaMtxeXt8FQMCpxscnEJ, 4nFxtqp1rzi1eWAeFaXXsL, 4Qk5HDV47ORqHxQwgnCAik, 0iGkBvuI18nxqJR8Ipg1cu, 1O6WsZT2io58x15CXAQVBO",
-"ranking:156371|||11158",
-"20210528999750",
-"Trollmusic",
-"00:57:14|||Album · 8",
-"2021-05-28"
-],[
-"ab67616d00001e021c78aac71dddd52bfdb6fae0",
-"Ketor|||album:1blLUVH15aqtTpVMyJTdIK",
-"Hammer of Dawn|||artist:2CwNQl5Aelo5lk3wB9ozCU",
-"Brutal Death Metal",
-"Fleshbore, Apogean, Dead World Reclamation, Cognitive, Chiliasm, Supreme Conception|||4iroXuov1khhAn2C8gndtm, 4Wl6PA1ABnzNQMnZd5cOOd, 3w3CfKhsF9ljmLtfCV0dmO, 0Hlqz8aUm8vneFH4NFxepf, 5ofZGoBGjRLTUqJ7YNhq3F, 0HQhtRbYo7UpVyWzbNFHYF",
-"ranking:929374|||244",
-"20210528999750",
-"Hammer of Dawn",
-"00:22:34|||EP · 6",
-"2021-05-28"
-],[
-"ab67616d00001e02d0bdfa4faf9e9b38e6431152",
-"Mercurial Passages|||album:38lOAxo50NbCEipjphYnWP",
-"Ghastly|||artist:0CGYWVi46bgkgbO4OMfrbo",
-"cavernous death metal, voidgaze",
-"Aenigmatum, Grave Miasma, Craven Idol, Cerebral Rot, Drawn And Quartered, Universally Estranged|||6hPzHetCWPHhweQC0q9E4E, 0YDJIWfqi9rqQWkdefQvtx, 1o2oJoM7becHTpwNyTPo8F, 5AEKhKc6WDnY6oi18OWcQN, 2p6lv19FRrVoKEL52qm99e, 6G74mdTYctf1EtkymNFabJ",
-"ranking:426745|||1899",
-"20210528999750",
-"20 Buck Spin",
-"00:40:24|||Album · 7",
-"2021-05-28"
-],[
-"ab67616d00001e02acf5eb1fc26c9fb343c9517c",
-"Morbid Despotic Ritual|||album:6Iq8zwd6vSaGu1PHnCyTRy",
-"Gosudar|||artist:6kAjBixynTe6N1bcqFUIrd",
-"russian death metal",
-"Perilaxe Occlusion, Snet, Universally Estranged, Decrepisy, Ghastly, Fossilization|||58G4TKwRpwoF4yRMosEnFY, 3JKEwpug197mkE731B6ohK, 6G74mdTYctf1EtkymNFabJ, 2ob8EK4ELmdRklbm87PKFV, 0CGYWVi46bgkgbO4OMfrbo, 3FDmCPVi3TyAPCmKS3jcdB",
-"ranking:584850|||838",
-"20210528999750",
-"Rotted Life",
-"00:32:53|||Album · 6",
-"2021-05-28"
-],[
-"ab67616d00001e02db063fcd6bf000faecf552b3",
-"Kill and Die|||album:2Okh7Z0v47a3ZY7QjKIixe",
-"Skulmagot|||artist:0Ppswy3wj7hle5c8vvLCeI",
-"finnish death metal",
-"Se, Josta Ei Puhuta, A.m.o.r, The Aeon, Defiled Icon, Plaguedealer|||1n64pzlYBm5zq9Mvf8C0dk, 3yUuYj8bD7DDLxNiRtEuk9, 47xP7no1012imtF7xH7ffH, 1jSsIrQy9k7essn0GsHqHU, 68nCrxbnrrkx9iZLMSxoI1, 3ntAV2iP4RPfStxFTBUt4T",
-"ranking:910278|||541",
-"20210528999750",
-"Skulmagot",
-"00:19:25|||Album · 8",
-"2021-05-28"
-],[
-"ab67616d00001e02f7d092272df9432e395adc82",
-"All Occupied by Sole Death|||album:5NprKTxPHfJ8l2KGOsYYro",
-"Khandra|||artist:4UoMTxMFWU13Oxo1SexG2F",
-"belarusian metal",
-"Dödsrit, Stormruler, Wormlight, ColdCell, Odal, Nattverd|||1ZR1y4fCztcaoliwAIbEAb, 3CjGhU3qZnUxxdCU5qwzbn, 6uJzQECN2I7pXCY4GLAM7N, 4RFeAeMjyZG5ltwlXTN06V, 71nUSqRWaFZFOO15z9L7MV, 3wo0CF7Bn1D7Y6frLUHNMW",
-"ranking:512163|||1196",
-"20210528999000",
-"Season of Mist Underground Activists",
-"00:43:26|||Album · 7",
-"2021-05-28"
-],[
-"ab67616d00001e02f8547bdd79c168cabf96d2ea",
-"Lunar Majesty|||album:2HCMFeVCwsBtb2N0e9VQQv",
-"Alder Glade|||artist:45lSmWc5zUdosazDUJT67p",
-"australian black metal",
-"Guitar Picks|||7vBJD6RQszjFeCHwybZFPd",
-"ranking:2456084|||43",
-"20210528100999",
-"Alder Glade",
-"00:24:43|||EP · 2",
-"2021-05-26"
-],[
-"ab67616d00001e02a15a843154bc32a331051662",
-"Dein knöchern' Kosen|||album:3r3fStTHZ8lwyApEkCzUri",
-"Dornenreich|||artist:14dmIGIOvzjnNsXgJlXqg5",
-"austrian black metal, avant-garde metal, black metal",
-"Nocte Obducta, Agrypnie, Imperium Dekadenz, Helrunar, Todtgelichter, Eisregen|||2d58mhKUvYuXsZND2vWu5v, 4LlCwMETPUiwsRxEHYUM4p, 4ykmWeGRRY1OmPgMY4K2rw, 1jfFNEqIoGOvZZNaYN9BTV, 1XtIfyGTXfSC7pdWmtuA26, 3peZFZBRhRGd1lTTsNmaPM",
-"ranking:262041|||9335",
-"20210528000999",
-"Prophecy Productions",
-"00:02:56|||Single · 1",
-"2021-05-27"
-],[
-"ab67616d00001e02e7462b0cd5e0e28008058719",
-"Omgangsspsyke|||album:5pCd6eD0P6OnXRRGs9atJT",
-"Tottal Tømming|||artist:79qblhYwjzikWlMl8Et0P1",
-"Black Metal",
-"Drittmaskin, Beaten To Death, Dønk, Cadaver, Brutal Kuk, Nekromantheon|||2f56Zo98cW4K0GUXMceCV8, 33CQHrJmjSwoe0eJpsPHX4, 4EQQTQXUaLYNeymXxlA190, 3jXKuyWNGa8hUPsnrblyl7, 6n1PYxhxqOIjD00u9PgpNQ, 2eA577rcxnqTxv7SVFaXGZ",
-"ranking:893821|||208",
-"20210528000999",
-"Kannibal Records",
-"00:14:37|||Single · 1",
-"2021-05-26"
-],[
-"ab67616d00001e0287c7b8f856beb9c835f4e414",
-"Instrumental Asylum (Instrumental)|||album:09HXGHkzqnnyTTHGvmm8HR",
-"Bellwethr|||artist:7hr12Mi9GWdZcmW9N1KETd",
-"Black Metal",
-"Begotten, None, Totalselfhatred, Xasthur, Fluisteraars, Nocturnal Depression|||1bQRTGYikcpW5lu4HsTCYI, 2ZO5sFPyILDQkFdS4HJPFS, 155cULXraV93ztC81ncvBz, 0nH9qzKJMfrJNnF37nDaVj, 51xjQsqn95MC8DlAVEO4cm, 7wWVpKpMtvSX9mQapjtKAD",
-"ranking:1864782|||58",
-"20210528000999",
-"Bellwethr Records",
-"00:04:32|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e02c0b2b44310d79a4d1d93b99f",
-"Sic Transit Anima Mundi|||album:3tyuZEP75JuP8skfq5TI11",
-"Mitochondrial Sun|||artist:4wHXEfKZvKBoHpIOgh0Lfr",
-"Voidgaze",
-"Grand Cadaver, Hanging Garden, Hail Spirit Noir, Raphael Weinroth-Browne, Impure Wilhelmina, Dordeduh|||6K520oxrZlHZC5MSALzFZC, 1Uq2a1JUnYXWUzrUGKyZwN, 6HK5pC1FGCKGzecISEYB38, 7GxwPVTgM5k16pUqTlYjdc, 29luUtCyre5DdAujrV8Pob, 052X0cOZM6KscHPcJwsPh0",
-"ranking:428062|||1635",
-"20210528000999",
-"Argonauta Records",
-"00:04:13|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e02d9b630446ed6447999793594",
-"At The Cliffs Of Azure City|||album:1xO6WDGoHFJs1tsV4oz3rz",
-"Stormruler|||artist:3CjGhU3qZnUxxdCU5qwzbn",
-"usbm",
-"Khandra, Ninkharsag, The Day Of The Beast, Wormlight, Seth, Eye of Purgatory|||4UoMTxMFWU13Oxo1SexG2F, 0mvy3IITTL7Y8uGV6w49eU, 4yMLUwQNOZsjccTcWARUgn, 6uJzQECN2I7pXCY4GLAM7N, 0mZohnzbCiVv54VIEA6Wb7, 0VBb6deTbH8Bd6kMn7j5Uh",
-"ranking:436409|||1376",
-"20210528000999",
-"Napalm Records",
-"00:04:48|||Single · 1",
-"2021-05-26"
-],[
-"ab67616d00001e02da8d518f3b15a4d888911bf7",
-"Cloud Head|||album:6cL3k5OOKv73bo73IcF19o",
-"Owl|||artist:4JJmsBFKrdfwZy7SRRzmuv",
-"Voidgaze",
-"Valborg, Nightmarer, Defacement, Plebeian Grandstand, Cathexis, Thantifaxath|||0Uex2DWEyMpKGufgzh5A1b, 6MqL55fccEqCvqitp4Nfbx, 4gjZ52UQ4SBqWobOKGNjYs, 6RrRiyKO8S9lN8uOfTUZKJ, 5pbtuuoRtUUge3PUAGMTl9, 7DcSKG8ruWMgHsUh1rqZFh",
-"ranking:1349206|||298",
-"20210528000999",
-"Total Dissonance Worship",
-"00:05:06|||Single · 1",
-"2021-05-26"
-],[
-"ab67616d00001e0250df45eec8d6d4811fde5d3c",
-"Possessor|||album:3fm28DzocogWJcO2aDhppf",
-"Everson Poe|||artist:2ExbMK2OFpNJbjtcKaDZws",
-"Voidgaze",
-"Hellish Form, Body Void, Grey Aura, Feminazgul, Noctule, Altarage|||1PLwBHkAe4kcnBZHXpqTuR, 4p2Zeb9XclofoJDCXFSTp7, 5zlsiIekribvslzGzaqBJi, 4uYAaVxjz3cqYj7P57le8j, 6g6sWfMwXneKLVkmV2ww7a, 1t6R1cmictIjcNCPKO4Nsp",
-"ranking:1513349|||120",
-"20210528000999",
-"Trepanation Recordings",
-"00:11:56|||EP · 1",
-"2021-05-28"
-],[
-"ab67616d00001e020d697ac55c8b0690e7ab2ea9",
-"A Dying God Coming into Human Flesh|||album:3AukC1dD9tNllIzoTyMtqQ",
-"Leiv Reed|||artist:38OfnIxTBAOrG4aegfg3pb",
-"Atmospheric Black Metal",
-"Drittmaskin, Mork, None, Isengard, Taake, Djevel|||2f56Zo98cW4K0GUXMceCV8, 6txf2ksDlbyt06kNh1m4o7, 2ZO5sFPyILDQkFdS4HJPFS, 6ZdRyBejw8z3vD879gj1Dy, 2CofVEvqc6hhyKwYsLiuN9, 2eEuZMHC3LdWsxogUqlI3y",
-"ranking:668737|||591",
-"20210528000999",
-"Recline Records",
-"00:05:42|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e02054797d5200333730a195615",
-"Acedia|||album:5sl23SSjGxn9xLhpO9hG9X",
-"Odraza|||artist:66Q8QR3EYpqlsZV2pe2sSR",
-"polish black metal",
-"Wedrowcy~Tulacze~Zbiegi, Gruzja, Biesy, Furia, In Twilight's Embrace, Kly|||2dKd0pPpF21n7JzaHTsW8n, 5x7Mwo0pvrS8dBz9Q8FanG, 6NPOHw3mkifcUlFWsXmhQa, 716FAfHQEcUgeHYzGf5h0V, 3y5v85JkZV1Qae4omT82gR, 5qh4hn1VAfBRSNxBCionq5",
-"ranking:174659|||5370",
-"20210528000999",
-"Godz Ov War Productions",
-"00:20:52|||Single · 1",
-"2021-05-22"
-],[
-"ab67616d00001e0211cc67dd0dc025055aa187a7",
-"Köszöntsd a hajnalt|||album:1HplOYcoLGQgdYkfkELCY4",
-"Thy Catafalque|||artist:4sgTqbA7htxYkRRJBPZIom",
-"atmospheric black metal, avant-garde metal, cosmic black metal",
-"Manes, Sigh, Ihsahn, Subterranean Masquerade, Solefald, Arcturus|||18JM3GxQJBQc2fUwicDnsm, 4VUguuy2qoVGDMwH1tL7Qr, 2E1jLcUfqd9w2XtybNB2Za, 06JYsafBUf9AGI0SUd4tY2, 1jBJHkyQLO6Ga1Dx3W6nG3, 0UGvFl1tJ49Co99gaXZH9Z",
-"ranking:62100|||30824",
-"20210528000999",
-"Season of Mist",
-"00:04:28|||Single · 1",
-"2021-05-26"
-],[
-"ab67616d00001e026e8898774a88a51f0798c0ea",
-"Unseen God|||album:0xywWvIDtshRdExCdx1jNi",
-"Paradise in Flames|||artist:6honyUhmd1xmcPZT1Ns4AW",
-"brazilian black metal, metal mineiro",
-"Atropina, Vazio, Drowned, Eminence, NervoChaos, The Troops of Doom|||0qGHuO9Q7nvPNmtjuDZb8v, 2XhxFV36qfsfFGw2uYpIWE, 4KBGMEhOZsQ9GSIuaTr2Dz, 4sYnn9TcSQNDz715pAj5yO, 79Zxs7jzzD0sCwnYOUCKGx, 1GCnpVka37q3EXMVnK9bma",
-"ranking:883075|||724",
-"20210528000999",
-"Paradise In Flames",
-"00:03:49|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e028d4a01d22670963ed4779744",
-"Wir Ertrunkenen|||album:1qlow0bbaCE6zZaguYwumR",
-"Agrypnie|||artist:4LlCwMETPUiwsRxEHYUM4p",
-"atmospheric black metal, blackgaze, german black metal",
-"Nocte Obducta, Dornenreich, Imperium Dekadenz, Waldgeflüster, Todtgelichter, Fäulnis|||2d58mhKUvYuXsZND2vWu5v, 14dmIGIOvzjnNsXgJlXqg5, 4ykmWeGRRY1OmPgMY4K2rw, 1LAUNbSi4NHJfXGvgOoBFy, 1XtIfyGTXfSC7pdWmtuA26, 5aSka72DU9EotIfdaKLM8V",
-"ranking:404117|||7520",
-"20210528000800",
-"AOP Records",
-"00:06:34|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e027041d23e5d91e597fff0d222",
-"Blackening Swarm II|||album:5NnJXO1TiCQtij0sEALSj3",
-"Praise the Plague|||artist:4bA1ZCPM6q0QLzcSLYIdgc",
-"blackened hardcore",
-"Bizarrekult, Beyond Grace, Vouna, Polemicist, Replicant, Inferno|||6Cj4Bc1WpdNZhGcKyQfWci, 5YOoYE1DkMEngX7zg35EqM, 1qw5Q42ehCthecRc0fkAoy, 5Cg2tjSYIPmcPL8GoXMWKy, 0D3rZuKDs7qaBtoFaQ6tJU, 6upVobpIZ5wbkOKGyMHWTZ",
-"ranking:803224|||1122",
-"20210528000800",
-"Lifeforce Records",
-"00:05:23|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e027f1cd4859e0c8a15429ae187",
-"Perdere|||album:2GVDhqt3sXKcglmmAVC4i7",
-"Australasia|||artist:4U5u5QdYKZQDmHVR3NCuxk",
-"blackgaze, italian post-rock, italogaze",
-"Ranges, Baulta, DÛRGA, Darkfield, Glasgow Coma Scale, Black Flak and the Nightmare Fighters|||1iqjhf6W2YXUWwa2iKMybf, 2V7ZQy6ygPbESsYnq7qsuv, 0hyzYTqg812zmH57o78XC2, 0e9C27umtAZF9E2jqyRfeP, 3OilnTuGkR6gZKZa0sV8E8, 7ijtrVOKpqFH4Wl5iyrwe4",
-"ranking:1053917|||628",
-"20210528000800",
-"Australasia",
-"00:04:19|||Single · 1",
-"2021-05-25"
-],[
-"ab67616d00001e022c9c530f82f5c736389b2925",
-"Fenris (Cinematic Tour 2020)|||album:4eu9nrr7A3DeAa1gTK2oHM",
-"Enslaved|||artist:2HmtB6wVRRi3z0JwZHtkiD",
-"black metal, death metal, doom metal",
-"Emperor, Borknagar, Satyricon, Windir, Primordial, Kampfar|||6jPWrSmxOd9mj7Xaj4EP2Y, 0vxxsjcDy61x5zvrOqwHIL, 221Rd0FvVxMx7eCbWqjiKd, 2ytfu1MWsf763hCBQmaQr6, 0BZr6WHaejNA63uhZZZZek, 35nZyw3d7OIbhGeqBEPIYQ",
-"ranking:41382|||116496",
-"20210528000750",
-"Nuclear Blast",
-"00:17:04|||Single · 2",
-"2021-05-28"
-],[
-"ab67616d00001e0259b5e9c5c43c83f5a27ceed8",
-"Absolutely Do Not Die (Live)|||album:4WYZbPhXNYniib6G7HuwiW",
-"Sterbhaus|||artist:6qKIHlWgKuFMMR10h1rcUz",
-"Death Metal",
-"Daemonicus, Necrophobic, LIK, This Ending, Avslut, Demonical|||7DhgY8idTWReJSkzMy0HqX, 3RUZtC4rkONY3kprM10ZTa, 0D5ly26kWmFNj6cbzIpJn7, 4B2cntB0jOuS1Lurf4uepo, 4YYI1SQ1OPHDN9SwseZwhn, 0AdvVLJLGeRDeeulgYqB7S",
-"ranking:939250|||753",
-"20210528000750",
-"Killhead",
-"00:03:37|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e02ef06606d45a6713fe1767d76",
-"Decennium Ruinae|||album:6Md2jkToHzILlsIiCCJHZd",
-"Unfathomable Ruination|||artist:1nbWv7zQbAFydTztZnR08f",
-"british death metal, brutal death metal, slam death metal",
-"Disentomb, Desecravity, Fractal Generator, Visceral Disgorge, Cognitive, Cerebral Incubation|||1shYFELmbMiLx0KpwTvBbW, 6KOgrQ5iVoFdItOdFpE0St, 33T1DLe99nP4D4OzGE1JaK, 7vWBtzzt2W1c41nztJMjVk, 0Hlqz8aUm8vneFH4NFxepf, 2gpu0EtvWqIdVLzZwR0XAA",
-"ranking:378041|||7040",
-"20210528000750",
-"WILLOWTIP INC. (WTP)",
-"00:19:07|||EP · 4",
-"2021-05-28"
-],[
-"ab67616d00001e0204a59a4815bc0792bb99f0d6",
-"Eniac|||album:4r0mNOjBwZRumDTea2oTer",
-"Cognitive|||artist:0Hlqz8aUm8vneFH4NFxepf",
-"technical brutal death metal, technical death metal",
-"Inanimate Existence, Unfathomable Ruination, Ominous Ruin, Hideous Divinity, Fractal Generator, AHTME|||4kddJ3Mqbrh3sQdhG8keZV, 1nbWv7zQbAFydTztZnR08f, 5VJ5tF2hByGJv9u27NbpVE, 4XOpU6j3NQ37JfIaWA4ySH, 33T1DLe99nP4D4OzGE1JaK, 47bqfvbXo1z2sDoGXO6LGv",
-"ranking:586620|||4857",
-"20210528000750",
-"Unique Leader Records",
-"00:04:48|||Single · 1",
-"2021-05-27"
-],[
-"ab67616d00001e0242cb34ca260ccce69d459aa8",
-"Monumental Reclamation|||album:0EhAlCDfKbkZq6PVPKNnTC",
-"Deadspawn|||artist:3oxRHav4J6rnr1NNkYkROr",
-"Dissonant Death Metal",
-"NA|||NA",
-"ranking:1633981|||146",
-"20210528000750",
-"Deadspawn",
-"00:04:17|||Single · 1",
-"2021-05-28"
-],[
-"ab67616d00001e02e0f7f30db11da92524af5c3d",
-"Glass|||album:3cLisFLIFCBTvCHVoVb2Ye",
-"Fulci|||artist:5rK5iEoGaC5LtoBCiXpCet",
-"cavernous death metal",
-"Tecumseh, Habsyll, Bonedust, Gravetemple, Bunkur, dræne|||50Ur6OjwKfweg1rl1s2XZS, 6l0uGrRisxXHqosjov0ghJ, 5KoTmlbG3w51Ox52qvlsUY, 6gFKuPUmedMs4H2hgSYnOy, 6qNGJgeLzo56mWYBWO4RT6, 0f2zEndBBRFag34xpf7YFG",
-"ranking:247947|||4926",
-"20210528000750",
-"Time To Kill Records",
-"00:03:46|||Single · 1",
-"2021-05-27"
-],[
-"ab67616d00001e02467d1d5642c0e6c091568d98",
-"Witchblades|||album:2wBJb3AXDbfWLiz0V8nJyv",
-"KALT || WEISS|||artist:4Njp7eXpkqAHFOfoQd1XQQ",
-"austrian punk",
-"Nightmarer, Kvadrat, Decoherence, Fawn Limbs, Seputus, Defacement|||6MqL55fccEqCvqitp4Nfbx, 6AE1efTCpdj8HFUpwkWrxg, 3qyaKadkDqXBiY2spoitWe, 2LaJ2d2x43wwBNnuLRQlto, 7dwo6DNJ1OtzA2khelGBmj, 4gjZ52UQ4SBqWobOKGNjYs",
-"ranking:1701827|||115",
-"20210528000000",
-"Total Dissonance Worship",
-"00:02:45|||Single · 1",
-"2021-05-27"
-],[
-"ab67616d00001e0239fb9897b0b401b10524466f",
-"Canto di Thule|||album:4bo54hqApr0c9V8ISpDRx3",
-"Svartálfar|||artist:2fitItDJyIq6vHF1kvzvwM",
-"italian folk metal",
-"Nerthus Division, Kanseil, Furor Gallico, FeHu Paganfolk, Folkstone, Ragnarök Duo|||6KbCeYT3yzgON2ux0iszbq, 5uFYutf9HxPXTLCxC6p832, 3EdTAF8rCNoJhEYmNKBehq, 5KetMHwoxava6JARXpXJf0, 18tc6NSbYpwxNpj5fhSJvC, 7cCPLlpjPFeti4aoDaMDfU",
-"ranking:784251|||523",
-"20210528000000",
-"1298155 Records DK",
-"00:06:23|||Single · 1",
-"2021-05-26"
-],[
-"ab67616d00001e023e4198aa5c9775d51e1d37a8",
-"Holmgång|||album:5vOjW55q4fG0oscfIx78wV",
-"Hulkoff|||artist:2ztj3MdrAuEMrU1P4HrZwH",
-"folk metal, viking metal",
-"Týr, Heidevolk, Månegarm, Turisas, Trollfest, Equilibrium|||6TmGNPW2oDM5uaXBILozGa, 0A2YaO4tUFeJVNn5Hvjfxa, 6jQgWQKirZ7IKDGN8fRtdA, 0ykT1si9XRFPmEvWOnf4YI, 2GkRxQ8FEGrWxU8BjZKfmh, 5KvkOKroKLz202ioXfGWR2",
-"ranking:39271|||20085",
-"20210528000000",
-"Faravid Recordings",
-"00:07:03|||Single · 2",
-"2021-05-28"
-],[
-"ab67616d00001e02899bf34fa29d822856fe464f",
-"Death of Tribal Lord|||album:7jitImakAHRhPkO2sdIj2G",
-"Svarga|||artist:498ViL9Tp8U22QYqRT6LnD",
-"slavic metal",
-"NA|||NA",
-"ranking:2552802|||610",
-"20210528000000",
-"Svarga Svarga Music",
-"00:09:05|||Single · 1",
-"2021-05-25"
 ]]}
