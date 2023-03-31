@@ -430,7 +430,7 @@ $(function () {
     $(this).toggleClass('actived');
   });
   $('.toggle ').on('click', function toggleBtw() {
-    $(this).parent().children('.hideItem, .hideItem>*').toggle({
+    $(this).parent().children('.hideItem, .hideItem>*,.unhideItem, .unhideItem>*').toggle({
       duration: 500,
       height: "easeInBounce",
       display: "easeInBounce"
