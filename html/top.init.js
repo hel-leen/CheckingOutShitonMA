@@ -260,9 +260,6 @@ $(function () {
     genreLoad();
     location.reload();
   });
-  $('.toplist tbody').on('click', '.dropdown,.float', function () {
-    $(this).toggleClass('actived');
-  });
   $('.filter,.genrefilter,.paginate_button, .filter-holder:not(#url-filter),#reset').change(function () {
     table.draw();
   });
