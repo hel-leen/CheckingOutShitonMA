@@ -467,7 +467,7 @@ $(function () {
             },
           };
 // timecharts, which i don't want anymore
-/*           function update() {
+           function update() {
             Plotly.animate('timecharts', frames, { transition: { duration: 0, }, frame: { duration: 1, redraw: false, } });
           };
           Plotly.newPlot('timecharts', frames[0].data, layout, {
@@ -489,7 +489,7 @@ $(function () {
                 column.search(val ? '^' + val : '', true, true).draw();
               }
             }
-          }); */
+          }); 
         });
 
       },

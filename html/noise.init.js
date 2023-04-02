@@ -52,7 +52,7 @@ $(function () {
             text =
               type == "artist" ? text :
                 text
-                  .replace(/((?<=\p{L}{4,})[\.​]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
+                  .replace(/((?<=\p{L}{4,})[\.\u200B]{2,}|(?<!^)[:;]\s|-\s?(?=\p{Lu}\p{Ll}))/gu, '$1\n')
                   .replace(/(((?<=\s)[\/\(\\～~](?=\s?\S{3,})|\d{2,}|(?<=\s)((V|v)o?l|(P|p)a?r?t)\.?\s[\p{Lu}\d]).*)/gu, '\n $1')
                   .replace(/(^|^\W+?$)\n+|\n(^.{1,3}$)|(^.{1,3}$)\n?/gm, '$1$2$3')
                   .replace(/(\n\s?)+/g, '\n')
@@ -90,25 +90,29 @@ $(function () {
           // similar
           if (type === 'display') {
             switch (data) {
-              case 'NA|||NA':
+              case '':
                 data = "<i class='ts extra'>No data</i>";
                 break;
               default:
-                var
-                  format = /(.*)\|\|\|(.*)/,
-                  artist = data.match(format)[1].split(/,\s?/g),
-                  artist_id = data.match(format)[2].split(/,\s?/g),
-                  floated = artist.map((item, i) => {
-                    return '<a href="https://open.spotify.com/artist/' +
-                      artist_id[i] + '">' + item + '</a>'
+				  var format = /(.{22})\|(.*)/;
+				  floated = data.split("\|\|").map((item, i) => {
+					  var
+						artist = item.match(format)[2],
+						artist_id = item.match(format)[1];
+						
+                     return '<a href="https://open.spotify.com/artist/' +
+						artist_id  + '" target="_blank" rel="noopener noreferrer">' + artist  + '</a>'
                   });
-                return "<div class='grid_wrapper ts'><div class='grid_item ts'><div class='flex_item ts fixed'>" +
-                  artist.join(', ').toTitleCase() + "</div><div class='flex_item ts fixed float'>" + floated.join(', ') + '</div></div></div>';
+				  fixed =data.split("\|\|").map((item, i) => {
+                     return  item.match(format)[2].toTitleCase()
+                  });
+				  data = "<div class='grid_wrapper ts'><div class='grid_item ts'><div class='flex_item ts fixed'>" +
+					fixed.join(', ') + "</div><div class='flex_item ts fixed float'>" + floated.join(', ') + '</div></div></div>';
             }
           }
           return data;
         },
-        className: "col-simi not-tablet never",
+        className: "col-simi not-tablet  ",
         sorting: false,
         width: '11%',
         targets: [4],
