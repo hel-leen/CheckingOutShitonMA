@@ -6,7 +6,7 @@ const scrolling = (scroll, fun) => {
 function pageLayout(api) {
   var
     w = ($(window).width() / 100), sw = (screen.width / 100), sh = (screen.height / 100),
-    pn = w > 10 ? 10 : w + 1,
+    pn = w > 10 ? 10 : Math.floor(w + 1),
     fs = w > 9 ? 9 : w < 8 && w < sh ? (w + .88 * sh) : w;
   $(":root").css("font-size", 14 + fs / 10);
   $.fn.DataTable.ext.pager.numbers_length = pn;
