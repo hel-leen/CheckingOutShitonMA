@@ -30,7 +30,8 @@ var
   datafile =
     localStorage.getItem(savedItem) ? JSON.parse(localStorage.getItem(savedItem)).json :
       ajaxurl == ("top") ? 'toplist' :
-        ajaxurl != ("lists") ? ajaxurl : 'bmlist';
+        ajaxurl == ("toplists") ? 'bmlist' :
+          ajaxurl != ("lists") ? ajaxurl : 'dmlist';
 var
   genreOpt,
   genreLoad = () => {
