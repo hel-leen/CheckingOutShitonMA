@@ -114,7 +114,7 @@ $(function () {
         },
         className: "col-simi not-tablet  ",
         sorting: false,
-        width: '11%',
+        width: '10%',
         targets: [4],
       }, {
         render: (data, type, row) => {
@@ -132,7 +132,7 @@ $(function () {
         },
         className: "col-rank not-tablet",
         type: "ranking",
-        width: '10%',
+        width: '9%',
         targets: [5],
       }, {
         className: "col-date never",
