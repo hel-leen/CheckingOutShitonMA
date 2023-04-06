@@ -145,9 +145,9 @@ $(function () {
             var info = info_row.map(item => {
               var rows = "<div class='grid_item ts'><div class='flex_item ts fixed'>";
               rows += item.split('|').filter(uniq) != '' ?
-                item.split('|').filter(uniq).sort(() => Math.random() - 0.5).map(text => text.match(format)[2]).join(', ') +
+                item.split('|;').filter(uniq).sort(() => Math.random() - 0.5).map(text => text.match(format)[2]).join(', ') +
                 '</div>' + "<div class='flex_item ts fixed float'>" +
-                item.split('|').filter(uniq).sort((x, y) => {
+                item.split('|;').filter(uniq).sort((x, y) => {
                   var xp = x.toLowerCase().match(format)[2],
                     yp = y.toLowerCase().match(format)[2];
                   return xp == yp ? 0 : xp < yp ? -1 : 1;
@@ -159,6 +159,7 @@ $(function () {
                 "<i class='extra'>(No data)</i>";
               rows += '</div></div>';
               return rows;
+			  
             });
             return "<div class='grid_wrapper ts'>".concat(info.join(''), '</div>');
           }
@@ -179,9 +180,9 @@ $(function () {
             var info = info_row.map(item => {
               var rows = "<div class='grid_item ts'><div class='flex_item ts fixed'>";
               rows += item.split('|').filter(uniq) != '' ?
-                item.split('|').filter(uniq).map(text => text.match(format)[2]).join(', ') +
+                item.split('|;').filter(uniq).map(text => text.match(format)[2]).join(', ') +
                 '</div>' + "<div class='flex_item ts fixed float'>" +
-                item.split('|').filter(uniq).map(link => {
+                item.split('|;').filter(uniq).map(link => {
                   return '<a href="https://www.metal-archives.com/bands/view/' +
                     link.match(format)[1] + '">' +
                     link.match(format)[2] + '</a>';
