@@ -93,26 +93,30 @@ $(function () {
               case '':
                 data = "<i class='ts extra'>No data</i>";
                 break;
+              case 'NULL, NULL':
+                data = "<i class='ts extra'>No data</i>";
+                break;
               default:
-				  var format = /(.{22})\|(.*)/;
-				  floated = data.split("\|\|").map((item, i) => {
+				  var format = /(.*)\|(.*)/,
+				  floated = data.split("\|;").map((item, i) => {
 					  var
 						artist = item.match(format)[2],
 						artist_id = item.match(format)[1];
 						
-                     return '<a href="https://open.spotify.com/artist/' +
+                     return '<a href="https://open.spotify.com/artist/' +  
 						artist_id  + '" target="_blank" rel="noopener noreferrer">' + artist  + '</a>'
                   });
-				  fixed =data.split("\|\|").map((item, i) => {
+				  fixed =data.split("\|;").map((item, i) => {
                      return  item.match(format)[2].toTitleCase()
                   });
 				  data = "<div class='grid_wrapper ts'><div class='grid_item ts'><div class='flex_item ts fixed'>" +
-					fixed.join(', ') + "</div><div class='flex_item ts fixed float'>" + floated.join(', ') + '</div></div></div>';
+					fixed.join(', ') + 
+					"</div><div class='flex_item ts fixed float'>" + floated.join(', ') + '</div></div></div>';
             }
           }
           return data;
         },
-        className: "col-simi not-tablet  ",
+        className: "col-simi not-tablet ",
         sorting: false,
         width: '10%',
         targets: [4],
