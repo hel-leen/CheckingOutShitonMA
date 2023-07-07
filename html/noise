@@ -1,6 +1,501 @@
-{"draw": 1, "lastUpdate":"2023-06-30 UTC", "TTL":3,
-"recordsTotal":"2510",
+{"draw": 1, "lastUpdate":"2023-07-07 UTC", "TTL":3,
+"recordsTotal":"2598",
 "data": [[
+"ab67616d00001e02a15b5f1723fcbc51d4f08fb4",
+"Experimental Sessions|||album:0yv5huXM9ZOuM5EEIPMv4I",
+"Dargothar|||artist:2eqP0o8sJ83MQPPExhxvYT",
+"Voidgaze",
+"003g4bUQynV6a2Kp7onsV1|Brüte|;4KoESQh0bNRpcBHXwxXSsL|Ante-Inferno|;0CAamLi7JxzCv9tWQs8KqW|Pilori|;0giVCDcrvEldaPK8aCF1vp|Abduction|;0mvy3IITTL7Y8uGV6w49eU|Ninkharsag|;48pICddH6n80SxXavBasPx|Torture Rack|;2VArxovS803z0hzeg2gkbZ|Birdflesh|;45BslwT1VQg6Y06vJDguFP|Writhing Shadows|;0QttB5DrjIkZpZQXr4LHUV|Abraded|;2Xu47TsbFIn7GvlEMjGmh0|Doedsvangr|;6K520oxrZlHZC5MSALzFZC|Grand Cadaver|;6CQLTEd3uiZe9c36iwMcx0|Olde Throne|;1Yj3Q9JEqpFCytALOgE1oI|Nazghor|;0gVAC9uep6phnKC3vAHjGf|Necrofier|;5FVXnF7zGfuo8WF5qq4XHK|All Hell|;2dNNRreuWrVDbNX2srDdag|Ultha|;1gA55xnafhPiBIM07ZlXHA|Hexis|;3CAMaX2bss4c0E7K4O0dTf|Non Est Deus|;3UpDjZ41s0rOQsDKSECKmt|Aara|;3EgVbnn78KGifB0CL39kET|Concrete Winds",
+"ranking:231978|||798",
+"20230707999999",
+"Independent",
+"00:36:11|||Album · 14",
+"2023-07-01"
+],[
+"ab67616d00001e02dc38838ce7c0e98eefca1edf",
+"Bald Mountain|||album:2wJibsTsEX3QdiurCSoVTP",
+"Evoking Winds|||artist:0ZhIgXy9GVTPnJEyWUzVN1",
+"Epic Black Metal",
+"2TZaVVEVkPfCgYMEW19RE9|Autrest|;3FxLCzDSgQWzTULln1Jq3V|Dryante|;0Cn4DWxZCiCaarkXLIaguR|Morwinyon|;3WdAbe7LcgPuckuALu2co5|Blaze of Sorrow|;6CQLTEd3uiZe9c36iwMcx0|Olde Throne|;6hCTxV61iKPjRhEEdwroGJ|Vananidr|;2HVGxevf11SgGmXCa1WAI1|Ruadh|;67fI3xLgjdbgwUvzsBFEEX|Marrasmieli|;1UQcfVwdcig2EmuVtZE8mv|Firienholt|;0NnzRoaRPWmhsKWgo5AN9l|Enisum|;1Yj3Q9JEqpFCytALOgE1oI|Nazghor|;5hFKdxBWpediNBvDJtzHOS|Mist of Misery|;2Xu47TsbFIn7GvlEMjGmh0|Doedsvangr|;3Yr3yzpgJUMfM8LVvBezXj|Elderwind|;0r9Y9yzdVRTpqz9K0e2XIK|Erroiak|;3CAMaX2bss4c0E7K4O0dTf|Non Est Deus|;3Ky6psjwMRuSBL9KF6HStX|Ateiggär|;3wo0CF7Bn1D7Y6frLUHNMW|Nattverd|;4KoESQh0bNRpcBHXwxXSsL|Ante-Inferno|;6n0FNtWLXmpcyTNM9Pb9at|Ancient Mastery",
+"ranking:655460|||1169",
+"20230707999999",
+"Artyom Prishchepov",
+"00:51:43|||Album · 12",
+"2023-07-05"
+],[
+"ab67616d00001e02fc1bbb59568c12aeb190d369",
+"Kanonenfieber Live at Dark Easter Metal Meeting|||album:52Gh6ulvJyjE2ZpR1iLM7f",
+"Kanonenfieber|||artist:5VI8SBEX7uSvoHsdI5xNVJ",
+"german black metal",
+"3CAMaX2bss4c0E7K4O0dTf|Non Est Deus|;7uyxyhQKI5ZSpW33tQeMhz|Minenwerfer|;1LVKNplFNdYWWlCHD8p0iv|Leipa|;0IpKWttPlwhd7Cevxsh1Bz|1914|;7KSPZyeCKkfkhMkX8rYIhD|Grima|;5PC1B9qDXhyin3ZgyRcio7|Groza|;1iLdVM2KFAHUbpaC5wpMbO|Ellende|;39THyu7mxjdqTKk4zHGjrb|Panzerfaust|;0mvy3IITTL7Y8uGV6w49eU|Ninkharsag|;3UpDjZ41s0rOQsDKSECKmt|Aara|;5MmWBBxtGph66XDnjymwjW|Horn|;1djxnRn6jJcQtVGJ4lTDvP|Afsky|;1wVXW6HkSbISq4IelPOhRx|Totenwache|;2FJo2QXOUDi8qzFIyVwYq5|Antrisch|;30R8X3xhfDbxAcfxSZ0UaQ|Uada|;32zyj5MW8nhKGMaGlp4njt|Misþyrming|;7e823b0KQoVtLG86Ui5xGD|Der Weg einer Freiheit|;4ykmWeGRRY1OmPgMY4K2rw|Imperium Dekadenz|;2hbkBlGBgvJkC3tpUn9w4C|Mgla|;3Qp4Hew1h6BC9YSCNkuYoy|Karg",
+"ranking:103383|||19942",
+"20230707999999",
+"Noisebringer Records",
+"00:51:03|||Album · 8",
+"2023-07-07"
+],[
+"ab67616d00001e0217ef0b8a3410d0be60a76203",
+"Echoes From The Coffin|||album:1t0kFq9qz6ashP8H9QLkL1",
+"Mortis Mutilati|||artist:0ZD6eAGnl5WtqIRIB24Ogc",
+"french black metal",
+"3c590EibyTLzHAguv0Obxv|Hyrgal|;4cgoUI2zD9VwardbevbvTp|Moonreich|;5od7JP4VZxm6AHWV2xbyYC|This White Mountain|;6uXnJyXytxC9v1trhWBMsh|Causam|;0HOwEgUN5lnMtSjh26JpLP|HATS BARN|;2jZumaxegwHgkxNh0y0uvE|Borgne|;7fxVlkmfbp6OkSfBRnyMW3|Miserere Luminis|;6sRe0IDgqF88ArecwN98rj|Penitence Onirique|;63lBiFAfG7V8I9fbYW7I0u|Frostnatt|;0mZohnzbCiVv54VIEA6Wb7|Seth|;6zS0YEPIRESv50RqqhIzCX|Houle|;1rXc0l5VTHnQ1NxdXybs9O|Mammon XV|;2PfvRrjETo5Rp6UyQDcxoe|Déhà|;3wo0CF7Bn1D7Y6frLUHNMW|Nattverd|;6sSvlAu7Q8NDcNkn3C0TvZ|Walg|;4mCOIjK38BaQlDOu6HC91W|Déluge|;1OiVufZZzQmv0nJjzxTmia|Sorcier Des Glaces|;3lLWQr2WmOViUBagvW1CqN|Old Forest|;4ONdkGpDaHJFwBRe7dQxMd|Helleruin|;0NnzRoaRPWmhsKWgo5AN9l|Enisum",
+"ranking:1340328|||416",
+"20230707999999",
+"Asgard Hass Productions",
+"00:28:10|||EP · 6",
+"2023-07-07"
+],[
+"ab67616d00001e025eb1bf51ff59585798780cb2",
+"Aetas Ascensus|||album:6vBetAzGXnAF6CfkAPXE9Q",
+"Servant|||artist:49t1kAPqYOFmSz1gc5ZKjL",
+"Black Metal",
+"4Kgo9Vm7t4xymn5zplHuoU|Malphas|;2E1jtmGw3bpAE8WXuCHYJQ|Nemesis Sopor|;5uTwxBGntF8CBbnElxZ0OG|Ondfødt|;1tgOXyYJvy1oyY3TTMszfO|Asphagor|;1wVXW6HkSbISq4IelPOhRx|Totenwache|;2VCOvrl9WTbFAkzAs6N2Au|Sarkrista|;4uVJiIU7iZqvh2gd4lRcFH|Theotoxin|;3CAMaX2bss4c0E7K4O0dTf|Non Est Deus|;6uXnJyXytxC9v1trhWBMsh|Causam|;3PGa77bJV5qENkW75aTItU|Agasch|;34JA2Fu5TWr18wG9g7F561|Sarvekas|;0mZohnzbCiVv54VIEA6Wb7|Seth|;6Va71hx7PWi5TeBU4iPB0l|Tryglav|;1LVKNplFNdYWWlCHD8p0iv|Leipa|;7hcvhYMlNsn2gTTVbECj6e|THRON|;3x7ah9kIgBeUhHKMmVAiD1|Drudensang|;19es9CC2woX8QKohfCQdsx|Mystic Circle|;7rkF7HD7gJYCtltfBmSVub|Dauþuz|;5MmWBBxtGph66XDnjymwjW|Horn|;0Cor5wxhCtEuSz85zFb9qY|Imha Tarikat",
+"ranking:1425672|||402",
+"20230707999999",
+"MDD Records",
+"00:48:08|||Album · 9",
+"2023-07-07"
+],[
+"ab67616d00001e029fc6ba25de78aad6ecb4b9f0",
+"Funerals &amp; Rituals|||album:57uOpeqKOLcnojghGM2rhM",
+"Opium Grave|||artist:4wUKLIrvmfRJ5m8X8UqPWR",
+"Black Metal",
+"0PisBEUzmvtOhj1tbfnnMQ|Grave Pilgrim|;2HxSH2M8P9cTGnfz5Hvhnm|YMIR|;0QuvwnoCQhpKBLFBhb4ZbR|Primordial Serpent|;76C9FKwTVoMdBmLyjzfDsR|Ebony Pendant|;1J2CVZL3YmQk6ggqn0b6Kn|Drowning the Light|;4OSPtOO4hNljpKoi4YN1Is|Ifernach|;50tjennHQZxrFajZipVMA7|Order of Nosferat|;7EJQ29SbHpoo8EdTkSeqXw|Till|;2xzL5LUjziEfFyuyKGi0V2|Ildjarn|;1EzvfumDDDz3rkI2EE1fXo|Graveland|;27VO9AW63fi0sXWRxgAHdq|Nahtrunar|;1kPJs4pSGj3yUsYwmGmJF3|Lamp of Murmuur|;6njOLxNUCiMvfi8XV6ZDs2|Departure Chandelier|;4ONdkGpDaHJFwBRe7dQxMd|Helleruin|;1wCF2kb75T3TaGZdQSLkdb|SATANIC WARMASTER|;13YYwTzXnUDHNi1UqWneHW|Warmoon Lord|;5LCW1YUGpMpsWklZ36rp91|Trhä|;7mAAXOXKHM2LybbQGfbzRX|Spirit Possession|;2EVBvhMdX3Qg1JwyZo3itZ|Gnaw Their Tongues|;2OGO1Fv4QCiCbjXY2gMidQ|Ungfell",
+"ranking:1656399|||139",
+"20230707999999",
+"4200281 Records DK",
+"00:56:09|||Album · 8",
+"2023-07-02"
+],[
+"ab67616d00001e0205fb4685a70de40a9eee9b33",
+"Mundicide|||album:16c874P3rUuRk4VNnSEbci",
+"Eternity|||artist:5e9W9cq0wi1xVc3zSUlZuN",
+"Norwegian Black Metal",
+"3wo0CF7Bn1D7Y6frLUHNMW|Nattverd|;53GQboBufZmAJ7rytRZ1dd|Ekrom|;5blvFmND4WkhpeqZn7L1FU|Tilintetgjort|;0Fcp8O7MTL5vVtweL2ctgh|Nocturnal Breed|;3VplKtWSHMZgd2PjonAaC5|Heimland|;4ZQVTc9Dl9IiT9oIRghKhm|Blodhemn|;6HknDaihaELliiZl2CTlg7|Dold Vorde Ens Navn|;45K6ZHxHPQ8whrNrXub3Tu|Urarv|;6FJAMmAofvoX8KxHNHlet5|Zustand Null|;4GudRFkxfj5RVX8OtseCNb|RUÏM|;6FIzAn8mX3wrOPk3oRnd6F|Horrifier|;34JA2Fu5TWr18wG9g7F561|Sarvekas|;1TjkN4K2KSI6jqJuLb3K07|Stryknin|;5uTwxBGntF8CBbnElxZ0OG|Ondfødt|;5BPuwHD7jA85XePrEFUIIk|Whoredom Rife|;3YIfnAdb1VsyR6wCSmQen7|Tulus|;2eEuZMHC3LdWsxogUqlI3y|Djevel|;0N2xwIbiud8QM5eUsvDEIM|Blodkarsk|;2Xu47TsbFIn7GvlEMjGmh0|Doedsvangr|;3SJevRyiO3kSul0ceR7TxS|Ruun",
+"ranking:773374|||920",
+"20230707999999",
+"Soulseller",
+"00:43:10|||Album · 8",
+"2023-07-07"
+],[
+"ab67616d00001e023f2e21a9c6fd2ce868db9e16",
+"Monuments to Absence|||album:6xjGLGujv8Fl5gv2rf9Rzo",
+"Fen|||artist:1MlFNDlH2naWutA9C0nNVB",
+"atmospheric black metal, black metal, blackgaze",
+"7CiWvN1gNzwW6eNxTAYhe2|A Forest Of Stars|;6wLgoPmccgFkKpjPYvJqtM|Negura Bunget|;1cbBzQxiKcZCsit68iTbTJ|Lantlôs|;5lqyPWmAivV75tII5Vxpet|Wolves In The Throne Room|;4q5mj9YpaYesKvHzN8XYve|Drudkh|;2VYbuGDGM7ipeu54IbKzyw|Les Discrets|;3nzs6bowitMirGXyGQ72Qx|Amesoeurs|;0cKyWvYnOGpPV2NpulEYf5|Winterfylleth|;4Y5CKbAT8fHWEbpLGFNygB|Falls of Rauros|;7yMpYMZTr6Hm1Dm5CR0CRZ|An Autumn for Crippled Children|;3SzTaaNgwUukUhQZVKMKFK|Woods of Desolation|;0c0xIXQhCbmtvzM93liaSf|Blut Aus Nord|;2Mz5qpR3WxbcBwZBsmraWE|Panopticon|;0d5ZwMtCer8dQdOPAgWhe7|Alcest|;1K4ZUQr2eaIqDLS8o5Gesh|Altar Of Plagues|;5Cz18ETgjR6kcVMUK0YOqD|Nachtmystium|;1RtWv2DQzIGsnjHPXBRaR5|The Ruins Of Beverast|;0y9T7O1q6PyYt8fOSJfRm5|ColdWorld|;13AqtEAizDfq1vVVK7MMYX|Wodensthrone|;3Meu28o8P5z9Zjm6NTGihT|Agalloch",
+"ranking:267808|||26021",
+"20230707999800",
+"Prophecy Productions",
+"01:07:17|||Album · 8",
+"2023-07-07"
+],[
+"ab67616d00001e0235d94f2fd33cc309380cc108",
+"Harmer Split|||album:4YACH92IbhQ7C2YyqqXlt9",
+"Will Cope|||artist:5pW8Nfd29LvjZ9kMjcf92b",
+"Death Metal",
+"7lWRr5TPr4LQfU0KgDTOY6|Warfuck|;7jIgUcu9wKALHBULJu9LWD|Ona Snop|;0Mt971osfNFxZ3X6jqFwXf|Endless Swarm|;7uctedT9WR5dzqjAOx3jKN|Erdve|;5QtzZh6SpQvuKsXSSD0JDl|Whoresnation|;45FXsWRxYogI0PWzWHNwCm|Gets Worse|;34HQ4MGMHnwjIjtvcBHLwi|Triac|;79es50rjZ8DktsXcyeT592|Chepang|;4d7V1d9wDqubQOvZrd8qzy|Bandit|;6KBBZNl476lte4ccHqLFKz|Sex Prisoner|;19dF9fFNoOiNS9qRiQ4tqM|Brain Tourniquet|;4m4mM8KMQd8gtIFC4SOGHL|God Mother|;19sXEKtdhVMHAbEexfsttQ|Wound Man|;7duxL9B1FGhyVngPJzMJpt|ACxDC|;6Fbes1fH0ZDS0XGjDx2YeG|Cloud Rat|;6YeWEWziBhykLo5PQxpvQ6|Weekend Nachos|;44jDvLRX5YIUBQ7th8xw6G|Dead in the Dirt|;7Mofe7KoNcHsUrgrjJU0gi|WORLD PEACE|;4aglyvdJ7ApTfDC6aQ2LFf|Rotten Sound|;1zVJfLMaN1eeiz4NVdI1Mh|Magrudergrind",
+"ranking:2129175|||98",
+"20230707999750",
+"Will Cope",
+"00:10:29|||Album · 9",
+"2023-07-04"
+],[
+"ab67616d00001e02f7b57c9ed61262628cd9ec16",
+"Barbaric Torment|||album:6bg6Gfegj9nL16Ie2Feb49",
+"Skeletal Throne|||artist:32txAeSvK6fkz3y0ARDj75",
+"Brutal Death Metal",
+"3bzafEbCeXoFHZwXJO08K3|Decortication|;4Saso3br5oTcMkUUj3ZHLJ|Coffinborn|;4queFWzutZJrh1PFsAlwCJ|Cirrosis|;6AKKxuEpZNt1LPUJXzw3CS|Cathartic|;5QRdGlwm2uurL57rgCibKp|Parasitario|;3Vet4MWeuADf2x1q1pAnVV|Indepth|;057B5mDZWUWQEXuWwMplki|Death Reich|;6Im0py5F0Y2RMJTQ6MlX6A|Introtyl|;0AwLeKySlKYuwSEzy24gEY|Seven Doors|;6LpkAtd3ksPFOCh76EIED7|Becoming the Entity|;2mabrA1vLwzkul5WeTVmlo|Disrupted|;3muRBN22wEpjVoZhMt2Fel|Horrid Sight|;3HKrps4Kkqs05tHQxavbTv|Siege Of Power|;12C9jyU2vH6AO6zZAMyOBF|Olkoth|;6Hcy4yEog90PfpJQeOpWl8|Infiltration|;16QwPMvlP7YxbD3KvWX6gy|Yskelgroth|;7rz4j8PkfYGBCtD6Z6tG4H|Ashen|;0FLAN1EcCmtfvqxP1KPEHk|Tsatthoggua|;0ihzl14dtKADBcwu1YbLgo|Khafra|;7yda1W8kRB4zQmpV8SKgny|Nexorum",
+"ranking:948310|||665",
+"20230707999750",
+"Mexican Steel Prods, Detonation Records.",
+"00:43:35|||Album · 12",
+"2023-07-01"
+],[
+"ab67616d00001e026543c0c2f509e99774a08d81",
+"Requiescit In Pace Frater Noster|||album:2RD7T4rEk5n2MTY7CWKnvZ",
+"The Cross|||artist:1CRL7OxE4kweOy0wZyeeyf",
+"Black Metal",
+"6jpJdxnuPB2E6PfGuj2ihI|Malefactor|;45nB1NWLBbfPZwHMFtv34k|Ode Insone|;1AucOPV2dXFlihGsIBqy02|Drearylands|;7ehRWMm4SxSQ5ZNxlTVLmM|Eternal Sacrifice|;3nfA7W2j1V3noCC2qi9NZa|Open the Coffin|;21ZyACTkL2ClJmpGHnrpgC|Pantáculo Místico|;3PLUqL7h2FK5hGjAY2MmDG|Headhunter D.C.|;6r4txMrZKsIwlZp1ffqHgN|Podridão|;45IZ7uzFO5edCRkAQA2mfb|Silent Cry|;7sW8jAEAm50NUyzJpjpm1V|Escarnium|;3zFm8031X7YUutfMiWrlov|The Mist|;2XhxFV36qfsfFGw2uYpIWE|Vazio|;2aR777i9sXneWnWNbiNlXv|Deep Memories|;3YDQc8nFMCgW17SJU1tTnE|Rebaelliun|;2K625A88AU1Nhgrvffkjhh|Malkuth|;2gXm7lnTjOVGhSDBA0e7kW|Miasthenia|;6rIlgMYN39qj3M02XzUome|Helllight|;7pn4COkjUVllsEF4rylPqg|Aphorism|;79UTqJS93srbypiqVERibS|Taurus|;52Zn8IzDQudHfdrYzL7OzO|Mythological Cold Towers",
+"ranking:1747817|||321",
+"20230707100999",
+"Pitch Black Records",
+"00:20:05|||EP · 3",
+"2023-07-07"
+],[
+"ab67616d00001e022ac9af3f5b23a91610536e63",
+"Dreaming|||album:4ghg7mEdOa5rn3IwuSXIqp",
+"Gormoth|||artist:4DXx7ZXvvtgmamWC6o8cu7",
+"Voidgaze",
+"44v2QhJBQqc85h4BdfSiKT|Numeron|;1r76mUCkYB4JJMR9kPudEu|Duthaig|;2TZaVVEVkPfCgYMEW19RE9|Autrest|;7178NSsH71D6Q9vktyTYvA|Motherwood|;3PGa77bJV5qENkW75aTItU|Agasch|;3FfL6hHqIKOzqoPLFBj5e5|Winds of Tragedy|;6CQLTEd3uiZe9c36iwMcx0|Olde Throne|;0Cn4DWxZCiCaarkXLIaguR|Morwinyon|;1Phg6Pos87VQuqS7biMod8|Eowa|;5od7JP4VZxm6AHWV2xbyYC|This White Mountain|;3EGtaS7RlMSCoY6GdZcaKj|Dratna|;3lLWQr2WmOViUBagvW1CqN|Old Forest|;4GRh9zOvmEsHYWu2e9mM3x|Morgurth|;1HgR4ek7pogNDEuOqnb9MZ|Ernte|;4MoQp2VfhowCZQue8PhiSF|Nostalghia|;2FJo2QXOUDi8qzFIyVwYq5|Antrisch|;4x2u5UaQHSCpkNQjPcsTdr|Aodon|;4YCsXFvsz7kHdQiVOVJhqW|Great Cold Emptiness|;2tbV8e3aGma2QudKxPUcWq|SMRT|;5uTwxBGntF8CBbnElxZ0OG|Ondfødt",
+"ranking:1216483|||196",
+"20230707000999",
+"4952985 Records DK",
+"00:10:40|||Single · 2",
+"2023-07-05"
+],[
+"ab67616d00001e023eb4a0f6697e031221ca80f2",
+"The Devil's Connection|||album:7JLyA7cykWKkiWsKkb4JEl",
+"Black Pestilence|||artist:1p0tK4ckGfA6YOEUIAaOcO",
+"black noise, canadian black metal",
+"7hxDsJyld0SlN7N6FXYG20|Black Fast|;3uqoS4269hIwo4DzfT15Wi|Bewitcher|;2kIYZ2eHRnAbaPYE860qNx|Jungle Rot|;6FfZaHz07OsknWNdtdan5R|Hellripper|;6txf2ksDlbyt06kNh1m4o7|Mork|;28KjD5HkkDDytQzKW7JzTp|Midnight|;0ucuxyPTAHv0TPkA1WBV10|Witchery|;2EAy7g3Ga8hS10hAHMf6C4|Memoriam|;4bMhBA9z2oB9MixiL9OXCx|Evil Invaders|;08f6MNQouECEKggLSLEBRQ|Demolition Hammer|;2e86Of4iYn2zSVVt13vqpw|Syrophenikan|;7yNm8EkcBiI9wPKlZpnOvE|Our Diabolical Embrace|;3tS2n2PiBzG8Mr8nCfLIJy|Legion Of The Damned|;2As0YCWv9jaBvU4n3uPUy6|Hellacaust|;6NQG5g3XehebJ1mOjN0MHr|Artep|;1j4UuoXrCrAqoYzAMAjaoP|Harrow|;5y3Gyf07OHeMgRvzdTLATT|Nordmen|;3M7TWxbyL5hXEPm7pR89up|This Station of Life|;41KFwG6na42H7i20OakPEe|Snowfall|;5Hy5S9bOeiSFJOdIB4oQQB|Quincunx",
+"ranking:2126680|||453",
+"20230707000999",
+"Black Pestilence",
+"00:03:30|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e02eb82a24ef09d5a84fafcbf94",
+"Stone Eyes|||album:1sit3b2jDoHM0M70FkBsvB",
+"Pagan Throne|||artist:1T5Q0IS0ApUxkGZikQYo9W",
+"pagan black metal",
+"2AR22I5cFGh4KOVOuJ0e1G|Kanvass|;5yXXO985mKhlPjW2vgXYyp|Corpse Grinder|;7b54CJtUy67cp1s3mmRzGL|Justabeli|;2SOnHGCButDd698URU4ZXx|7 Peles|;6sdxjJUH57VfqmmCtWwd2V|Rhegia|;1GCnpVka37q3EXMVnK9bma|The Troops of Doom|;0Vzp352SOAHNdSfgasIRg9|Drakwald|;2XhxFV36qfsfFGw2uYpIWE|Vazio|;2gXm7lnTjOVGhSDBA0e7kW|Miasthenia|;27tHevb9NByjH3tbZ24W1F|Bode Preto|;68exoYKyr4yPvuRnk0jIxL|Velho|;6r4txMrZKsIwlZp1ffqHgN|Podridão|;3YDQc8nFMCgW17SJU1tTnE|Rebaelliun|;3zFm8031X7YUutfMiWrlov|The Mist|;7Gpyhjh92kkdhoEC7SMGBF|Flageladör|;3IPsbVbc2hVQMU50DZu9gD|Korzus|;43ZQFpcwdGqWL5u7JSneXq|Sangue de Bode|;6E3iq1WfZbw2YEeTKVZYJR|Torture Squad|;1LC9G5jqosufT48QBBqwl7|Power From Hell|;2HVGxevf11SgGmXCa1WAI1|Ruadh",
+"ranking:1580391|||690",
+"20230707000999",
+"Urubuz Records",
+"00:04:20|||Single · 1",
+"2023-07-02"
+],[
+"ab67616d00001e028c237d4e204b09d239c956e0",
+"Pout (A Vacation from my Problems)|||album:0Lu6FirbEIzjkhdmGknpX1",
+"Perpetually Pist|||artist:7rpV6Xsjv7PShfhQg3YAFD",
+"rabm",
+"37tHE0AGq7jO3sGO2JbGIJ|Skvm|;2FRncnewCtOQcrZapjJqN5|Dusk Lurker|;3EP3aSZ7co7oJHZHtGICzm|Xegren|;4F6wKB11iHIpnj13AOK57D|Operation Volkstod|;3KSNs3UyOAbBkfKcBEPU7B|Tumultuous Ruin|;3etYVNiyZt51Pmo50u8eHK|Gråt Strigoi|;48wS7RqcbPGbCAZZMI9tkA|WOE BATHER|;5qz9P2brSXl73XwLE4cbrx|Lolth|;1tIXYAVPzRxosCbrfpWZau|Lore Liege|;1bQRTGYikcpW5lu4HsTCYI|Begotten|;34sAa8n7AU1RRnnyGZwXRK|Gravpel|;5NyZmJZUDURORN1QiTbiZT|Hekseblad|;4N1rX1f8s4FJ2bOz6dOBLr|Anarchist Wolves|;0Z9I8zWJAacVnNProyJUT2|Periodeater|;6JLdKCnAXijfXmbjeHITfd|Anti-Freeze|;4HABZGNhhI6zD6tWl7yF4H|Winter Lantern|;1z06ZvjL1f0cx8xtKQRGyT|Neckbeard Deathcamp|;10jQiHjeqG2iYmFO9MhGR6|Sankara|;4xRLL3kkpvCfJwdnamywBB|Gaylord|;2h6nQnzpUndFlaEA6wKOJ5|Trespasser",
+"ranking:1447678|||416",
+"20230707000999",
+"3159948 Records DK",
+"00:03:43|||Single · 1",
+"2023-07-03"
+],[
+"ab67616d00001e026be41842ce00eaa115dbefcd",
+"Raskolnikov|||album:2WScLew4gR7xHW2QLzu0WL",
+"Prohod|||artist:72X2bwKVrTzF3HiqcLvKAN",
+"romanian black metal, romanian metal",
+"1Vzz2uyBtws42M4p4Sl4Db|Martolea|;029YQisxpHZN8R3CxONBZ7|Sur Austru|;5hpGBeQ30Vhr9a8mUkRFtz|Doomnezeu|;7IXw1trkemaKyPTVoL97MG|Syn Ze Sase Tri|;7raE909rLwbicyHNIBvBES|Fuck You! Dracu|;4Bml4Z26enwOy7ovgpDMRV|Harmasar|;4QD3ojYj3txYZfemv349jc|An Theos|;5VY5SLLo3bpyPBNniAfM4E|Ashaena|;052X0cOZM6KscHPcJwsPh0|Dordeduh|;2hhLQDmEJqObRlCHWbyeQF|E-An-Na|;6wLgoPmccgFkKpjPYvJqtM|Negura Bunget|;7ANzYcdifwr6yCyumhzb9X|Sex Pula Pistol|;2Z912EMB8D91VQT4rFUEX1|Bucovina|;7lnoKzE5unKzShIzkjlTX7|Dirty Shirt|;3nQoVVNwutGfczOpMK7HTd|Trooper|;3JmNi1OPqbrRQfNXlPDsqf|Luna Amara|;1PH4N4dphrromTS9D03HE6|Nuan<U+021B>e|;6txmCIyGuqpObOtJQGzwKM|Goodbye to Gravity|;511WAmWVOiJXWoFS2V6jGw|Cargo|;53Thxvlr6imD5y3lxouOu4|Phoenix",
+"ranking:1913227|||315",
+"20230707000999",
+"2808686 Records DK",
+"00:04:39|||Single · 1",
+"2023-07-04"
+],[
+"ab67616d00001e02495460cd4b31fc42273ba760",
+"The Black Shores|||album:2kuKKsjAT5SO1bRUqgv3y1",
+"Nebula Orionis|||artist:59eckCEN32YKqbmOsDVUoM",
+"ambient black metal, atmospheric black metal, cosmic black metal",
+"1ci4EDcCVsJCqpCWJ0O48R|Dreams of Nature|;3Yr3yzpgJUMfM8LVvBezXj|Elderwind|;0kcwQz8MibbVtQKuXJuBym|Lustre|;0Kwfcco1g12Hem7pwSakBm|Basarabian Hills|;7eRxlh4ie5sgkthRirMRMl|Hermóðr|;4ZnlfGzJ64rXn81cR2OR0E|Mesarthim|;0mZRMbP7xU91E1FGvKbxhF|Eldamar|;00KWdGU4pWHruBYx5rAWSN|Skyforest|;57eLubqPTZkDXghysW01Qj|Nordicwinter|;3rTyM1AkQ1ymEyP3DxhiqL|Midnight Odyssey|;35ddefRwKDnT4r76P5kzr8|A Light In The Dark|;1CdneithbYBG91ljDqSuao|Tardigrada|;0NnzRoaRPWmhsKWgo5AN9l|Enisum|;1ZYRTJCj869ya07OpEAlGR|Unreqvited|;294COHomHgFJqPYW9TpoPZ|Abstract Void|;0XFkf3NSP76nB7zhzPdM9X|Sojourner|;2fQbbvCwsIOHn82oqXB1kp|Lumnos|;3TH8tc8N1s363bBYROkk9f|Wonders of Nature|;04wLDXvXFg0ZTn7BBGMBXH|Cân Bardd|;2MOjJWj7SfHajNJ3e2pVvu|Nord Frost",
+"ranking:404733|||3579",
+"20230707000999",
+"Nebula Orionis",
+"00:07:10|||Single · 1",
+"2023-07-02"
+],[
+"ab67616d00001e024894084e786e989d042d3379",
+"Tales From The Cemetery|||album:3MaW8IXNprGEM7gJKMU5my",
+"Nocturnal Mortuary|||artist:03iHkM7FiPzNnYKCXwTj7T",
+"Black Metal",
+"0e5FD8Ns1BnTTOMEZk4Cvf|Disguised Malignance|;1kTzf97796AKChWRWyZwe7|Malformed|;1ALbop2ZxSAPnCDervZSi6|Exigenced|;6XoytI9hLYSeFX5tKHPwGU|Cryptic Hatred|;4Ql0lUGCQYt5jyDP8wrXvu|Connected|;1v4B6koSajjtdxhF4CqRO8|Gorekaust|;1FDLD6VBeFtH2VLz2tUWux|Morbific|;2bSTRDSn105KvMUR2KGdop|Galvanizer|;4Bwb7ZVphhjbdju2wFYj8G|Sielunvihollinen|;4KJjihrZR0XfiOPB0MdMVz|Stone|;39fAkpWnxnr2AQ6tW1kMcn|Pikakassa|;69Sr8wyHst8byPxRXENs3D|Horna|;41nB823nb3wxEI25UeGHqG|Stam1na",
+"ranking:1108813|||206",
+"20230707000999",
+"TYCCIPRODUCTION STUDIOS",
+"00:07:07|||Single · 1",
+"2023-07-05"
+],[
+"ab67616d00001e022c512866afa649a0377901b8",
+"Wish You Weren't Here (Lowlife)|||album:5vFyjBZOr4P1ChLqeQDwBL",
+"Opium Grave|||artist:4wUKLIrvmfRJ5m8X8UqPWR",
+"Black Metal",
+"0PisBEUzmvtOhj1tbfnnMQ|Grave Pilgrim|;2HxSH2M8P9cTGnfz5Hvhnm|YMIR|;0QuvwnoCQhpKBLFBhb4ZbR|Primordial Serpent|;76C9FKwTVoMdBmLyjzfDsR|Ebony Pendant|;1J2CVZL3YmQk6ggqn0b6Kn|Drowning the Light|;4OSPtOO4hNljpKoi4YN1Is|Ifernach|;50tjennHQZxrFajZipVMA7|Order of Nosferat|;7EJQ29SbHpoo8EdTkSeqXw|Till|;2xzL5LUjziEfFyuyKGi0V2|Ildjarn|;1EzvfumDDDz3rkI2EE1fXo|Graveland|;27VO9AW63fi0sXWRxgAHdq|Nahtrunar|;1kPJs4pSGj3yUsYwmGmJF3|Lamp of Murmuur|;6njOLxNUCiMvfi8XV6ZDs2|Departure Chandelier|;4ONdkGpDaHJFwBRe7dQxMd|Helleruin|;1wCF2kb75T3TaGZdQSLkdb|SATANIC WARMASTER|;13YYwTzXnUDHNi1UqWneHW|Warmoon Lord|;5LCW1YUGpMpsWklZ36rp91|Trhä|;7mAAXOXKHM2LybbQGfbzRX|Spirit Possession|;2EVBvhMdX3Qg1JwyZo3itZ|Gnaw Their Tongues|;2OGO1Fv4QCiCbjXY2gMidQ|Ungfell",
+"ranking:1656399|||139",
+"20230707000999",
+"4200281 Records DK",
+"00:06:50|||Single · 1",
+"2023-07-02"
+],[
+"ab67616d00001e0232d4428ed697272e7d71af9d",
+"Dimension 666|||album:2WNYM0S1KCnTFqB56cnkbH",
+"Age of Darkness|||artist:7pfdfe73Tf7zv9RUxM6teu",
+"Black Metal",
+"NULL, NULL",
+"ranking:2533758|||67",
+"20230707000999",
+"GFD PRODUCTIONS",
+"00:06:19|||Single · 1",
+"2023-07-01"
+],[
+"ab67616d00001e02b1f7c824a750cb6553558c65",
+"Под полотном из кожи|||album:1EoUfHjhxPzL0pM6O7PHTt",
+"Lifeharm|||artist:7GPc0sP1uJvp6jUvZTofn7",
+"Black Metal",
+"NULL, NULL",
+"ranking:2748207|||31",
+"20230707000999",
+"Lifeharm",
+"00:05:56|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e02caf2d4b887409bb94737e257",
+"The Prophecy|||album:34BE267qxJukPZ3xLeAbrR",
+"Last Dying|||artist:2fhCIQzq5JUrrp4qCSN3SN",
+"Norwegian Black Metal",
+"NULL, NULL",
+"ranking:2117252|||65",
+"20230707000999",
+"Last Dying",
+"00:03:08|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e02fdec44cdfc8a0273cfdc9da6",
+"Jaws of Janus|||album:2jtJ7wLGl6KR8o0tm0Yjes",
+"Revenge Prevails|||artist:57nekbasuWd0KE7TbYhLTR",
+"swedish black metal",
+"5c81a4MM3sIm2XxsI2bSCR|Grá|;2pxFpZSsh1Ux05QEhCQoep|Noitavasara|;01ZrYTQvJSX6SHaJOp4des|Sangdragon|;1ldltUHyVmPCdnxUCvRMN7|Defilade|;26Iuwo6bgGPKMHpYNP0Ry8|Sons Of Balaur|;6VzkFwJ0CKwK0MkrzjboQG|Alexanred|;3hEyQq3f9JBrtZF0NbGph5|Moonkult|;2Rd5zuZj4umgBejBUAaEpO|Pantheon of Blood|;5q00qBtpQmb3pX9MBeEdbE|Abyssion|;7qvP1CfN8JGqImICdTF542|Nekroverse|;5EkmBAQAk0Bkb9exdOQ6V7|Tower of Flies|;7IxRoNDqezmmsrY1noJye4|Utbyrd|;7CoJHMKkVy1xezsPnS0v7h|Nekrarchon|;0QkUbBhLlCciKPuw33I6co|Nymeria|;6epCi49W636bu7QKJ4v08Z|Chontaraz|;2hNY3IUCOWtJP1YPCH4CQ4|Vanvidd|;3giLJQp9IUzog0vmrvnLie|Sons Of Ragnar|;4NF49cuCrfChs954Hvi6AM|Daevidius|;4xmplEwXW1tkJbRfuutqBU|Tragacanth|;2N3uxI9UQIfuRF61UqjIlh|Sin73",
+"ranking:2358780|||191",
+"20230707000999",
+"1839932 Records DK",
+"00:17:54|||EP · 3",
+"2023-07-01"
+],[
+"ab67616d00001e023e2dfe5a61a2f3c015096291",
+"Within His Wretched Tomb|||album:2KPXbuHoCM06iVz2FmtNFN",
+"Deadspace|||artist:6Pil7ytDWKgjHf1mXQe4Q8",
+"australian black metal, depressive black metal, emotional black metal",
+"00IUSq1Vie2bkTG7D6U1n6|Photophobia|;4sFwDtI3ZPFuyrO8PKP25V|Eufori|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;035NXwK0KqQHJnysFBPvVv|Vanhelga|;2Wi7zzccDDPTfNZitmE2pH|Thy Light|;1wMqSb6Jx1f9ETpLwMgQno|My Useless Life|;155cULXraV93ztC81ncvBz|Totalselfhatred|;0vzpTsCGA7LFAhcQhTvtzt|Intig|;6Pl6yl12Q5jqHJQDiWQG6y|Dreariness|;4zllGt4ePrRAIaWiEu5pyz|Bonjour Tristesse|;0gRhQvSAYGnzOHyWIfLlmO|Hypothermia|;7wWVpKpMtvSX9mQapjtKAD|Nocturnal Depression|;0CBA5mUfyPo2JWjRAEoyS5|Wedard|;1mZwBAEwEeWg4oJ5E1n0xr|Afraid of Destiny|;56sxMCmVq5a2AZlmz39YOW|Forgotten Tomb|;5w28U6wo7RtZZjThxtxIyL|Apati|;5D95DPWHohrzVbdublZQKR|Advent Sorrow|;6Bq1bFboIX6DIQDwwg4jo4|Svart|;0Csv0ChHA3vtRvuVc1a671|Happy Days|;0y9T7O1q6PyYt8fOSJfRm5|ColdWorld",
+"ranking:276052|||8155",
+"20230707000999",
+"Immortal Frost Productions",
+"00:05:44|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e023bf3935dced437d909116a1f",
+"Spring is a Symbol of Hope|||album:6lslZ2JO5aBEYijOfFUlaz",
+"минута агонии|||artist:5EMBVteeltJTrQFqlKYPam",
+"depressive black metal",
+"1q4hWErLtwYQIca9js6NgP|Decalius|;0ytCDaA20earkkf6RLcn2A|Hopeless|;4NvxjAX6GAFxG1rarh1eY2|No Point in Living|;5wb6P2LKu8rlgNg6vCDLyF|Beyond Melancholy|;4lF5b7wxuA99POeFit8kaa|Sår|;2DbvOgzYR9n3v7fI1W08Yr|Lifeless|;7tHcWwUTkiKP3ohRo4ArWq|Sorry...|;3QrMraHMbEdLOVayFdUSq0|<U+0412><U+0438><U+0441><U+0435><U+043B><U+044C><U+043D><U+0438><U+043A>|;2K6kM5nZ41hCFMlmXX1P0f|Deadlife|;3ZaFsvr89LCvVRfp9U23Mu|I'm in a Coffin|;6Pil7ytDWKgjHf1mXQe4Q8|Deadspace|;6rjHvg5Py3Y795at1fqOWm|Sacrimoon|;21MCDycVati6SjNSfk48j7|Kanashimi|;3oDXP4IOvM7Nta5MSTG9oq|left alone...|;1mZwBAEwEeWg4oJ5E1n0xr|Afraid of Destiny|;65ZtoOgT8I5qdYxelDzxqz|Hanging Garden|;0CBA5mUfyPo2JWjRAEoyS5|Wedard|;1bQRTGYikcpW5lu4HsTCYI|Begotten|;00IUSq1Vie2bkTG7D6U1n6|Photophobia|;0gRhQvSAYGnzOHyWIfLlmO|Hypothermia",
+"ranking:404178|||1592",
+"20230707000999",
+"Adepts of Agony",
+"00:19:31|||EP · 3",
+"2023-07-07"
+],[
+"ab67616d00001e02ccec742f7d7ef24b1a528e9f",
+"Terre Noire|||album:3zWQZiVmFWKnIei23w7CiC",
+"Ifernach|||artist:4OSPtOO4hNljpKoi4YN1Is",
+"depressive black metal, metal noir quebecois, native american black metal",
+"7EJQ29SbHpoo8EdTkSeqXw|Till|;4VFftqMzFZJTZzQjIxigvU|Mäleficentt|;7JhVBreHzeHpsRk4r1gmei|Wampyric Rites|;0CTKq7arHzG8F0ToHBW8qj|Akitsa|;4ONdkGpDaHJFwBRe7dQxMd|Helleruin|;0m7Gja9csWtI6L8pQcYsE8|Vampirska|;1J2CVZL3YmQk6ggqn0b6Kn|Drowning the Light|;6njOLxNUCiMvfi8XV6ZDs2|Departure Chandelier|;4T9jRm4P8L38xGTYgW7iNx|Ieschure|;13YYwTzXnUDHNi1UqWneHW|Warmoon Lord|;48wS7RqcbPGbCAZZMI9tkA|WOE BATHER|;76C9FKwTVoMdBmLyjzfDsR|Ebony Pendant|;1EzvfumDDDz3rkI2EE1fXo|Graveland|;5NyZmJZUDURORN1QiTbiZT|Hekseblad|;2xzL5LUjziEfFyuyKGi0V2|Ildjarn|;50tjennHQZxrFajZipVMA7|Order of Nosferat|;27VO9AW63fi0sXWRxgAHdq|Nahtrunar|;22zsDWxM8e5bDZqD9J4Vw1|Vargrav|;4HABZGNhhI6zD6tWl7yF4H|Winter Lantern|;5G1MlYyOsiG56mjlsZHsLC|Judas Iscariot",
+"ranking:323516|||6488",
+"20230707000999",
+"Tour de Garde",
+"00:03:20|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e023850072d7ffbb5ccb89612db",
+"She Travels Through the Mist|||album:3YDZKHrLuHen0gkbgSqRmA",
+"Sorger Ekar|||artist:4nQ5b256dIqUMjYc5b5Gmg",
+"Depressive Black Metal",
+"5NyZmJZUDURORN1QiTbiZT|Hekseblad|;4VFftqMzFZJTZzQjIxigvU|Mäleficentt|;0m7Gja9csWtI6L8pQcYsE8|Vampirska|;7EJQ29SbHpoo8EdTkSeqXw|Till|;48wS7RqcbPGbCAZZMI9tkA|WOE BATHER|;4oSsbh4UFwnnbLPG0QiNfK|Felvum|;5wb6P2LKu8rlgNg6vCDLyF|Beyond Melancholy|;1tIXYAVPzRxosCbrfpWZau|Lore Liege|;1J2CVZL3YmQk6ggqn0b6Kn|Drowning the Light|;2F4GThYp1PIU8MrrMvM628|Grot|;4SOerNdiNUaFLADed55uFB|Consider The Following|;1q4hWErLtwYQIca9js6NgP|Decalius|;4lbKjEvAKni4q1GLsDcvZI|Mutiilation|;2npmFqbj5dX1B4Rqi4715a|Dyster|;21MCDycVati6SjNSfk48j7|Kanashimi|;29L5EHyDhIiWKNtbJZoLw6|Frosk|;0ytCDaA20earkkf6RLcn2A|Hopeless|;4HABZGNhhI6zD6tWl7yF4H|Winter Lantern|;7JhVBreHzeHpsRk4r1gmei|Wampyric Rites|;3ovfKHreK2SxERWxkuKDvr|Dëgénéréscence",
+"ranking:904966|||312",
+"20230707000999",
+"Sorger Ekar",
+"00:06:13|||Single · 1",
+"2023-07-02"
+],[
+"ab67616d00001e021564ea5d4519d0a7232a3cf9",
+"Fatal Force of Devilry|||album:6Uaq4J6BuJuMuGF0jPMy0M",
+"Valturn|||artist:4G44PaG2z3IuAoMdSeyPOO",
+"Depressive Black Metal",
+"NULL, NULL",
+"ranking:1043608|||739",
+"20230707000999",
+"3697637 Records DK",
+"00:02:44|||Single · 1",
+"2023-07-03"
+],[
+"ab67616d00001e02366a3bda25427ab92026904a",
+"Suonet|||album:1TIwC1aVwLPoFq4Af5oQeU",
+"KOIVUTUS|||artist:3XQOvt5ZC1nMoOyE6sPsFL",
+"Depressive Black Metal",
+"7rhKsvlBd9QyxwArqghxdD|Fester Witch|;0RNTvDZe3dtTobJfV6aOO3|Opiated Devilsperm|;1q4hWErLtwYQIca9js6NgP|Decalius|;0Csv0ChHA3vtRvuVc1a671|Happy Days|;6Ku1v7iIC5rxuiyBbIHc03|Nattefrost|;4lbKjEvAKni4q1GLsDcvZI|Mutiilation|;1wMqSb6Jx1f9ETpLwMgQno|My Useless Life|;1MVngxYrcAvKqx3os2rrRE|Lifelover|;60hOd90CQglmxfBYSO7dqV|Bethlehem|;0nH9qzKJMfrJNnF37nDaVj|Xasthur|;72unU2j2vnNWFiITlvx2nv|Këkht Aräkh|;39fAkpWnxnr2AQ6tW1kMcn|Pikakassa|;7oBiHmzfoAYKAFU5uO65Jc|Psychonaut 4|;2ZO5sFPyILDQkFdS4HJPFS|None|;7wWVpKpMtvSX9mQapjtKAD|Nocturnal Depression|;70ENNjuWPlm1cmd2WI5FVz|Rytmihäiriö|;69Sr8wyHst8byPxRXENs3D|Horna|;6CJU2RwwB10D0KoYYqWYeM|Leviathan|;1yyjjuXGTA4Qf0UUEIWEQe|Morbid|;2sQT1TXWHhcNs1fU240LOi|Dehumanizing Itatrain Worship",
+"ranking:1394039|||272",
+"20230707000999",
+"KOIVUTUS",
+"00:11:04|||EP · 5",
+"2023-07-07"
+],[
+"ab67616d00001e0204d8196a42740da2bf3ff7d3",
+"Бурю Утешают (Заклятие I)|||album:5rC1sfexs7T36JigPnqKVT",
+"Икотка|||artist:1zDIGYrqCYmfXZ11rEPFGP",
+"Depressive Black Metal",
+"2JoeZB3UztBHLZ0RpjD7TC|Chernoplod'|;2MLZuKRF8dWMlqxlHbUMZE|Koldovstvo|;6lyWCGfcWHqaqKL0CkWWA5|Kultura Kurenija|;3QrMraHMbEdLOVayFdUSq0|<U+0412><U+0438><U+0441><U+0435><U+043B><U+044C><U+043D><U+0438><U+043A>|;2LJZHvvkltSe2LEVRXad2Z|<U+0411><U+0462><U+0421><U+042A>|;4kllL13MZBKugC5XGybstN|Gloosh|;5EMBVteeltJTrQFqlKYPam|<U+043C><U+0438><U+043D><U+0443><U+0442><U+0430> <U+0430><U+0433><U+043E><U+043D><U+0438><U+0438>|;6cvfJNOW4ZAMiSVLEbeP8P|Kalmankantaja|;21MCDycVati6SjNSfk48j7|Kanashimi|;4MoQp2VfhowCZQue8PhiSF|Nostalghia|;51kom0dCPU0zk7cxZaOkuj|Svrm|;6H4aSq8C0uNkxUKDsC2t0j|<U+0420><U+043E><U+0436><U+044C>|;1mZwBAEwEeWg4oJ5E1n0xr|Afraid of Destiny|;57eLubqPTZkDXghysW01Qj|Nordicwinter|;7yT2v8k2wHbX7F7of8KzrV|Lascar|;2mKMhfyCb588vITXwIKjM8|Revenant Marquis|;5wb6P2LKu8rlgNg6vCDLyF|Beyond Melancholy|;3ovfKHreK2SxERWxkuKDvr|Dëgénéréscence|;48wS7RqcbPGbCAZZMI9tkA|WOE BATHER|;0Cn4DWxZCiCaarkXLIaguR|Morwinyon",
+"ranking:1730235|||354",
+"20230707000999",
+"Crystal Orchids",
+"00:07:09|||Single · 1",
+"2023-07-04"
+],[
+"ab67616d00001e02816fec13399dacc5eab679a5",
+"The Ominous Messenger|||album:7hOcaPtoTSIdUwLxFORsnx",
+"Abmontium|||artist:0R3gYZUVHZdb0k783TLNdA",
+"Depressive Black Metal",
+"1FnveejWCYHofUVY2IsJpc|Uønsket|;0evMxSyUTDWIrlNsvdICwg|Old Castles|;2sqaELMo2PfLIeBvCmD4Fn|Goathial|;2LOiAPzfgbmUzCrwyaPpWK|Klanen|;0QEfOQORLC1hRBfKTFjeye|<U+0410><U+043D><U+0433><U+0435><U+043B>|;1ph8wfSZZ3PiqpwnlsfzvL|Mantiel|;0ZXq7ixi3DM00qBETEjfEF|Vindalf|;6mozAy4lSzf3JWJqFGXbzo|Ash Pool|;46pMF2BUIZlDPQWVfDxH32|Oferwintran|;54kiACx4v4BhVSMuz3Azdm|Infernum|;1tIXYAVPzRxosCbrfpWZau|Lore Liege|;2tgLAVVA8tYnhKAeJzIzCg|Panzerwar|;2npmFqbj5dX1B4Rqi4715a|Dyster|;3ovfKHreK2SxERWxkuKDvr|Dëgénéréscence|;0QuvwnoCQhpKBLFBhb4ZbR|Primordial Serpent|;07MrXzJ0ZqmR65yiuoIzkL|Mnima|;3t1NUADko4V2E1uefz4fqZ|Sorhin|;0yJtVGtpaoNrmOPJBLdvDc|Erythrite Throne|;4T9jRm4P8L38xGTYgW7iNx|Ieschure|;76C9FKwTVoMdBmLyjzfDsR|Ebony Pendant",
+"ranking:2446109|||84",
+"20230707000999",
+"Abmontium",
+"00:19:41|||EP · 4",
+"2023-07-02"
+],[
+"ab67616d00001e028e7b495e9281e368777a1de8",
+"Amongs Stellar Remnants|||album:2Ga7GGgcBSGgk90RE7oSQI",
+"Lightlorn|||artist:1HEPvxZsvx76ziDUZKl3re",
+"cosmic black metal",
+"5od7JP4VZxm6AHWV2xbyYC|This White Mountain|;0Cn4DWxZCiCaarkXLIaguR|Morwinyon|;0eWZ7uIrAgOnYkgKEFruXP|Mother Augusta|;7rzYQnCulFuW0Fo9L2Nt4D|Lesath|;44v2QhJBQqc85h4BdfSiKT|Numeron|;2TZaVVEVkPfCgYMEW19RE9|Autrest|;06ls7sOH7e3odErXtQlhST|I, of the Trees and Wind|;63lBiFAfG7V8I9fbYW7I0u|Frostnatt|;2EaEwUr0UUOtv4jrmcGCpA|Soulless|;01aKzpR7phgsyOpq4ndvB7|Labyrinthus Stellarum|;7umzEXJVLLeLp7SWogQMs1|Cursebinder|;4DXx7ZXvvtgmamWC6o8cu7|Gormoth|;1JL2XZ59zVG8gbkfmkDqqb|Zorya|;7iERvKZ4ei4xqh5oAwNKLr|Gyrdleah|;34JA2Fu5TWr18wG9g7F561|Sarvekas|;5N9htpcnhopndM8XCb2P6P|Falaise|;1rXc0l5VTHnQ1NxdXybs9O|Mammon XV|;1r76mUCkYB4JJMR9kPudEu|Duthaig|;3VhptiBhftJdpckyCd9oKw|Kold|;5uTwxBGntF8CBbnElxZ0OG|Ondfødt",
+"ranking:1186758|||306",
+"20230707000999",
+"Black Lion Records",
+"00:07:24|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e02fb2ad5bf66e6a14ef2ef0f08",
+"Свет|||album:1LdiEkzGnOazDnoTx0Bm7s",
+"Gnot|||artist:6mw5BetIDNzJ2cf5Z8ELKA",
+"forest black metal",
+"1ZW32eRC87dKqB0SNjy0CY|Together to the Stars|;2seSzLu86h4xbuOf2dEehl|Varhara|;4lpvlgUCumwxmQD37sbIZt|Olhava|;6X78UG1TKS2NTAJ9bovuqp|Trna|;5sPj4LOvqjBXBCz4jbyA2S|Somn|;5N9htpcnhopndM8XCb2P6P|Falaise|;51kom0dCPU0zk7cxZaOkuj|Svrm|;4kllL13MZBKugC5XGybstN|Gloosh|;6H4aSq8C0uNkxUKDsC2t0j|<U+0420><U+043E><U+0436><U+044C>|;3HfXtfhLJqJALdgoWAnjKt|Sunken|;5od7JP4VZxm6AHWV2xbyYC|This White Mountain|;57eLubqPTZkDXghysW01Qj|Nordicwinter|;4MoQp2VfhowCZQue8PhiSF|Nostalghia|;2PfvRrjETo5Rp6UyQDcxoe|Déhà|;1eHqHZFn7vwegBeNRAD2fq|Wounds of Recollection|;2TZaVVEVkPfCgYMEW19RE9|Autrest|;1wou9vWv5PgrTn3pu3TydQ|Show Me A Dinosaur|;48004mQqn10lHqgCJDczTi|Alda|;1ZYRTJCj869ya07OpEAlGR|Unreqvited|;36KyOKKfmMd4w8j3ImHf5G|Vvilderness",
+"ranking:1617240|||418",
+"20230707000999",
+"ICONIC PROMO",
+"00:12:02|||EP · 2",
+"2023-07-07"
+],[
+"ab67616d00001e02e4f3313acff8744a4b4552b8",
+"Unfinished Sympathy|||album:6Xo0iW2Ci1Y4O2J8pBe6F7",
+"Underdark|||artist:1Z1Ie125waPvLmEOxQGeKW",
+"british black metal, post-black metal, rabm",
+"4SgdAGvT4cBCGFGmIzBtUC|Dawn Ray'd|;4uYAaVxjz3cqYj7P57le8j|Feminazgul|;5zGxYEPyynjUkIBgKRI1Wt|Ancst|;2h6nQnzpUndFlaEA6wKOJ5|Trespasser|;5gBHLwml90ZbOelVqI9mS5|Wallowing|;6hk43KSfwt4aYNH5N4qKcO|Mare Cognitum|;4xRLL3kkpvCfJwdnamywBB|Gaylord|;34sAa8n7AU1RRnnyGZwXRK|Gravpel|;3QUIZrOIi7g8sHrb9Cajtm|Awenden|;3SwRHVTRoAEOkggZnCSFzt|Ragana|;2PRHHXzKIZIBrkXi2q4Pfu|The Infernal Sea|;6TMxqZqkUT4XlgLzrzwD6M|Woe|;1ZR1y4fCztcaoliwAIbEAb|Dödsrit|;2Mz5qpR3WxbcBwZBsmraWE|Panopticon|;4lpvlgUCumwxmQD37sbIZt|Olhava|;4bMnvSjYJ7bHAYAxiVrRs2|Yovel|;1eHqHZFn7vwegBeNRAD2fq|Wounds of Recollection|;2ZBAmlpAv7mVb9ZqUuHLSg|Downfall Of Gaia|;4HABZGNhhI6zD6tWl7yF4H|Winter Lantern|;4zllGt4ePrRAIaWiEu5pyz|Bonjour Tristesse",
+"ranking:939342|||3598",
+"20230707000800",
+"Church Road Records",
+"00:05:03|||Single · 1",
+"2023-07-05"
+],[
+"ab67616d00001e0210c719df8d24a71b25efe0ac",
+"Advisement|||album:6Sy96u8AS2PGh7jw1W7qs8",
+"Strega Nona|||artist:4896VCE1Ee55213V6O1Gr1",
+"Post-Black Metal",
+"NULL, NULL",
+"ranking:1564072|||538",
+"20230707000800",
+"Strega Nona",
+"00:05:49|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e0243ac6597d80e36cea867e8bd",
+"Cataract|||album:1mRllLfzxvqKTDV9SBRQ29",
+"Altarage|||artist:1t6R1cmictIjcNCPKO4Nsp",
+"dissonant death metal, spanish black metal, voidgaze",
+"4Qjvt5uzjF8TA4sNS58xe6|Triumvir Foul|;1Ey4DaBUTa8vzDU25Go0w2|Abyssal|;3RpXJfRQjmI3gaTk6GnrZ3|Malthusian|;6PyOMd6Pmzzj6sljpW8wMh|Hissing|;4F8qoKRzgzH9lK911X70fP|Antediluvian|;5yjzuDAXRgVE2PPo0tc6Sy|Infernal Coil|;6ISdh8nhJQIZ141GLZsSrf|Suffering Hour|;5WpW0XFUSrMfj4zlLqCige|Impetuous Ritual|;7rzT9Xd3AMiu9PVmcNKGCF|Qrixkuor|;5eAE0zR4YcmlcfyNeAVyEP|Ascended Dead|;3nXt3HeznADl7WeOirrbRv|Irkallian Oracle|;1asuL525VM9td0sj7KysMX|Succumb|;3ng7UwBECtnIlNIdufUagO|Mitochondrion|;0YDJIWfqi9rqQWkdefQvtx|Grave Miasma|;5XzSFsryd7K6doIsrQQxsd|Of Feather And Bone|;5ZTig9T9bWHXmaTIwgdh2h|Aevangelist|;0wNYSaUZ0rbXeHzuPeSY8V|Lvcifyre|;3MFFalA1IZ44q27NwqeCN1|Chthe'ilist|;5qaYuNrSJsdCeahD1yRBHi|Verberis|;7LPrGEbf01106GJ14w6yhW|Teitanblood",
+"ranking:694753|||8688",
+"20230707000750",
+"Independent",
+"00:14:06|||EP · 3",
+"2023-07-06"
+],[
+"ab67616d00001e02c42294bf6fff48a3e9a2cda4",
+"Once Was God|||album:53trpGrLn85lXPD8WcMsJ1",
+"Fossilization|||artist:3FDmCPVi3TyAPCmKS3jcdB",
+"death doom",
+"6WFJB486yPrSLRpzICcwUX|SEDIMENTUM|;04PPZVRf2s2YMz2rb8eBu1|Altars|;2BpDq4OWu7vn7jMfhWoMne|Hyperdontia|;5DMn0jsqI3AoVwtynkSOif|Phrenelith|;03p1MQHjSpOnF92Q7OCy9d|Krypts|;6vhs1oAtSyMHsn9en6BaMD|Mortiferum|;4OWgwvzFQaaOb7lMahkNRy|Malignant Altar|;6Aakz04B1cWFdcMNFch4QS|Vacuous|;58G4TKwRpwoF4yRMosEnFY|Perilaxe Occlusion|;55iBjgV2pcrDgrI7ow2AFk|Autophagy|;0rhrsITqw07r2a12a6Guwv|Ritual Necromancy|;7sphVu41YOYx6iIGG8hzFW|Mortuous|;1FDLD6VBeFtH2VLz2tUWux|Morbific|;7KE8SfpBhltKZ2C4lzdKPf|Void Rot|;0cozVDzCEFprS9jh7WbJPJ|Innumerable Forms|;2q7oGbzpZK3rum0OkhcPqk|Chaotian|;5eAE0zR4YcmlcfyNeAVyEP|Ascended Dead|;5XzSFsryd7K6doIsrQQxsd|Of Feather And Bone|;6kAjBixynTe6N1bcqFUIrd|Gosudar|;5I4bpzP0gZSVwceopnaoVb|Spectral Voice",
+"ranking:624094|||3836",
+"20230707000750",
+"Everlasting Spew Records",
+"00:05:00|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e020fe60c92d496f6e299eea349",
+"Pillars Of Dust|||album:441mPCwuN0v70JWViyWCKw",
+"Outer Heaven|||artist:1JsmMPIpC3NY8JUcUj8AbU",
+"cosmic death metal, death doom, new wave of osdm",
+"1zFGR4NaBbCDBGwifPKGfM|Tomb Mold|;6vhs1oAtSyMHsn9en6BaMD|Mortiferum|;7aqcTzkV6MaDOmeC1anf8O|Genocide Pact|;1uKzVnmzBtqIzGzjBojwkL|Witch Vomit|;5jWIRPU5rVBm6ky8Atq7AW|Necrot|;5eAE0zR4YcmlcfyNeAVyEP|Ascended Dead|;4z5dCmXGpp78EmuMJlmBB3|Side Liner Vs Will O' The Wisp|;48pICddH6n80SxXavBasPx|Torture Rack|;4OWgwvzFQaaOb7lMahkNRy|Malignant Altar|;1fFtjgqU6Z2vKBmk5Z8z3o|Undergang|;2BpDq4OWu7vn7jMfhWoMne|Hyperdontia|;1cdxNUejlVcTwgWocqB3eF|Phobophilic|;0JghiWoNCI9BzxbhbX2qp8|Random Designers Vs Arcane Trickster|;5AEKhKc6WDnY6oi18OWcQN|Cerebral Rot|;2I7atnUFOmvMyGPuesD7cB|Fuming Mouth|;0QttB5DrjIkZpZQXr4LHUV|Abraded|;7sphVu41YOYx6iIGG8hzFW|Mortuous|;5XzSFsryd7K6doIsrQQxsd|Of Feather And Bone|;0cozVDzCEFprS9jh7WbJPJ|Innumerable Forms|;0XFSKdTpzCOOfTPwIdByqf|Pissgrave",
+"ranking:317034|||10674",
+"20230707000750",
+"Relapse Records",
+"00:13:33|||EP · 3",
+"2023-07-07"
+],[
+"ab67616d00001e0278ff2ef01e7cfabc085ff1ae",
+"In Abeyance|||album:6TxLiQzD4gg3dHNCuTA4GF",
+"Cryptopsy|||artist:29PgYwTelpNl6370XLqFtN",
+"black metal, brutal death metal, canadian metal",
+"4ItRDIouodpnW6nm4TYDk1|Suffocation|;4Ru4H8nvpjbqHFStsJJcHV|Hate Eternal|;2DqzOWVL2ly48IA9bpZdie|Dying Fetus|;1vCdpqo6SWCO8RdENTTSxV|Deeds of Flesh|;6bPweC1Ugh3y4m5emo7A36|Vital Remains|;4Mmo0f1kp7dyyH3UbK9vUU|Origin|;3v3VSKylQE69ztn5TUVlFE|Nile|;17MbhJOaaPHuWnRaWU9xkc|Decapitated|;0dy6peOuKo2QkwaNWPoJpx|Defeated Sanity|;4Nlrw2bbsgaWH2qR3cBxeN|Decrepit Birth|;22GSc8UsPGIP5mrM4W57rY|Necrophagist|;1NrkyGnaWUYV1hLP74pp6X|Malevolent Creation|;3rt16vhD1OuULlsyxUUWIt|Immolation|;5OLgWkV7opwcxN7zOhKb6g|Skinless|;2K3GorTixXKAiwe2t9lO89|Deicide|;0Q4ioaeWOOlKFVPNdFvp9q|Gorguts|;4S2VWuUV0ei7LG0I8JDFww|Cephalic Carnage|;6u1oqIGVTj3TPVVcwn9Qt5|Monstrosity|;0ZCbQOOfTwQacCamoOxx0D|Spawn of Possession|;1XRhUgCyzIdeT8d9KMfeDR|Aborted",
+"ranking:76260|||132828",
+"20230707000750",
+"Nuclear Blast",
+"00:02:56|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e02a4b7e24d8699f3db07f3fb55",
+"Greedy Gory Gluttony|||album:322D2Gk0xID3blYDHqPdWy",
+"Putridity|||artist:7aQXgfLHE9x6gKrrE2zf6q",
+"brutal death metal, deathgrind, grindcore",
+"4QGOIwBOrKa9axQxMz3yav|Disgorge|;1pM9eHQ4gyoA8ZNvMQ19MX|Cerebral Effusion|;0dy6peOuKo2QkwaNWPoJpx|Defeated Sanity|;3cTtTsSCf4oOvacKH9ZmNl|Guttural Secrete|;23YXDYSHl7PunK2XmCjqah|Septycal Gorge|;1YXwL0RvyKn9swZ6CsVDwk|Wormed|;2Pq0WuEVUvv1G7s7S4XNVs|Gorgasm|;2x0g8ynzsIZARjOCXhHJ45|Cenotaph|;79UEQDXFTyCmFDKl3mz2Vg|Abysmal Torment|;4ypzf3n2YDMIj41Y2WVHYW|Malignancy|;41o6suGH9w85f9arFqtnNL|Condemned|;643gqRRKokptXFs1ZZrkWt|Inherit Disease|;1shYFELmbMiLx0KpwTvBbW|Disentomb|;1vCdpqo6SWCO8RdENTTSxV|Deeds of Flesh|;47aXAyH6vI3y70PKyGldNG|Devourment|;0IOrAgufqMFmOtDUy2HK5f|Inveracity|;0SPiQivk0SEZIQSzz0uBEC|Dehumanized|;1OrIPehs9mXFCNT830JQ0R|Vomit the Soul|;0YLsaJh7FiEOYZugiIE2o3|Pathology|;7pL20gpmXwB8GB4zoj6sTb|Putrid Pile",
+"ranking:302283|||25098",
+"20230707000750",
+"WILLOWTIP INC. (WTP)",
+"00:12:59|||EP · 5",
+"2023-07-07"
+],[
+"ab67616d00001e023b65de9b13bf9ae61ec2414c",
+"Deadweight|||album:0vjlOuujZlfLPgtK2BGGiO",
+"Lost to the Void|||artist:7EPHUPB8ptu1YDhLDq9gNk",
+"Brutal Death Metal",
+"11lgQB1umZW4yXVgNJgEGS|Broken Glass Sanctuary|;6u35vrqf6Lh3EafXoJF6Qs|Organectomy|;3zBRwsfsphAy6eNvh2bPiG|Stillbirth|;1maC5DWQKBAQqmjfp3qCpI|Tactosa|;2kmN6qYkywddUoh7JIUdZi|Extermination Dismemberment|;2uEEkcNT0D7EmVs2ebKe9i|Decayer|;7o56ORTn1ftm2wC0l3INdg|Snuffed on Sight|;40DbKvYvADTiks7hZIUPHG|PeelingFlesh|;47aXAyH6vI3y70PKyGldNG|Devourment|;0YLsaJh7FiEOYZugiIE2o3|Pathology|;1esCIjNvqmJP9hfG5qNewk|Strangled|;4zdj6e05Eh8uLVJ6V0V3Mu|Osiah|;7FauDKMDbUkCa6SuNfI0GP|Vomit Forth|;5LcybrMKewCzWmVWvWAauw|Gates to Hell|;2JxqeYkP4fyEgF1kid8UCJ|Analepsy|;0umvpzkCMoxVBy0IoNpN4Q|Bodybox|;4gJMeUuNoD9eeKZkOHLWMO|Abominable Putridity|;5E2FPuRWzBojRkL6CwyBzw|Beneath The Massacre|;4KNivmUcgaar8yZvjYRoqv|Disfiguring The Goddess|;3Gqp4F4hxnfH2txPKU5J2J|Vulvodynia",
+"ranking:1371167|||358",
+"20230707000750",
+"Lost to the Void",
+"00:06:29|||Single · 1",
+"2023-07-05"
+],[
+"ab67616d00001e0207476010542a41d208d9cfbd",
+"The Gates|||album:0VUdiTfkViM7Iz8cAeJZLs",
+"Flesher|||artist:7sezQGhrQ1hnZ3lFLc3JVa",
+"Brutal Death Metal",
+"13g1FZjHzJfxUhjh2nSOf7|1 BODY 6 GRAVES|;3KfsHa007RzGKuqVPL4nbF|Rest Assured|;786tmlQKqp24IheHDWdVQ3|Feticide|;0SMrRLWdHsDIh2MiSPsY2y|Cadaverous|;7LteYNLW5lB2vPWn6f1BOu|Dissected|;60UxOXd4EBtcWMLn9lzhXJ|Lust Witch|;0y5DAEwQpEi0Vpj9NLVE1H|HAMARR|;3ZSt8Wvfw4BqGvQM1gr8mB|Grotesqueries|;5Q7A86O0t1FMmOkSHZ7Y4o|Bolster|;2mBWeNVspYwiZoN82fNLbA|PISS ANT|;45BslwT1VQg6Y06vJDguFP|Writhing Shadows|;1LxGvpRAZlXypb2rQR8jfX|Mutilation Barbecue|;2m4Mn6181owFboCii7qeue|Obscene|;1s0gqWWsFtnzUIf4AOu5VI|SEEP|;0BC4MkyYmFUWH5ufiBW3kQ|Torn in Half|;7xvoAGr9vMccKbOIIaIjXN|Mutilatred|;2CEEBji65yAbozjIei858t|Nuclear Remains|;7cZumljXJrF3leOG0MMnS0|10 TO THE CHEST|;0nYqH22K19D3MUPFeomPIP|Bonginator|;0gY7I2I1SHhpXKjf2XoSjK|Re-buried",
+"ranking:1528724|||101",
+"20230707000750",
+"Redefining Darkness Records",
+"00:02:59|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e02e0e7c05db3cea5c7f25226c2",
+"Blessed By the Divine|||album:3kWf8VClCWBMM653vfhE3D",
+"Xorsist|||artist:4iWtf8XTtTkyIk6Bmqb1L6",
+"Black Thrash",
+"4s0ex1bOgIeJnwN4Yf7FJb|Eternal Evil|;6YLjEaD7pSZOyg23zIjqKr|Atonement|;78tS2rMs81fH13rbaw4sT0|Sarcator|;7JLwFqsT13zDEKLOYPGMrh|Maniak|;4vdu75ngLsRqXaqTc3daq5|Impurity|;4u42vKXACW1yzqfdyFWo0l|Merciless|;6odb6JOVKBnYrwMUmnAPab|Katakomba|;1eCN54wbZcl5ipqb5u9LpK|Carnal Savagery|;3AHeQk97Bdz43qM7GMlXL8|Cancer|;7f4Agzz6Lwh1QJ0teHHpJn|Nifelheim|;1nl0JqITH0ba3tvOAPDqoT|Wombbath|;1mKMwDLyuKq26yAvIlNO3H|Sorcery|;4QuVWcl0F9IqBgNMmmfJg5|Interment|;09OwM7iXyoFAOzQUlWeDgB|Dismember|;6wdkD11Ili4bYCuNUSwA7G|Black Wound|;6KcwpzbL2P3LblQLdkhDfG|Sépulcre|;5FCA4ZDitAsPvd2ncm8xjF|N2K2|;15bWcusRsDaThBO9CRSSKO|Toxaemia|;4LfucwWOrS5NHbgxwtYbH3|Protector|;3G9syNiqkQiAIMSrztrk0J|Bastard Grave",
+"ranking:1341203|||925",
+"20230707000750",
+"Prosthetic Records",
+"00:03:47|||Single · 1",
+"2023-07-06"
+],[
+"ab67616d00001e02f1d1067074f5d43db34848a4",
+"Hardline Poison|||album:4ImiHcHPtqJ0qfCifCWdDz",
+"Terror Cross|||artist:5ak9j2B9Bq96ePTMJerzjX",
+"Black Thrash",
+"3tf9I11CsvV6TOrGouPr5D|Bunker 66|;3euhJh1LsBxDaZiiyA4BNl|Bonehunter|;1qMicSu7j8ZLss2z3g0fbv|Barbarian|;3eSXHozDdfCYWU4utcHzCH|Children of Technology|;6vPFxlfBK2UwM4WtDwi1Uz|Sadistic Drive|;0pz5wp97KmSNp6n7n1d37k|Hexing|;03ENDSIZKZL7BvBnokj2oW|Terrörhammer|;1FDLD6VBeFtH2VLz2tUWux|Morbific|;1fF6iOkqk0EFSxNGb0k1BS|Evil|;0hRuzgn9Yhezcn0P6AtYja|Speedwhore|;5mVI4OOATqklEKc0ZOFomS|Deathhammer|;2bSTRDSn105KvMUR2KGdop|Galvanizer|;77sIR1VY06725rzAbF657L|Atomkraft|;3xTU8leecAnwCERgBKlnKg|Bastard Priest|;6EtK7Naufz8Y7m69t6hCNq|Sonic Poison|;6WECHMdsJpfiEEcePiB7M3|Ranger|;5MpDavMM8Kg4oKwrGmccdy|BULLDOZER|;19RtbD038nJxaMnoyj8pqi|Wastëland Riders|;0Fcp8O7MTL5vVtweL2ctgh|Nocturnal Breed|;3HJsLXBdM93AIbbWltmcQq|Black Magic",
+"ranking:1480875|||190",
+"20230707000750",
+"2050466 Records DK2",
+"00:02:31|||Single · 1",
+"2023-07-07"
+],[
+"ab67616d00001e02105f3ba8c2098d3284e868f6",
+"Maruta|||album:0iSBXTbei95Sowa5agbrDs",
+"Carnation|||artist:7s6SmrbyQvp26jN5EbnU9u",
+"belgian death metal, belgian metal, dutch metal",
+"2OFRvZ32VVIW3UxVl36A0h|Bodyfarm|;5p43Datgto2gcfGNp9uHx5|Revel In Flesh|;5WOBHV40DFyglQzLVjoH2s|Entrails|;0AdvVLJLGeRDeeulgYqB7S|Demonical|;2Mre9sRBibjJBYO5N2aK7l|Schizophrenia|;0D5ly26kWmFNj6cbzIpJn7|LIK|;4MNbashXmMvEKIre76REzX|Sentient Horror|;1uevFXuxN8JN4HDnBfcTTh|Graceless|;4Rh3NPxVMADeaSIduAsykN|Skeletal Remains|;7DLdKCkMkrgltlWkg0dseU|Centinex|;2EAy7g3Ga8hS10hAHMf6C4|Memoriam|;24ayf6ObGs5kWru2VHRCjv|Scalpture|;6K520oxrZlHZC5MSALzFZC|Grand Cadaver|;3jXKuyWNGa8hUPsnrblyl7|Cadaver|;67M6JBe7t7hZTDbrUsimqm|Vomitory|;1BoIlBqfuInGwpyijR3rRt|Paganizer|;1wW7feHMUpyzVdleQ14rvH|Coffin Feeder|;4EhCsL5RW208ACHG7UorBz|Revolting|;3unugXDIgyLGDkorSoRTfm|Inhuman Condition|;2eIvR1DzWm5GAufWC2rcGr|Asphyx",
+"ranking:288636|||8972",
+"20230707000750",
+"Season of Mist",
+"00:11:38|||Single · 2",
+"2023-07-06"
+],[
 "ab67616d00001e0245fadbee7aa6499b8354fb2a",
 "Heimatweisen|||album:4nC99dt5Y5bM6Y4OYwFH1F",
 "Mosaic|||artist:3fPxTnmVGEzIKSyYN2r6sM",
@@ -1937,6 +2432,28 @@
 "00:05:45|||Single · 1",
 "2023-05-30"
 ],[
+"ab67616d00001e02500a410dc8df4ad99b79bd02",
+"Futuristic Romance|||album:2ZAnDpq5Nzaz2JgurB3eEd",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Black Metal",
+"1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0kqafIf21Hks2EI9sSWywt|Azaghal|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;32zyj5MW8nhKGMaGlp4njt|Misþyrming|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;2QzxBZb43cSo7ifPXE4UjO|Omnimar",
+"ranking:1093056|||242",
+"20230602000999",
+"Jägare Recordings",
+"00:05:41|||Single · 1",
+"2023-05-31"
+],[
+"ab67616d00001e025ab8a60c51dd5d9f67be98bc",
+"Lycanthropy|||album:5WZ9eFgLvFRUhznBCUHf67",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Black Metal",
+"1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0kqafIf21Hks2EI9sSWywt|Azaghal|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;32zyj5MW8nhKGMaGlp4njt|Misþyrming|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;2QzxBZb43cSo7ifPXE4UjO|Omnimar",
+"ranking:1093056|||242",
+"20230602000999",
+"Jägare Recordings",
+"00:02:13|||Single · 1",
+"2023-06-01"
+],[
 "ab67616d00001e024628d690ea2ac84506a4d2d8",
 "Corps De Ballet|||album:69M0xNvZyCyeGJuJAfRywP",
 "Massen|||artist:7hRSXQeofsvgd4Wpci8SV9",
@@ -3355,6 +3872,28 @@
 "WIND MUSIC",
 "00:10:14|||Single · 2",
 "2023-05-08"
+],[
+"ab67616d00001e02fdbd6157a6848070fba12899",
+"Basel|||album:55FOQ5O4kvGmJ5ZoHufuAp",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Symphonic Black Metal",
+"1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;6txf2ksDlbyt06kNh1m4o7|Mork|;3UpDjZ41s0rOQsDKSECKmt|Aara|;32zyj5MW8nhKGMaGlp4njt|Misþyrming",
+"ranking:1096461|||246",
+"20230512000999",
+"Jägare Recordings",
+"00:02:15|||Single · 1",
+"2023-05-09"
+],[
+"ab67616d00001e02a8b1185d5e97e65506e88370",
+"Konrul|||album:7zc7x2oJTxUXD9PcODdGdY",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Symphonic Black Metal",
+"1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;6txf2ksDlbyt06kNh1m4o7|Mork|;3UpDjZ41s0rOQsDKSECKmt|Aara|;32zyj5MW8nhKGMaGlp4njt|Misþyrming",
+"ranking:1096461|||246",
+"20230512000999",
+"Jägare Recordings",
+"00:04:51|||Single · 1",
+"2023-05-10"
 ],[
 "ab67616d00001e02b3fccf884cc7fe3dda9b1168",
 "Calamity Sea|||album:1Sc8bR7vs5vH9UMk6kSAVh",
@@ -6106,6 +6645,17 @@
 "00:04:08|||Single · 1",
 "2023-04-07"
 ],[
+"ab67616d00001e0238a383daa78dd2f686fb4064",
+"Hardcore Goddess|||album:2jQfvAlVm9TqEAPCdGsoPu",
+"The Great Kat|||artist:4YDaaWoQRwk2CPzsX8pXzt",
+"Death Metal",
+"3Pxc8FkiGcuuVhE2WcHb7g|Mortal Sin|;050NpEYZ5xFUS1BOAZjVmX|Atrocity|;7jcSmabVYrhiPf8mY1P0OV|Holy Moses|;0exvkfkATkqWOJgugTjJhP|Metal Church|;7A3kNjGDMpJ0JOGu8W3f9r|Pungent Stench|;6S60so6J8oI24gpopV9fgX|SDI|;3HKrps4Kkqs05tHQxavbTv|Siege Of Power|;0lFiKrJUofJpnrAJnMsnQ3|Voivod|;0NmYchKQ8JIR9QHYJA0FRe|Overkill|;2nEopdTfDVIY9e2UipMKNj|Master|;5d6KI8frPEo3qGsIL8Sak2|Destruction|;6wm2DvNT79hZfE94JJQXOG|Morgoth|;6othYuSBXua4Mx2EW0S67p|Lee Aaron|;0s6KN1FbAeWVqPmsKmeQn1|Joe Stump|;01Ug80e1uX3An6w4wLdULd|Master's Hammer|;0gkEIIAvH47TcNDG1WK8LS|Wehrmacht|;314H8iiohz366Y6Y2SIGOZ|Misanthrope|;49XKAaDQYXRPAZ1yrXJlLd|Phlebotomized|;5v4Rmw4m3h9jJUeXd4hD2m|Toxik|;4ug41UGuMZzlV2hJOrOqHN|Armored Saint",
+"ranking:865032|||1780",
+"20230407000750",
+"TPR Music",
+"00:01:04|||Single · 1",
+"2023-04-06"
+],[
 "ab67616d00001e02f8bc8994ab19fcba6a4ff716",
 "Harm Induction|||album:1EmenH5cfvnY1opX1plma8",
 "Wield|||artist:6ptYw1QBRm0pgGo8l0obY1",
@@ -6667,6 +7217,28 @@
 "00:03:31|||Single · 1",
 "2023-03-27"
 ],[
+"ab67616d00001e02baba0d438a651ea88095f204",
+"Aorta|||album:60Qf8p1FaEy3UhQVPxjRj5",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:1150910|||241",
+"20230331000999",
+"Jägare Recordings",
+"00:03:05|||Single · 1",
+"2023-03-30"
+],[
+"ab67616d00001e0203cf6e1be96f8d1586c936fe",
+"Sardonic|||album:3DfkGxSMPhqrSVEKMS9jVp",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:1150910|||241",
+"20230331000999",
+"Jägare Recordings",
+"00:03:18|||Single · 1",
+"2023-03-30"
+],[
 "ab67616d00001e02bab5eef8f495c4b87573ea34",
 "Сказки Черных Лесов (Instrumental Version)|||album:6tSn6rrJCxwnF88hm4y9lW",
 "Мещера|||artist:2yqv4EPpeGZ87FZEmn9utH",
@@ -6743,6 +7315,28 @@
 "Apocalyptic Witchcraft",
 "00:05:59|||Single · 1",
 "2023-03-27"
+],[
+"ab67616d00001e026c0b85e7da49d58f43654afa",
+"MAN ON A MISSION (BRITISH PUNK ROCK)|||album:4T0Laj1YG9JIU3o6XrzcK4",
+"Metal Matt|||artist:27fApLbTIFwkBHshIhoBVN",
+"Technical Black Metal",
+"5jxRN3C5M17Fnm1J3eXk04|Mastery",
+"ranking:2051980|||77",
+"20230331000999",
+"680395 Records DK",
+"00:02:59|||Single · 1",
+"2023-03-28"
+],[
+"ab67616d00001e02d324e093692735e89da5518a",
+"MAN ON A MISSION (PUNK ROCK)|||album:5BtDZbZ6rGlpQ7l0ZSV28z",
+"Metal Matt|||artist:27fApLbTIFwkBHshIhoBVN",
+"Technical Black Metal",
+"5jxRN3C5M17Fnm1J3eXk04|Mastery",
+"ranking:2051980|||77",
+"20230331000999",
+"680395 Records DK",
+"00:02:59|||Single · 1",
+"2023-03-28"
 ],[
 "ab67616d00001e0225fe2029809510b6bdd0bea8",
 "Burning Love (Fire)|||album:55kuf42Vq6mamVjyRBWG2G",
@@ -9681,6 +10275,17 @@
 "00:06:22|||Single · 1",
 "2023-02-22"
 ],[
+"ab67616d00001e028cf08ff3fea282e383a2c3c8",
+"DON'T OBAY|||album:1F9L6sD0FY86cE5YFrwVsc",
+"Metal Matt|||artist:27fApLbTIFwkBHshIhoBVN",
+"Technical Black Metal",
+"5jxRN3C5M17Fnm1J3eXk04|Mastery",
+"ranking:1903377|||78",
+"20230224000999",
+"680395 Records DK",
+"00:04:30|||Single · 1",
+"2023-02-20"
+],[
 "ab67616d00001e02864f16f1f8c7466107128f52",
 "Angel's Trumpet|||album:1JReW35vXu8AxluCsTVnvr",
 "Botanist|||artist:59Osbl3efzeFIGIa93er0G",
@@ -10385,6 +10990,28 @@
 "00:16:10|||EP · 4",
 "2023-02-15"
 ],[
+"ab67616d00001e02ebcc9a717f4e400ab059e7cc",
+"犠牲|||album:5oLEKav8a4RPgZ1WU1jCuC",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:1076558|||237",
+"20230217000999",
+"Jägare Recordings",
+"00:03:13|||Single · 1",
+"2023-02-13"
+],[
+"ab67616d00001e02d3a70d3f12eed28865fdae31",
+"Immortalis|||album:7rKsy211vXJtm161oXXp5q",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:1076558|||237",
+"20230217000999",
+"Jägare Recordings",
+"00:03:39|||Single · 1",
+"2023-02-16"
+],[
 "ab67616d00001e02acc8c7d3d872c882e5ef12d4",
 "LEGION OF DOOM|||album:76c8ykMPsBlnUPoFKLkfPf",
 "Enslaved Angel|||artist:2SaW6UUD7gpmvtggkvc67l",
@@ -10395,6 +11022,17 @@
 "Enslaved Angel",
 "00:02:38|||Single · 1",
 "2023-02-14"
+],[
+"ab67616d00001e0243784c723d373985a62f083c",
+"ABCDEF-I LOVE U|||album:67Oip23t52e5SzqDIeWFjK",
+"Metal Matt|||artist:27fApLbTIFwkBHshIhoBVN",
+"Technical Black Metal",
+"5jxRN3C5M17Fnm1J3eXk04|Mastery",
+"ranking:1871113|||78",
+"20230217000999",
+"680395 Records DK",
+"00:02:42|||Single · 1",
+"2023-02-13"
 ],[
 "ab67616d00001e02d0da4d3685aaf7ef9f3d6b1c",
 "The Queen's High Seas|||album:3Ja3VLM4YvIXI0KDVWirPw",
@@ -12266,6 +12904,17 @@
 "00:17:15|||EP · 5",
 "2023-01-05"
 ],[
+"ab67616d00001e02f0401b613bc650d321ac37c7",
+"Hayatım: Swan Songs|||album:20HCw3Ad2Tw0WCUvW2oTjx",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:954316|||237",
+"20221230999999",
+"Jägare Recordings",
+"00:43:02|||Album · 5",
+"2022-12-30"
+],[
 "ab67616d00001e02c274c63cd958f4d7edc3470e",
 "Clandestine Theurgy|||album:7tWZHHcWnfvZRapYN0Psue",
 "Nocturnal Departure|||artist:13YhEoczPODqYHaX0XxB0B",
@@ -12738,6 +13387,171 @@
 "Back-At-3 Records",
 "00:03:57|||Single · 1",
 "2022-12-17"
+],[
+"ab67616d00001e024d7f905f3b3f4f9768e63f52",
+"Acid|||album:1dpe1VBjRHTXg4pZlwV0jx",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:36|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e02fd31b464027dc1a346005ae9",
+"Andorra|||album:4tXwqpahK6zmNHSdNCvdOK",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:42|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e02011ce404dd959ac8356740b1",
+"Cape Town|||album:5PzevomeGDHY591L2SA2vO",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:07|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e0206cc19f98d8ef7693a4eef23",
+"Conceived By Death|||album:1qzn9JtEp09HrdP5ZXf3Ud",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Ovchi Recordings",
+"00:07:44|||Single · 1",
+"2022-12-22"
+],[
+"ab67616d00001e022f3c3b110d1492d59cc3c29d",
+"Djävulens Drottning|||album:6x3tigk0vyK8t268rm7yWf",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:36|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e02ae208a29fc4fa988530b8770",
+"Görüşürüz|||album:7wyc1AknXzGKtHwPO7cZIV",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:37|||Single · 1",
+"2022-12-22"
+],[
+"ab67616d00001e02b986cb19c8c4d7917a9a7339",
+"Halmstad|||album:6jxQd4zjpa1vOsXo9z2gPl",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:04:00|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e023cf0b8f43d36bf392fdce27d",
+"Hamburg|||album:0WhbU3HjkmJjYlfSMmjlNx",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:15|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e02daa74de7d70a0eb31f54fc1c",
+"Helsingborg|||album:1XyZe7IyNQ2mAQYiJrD69M",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:04:46|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e027ab3dd62ff1fcb69985cd955",
+"Kırmızı Oda|||album:1qXgiawRzxsetP4mjAEdEh",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:04:39|||Single · 1",
+"2022-12-22"
+],[
+"ab67616d00001e0253be84bbc52f089b5dd409a3",
+"O Beni Tamamlıyor.|||album:6AY6sUuG9H2xTovGk4aLLu",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:11|||Single · 1",
+"2022-12-22"
+],[
+"ab67616d00001e02b06a7969dd7edfa55499dc5f",
+"Toprak|||album:2fDF2mSLyMiSFN0aXJbVNI",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:18|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e02fcba5a2fc96cd20738f42e42",
+"Umrumda Değil|||album:3qdg2cFgRo9tsd99ReAS2r",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:04:16|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e026de7ec4b0cf6576356425147",
+"Vienna|||album:253K9f8LW2d4mJpBnOfafW",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:03:06|||Single · 1",
+"2022-12-20"
+],[
+"ab67616d00001e02b9e5a90009dbf1331468c523",
+"Надежда|||album:4ubaQQfijc5wJ9mT7g3JJU",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:931795|||237",
+"20221223000999",
+"Jägare Recordings",
+"00:06:54|||Single · 1",
+"2022-12-22"
 ],[
 "ab67616d00001e02cd693695efd34069634e4e69",
 "Le déluge de l'âme|||album:5KcM2m2IPO9F87Z1StdRuJ",
@@ -13354,6 +14168,127 @@
 "Morphetik",
 "00:03:01|||Single · 1",
 "2022-12-16"
+],[
+"ab67616d00001e02c526c224e0ab3ec0f4a2ded8",
+"Donatella|||album:5YpNFYmurFhTmV8T9uTnaT",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:02:37|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e02370dda659f2b5300095a535e",
+"Hävittää.|||album:4A3btx2f2evTtc0I3n3kES",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:05:49|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e02d5fcbcc9ceb6d0b4211b67ca",
+"Le havre|||album:34DKBLPm69sXSLKKB7Jhtc",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:02:49|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e0290f5d25245a8a6e28e1f48c6",
+"Moonrise|||album:3ftufQ6trlUrO5m08rJygW",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:04:27|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e02d5193b67a8d204b9fdafcb3d",
+"Oğlak alevi|||album:6x2Vxk8erdbTa2xUE2RMG1",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:06:37|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e02830f3f66c978ccd0934cd20c",
+"Antlers|||album:6I5Xih6rHMLgAJc9T6VMe9",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:03:56|||Single · 1",
+"2022-12-15"
+],[
+"ab67616d00001e022d1cf6b7b299133860576122",
+"Eindhoven|||album:3ktfuogU19p6T5ujr5cZiw",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:03:22|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e02cf42d187de75a43e665cc097",
+"Gemini|||album:0xeihzJQd3JOrxcMBDpgYB",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:03:36|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e0282dc194892370ed7447c8a78",
+"Liverpool|||album:4T2O0IMVq99yR9dcHlzGRF",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:03:12|||Single · 1",
+"2022-12-12"
+],[
+"ab67616d00001e020d555ee7c1a38b39788df280",
+"Princess Existential Dread|||album:0IDUlUeEEnAehJXvy3DRYm",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:10:01|||EP · 1",
+"2022-12-12"
+],[
+"ab67616d00001e0250edb6118515becb65e16392",
+"Vaduz|||album:474qujbpC2f4ZF7JkagOj5",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:943296|||237",
+"20221216000999",
+"Jägare Recordings",
+"00:02:55|||Single · 1",
+"2022-12-12"
 ],[
 "ab67616d00001e024ab588fc0d025cb3f044299a",
 "Myrkkyä|||album:3Edo7JGgCSAwwrDfLlCqTO",
@@ -14829,6 +15764,105 @@
 "00:20:18|||EP · 3",
 "2022-12-01"
 ],[
+"ab67616d00001e02b35953577aae9ec77779a949",
+"Debrecen|||album:32jrEnxLBjCxdDrZ7V83by",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:04:39|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e02c3f4fb7ce0f3edd9fca5b979",
+"Kecskemét|||album:6ffnxzbCxRoOzyaSzaoKVZ",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:04:54|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e02b2abfd4915f80e8e38f531fd",
+"Keşfet|||album:3fTpaaojDEsBrOMVA1bG5z",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:06:47|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e02ccfafd63165847fd60ccba3b",
+"Mushroom Cloud|||album:6VcqCihMU9DGWAvdoMhDKx",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:04:34|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e023112902cb45af73753df2a9c",
+"Okyanusun Karşısında.|||album:6HPQQXpZmsOQaEDfH80EYh",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:03:32|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e026a4029550a3e9946e5ed74f8",
+"Vatansever|||album:3Hu6Xw2JUGvAaW5phv3phY",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:04:50|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e0222f86709a2a7abc0461543fd",
+"Astronauts At War.|||album:7nPqvHMlBM2Xj26vPOoJZ0",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:03:50|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e02c5cfe7f08a1ac87975cef599",
+"Büyük Bir Ateş|||album:0L02hulIkS4kl0jaPEsafd",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:08:59|||Single · 1",
+"2022-11-30"
+],[
+"ab67616d00001e02666758d83463aa00fe14cdbf",
+"Güneş-Ay Romantizm|||album:4C6nsLMl6SbkhxafsvOinE",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:926811|||238",
+"20221202000999",
+"Jägare Recordings",
+"00:03:41|||Single · 1",
+"2022-11-30"
+],[
 "ab67616d00001e0290f2fad48976ac212b2121cf",
 "Kuolemanmarssi|||album:5kouzAGhOVq6p3mdR7gjiJ",
 "Azaghal|||artist:0kqafIf21Hks2EI9sSWywt",
@@ -15499,6 +16533,28 @@
 "Transcending Obscurity Records",
 "00:05:58|||Single · 1",
 "2022-11-23"
+],[
+"ab67616d00001e02058b67ed3e1fd5f49ceab863",
+"Ewigkeit|||album:1T9SKzQOpNmWdBCY7kedWE",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:936057|||239",
+"20221125000999",
+"Jägare Recordings",
+"00:02:48|||Single · 1",
+"2022-11-22"
+],[
+"ab67616d00001e02ba6c80ee767031d361ab7f29",
+"My Wild Tequila|||album:4gXr5CWIIj6L1LTvLBl00v",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Voidgaze",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:936057|||239",
+"20221125000999",
+"Jägare Recordings",
+"00:02:47|||Single · 1",
+"2022-11-22"
 ],[
 "ab67616d00001e02501088f760e387717f478a64",
 "Arise: Assemble! Conjoin Your Flame!|||album:5cBl9IFyye5YbO4R2S4avq",
@@ -16622,6 +17678,17 @@
 "00:04:50|||Single · 1",
 "2022-11-08"
 ],[
+"ab67616d00001e02bfdbbbe4ef8a02d6d5c09cde",
+"Canım|||album:02Gyv8qKteshO2Yp3GzyOm",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:1028197|||238",
+"20221111000999",
+"Jägare Recordings",
+"00:08:08|||Single · 1",
+"2022-11-11"
+],[
 "ab67616d00001e0237d48fc25658e6090304fd73",
 "In the Heart of the World|||album:7s8WhG5lJ9DR3jQDjrKL3G",
 "DØDSENGEL|||artist:2X20fIoEYriNBjJA7R7dOM",
@@ -16809,6 +17876,17 @@
 "00:06:35|||Single · 2",
 "2022-11-06"
 ],[
+"ab67616d00001e02bc0632926387b9913ee0a8a8",
+"The Building|||album:3mhvmvr10SD6fBJq9yLg4O",
+"Nordmark|||artist:59CF8ID3Tc13Hvw30e1FKB",
+"Raw Black Metal",
+"",
+"ranking:983154|||190",
+"20221111000999",
+"Nordmark Records",
+"00:04:10|||Single · 1",
+"2022-11-10"
+],[
 "ab67616d00001e02de9006d67c791543df71ddc0",
 "Fragments|||album:6NkCftAzxgFw0n63LlWkLG",
 "Alias Noone|||artist:73O53H2jhwATLcrbYkEurU",
@@ -16939,6 +18017,17 @@
 "20221111000000",
 "Despotz Records AB",
 "00:05:57|||Single · 1",
+"2022-11-11"
+],[
+"ab67616d00001e0290741afdeab9aeb1ff05f033",
+"Future Unknown|||album:1gEiRhOgdZpDx7ZT0pWKHO",
+"Brutality|||artist:7sTbFaYutbLIayY6VYSjSH",
+"hardstyle",
+"",
+"ranking:749489|||722",
+"20221111000000",
+"Brutality Music",
+"00:03:54|||Single · 1",
 "2022-11-11"
 ],[
 "ab67616d00001e0271fac56faa00e44d65ae8af3",
@@ -17149,6 +18238,17 @@
 "Inverse Records",
 "00:36:41|||Album · 9",
 "2022-11-04"
+],[
+"ab67616d00001e0208043f296676e3c4430a1049",
+"Flowing Little Window|||album:5ZZKgMCLnCMMrQmYH2eKwk",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:421196|||456",
+"20221104999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-10-31"
 ],[
 "ab67616d00001e0278ded1e7f9e2e2a655fd9450",
 "Dialectic of Ego and the Unconscious|||album:17RU0Ls6icOsyVaQvAxmvF",
@@ -17831,6 +18931,17 @@
 "Dottore Della Peste",
 "00:06:49|||Single · 1",
 "2022-10-31"
+],[
+"ab67616d00001e02b860a17810b8771ee936832f",
+"Rainfall Stormy Vast|||album:5Xg1oVm3wBUtYOoA7eRk1q",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:414935|||456",
+"20221028999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-10-23"
 ],[
 "ab67616d00001e02ff010d08eb26fc490a2b3398",
 "Demo(Lition) (Remastered)|||album:5eGPZ818EgnJTH6p6uDDKG",
@@ -18976,6 +20087,17 @@
 "00:35:26|||Album · 5",
 "2022-10-11"
 ],[
+"ab67616d00001e028e8a831392e04e76af030551",
+"Senin için.|||album:5xfP4ENiwFWN0prhfEZXwD",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Atmospheric Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:970335|||234",
+"20221014999999",
+"Jägare Recordings",
+"00:36:31|||Album · 6",
+"2022-10-10"
+],[
 "ab67616d00001e020bec08825c313ade0ff1b5ee",
 "The Story|||album:4aBElBhL3fCsiZ3K0GTuvZ",
 "Mroh|||artist:0DMkzdn8KS7CsiwTXfpGf7",
@@ -18997,6 +20119,50 @@
 "4011154 Records DK",
 "01:02:52|||Album · 9",
 "2022-10-12"
+],[
+"ab67616d00001e02ae234ffdf399466049faf241",
+"A Blowing Rain|||album:1bKt3qZ4HDhRta14RA43yM",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:417249|||455",
+"20221014999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-10-09"
+],[
+"ab67616d00001e0227440eda8bb0c674939be3d5",
+"American Birds View|||album:581EraZLMk5fL4uSsAnjSE",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:417249|||455",
+"20221014999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-10-14"
+],[
+"ab67616d00001e023453efb2a14ae092fb30e3b9",
+"Beautiful British River|||album:3LCZauMM1q9fV20bbt4bea",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:417249|||455",
+"20221014999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-10-13"
+],[
+"ab67616d00001e02d7709b84addc956d6bb002ac",
+"Through Stormy Sheltered|||album:3atQAlK3E5klt5XmVU41lG",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:417249|||455",
+"20221014999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-10-08"
 ],[
 "ab67616d00001e02806122a6d23f26cf32fb88e2",
 "Journey|||album:09TtfSuvaCC7FYbPPA5qaV",
@@ -20571,6 +21737,28 @@
 "00:44:33|||Album · 6",
 "2022-09-30"
 ],[
+"ab67616d00001e02d66f17e3d96cf48c48f9dda5",
+"Wet Rain Robin|||album:0BVptej2gCm2VjGajfYDLu",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:435853|||457",
+"20220930999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-09-25"
+],[
+"ab67616d00001e027ae05388322bf176a75ce99e",
+"Woodland Rain Roadside|||album:1pNqdRWJlz0ZYyowApCZeP",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:435853|||457",
+"20220930999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-09-26"
+],[
 "ab67616d00001e02180fae9236db357c1384d3d5",
 "Lagu|||album:2fH5T9ZFDIQA53nWxxdn4i",
 "Caïnan Dawn|||artist:5TADZgwdqVKvAjB1RBrSgZ",
@@ -22089,6 +23277,17 @@
 "00:04:29|||Single · 1",
 "2022-09-10"
 ],[
+"ab67616d00001e02bad80d8980ebdf9e1428014a",
+"I Wanna Watch The World Burn.|||album:6zrbZOjAGYQ8OOnvWMhfxx",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:891433|||230",
+"20220916000999",
+"Jägare Recordings",
+"00:03:41|||Single · 1",
+"2022-09-12"
+],[
 "ab67616d00001e02915774bf90690c1ce04d9ec9",
 "Until My Lungs Explode|||album:5iaNeI7FXARVCbnyRILnak",
 "Through Mists|||artist:58APwGIuoVEcIsBXsWLwPN",
@@ -22782,6 +23981,17 @@
 "00:03:19|||Single · 1",
 "2022-09-05"
 ],[
+"ab67616d00001e02762ccc6388f3345342ec0a4a",
+"Habibi|||album:42YClEMbpy7aMPLixUJTVC",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:888804|||231",
+"20220909000999",
+"Jägare Recordings",
+"00:07:06|||Single · 1",
+"2022-09-09"
+],[
 "ab67616d00001e02be18395a52bd70652f43758b",
 "Vive La France|||album:4McuFkiMBI6hOmmMslpf2G",
 "al'Tyr|||artist:4NmCwBRbfPYICUQ9dQoSVY",
@@ -23244,6 +24454,17 @@
 "00:29:26|||EP · 4",
 "2022-08-31"
 ],[
+"ab67616d00001e02bec7fc697dca0df3ee7baad6",
+"Water Forest|||album:7mCNi0dcGveGNAM3PtVakq",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:508200|||468",
+"20220902999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-08-31"
+],[
 "ab67616d00001e0278303641a51d019ecf334606",
 "Rattus Norvegicus|||album:3w66zOlPUS1C5jYVeDj6nL",
 "Under The Oak|||artist:4D5JLNwo6hpfNZrIKgqMdw",
@@ -23276,6 +24497,28 @@
 "Dusktone",
 "00:44:51|||Album · 8",
 "2022-09-02"
+],[
+"ab67616d00001e02bbba40134fc93972d63c7988",
+"Ayahuasca Expedition|||album:5tEg0TMoo4MbaxlDNYK54p",
+"Epic Soundscapes|||artist:3YknJncejGTqvFH3ScgYsR",
+"Atmospheric Black Metal",
+"",
+"ranking:525380|||278",
+"20220902999999",
+"Peak Records 14",
+"02:16:54|||Album · 40",
+"2022-08-30"
+],[
+"ab67616d00001e02ef8186a009054605fdabfb9a",
+"Flute Flute|||album:1Gz8GVS4ba1DexGWHNEtNN",
+"Epic Soundscapes|||artist:3YknJncejGTqvFH3ScgYsR",
+"Atmospheric Black Metal",
+"",
+"ranking:525380|||278",
+"20220902999999",
+"Peak Records 14",
+"02:16:54|||Album · 40",
+"2022-08-29"
 ],[
 "ab67616d00001e02172683d4b50c1f9e42411eb4",
 "Thunder and Water : Act One|||album:2v3chHf1i5d4Q64OYhA7u2",
@@ -23783,6 +25026,39 @@
 "00:33:07|||Album · 7",
 "2022-08-22"
 ],[
+"ab67616d00001e027f2dcf3f34c0d632c8cc5c72",
+"American Rain|||album:0vB9XJOyDbCW4kdcNILiCP",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:490567|||467",
+"20220826999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-08-24"
+],[
+"ab67616d00001e024420bb68a981181257ce866a",
+"Robin Forest|||album:014BYcqrCkp3LBIV85s6eu",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:490567|||467",
+"20220826999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-08-23"
+],[
+"ab67616d00001e02aae08a75454803e689f06dd6",
+"from Clouds|||album:3hKBN4uzbWzvgSfq9mbqT1",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:490567|||467",
+"20220826999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-08-21"
+],[
 "ab67616d00001e02ff87a726eb1fa75bcf628e95",
 "Shiki|||album:4RbsEs32Y34iOZvc3TnDTO",
 "Sigh|||artist:4VUguuy2qoVGDMwH1tL7Qr",
@@ -23968,6 +25244,17 @@
 "20220826000999",
 "AL-KAMAR",
 "00:06:06|||Single · 1",
+"2022-08-22"
+],[
+"ab67616d00001e028197c69bfdbcf2eeed626831",
+"Afi̇yet Olsun. / Geçmi̇ş Olsun.|||album:7x4y3nO7YTvZoNz1l03VEW",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:865787|||239",
+"20220826000999",
+"Jägare Recordings",
+"00:05:25|||Single · 2",
 "2022-08-22"
 ],[
 "ab67616d00001e024ffec944ede5eade05fce130",
@@ -24212,6 +25499,17 @@
 "00:13:22|||EP · 3",
 "2022-08-24"
 ],[
+"ab67616d00001e0297da50bf3bb24b9cde4624cb",
+"Fungus|||album:0EzzxCzd6gXhB8wBCOdZMK",
+"Acidbrain|||artist:5VXKQP85PpaN5iyp3ZO4t5",
+"Brutal Death Metal",
+"",
+"ranking:1449539|||250",
+"20220826000750",
+"AcidBrain Productions",
+"00:04:14|||Single · 1",
+"2022-08-26"
+],[
 "ab67616d00001e02410ddd308f098ec5a8d67547",
 "Promo 2022|||album:3DraVyoRMHtvvmOrF63Nw8",
 "Osmed|||artist:6tGib4S9TUc80SB2LnJ5hD",
@@ -24322,6 +25620,61 @@
 "00:24:16|||EP · 4",
 "2022-08-18"
 ],[
+"ab67616d00001e023fdb15131589a288a4e494b2",
+"Caves Riverbank|||album:270JwxozNj2PKquUHBvmlq",
+"Epic Soundscapes|||artist:3YknJncejGTqvFH3ScgYsR",
+"Atmospheric Black Metal",
+"",
+"ranking:507047|||278",
+"20220819999999",
+"Peak Records 14",
+"02:16:54|||Album · 40",
+"2022-08-16"
+],[
+"ab67616d00001e0265bf2270cf09538dd528f73e",
+"Cawing Sounds|||album:1YnUS6wi8wUz3C9z3Z7Jtk",
+"Epic Soundscapes|||artist:3YknJncejGTqvFH3ScgYsR",
+"Atmospheric Black Metal",
+"",
+"ranking:507047|||278",
+"20220819999999",
+"Music is Life!",
+"01:41:01|||Album · 45",
+"2022-08-16"
+],[
+"ab67616d00001e0282570e15985bc8637803cd31",
+"Resting Jungle|||album:37WXRbBAibcabYTZOjCjYe",
+"Epic Soundscapes|||artist:3YknJncejGTqvFH3ScgYsR",
+"Atmospheric Black Metal",
+"",
+"ranking:507047|||278",
+"20220819999999",
+"Peak Records 14",
+"02:16:54|||Album · 40",
+"2022-08-19"
+],[
+"ab67616d00001e020206bb9e76fac81d38bed582",
+"Secret Forest|||album:2VyjdzFE21EwO272Qb57tK",
+"Epic Soundscapes|||artist:3YknJncejGTqvFH3ScgYsR",
+"Atmospheric Black Metal",
+"",
+"ranking:507047|||278",
+"20220819999999",
+"Peak Records 14",
+"02:16:54|||Album · 40",
+"2022-08-18"
+],[
+"ab67616d00001e02bfaa6f3bbda83e6e2dc7f937",
+"Stream Rain|||album:65WhzJAOrdALkctuGW92LO",
+"Epic Soundscapes|||artist:3YknJncejGTqvFH3ScgYsR",
+"Atmospheric Black Metal",
+"",
+"ranking:507047|||278",
+"20220819999999",
+"Peak Records 14",
+"02:16:54|||Album · 40",
+"2022-08-13"
+],[
 "ab67616d00001e021467c9a0ae2f9ae8e76349c5",
 "Strike of Hate|||album:29t7PeQf1uYFvmFC2n0wys",
 "Whipstriker|||artist:0YnwkwC5c3EGvj9h7QLhCH",
@@ -24419,6 +25772,17 @@
 "20220819000999",
 "Breath Of Wind",
 "00:05:26|||Single · 1",
+"2022-08-18"
+],[
+"ab67616d00001e02d69e97ca8462a838b7b6a38e",
+"Värdelös|||album:7c1JG0XeGue3GgyGsvQ6EE",
+"Hunter Forsberg|||artist:3kJ0gQVBpRsfNsvL8XY5jG",
+"Black Metal",
+"2QgzO1Z5XYu9zj3nOYsXUa|KAUAN|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;1I98HSdBKIcRpCmd839ZyA|Megaraptor|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;2HmtB6wVRRi3z0JwZHtkiD|Enslaved|;0kcwQz8MibbVtQKuXJuBym|Lustre|;4sgTqbA7htxYkRRJBPZIom|Thy Catafalque|;35nZyw3d7OIbhGeqBEPIYQ|Kampfar|;6ZiGfYR0PoiGQjdOfxUgvr|Ofdrykkja|;3UpDjZ41s0rOQsDKSECKmt|Aara|;6qBmMTIQANnluSglXkcRV0|Ultar|;58KBq6qkQnfWYRqCjffQQq|Harakiri for the Sky|;5xKw7nNLyZ7UVvhaLC5kYd|Manntra|;4VBq7oPj5Yi4Yfx4hopGY3|Lost in Kiev|;221Rd0FvVxMx7eCbWqjiKd|Satyricon|;2Mbwnv9a97OLrSoClsRd9D|Sakis Tolis|;2E1jLcUfqd9w2XtybNB2Za|Ihsahn|;2pDQ9BUHNAf4yr3REAiZM1|Qntal|;7FhkwcO8Jd7BRWdllBpXBJ|Rotting Christ",
+"ranking:844965|||240",
+"20220819000999",
+"Jägare Recordings",
+"00:04:43|||Single · 1",
 "2022-08-18"
 ],[
 "ab67616d00001e02fb868a45ffe08a24c6da2d2f",
@@ -25554,6 +26918,17 @@
 "00:04:05|||EP · 3",
 "2022-08-04"
 ],[
+"ab67616d00001e02f1730bb9995da6efe884069b",
+"Eyeball Anal Beads|||album:3i5nT6oHTl8JttIBUlNPnu",
+"Acidbrain|||artist:5VXKQP85PpaN5iyp3ZO4t5",
+"Brutal Death Metal",
+"",
+"ranking:1616291|||242",
+"20220805000750",
+"AcidBrain Productions",
+"00:01:10|||Single · 1",
+"2022-07-30"
+],[
 "ab67616d00001e025fbbcb3241f56ce8472f4a09",
 "Abyss Road|||album:63fP8j6wEUfoNGdfHfWoMy",
 "Crone|||artist:4e91ieAVuNuM52CGQsz8YT",
@@ -25575,6 +26950,39 @@
 "Belial Horde",
 "00:04:28|||Single · 1",
 "2022-08-05"
+],[
+"ab67616d00001e02c0ad859044fc6ab97e83cf8f",
+"Frogs Robin|||album:5w96K0U6moQXq5wtw5D8OX",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:587985|||468",
+"20220729999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-07-23"
+],[
+"ab67616d00001e0239914e242f95cafc924d4049",
+"Heavy Forest Storm|||album:01zVCoNaM2FZMgA1VhsFvN",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:587985|||468",
+"20220729999999",
+"Music is Life!",
+"02:01:39|||Album · 45",
+"2022-07-28"
+],[
+"ab67616d00001e02a9f7f64a04e49bd3880e48fc",
+"from Rushing|||album:4soGFIeU61cjQqb9SpDybS",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:587985|||468",
+"20220729999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-07-28"
 ],[
 "ab67616d00001e028279863fa9b32c3db7d19c7d",
 "Frostbitten|||album:1WGeKDoeWt47eWOWEnM3HG",
@@ -25982,6 +27390,17 @@
 "Breath Of Wind",
 "00:51:06|||Single · 2",
 "2022-07-18"
+],[
+"ab67616d00001e023bf23863849c073c6390d460",
+"Rainfall Clouds|||album:3me1w146uD1KhiaBw1LRbz",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:571045|||468",
+"20220722999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-07-19"
 ],[
 "ab67616d00001e02f3372704389b42db3b2fb432",
 "Walk Between Worlds|||album:2TZMCnZBljxnng4GwKbnDN",
@@ -26433,6 +27852,28 @@
 "Wilt Records",
 "00:41:13|||Album · 8",
 "2022-07-11"
+],[
+"ab67616d00001e0213ff96d0c73573c0fdc723e5",
+"Refreshing Nature Sounds|||album:3zDeZ9Sh91TtZ25pcM3lc5",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:558196|||469",
+"20220715999999",
+"Music is Life!",
+"01:51:00|||Album · 45",
+"2022-07-13"
+],[
+"ab67616d00001e021bf717ac7b37065552539297",
+"Treetops Bright|||album:10eq3A9HEluNN3qvohVtRo",
+"Forest|||artist:4fpaYq5cGKUqhYGfTvBENF",
+"Raw Black Metal",
+"",
+"ranking:558196|||469",
+"20220715999999",
+"Peak Records 14",
+"01:52:39|||Album · 49",
+"2022-07-09"
 ],[
 "ab67616d00001e02cfdf4e859fce61828f00612a",
 "Soot|||album:2NuHYuJ55FKTpPfHniSlO1",
@@ -27137,477 +28578,4 @@
 "Hanzom Music",
 "00:16:19|||EP · 4",
 "2022-07-08"
-],[
-"ab67616d00001e025eeaa69fd3064b5602d84234",
-"Drachenblut (Remastered, 2022)|||album:3BPc13dZHaZZXgkit6omCg",
-"Mystic Circle|||artist:19es9CC2woX8QKohfCQdsx",
-"symphonic black metal",
-"2WKoufbtvHmMLKQ4PEKh2X|Hecate Enthroned|;4wGWp9UJ9wHLNYddWbB0sF|Agathodaimon|;7gVIcvxZLQ9mKI7k6tXQdq|Lord Belial|;5AOPbQfiFEZrPD1Gq9plgk|Siebenbürgen|;1KJ1OrDIh6JTeVXn4BFMD1|Ancient|;1Oos40mD8hfvswQWVjkbg5|Keep Of Kalessin|;4LT73i2bqTazQQkmODMaYf|Old Man's Child|;0rWmH68lIyVOGYhhvayFzu|...And Oceans|;1hLFppCfgvSTH9C6ftWOoU|Anorexia Nervosa|;15QKfCef8uyN0NfS7uZwob|Bishop Of Hexen|;1WV0pMUfO5UZ3MXfZrTohr|Naglfar|;4m1sCnS2iWxn2Xj8xf9d4q|Gloomy Grim|;4XJZ7zUJzQuayqyAVJowKX|Graveworm|;7FEI9rLCvrvzkgJAWyS5hc|Ancient Ceremony|;5iqk0cqsbJiSTcXQ6ljGNo|Stormlord|;0X8Pi1W40bewq0jRQ7o3VJ|Astarte|;5vgKbVvFRXWortgyxWN8YW|Noctem|;0hiccXRDVXl9sOZ4R7aNry|Dark Fortress|;0MoP7JDKdxjFhEDfqhBfCS|Apostasy|;2ECaH05skaF3OE1GAOByWi|Morgul",
-"ranking:528026|||3331",
-"20220701999999",
-"Atomic Fire Records",
-"00:50:04|||Album · 16",
-"2022-07-01"
-],[
-"ab67616d00001e026373e39183722d15df4ff8c6",
-"XII (INSTRUMENTAL)|||album:0W16TBUovpb4X9bcdqfgKZ",
-"Mroh|||artist:0DMkzdn8KS7CsiwTXfpGf7",
-"Atmospheric Black Metal",
-"",
-"ranking:1121303|||223",
-"20220701999999",
-"RUMEDIA.IO",
-"01:16:47|||Album · 12",
-"2022-06-30"
-],[
-"ab67616d00001e02c0aba17bbfc0e4b1b7beb1d2",
-"Corpus Vitreum|||album:0ynuE9zNoaDNg9h4y3FaGK",
-"Corpus Vitreum|||artist:0eH9oW3WcYiONVk1V5yEsQ",
-"Atmospheric Black Metal",
-"",
-"ranking:805235|||710",
-"20220701999999",
-"2876123 Records DK2",
-"02:06:11|||Album · 15",
-"2022-06-29"
-],[
-"ab67616d00001e027aee2d645d4583a7e5bf1090",
-"The Oath Of The Black Wolf|||album:1AmRw625U3lBmjkUguKz11",
-"Orgrel|||artist:3gsvLFkNkTaEQOQVRRyWny",
-"Atmospheric Black Metal",
-"",
-"ranking:1954758|||154",
-"20220701999999",
-"Orgrel",
-"00:22:02|||EP · 4",
-"2022-07-01"
-],[
-"ab67616d00001e022fb307cffff99e123b9aed31",
-"Ritual of the Warpath|||album:4zaEp3D2el4vy5kZYO7QLm",
-"Ironhawk|||artist:4jDR76l32lvUdUnZ11x36o",
-"Voidgaze",
-"",
-"ranking:1058101|||322",
-"20220701999999",
-"Dying Victims Productions",
-"00:36:34|||Album · 10",
-"2022-06-30"
-],[
-"ab67616d00001e02921ca9d23a27af4ef6d4de96",
-"Bereavement, a Guide to Loss &amp; Grief|||album:3PI9WWsJfWRY6mnZw8hnrS",
-"Consciously Dying|||artist:4cEAHaqhYEAqYCEFKW71Jx",
-"Voidgaze",
-"",
-"ranking:2547480|||123",
-"20220701999999",
-"Consciously Dying",
-"00:38:51|||Album · 9",
-"2022-07-01"
-],[
-"ab67616d00001e028cdcbaa76fddcee1619cc8d6",
-"The Eternal Fanfare|||album:4lJAkC91YQAzXj0Qj0pz04",
-"Hulder|||artist:65vrcJ67suxLePeEhUtLLo",
-"raw black metal",
-"",
-"ranking:233849|||10053",
-"20220701999999",
-"20 Buck Spin",
-"00:25:44|||EP · 5",
-"2022-07-01"
-],[
-"ab67616d00001e023a01d0fbd04f3f779fa07137",
-"Overture of the Damned|||album:4uDeRta04GsrXvT3krVcOJ",
-"Theosis|||artist:0dLaSYhBMWeeHBe0ANAyvc",
-"Greek Black Metal",
-"",
-"ranking:1298492|||117",
-"20220701999999",
-"Theosis",
-"00:55:04|||Album · 10",
-"2022-06-25"
-],[
-"ab67616d00001e02aa94779a22a90a09a64b6501",
-"Sociopathology|||album:4dCgDIi3DqutIFvwIJRYU2",
-"A Lie Nation|||artist:56tUivD4LuAu4fSuTdhI9h",
-"Finnish Black Metal",
-"",
-"ranking:732481|||467",
-"20220701999999",
-"Inverse Records",
-"00:33:21|||Album · 8",
-"2022-07-01"
-],[
-"ab67616d00001e02e1ef41142870a07a8f7734a3",
-"The Triumph of Death|||album:5KyY8r2uXggR2pOX5PadsW",
-"Morokh|||artist:54gPFxtvX7bYAbqwXuxHzX",
-"blackened hardcore",
-"1X2g5N4RQ02rR1KqNVhuEH|Supruga|;2LJZHvvkltSe2LEVRXad2Z|БѢСЪ|;2Rs3MsF2y8VfkjmOVHkT5N|Second To Sun|;6Dj9szixvQ2DxT6H5xcMFL|Tsygun|;6qBmMTIQANnluSglXkcRV0|Ultar|;37CxKSjJCSkR2Oqag4TPAH|Vólan|;36xJkQLGRgjiQP1jfH4V39|Wlvs|;40XllahYqSgw5j3ZaNlJmK|My Autumn|;2Y3Cc43y5adf1eQvszykk9|Ермак!|;1msc9EGloXNDtZwZRPl547|Сруб|;5Kku83lVGjt64z5An1eyQ8|Хрен|;7MEWwnle3nSTcch8TvFvpM|Invertor|;1UFsqRR5JT3aUOfS47nZxV|Состояние Птиц|;7KSPZyeCKkfkhMkX8rYIhD|Grima|;7pUuV0FWf861Zq0kNGOTZn|#####|;3likpyegnRGIrDPKib3fIQ|Wowod|;0mCYlEPAtc5TSi5fkolVDf|The Korea|;49QQD75SOrfnUQDN13zR69|Людоед|;6lyWCGfcWHqaqKL0CkWWA5|Kultura Kurenija|;6H4aSq8C0uNkxUKDsC2t0j|Рожь",
-"ranking:471691|||3370",
-"20220701999800",
-"SPRL",
-"00:20:12|||Album · 8",
-"2022-07-01"
-],[
-"ab67616d00001e02563aa19ede2b9f084a9b6018",
-"Pearls|||album:3VybJfNB5dOUW1COGIjjd7",
-"Mutiara Damansara|||artist:5OrULnEBEajYWiyND2dqdg",
-"blackgaze",
-"",
-"ranking:1717509|||139",
-"20220701999800",
-"Bonne Santé Records",
-"00:35:10|||Album · 5",
-"2022-07-01"
-],[
-"ab67616d00001e0209a16d50bdf13466d01f150c",
-"Worship the Degenerate|||album:2fzu3jaOw5cKaXMVkwkwY2",
-"Al-Namrood|||artist:7sY9ff50OQVYxudOXLnQ3E",
-"arab metal, blackgaze, folk black metal",
-"",
-"ranking:283460|||11222",
-"20220701999800",
-"Shaytan Productions",
-"00:25:50|||EP · 6",
-"2022-07-01"
-],[
-"ab67616d00001e027e03a533a0bd90ec3634f0bc",
-"Der Uhrwerkmann Neu Gemeistert|||album:5xwiCeZtuApbkKMYknMMmJ",
-"Obsidian Chamber|||artist:1R5a1oBn8chZQ6m1AKq3ZG",
-"austrian black metal, symphonic death metal",
-"",
-"ranking:3399491|||158",
-"20220701999750",
-"Obsidian Chamber",
-"00:44:28|||Album · 10",
-"2022-06-30"
-],[
-"ab67616d00001e02828abe39833a981e7e422de2",
-"The Scars of a Lost Reflective Shadow|||album:2q8bvh3cwfNkTU8BpaVwHM",
-"The Chasm|||artist:4BDYrNGjAAnEDmNYUsJ5eA",
-"black death, grim death metal, mexican death metal",
-"",
-"ranking:309209|||8502",
-"20220701999750",
-"Luxinframundis Productions",
-"00:42:34|||Album · 9",
-"2022-06-27"
-],[
-"ab67616d00001e020bdb590c413fcdc0d219e19f",
-"In The Witches Circle (Demo)|||album:50vne8JWI6ytnHWEyC9oVk",
-"Korpituli|||artist:4wfby9odaSDbEyhWRfClEa",
-"Atmospheric Black Metal",
-"",
-"ranking:1505772|||146",
-"20220701100999",
-"Korpituli",
-"00:20:38|||EP · 3",
-"2022-06-28"
-],[
-"ab67616d00001e02347156e363ea4085e0362c9f",
-"To Enchant the World Again|||album:0rQyO1dqkYefhpotEU9mBv",
-"NORDLOTH|||artist:3h2BTibKH2qSEEghz8OxEx",
-"Atmospheric Black Metal",
-"5od7JP4VZxm6AHWV2xbyYC|This White Mountain|;63lBiFAfG7V8I9fbYW7I0u|Frostnatt|;0Cn4DWxZCiCaarkXLIaguR|Morwinyon|;5S3iJyeCNvvSLGwDiMbDzj|Unru|;19Dfza3kVpFMTqcKJ7JUEO|Jordfäst|;6CD4eljQTNpc63ANUODoXH|Our Loss Is Total|;57eLubqPTZkDXghysW01Qj|Nordicwinter|;2Xu47TsbFIn7GvlEMjGmh0|Doedsvangr|;3Ky6psjwMRuSBL9KF6HStX|Ateiggär|;6r20oMbTqzNU4q5054VeH2|Krvna|;1sHOFQsNYODFf01vwCnTww|Malist|;4lpvlgUCumwxmQD37sbIZt|Olhava|;6sSvlAu7Q8NDcNkn3C0TvZ|Walg|;1fevQX8HS898wns7GKH3pR|Firtan|;3Qp4Hew1h6BC9YSCNkuYoy|Karg|;67fI3xLgjdbgwUvzsBFEEX|Marrasmieli|;0NnzRoaRPWmhsKWgo5AN9l|Enisum|;4KoESQh0bNRpcBHXwxXSsL|Ante-Inferno|;03B0A96QDTp7XEa7JVD9gJ|Autumn Nostalgie|;6cvfJNOW4ZAMiSVLEbeP8P|Kalmankantaja",
-"ranking:1999314|||171",
-"20220701000999",
-"NORDLOTH",
-"00:05:55|||Single · 1",
-"2022-06-27"
-],[
-"ab67616d00001e02b0fa8f224e12695f774cbdbe",
-"Pure|||album:5HVYkVk5093Hn6QNY4Gtyr",
-"Suizid|||artist:7BpngRLZOmlgnuEUzxVPqL",
-"german black metal",
-"",
-"ranking:233112|||6060",
-"20220701000999",
-"Dominance of Darkness Records",
-"00:03:46|||Single · 1",
-"2022-06-27"
-],[
-"ab67616d00001e02aa5b3be8731bd91033660c8a",
-"Avfärd|||album:1kHPSIdS0bhsQoy1BitlhY",
-"Ofdrykkja|||artist:6ZiGfYR0PoiGQjdOfxUgvr",
-"swedish black metal",
-"",
-"ranking:169610|||12943",
-"20220701000999",
-"AOP Records",
-"00:02:26|||Single · 1",
-"2022-07-01"
-],[
-"ab67616d00001e0262d4d57752a44958496554dc",
-"Black Metal Jazz Kvlt (live at Nukstock Open Air 2021)|||album:1JiGine62NAs8Hhjbx7EkK",
-"Etienne Pelosoff|||artist:3VTiFUsoMMWDD6Vm1j5vkw",
-"Voidgaze",
-"",
-"ranking:1040880|||971",
-"20220701000999",
-"Etienne Pelosoff Studio Records",
-"00:05:13|||Single · 1",
-"2022-06-30"
-],[
-"ab67616d00001e02d4f17a505eaf4308b5275958",
-"Synastry of Hearbeats|||album:2O1dIoaiWQ3SSLkauERngW",
-"Aenaon|||artist:2540qQREBhxMVJpgLWz2Dy",
-"avant-garde metal, experimental black metal, greek black metal",
-"",
-"ranking:1131372|||1961",
-"20220701000999",
-"Agonia Records",
-"00:07:57|||Single · 1",
-"2022-06-30"
-],[
-"ab67616d00001e023fca0629a52e8cf03f5a7738",
-"As My Soul Withers Away|||album:6qdGuIJT3SLkTEU5jnIeAO",
-"Striborg|||artist:6nOkQXU6ie6mdbAvWscB6n",
-"atmospheric black metal, australian black metal, australian metal",
-"",
-"ranking:389067|||12937",
-"20220701000999",
-"746828 Records DK",
-"00:07:08|||Single · 1",
-"2022-06-25"
-],[
-"ab67616d00001e02988300d5d5533858538d0be0",
-"Sometimes Is Better the Noise Than the Calm|||album:4jAaLMBql2JYNA6zzl9UXv",
-"Ecpatia|||artist:4TAh9EWmgROvdGGlUe1ylN",
-"Black Metal",
-"",
-"ranking:1086344|||248",
-"20220701000999",
-"Ecpatia",
-"00:05:53|||Single · 1",
-"2022-06-28"
-],[
-"ab67616d00001e02715eb7cb8f92dcee693a900b",
-"Giant’s Eternal Sleep|||album:1xUANwwCIFWRjv3VPMMV0C",
-"Grima|||artist:7KSPZyeCKkfkhMkX8rYIhD",
-"atmospheric black metal, russian black metal, voidgaze",
-"",
-"ranking:220851|||14710",
-"20220701000999",
-"Grima",
-"00:07:35|||Single · 1",
-"2022-07-01"
-],[
-"ab67616d00001e02a0f8978ee5d31842eba6a8db",
-"Sturgeon|||album:5U7h7j4Bg4YM7ASOAR4ehw",
-"Itus|||artist:3A64AH4Q3oPl3WbD7RA5Yv",
-"Black Metal",
-"",
-"ranking:2756723|||96",
-"20220701000999",
-"1740046 Records DK2",
-"00:05:19|||Single · 1",
-"2022-06-29"
-],[
-"ab67616d00001e025e323f636dff523c7e7373f4",
-"Crows Above The Wild Field|||album:7juCEJqTS5JNneZyt945kB",
-"U Kronakh|||artist:5z3uyxvAUSRWNfWQbcvWfF",
-"Atmospheric Black Metal",
-"",
-"ranking:2777893|||46",
-"20220701000999",
-"3492614 Records DK",
-"00:13:13|||EP · 3",
-"2022-06-26"
-],[
-"ab67616d00001e02dad5d16c7e07e8be84754848",
-"Ржавый крест|||album:4RRLseq5maWam4flwODRkh",
-"МЁРТВАЯ ВЕРА|||artist:3wU1a5KHIhr1FtE3cFSWzv",
-"Atmospheric Black Metal",
-"",
-"ranking:2989020|||102",
-"20220701000999",
-"МЁРТВАЯ ВЕРА",
-"00:13:36|||EP · 4",
-"2022-07-01"
-],[
-"ab67616d00001e02c59f06ca895a88b9692ccbcd",
-"Priestess of Pestilence|||album:0Osuq9EugQTs2KzKBzDREC",
-"Snakebearer|||artist:08bRTlHtJf9XoxLKJAESSb",
-"finnish black metal",
-"<>|<>",
-"ranking:4486336|||27",
-"20220701000999",
-"Käärmeenkantaja",
-"00:04:19|||Single · 1",
-"2022-07-01"
-],[
-"ab67616d00001e027b1f7d8eb250cafcc8d07f86",
-"Salve|||album:5QqKJckhY2T53f4VbDkH2S",
-"Gaerea|||artist:1wXoI3Ajpv4WwQ3LmcrSBw",
-"portuguese metal, post-black metal",
-"",
-"ranking:178016|||20294",
-"20220701000800",
-"Season of Mist",
-"00:05:26|||Single · 1",
-"2022-06-30"
-],[
-"ab67616d00001e02cc795d0a25b5943cdeb4b198",
-"Immurement|||album:4B5J12I8HgFfxADcdl5JMw",
-"Grief Ritual|||artist:7hM17EMsGXmMzxfKJVPUwK",
-"blackened hardcore",
-"",
-"ranking:1247899|||361",
-"20220701000800",
-"1054429 Records DK2",
-"00:07:55|||Single · 2",
-"2022-06-29"
-],[
-"ab67616d00001e02e7fa1190e4c0baa6af1a4730",
-"Nago|||album:4x6ue2DlfpNQHurXV8D2bo",
-"KĀVE|||artist:2saHBM1m6ewImENx804mWS",
-"polish post-punk",
-"",
-"ranking:1012594|||225",
-"20220701000800",
-"KĀVE",
-"00:02:36|||Single · 1",
-"2022-07-01"
-],[
-"ab67616d00001e02d0bbb94789be7ac4f25359cb",
-"Mythos|||album:5sLAYgmmCZxUfTdMRg9Bn1",
-"Massacre|||artist:10tKMKG6F95zDrJOxqtjhA",
-"brutal death metal, death metal, florida death metal",
-"6rJPCPv9Nf0AeCFYCDNTZd|Sinister|;2eIvR1DzWm5GAufWC2rcGr|Asphyx|;2nEopdTfDVIY9e2UipMKNj|Master|;1NrkyGnaWUYV1hLP74pp6X|Malevolent Creation|;4aFjkvXJvZCBDIbHESP4qi|Carnage|;6hR8mUd2yyHFazoCuweiIJ|Autopsy|;28imYdYhi5ieRXvgYwiIdi|Grave|;1Lx9Dy5gi2OLlJBBs7GYO7|Benediction|;6wm2DvNT79hZfE94JJQXOG|Morgoth|;6u1oqIGVTj3TPVVcwn9Qt5|Monstrosity|;6JcFn4PlXFuXmhRXpOpsan|Pestilence|;5ATaBoi3yPQE7k3PD7TuDB|Nocturnus|;7A3kNjGDMpJ0JOGu8W3f9r|Pungent Stench|;09OwM7iXyoFAOzQUlWeDgB|Dismember|;7nlPGS5nncGJ7gvgYR2zxR|Massacra|;3jXKuyWNGa8hUPsnrblyl7|Cadaver|;3AHeQk97Bdz43qM7GMlXL8|Cancer|;09eXH2A1Zi3E7MZJXGg5oG|Terrorizer|;629IF7GEeID925sFE29cSn|Angelcorpse|;66AXpP038gUcoKVQoO98Fz|Incantation",
-"ranking:119308|||33616",
-"20220701000750",
-"Nuclear Blast",
-"00:15:16|||EP · 4",
-"2022-07-01"
-],[
-"ab67616d00001e02270f537428a32e702a4e535f",
-"goodbye, april|||album:5lMATcC92bXdVG85UILuil",
-"Quo Vadis|||artist:7F94WPIBnliuTq5O7fEFhH",
-"Death Metal",
-"",
-"ranking:475155|||53",
-"20220701000750",
-"Maxiecore Records",
-"00:13:34|||EP · 4",
-"2022-07-01"
-],[
-"ab67616d00001e02c15321d569d1ea1ac3258359",
-"Breeding Silence|||album:3AWZuGzOjKk7aAEQEwT3KJ",
-"Gorod|||artist:69lt02nubfNbPdrvH4tJxx",
-"brutal death metal, death metal, french death metal",
-"",
-"ranking:133837|||45710",
-"20220701000750",
-"Gorod",
-"00:05:24|||Single · 1",
-"2022-07-01"
-],[
-"ab67616d00001e02ad57a76dfc1568c88a589991",
-"Silence|||album:0AOeeD6lJ7eKqJFxFmja1v",
-"Power From Hell|||artist:1LC9G5jqosufT48QBBqwl7",
-"black speed metal, black thrash, brazilian black metal",
-"",
-"ranking:353587|||9896",
-"20220701000750",
-"Debemur Morti Productions",
-"00:03:21|||Single · 1",
-"2022-07-01"
-],[
-"ab67616d00001e021e8a6619da6e09944c53e0d5",
-"Zombie Inferno|||album:55Ld3TdU8OZBPqibxgz1LY",
-"Bloodbath|||artist:7eYmDBinb760MUIfoRdlGQ",
-"black metal, brutal death metal, death metal",
-"",
-"ranking:45798|||161226",
-"20220701000750",
-"Napalm Records",
-"00:04:08|||Single · 1",
-"2022-06-29"
-],[
-"ab67616d00001e029fdecaa06f82f1de14db3a7f",
-"Witching Hour|||album:5pBhA2ZnRbP16R4mQ6xh9z",
-"Witchery|||artist:0ucuxyPTAHv0TPkA1WBV10",
-"black thrash, death metal, swedish black metal",
-"",
-"ranking:128123|||29677",
-"20220701000750",
-"Century Media",
-"00:03:04|||Single · 1",
-"2022-06-29"
-],[
-"ab67616d00001e02d3c61738c6d249ffeaaa924e",
-"Caustic Vomit Reveries|||album:4iH7RLCaup3C6f5w7WPJmr",
-"Inhuman Condition|||artist:3unugXDIgyLGDkorSoRTfm",
-"florida death metal",
-"",
-"ranking:156811|||4843",
-"20220701000750",
-"Inhuman Condition",
-"00:03:42|||Single · 1",
-"2022-07-01"
-],[
-"ab67616d00001e02a9adc5423eef351d8edbae0b",
-"Ixik Uh|||album:0QQk3gni24RrKqxVXSCxwx",
-"Spit on Your Grave|||artist:3yVmBZFnbhImASpEdAC1LO",
-"mexican death metal",
-"",
-"ranking:903053|||572",
-"20220701000750",
-"Independiente",
-"00:03:58|||Single · 1",
-"2022-06-30"
-],[
-"ab67616d00001e020d48b68ea548854dc09886ce",
-"Slaughter House Secrets|||album:7gCdMzOWIOFoWpBce9HcNe",
-"Fupa Goddess|||artist:0iMJRInJ2qutBTeXZ8qzJm",
-"Death Metal",
-"",
-"ranking:1163546|||78",
-"20220701000750",
-"3080500 Records DK",
-"00:10:29|||EP · 5",
-"2022-06-27"
-],[
-"ab67616d00001e02f76870decc4cafd7309c5219",
-"Grid Walker|||album:1ujrQqM2EzwXY37KISPK4j",
-"Greenwitch|||artist:1Em4GaSeKGxWM1yU9g5Q7J",
-"Cavernous Death Metal",
-"",
-"ranking:1457508|||417",
-"20220701000750",
-"Maggot Stomp",
-"00:18:50|||EP · 3",
-"2022-06-29"
-],[
-"ab67616d00001e02899881359db3bb88b9b71e8f",
-"Demons Of Rock'n'Roll|||album:1vyrtnGeDlsGDEwB6qpf0o",
-"Blood God|||artist:5ZUjLrcjhALbD3rB0Xjhvm",
-"german hard rock",
-"",
-"ranking:569121|||1608",
-"20220701000000",
-"Massacre Records",
-"00:03:41|||Single · 1",
-"2022-06-27"
-],[
-"ab67616d00001e02c43d7f56ca88570a5acbb016",
-"Basophobia|||album:5wA0czTrp35qgHwkwgOnGi",
-"Burn Still|||artist:6grpHetFpySyW7Zq265fwb",
-"Viking Metal",
-"",
-"ranking:1378734|||29",
-"20220701000000",
-"Burn Still",
-"00:03:49|||Single · 1",
-"2022-06-27"
-],[
-"ab67616d00001e0235daaa5c3691435db71168f9",
-"Intricate Dissection|||album:5dJHLY7L6oC44AQ1XBEosy",
-"Fleshrot|||artist:02g6Wv047hr8oX3PyOmxcq",
-"new wave of osdm",
-"",
-"ranking:754808|||2433",
-"20220701000000",
-"Me Saco Un Ojo",
-"00:02:49|||Single · 1",
-"2022-07-01"
 ]]}
