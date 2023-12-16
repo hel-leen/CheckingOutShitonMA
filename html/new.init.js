@@ -78,7 +78,7 @@ $(function () {
                 .replace(/\n$|(?<=^\S{0,4}\s?)\n/g, '') +
               "</a><div class='dropdown'>" +
               maLink("albums/id//", album_link) +
-              searchLink(album_title).replace(/\/spotify\"/g, '/albums"') +
+              searchLink(album_title).replace(/\/spotify\"/g, '/albumsV2"') +
               "</div><br><abbr class='extra ts'>(" + album_type + ')</abbr></div></div>';
             return "<div class='grid_wrapper'>".concat(album_col, '</div>');
           }
